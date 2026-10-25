@@ -7,7 +7,13 @@ const fenster = (x, y, b, h) => `<rect class="ill-fenster" x="${x}" y="${y}" wid
 const kontakt = (x, y) => `<rect class="ill-melder" x="${x}" y="${y}" width="8" height="8" rx="1"/>`;
 const rauch = (x, y) => `<circle class="ill-melder" cx="${x}" cy="${y}" r="10"/><circle class="ill-dunkel" cx="${x}" cy="${y}" r="2"/>`;
 
-export function grundriss({ praefix = 'gr', zustand = null, klasse = '' } = {}) {
+// Zusätze für Detailseiten (immer sichtbar, Kupfer): Außenkamera mit Blickfeld oder Nebel im Wohnraum
+const ZUSATZ = {
+  kamera: `<path class="ill-akzent-flaeche" d="M392 240L428 216V264Z"/><rect class="ill-melder" x="376" y="232" width="20" height="16" rx="2"/><circle class="ill-dunkel" cx="392" cy="240" r="2"/>`,
+  nebel: `<path class="ill-akzent-flaeche" d="M240 124A20 20 0 0 1 252 88A28 28 0 0 1 300 72A26 26 0 0 1 340 100A16 16 0 0 1 344 124Z"/><rect class="ill-melder" x="336" y="40" width="24" height="16" rx="2"/><path d="M340 48H356"/>`,
+};
+
+export function grundriss({ praefix = 'gr', zustand = null, klasse = '', zusatz = '' } = {}) {
   const sf = `url(#${praefix}-schraffur)`;
   const inhalt = `<g class="ill-grund">
 <path class="ill-wand" fill="${sf}" fill-rule="evenodd" d="M24 24H376V296H24Z M32 32H368V288H32Z"/>
@@ -19,6 +25,7 @@ ${fenster(80, 20, 72, 16)}${fenster(264, 20, 56, 16)}${fenster(20, 216, 16, 48)}
 ${teil(1, `<path class="ill-zone" d="M44 44H356V276H44Z"/>${kontakt(112, 40)}${kontakt(288, 40)}${kontakt(40, 236)}${kontakt(292, 268)}`)}
 ${teil(2, `<path class="ill-zone-flaeche" d="M40 40H136A96 96 0 0 1 40 136Z"/><path class="ill-zone-flaeche" d="M360 280H288A72 72 0 0 1 360 208Z"/><path class="ill-melder" d="M40 40H52V52H40Z M348 268H360V280H348Z"/>`)}
 ${teil(3, `${rauch(124, 108)}${rauch(124, 236)}${rauch(292, 92)}${rauch(292, 216)}`)}
-${teil(4, `<rect class="ill-melder" x="232" y="256" width="24" height="24" rx="2"/><path d="M238 264H250M238 272H250"/><rect class="ill-melder" x="384" y="48" width="16" height="24" rx="2"/><path d="M408 52A12 12 0 0 1 408 68 M416 44A20 20 0 0 1 416 76"/>`)}`;
+${teil(4, `<rect class="ill-melder" x="232" y="256" width="24" height="24" rx="2"/><path d="M238 264H250M238 272H250"/><rect class="ill-melder" x="384" y="48" width="16" height="24" rx="2"/><path d="M408 52A12 12 0 0 1 408 68 M416 44A20 20 0 0 1 416 76"/>`)}
+${ZUSATZ[zusatz] || ''}`;
   return roh(illRahmen({ klasse: `ill-grundriss ${klasse}`, viewBox: '8 8 424 304', praefix, zustand, inhalt }));
 }

@@ -49,7 +49,7 @@
     --spalte-az: 16em;
     --menue-blatt-max: 85svh;
     --karte-min: 16rem;
-    --hero-figur-max: 30rem; --figur-schmal: 21rem; --karte-gross: 46rem;
+    --hero-figur-max: 30rem; --figur-schmal: 21rem; --karte-gross: 46rem; --karte-breit: 22rem;
     /* Hero ab 64em: Versatz der Zylinderfigur, damit die Scherlinie die Grundlinie der zweiten H1-Zeile trifft */
     --hero-figur-versatz: 3.75rem;
     /* Gebietskarte: Punktgrößen je Zone (SVG-Einheiten) */

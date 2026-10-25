@@ -18,6 +18,8 @@ import { notoeffnungObjekte } from '../teile/illustrationen/objekte.mjs';
 import { tuerSchichten } from '../teile/illustrationen/tuerschichten.mjs';
 import { grundriss } from '../teile/illustrationen/grundriss.mjs';
 import { widerstandsStufen } from '../teile/illustrationen/stufen.mjs';
+import { fensterSchichten } from '../teile/illustrationen/fensterschichten.mjs';
+import { tuerschliesserFigur } from '../teile/illustrationen/tuerschliesser.mjs';
 
 // Figuren für den Kopf: eigene je Leistung (inhalt.figur: '<name>'), sonst die Gruppenfigur mit der Schicht,
 // dem Objekt oder der Stufe der Leistung hervorgehoben (zustand/fokus), sonst das ganze Gruppenbild.
@@ -36,9 +38,13 @@ const JE_LEISTUNG = {
   zusatzschloesser: () => tuerSchichten({ praefix: 'kopf-ts', zustand: 5 }),
   alarmanlagen: () => grundriss({ praefix: 'kopf-gr', zustand: 4 }),
   rauchmelder: () => grundriss({ praefix: 'kopf-gr', zustand: 3 }),
+  videoueberwachung: () => grundriss({ praefix: 'kopf-gr', zustand: 1, zusatz: 'kamera' }),
+  nebelsysteme: () => grundriss({ praefix: 'kopf-gr', zustand: 4, zusatz: 'nebel' }),
   moebeltresore: () => widerstandsStufen({ praefix: 'kopf-ws', zustand: 1 }),
   sicherheitstueren: () => widerstandsStufen({ praefix: 'kopf-ws', zustand: 2 }),
-  sicherheitsfenster: () => widerstandsStufen({ praefix: 'kopf-ws', zustand: 2 }),
+  sicherheitsfenster: () => fensterSchichten({ praefix: 'kopf-fs' }),
+  fenstersicherung: () => fensterSchichten({ praefix: 'kopf-fs', zustand: 2 }),
+  tuerschliesser: () => tuerschliesserFigur({ praefix: 'kopf-tsl' }),
   wertschutzschraenke: () => widerstandsStufen({ praefix: 'kopf-ws', zustand: 3 }),
   waffenschraenke: () => widerstandsStufen({ praefix: 'kopf-ws', zustand: 4 }),
 };
@@ -87,7 +93,7 @@ function hauptteil(sk, g, l, inh) {
   return html`<div class="sektion"><div class="raster"><div class="leistung-teilung">
 <div class="leistung-text">
 ${inh.abschnitte.map((a, i) => html`<section class="leistung-abschnitt" aria-labelledby="abschnitt-${String(i + 1)}">
-<h2 id="abschnitt-${String(i + 1)}">${a.titel}</h2>
+<h2 id="abschnitt-${String(i + 1)}">${text(a.titel)}</h2>
 ${a.absaetze.map((p) => html`<p>${text(p)}</p>`)}
 ${a.liste ? html`<ul class="leistung-liste">${a.liste.map((x) => html`<li>${text(x)}</li>`)}</ul>` : ''}
 </section>`)}

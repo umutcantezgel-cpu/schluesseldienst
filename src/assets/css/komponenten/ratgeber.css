@@ -1,0 +1,50 @@
+/* V08 Ratgeber: Übersicht nach Kategorien, Artikel 8/4 mit Inhaltsverzeichnis, „Das Wichtigste“, Quellen. */
+@layer komponenten {
+  .ratgeber-kopf { padding-block: var(--sp-m) var(--sp-xl); }
+  .ratgeber-kopf h1 { font-size: var(--fs-5); }
+  .ratgeber-sprung ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-xs); }
+  .ratgeber-sprung li { margin: 0; }
+  .ratgeber-sprung a { display: inline-flex; align-items: center; min-block-size: var(--ziel-min); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); color: var(--c-tinte); text-decoration: none; }
+  .ratgeber-sprung a:hover { border-color: var(--c-kupfer); }
+  .ratgeber-liste { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-breit)), 1fr)); gap: var(--sp-s); }
+  .ratgeber-liste li { margin: 0; }
+  .ratgeber-liste a { display: grid; gap: var(--sp-3xs); block-size: 100%; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); color: var(--c-tinte); text-decoration: none; border-inline-start: var(--linie-scher) solid var(--c-kupfer); }
+  .ratgeber-liste a:hover .ratgeber-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .ratgeber-titel { font-weight: var(--fw-titel); font-size: var(--fs-1); }
+  .ratgeber-kurz { font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .artikel-kopf { padding-block: var(--sp-m) var(--sp-l); }
+  .artikel-kopf-teilung { display: grid; gap: var(--sp-l); align-items: center; }
+  .artikel-kopf-innen { display: grid; gap: var(--sp-xs); }
+  .artikel-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; }
+  .artikel-kicker a { color: var(--c-tinte-3); }
+  .artikel-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
+  .artikel-kurz { font-size: var(--fs-1); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); }
+  .artikel-stand { font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .artikel-figur { margin: 0; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); max-inline-size: var(--hero-figur-max); }
+  .artikel-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); margin-block-start: var(--sp-s); }
+  .artikel-teilung { display: grid; gap: var(--sp-xl); }
+  .artikel-text { display: grid; gap: var(--sp-l); }
+  .artikel-wichtig { padding: var(--sp-m); background: var(--c-papier-2); border-radius: var(--r-m); border-inline-start: var(--sp-3xs) solid var(--c-kupfer); max-inline-size: var(--mass); }
+  .artikel-wichtig-titel { font-size: var(--fs-0); margin-block-end: var(--sp-xs); }
+  .artikel-wichtig ul { list-style: none; padding: 0; display: grid; gap: var(--sp-xs); }
+  .artikel-wichtig li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); margin: 0; }
+  .artikel-wichtig-icon { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-kupfer); margin-block-start: var(--sp-3xs); }
+  .artikel-teil { display: grid; gap: var(--sp-xs); max-inline-size: var(--mass); scroll-margin-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+  .artikel-teil h2 { font-size: var(--fs-2); }
+  .artikel-liste, .artikel-schritte { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
+  .artikel-schritte li::marker { color: var(--c-kupfer); font-weight: var(--fw-titel); }
+  .hinweis-warnung { border-color: var(--c-warnung); background: var(--c-warnung-hell); }
+  .artikel-rand { align-self: start; }
+  .artikel-toc { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-2xs); font-size: var(--fs--1); }
+  .artikel-toc a { color: var(--c-tinte-2); }
+  .artikel-quellen { list-style: none; padding: 0; display: grid; gap: var(--sp-2xs); font-size: var(--fs--1); color: var(--c-tinte-2); }
+  .artikel-quellen li { margin: 0; padding-block-end: var(--sp-2xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .artikel-quelle-host { color: var(--c-tinte-3); }
+  @media (min-width: 64em) {
+    .artikel-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
+    .artikel-figur { justify-self: end; }
+    .artikel-kopf h1 { font-size: var(--fs-5); }
+    .artikel-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
+    .artikel-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+  }
+}
