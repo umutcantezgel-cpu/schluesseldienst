@@ -165,7 +165,8 @@ export async function pruefe(ctx) {
       const js = await readFile(join(ctx.dist, datei), 'utf8');
       for (const re of JS_VERBOTEN) if (re.test(js)) f('S20-js', datei, `Verbotenes Muster ${re}`);
       for (const fe of js.matchAll(/fetch\(\s*(['"`])([^'"`]*)/g)) if (!fe[2].startsWith('/daten/')) f('S20-fetch', datei, `fetch auf ${fe[2]}`);
-      if (/location\.(assign|replace|href\s*=)/.test(js) && !/mailto/.test(js)) f('S20-navigation', datei, 'Navigation per location außerhalb des Mailto-Moduls');
+      // Navigation nur auf eigene Pfade oder mailto:
+      if (/location\.(assign|replace)\(\s*(?![`'"](\/[^/]|mailto:))/.test(js) || /location\.href\s*=\s*(?![`'"](\/[^/]|mailto:))/.test(js)) f('S20-navigation', datei, 'Navigation per location auf nicht-eigenes Ziel');
     }
     if (datei.endsWith('.css')) {
       const css = await readFile(join(ctx.dist, datei), 'utf8');

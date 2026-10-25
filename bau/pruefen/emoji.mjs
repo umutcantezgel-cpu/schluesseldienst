@@ -1,7 +1,7 @@
 // Emoji-Prüfer: Emojis und Symbolzeichen dürfen nicht als Gestaltungsmittel vorkommen.
 // Geprüft wird die ganze Seite (Kopf, Fuß, Attribute). Die Pfeile → und ← sind im Textinhalt erlaubt
 // (Brotkrumen nutzen ← per CSS); geprüft werden sie nur in <title> und meta description.
-import { entitaeten, fundstelle, textfelder } from './ehrlichkeit.mjs';
+import { entitaeten, fundstelle, titelUndMeta } from './ehrlichkeit.mjs';
 
 export const name = 'emoji';
 
@@ -21,7 +21,7 @@ export async function pruefe(ctx) {
         meldung: `Seite ${seite.pfad}: Zeichen U+${hex(m[0])} „${m[0]}“ – Fundstelle „…${fundstelle(roh, m.index, m.index + m[0].length)}…“`,
       });
     }
-    for (const { feld, text } of textfelder(seite)) {
+    for (const { feld, text } of titelUndMeta(String(seite.html ?? ''))) {
       if (feld !== 'title' && feld !== 'meta description') continue;
       for (const m of text.matchAll(PFEILE)) {
         befunde.push({

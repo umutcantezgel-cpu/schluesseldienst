@@ -1,4 +1,4 @@
-STATUS · Branch claude/bold-noether-fk2n4f · Etappe 0/6 · Welle – · Pflicht 0/– · Kür 0/– · Kriterien 0/10 · Ausnahmen 0 · Bestand grün (kein Code) · Nächster Schritt: E0 Werkzeuge einrichten (Haiku), Lagebild
+STATUS · Branch claude/bold-noether-fk2n4f · Etappe 2/6 · Welle E2 · Pflicht 14/67 · Kür 0/8 · Kriterien 0/10 · Ausnahmen 0 · Bestand grün (95/95 Tests, Prüfer grün außer Links zu noch fehlenden Seiten) · Nächster Schritt: Etappentor E2 (Prüfstufe B + Sichtabnahme V01)
 
 # STATUS
 
@@ -17,7 +17,11 @@ STATUS · Branch claude/bold-noether-fk2n4f · Etappe 0/6 · Welle – · Pflich
 - Repo ist öffentlich (Entscheidung des Menschen: „Öffentlich lassen“).
 
 ## Werkzeug-Einrichtung
-(wird vom Haiku-Prüfer E0-PRUEF-01 ergänzt)
+- Prüfwerkzeuge: `_werkstatt/werkzeuge/` (Skripte), Module in `/home/user/werkzeuge-cache` (außerhalb des Repos). Nach Neustart: `mkdir -p /home/user/werkzeuge-cache && cp _werkstatt/werkzeuge/{package.json,package-lock.json,.npmrc} /home/user/werkzeuge-cache/ && cd /home/user/werkzeuge-cache && npm ci --ignore-scripts && npm audit signatures`.
+- Chromium 153 (Playwright 1.63, `/opt/pw-browsers/chromium-1243`), Java 21 für vnu.
+- Orts-Daten: `node pipeline/orte/alle.mjs` (GeoNames-Cache in `.cache/geonames`, bei Neustart `NODE_USE_ENV_PROXY=1 node pipeline/orte/00-laden.mjs --neu-einlesen`).
+- Build/Vorschau: `node bau/bauen.mjs [--messen|--release --ziel=…] [--pruefen]`, `node bau/vorschau.mjs` (Port 4173).
 
 ## Verlauf (eine Zeile je Stunde/Meilenstein)
 - 2026-10-25 13:05 MEZ · E0 gestartet · _werkstatt angelegt, Auftrag wörtlich gesichert, Planberichte gesichert
+- 2026-10-25 14:00 MEZ · E0/E1 abgeschlossen (Werkzeuge, Themenmatrizen, KERN v1, PLAN v2, ABNAHME) · E2: Generator, Prüfer (12 Module), Orts-Pipeline (5.252 Orte), Referenz V01 gebaut · 95 Tests grün

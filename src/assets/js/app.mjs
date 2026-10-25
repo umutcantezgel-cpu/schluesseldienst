@@ -2,8 +2,10 @@
 import { menue } from './module/menue.mjs';
 import { aufklapper } from './module/aufklapper.mjs';
 import { erreichbarkeit } from './module/erreichbarkeit.mjs';
+import { ortssuche } from './module/ortssuche.mjs';
+import { abspielen } from './module/abspielen.mjs';
 
-const MODULE = { menue, aufklapper, erreichbarkeit };
+const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen };
 
 function starten() {
   document.documentElement.classList.add('js');

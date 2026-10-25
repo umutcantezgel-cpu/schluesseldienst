@@ -1,0 +1,19 @@
+/* Einsatzgebiet-Anriss: Text und Liste links, Gebietskarte rechts. */
+@layer komponenten {
+  .gebiet-teilung { display: grid; gap: var(--sp-l); }
+  @media (min-width: 64em) { .gebiet-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); align-items: center; } }
+  .gebiet-liste-titel { font-size: var(--fs-0); margin-block: var(--sp-m) var(--sp-xs); }
+  .gebiet-liste { list-style: none; padding: 0; columns: 2 var(--spalte-az); column-gap: var(--sp-l); margin-block-end: var(--sp-m); }
+  .gebiet-liste li { margin: 0; break-inside: avoid; display: flex; justify-content: space-between; gap: var(--sp-xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .gebiet-liste a { display: inline-flex; align-items: center; min-block-size: var(--ziel-min); }
+  .gebiet-km { color: var(--c-tinte-3); font-variant-numeric: tabular-nums; align-self: center; }
+  .gebiet-figur { margin: 0; }
+  .gebietskarte { inline-size: 100%; max-inline-size: var(--hero-figur-max); margin-inline: auto; font-family: var(--ff-text); }
+  .gk-ring { fill: none; stroke: var(--c-linie-ui); stroke-width: 1.5; stroke-dasharray: 4 6; }
+  .gk-ring-text { fill: var(--c-tinte-3); font-size: var(--svg-text-m); text-anchor: middle; }
+  .gk-punkt { fill: var(--c-tinte-3); }
+  .gk-zone-a { fill: var(--c-lahn); }
+  .gk-name { fill: var(--c-tinte-2); font-size: var(--svg-text-s); }
+  .gk-sitz-punkt { fill: var(--c-kupfer); }
+  .gk-sitz-name { fill: var(--c-tinte); font-size: var(--svg-text-l); font-weight: var(--fw-titel); }
+}

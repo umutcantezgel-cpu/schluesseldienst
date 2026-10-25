@@ -1,0 +1,33 @@
+/* Ortsprüfung / Ortssuche (K-009): Combobox mit Liste als Overlay (kein Springen), Ersatzlink ohne JS. */
+@layer komponenten {
+  .ortspruefung { display: grid; gap: var(--sp-2xs); position: relative; max-inline-size: var(--mass); }
+  .ortspruefung-titel { font-weight: var(--fw-titel); font-size: var(--fs-1); }
+  .ortspruefung-hinweis { font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .ortspruefung-feld { display: grid; min-block-size: var(--ziel-touch); }
+  .ortspruefung-eingabe-huelle { position: relative; }
+  .ortspruefung-icon { position: absolute; inset-inline-start: var(--sp-s); inset-block-start: 50%; transform: translateY(-50%); color: var(--c-tinte-3); pointer-events: none; }
+  .ortspruefung-eingabe {
+    inline-size: 100%; min-block-size: var(--ziel-touch); padding: var(--sp-xs) var(--sp-s) var(--sp-xs) calc(var(--sp-s) * 2 + var(--icon-ui));
+    background: var(--c-flaeche); color: var(--c-tinte); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-m); font-size: var(--fs-0);
+  }
+  .ortspruefung-eingabe::placeholder { color: var(--c-tinte-3); }
+  .ortspruefung-eingabe:focus-visible { border-color: var(--c-tinte); }
+  .ortspruefung-liste {
+    position: absolute; z-index: var(--z-popover); inset-inline: 0; inset-block-start: calc(100% + var(--sp-3xs)); list-style: none; margin: 0; padding: var(--sp-3xs);
+    background: var(--c-flaeche); border-radius: var(--r-l); box-shadow: var(--sh-2); max-block-size: var(--menue-blatt-max); overflow-y: auto;
+  }
+  .ortspruefung-option { display: flex; justify-content: space-between; gap: var(--sp-s); align-items: baseline; min-block-size: var(--ziel-min); padding: var(--sp-2xs) var(--sp-xs); border-radius: var(--r-m); cursor: pointer; margin: 0; }
+  .ortspruefung-option[aria-selected="true"], .ortspruefung-option:hover { background: var(--c-lahn-hell); }
+  .ortspruefung-option-name { font-weight: var(--fw-ui); }
+  .ortspruefung-option-zusatz { font-size: var(--fs--1); color: var(--c-tinte-3); white-space: nowrap; }
+  .ortspruefung-ersatz { display: inline-flex; align-items: center; gap: var(--sp-2xs); min-block-size: var(--ziel-touch); font-weight: var(--fw-ui); }
+  .ortspruefung-ersatz-klein { min-block-size: var(--ziel-min); font-size: var(--fs--1); }
+  .ortspruefung[data-zustand="laedt"] .ortspruefung-icon { animation: drehen var(--dur-drehen) linear infinite; }
+  .ortspruefung-ergebnis { padding: var(--sp-s); background: var(--c-flaeche); border-radius: var(--r-m); border-inline-start: var(--sp-3xs) solid var(--c-lahn); box-shadow: var(--sh-1); display: grid; gap: var(--sp-3xs); }
+  .ortspruefung-ergebnis[data-zustand="neu"] { opacity: .6; }
+  .ortspruefung-ergebnis { transition: opacity var(--dur-feedback) var(--ease-standard); }
+  .ortspruefung-ergebnis-zone { font-weight: var(--fw-titel); color: var(--c-lahn-text); }
+  .ortspruefung-ergebnis-link { margin-block-start: var(--sp-2xs); }
+  @keyframes drehen { to { transform: translateY(-50%) rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .ortspruefung[data-zustand="laedt"] .ortspruefung-icon { animation: none; } }
+}

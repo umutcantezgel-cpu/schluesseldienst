@@ -1,0 +1,14 @@
+/* Häufige Fragen (M-07): <details>, Zusammenfassung ≥ 48 px, Chevron dreht, beim Drucken offen. */
+@layer komponenten {
+  .faq-teilung { display: grid; gap: var(--sp-l); }
+  @media (min-width: 64em) { .faq-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; } }
+  .faq { border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .faq-eintrag { border-block-end: var(--linie-haar) solid var(--c-linie-ui); }
+  .faq-frage { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-s); min-block-size: var(--ziel-touch); padding-block: var(--sp-xs); cursor: pointer; font-weight: var(--fw-ui); font-size: var(--fs-1); list-style: none; }
+  .faq-frage::-webkit-details-marker { display: none; }
+  .faq-frage:hover { color: var(--c-lahn-text); }
+  .faq-chevron { transition: transform var(--dur-zustand-aus) var(--ease-standard); }
+  .faq-eintrag[open] .faq-chevron { transform: rotate(180deg); transition-duration: var(--dur-zustand); }
+  .faq-antwort { padding-block-end: var(--sp-m); color: var(--c-tinte-2); }
+  @media print { .faq-antwort { display: block; } }
+}

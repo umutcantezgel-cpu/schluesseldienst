@@ -7,10 +7,10 @@ export default {
   waehrung: 'EUR',
   // Zeitfenster (Europe/Berlin). Reihenfolge = Spalten der Preistabelle.
   zeitfenster: [
-    { id: 'werktag', titel: 'Werktags tagsüber', zeit: p('preise.zeit-werktag', 'Uhrzeit werktags') },
-    { id: 'abend', titel: 'Werktags abends', zeit: p('preise.zeit-abend', 'Uhrzeit abends') },
-    { id: 'nacht', titel: 'Nachts', zeit: p('preise.zeit-nacht', 'Uhrzeit nachts') },
-    { id: 'wochenende', titel: 'Wochenende und Feiertag', zeit: p('preise.zeit-wochenende', 'Zeitraum Wochenende/Feiertag') },
+    { id: 'werktag', titel: 'Werktags tagsüber', zeit: p('preise.zeit-werktag', 'Uhrzeit folgt') },
+    { id: 'abend', titel: 'Werktags abends', zeit: p('preise.zeit-abend', 'Uhrzeit folgt') },
+    { id: 'nacht', titel: 'Nachts', zeit: p('preise.zeit-nacht', 'Uhrzeit folgt') },
+    { id: 'wochenende', titel: 'Wochenende und Feiertag', zeit: p('preise.zeit-wochenende', 'Zeitraum folgt') },
   ],
   // Leistungen mit Gesamtpreis je Zeitfenster (Zone A). Weitere Zonen: Anfahrtsaufschlag je Zone.
   positionen: [
@@ -22,7 +22,7 @@ export default {
     { id: 'zylinder', titel: 'Schließzylinder tauschen (Arbeitszeit)', leistung: '/einbruchschutz/schliesszylinder/' },
   ].map((pos) => ({
     ...pos,
-    preise: Object.fromEntries(['werktag', 'abend', 'nacht', 'wochenende'].map((z) => [z, p(`preise.${pos.id}.${z}`, `Preis ${pos.titel} (${z})`)])),
+    preise: Object.fromEntries(['werktag', 'abend', 'nacht', 'wochenende'].map((z) => [z, p(`preise.${pos.id}.${z}`, 'Preis folgt')])),
   })),
   // Anfahrtsaufschlag je Zone in Cent (Zone A = 0 = in den Positionen enthalten).
   anfahrt: {

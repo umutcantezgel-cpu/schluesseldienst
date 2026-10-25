@@ -18,6 +18,8 @@
   .ruf-status:empty { display: none; }
   .rufknopf-kopf .ruf-beschriftung { display: none; }
   .rufknopf-kopf .ruf-nummer { font-size: var(--fs-0); }
+  .rufknopf-gross { min-block-size: var(--ziel-touch); padding: var(--sp-xs) var(--sp-l); }
+  .rufknopf-gross .ruf-nummer { font-size: var(--fs-2); }
   .rufknopf-leiste { justify-content: center; min-block-size: var(--rufleiste-hoehe); }
   .rufknopf-leiste .ruf-text { justify-items: start; }
   .rufknopf-leiste .ruf-beschriftung { font-size: var(--fs--1); }

@@ -1,0 +1,17 @@
+/* I-01 Zylinder-Schnitt (K-008): Linien Tinte, Flächen Papier-2, Schnitt schraffiert, Kupfer nur für die Scherlinie. */
+@layer komponenten {
+  .zylinder { overflow: visible; fill: none; stroke: var(--c-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .zy-flaeche, .zy-kern-flaeche { fill: var(--c-papier-2); }
+  .zy-kern-flaeche { stroke-width: 1.5; }
+  .zy-schnitt { stroke: none; }
+  .zy-schraffur-linie { stroke: var(--c-tinte); stroke-width: 1; opacity: .14; }
+  .zy-kanal { fill: var(--c-papier); stroke-width: 1.5; }
+  .zy-oberstift, .zy-kernstift { fill: var(--c-flaeche); }
+  .zy-feder { stroke-width: 1.5; }
+  .zy-bart, .zy-reide { fill: var(--c-linie); }
+  .zy-reide-loch { fill: var(--c-papier); }
+  .zy-scherlinie { stroke: var(--c-kupfer); stroke-width: 3; }
+  .zy-stiftpaar, .zy-schluessel, .zy-scherlinie, .zy-feder { transform-box: fill-box; }
+  .zy-feder { transform-origin: top center; }
+  .zy-scherlinie { transform-origin: left center; }
+}

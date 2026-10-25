@@ -78,6 +78,15 @@
     --ease-linie: cubic-bezier(.65, 0, .35, 1);
     --ease-einrasten: cubic-bezier(.34, 1.3, .64, 1);
     --deck-hover: .10; --deck-aktiv: .18;
+    --dur-drehen: 900ms;
+    /* Großer Moment M-16 „Scherlinie“ (gesamt ≤ 1.400 ms) */
+    --m16-schluessel: 420ms; --m16-stift-start: 380ms; --m16-stift: 360ms; --m16-staffel: 70ms;
+    --m16-linie-start: 900ms; --m16-linie: 480ms; --m16-stift-weg: 14px; --m16-feder: 1.25;
+    /* Auftritte und Seitenwechsel */
+    --auftritt-weg: 24px; --zustand-weg: 8px; --feedback-weg: 4px;
+    --vt-aus: 160ms; --vt-ein: 240ms; --vt-linie: 400ms;
+    /* SVG-Beschriftung in Nutzereinheiten */
+    --svg-text-s: 15px; --svg-text-m: 16px; --svg-text-l: 18px;
   }
 
   @supports (transition-timing-function: linear(0, 1)) {

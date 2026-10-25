@@ -34,11 +34,12 @@ export default {
     vsbg: p('impressum.vsbg', 'Erklärung zur Verbraucherstreitbeilegung'),
     aufsicht: null,
   },
-  // Vom Menschen bestätigte Zusagen. Nur true wird angezeigt.
+  // Zusagen zur Arbeitsweise: true = wird zugesagt, false = wird nicht zugesagt (neutraler Text).
+  // Bis zur Bestätigung durch den Menschen sind sie Platzhalter (sichtbar markiert, Release gesperrt).
   zusagen: {
-    preisVorAuftrag: false,
-    rechnungMitPositionen: false,
-    kartenzahlung: false,
+    preisVorAuftrag: p('zusagen.preis-vor-auftrag', 'Zusage bestätigen: Gesamtpreis vor Arbeitsbeginn'),
+    rechnungMitPositionen: p('zusagen.rechnung-positionen', 'Zusage bestätigen: Rechnung mit allen Positionen'),
+    kartenzahlung: p('zusagen.kartenzahlung', 'Zusage bestätigen: Kartenzahlung vor Ort'),
   },
   bewertungen: { profilUrl: null },
   gruendungsjahr: null,

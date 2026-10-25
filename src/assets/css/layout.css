@@ -5,11 +5,12 @@
     grid-template-columns:
       [voll-start] minmax(var(--rand), 1fr)
       [breit-start] minmax(0, var(--spalte-breit))
-      [inhalt-start] min(100% - 2 * var(--rand), var(--inhalt-max)) [inhalt-ende]
-      minmax(0, var(--spalte-breit)) [breit-ende]
-      minmax(var(--rand), 1fr) [voll-ende];
+      [inhalt-start] min(100% - 2 * var(--rand), var(--inhalt-max)) [inhalt-end]
+      minmax(0, var(--spalte-breit)) [breit-end]
+      minmax(var(--rand), 1fr) [voll-end];
   }
-  .raster > * { grid-column: inhalt; }
+  .raster > * { grid-column: inhalt; min-inline-size: 0; }
+  .preis-teilung > *, .gebiet-teilung > *, .faq-teilung > * { min-inline-size: 0; }
   .raster > .breit { grid-column: breit; }
   .raster > .voll { grid-column: voll; }
   .sektion { padding-block: var(--sp-sektion); }

@@ -1,0 +1,14 @@
+/* Abschnittsköpfe (M-14): Kupfer-Marke mit optionaler Nummer über der Überschrift. */
+@layer komponenten {
+  .abschnitt-kopf { display: grid; gap: var(--sp-s); margin-block-end: var(--sp-l); max-inline-size: var(--mass); }
+  .abschnitt-marke { display: flex; align-items: center; gap: var(--sp-xs); color: var(--c-kupfer); font-weight: var(--fw-titel); font-size: var(--fs--1); letter-spacing: var(--ls-label); }
+  .abschnitt-linie { display: block; inline-size: var(--sp-xl); block-size: var(--linie-scher); background: var(--c-kupfer); transform-origin: left center; }
+  .abschnitt-einleitung { color: var(--c-tinte-2); font-size: var(--fs-1); line-height: var(--lh-dicht); }
+}
+/* 404 */
+@layer komponenten {
+  .fehlerseite { row-gap: var(--sp-m); }
+  .fehler-wege { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-2xs) var(--sp-m); }
+  .fehler-wege li { margin: 0; }
+  .fehler-wege a { display: inline-flex; align-items: center; min-block-size: var(--ziel-min); font-weight: var(--fw-ui); }
+}

@@ -55,7 +55,7 @@
   .platzhalter {
     background: repeating-linear-gradient(var(--winkel-schraffur), var(--c-kupfer-hell) 0 var(--sp-3xs), transparent var(--sp-3xs) var(--sp-2xs));
     outline: var(--linie-haar) dashed var(--c-kupfer); color: var(--c-tinte); padding: 0 var(--sp-3xs); border-radius: var(--r-s);
-    font-weight: var(--fw-ui); white-space: nowrap;
+    font-weight: var(--fw-ui); overflow-wrap: anywhere; -webkit-box-decoration-break: clone; box-decoration-break: clone;
   }
   .verifizieren { text-decoration: underline wavy var(--c-warnung); text-decoration-thickness: var(--linie-haar); text-underline-offset: var(--unterstrich-abstand-wellig); }
 

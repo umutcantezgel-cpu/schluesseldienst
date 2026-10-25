@@ -17,6 +17,7 @@ import { sitemaps, robots, securityTxt, manifest } from './lib/dateien.mjs';
 import { headersDatei, htaccess, nginx, pruefeWeiterleitungen } from './lib/hosting.mjs';
 import { pruefeAlles, auswerten } from './pruefen/index.mjs';
 import { iconsLaden, icon as iconRoh } from '../src/vorlagen/teile/icons.mjs';
+import { datenIndizes } from './lib/datenindex.mjs';
 import { layout } from '../src/vorlagen/layout.mjs';
 import { signet } from '../src/vorlagen/teile/signet.mjs';
 
@@ -54,7 +55,7 @@ async function konfigLaden() {
 
 async function datenLaden() {
   const daten = {};
-  for (const n of ['orte.json', 'hubs.json']) {
+  for (const n of ['orte.json', 'plz.json']) {
     try { daten[n.replace('.json', '')] = JSON.parse(await readFile(join(WURZEL, 'src/daten', n), 'utf8')); } catch { /* noch nicht erzeugt */ }
   }
   return daten;
@@ -121,6 +122,7 @@ async function main() {
 
   await iconsLaden(WURZEL);
   const daten = await datenLaden();
+  assets.daten = await datenIndizes(daten, schreiber);
 
   // Kontext und Seiten sammeln
   const k = { wurzel: WURZEL, modus, basisUrl, datum, tag, konfig, assets, daten, stichprobe: arg.stichprobe ? Number(arg.stichprobe) : null, hubs: { laender: [] } };
@@ -161,7 +163,10 @@ async function main() {
     gerendert.push({ pfad: s.pfad, datei, html, typ: s.typ || 'seite', ansicht: s.ansicht, indexierbar: s.indexierbar !== false && s.pfad !== '/404.html', sitemap: s.sitemap || null });
   }
   const fehlend = [...new Set(fehlendeLinksHolen())];
-  if (fehlend.length) throw new Error(`Interne Links ohne Ziel: ${fehlend.join(', ')}`);
+  if (fehlend.length) {
+    if (modus !== 'release') log(`Warnung: interne Links ohne Ziel (noch nicht gebaut): ${fehlend.join(', ')}`);
+    else throw new Error(`Interne Links ohne Ziel: ${fehlend.join(', ')}`);
+  }
 
   // Begleitdateien
   const gruppen = new Map();

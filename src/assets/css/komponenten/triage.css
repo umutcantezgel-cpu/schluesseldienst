@@ -1,0 +1,13 @@
+/* „Was jetzt hilft“: dichte, nummerierte Fälle – mobil gestapelt, ab 64em drei Spalten mit Trennlinien. */
+@layer komponenten {
+  .triage { list-style: none; padding: 0; display: grid; gap: var(--sp-l); counter-reset: fall; }
+  .triage-fall { margin: 0; display: grid; gap: var(--sp-s); align-content: start; padding-block-start: var(--sp-m); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .triage-kopf { display: flex; align-items: center; gap: var(--sp-xs); }
+  .triage-icon { inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); }
+  .triage-kopf h3 { font-size: var(--fs-1); }
+  .triage-schritte { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-2xs); color: var(--c-tinte-2); }
+  .triage-schritte li { margin: 0; padding-inline-start: var(--sp-3xs); }
+  .triage-schritte li::marker { color: var(--c-kupfer); font-weight: var(--fw-titel); }
+  .triage-link a { font-weight: var(--fw-ui); }
+  @media (min-width: 64em) { .triage { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-xl); } }
+}

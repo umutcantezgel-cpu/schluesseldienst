@@ -1,0 +1,38 @@
+/* Bewegungssystem (KERN K-007). Nur transform/opacity. Startzustände stehen ausschließlich in @keyframes
+   unter prefers-reduced-motion: no-preference (fill-mode backwards) – die Basisregel ist der Endzustand. */
+@layer bewegung {
+  @media (prefers-reduced-motion: no-preference) {
+    /* M-16 Großer Moment Startseite: Schlüssel fährt ein, Stifte rasten auf die Scherlinie, Linie zieht durch */
+    [data-moment="scherlinie"] .zy-schluessel { animation: m16-schluessel var(--m16-schluessel) var(--ease-ein) backwards; }
+    [data-moment="scherlinie"] .zy-stiftpaar { animation: m16-stift var(--m16-stift) var(--ease-einrasten) backwards; }
+    [data-moment="scherlinie"] .zy-stiftpaar .zy-feder { animation: m16-feder var(--m16-stift) var(--ease-einrasten) backwards; }
+    [data-moment="scherlinie"] .zy-stiftpaar:nth-child(1), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(1) .zy-feder { animation-delay: var(--m16-stift-start); }
+    [data-moment="scherlinie"] .zy-stiftpaar:nth-child(2), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(2) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel)); }
+    [data-moment="scherlinie"] .zy-stiftpaar:nth-child(3), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(3) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel) * 2); }
+    [data-moment="scherlinie"] .zy-stiftpaar:nth-child(4), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(4) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel) * 3); }
+    [data-moment="scherlinie"] .zy-stiftpaar:nth-child(5), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(5) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel) * 4); }
+    [data-moment="scherlinie"] .zy-scherlinie { animation: m16-linie var(--m16-linie) var(--ease-linie) var(--m16-linie-start) backwards; }
+
+    /* M-13 Abschnittsauftritt und M-14 Kopflinie (nur Erzählansichten, scrollgebunden, rückwärts stimmig) */
+    @supports (animation-timeline: view()) {
+      [data-ansicht="V01"] .sektion .abschnitt-kopf h2,
+      [data-ansicht="V01"] .gebiet-figur,
+      [data-ansicht="V01"] .register-gross { animation: auftritt linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+      [data-ansicht="V01"] .abschnitt-linie { animation: linie-ziehen linear both; animation-timeline: view(); animation-range: entry 10% entry 45%; }
+      [data-ansicht="V01"] .ablauf::before { animation: linie-ziehen linear both; animation-timeline: view(); animation-range: entry 20% cover 45%; }
+    }
+
+    /* M-15 Seitenwechsel mit der Scherlinie als gemeinsamem Element */
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root) { animation-duration: var(--vt-aus); }
+    ::view-transition-new(root) { animation-duration: var(--vt-ein); }
+    ::view-transition-group(scherlinie) { animation-duration: var(--vt-linie); animation-timing-function: var(--ease-standard); }
+  }
+
+  @keyframes m16-schluessel { from { transform: translateX(-40%); opacity: 0; } }
+  @keyframes m16-stift { from { transform: translateY(var(--m16-stift-weg)); } }
+  @keyframes m16-feder { from { transform: scaleY(var(--m16-feder)); } }
+  @keyframes m16-linie { from { transform: scaleX(0); } }
+  @keyframes auftritt { from { opacity: 0; transform: translateY(var(--auftritt-weg)); } }
+  @keyframes linie-ziehen { from { transform: scaleX(.2); } }
+}
