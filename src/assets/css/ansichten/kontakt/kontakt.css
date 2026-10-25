@@ -3,13 +3,15 @@
 @layer komponenten {
   .kontakt-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
   .kontakt-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; }
-  .kontakt-wege { display: grid; gap: var(--sp-m); margin-block-start: var(--sp-l); }
+  .kontakt-wege { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-m); margin-block-start: var(--sp-l); }
   .kontakt-weg { display: grid; gap: var(--sp-xs); align-content: start; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); border-block-start: var(--linie-scher) solid var(--c-linie-ui); }
   .kontakt-weg-notfall { border-block-start-color: var(--c-kupfer); }
   .kontakt-weg h2 { font-size: var(--fs-2); }
   .kontakt-weg p { max-inline-size: var(--mass); color: var(--c-tinte-2); }
   .kontakt-weg-icon { inline-size: var(--icon-gross); block-size: var(--icon-gross); color: var(--c-lahn-text); }
   .kontakt-weg-notfall .kontakt-weg-icon { color: var(--c-kupfer); }
+  /* großer Rufknopf in der schmalen Karte: weniger Innenabstand, damit er bei 320 px in die Karte passt */
+  .kontakt-weg .rufknopf-gross { padding-inline: var(--sp-s); }
 
   .kontakt-composer-teilung { display: grid; gap: var(--sp-l); }
   .composer { display: grid; gap: var(--sp-m); padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-2); }

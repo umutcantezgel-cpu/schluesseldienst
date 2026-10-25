@@ -24,3 +24,9 @@ Führe Prüfstufe C nach `_werkstatt/AUFTRAG.md` (Abschnitt Prüfstufen) und `_w
 12. Bildsatz `_werkstatt/bilder/E5/` für alle Hauptansichten hell/dunkel, dann kürzen wie E3 (< 15 MB).
 13. Bericht `_werkstatt/berichte/E5-pruefstufe-c.md`: je Kriterium Z-02, Z-03, Z-05…Z-09 eine Zeile mit Ergebnis (erfüllt/nicht erfüllt/UMGEBUNGSAUSNAHME) und Beleg; danach alle Befunde mit Datei/Selektor; „Nicht geprüft“. Keine Deutung.
 - Vorschau am Ende per PID beenden.
+
+## Hinweise aus Prüfstufe B (E4-PRUEF-13)
+- Schritt 6: `/suche/` und `/404.html` sind bewusst `noindex` (ENTSCHEIDUNGEN D-SEO-03) – SEO-Wert mit Begründung berichten, nicht als Verstoß zählen.
+- Schritt 8: Bei `/kontakt/` auch das Erscheinen der Fehlerübersicht nach „Absenden“ mit leeren Pflichtfeldern prüfen (sichtbar, Fokus darauf, Links zu den Feldern, `aria-invalid` an den Feldern) – INP allein misst das nicht.
+- Schritt 10: Linien mit Höhe 0 (z. B. die Scherlinien-Hälften, horizontale Pfade) gelten als sichtbar, wenn Breite > 0 und Deckkraft 1; Sichtbarkeit nicht allein an der Höhe des Begrenzungsrahmens messen.
+- Schritt 12: `bildsatz.mjs` kappt bei 12 Ausschnitten je Seite; gekappte Seiten im Bericht nennen.

@@ -68,3 +68,13 @@ Folgenreiche Entscheidungen mit Denkprotokoll (Ziel → drei Wege → Bewertung 
 ## D-SEO-02 · Ortsseiten ohne FAQPage-Daten (2026-10-25)
 - Problem: Ortsseiten lagen am Budget (30 KB roh); die FAQ stand sichtbar und noch einmal als JSON-LD auf jeder der 5.252 Seiten.
 - Entscheidung: Ortsseiten behalten die sichtbaren Fragen, aber ohne `FAQPage`-Block. Google zeigt FAQ-Ergebnisse seit 2023 nur noch für wenige Website-Arten; der Block brächte hier keinen Nutzen, kostet aber rund 1 KB je Seite (≈ 5 MB gesamt). Inhaltsseiten (Leistungen, Ratgeber, Preise, Kontakt) behalten `FAQPage`.
+
+## D-SEO-03 · `/suche/` und `/404.html` bleiben `noindex` (Befund E4-PRUEF-13, 2026-10-25)
+- Befund: Lighthouse SEO auf `/suche/` 66 statt 100 (`is-crawlable`), weil die Seite `noindex, follow` trägt.
+- Entscheidung: bleibt so. Die Suchseite hat keinen eigenen Inhalt (Treffer entstehen erst im Browser) und Google rät, interne Suchergebnisseiten nicht zu indexieren; die 404-Seite ist ohnehin nicht indexierbar. Beide stehen in `src/konfig/routen.mjs` mit `indexierbar: false` und fehlen in der Sitemap.
+- Folge für die Abnahme: Das Kriterium „SEO 100“ (K-011, Z-03) gilt für indexierbare Seiten. `/suche/` und `/404.html` werden mit SEO-Wert und dieser Begründung berichtet, nicht als Verstoß gezählt. Der Prüfer `seo` bleibt unverändert.
+
+## D-PRUEF-01 · Bildsatz E4 mit 14,8 MB statt < 12 MB (2026-10-25)
+- Befund: Die Kürzungsregel aus E3 (hell Desktop/Mobil vollständig, sonst Ausschnitte 1–3) ergibt für zehn Pfade 14,76 MB.
+- Entscheidung: angenommen; die Bilder sind bereits im Verlauf (Commit `979d959`), ein Neukomprimieren würde den Verlauf nur vergrößern. Für E5 gilt < 15 MB (Paketblatt E5-PRUEF-14).
+- Kappung `MAX_AUSSCHNITTE = 12` in `bildsatz.mjs` betrifft `/preise/` (12 von 13) und `/sitemap/` mobil (12 von 21); sie steht in `index.json` (Feld `gekuerzt`) und ist damit sichtbar, keine stille Kürzung.

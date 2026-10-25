@@ -52,7 +52,7 @@ function kopf(sk) {
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>
 <div class="preise-handlung">${rufknopf(sk, { variante: 'gross' })}</div>
 </div>
-<div class="preise-formel" aria-labelledby="formel-titel">
+<div class="preise-formel">
 <h2 class="rand-titel" id="formel-titel">${f.titel}</h2>
 <ol class="formel">${f.teile.map((t, i) => html`<li class="formel-teil${i === f.teile.length - 1 ? ' formel-summe' : ''}">${sk.icon(t.icon, { klasse: 'formel-icon' })}<span class="formel-titel">${t.titel}</span><span class="formel-text">${t.text}</span></li>`)}</ol>
 <p class="formel-material">${text(f.material)}</p>
