@@ -3,26 +3,45 @@
 // Normalisierung wie bei der Ortssuche (Umlaute, ß, Diakritika), damit „turoffnung“ und „Türöffnung“ zusammenfinden.
 import { schluessel } from './normalisieren.mjs';
 
-// ae/oe/ue werden auf a/o/u eingeebnet – in Index und Anfrage gleich, so findet „tur“ auch „Tür“
+// Zwei Formen je Wort. Flach: ae/oe/ue auf a/o/u eingeebnet, so findet „tur“ (ohne Umlaut getippt) auch „Tür“.
+// Streng: ä = ae, für Anfragen mit Umlaut – „löhn“ findet „Löhnberg“, aber nicht „lohnt“.
+const STRENG = (s) => schluessel(s).split(/[^a-z0-9]+/).filter(Boolean);
 const WOERTER = (s) => schluessel(s).replace(/ae/g, 'a').replace(/oe/g, 'o').replace(/ue/g, 'u').split(/[^a-z0-9]+/).filter(Boolean);
+const UMLAUT = /[äöü]/i;
+
+/** Suchwörter einer Anfrage (ab zwei Zeichen): { w, streng } – streng, wenn das getippte Wort einen Umlaut enthält. */
+function anfrageWoerter(anfrage) {
+  const teile = [];
+  for (const roh of String(anfrage ?? '').split(/[^\p{L}\p{N}]+/u)) {
+    if (!roh) continue;
+    const streng = UMLAUT.test(roh);
+    for (const w of (streng ? STRENG : WOERTER)(roh)) if (w.length >= 2) teile.push({ w, streng });
+  }
+  return teile;
+}
 
 /** Index aus der Datei /daten/seiten.*.json: { v: 1, s: [[titel, pfad, bereich, text], …] } */
 export function seitenIndex(daten) {
-  return daten.s.map(([titel, pfad, bereich, text]) => ({ titel, pfad, bereich, text, tw: WOERTER(titel), xw: WOERTER(`${bereich} ${text}`) }));
+  return daten.s.map(([titel, pfad, bereich, text]) => ({
+    titel, pfad, bereich, text,
+    tw: WOERTER(titel), xw: WOERTER(`${bereich} ${text}`), tws: STRENG(titel), xws: STRENG(`${bereich} ${text}`),
+  }));
 }
 
-function wertung(eintrag, wort) {
-  if (eintrag.tw.some((w) => w === wort)) return 8;
-  if (eintrag.tw.some((w) => w.startsWith(wort))) return 6;
-  if (eintrag.tw.some((w) => w.includes(wort))) return 3;
-  if (eintrag.xw.some((w) => w.startsWith(wort))) return 2;
-  if (eintrag.xw.some((w) => w.includes(wort))) return 1;
+function wertung(eintrag, { w: wort, streng }) {
+  const tw = streng ? eintrag.tws : eintrag.tw;
+  const xw = streng ? eintrag.xws : eintrag.xw;
+  if (tw.some((w) => w === wort)) return 8;
+  if (tw.some((w) => w.startsWith(wort))) return 6;
+  if (tw.some((w) => w.includes(wort))) return 3;
+  if (xw.some((w) => w.startsWith(wort))) return 2;
+  if (xw.some((w) => w.includes(wort))) return 1;
   return 0;
 }
 
 /** Treffer sortiert nach Wertung, dann kürzerem Titel; Anfragen unter 2 Zeichen liefern nichts. */
 export function seitenSuchen(index, anfrage, max = 20) {
-  const woerter = WOERTER(anfrage).filter((w) => w.length >= 2);
+  const woerter = anfrageWoerter(anfrage);
   if (!woerter.length) return [];
   const treffer = [];
   for (const e of index) {
@@ -39,14 +58,15 @@ export function seitenSuchen(index, anfrage, max = 20) {
 }
 
 /** Teile eines Textes für die Hervorhebung: [{ text, treffer }]. Markiert werden ganze Wörter, deren Normalform ein
- *  Wort der Anfrage enthält – dieselbe Einebnung wie bei der Wertung, „tur“ markiert also „Türöffnung“. */
+ *  Wort der Anfrage enthält – dieselben Formen wie bei der Wertung, „tur“ markiert also „Türöffnung“. */
 export function hervorheben(text, anfrage) {
-  const woerter = WOERTER(anfrage).filter((w) => w.length >= 2);
+  const woerter = anfrageWoerter(anfrage);
   const teile = [];
   for (const stueck of String(text ?? '').split(/([\p{L}\p{N}]+)/u)) {
     if (!stueck) continue;
-    const form = WOERTER(stueck).join('');
-    const treffer = Boolean(form) && woerter.some((w) => form.includes(w));
+    const flach = WOERTER(stueck).join('');
+    const streng = STRENG(stueck).join('');
+    const treffer = Boolean(flach) && woerter.some((q) => (q.streng ? streng : flach).includes(q.w));
     const letztes = teile[teile.length - 1];
     if (letztes && letztes.treffer === treffer) letztes.text += stueck; else teile.push({ text: stueck, treffer });
   }

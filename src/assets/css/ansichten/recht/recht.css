@@ -1,8 +1,10 @@
-/* V12 Rechtsseiten: ruhige Arbeitsansicht. Text mit Inhaltsverzeichnis in der Randspalte (ab 64em), Angabenliste,
-   Muster als Text. Werte nur über Tokens; keine Schriftdienste, keine Bilder. */
+/* V12 Rechtsseiten: ruhige Arbeitsansicht. Text mit Inhaltsverzeichnis in der Randspalte (ab 64em, mobil vor dem
+   Text), Abschnitte und Verzeichnis gleich nummeriert, Angabenliste, Muster als Text. H1 in fs-4: fs-5 bleibt dem
+   Hero vorbehalten. Werte nur über Tokens; keine Schriftdienste, keine Bilder. */
 @layer komponenten {
   .recht-kopf { padding-block: var(--sp-m) var(--sp-l); }
-  .recht-freigabe { margin-block: 0 var(--sp-s); max-inline-size: var(--mass); }
+  /* Abstand zur Kopflinie (M-15): Hinweis und Linie sollen nicht zusammenkleben, der Kopf beginnt mit der Linie */
+  .recht-freigabe { margin-block: 0 var(--sp-l); max-inline-size: var(--mass); }
   .recht-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; overflow-wrap: anywhere; }
   .recht-einleitung { font-size: var(--fs-0); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block-start: var(--sp-s); }
   .recht-stand { font-size: var(--fs--1); color: var(--c-tinte-3); margin-block-start: var(--sp-xs); }
@@ -11,6 +13,7 @@
   .recht-text { display: grid; gap: var(--sp-xl); max-inline-size: var(--mass); }
   .recht-teil { display: grid; gap: var(--sp-s); scroll-margin-block-start: var(--sp-m); }
   .recht-teil .abschnitt-kopf { margin-block-end: 0; }
+  .recht-teil .abschnitt-marke { font-variant-numeric: tabular-nums; }
   .recht-teil h2 { font-size: var(--fs-2); overflow-wrap: anywhere; }
   .recht-teil > p { margin: 0; overflow-wrap: anywhere; }
   .recht-liste { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); margin: 0; }
@@ -21,6 +24,11 @@
   .recht-angaben > div { display: grid; gap: var(--sp-3xs); }
   .recht-angaben dt { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
   .recht-angaben dd { margin: 0; overflow-wrap: anywhere; }
+  /* Ein mehrzeiliger Platzhalter ist ein Kasten, nicht zwei: als Block in der Zeile, oben bündig mit Marke bzw. Zeile.
+     Im Fließtext rückt er als geschlossene Marke ganz in die nächste Zeile, statt am Zeilenende zu zerbrechen. */
+  .recht-teil .platzhalter, .recht-freigabe .platzhalter { display: inline-block; vertical-align: top; }
+  /* „E-Mail“ nie nach „E-“ umbrechen (Spans aus recht.mjs) */
+  .kein-umbruch { white-space: nowrap; }
 
   .recht-muster { display: grid; gap: var(--sp-s); padding: var(--sp-m); background: var(--c-papier-2); border-radius: var(--r-m); border-inline-start: var(--sp-3xs) solid var(--c-kupfer); }
   .recht-muster-titel { margin: 0; font-weight: var(--fw-titel); }
@@ -30,17 +38,25 @@
   .recht-quellen li { padding-block-end: var(--sp-2xs); border-block-end: var(--linie-haar) solid var(--c-linie); overflow-wrap: anywhere; }
   .recht-quelle-host { color: var(--c-tinte-3); }
 
-  .recht-rand { align-self: start; }
-  .recht-toc { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-2xs); font-size: var(--fs--1); margin: 0; }
-  .recht-toc a { color: var(--c-tinte-2); overflow-wrap: anywhere; }
+  /* Verzeichnis: Marke wie Kopflinie und Kicker (kurze Kupferlinie, Versalien) statt einer zweiten, langen Linie;
+     Einträge als Register mit Haarlinien, je Zeile mindestens 44 px Trefferhöhe (K-009) */
+  .recht-rand { align-self: start; display: grid; gap: var(--sp-s); order: -1; }
+  .recht-rand-titel { display: grid; gap: var(--sp-xs); font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
+  .recht-rand-titel::before { content: ""; inline-size: var(--sp-xl); block-size: var(--linie-scher); background: var(--c-kupfer); }
+  .recht-toc { list-style: none; padding: 0; margin: 0; display: grid; font-size: var(--fs--1); border-block-start: var(--linie-haar) solid var(--c-linie); }
+  .recht-toc li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .recht-toc a { display: grid; grid-template-columns: var(--sp-l) minmax(0, 1fr); align-items: center; min-block-size: var(--ziel-min); color: var(--c-tinte-2); text-decoration: none; overflow-wrap: anywhere; }
+  .recht-toc a:hover { color: var(--c-tinte); }
+  .recht-toc a:hover .recht-toc-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .recht-toc-nr { color: var(--c-kupfer); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); font-variant-numeric: tabular-nums; }
 
   @media (min-width: 48em) {
     .recht-angaben > div { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--sp-s); align-items: baseline; }
     .recht-angaben dt { font-size: var(--fs--1); }
   }
+  @media (pointer: coarse) { .recht-toc a { min-block-size: var(--ziel-touch); } }
   @media (min-width: 64em) {
-    .recht-kopf h1 { font-size: var(--fs-5); }
     .recht-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
-    .recht-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+    .recht-rand { order: 0; position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
   }
 }

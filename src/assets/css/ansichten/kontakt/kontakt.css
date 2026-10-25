@@ -14,16 +14,20 @@
   .kontakt-weg .rufknopf-gross { padding-inline: var(--sp-s); }
 
   .kontakt-composer-teilung { display: grid; gap: var(--sp-l); }
-  .composer { display: grid; gap: var(--sp-m); padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-2); }
+  .composer { display: grid; gap: var(--sp-m); padding: var(--sp-f-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-2); }
   .composer-anliegen { margin: 0; padding: 0; border: 0; min-inline-size: 0; }
   .composer-anliegen legend { font-weight: var(--fw-titel); font-size: var(--fs-1); padding: 0; margin-block-end: var(--sp-xs); }
   .composer-optionen { display: grid; gap: var(--sp-2xs); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); }
-  .composer-notfall { display: grid; gap: var(--sp-s); justify-items: start; padding: var(--sp-m); border-radius: var(--r-m); background: var(--c-kupfer-hell); }
+  /* Notfall-Panel: Papier-2 mit Kupferbalken wie der Notfall-Weg im Kopf; Kupfer-hell bleibt den Platzhaltern */
+  .composer-notfall { display: grid; gap: var(--sp-s); justify-items: start; padding: var(--sp-m); border-radius: var(--r-s); background: var(--c-papier-2); border-inline-start: var(--sp-3xs) solid var(--c-kupfer); }
   .composer-mail { display: grid; gap: var(--sp-m); }
   .composer-felder { display: grid; gap: var(--sp-m); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); }
   /* ohne JS sind alle Zusatzfelder verborgen: die leere Gruppe soll keine zweite Lücke erzeugen */
   .composer-felder:not(:has(> :not([hidden]))) { display: none; }
-  .composer-feld { display: grid; gap: var(--sp-3xs); align-content: start; }
+  /* Spalte mit dem Feld unten: Labels stehen oben bündig, die Felder einer Zeile auf einer Linie – auch wenn nur
+     eines einen Hinweis oder eine Fehlermeldung trägt (sonst eine Treppe von 28 px im Arbeitsbereich) */
+  .composer-feld { display: flex; flex-direction: column; gap: var(--sp-3xs); }
+  .composer-feld > .composer-eingabe { margin-block-start: auto; }
   .composer-feld[hidden] { display: none; }
   .composer-feld label { font-weight: var(--fw-ui); }
   .composer-frei, .composer-hilfe { font-size: var(--fs--1); color: var(--c-tinte-3); font-weight: var(--fw-text); }
@@ -40,11 +44,12 @@
   .composer-fehler-titel { font-weight: var(--fw-titel); }
   .composer-fehlerliste ul { margin-block-start: var(--sp-2xs); padding-inline-start: var(--sp-m); }
   .composer-fehlerliste a { color: var(--c-fehler); font-weight: var(--fw-ui); }
-  .composer-warnung { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); align-items: start; font-size: var(--fs--1); padding: var(--sp-xs) var(--sp-s); border-inline-start: var(--sp-3xs) solid var(--c-warnung); background: var(--c-warnung-hell); border-radius: var(--r-s); }
+  /* volle Breite wie Feld und Knopfzeile (p ist sonst auf --mass begrenzt, bei fs--1 nur 480 px): keine Treppe rechts */
+  .composer-warnung { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); align-items: start; font-size: var(--fs--1); padding: var(--sp-xs) var(--sp-s); border-inline-start: var(--sp-3xs) solid var(--c-warnung); background: var(--c-warnung-hell); border-radius: var(--r-s); max-inline-size: none; }
   .composer-warnung-icon { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-warnung); }
   .composer-gekuerzt { font-size: var(--fs--1); color: var(--c-tinte-2); }
   /* Vorschau ohne Empfänger: Grund statt Mail-Programm (Hinweis „info“, 4-px-Randbalken wie alle Hinweise) */
-  .composer-ohne-adresse { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); align-items: start; font-size: var(--fs--1); padding: var(--sp-xs) var(--sp-s); border-inline-start: var(--sp-3xs) solid var(--c-lahn); background: var(--c-lahn-hell); border-radius: var(--r-s); }
+  .composer-ohne-adresse { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); align-items: start; font-size: var(--fs--1); padding: var(--sp-xs) var(--sp-s); border-inline-start: var(--sp-3xs) solid var(--c-lahn); background: var(--c-lahn-hell); border-radius: var(--r-s); max-inline-size: none; }
   .composer-ohne-adresse:focus { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: var(--linie-fokus); }
   .composer-hinweis-icon { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-lahn-text); }
   .composer-handlung { display: grid; gap: var(--sp-xs); justify-items: start; }
@@ -66,5 +71,17 @@
     .kontakt-kopf h1 { font-size: var(--fs-5); }
     .kontakt-wege { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
     .kontakt-composer-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; }
+    /* Überschrift und Erklärung bleiben neben dem langen Formular stehen, statt eine leere Spalte zu hinterlassen */
+    .kontakt-composer-teilung > .abschnitt-kopf { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-l)); }
+  }
+}
+
+/* Zustandswechsel im Composer (Register M-07: Deckkraft und −4 px, Dauer zustand): nur nach einer Wahl des Anliegens,
+   nie beim Laden; der Hinweis ohne Adresse blendet wie die Fehlerübersicht (M-09) nur über die Deckkraft ein */
+@layer bewegung {
+  @media (prefers-reduced-motion: no-preference) {
+    .composer[data-wechsel] :is(.composer-notfall, .composer-mail):not([hidden]) { animation: m-feedback-ein var(--dur-zustand) var(--ease-ein) backwards; }
+    /* M-09: derselbe reine Deckkraft-Keyframe wie Feldfehler und Fehlerübersicht in bewegung.css */
+    .composer-ohne-adresse:not([hidden]) { animation: m20-erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
   }
 }

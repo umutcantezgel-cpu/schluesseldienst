@@ -68,5 +68,8 @@ export async function seitenIndexSchreiben(seiten, schreiber) {
   const buf = Buffer.from(JSON.stringify({ v: 1, s }));
   const pfad = `/daten/seiten.${hash10(buf)}.json`;
   await schreiber.schreibe(pfad, buf);
-  return { pfad, sri: sri(buf), anzahl: s.length, bytes: buf.length };
+  // eintrag(): derselbe Titel, Bereich und Kurztext für Verweise, die die Suchseite ohne Anfrage zeigt (Hauptthemen) –
+  // so stimmen Leerzustand und Treffer überein, und ein entfallener Pfad fällt beim Bau auf
+  const nachPfad = new Map(s.map(([titel, p, bereich, text]) => [p, { titel, pfad: p, bereich, text }]));
+  return { pfad, sri: sri(buf), anzahl: s.length, bytes: buf.length, eintrag: (p) => nachPfad.get(p) ?? null };
 }

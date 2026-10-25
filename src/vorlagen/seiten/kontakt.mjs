@@ -13,11 +13,10 @@ import { faq, faqLd } from '../teile/faq.mjs';
 import { brotkrumenLd } from '../teile/brotkrumen.mjs';
 import { rufknopf } from '../teile/rufknopf.mjs';
 import { betriebLd } from './start.mjs';
+// zusammen(): „E-Mail“ nie nach „E-“ umbrechen (Überschrift, Fließtext, FAQ)
+import { zusammen } from './recht.mjs';
 
 const TAGE = [['mo', 'Montag'], ['di', 'Dienstag'], ['mi', 'Mittwoch'], ['do', 'Donnerstag'], ['fr', 'Freitag'], ['sa', 'Samstag'], ['so', 'Sonntag']];
-// „E-Mail“ bricht sonst nach „E-“ um (harter Bindestrich); Wort samt Kompositum („E-Mail-Programm“) zusammenhalten
-const KEIN_UMBRUCH = /(E-Mail(?:-\p{L}+)?)/u;
-const zusammen = (s) => s.split(KEIN_UMBRUCH).map((t, i) => (i % 2 ? html`<span class="kein-umbruch">${t}</span>` : t));
 
 const REGELN = [
   { id: 'k-ort', titel: 'Ort oder Postleitzahl', pflicht: true },
@@ -31,7 +30,7 @@ function kopf(sk) {
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="kontakt-h1">${inhalt.h1}</h1>
-<p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>
+<p class="gruppe-einleitung">${text(zusammen(inhalt.einleitung))}</p>
 <div class="kontakt-wege">
 <section class="kontakt-weg kontakt-weg-notfall" aria-labelledby="weg-notfall">
 ${sk.icon('telefon-nacht', { klasse: 'kontakt-weg-icon' })}
@@ -72,7 +71,7 @@ function composer(sk) {
 <div class="composer-optionen">${c.anliegen.map((a, i) => html`<label class="wahl-option"><input type="radio" name="anliegen" value="${a.wert}" data-betreff="${a.betreff}"${i === 1 ? html` checked` : ''}><span class="wahl-option-text"><span class="wahl-option-titel">${a.titel}</span>${a.text ? html`<span class="wahl-option-zusatz">${a.text}</span>` : ''}</span></label>`)}</div>
 </fieldset>
 <div class="composer-notfall" data-rolle="notfall" hidden>
-<p>${c.notfallText}</p>
+<p>${zusammen(c.notfallText)}</p>
 ${rufknopf(sk, { variante: 'gross' })}
 </div>
 <div class="composer-mail" data-rolle="mail">
@@ -87,12 +86,12 @@ ${feld(sk, 'k-rueckruf', f.rueckruf, { typ: 'tel', autocomplete: 'tel' })}
 ${feld(sk, 'k-zeitraum', f.zeitraum)}
 </div>
 ${feld(sk, 'k-nachricht', f.nachricht, { pflicht: true, mehrzeilig: true, nurJs: false, name: 'body' })}
-<p class="composer-warnung">${sk.icon('warnung', { klasse: 'composer-warnung-icon' })}<span>${c.warnung}</span></p>
-<p class="composer-gekuerzt" data-rolle="gekuerzt" hidden>${c.gekuerzt}</p>
+<p class="composer-warnung">${sk.icon('warnung', { klasse: 'composer-warnung-icon' })}<span>${zusammen(c.warnung)}</span></p>
+<p class="composer-gekuerzt" data-rolle="gekuerzt" hidden>${zusammen(c.gekuerzt)}</p>
 ${offen ? html`<p class="composer-ohne-adresse" data-rolle="ohne-adresse" tabindex="-1" hidden>${sk.icon('info', { klasse: 'composer-hinweis-icon' })}<span>${zusammen(c.ohneAdresse)}</span></p>` : ''}
 <div class="composer-handlung">
-<button class="knopf knopf-primaer" type="${offen ? 'button' : 'submit'}" data-rolle="absenden">${zusammen(c.knopf)}${sk.icon('mail')}</button>
-<p class="composer-direkt">${c.ohneProgramm} ${offen ? email : html`<a href="${attrUrl(`mailto:${email}`)}">${email}</a>`}.</p>
+<button class="knopf knopf-primaer" type="${offen ? 'button' : 'submit'}" data-rolle="absenden">${c.knopf}${sk.icon('mail')}</button>
+<p class="composer-direkt">${zusammen(c.ohneProgramm)} ${offen ? email : html`<a href="${attrUrl(`mailto:${email}`)}">${email}</a>`}.</p>
 </div>
 </div>`;
   const daten = html` data-modul="composer" data-an="${email}" data-regeln="${JSON.stringify(REGELN)}"`;
@@ -152,7 +151,7 @@ ${composer(sk)}
 ${zeitenUndAnschrift(sk)}
 <section class="sektion band" aria-labelledby="faq-titel"><div class="raster"><div class="faq-teilung">
 ${abschnittKopf({ id: 'faq-titel', titel: 'Häufige Fragen' })}
-${faq(sk, inhalt.faq)}
+${faq(sk, inhalt.faq.map((f) => ({ ...f, frage: zusammen(f.frage), antwort: zusammen(f.antwort) })))}
 </div></div></section>
 <section class="sektion sektion-dicht" aria-labelledby="weiter-titel">
 <div class="raster">

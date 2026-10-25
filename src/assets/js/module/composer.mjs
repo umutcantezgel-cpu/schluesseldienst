@@ -23,7 +23,8 @@ export function composer(form) {
     if (notfall) notfall.hidden = !istNotfall;
     if (mailteil) mailteil.hidden = istNotfall;
   };
-  form.addEventListener('change', (e) => { if (e.target.name === 'anliegen') umschalten(); });
+  // data-wechsel erst nach einer Wahl: Nur dann blendet der neue Teil ein (CSS), beim Laden steht alles sofort
+  form.addEventListener('change', (e) => { if (e.target.name === 'anliegen') { form.setAttribute('data-wechsel', ''); umschalten(); } });
   umschalten();
 
   const feldZeigen = (id, text) => {

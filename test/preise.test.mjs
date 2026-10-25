@@ -39,6 +39,8 @@ test('Fenster je Uhrzeit, Tagesart und Zeitpunkt in Europe/Berlin', () => {
   // Dienstag 19:30 Ortszeit (UTC+1) → abends; Sonntag 10:00 → Wochenende
   assert.deepEqual({ ...jetzt(BAND, new Date('2026-10-27T18:30:00Z')), anteil: undefined }, { art: 'werktags', fenster: 'abend', anteil: undefined });
   assert.equal(jetzt(BAND, new Date('2026-11-01T09:00:00Z')).fenster, 'wochenende');
+  // Ohne Tagesband (Uhrzeiten offen): Tagesart und Lage für die Marke, aber kein Fenster
+  assert.deepEqual(jetzt(null, new Date('2026-10-27T18:30:00Z')), { art: 'werktags', fenster: null, anteil: (19 * 60 + 30) / (24 * 60) });
 });
 
 test('Uhrzeiten als Text, Nacht über Mitternacht zusammengefasst', () => {

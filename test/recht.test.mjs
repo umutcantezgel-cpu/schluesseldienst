@@ -56,3 +56,28 @@ test('Barrierefreiheit: die Geltung des Gesetzes ist ein Platzhalter (sperrt den
   const rechtslage = barrierefreiheit.abschnitte.find((a) => a.id === 'rechtslage');
   assert.ok(rechtslage.bloecke.some((b) => [b.absatz].flat().some(istPlatzhalter)));
 });
+
+test('Abschnitte und Inhaltsverzeichnis tragen dieselben Nummern in derselben Reihenfolge', () => {
+  const h = impressumHtml();
+  const marken = [...h.matchAll(/<span class="abschnitt-nr">(\d{2})<\/span>/g)].map((m) => m[1]);
+  const verzeichnis = [...h.matchAll(/<span class="recht-toc-nr" aria-hidden="true">(\d{2})<\/span>/g)].map((m) => m[1]);
+  assert.ok(marken.length >= 3);
+  assert.deepEqual(verzeichnis, marken);
+  assert.deepEqual(marken, marken.map((_, i) => String(i + 1).padStart(2, '0')));
+});
+
+test('Darstellung: „E-Mail“ bricht nie nach „E-“ um, Wortlaut und Links bleiben unverändert', () => {
+  const h = String(seiten({ basisUrl: BASIS }).find((x) => x.pfad === '/datenschutz/').inhalt(sk));
+  const teile = h.split(/(<[^>]+>)/);
+  let n = 0;
+  for (let i = 0; i < teile.length; i++) {
+    if (teile[i].startsWith('<') || !teile[i].includes('E-Mail')) continue;
+    n++;
+    assert.equal(teile[i - 1], '<span class="kein-umbruch">', `ungeschützt: „${teile[i]}“`);
+    assert.match(teile[i], /^E-Mail(-\p{L}+)?$/u);
+  }
+  assert.ok(n >= 3, `nur ${n} Vorkommen geprüft`);
+  const ohneSpan = h.replace(/<span class="kein-umbruch">([^<]*)<\/span>/g, '$1');
+  assert.match(ohneSpan, /Das Formular auf der <a href="\/kontakt\/">Kontaktseite<\/a> öffnet Ihr E-Mail-Programm mit einem vorbereiteten Entwurf\./);
+  assert.match(ohneSpan, /<h2 id="teil-[^"]+">Kontakt per Telefon und E-Mail<\/h2>/);
+});

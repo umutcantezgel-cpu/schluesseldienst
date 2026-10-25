@@ -1,12 +1,13 @@
 // V02 Leistungsgruppe (Erzählansicht). Abschnittsfolge:
 // Kopf mit Register der Gruppe (7/5) · Szene M-17 (Band) · Nachweis (Teilung 4/8) · Wissen (alle Textabschnitte in
-// einem Registerblatt) · Abschnitt für Betriebe (dicht) · Preisauszug (falls Preise) · Häufige Fragen · Weiterlesen ·
+// einem Registerblatt) · Abschnitt für Betriebe (dicht) · Preisauszug als Tabelle über die volle Breite (falls Preise) · Häufige Fragen · Weiterlesen ·
 // Schlussband (dunkel) mit Anruf. Nach der Szene wechseln Papier und Band ab (Rhythmusregel K-006).
 // Inhalte: src/inhalte/<gruppe>/index.mjs (nur Gruppen mit Inhaltsmodul werden gebaut).
 import { access } from 'node:fs/promises';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { html } from '../../../bau/lib/html.mjs';
+import { html, roh, escape } from '../../../bau/lib/html.mjs';
+import { textTrennen } from '../../../bau/lib/trennen.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import { GRUPPEN } from '../../konfig/leistungen.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
@@ -96,12 +97,14 @@ ${absaetze(a)}
 </section>`;
 }
 
+// Preis als Tabelle über die volle Inhaltsbreite (Layout „Tabelle“ statt einer weiteren 4/8-Teilung, K-006): Die fünf
+// Spalten bekommen Platz, und der Abschnitt hebt sich von Nachweis und Betrieben davor ab.
 function preis(sk, p, band) {
-  return html`<section class="sektion${flaeche(band)}" aria-labelledby="gruppe-preis-titel">
-<div class="raster"><div class="gruppe-teilung">
+  return html`<section class="sektion gruppe-preis${flaeche(band)}" aria-labelledby="gruppe-preis-titel">
+<div class="raster">
 ${abschnittKopf({ id: 'gruppe-preis-titel', titel: p.titel, einleitung: p.text })}
 <div class="preis-auszug">${preistabelle(sk, { positionen: p.positionen, id: 'gruppe-preise' })}</div>
-</div></div>
+</div>
 </section>`;
 }
 
@@ -114,11 +117,14 @@ ${faq(sk, liste)}
 </section>`;
 }
 
+// Kartentitel wirken als Überschrift und trennen deshalb nur an den Fugen der Wortliste (K-006), wie h1–h4 im Bau
+const kartenTitel = (t) => roh(textTrennen(escape(t)));
+
 function weiter(sk, liste) {
   return html`<section class="sektion sektion-dicht" aria-labelledby="weiter-titel">
 <div class="raster">
 ${abschnittKopf({ id: 'weiter-titel', titel: 'Weiterlesen' })}
-<ul class="weiter">${liste.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${w.titel}</span><span class="weiter-text">${w.text}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
+<ul class="weiter">${liste.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${kartenTitel(w.titel)}</span><span class="weiter-text">${w.text}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
 </div>
 </section>`;
 }

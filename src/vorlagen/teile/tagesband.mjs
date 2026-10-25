@@ -9,20 +9,26 @@ import { istPlatzhalter } from '../../../bau/lib/platzhalter.mjs';
 import { bandPruefen, minutenVon, TAGESARTEN } from '../../assets/js/logik/preise.mjs';
 import { fensterZeit } from './preisauszug.mjs';
 
-// Senkrechte Maße einer Zeile in px: Titel, Spur für die Marke, Balken, Skala
+// Senkrechte Maße einer Zeile in px (Grundlinien). Die Marke „jetzt“ hat eine eigene Spur zwischen Titel und Balken:
+// Morgens steht sie links unter dem Zeilentitel und darf ihn nicht berühren. Gemessen an den Textboxen (fs--1, bis 15 px):
+// mindestens 8 px zum Titel, mindestens 4 px zum Balken. Beide Zeilen haben dieselbe Spur, mit oder ohne Marke.
+// Der Abstand zwischen den Zeilen ist deutlich größer als der zwischen Titel und Balken, sonst gehörte der zweite
+// Titel optisch zur Skala darüber.
 const TITEL_Y = 14;
-const MARKE_Y = 26;
-const BALKEN_Y = 40;
+const MARKE_Y = 40;
+const MARKE_TEXT_Y = MARKE_Y + 5;
+const BALKEN_Y = 56;
 const BALKEN_H = 36;
 const SKALA_Y = BALKEN_Y + BALKEN_H;
 const ZAHL_Y = SKALA_Y + 22;
-const VERSATZ = { werktags: 0, wochenende: 120 };
+const VERSATZ = { werktags: 0, wochenende: ZAHL_Y + 60 };
 const H = VERSATZ.wochenende + ZAHL_Y + 6;
 const TITEL = { werktags: 'Montag bis Freitag', wochenende: 'Samstag, Sonntag und Feiertag' };
 
-// Name im Balken nur, wenn er auch auf der kleinsten Breite des Bereichs hineinpasst (px des SVG je Breakpoint;
-// geschätzt 8 px je Zeichen plus Rand). Die Klasse schaltet ihn ab dem Breakpoint ein; die Legende nennt ihn immer.
-const BEREICHE = [['0', 240], ['30', 390], ['48', 660], ['64', 900]];
+// Name im Balken nur, wenn er auch auf der kleinsten Breite des Bereichs hineinpasst. Die Bereiche sind die
+// Container-Abfragen in preise.css (24em, 36em, 46em, 56em bei mindestens 17 px Schrift); geschätzt 8 px je Zeichen
+// plus Rand. Die Legende nennt jeden Namen immer.
+const BEREICHE = [['0', 240], ['s', 408], ['m', 612], ['l', 782], ['xl', 952]];
 const nameAb = (name, anteil) => BEREICHE.find(([, breite]) => anteil * breite >= name.length * 8 + 20)?.[0] ?? null;
 
 const pz = (wert) => `${Number(wert.toFixed(3))}%`;
@@ -40,8 +46,8 @@ function skala() {
 function zeile({ art, band, offen, titel, praefix }) {
   const kopf = html`<text class="tb-zeile-titel" y="${TITEL_Y}">${TITEL[art]}</text>`;
   const balken = offen
-    ? html`<rect class="tb-offen" x="0" y="${BALKEN_Y}" width="100%" height="${BALKEN_H}" rx="4" fill="url(#${praefix}-schraffur)"/>`
-    : html`<g clip-path="url(#${praefix}-kappe)">${band[art].map(([id, von, bis]) => {
+    ? html`<rect class="tb-offen" x="0" y="${BALKEN_Y}" width="100%" height="${BALKEN_H}" rx="2" fill="url(#${praefix}-schraffur)"/>`
+    : html`<g class="tb-teile">${band[art].map(([id, von, bis]) => {
       const x0 = anteilVon(von);
       const breite = anteilVon(bis) - x0;
       const ab = nameAb(titel.get(id), breite);
@@ -50,7 +56,7 @@ function zeile({ art, band, offen, titel, praefix }) {
   return html`<g class="tb-zeile" data-art="${art}" transform="translate(0 ${VERSATZ[art]})">${kopf}${balken}${skala()}</g>`;
 }
 
-export function tagesband(sk, { praefix = 'tb', jetztText = 'jetzt' } = {}) {
+export function tagesband(sk, { praefix = 'tb', jetztText = 'jetzt', hinweis = '' } = {}) {
   const { preise } = sk.konfig;
   const band = preise.tagesband;
   const fenster = preise.zeitfenster;
@@ -62,11 +68,10 @@ export function tagesband(sk, { praefix = 'tb', jetztText = 'jetzt' } = {}) {
   }
   const daten = JSON.stringify({ band: offen ? null : band, zeilen: VERSATZ });
   // Die Marke steht anfangs bei 0 % und ist verborgen, bis das Modul Zeile, Lage und Uhrzeit gesetzt hat.
-  const marke = html`<g class="tb-jetzt" data-rolle="marke"><line x1="0" x2="0" y1="${MARKE_Y}" y2="${SKALA_Y + 6}"/><circle cx="0" cy="${MARKE_Y}" r="4"/><text class="tb-jetzt-text" x="0" dx="8" y="${MARKE_Y + 4}">${jetztText} <tspan class="tb-jetzt-zeit"></tspan></text></g>`;
+  const marke = html`<g class="tb-jetzt" data-rolle="marke"><line x1="0" x2="0" y1="${MARKE_Y}" y2="${SKALA_Y + 6}"/><circle cx="0" cy="${MARKE_Y}" r="4"/><text class="tb-jetzt-text" x="0" dx="8" y="${MARKE_TEXT_Y}">${jetztText} <tspan class="tb-jetzt-zeit"></tspan></text></g>`;
   return html`<figure class="tagesband" data-modul="tagesband" data-band="${daten}"${offen ? html` data-zustand="offen"` : ''}>
-<svg class="tagesband-svg" width="100%" height="${H}" aria-hidden="true" focusable="false"><defs>${offen
-    ? html`<pattern id="${praefix}-schraffur" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path class="tb-schraffur" d="M0 0V6"/></pattern>`
-    : html`<clipPath id="${praefix}-kappe"><rect x="0" y="${BALKEN_Y}" width="100%" height="${BALKEN_H}" rx="4"/></clipPath>`}</defs>${TAGESARTEN.map((art) => zeile({ art, band, offen, titel, praefix }))}${marke}</svg>
+<svg class="tagesband-svg" width="100%" height="${H}" aria-hidden="true" focusable="false">${offen ? html`<defs><pattern id="${praefix}-schraffur" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path class="tb-schraffur" d="M0 0V6"/></pattern></defs>` : ''}${TAGESARTEN.map((art) => zeile({ art, band, offen, titel, praefix }))}${marke}</svg>
 <dl class="tagesband-legende">${fenster.map((f) => html`<div class="tb-eintrag tb-eintrag-${f.id}" data-fenster="${f.id}"><dt>${f.titel}</dt><dd>${fensterZeit(preise, f)}</dd></div>`)}</dl>
+${hinweis ? html`<figcaption class="tb-hinweis">${hinweis}</figcaption>` : ''}
 </figure>`;
 }

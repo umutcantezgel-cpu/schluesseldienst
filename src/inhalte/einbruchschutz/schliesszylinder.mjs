@@ -5,7 +5,8 @@ export default {
   beschreibung: 'Schließzylinder mit Bohr-, Zieh- und Aufsperrschutz: woran Sie ihn erkennen, worauf es beim Maß ankommt, was der Tausch kostet.',
   h1: 'Sicherheitszylinder einbauen in Weilburg und Umgebung',
   kurz: 'Ein Zylinder mit guten Schutzfunktionen erschwert das Bohren, Ziehen und Aufsperren. Welcher passt, hängt von Tür, Maß und Schutzbedarf ab, und das klären wir vor dem Einbau.',
-  figurText: 'Die Tür, Schicht für Schicht: hier nur der Zylinder im Türblatt.',
+  figur: 'zylinder',
+  figurText: 'Schnitt durch den Zylinder: Der passende Schlüssel hebt alle Stifte auf die Scherlinie, erst dann dreht der Kern.',
   blick: [
     { titel: 'Schutzfunktionen', text: 'Bohr-, Zieh- und Aufsperrschutz prüfen' },
     { titel: 'Maß', text: 'Länge passend zur Türstärke, ohne Überstand' },

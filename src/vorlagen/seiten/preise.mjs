@@ -1,5 +1,5 @@
 // V04 Preise (Arbeitsansicht). Abschnittsfolge nach Themenpass /preise/:
-// Kopf mit Preisformel (7/5) · Preisliste mit Tagesband (Band) · Anfahrt nach Zone mit Ortsprüfung (7/5) ·
+// Kopf mit Preisformel (7/5) · Preisliste mit Tagesband (Band) · Anfahrt nach Zone: Tabelle und Ortsprüfung (7/5) ·
 // Preisrechner (Band) · Material, Zahlarten, erfolglose Öffnung · FAQ (Band) · Weiterlesen · Schlussband.
 // Beträge und Uhrzeiten nur aus src/konfig/preise.mjs; Offer-Daten im JSON-LD nur ohne Platzhalter.
 import { html } from '../../../bau/lib/html.mjs';
@@ -17,16 +17,19 @@ import { tagesband } from '../teile/tagesband.mjs';
 
 const NOTFALL = (pos) => pos.leistung.startsWith('/notoeffnung/');
 
-// Daten für den Rechner: Platzhalter werden null, „vollstaendig“ nur ohne jeden Platzhalter
+// Daten für den Rechner: Platzhalter werden null, „vollstaendig“ nur ohne jeden Platzhalter. Für die Rechnung im
+// offenen Zustand steht die Markierung jedes Platzhalters unter „offen“ („position/fenster“, „anfahrt/zone“); im
+// Attribut löst der Bau sie zur Beschriftung auf („[Preis folgt]“). Die Rechenlogik sieht davon nichts.
 function rechnerDaten(sk) {
   const { preise, zonen } = sk.konfig;
   let vollstaendig = true;
-  const wert = (w) => { if (istPlatzhalter(w)) { vollstaendig = false; return null; } return w ?? null; };
-  const positionen = Object.fromEntries(preise.positionen.map((p) => [p.id, Object.fromEntries(preise.zeitfenster.map((z) => [z.id, wert(p.preise[z.id])]))]));
-  const anfahrt = Object.fromEntries(zonen.stufen.map((s) => [s.id, wert(preise.anfahrt[s.id])]));
+  const offen = {};
+  const wert = (w, schluessel) => { if (istPlatzhalter(w)) { vollstaendig = false; offen[schluessel] = String(w); return null; } return w ?? null; };
+  const positionen = Object.fromEntries(preise.positionen.map((p) => [p.id, Object.fromEntries(preise.zeitfenster.map((z) => [z.id, wert(p.preise[z.id], `${p.id}/${z.id}`)]))]));
+  const anfahrt = Object.fromEntries(zonen.stufen.map((s) => [s.id, wert(preise.anfahrt[s.id], `anfahrt/${s.id}`)]));
   const nurAbsprache = Object.fromEntries(zonen.stufen.filter((s) => s.notoeffnung !== 'ja').map((s) => [s.id, preise.positionen.filter(NOTFALL).map((p) => p.id)]));
   return {
-    vollstaendig, positionen, anfahrt, nurAbsprache,
+    vollstaendig, positionen, anfahrt, nurAbsprache, offen,
     titel: {
       positionen: Object.fromEntries(preise.positionen.map((p) => [p.id, p.titel])),
       fenster: Object.fromEntries(preise.zeitfenster.map((z) => [z.id, z.titel])),
@@ -70,8 +73,7 @@ function liste(sk) {
 <div class="raster">
 ${abschnittKopf({ id: 'liste-titel', titel: l.titel, einleitung: l.einleitung })}
 <div class="preise-liste">
-${tagesband(sk, { praefix: 'preise-tb', jetztText: l.jetzt })}
-<p class="preise-band-text">${offen ? l.bandOffen : l.band}</p>
+${tagesband(sk, { praefix: 'preise-tb', jetztText: l.jetzt, hinweis: offen ? l.bandOffen : l.band })}
 ${preistabelle(sk, { id: 'preisliste' })}
 </div>
 </div>
@@ -82,13 +84,14 @@ function anfahrt(sk) {
   const a = inhalt.anfahrt;
   const { stufen, nl } = sk.konfig.zonen;
   const preise = sk.konfig.preise.anfahrt;
-  const radius = (s, i) => (s.bisKm === Infinity ? html`über <span data-daten="">${String(stufen[i - 1].bisKm)}</span>&nbsp;km` : html`bis <span data-daten="">${String(s.bisKm)}</span>&nbsp;km`);
+  // Ein Element je Zelle: Die schmale Tabelle setzt den Wert als Ganzes neben die Beschriftung (preis.css)
+  const radius = (s, i) => (s.bisKm === Infinity ? html`<span>über <span data-daten="">${String(stufen[i - 1].bisKm)}</span>&nbsp;km</span>` : html`<span>bis <span data-daten="">${String(s.bisKm)}</span>&nbsp;km</span>`);
   const kosten = (s) => (s.id === 'A' ? a.zeilen.A : preise[s.id] === null ? a.zeilen[s.id] : html`${betrag(preise[s.id])}`);
   const notfall = (s) => (s.notoeffnung === 'ja' ? 'ja' : 'nach Absprache');
   return html`<section class="sektion" aria-labelledby="anfahrt-titel">
-<div class="raster"><div class="preise-anfahrt-teilung">
-<div>
+<div class="raster">
 ${abschnittKopf({ id: 'anfahrt-titel', titel: a.titel, einleitung: a.einleitung })}
+<div class="preise-anfahrt-teilung">
 <div class="preis-tabelle-huelle">
 <table class="preis-tabelle anfahrt-tabelle">
 <caption>Anfahrt je Zone ab Weilburg</caption>
@@ -98,7 +101,6 @@ ${stufen.map((s, i) => html`<tr><th scope="row"><span class="zone-kurz">${s.id}<
 <tr><th scope="row"><span class="zone-kurz">NL</span> ${nl.titel}</th><td class="anfahrt-radius" data-titel="Entfernung">wie Zone ${nl.wieZone}</td><td data-titel="Anfahrt">${a.zeilen.NL}</td><td data-titel="Notöffnung">nach Absprache</td></tr>
 </tbody>
 </table>
-</div>
 </div>
 <div class="preise-pruefung">${ortspruefung(sk, { id: 'preise-ort', titel: a.pruefTitel, hinweis: a.pruefHinweis })}</div>
 </div></div>

@@ -8,9 +8,22 @@
   .leistung-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
   .leistung-kurz { font-size: var(--fs-1); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block: var(--sp-s) var(--sp-m); }
   .leistung-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
-  .leistung-figur { margin: 0; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
-  .leistung-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); margin-block-start: var(--sp-s); max-inline-size: var(--mass); }
-  .leistung-blick { border-block: var(--linie-haar) solid var(--c-linie-ui); background: var(--c-papier-2); }
+  /* Container: Die Beschriftung der Figur richtet sich nach der Breite, in der die Figur tatsächlich steht. Die
+     Schriftgröße der Figur ist fs--1 – daran messen sich auch die em der Container-Stufen unten */
+  .leistung-figur { margin: 0; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); container-type: inline-size; font-size: var(--fs--1); }
+  /* Hochformatige Figuren (Tür, Fenster) füllten sonst die Spalte und streckten den Kopf über eine Bildschirmhöhe */
+  .leistung-figur .ill { max-block-size: var(--karte-breit); margin-inline: auto; }
+  .leistung-figur .zylinder { display: block; inline-size: 100%; block-size: auto; }
+  .leistung-figur figcaption { color: var(--c-tinte-3); margin-block-start: var(--sp-s); max-inline-size: var(--mass); }
+  /* Beschriftung der Figur (Falle/Riegel, viewBox 400 breit) skaliert mit der Figur: gerendert = Größe × Breite / 400.
+     Die Stufen liegen so, dass das nie unter fs--1 fällt: 18 ab 22,5 fs--1 Breite, 16 ab 27 fs--1; schmaler 24
+     (bei 320 px Bildschirm 14,4 px) */
+  .leistung-figur .ill-text { font-size: var(--svg-text-gross); }
+  @container (min-width: 22.5em) { .leistung-figur .ill-text { font-size: var(--svg-text-l); } }
+  @container (min-width: 27em) { .leistung-figur .ill-text { font-size: var(--svg-text-m); } }
+  /* Ab 30em steht der Kopf noch einspaltig: Die Figur bleibt in Figurgröße statt die volle Zeile zu füllen */
+  @media (min-width: 30em) { .leistung-figur { max-inline-size: var(--hero-figur-max); } }
+  .leistung-blick { border-block: var(--linie-haar) solid var(--c-linie); background: var(--c-papier-2); }
   .blick { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); margin: 0; }
   .blick-eintrag { padding: var(--sp-s) var(--sp-m) var(--sp-s) 0; }
   .blick dt { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-kupfer); }
@@ -38,8 +51,17 @@
     .leistung-text { grid-area: text; }
     /* Die Randspalte klebt nur mit dem, was in die Höhe passt; auf sehr niedrigen Bildschirmen rollt sie in sich,
        statt unten abgeschnitten mitzulaufen */
-    .leistung-rand { grid-area: rand; position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); max-block-size: calc(100vh - var(--kopf-hoehe-desktop) - 2 * var(--sp-m)); overflow-y: auto; }
+    .leistung-rand { grid-area: rand; position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); max-block-size: calc(100vh - var(--kopf-hoehe-desktop) - 2 * var(--sp-m)); overflow-y: auto; padding: var(--sp-2xs); margin: calc(-1 * var(--sp-2xs)); } /* Innenabstand: Platz für den Fokusring */
+    /* Mehrere Preispositionen sind höher als übliche Laptop-Bildschirme: Diese Spalte steht ruhig neben dem Text */
+    .leistung-rand-lang { position: static; max-block-size: none; overflow: visible; padding: 0; margin: 0; }
     .leistung-teilung-preis { grid-template-areas: "text rand" "mehr rand"; row-gap: var(--sp-xl); }
     .leistung-teilung-preis .leistung-mehr { grid-area: mehr; max-inline-size: var(--mass); }
   }
+  /* Kartentitel sind Überschriften ohne h-Element: keine automatische Trennung (K-006), nur an den Fugen der
+     Wortliste (die Vorlage setzt sie); gehört eigentlich in seitenteile.css (dort für alle Ansichten) */
+  .weiter-titel { hyphens: manual; }
+  /* Tablet: Bei drei Karten nebeneinander bliebe dem Titel neben dem Pfeil nur rund 140 px – zu schmal für lange
+     Komposita. Der Pfeil rückt zur Beschreibung, der Titel nutzt die ganze Kartenbreite */
+  @media (min-width: 48em) { .weiter a { grid-template-areas: "titel titel" "text pfeil"; } }
+  @media (min-width: 64em) { .weiter a { grid-template-areas: "titel pfeil" "text pfeil"; } }
 }

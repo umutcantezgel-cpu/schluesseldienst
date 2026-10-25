@@ -16,7 +16,7 @@
   .gruppe-register-name { grid-area: name; font-weight: var(--fw-titel); }
   .gruppe-register-kurz { grid-area: kurz; font-size: var(--fs--1); color: var(--c-tinte-3); }
   .nachweis { display: grid; gap: 0; margin: 0; }
-  .nachweis-eintrag { display: grid; gap: var(--sp-3xs); padding-block: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .nachweis-eintrag { display: grid; gap: var(--sp-3xs); padding-block: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie); }
   .nachweis dt { font-weight: var(--fw-titel); }
   .nachweis dd { margin: 0; color: var(--c-tinte-2); max-inline-size: var(--mass); }
 
@@ -25,13 +25,14 @@
   .gruppe-wissen-raster { display: grid; gap: var(--sp-xl); }
   .gruppe-eintrag-leit { display: grid; gap: var(--sp-l); }
   .gruppe-eintrag-leit > .abschnitt-kopf { margin-block-end: 0; }
-  .gruppe-eintrag { position: relative; display: grid; gap: var(--sp-s); align-content: start; padding-block-start: var(--sp-m); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .gruppe-eintrag { position: relative; display: grid; gap: var(--sp-s); align-content: start; padding-block-start: var(--sp-m); border-block-start: var(--linie-haar) solid var(--c-linie); }
   .gruppe-eintrag::before { content: ""; position: absolute; inset-block-start: calc(-1 * var(--linie-haar)); inset-inline-start: 0; inline-size: var(--sp-xl); block-size: var(--linie-scher); background: var(--c-kupfer); }
   .gruppe-eintrag-titel { font-size: var(--fs-2); }
-  @media (min-width: 48em) {
+  /* Zweispaltig erst ab 64em: auf dem Tablet würden die Spalten schmaler als das halbe Textmaß */
+  @media (min-width: 64em) {
     .gruppe-wissen-raster { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-xl); row-gap: var(--sp-2xl); }
     /* Der führende Abschnitt teilt sich an derselben Fuge wie die Spalten darunter: Titel links, Text rechts */
-    .gruppe-eintrag-leit { grid-column: 1 / -1; grid-template-columns: subgrid; align-items: start; }
+    .gruppe-eintrag-leit { grid-column: 1 / -1; grid-template-columns: subgrid; column-gap: var(--sp-xl); align-items: start; }
   }
 
   @media (min-width: 64em) {
@@ -41,4 +42,11 @@
     /* Das Register rechts ist länger als der Text links: Der Text bleibt stehen, bis das Register endet */
     .gruppe-kopf-text { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-xl)); }
   }
+  /* Kartentitel sind Überschriften ohne h-Element: keine automatische Trennung (K-006), nur an den Fugen der
+     Wortliste (die Vorlage setzt sie); gehört eigentlich in seitenteile.css (dort für alle Ansichten) */
+  .weiter-titel { hyphens: manual; }
+  /* Tablet: Bei drei Karten nebeneinander bliebe dem Titel neben dem Pfeil nur rund 140 px – zu schmal für lange
+     Komposita. Der Pfeil rückt zur Beschreibung, der Titel nutzt die ganze Kartenbreite */
+  @media (min-width: 48em) { .weiter a { grid-template-areas: "titel titel" "text pfeil"; } }
+  @media (min-width: 64em) { .weiter a { grid-template-areas: "titel pfeil" "text pfeil"; } }
 }

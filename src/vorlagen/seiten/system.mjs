@@ -1,6 +1,6 @@
 // V12 Systemseite 404 (Arbeitsansicht, nicht indexiert): Text 7/5 mit dem Zylinder eines falschen Schlüssels (M-21,
 // Charakter: Stifte wackeln, die Linienhälften finden nicht zusammen; ohne Bewegung der gebrochene Zustand).
-// Darunter drei Wege, Ortssuche und Anruf.
+// Darunter die drei Wege über die ganze Breite (mobil direkt nach dem Text, vor der Figur), dann Ortssuche und Anruf.
 import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import inhalt from '../../inhalte/system.mjs';
@@ -15,13 +15,13 @@ export function seiten() {
     typ: 'system', ansicht: 'V12', indexierbar: false, koerperKlasse: 'seite-fehler', stile: ['system'],
     inhalt: (sk) => html`<section class="system-kopf" aria-labelledby="fehler-titel">
 <div class="raster"><div class="fehler-teilung">
-<div>
+<div class="fehler-text">
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${f.kicker}</p>
 <h1 id="fehler-titel">${f.h1}</h1>
 <p class="gruppe-einleitung">${text(f.text)}</p>
-<ul class="weiter fehler-wege">${f.wege.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${w.titel}</span><span class="weiter-text">${w.text}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
 </div>
+<ul class="weiter fehler-wege">${f.wege.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${w.titel}</span><span class="weiter-text">${w.text}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
 <figure class="fehler-figur" data-moment="falsch">${zylinderSchnitt({ praefix: 'fehler-zy', falsch: true, dekorativ: true })}<figcaption>${f.figur}</figcaption></figure>
 </div></div>
 </section>

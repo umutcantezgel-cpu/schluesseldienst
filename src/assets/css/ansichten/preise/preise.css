@@ -1,70 +1,123 @@
-/* V04 Preise: Kopf 7/5 mit Preisformel, Tagesband mit Legende, Anfahrt 7/5 mit Ortsprüfung, Rechner als Karte
-   (Fragen links, Ergebnis rechts klebend), drei Regel-Blöcke. Zustände über Attribute (data-jetzt, data-status). */
+/* V04 Preise: Kopf 7/5 mit der Preisformel als schriftlicher Addition (der Summenstrich ist die Scherlinie), Tagesband
+   mit Legende, Anfahrt 7/5 mit Ortsprüfung, Rechner als Karte (Fragen in drei Spalten, darunter das Ergebnis wie eine
+   Rechnung), drei Regel-Blöcke. Zustände über Attribute (data-jetzt, data-status, data-zustand, data-takt).
+   Kupfer nur für Summenstrich, Rechenzeichen, Zonenbuchstaben und „jetzt“; Karten tragen neutrale Kanten (P1). */
 @layer komponenten {
   .preise-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
   .preise-kopf-teilung { display: grid; gap: var(--sp-xl); }
   .preise-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
+  /* Einleitungen in fs-1 trennen nicht: Drei Zeilen Lesetext in dieser Größe vertragen keinen Trennstrich */
+  .seite-preise :is(.gruppe-einleitung, .abschnitt-einleitung) { hyphens: manual; text-wrap: pretty; }
   .preise-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
+
   .preise-formel { display: grid; gap: var(--sp-s); align-content: start; }
-  .formel { list-style: none; padding: 0; display: grid; gap: 0; counter-reset: formel; }
+  /* Die Kante des Formeltitels steht auf Höhe der Kopflinie links, bleibt aber neutral: Es führt nur eine Linie */
+  .preise-formel .rand-titel { border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .formel { list-style: none; margin: 0; padding: 0; display: grid; counter-reset: formel; }
   .formel-teil { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon titel" "icon text"; column-gap: var(--sp-s); padding-block: var(--sp-s); border-block-end: var(--linie-haar) solid var(--c-linie); position: relative; }
-  .formel-teil + .formel-teil::before { content: "+"; position: absolute; inset-block-start: calc(-1 * var(--sp-xs)); inset-inline-start: calc(var(--icon-leistung) + var(--sp-s)); font-family: var(--ff-mono); font-weight: var(--fw-titel); color: var(--c-kupfer); background: var(--c-papier); padding-inline: var(--sp-2xs); line-height: var(--lh-dicht); }
-  .formel-teil.formel-summe { border-block-end: var(--linie-scher) solid var(--c-kupfer); }
-  .formel-teil.formel-summe::before { content: "="; }
+  /* Rechenzeichen mittig auf der Linie über ihrem Posten, in der Textspalte: Die Box (Zeilenhöhe 1) steht mit ihrer
+     Mitte auf der Mitte der Linie, die Papierfläche unterbricht die Linie links und rechts vom Zeichen. In der
+     Mono-Schrift liegen „+“ und „=“ etwa 1,5 px unter der Boxmitte; der Zusatz gleicht das aus (gemessen ±1 px). */
+  .formel-teil + .formel-teil::before { content: "+"; position: absolute; inset-block-start: calc(-1 * var(--linie-haar) / 2); inset-inline-start: calc(var(--icon-leistung) + var(--sp-s)); translate: 0 calc(-50% - var(--linie-ui)); font-family: var(--ff-mono); font-weight: var(--fw-titel); color: var(--c-kupfer); background: var(--c-papier); padding-inline: var(--sp-2xs); line-height: 1; }
+  /* Schriftliche Addition: Der Summenstrich unter dem letzten Posten ist die Kupferlinie, das „=“ sitzt auf ihr,
+     darunter steht das Ergebnis ohne eigene Kante */
+  .formel-teil:nth-last-child(2) { border-block-end: var(--linie-scher) solid var(--c-kupfer); }
+  .formel-teil.formel-summe { border-block-end: 0; padding-block-start: var(--sp-m); }
+  .formel-teil.formel-summe::before { content: "="; inset-block-start: calc(-1 * var(--linie-scher) / 2); }
   .formel-icon { grid-area: icon; inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); align-self: start; }
   .formel-titel { grid-area: titel; font-weight: var(--fw-titel); }
+  .formel-summe .formel-titel { font-size: var(--fs-1); line-height: var(--lh-titel); }
   .formel-text { grid-area: text; font-size: var(--fs--1); color: var(--c-tinte-3); }
   .formel-material, .formel-ust { font-size: var(--fs--1); color: var(--c-tinte-2); max-inline-size: var(--mass); }
 
   .preise-liste { display: grid; gap: var(--sp-m); }
-  .preise-band-text { font-size: var(--fs--1); color: var(--c-tinte-2); }
-  .tagesband { margin: 0; display: grid; gap: var(--sp-s); padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
-  .tagesband-svg { display: block; inline-size: 100%; block-size: auto; overflow: visible; }
-  .tb-breit { display: none; }
-  .tb-schmal .tb-zeile-titel, .tb-schmal .tb-name { font-size: var(--svg-text-gross); }
-  .tb-schmal .tb-uhr, .tb-schmal .tb-jetzt-text { font-size: var(--svg-text-l); }
-  .tb-zeile-titel { font-size: var(--svg-text-m); font-weight: var(--fw-ui); fill: var(--c-tinte-2); }
-  .tb-uhr { font-family: var(--ff-mono); font-size: var(--svg-text-s); fill: var(--c-tinte-3); }
-  .tb-strich { stroke: var(--c-linie-ui); stroke-width: 1.5; }
-  .tb-offen { stroke: var(--c-linie-ui); stroke-width: 1.5; }
-  .tb-schraffur { stroke: var(--c-linie-ui); stroke-width: 1.5; }
-  .tb-teil { stroke: var(--c-flaeche); stroke-width: 2; }
+
+  /* Tagesband: SVG in px mit x in Prozent – Schrift in den Größen des Fließtexts, auf jeder Breite gleich */
+  .tagesband { container-type: inline-size; margin: 0; display: grid; gap: var(--sp-m); padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  .tagesband-svg { display: block; inline-size: 100%; overflow: visible; }
+  .tb-zeile-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); fill: var(--c-tinte-2); }
+  .tb-uhr { font-family: var(--ff-mono); font-size: var(--fs--1); fill: var(--c-tinte-3); }
+  .tb-lang { display: none; }
+  .tb-strich { stroke: var(--c-linie-ui); stroke-width: var(--linie-ui); }
+  .tb-strich-klein { stroke: var(--c-linie-ui); stroke-width: var(--linie-haar); }
+  .tb-offen, .tb-schraffur { stroke: var(--c-linie-ui); stroke-width: var(--linie-ui); }
+  .tb-teil { stroke: var(--c-flaeche); stroke-width: var(--linie-scher); }
   .tb-werktag { fill: var(--c-lahn-hell); }
   .tb-abend { fill: var(--c-lahn); fill-opacity: .45; }
   .tb-nacht { fill: var(--c-tinte); fill-opacity: .8; }
-  .tb-wochenende { fill: var(--c-kupfer-hell); }
-  .tb-teil[data-jetzt] { stroke: var(--c-kupfer); stroke-width: 3; }
-  .tb-name { font-size: var(--svg-text-m); font-weight: var(--fw-ui); fill: var(--c-tinte); pointer-events: none; }
-  .tb-jetzt { stroke: var(--c-kupfer); stroke-width: 3; fill: var(--c-kupfer); }
+  /* Wochenende neutral: Kupfer-hell ist den Platzhaltern vorbehalten (K-005) */
+  .tb-wochenende { fill: var(--c-tinte-3); fill-opacity: .3; }
+  .tb-teil[data-jetzt] { stroke: var(--c-kupfer); stroke-width: var(--linie-fokus); }
+  .tb-name { display: none; font-size: var(--fs--1); font-weight: var(--fw-ui); fill: var(--c-tinte); pointer-events: none; }
+  .tb-nacht + .tb-name { fill: var(--c-papier); }
+  .tb-name-ab-0 { display: inline; }
+  .tb-jetzt { stroke: var(--c-kupfer); stroke-width: var(--linie-scher); fill: var(--c-kupfer); }
   .tb-jetzt:not([data-sichtbar]) { display: none; }
-  .tb-jetzt-text { stroke: none; font-family: var(--ff-mono); font-size: var(--svg-text-s); font-weight: var(--fw-titel); }
-  .tagesband-legende { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); gap: var(--sp-xs) var(--sp-m); }
-  .tb-eintrag { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--sp-xs); align-items: baseline; }
-  .tb-eintrag::before { content: ""; inline-size: var(--sp-s); block-size: var(--sp-s); border-radius: var(--r-s); grid-row: span 2; align-self: center; box-shadow: inset 0 0 0 1px var(--c-linie-ui); }
+  .tb-jetzt-text { stroke: none; font-family: var(--ff-mono); font-size: var(--fs--1); font-weight: var(--fw-titel); }
+  .tb-jetzt-zeit { font-weight: var(--fw-text); }
+  /* Legende an der Kante des Bands: eine, zwei oder vier Spalten nach der Breite des Bands (nie drei plus eine) */
+  .tagesband-legende { margin: 0; display: grid; gap: var(--sp-xs) var(--sp-s); }
+  .tb-eintrag { display: grid; grid-template-columns: auto minmax(0, 1fr); align-content: start; column-gap: var(--sp-xs); align-items: baseline; }
+  .tb-eintrag::before { content: ""; inline-size: var(--sp-xs); block-size: var(--sp-xs); border-radius: var(--r-s); grid-row: span 2; align-self: start; margin-block-start: var(--sp-3xs); box-shadow: inset 0 0 0 1px var(--c-linie-ui); }
   .tb-eintrag-werktag::before { background: var(--c-lahn-hell); }
   .tb-eintrag-abend::before { background: var(--c-lahn); opacity: .45; }
   .tb-eintrag-nacht::before { background: var(--c-tinte); opacity: .8; }
-  .tb-eintrag-wochenende::before { background: var(--c-kupfer-hell); }
-  .tb-eintrag dt { font-weight: var(--fw-ui); }
+  .tb-eintrag-wochenende::before { background: var(--c-tinte-3); opacity: .3; }
+  /* Legende in der Größe der Bandbeschriftung: Sie erklärt das Band, sie konkurriert nicht mit ihm */
+  .tb-eintrag dt { font-size: var(--fs--1); font-weight: var(--fw-ui); line-height: var(--lh-titel); color: var(--c-tinte); }
   .tb-eintrag dd { margin: 0; font-size: var(--fs--1); color: var(--c-tinte-3); }
   .tb-eintrag[data-jetzt] dt::after { content: " · jetzt"; color: var(--c-kupfer); font-weight: var(--fw-titel); }
-  .preis-tabelle [data-jetzt] { background: var(--c-kupfer-hell); }
+  /* Bildunterschrift im Band: gilt für Band und Legende, deshalb unter einer Haarlinie in derselben Karte */
+  .tb-hinweis { padding-block-start: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie); font-size: var(--fs--1); color: var(--c-tinte-2); }
+  /* Ohne Uhrzeiten gibt es im Band keine Farben – also auch keine Farbfelder in der Legende */
+  .tagesband[data-zustand="offen"] .tb-eintrag { grid-template-columns: minmax(0, 1fr); }
+  .tagesband[data-zustand="offen"] .tb-eintrag::before { display: none; }
+  /* „jetzt gültig“ in der Preistabelle: getönt wie die vorgewählte Karte im Rechner, Marke im Kopf wie in der Legende.
+     Nur am Bildschirm: Auf Papier gilt der Moment des Drucks nicht mehr (wie die Legende in druck.css). */
+  @media screen {
+    .preis-tabelle [data-jetzt] { background: var(--c-lahn-hell); }
+    .preis-tabelle th[data-jetzt] .preis-fenster::after { content: " · jetzt"; color: var(--c-kupfer); font-weight: var(--fw-titel); }
+  }
 
+  /* Auf /preise/ steht die Tabellenbeschriftung in beiden Formen der Tabelle wie ein Kartentitel in der Fläche
+     (in der Blockform tut sie das ohnehin). So beginnen Tabelle und Ortsprüfung auf derselben Kante, und
+     Beschriftung und Kartentitel (beide fs-0, gleicher Innenabstand oben) stehen auf einer Grundlinie. */
+  .seite-preise .preis-tabelle caption { background: var(--c-flaeche); padding-block-start: var(--sp-m); border-start-start-radius: var(--r-m); border-start-end-radius: var(--r-m); }
+  /* Erste und letzte Spalte rücken so weit ein wie Tagesband und Ortsprüfung (sp-m): Alle Flächen der Seite haben
+     denselben Innenrand. In der Blockform ergibt sich derselbe Rand aus Zeilen- und Zellenabstand (preis.css). */
+  @container (min-width: 30em) {
+    .seite-preise .preis-tabelle caption { padding-inline: var(--sp-m); }
+    .seite-preise .preis-tabelle { border-start-start-radius: 0; border-start-end-radius: 0; }
+    .seite-preise .preis-tabelle :is(th, td):first-child { padding-inline-start: var(--sp-m); }
+    .seite-preise .preis-tabelle :is(th, td):last-child { padding-inline-end: var(--sp-m); }
+    /* Anfahrt: Die Entfernung ist ein Wert („über 100 km“), die Zonenspalte braucht keine feste Breite */
+    .anfahrt-tabelle .anfahrt-radius { white-space: nowrap; }
+    .anfahrt-tabelle tbody th { inline-size: auto; }
+  }
   .preise-anfahrt-teilung { display: grid; gap: var(--sp-xl); }
   .zone-kurz { font-family: var(--ff-mono); color: var(--c-kupfer); font-weight: var(--fw-titel); }
-  .preise-pruefung { padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); border-block-start: var(--linie-scher) solid var(--c-kupfer); align-self: start; }
+  .preise-pruefung { padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); align-self: start; }
+  .preise-pruefung .ortspruefung-titel { font-size: var(--fs-0); }
+  .preise-pruefung .ortspruefung-hinweis { hyphens: manual; text-wrap: pretty; }
 
   .rechner { display: grid; gap: var(--sp-m); padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-2); }
   .rechner-feld { margin: 0; padding: 0; border: 0; min-inline-size: 0; display: grid; gap: var(--sp-xs); align-content: start; }
   .rechner-feld legend { font-weight: var(--fw-titel); font-size: var(--fs-1); padding: 0; margin-block-end: var(--sp-xs); }
+  /* Auswahlkarten nebeneinander, sobald zwei in die Breite passen (Tablet); in den Desktop-Spalten einspaltig */
+  .rechner .wahl-optionen { grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-min)), 1fr)); }
   .rechner-zonen-link { font-size: var(--fs--1); }
-  .rechner-ergebnis { display: grid; gap: var(--sp-2xs); align-content: start; padding: var(--sp-m); border-radius: var(--r-m); background: var(--c-papier); border-block-start: var(--linie-scher) solid var(--c-kupfer); }
+  .rechner-ergebnis { display: grid; gap: var(--sp-2xs); align-content: start; padding: var(--sp-m); border-radius: var(--r-m); background: var(--c-papier); border-block-start: var(--linie-ui) solid var(--c-linie-ui); }
   .rechner-ergebnis-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
-  .rechner-summe { display: block; font-size: var(--fs-1); font-weight: var(--fw-ui); line-height: var(--lh-titel); }
-  .rechner[data-status="betrag"] .rechner-summe { font-size: var(--fs-4); font-weight: var(--fw-display); font-variant-numeric: tabular-nums; letter-spacing: var(--ls-display); }
-  .rechner-aufschluesselung { font-family: var(--ff-mono); font-size: var(--mono-groesse); color: var(--c-tinte-2); }
-  .rechner-aufschluesselung:empty { display: none; }
-  .rechner-hinweis { font-size: var(--fs--1); color: var(--c-tinte-3); }
+  /* Rechnung: Posten mit Betrag rechts, Summenstrich in Tinte (die Kupferlinie gehört der Formel im Kopf), Summe darunter */
+  .rechner-posten { margin: 0; display: grid; gap: var(--sp-3xs); max-inline-size: var(--karte-breit); font-size: var(--fs--1); color: var(--c-tinte-2); font-variant-numeric: tabular-nums; hyphens: manual; }
+  .rechner-posten:empty { display: none; }
+  .rechner-posten div { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-s); }
+  .rechner-posten dd { margin: 0; white-space: nowrap; }
+  .rechner-summe { display: block; font-size: var(--fs-1); font-weight: var(--fw-ui); line-height: var(--lh-titel); hyphens: manual; text-wrap: balance; }
+  /* Offen (Preisliste fehlt): dieselbe Rechnung, unter dem Summenstrich steht der Satz statt des Betrags */
+  .rechner[data-status="offen"] .rechner-posten:not(:empty) + .rechner-summe { max-inline-size: var(--karte-breit); padding-block-start: var(--sp-2xs); border-block-start: var(--linie-scher) solid var(--c-tinte); text-align: end; }
+  .rechner[data-status="betrag"] .rechner-summe { max-inline-size: var(--karte-breit); padding-block-start: var(--sp-2xs); border-block-start: var(--linie-scher) solid var(--c-tinte); text-align: end; font-size: var(--fs-4); font-weight: var(--fw-display); font-variant-numeric: tabular-nums; letter-spacing: var(--ls-display); }
+  .rechner-hinweis { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); }
 
   .preise-regeln { display: grid; gap: var(--sp-l); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-breit)), 1fr)); }
   .preise-regel { display: grid; gap: var(--sp-xs); align-content: start; padding-block-start: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
@@ -74,16 +127,59 @@
   .preise-regel-liste { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
   .preise-zahlarten { color: var(--c-tinte-2); }
 
-  @media (min-width: 48em) { .tb-breit { display: block; } .tb-schmal { display: none; } }
+  /* Tagesband nach der eigenen Breite: lange Uhrzeiten, sobald fünf nebeneinander passen; Namen im Balken nur,
+     wenn sie in ihren Abschnitt passen (Klasse aus der Vorlage) */
+  /* em bezieht sich hier auf die Schriftgröße des Bands (fs-0, mindestens 17 px); tagesband.mjs rechnet mit diesen Stufen */
+  /* 17em: bei 390 px Viewport ist das Band 306 px breit (Innenrand sp-m wie alle Flächen der Seite) */
+  @container (min-width: 17em) {
+    .tb-lang { display: inline; }
+    .tb-kurz { display: none; }
+    .tagesband-legende { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @container (min-width: 44em) { .tagesband-legende { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @container (min-width: 24em) { .tb-name-ab-s { display: inline; } }
+  @container (min-width: 36em) { .tb-name-ab-m { display: inline; } }
+  @container (min-width: 46em) { .tb-name-ab-l { display: inline; } }
+  @container (min-width: 56em) { .tb-name-ab-xl { display: inline; } }
+
+  /* Anfahrt mobil (Blöcke unter 30em Tabellenbreite): Die Entfernung steht neben der Zone, darunter Anfahrt und Notöffnung */
+  @container (max-width: 30em) {
+    .anfahrt-tabelle tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--sp-s); align-items: baseline; }
+    .anfahrt-tabelle tbody th { grid-column: 1; }
+    .anfahrt-tabelle .anfahrt-radius { grid-column: 2; grid-row: 1; font-variant-numeric: tabular-nums; color: var(--c-tinte-2); }
+    .anfahrt-tabelle .anfahrt-radius::before { content: none; }
+    .anfahrt-tabelle td:not(.anfahrt-radius) { grid-column: 1 / -1; }
+  }
+
   @media (min-width: 64em) {
     .preise-kopf { padding-block-start: var(--sp-sektion); }
     .preise-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
     .preise-kopf h1 { font-size: var(--fs-5); }
-    .preise-anfahrt-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: end; }
+    /* Tabelle und Ortsprüfung: zwei Flächen mit gleicher Oberkante, ihre Titel auf derselben Grundlinie */
+    .preise-anfahrt-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
     .rechner { grid-template-columns: minmax(0, 4fr) minmax(0, 3fr) minmax(0, 3fr); grid-template-areas: "position fenster zone" "ergebnis ergebnis ergebnis"; padding: var(--sp-l); }
     .rechner-feld-position { grid-area: position; }
-    .rechner-ergebnis { grid-area: ergebnis; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: var(--sp-l); }
-    .rechner-ergebnis-titel, .rechner-summe, .rechner-aufschluesselung { grid-column: 1; }
-    .rechner-hinweis { grid-column: 2; grid-row: 1 / span 3; align-self: end; max-inline-size: var(--karte-min); text-align: end; }
+    .rechner-ergebnis { grid-area: ergebnis; }
   }
+  /* Das Ergebnis teilt die Spalten der Fragen: Rechnung unter „Was ist passiert?“, Hinweis unter „Wann brauchen Sie uns?“ */
+  @supports (grid-template-columns: subgrid) {
+    @media (min-width: 64em) {
+      .rechner-ergebnis { grid-template-columns: subgrid; column-gap: normal; }
+      .rechner-ergebnis > * { grid-column: 1; }
+      .rechner-posten { grid-row: 2; }
+      /* Hinweis auf der Grundlinie der Summe, in der Spalte von „Wann brauchen Sie uns?“ */
+      .rechner-summe, .rechner-ergebnis > .rechner-hinweis { grid-row: 3; }
+      .rechner-ergebnis > .rechner-hinweis { grid-column: 2 / -1; align-self: last baseline; }
+    }
+  }
+}
+
+@layer bewegung {
+  @media (prefers-reduced-motion: no-preference) {
+    /* M-12: Ein neues Ergebnis blendet von .6 auf 1 (feedback), nie hochzählen. Der Wechsel a/b startet die Animation neu. */
+    .rechner-ergebnis[data-takt="a"] :is(.rechner-posten, .rechner-summe) { animation: m12-a var(--dur-feedback) var(--ease-standard) backwards; }
+    .rechner-ergebnis[data-takt="b"] :is(.rechner-posten, .rechner-summe) { animation: m12-b var(--dur-feedback) var(--ease-standard) backwards; }
+  }
+  @keyframes m12-a { from { opacity: .6; } }
+  @keyframes m12-b { from { opacity: .6; } }
 }

@@ -1,12 +1,15 @@
 // V06 Hub: Länderseite /einsatzgebiet/{landSlug}/ und Kreisseite /einsatzgebiet/{landSlug}/{kreisSlug}/.
 // Alle Namen, Zahlen und Entfernungen stammen aus src/daten/orte.json (nur Einträge mit slug).
 // Länder mit Kreisen: Kreisliste mit Ortszahl und Entfernungsspanne. Kreise und Stadtstaaten (kreisSlug === landSlug):
-// A–Z-Verzeichnis aller Orte mit klebender Buchstabenleiste; Gemeinden fett, Ortsteile eingerückt, je km und Zone.
+// A–Z-Verzeichnis aller Orte mit Buchstabenleiste; Gemeinden fett, Ortsteile eingerückt, je km (und Zone, wenn mehrere).
 // Niederlande: die Kreise sind Provinzen. Hubs setzen k.hubs.aktiv und k.hubs.laender (Fußnavigation, Ortsseiten).
 // Kreis-, Provinz- und Stadtstaatseiten beginnen mit „… in Zahlen“ (K-08): Zahlen nur aus den Daten, ohne Wertung.
+// Der Kopf trägt die Gebietslage (Orte als Raster nach Zone um Weilburg), wie die Ortsseite ihre Lagekarte.
+// Flächen wechseln je Abschnitt (Rhythmusregel K-006): Kopf Papier, dann Band, Papier, Band.
 import { html } from '../../../bau/lib/html.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
 import { brotkrumenLd } from '../teile/brotkrumen.mjs';
+import { gebietslage } from '../teile/lagekarte.mjs';
 
 const ZEICHEN = new Intl.Collator('de');
 const BUCHSTABEN = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
@@ -22,6 +25,7 @@ const titelMit = (kern, zusatz) => (`Schlüsseldienst ${kern}: ${zusatz}`.length
 const SITZ_ZEILE = 'Entfernung ab Weilburg und Zone je Ort; Sitz des Betriebs ist Weilburg.';
 
 let H = null; // vorbereitete Daten je Build
+const sektion = (band) => `sektion sektion-dicht${band ? ' band' : ''}`;
 
 const zahl = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 const kmText = (n) => `${zahl(n)} km`;
@@ -48,7 +52,7 @@ export function vorbereiten(k) {
     if (!l.kreise.has(o.kreisSlug)) l.kreise.set(o.kreisSlug, { titel: o.kreis, kreisSlug: o.kreisSlug, orte: [] });
     l.kreise.get(o.kreisSlug).orte.push(o);
   }
-  H = { laender };
+  H = { laender, sitz: orte.find((o) => o.slug === 'weilburg') || { lat: 50.4844, lon: 8.2625, slug: 'weilburg', name: 'Weilburg' } };
   // Alphabetisch, Niederlande zuletzt (wie die Einsatzgebiet-Übersicht)
   const liste = [...laender.values()].map((l) => ({ titel: l.titel, pfad: `/einsatzgebiet/${l.landSlug}/` }))
     .sort((a, b) => (a.titel === 'Niederlande') - (b.titel === 'Niederlande') || ZEICHEN.compare(a.titel, b.titel));
@@ -57,15 +61,18 @@ export function vorbereiten(k) {
 }
 
 // Ein Eintrag der A–Z-Liste: Gemeinde mit ihren Ortsteilen, oder ein Ortsteil ohne Gemeindeseite in den Daten.
-function zeile(o, zusatz = null) {
+// Die Zone steht nur, wenn das Gebiet mehrere Zonen hat; sonst nennt sie der Kopfsatz einmal.
+function zeile(o, mitZone, zusatz = null) {
   const info = o.km === 0 ? 'Sitz des Betriebs' : kmText(o.km);
-  return html`<div class="az-zeile"><span class="az-name"><a href="/schluesseldienst-${o.slug}/">${o.name}</a>${zusatz ? html` <span class="az-zusatz">${zusatz}</span>` : ''}</span><span class="az-meta" data-daten="">${info} · Zone ${o.zone}</span></div>`;
+  return html`<div class="az-zeile"><span class="az-name"><a href="/schluesseldienst-${o.slug}/">${o.name}</a>${zusatz ? html` <span class="az-zusatz">${zusatz}</span>` : ''}</span><span class="az-meta" data-daten="">${info}${mitZone ? ` · Zone\u00A0${o.zone}` : ''}</span></div>`;
 }
 
-const gemeindeEintrag = (e) => html`<li class="az-gemeinde">${zeile(e.o)}${e.kinder.length ? html`<ul class="az-ortsteile">${e.kinder.map((t) => html`<li class="az-ortsteil">${zeile(t)}</li>`)}</ul>` : ''}</li>`;
-const einzelEintrag = (e) => html`<li class="az-einzel">${zeile(e.o, e.zusatz)}</li>`;
+const gemeindeEintrag = (e, z) => html`<li class="az-gemeinde">${zeile(e.o, z)}${e.kinder.length ? html`<ul class="az-ortsteile">${e.kinder.map((t) => html`<li class="az-ortsteil">${zeile(t, z)}</li>`)}</ul>` : ''}</li>`;
+const einzelEintrag = (e, z) => html`<li class="az-einzel">${zeile(e.o, z, e.zusatz)}</li>`;
+const zonenVon = (orte) => [...new Set(orte.map((o) => o.zone))];
 
 function verzeichnis(orte) {
+  const mitZone = zonenVon(orte).length > 1;
   const gemeinden = orte.filter((o) => o.typ === 'gemeinde');
   const gemeindeIds = new Set(gemeinden.map((g) => g.id));
   const kinder = new Map();
@@ -95,16 +102,17 @@ function verzeichnis(orte) {
   const gruppen = vorhanden.map((b) => {
     const id = `buchstabe-${b.toLowerCase()}`;
     const eintraege = nachBuchstabe.get(b).sort((x, y) => ZEICHEN.compare(x.o.name, y.o.name));
+    // Unter 64em klebt die Leiste nicht: jede Gruppe führt mit „A–Z“ zurück zu ihr (nur dort sichtbar, az.css)
     return html`<section class="az-gruppe" id="${id}" aria-labelledby="${id}-titel">
-<h3 class="az-buchstabe" id="${id}-titel">${b}</h3>
-<ul class="az-liste">${eintraege.map((e) => (e.o.typ === 'gemeinde' ? gemeindeEintrag(e) : einzelEintrag(e)))}</ul>
+<div class="az-kopf"><h3 class="az-buchstabe" id="${id}-titel">${b}</h3><a class="az-hoch" href="#az-titel">A–Z</a></div>
+<ul class="az-liste">${eintraege.map((e) => (e.o.typ === 'gemeinde' ? gemeindeEintrag(e, mitZone) : einzelEintrag(e, mitZone)))}</ul>
 </section>`;
   });
   return html`${leiste}<div class="az-verzeichnis">${gruppen}</div>`;
 }
 
-function azAbschnitt(orte) {
-  return html`<section class="sektion sektion-dicht" aria-labelledby="az-titel"><div class="raster">
+function azAbschnitt(orte, band = false) {
+  return html`<section class="${sektion(band)}" aria-labelledby="az-titel"><div class="raster">
 ${abschnittKopf({ id: 'az-titel', titel: 'A–Z-Verzeichnis' })}
 ${verzeichnis(orte)}
 </div></section>`;
@@ -124,7 +132,7 @@ function zonenZeile(orte, zonen) {
     .map((z) => ({ ...z, n: orte.filter((o) => o.zone === z.id).length }))
     .filter((z) => z.n > 0);
   if (liste.reduce((a, z) => a + z.n, 0) !== orte.length) throw new Error(`Hub: Orte mit unbekannter Zone (${orte.length} Orte)`);
-  return liste.map((z, i) => html`${i ? ', ' : ''}${zahlD(z.n)} ${ein(z.n, 'Ort', 'Orte')} in Zone ${z.id} (${z.titel})`);
+  return liste.map((z, i) => html`${i ? ', ' : ''}${zahlD(z.n)} ${ein(z.n, 'Ort', 'Orte')} in Zone\u00A0${z.id} (${z.titel})`);
 }
 
 // Deutsche Postleitzahlen fünfstellig, niederländische vierstellig (Ziffernteil, wie in den GeoNames-Daten)
@@ -149,7 +157,7 @@ export function gebietsart(titel, nl) {
 }
 
 // art: 'Kreis' | 'Provinz' | 'Stadt' | 'Region' – nur für die Überschrift
-export function kennzahlenAbschnitt(zonen, orte, staat, art) {
+export function kennzahlenAbschnitt(zonen, orte, staat, art, band = false) {
   const gemeinden = orte.filter((o) => o.typ === 'gemeinde').length;
   const ortsteile = orte.filter((o) => o.typ === 'ortsteil').length;
   const naechster = [...orte].sort(nachKm(1))[0];
@@ -164,45 +172,47 @@ export function kennzahlenAbschnitt(zonen, orte, staat, art) {
     html`<dt>Verteilung auf die Zonen</dt><dd>${zonenZeile(orte, zonen)}</dd>`,
   ];
   eintraege.push(html`<dt>Postleitzahlen</dt><dd>${plzZeile(orte, staat)}</dd>`);
-  return html`<section class="sektion sektion-dicht" aria-labelledby="hub-zahlen-titel"><div class="raster">
+  return html`<section class="${sektion(band)}" aria-labelledby="hub-zahlen-titel"><div class="raster"><div class="hub-teilung">
 ${abschnittKopf({ id: 'hub-zahlen-titel', titel: `${art === 'Kreis' ? 'Der' : 'Die'} ${art} in Zahlen` })}
 <dl class="kreis-zahlen">${eintraege}</dl>
-</div></section>`;
+</div></div></section>`;
 }
 
 // Listen nach dem Namenskern sortiert („Limburg-Weilburg“ unter L, nicht alle Landkreise unter L); die Art steht leise dahinter
 const ART = /^(Landkreis|Kreis|Stadtkreis|Städteregion|Region|Kreisfreie Stadt)\s+(.+)$/;
 const kreisTeile = (titel) => { const m = ART.exec(titel); return m ? { kern: m[2], art: m[1] === 'Kreisfreie Stadt' ? 'kreisfreie Stadt' : m[1] } : { kern: titel, art: '' }; };
 const nachKern = (a, b) => ZEICHEN.compare(kreisTeile(a.titel).kern, kreisTeile(b.titel).kern);
+// Zwei Zeilen je Kreis, immer gleich hoch: Name (unterstrichen), darunter Art, Ortszahl und Entfernung.
+// Die ganze Zeile ist der Link, damit „Kassel“ (Landkreis) und „Kassel“ (kreisfreie Stadt) unterscheidbar heißen.
 const kreisZeile = (l, kr) => {
   const { kern, art } = kreisTeile(kr.titel);
   const s = spanne(kr.orte);
-  return html`<li${s.min === 0 ? html` class="hub-sitz"` : ''}><div class="hub-zeile"><a href="/einsatzgebiet/${l.landSlug}/${kr.kreisSlug}/">${kern}${art ? html` <span class="hub-art">${art}</span>` : ''}${s.min === 0 ? html` <span class="hub-art hub-art-sitz">Sitz</span>` : ''}</a><span class="hub-zahl" data-daten="">${orteText(kr.orte.length)} · ${s.text}</span></div></li>`;
+  return html`<li><a class="hub-zeile" href="/einsatzgebiet/${l.landSlug}/${kr.kreisSlug}/"><span class="hub-name">${kern}</span>${s.min === 0 ? html` <span class="hub-sitz">Sitz</span>` : ''}<span class="hub-meta">${art ? `${art} · ` : ''}<span data-daten="">${orteText(kr.orte.length)} · ${s.text}</span></span></a></li>`;
 };
 
-function kreiseAbschnitt(l) {
+function kreiseAbschnitt(l, band = false) {
   const kreise = [...l.kreise.values()].sort(nachKern);
-  return html`<section class="sektion sektion-dicht" aria-labelledby="hub-kreise-titel"><div class="raster">
+  return html`<section class="${sektion(band)}" aria-labelledby="hub-kreise-titel"><div class="raster">
 ${abschnittKopf({ id: 'hub-kreise-titel', titel: l.staat === 'NL' ? 'Provinzen' : 'Kreise' })}
 <ul class="hub-kreise">${kreise.map((kr) => kreisZeile(l, kr))}</ul>
 </div></section>`;
 }
 
 // Geschwisterkreise auf jeder Kreisseite: jede Kreisseite bekommt so eingehende Links von ihren Nachbarn
-function weitereKreise(l, aktuell) {
+function weitereKreise(l, aktuell, band = false) {
   const andere = [...l.kreise.values()].filter((kr) => kr !== aktuell).sort(nachKern);
   if (!andere.length) return '';
-  return html`<section class="sektion sektion-dicht" aria-labelledby="hub-weitere-kreise-titel"><div class="raster">
+  return html`<section class="${sektion(band)}" aria-labelledby="hub-weitere-kreise-titel"><div class="raster">
 ${abschnittKopf({ id: 'hub-weitere-kreise-titel', titel: l.staat === 'NL' ? 'Weitere Provinzen' : 'Weitere Kreise' })}
 <ul class="hub-kreise">${andere.map((kr) => kreisZeile(l, kr))}</ul>
 </div></section>`;
 }
 
-function weitereAbschnitt(l) {
+function weitereAbschnitt(l, band = false) {
   if (!l.ohneKreis.length) return '';
-  return html`<section class="sektion sektion-dicht" aria-labelledby="hub-weitere-titel"><div class="raster">
+  return html`<section class="${sektion(band)}" aria-labelledby="hub-weitere-titel"><div class="raster">
 ${abschnittKopf({ id: 'hub-weitere-titel', titel: 'Weitere Orte' })}
-<ul class="az-liste hub-weitere">${sortiert(l.ohneKreis).map((o) => html`<li class="az-einzel">${zeile(o)}</li>`)}</ul>
+<ul class="az-liste hub-weitere">${sortiert(l.ohneKreis).map((o) => html`<li class="az-einzel">${zeile(o, zonenVon(l.ohneKreis).length > 1)}</li>`)}</ul>
 </div></section>`;
 }
 
@@ -210,18 +220,49 @@ const entfernungSatz = (s) => (s.min === s.max
   ? html`<span data-daten="">${kmText(s.min)}</span> ab Weilburg`
   : html`zwischen <span data-daten="">${kmText(s.min)}</span> und <span data-daten="">${kmText(s.max)}</span> ab Weilburg`);
 
-function seite(k, { pfad, stufen, h1, titel, beschreibung, kicker, satz, abschnitt }) {
+// Liegt das ganze Gebiet in einer Zone, steht sie einmal im Kopfsatz statt in jeder Zeile des Verzeichnisses.
+// „Zone“ und Kennbuchstabe bleiben in einer Zeile (geschütztes Leerzeichen).
+function zonenSatz(k, orte) {
+  const ids = zonenVon(orte);
+  if (ids.length > 1) return '. Die Zone steht bei jedem Ort.';
+  const titel = ids[0] === 'NL' ? k.konfig.zonen.nl.titel : k.konfig.zonen.stufen.find((z) => z.id === ids[0])?.titel;
+  return `, ${orte.length === 1 ? '' : orte.length === 2 ? 'beide ' : 'alle '}in Zone\u00A0${ids[0]}${titel ? ` (${titel})` : ''}.`;
+}
+
+// Gebietslage im Kopf: Legende nur für die gezeigten Zonen und Ringe (Texte aus zonen.mjs)
+const MARKE = { A: 'gk-marke-a', B: '', C: 'gk-marke-c', D: 'gk-marke-c', CD: 'gk-marke-c' };
+function lageFigur(k, orte, name) {
+  const { zonen } = k.konfig;
+  const nl = orte.every((o) => o.staat === 'NL');
+  const { svg, zonen: gezeigt, ringe } = gebietslage({
+    orte, sitz: H.sitz, praefix: 'hub-lage',
+    titel: `${name}: ${orteText(orte.length)} als Punkte nach Zone, mit der Lage zu Weilburg`,
+  });
+  const stufe = (id) => zonen.stufen.find((z) => z.id === id);
+  // C und D teilen sich in der Karte eine Marke, also auch einen Legendeneintrag (Kurztexte aus zonen.mjs)
+  const eintraege = gezeigt.includes('C') && gezeigt.includes('D') ? [...gezeigt.filter((id) => id !== 'C' && id !== 'D'), 'CD'] : gezeigt;
+  const zonenText = (id) => (nl ? zonen.nl.kurz : id === 'CD' ? `Zonen C und D – ${stufe('C').kurz.split(' – ').at(-1)}` : `Zone ${id} – ${stufe(id)?.titel}`);
+  return html`<figure class="hub-figur">${svg}<figcaption class="gk-legende">
+${eintraege.map((id) => html`<span><span class="gk-marke${MARKE[id] ? ` ${MARKE[id]}` : ''}" aria-hidden="true"></span>${zonenText(id)}</span>`)}
+${ringe.length ? html`<span><span class="gk-marke gk-marke-ring" aria-hidden="true"></span>Ringe bei ${ringe.length > 1 ? `${ringe.slice(0, -1).join(', ')} und ${ringe.at(-1)}` : ringe[0]} km Luftlinie</span>` : ''}
+</figcaption></figure>`;
+}
+
+function seite(k, { pfad, stufen, h1, titel, beschreibung, kicker, satz, abschnitt, figur }) {
   if (titel.length > TITEL_MAX) throw new Error(`Hub ${pfad}: Titel ${titel.length} Zeichen`);
   if (beschreibung.length < BESCHREIBUNG_MIN || beschreibung.length > BESCHREIBUNG_MAX) throw new Error(`Hub ${pfad}: Beschreibung ${beschreibung.length} Zeichen`);
   return {
-    pfad, titel, beschreibung, typ: 'hub', ansicht: 'V06', sitemap: 'hubs', koerperKlasse: 'seite-hub', stile: ['hubs'], ogBild: '/assets/og/einsatzgebiet.png', brotkrumen: stufen,
+    pfad, titel, beschreibung, typ: 'hub', ansicht: 'V06', sitemap: 'hubs', koerperKlasse: 'seite-hub', stile: ['gebiet', 'hubs'], ogBild: '/assets/og/einsatzgebiet.png', brotkrumen: stufen,
     jsonld: [brotkrumenLd(k.basisUrl, stufen), { '@context': 'https://schema.org', '@type': 'CollectionPage', name: h1, url: `${k.basisUrl}${pfad}` }],
-    inhalt: () => html`<section class="hub-kopf" aria-labelledby="hub-titel"><div class="raster">
+    inhalt: () => html`<section class="hub-kopf" aria-labelledby="hub-titel"><div class="raster"><div class="hub-kopf-teilung">
+<div>
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="hub-kicker">${kicker}</p>
 <h1 id="hub-titel">${h1}</h1>
 <p class="hub-satz">${satz}</p>
-</div></section>
+</div>
+${figur}
+</div></div></section>
 ${abschnitt}`,
   };
 }
@@ -242,8 +283,9 @@ export function seiten(k) {
       aus.push(seite(k, {
         pfad: pfadLand, stufen: stufenLand, h1: h1Land, titel: titelMit(l.titel, 'Orte A–Z'), kicker: 'Einsatzgebiet',
         beschreibung: `${orteText(n)} im Verzeichnis: ${l.titel}, A–Z geordnet. ${SITZ_ZEILE}`,
-        satz: html`<span data-daten="">${orteText(n)}</span>, ${entfernungSatz(s)}. Die Zone steht bei jedem Ort.`,
-        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, l.orte, l.staat, 'Stadt')}${azAbschnitt(l.orte)}`,
+        satz: html`<span data-daten="">${orteText(n)}</span>, ${entfernungSatz(s)}${zonenSatz(k, l.orte)}`,
+        figur: lageFigur(k, l.orte, l.titel),
+        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, l.orte, l.staat, 'Stadt', true)}${azAbschnitt(l.orte)}`,
       }));
       continue;
     }
@@ -251,7 +293,8 @@ export function seiten(k) {
       pfad: pfadLand, stufen: stufenLand, h1: h1Land, titel: titelMit(l.titel, nl ? 'Orte nach Provinzen' : 'Orte nach Kreisen'), kicker: 'Einsatzgebiet',
       beschreibung: `${orteText(n)} im Verzeichnis: ${l.titel}, nach ${nl ? 'Provinzen' : 'Kreisen'} geordnet. ${SITZ_ZEILE}`,
       satz: html`<span data-daten="">${orteText(n)}</span>, ${entfernungSatz(s)}. ${nl ? 'Die Provinzen' : 'Die Kreise'} stehen unten mit Ortszahl und Entfernung.`,
-      abschnitt: html`${kreiseAbschnitt(l)}${weitereAbschnitt(l)}`,
+      figur: lageFigur(k, l.orte, l.titel),
+      abschnitt: html`${kreiseAbschnitt(l, true)}${weitereAbschnitt(l)}`,
     }));
     for (const kr of l.kreise.values()) {
       const pfad = `/einsatzgebiet/${l.landSlug}/${kr.kreisSlug}/`;
@@ -263,8 +306,9 @@ export function seiten(k) {
       aus.push(seite(k, {
         pfad, stufen, h1, titel, kicker: `Einsatzgebiet · ${l.titel}`,
         beschreibung: `${orteText(kr.orte.length)} im Verzeichnis: ${name}. ${SITZ_ZEILE}`,
-        satz: html`<span data-daten="">${orteText(kr.orte.length)}</span>, ${entfernungSatz(sk)}. Die Zone steht bei jedem Ort.`,
-        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, kr.orte, l.staat, gebietsart(kr.titel, nl))}${azAbschnitt(kr.orte)}${weitereKreise(l, kr)}`,
+        satz: html`<span data-daten="">${orteText(kr.orte.length)}</span>, ${entfernungSatz(sk)}${zonenSatz(k, kr.orte)}`,
+        figur: lageFigur(k, kr.orte, name),
+        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, kr.orte, l.staat, gebietsart(kr.titel, nl), true)}${azAbschnitt(kr.orte)}${weitereKreise(l, kr, true)}`,
       }));
     }
   }

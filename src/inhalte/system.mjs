@@ -15,6 +15,12 @@ export default {
     seiten: 'Seiten',
     orte: 'Orte',
     ohneJs: 'Die Suche braucht JavaScript. Ohne JavaScript finden Sie jede Seite über die Sitemap und jeden Ort über das Einsatzgebiet.',
+    // Leerzustand: die Seiten zu den Hauptaufgaben (KERN K-002: Notlage, Preis, Planung, seriösen Betrieb erkennen,
+    // Anfrage). Titel, Bereich und Kurztext kommen aus dem Seitenindex, wie bei den Treffern.
+    themen: {
+      titel: 'Hauptthemen',
+      pfade: ['/notoeffnung/tueroeffnung/', '/preise/', '/einbruchschutz/schliesszylinder/', '/ratgeber/schluesseldienst-abzocke-erkennen/', '/kontakt/'],
+    },
     wege: [
       { pfad: '/sitemap/', titel: 'Sitemap', text: 'Alle Seiten nach Bereichen.' },
       { pfad: '/einsatzgebiet/', titel: 'Einsatzgebiet', text: 'Alle Orte nach Land und Kreis.' },

@@ -22,15 +22,18 @@
   .preis .platzhalter, .preis-zeit .platzhalter { white-space: nowrap; }
   .preis-offen { font-weight: var(--fw-text); }
   @container (max-width: 30em) {
-    .preis-tabelle caption { display: block; padding: var(--sp-s) var(--sp-s) var(--sp-xs); }
+    /* Beschriftung auf der Kante der Zeileninhalte (Zeilenabstand plus Zellenabstand) */
+    .preis-tabelle caption { display: block; padding: var(--sp-s) calc(var(--sp-s) + var(--sp-2xs)) var(--sp-xs); }
     .preis-tabelle tr { padding-inline: var(--sp-s); }
     .preis-tabelle thead { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); }
     .preis-tabelle, .preis-tabelle tbody, .preis-tabelle tr, .preis-tabelle th, .preis-tabelle td { display: block; }
     .preis-tabelle tr { padding-block: var(--sp-xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
     .preis-tabelle th, .preis-tabelle td { border: 0; padding-block: var(--sp-3xs); }
     .preis-tabelle tbody th { inline-size: auto; }
-    .preis-tabelle td { display: flex; justify-content: space-between; gap: var(--sp-s); }
-    .preis-tabelle td::before { content: attr(data-titel); color: var(--c-tinte-2); }
+    /* Beschriftung links, Wert rechts auf derselben Grundlinie. Eine lange Beschriftung bricht um, der Wert bleibt
+       in der ersten Zeile. Jede Zelle hat genau ein Element als Wert (mehrteilige Werte fasst die Vorlage zusammen). */
+    .preis-tabelle td { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-s); text-align: end; }
+    .preis-tabelle td::before { content: attr(data-titel); color: var(--c-tinte-2); text-align: start; }
   }
   .hinweis { padding: var(--sp-xs) var(--sp-s); border-inline-start: var(--sp-3xs) solid var(--c-lahn); background: var(--c-lahn-hell); border-radius: var(--r-s); margin-block-start: var(--sp-s); font-size: var(--fs--1); }
   .hinweis-platzhalter { border-color: var(--c-kupfer); background: var(--c-kupfer-hell); }

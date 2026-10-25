@@ -50,7 +50,11 @@ export function vorbereiten(k) {
   const namen = new Map();
   for (const o of orte) namen.set(o.name, (namen.get(o.name) || 0) + 1);
   const kurz = new Map(orte.map((o) => [o.id, namen.get(o.name) === 1 ? o.name : anzeige.get(o.id).replace(/\b(?:Landkreis|Kreis) /g, '')]));
-  D = { orte, nachId, anzeige, kurz, sitz };
+  // Ortsteilnamen, die in ihrer Gemeinde nur einmal vorkommen: in Listen derselben Gemeinde ohne Klammerzusatz
+  const jeGemeinde = new Map();
+  for (const o of orte) if (o.typ === 'ortsteil') jeGemeinde.set(`${o.gemeindeId}|${o.name}`, (jeGemeinde.get(`${o.gemeindeId}|${o.name}`) || 0) + 1);
+  const einmalInGemeinde = (o) => o.typ === 'ortsteil' && jeGemeinde.get(`${o.gemeindeId}|${o.name}`) === 1;
+  D = { orte, nachId, anzeige, kurz, sitz, einmalInGemeinde };
   return D;
 }
 
@@ -111,47 +115,61 @@ function kopf(sk, o, z, werte, sonder) {
     o.km > 0 ? html`<li><span data-daten="">${String(o.km)}</span>&nbsp;km ${o.richtung || ''} von Weilburg</li>` : html`<li>Sitz des Betriebs</li>`,
   ];
   const nah = z.notoeffnung === 'ja';
-  const h1Text = sonder?.h1 || (z.id === 'A' || z.id === 'B' ? `Schlüsseldienst für ${werte.ort}` : `Schlüsseldienst für ${werte.ort} – aus Weilburg (≈ ${o.km} km)`);
+  // Gedankenstrich nie am Zeilenanfang (K-010): geschütztes Leerzeichen davor, er hängt am vorangehenden Wort
+  const h1Text = sonder?.h1 || (z.id === 'A' || z.id === 'B' ? `Schlüsseldienst für ${werte.ort}` : `Schlüsseldienst für ${werte.ort}\u00A0– aus Weilburg (≈ ${o.km} km)`);
   return html`<section class="ort-kopf" aria-labelledby="ort-titel">
 <div class="raster"><div class="ort-kopf-teilung">
 <div>
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
-<p class="ort-kicker">${texte.kicker} · Zone ${z.nl ? 'NL' : z.id} – ${z.kurz}</p>
+<p class="ort-kicker">${texte.kicker} · Zone\u00A0${z.nl ? 'NL' : z.id}\u00A0– ${z.kurz.replace(/ – /g, '\u00A0– ')}</p>
 <h1 id="ort-titel"${h1Text.length > 44 ? html` class="ort-h1-lang"` : ''}>${h1Text.split('/').map((t, i) => (i ? html`/<wbr>${t}` : t))}</h1>
 <ul class="ort-fakten">${fakten}</ul>
 <p class="ort-satz">${sonder?.einleitung ? text(sonder.einleitung) : zonenSatz(o, z, werte)}${z.id === 'B' ? html` ${zusage(sk, 'preisVorAuftrag', 'Den Gesamtpreis mit Anfahrt nennen wir Ihnen am Telefon, bevor wir losfahren.', 'Fragen Sie am Telefon nach dem Gesamtpreis mit Anfahrt.')}` : ''}</p>
 <div class="ort-handlung">${nah ? rufknopf(sk, { variante: 'gross' }) : html`<a class="knopf knopf-primaer" href="/kontakt/">Planbare Arbeit anfragen${sk.icon('pfeil-rechts')}</a>`}<a class="knopf knopf-still" href="/preise/">Preise ansehen</a></div>
 </div>
-<figure class="ort-karte">${lagekarte({ ort: { ...o, name: o.name }, sitz: D.sitz, nachbarn: (o.nachbarn || []).map((id) => D.nachId.get(id)).filter(Boolean), praefix: 'ort-lk' })}</figure>
+<figure class="ort-karte">${lagekarte({ ort: o, sitz: D.sitz, nachbarn: (o.nachbarn || []).map((id) => D.nachId.get(id)).filter(Boolean), umgebung: D.orte, praefix: 'ort-lk' })}</figure>
 </div></div>
 </section>`;
 }
+
+// Abschnitte unter dem Kopf liefern (band) => html oder null. Die Fläche wechselt in der Reihenfolge der
+// vorhandenen Abschnitte (Rhythmusregel K-006), weil Preise, Umgebung und Sonderabschnitte je nach Ort entfallen.
+const sektion = (band) => `sektion sektion-dicht${band ? ' band' : ''}`;
+
+// Preistabelle nur im Kerngebiet und Umland; ab Zone C gibt es keine Tabelle, nur den Satz zur Absprache
+const mitTabelle = (z) => z.id === 'A' || z.id === 'B';
+// Ohne Tabelle schließt der Preissatz den Leistungsabschnitt ab, statt als eigener Abschnitt mit leerer rechter
+// Hälfte zu stehen (NL hat keine Preise)
+const preisNotiz = (z, werte) => (mitTabelle(z) || z.nl ? '' : html`<p class="ort-hinweis ort-preis-notiz"><strong>${fuellen(texte.preisTitel, werte)}:</strong> ${text(fuellen(texte.preisText[z.id], werte))}</p>`);
 
 function leistungen(sk, o, z, werte) {
   const nah = z.notoeffnung === 'ja';
   const gruppen = nah ? GRUPPEN : GRUPPEN.filter((g) => g.id !== 'notoeffnung');
   const bestaetigt = z.leistungenBestaetigt;
-  if (bestaetigt === false) return '';
-  return html`<section class="sektion sektion-dicht band" aria-labelledby="ort-leistungen">
+  if (bestaetigt === false) return null;
+  return (band) => html`<section class="${sektion(band)}" aria-labelledby="ort-leistungen">
 <div class="raster">
 ${abschnittKopf({ id: 'ort-leistungen', titel: fuellen(nah ? texte.leistungenTitel.nah : texte.leistungenTitel.fern, werte) })}
 ${istPlatzhalter(bestaetigt) ? html`<p class="hinweis hinweis-platzhalter">${bestaetigt}</p>` : ''}
 ${nah ? '' : html`<p class="ort-hinweis">${texte.leistungenHinweisFern}</p>`}
 <ul class="ort-leistungen">${gruppen.map((g) => html`<li><a href="${g.pfad}">${sk.icon(g.icon, { klasse: 'ort-leistung-icon' })}<span class="ort-leistung-titel">${g.titel}</span><span class="ort-leistung-kurz">${g.kurz}</span></a></li>`)}</ul>
+${preisNotiz(z, werte)}
 </div>
 </section>`;
 }
 
-function preise(sk, o, z, werte) {
-  if (z.nl) return '';
+// mitLeistungen: steht der Leistungsabschnitt, trägt er ohne Tabelle den Preissatz (preisNotiz); sonst steht der Satz
+// hier einspaltig im Textmaß
+function preise(sk, o, z, werte, mitLeistungen) {
+  if (z.nl || (!mitTabelle(z) && mitLeistungen)) return null;
   const { preise: p } = sk.konfig;
-  const zeigeTabelle = z.id === 'A' || z.id === 'B';
-  return html`<section class="sektion sektion-dicht" aria-labelledby="ort-preise">
-<div class="raster"><div class="ort-preis-teilung">
-${abschnittKopf({ id: 'ort-preise', titel: fuellen(texte.preisTitel, werte), einleitung: fuellen(texte.preisText[z.id], werte) })}
-${zeigeTabelle ? html`<div class="preis-auszug">${preistabelle(sk, { positionen: ['tuer-zugefallen', 'tuer-abgeschlossen'], id: 'ort-preistabelle' })}
-${z.id === 'B' ? html`<p class="ort-anfahrt">${fuellen(texte.anfahrtZeile, werte)}: ${betrag(p.anfahrt.B)}</p>` : ''}</div>` : ''}
-</div></div>
+  const kopf = abschnittKopf({ id: 'ort-preise', titel: fuellen(texte.preisTitel, werte), einleitung: fuellen(texte.preisText[z.id], werte) });
+  return (band) => html`<section class="${sektion(band)}" aria-labelledby="ort-preise">
+<div class="raster">${mitTabelle(z) ? html`<div class="ort-preis-teilung">
+${kopf}
+<div class="preis-auszug">${preistabelle(sk, { positionen: ['tuer-zugefallen', 'tuer-abgeschlossen'], id: 'ort-preistabelle' })}
+${z.id === 'B' ? html`<p class="ort-anfahrt">${fuellen(texte.anfahrtZeile, werte)}: ${betrag(p.anfahrt.B)}</p>` : ''}</div>
+</div>` : kopf}</div>
 </section>`;
 }
 
@@ -170,11 +188,16 @@ function umgebung(sk, o, werte) {
     liste = g ? [g, ...geschwister.sort((a, b) => ZEICHEN.compare(a.name, b.name))] : [];
   }
   const nachbarn = (o.nachbarn || []).map((id) => D.nachId.get(id)).filter(Boolean).map((n) => ({ n, d: km(o, n) })).sort((a, b) => a.d - b.d);
-  if (!liste.length && !nachbarn.length) return '';
-  return html`<section class="sektion sektion-dicht" aria-label="Umgebung von ${werte.ort}">
-<div class="raster"><div class="ort-umgebung">
+  if (!liste.length && !nachbarn.length) return null;
+  // Nachbarn derselben Gemeinde ohne Klammerzusatz: die Gemeinde steht schon im Titel bzw. in der linken Liste
+  const gemeindeId = o.typ === 'gemeinde' ? o.id : o.gemeindeId;
+  const nachbarName = (n) => (n.gemeindeId === gemeindeId && D.einmalInGemeinde(n) ? n.name : D.anzeige.get(n.id));
+  // Lange Ortsteillisten (Großstädte) laufen über die volle Breite in Spalten, die Nachbarn folgen darunter
+  const lang = liste.length > 24;
+  return (band) => html`<section class="${sektion(band)}" aria-label="Umgebung von ${werte.ort}">
+<div class="raster"><div class="ort-umgebung${lang ? ' ort-umgebung-lang' : ''}">
 ${liste.length ? html`<div><h2 class="ort-liste-titel">${titel}</h2><ul class="ort-liste">${liste.map((x) => html`<li><a href="${pfad(x)}">${x.name}</a></li>`)}</ul></div>` : ''}
-${nachbarn.length ? html`<div><h2 class="ort-liste-titel">${fuellen(texte.nachbarnTitel, werte)}</h2><ul class="ort-liste ort-liste-km">${nachbarn.map(({ n, d }) => html`<li><a href="${pfad(n)}">${D.anzeige.get(n.id)}</a> <span class="ort-km" data-daten="">${String(d)}&nbsp;km</span></li>`)}</ul></div>` : ''}
+${nachbarn.length ? html`<div><h2 class="ort-liste-titel">${fuellen(texte.nachbarnTitel, werte)}</h2><ul class="ort-liste ort-liste-km">${nachbarn.map(({ n, d }) => html`<li><a href="${pfad(n)}">${nachbarName(n)}</a> <span data-daten="">${String(d)}&nbsp;km</span></li>`)}</ul></div>` : ''}
 </div></div>
 </section>`;
 }
@@ -188,8 +211,15 @@ function fragenVon(o, werte) {
   return liste;
 }
 
+function fragenAbschnitt(sk, fragen, werte) {
+  return (band) => html`<section class="${sektion(band)}" aria-labelledby="ort-faq"><div class="raster"><div class="faq-teilung">
+${abschnittKopf({ id: 'ort-faq', titel: fuellen(texte.faqTitel, werte) })}
+${faq(sk, fragen)}
+</div></div></section>`;
+}
+
 function hinweise(sk, o, werte) {
-  return html`<section class="sektion sektion-dicht band" aria-labelledby="ort-hinweise">
+  return (band) => html`<section class="${sektion(band)}" aria-labelledby="ort-hinweise">
 <div class="raster"><div class="ort-hinweise">
 <div>
 <h2 class="ort-liste-titel" id="ort-hinweise">${texte.serioesTitel}</h2>
@@ -232,13 +262,12 @@ async function sonderseite(wurzel, slug) {
 }
 
 function sonderAbschnitte(s) {
-  if (!s?.abschnitte?.length) return '';
-  return html`${s.abschnitte.map((a, i) => html`<section class="sektion sektion-dicht${i % 2 ? ' band' : ''}" aria-labelledby="sonder-${String(i + 1)}">
+  return (s?.abschnitte || []).map((a, i) => (band) => html`<section class="${sektion(band)}" aria-labelledby="sonder-${String(i + 1)}">
 <div class="raster"><div class="gruppe-teilung">
 ${abschnittKopf({ id: `sonder-${i + 1}`, titel: a.titel })}
 <div class="fliesstext">${a.absaetze.map((p) => html`<p>${text(p)}</p>`)}</div>
 </div></div>
-</section>`)}`;
+</section>`);
 }
 
 export async function seiten(k) {
@@ -267,16 +296,14 @@ export async function seiten(k) {
       koerperKlasse: 'seite-ort', stile: ['ort'], ogBild: z.id === 'A' || z.id === 'B' ? '/assets/og/ort-nah.png' : '/assets/og/ort-fern.png', brotkrumen: stufen,
       // Ohne FAQPage-Daten: FAQ-Ergebnisse zeigt die Suche nur noch bei wenigen Website-Arten; spart ~1 KB je Ortsseite (D-SEO-02)
       jsonld: [ortLd(k, o, name, z), brotkrumenLd(k.basisUrl, stufen)],
-      inhalt: (sk) => html`${kopf(sk, o, z, werte, sonder)}
-${sonderAbschnitte(sonder)}
-${leistungen(sk, o, z, werte)}
-${preise(sk, o, z, werte)}
-${umgebung(sk, o, werte)}
-<section class="sektion sektion-dicht" aria-labelledby="ort-faq"><div class="raster"><div class="faq-teilung">
-${abschnittKopf({ id: 'ort-faq', titel: fuellen(texte.faqTitel, werte) })}
-${faq(sk, fragen)}
-</div></div></section>
-${hinweise(sk, o, werte)}`,
+      inhalt: (sk) => {
+        // Der Kopf liegt auf Papier, danach wechseln Band und Papier – das erste Band folgt direkt auf den Kopf
+        const leistungsAbschnitt = leistungen(sk, o, z, werte);
+        const abschnitte = [...sonderAbschnitte(sonder), leistungsAbschnitt, preise(sk, o, z, werte, Boolean(leistungsAbschnitt)), umgebung(sk, o, werte),
+          fragenAbschnitt(sk, fragen, werte), hinweise(sk, o, werte)].filter(Boolean);
+        return html`${kopf(sk, o, z, werte, sonder)}
+${abschnitte.map((a, i) => a(i % 2 === 0))}`;
+      },
     });
   }
   return aus;

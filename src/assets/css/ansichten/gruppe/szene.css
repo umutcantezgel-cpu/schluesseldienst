@@ -1,6 +1,8 @@
 /* Szene M-17 (Erzählansicht V02): Teilung 5/7 (Figur links, Schritte rechts). Grundzustand ohne JS, bei
    reduzierter Bewegung oder unter 640 px Höhe: jeder Schritt mit eigenem Einzelbild. Mit JS und genug Höhe:
-   klebende Bühne, Zustand je Schritt in der Viewport-Mitte (nie klebend bei reduzierter Bewegung). */
+   klebende Bühne, Zustand je Schritt in der Viewport-Mitte (nie klebend bei reduzierter Bewegung).
+   Ab 48em gilt die zweispaltige Bühne schon auf dem Tablet: Einspaltig wäre sie dort ein breites leeres Band um eine
+   10rem kleine Figur, in der das aktive Teil kaum noch zu sehen ist. */
 @layer komponenten {
   .szene-teilung { display: grid; gap: var(--sp-l); }
   .szene-schritte { list-style: none; padding: 0; display: grid; gap: var(--sp-xl); }
@@ -10,22 +12,25 @@
   .szene-schritt[data-aktiv]::before { transform: none; }
   .szene-nr { font-family: var(--ff-mono); font-size: var(--fs--1); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); color: var(--c-kupfer); }
   .szene-titel { font-size: var(--fs-2); }
-  .szene-schritt p { color: var(--c-tinte-2); max-inline-size: var(--mass); }
+  /* In der schmalen Spalte reißt „pretty“ die letzten Zeilen weit auf; dort gilt der normale Umbruch */
+  .szene-schritt p { color: var(--c-tinte-2); max-inline-size: var(--mass); text-wrap: wrap; }
   .szene-einzelbild { max-inline-size: var(--figur-schmal); margin-block-start: var(--sp-s); padding: var(--sp-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  /* Einzelbilder bleiben klein (K-006/M-17): so hoch wie die Figur der laufenden Bühne */
+  .szene-einzelbild :is(.ill, .zylinder) { max-block-size: var(--szene-figur-mobil-max); margin-inline: auto; }
   .szene-buehne { display: none; }
   .szene-figur { padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
-  /* In der schmalen Spalte reißt „pretty“ die letzten Zeilen weit auf; dort gilt der normale Umbruch */
-  @media (max-width: 48em) { .szene-schritt p { text-wrap: wrap; } }
-  @media (min-width: 64em) {
-    .szene-teilung { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: "kopf kopf" "buehne schritte"; column-gap: var(--sp-xl); }
+  @media (min-width: 48em) {
+    .szene-schritt p { text-wrap: pretty; }
+    .szene-teilung { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: "kopf kopf" "schritte schritte"; column-gap: var(--sp-xl); }
     .szene-kopf { grid-area: kopf; }
     .szene-schritte { grid-area: schritte; }
     .szene-buehne { grid-area: buehne; }
-    .szene-einzelbild { max-inline-size: var(--hero-figur-max); }
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    /* M-17: Die Linie des Schritts zieht sich in Lesrichtung mit dem Figurenwechsel (gleiche Dauer und Kurve) */
-    .szene-schritt::before { transition: transform var(--m17-teil) var(--ease-standard); }
+    /* Einzelbilder: je Schritt Bild links, Text rechts – an derselben 5/7-Fuge wie die Bühne */
+    .szene-schritte, .szene-schritt { grid-template-columns: subgrid; grid-column: 1 / -1; }
+    .szene-schritt { column-gap: var(--sp-xl); grid-template-rows: auto auto auto 1fr; } /* die letzte Zeile nimmt die Höhe des Bildes auf */
+    .szene-schritt > :not(.szene-einzelbild) { grid-column: 2; }
+    .szene-einzelbild { grid-column: 1; grid-row: 1 / -1; margin-block-start: 0; max-inline-size: none; }
+    .szene-einzelbild :is(.ill, .zylinder) { max-block-size: var(--karte-breit); }
   }
   @media (prefers-reduced-motion: no-preference) and (min-height: 40em) {
     [data-szene="laeuft"] .szene-einzelbild { display: none; }
@@ -42,11 +47,26 @@
     [data-szene="laeuft"] .szene-schritt { min-block-size: var(--szene-schritt-min-mobil); align-content: center; }
     [data-szene="laeuft"] .szene-schritt:last-child { min-block-size: auto; padding-block-end: var(--sp-xl); }
   }
-  @media (prefers-reduced-motion: no-preference) and (min-height: 40em) and (min-width: 64em) {
+  @media (prefers-reduced-motion: no-preference) and (min-height: 40em) and (min-width: 48em) {
     [data-szene="laeuft"] .szene-teilung { grid-template-areas: "kopf kopf" "buehne schritte"; }
+    /* Die Fuge der Einzelbilder gilt hier nicht: Schritte stehen allein in ihrer Spalte */
+    [data-szene="laeuft"] .szene-schritte { grid-template-columns: none; grid-area: schritte; }
+    [data-szene="laeuft"] .szene-schritt { grid-template-columns: none; grid-template-rows: none; grid-column: auto; }
+    [data-szene="laeuft"] .szene-schritt > * { grid-column: auto; }
     [data-szene="laeuft"] .szene-buehne { position: static; padding-block: 0; background: none; box-shadow: none; align-self: stretch; }
-    [data-szene="laeuft"] .szene-figur { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-xl)); padding: var(--sp-l); }
+    /* Unter 64em klebt der Kopf nicht: Die Figur hält nur den Abschnittsabstand zur Oberkante */
+    [data-szene="laeuft"] .szene-figur { position: sticky; inset-block-start: var(--sp-xl); padding: var(--sp-l); }
     [data-szene="laeuft"] .szene-figur .ill, [data-szene="laeuft"] .szene-figur .zylinder { max-block-size: none; }
     [data-szene="laeuft"] .szene-schritt { min-block-size: var(--szene-schritt-min); }
+  }
+  @media (prefers-reduced-motion: no-preference) and (min-height: 40em) and (min-width: 64em) {
+    [data-szene="laeuft"] .szene-figur { inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-xl)); }
+  }
+}
+/* M-17: Die Linie des Schritts zieht sich in Lesrichtung mit dem Figurenwechsel (gleiche Dauer und Kurve wie die
+   Figurteile in bewegung.css); unter reduzierter Bewegung springt sie */
+@layer bewegung {
+  @media (prefers-reduced-motion: no-preference) {
+    .szene-schritt::before { transition: transform var(--m17-teil) var(--ease-standard); }
   }
 }

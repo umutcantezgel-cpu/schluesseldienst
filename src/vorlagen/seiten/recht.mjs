@@ -1,6 +1,7 @@
 // V12 Rechtsseiten (Arbeitsansicht, Entwürfe für die rechtliche Prüfung). Je Seite:
-// Kopf (Freigabe-Hinweis, Kicker, H1, Einleitung, Stand) · Text mit Inhaltsverzeichnis in der Randspalte (ab 64em) ·
-// Band „Weitere Rechtsseiten“. Texte und Fakten stehen in src/inhalte/recht/<id>.mjs; Angaben kommen aus
+// Kopf (Freigabe-Hinweis, Kicker, H1, Einleitung, Stand) · Text mit Inhaltsverzeichnis in der Randspalte (ab 64em,
+// mobil vor dem Text) · Band „Weitere Rechtsseiten“. Abschnitte und Verzeichnis tragen dieselben Nummern (01, 02 …).
+// Texte und Fakten stehen in src/inhalte/recht/<id>.mjs (Wortlaut unangetastet); Angaben kommen aus
 // sk.konfig.betrieb; externe Links nur für Hosts aus src/konfig/quellen.mjs. Platzhalter bleiben sichtbar.
 import { html, attrUrl } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
@@ -23,6 +24,17 @@ const datum = (iso) => new Intl.DateTimeFormat('de-DE', { day: 'numeric', month:
 const wertVon = (objekt, pfad) => pfad.split('.').reduce((o, k) => (o == null ? null : o[k]), objekt) ?? null;
 
 const hostVon = (url) => { try { return new URL(url).host; } catch { return null; } };
+const nummer = (i) => String(i + 1).padStart(2, '0');
+
+// Nur Darstellung, der Wortlaut bleibt: „E-Mail“ bricht sonst nach „E-“ um (harter Bindestrich). Wort samt Kompositum
+// („E-Mail-Programm“) zusammenhalten; Mini-Syntax ([Text](/pfad/), **fett**) bleibt am Stück, damit text() sie erkennt.
+// Nimmt Text oder eine Liste wie text(). Auch für Kontakt (V10) und Suche (V11); die Klasse .kein-umbruch steht in
+// den Ansichts-Stilen recht, kontakt und system.
+const MINI = /(\[[^\]]+\]\([^)\s]+\)|\*\*[^*]+\*\*)/;
+const KEIN_UMBRUCH = /(E-Mail(?:-\p{L}+)?)/u;
+const teilen = (s) => s.split(KEIN_UMBRUCH).map((t, i) => (i % 2 ? html`<span class="kein-umbruch">${t}</span>` : t)).filter((t) => t !== '');
+export const zusammen = (eingabe) => [eingabe].flat()
+  .flatMap((t) => (typeof t === 'string' ? t.split(MINI).flatMap((u, i) => (i % 2 ? [u] : teilen(u))) : [t]));
 
 // Nur Hosts aus src/konfig/quellen.mjs werden verlinkt; alles andere erscheint als Text ohne Link.
 function externerLink(sk, url, titel) {
@@ -47,7 +59,7 @@ function angabe(sk, pfad) {
 function angaben(sk, eintraege) {
   const zeilen = eintraege.map((e) => ({ e, wert: angabe(sk, e.pfad) })).filter((z) => z.wert !== null && z.wert !== '');
   if (!zeilen.length) return html``;
-  return html`<dl class="recht-angaben">${zeilen.map(({ e, wert }) => html`<div><dt>${e.bezeichnung}</dt><dd>${wert}</dd></div>`)}</dl>`;
+  return html`<dl class="recht-angaben">${zeilen.map(({ e, wert }) => html`<div><dt>${zusammen(e.bezeichnung)}</dt><dd>${wert}</dd></div>`)}</dl>`;
 }
 
 function muster(sk, m) {
@@ -55,14 +67,14 @@ function muster(sk, m) {
   return html`<div class="recht-muster">
 <p class="recht-muster-titel">${m.anTitel}</p>
 ${an.map((w) => html`<p class="recht-muster-zeile">${w}</p>`)}
-${m.zeilen.map((z) => html`<p class="recht-muster-zeile">${text(z)}</p>`)}
+${m.zeilen.map((z) => html`<p class="recht-muster-zeile">${text(zusammen(z))}</p>`)}
 </div>`;
 }
 
 // Ein Block eines Abschnitts. Jeder Block liefert Roh-HTML; leer heißt: nichts anzeigen.
 function block(sk, b) {
-  if (b.absatz !== undefined) return html`<p>${text(b.absatz)}</p>`;
-  if (b.liste) return html`<ul class="recht-liste">${b.liste.map((x) => html`<li>${text(x)}</li>`)}</ul>`;
+  if (b.absatz !== undefined) return html`<p>${text(zusammen(b.absatz))}</p>`;
+  if (b.liste) return html`<ul class="recht-liste">${b.liste.map((x) => html`<li>${text(zusammen(x))}</li>`)}</ul>`;
   if (b.angaben) return angaben(sk, b.angaben);
   if (b.wert) {
     const w = wertVon(sk.konfig.betrieb, b.wert);
@@ -100,14 +112,14 @@ ${inh.freigabe ? html`<p class="recht-freigabe hinweis${istPlatzhalter(inh.freig
 </div></header>
 <div class="sektion sektion-dicht"><div class="raster"><div class="recht-teilung">
 <div class="recht-text">
-${teile.map(({ a, bloecke }) => html`<section class="recht-teil" aria-labelledby="teil-${a.id}">
-${abschnittKopf({ id: `teil-${a.id}`, titel: a.titel })}
+${teile.map(({ a, bloecke }, i) => html`<section class="recht-teil" aria-labelledby="teil-${a.id}">
+${abschnittKopf({ id: `teil-${a.id}`, titel: zusammen(a.titel), nr: nummer(i) })}
 ${bloecke}
 </section>`)}
 </div>
 <nav class="recht-rand" aria-labelledby="inhalt-titel">
-<h2 class="rand-titel" id="inhalt-titel">Inhalt</h2>
-<ol class="recht-toc">${teile.map(({ a }) => html`<li><a href="#teil-${a.id}">${a.titel}</a></li>`)}</ol>
+<h2 class="recht-rand-titel" id="inhalt-titel">Inhalt</h2>
+<ol class="recht-toc">${teile.map(({ a }, i) => html`<li><a href="#teil-${a.id}"><span class="recht-toc-nr" aria-hidden="true">${nummer(i)}</span><span class="recht-toc-titel">${zusammen(a.titel)}</span></a></li>`)}</ol>
 </nav>
 </div></div></div>
 </article>

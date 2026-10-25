@@ -1,37 +1,115 @@
-/* V11 Suche und V12 404: ruhiger Seitenkopf, Suchfeld groß, Treffer als Linkliste mit Bereich; 404 mit Figur 7/5. */
+/* V11 Suche und V12 404: ruhiger Seitenkopf. Suche ab 64em 8/4 (Feld und Register links, „Andere Wege“ in der
+   Randspalte neben Kopf und Feld); Treffer und Hauptthemen als Register wie die Angabenliste im Impressum: Bereich bzw.
+   Entfernung links, Titel und Text rechts. 404: Text und Figur 7/5, die drei Wege darunter über die ganze Breite, Ortssuche und Anruf auf denselben
+   Spaltenlinien. */
 @layer komponenten {
   .system-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
   .system-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; }
-  .suche { display: grid; gap: var(--sp-s); max-inline-size: var(--karte-gross); }
+
+  /* Suche */
+  .suche-teilung { display: grid; gap: var(--sp-l); grid-template-areas: "kopf" "suche" "rand"; align-items: start; }
+  .suche-kopftext { grid-area: kopf; }
+  .suche-kopftext .gruppe-einleitung { margin-block-end: 0; }
+  .suche { grid-area: suche; display: grid; gap: var(--sp-s); max-inline-size: var(--karte-gross); }
   .suche-feld { display: grid; gap: var(--sp-2xs); }
   .suche-label { font-weight: var(--fw-ui); }
   .suche-eingabe-huelle { position: relative; }
   .suche-icon { position: absolute; inset-inline-start: var(--sp-s); inset-block-start: 50%; translate: 0 -50%; inline-size: var(--icon-ui); block-size: var(--icon-ui); color: var(--c-tinte-3); pointer-events: none; }
-  .suche-eingabe { font: inherit; font-size: var(--fs-1); inline-size: 100%; min-block-size: var(--ziel-touch); padding: var(--sp-xs) var(--sp-s) var(--sp-xs) var(--sp-xl); color: var(--c-tinte); background: var(--c-flaeche); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  .suche-eingabe { font: inherit; font-size: var(--fs-0); inline-size: 100%; min-block-size: var(--ziel-touch); padding: var(--sp-xs) var(--ziel-touch) var(--sp-xs) var(--sp-xl); color: var(--c-tinte); background: var(--c-flaeche); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  .suche-eingabe::placeholder { color: var(--c-tinte-3); }
+  /* Leeres Feld: der Leeren-Knopf ist verborgen, sein Platz rechts gehört dann dem Platzhaltertext (320 px) */
+  .suche-eingabe:placeholder-shown { padding-inline-end: var(--sp-s); }
+  .suche-eingabe:hover { border-color: var(--c-tinte-3); }
   .suche-eingabe:focus-visible { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: var(--linie-fokus); }
-  .suche-status { font-size: var(--fs--1); color: var(--c-tinte-2); min-block-size: var(--lh-text); }
+  /* Das browsereigene Kreuz (fremdes Blau, gefüllte Glyphe) weicht dem eigenen Leeren-Knopf im Icon-System */
+  .suche-eingabe::-webkit-search-cancel-button { appearance: none; }
+  .suche-leeren { position: absolute; inset-block: 0; inset-inline-end: 0; inline-size: var(--ziel-touch); display: grid; place-items: center; padding: 0; border: 0; border-radius: var(--r-m); background: none; color: var(--c-tinte-3); cursor: pointer; }
+  .suche-leeren:hover { color: var(--c-tinte); }
+  .suche-leeren:focus-visible { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: calc(-1 * var(--sp-2xs)); }
+  .suche-leeren .i { inline-size: var(--icon-text); block-size: var(--icon-text); }
+  .suche-status { font-size: var(--fs--1); color: var(--c-tinte-2); min-block-size: var(--lh-text); font-variant-numeric: tabular-nums; }
   .suche-ohne-js { color: var(--c-tinte-2); }
   .suche-ergebnis { display: grid; gap: var(--sp-l); }
-  .suche-ergebnis section { display: grid; gap: var(--sp-xs); }
-  .suche-liste { list-style: none; padding: 0; display: grid; }
-  .suche-treffer { margin: 0; padding-block: var(--sp-xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
-  .suche-link { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--sp-xs); min-block-size: var(--ziel-min); color: var(--c-tinte); text-decoration: none; }
-  .suche-link:hover .suche-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
-  .suche-titel { font-weight: var(--fw-ui); }
-  .suche-bereich { font-size: var(--fs--1); color: var(--c-tinte-3); }
-  .suche-text { font-size: var(--fs--1); color: var(--c-tinte-2); max-inline-size: var(--mass); }
+  .suche-ergebnis section, .suche-themen { display: grid; }
 
-  .fehler-teilung { display: grid; gap: var(--sp-xl); align-items: center; }
-  .fehler-wege { margin-block-start: var(--sp-m); }
-  .fehler-figur { margin: 0; display: grid; gap: var(--sp-s); }
-  .fehler-figur .zylinder { max-inline-size: var(--hero-figur-max); }
-  .fehler-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); }
-  .fehler-unten { display: grid; gap: var(--sp-l); align-items: end; }
-  @media (min-width: 48em) { .fehler-unten { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
+  /* Registerkopf: Versalmarke über einer Tintenlinie (Tabellenkopf), Zeilen darunter mit Haarlinien */
+  .suche-block-titel { font-size: var(--fs--1); line-height: var(--lh-text); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); padding-block-end: var(--sp-2xs); border-block-end: var(--linie-ui) solid var(--c-tinte); }
+  .suche-liste { list-style: none; padding: 0; margin: 0; display: grid; }
+  .suche-treffer { position: relative; isolation: isolate; margin: 0; display: grid; gap: var(--sp-3xs) var(--sp-m); align-items: baseline; padding-block: var(--sp-xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
+  /* M-02/M-03 wie bei den Karten: Überlagerung in currentColor über die ganze Zeile (der Link ist gestreckt) */
+  .suche-treffer::before { content: ""; position: absolute; inset-block: 0; inset-inline: calc(-1 * var(--sp-xs)); z-index: -1; border-radius: var(--r-m); background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .suche-treffer:has(.suche-link:hover)::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
+  .suche-treffer:has(.suche-link:active)::before { opacity: var(--deck-aktiv); }
+  .suche-bereich { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); font-variant-numeric: tabular-nums; }
+  /* Entfernung ab Weilburg: Einheit klein, Ziffern in Tabellenbreite (keine Versalien „KM“) */
+  .suche-km { text-transform: none; letter-spacing: normal; }
+  .suche-inhalt { display: grid; gap: var(--sp-3xs); min-inline-size: 0; }
+  .suche-link { font-weight: var(--fw-ui); line-height: var(--lh-titel); color: var(--c-tinte); text-decoration: none; text-wrap: balance; }
+  /* Gestreckter Link: Klickfläche, Überlagerung und Fokusring decken dieselbe Fläche (Zeile plus Überstand) */
+  .suche-link::after { content: ""; position: absolute; inset-block: 0; inset-inline: calc(-1 * var(--sp-xs)); border-radius: var(--r-m); }
+  .suche-link:hover { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .suche-link:focus-visible { outline: none; }
+  .suche-link:focus-visible::after { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: 0; }
+  .suche-text { font-size: var(--fs--1); color: var(--c-tinte-2); max-inline-size: var(--mass); text-wrap: pretty; }
+  /* Treffer in Lahn-hell (Info-Tönung), keine zweite Akzentfarbe */
+  .suche-treffer mark { background: var(--c-lahn-hell); color: inherit; border-radius: var(--r-s); }
+  /* „E-Mail“ nie nach „E-“ umbrechen (Spans aus Vorlage und Modul) */
+  .kein-umbruch { white-space: nowrap; }
+
+  /* Andere Wege in der Randspalte: Kopf im selben Registerstil wie Hauptthemen und Treffer (eine Art Blockkopf je
+     Seite; die einzige Kupfermarke bleibt die Kopflinie), Karten untereinander */
+  .suche-rand { grid-area: rand; display: grid; gap: var(--sp-s); }
+
+  /* Unter 30em fs-0 wie der Fließtext: so passt der Platzhalter auch bei 320 px ganz ins Feld */
+  @media (min-width: 30em) {
+    .suche-eingabe { font-size: var(--fs-1); }
+  }
+  @media (min-width: 48em) {
+    .suche-treffer { grid-template-columns: var(--legende-min) minmax(0, 1fr); }
+  }
+  @media (min-width: 64em) {
+    /* Die Randspalte reicht über Kopf und Feld: keine leere Kopfzeile rechts, der Ausweg steht im ersten Bildschirm */
+    .suche-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); grid-template-areas: "kopf rand" "suche rand"; column-gap: var(--sp-xl); }
+    /* Randkopf auf der Zeile des Kickers: Abstand = Kopflinie plus ihr Abstand zum Kicker (abschnitt.css),
+       gleiche Schrift und Zeilenhöhe wie der Kicker – „Andere Wege“ steht auf derselben Grundlinie wie „Suche“ */
+    .suche-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); padding-block-start: calc(var(--linie-scher) + var(--sp-s)); }
+    .suche-wege { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  /* 404 */
+  .fehler-teilung { display: grid; gap: var(--sp-xl); grid-template-areas: "text" "wege" "figur"; }
+  .fehler-text { grid-area: text; }
+  .fehler-text .gruppe-einleitung { margin-block-end: 0; }
+  .fehler-wege { grid-area: wege; }
+  .fehler-figur { grid-area: figur; margin: 0; display: grid; gap: var(--sp-s); }
+  .fehler-figur .zylinder { inline-size: 100%; max-inline-size: var(--hero-figur-max); }
+  .fehler-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); text-wrap: pretty; }
+  .fehler-unten { display: grid; gap: var(--sp-l); }
+  /* Unter 64em trägt die Rufleiste den Anruf; ein zweiter großer Rufknopf direkt darüber wäre doppelt */
+  .fehler-ruf { display: none; }
+  @media (min-width: 48em) {
+    .fehler-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-areas: "text figur" "wege wege"; }
+    /* Wie im Hero (V01): Die Scherlinie der Figur liegt auf der Grundlinie der zweiten H1-Zeile – hier gebrochen
+       (gemessen 768–1440 px: Abweichung ≤ 3 px) */
+    .fehler-figur { align-self: start; margin-block-start: calc(var(--hero-figur-versatz) + var(--linie-scher) + var(--sp-xs)); }
+  }
   @media (min-width: 64em) {
     .system-kopf { padding-block-start: var(--sp-sektion); }
-    .system-kopf h1 { font-size: var(--fs-5); }
-    .fehler-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
-    .fehler-wege { grid-template-columns: minmax(0, 1fr); }
+    .seite-fehler .system-kopf h1 { font-size: var(--fs-5); }
+    .fehler-figur { margin-block-start: calc(var(--hero-figur-versatz) + var(--linie-scher) + var(--sp-m)); }
+    /* Ortssuche als Subgrid: der Rufknopf steht auf der Zeile des Eingabefelds, nicht auf der des Links darunter */
+    .fehler-unten { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--sp-xl); row-gap: var(--sp-2xs); }
+    .fehler-unten > .ortspruefung { grid-row: span 3; grid-template-rows: subgrid; }
+    .fehler-ruf { display: block; grid-column: 2; grid-row: 3; align-self: start; }
   }
+}
+
+/* M-12 Rückmeldung (Suche): neue Trefferliste blendet von .6 auf; zwei gleiche Keyframes, damit jeder Wechsel neu startet */
+@layer bewegung {
+  @media (prefers-reduced-motion: no-preference) {
+    .suche-ergebnis[data-stand="a"] { animation: suche-neu-a var(--dur-feedback) var(--ease-standard) backwards; }
+    .suche-ergebnis[data-stand="b"] { animation: suche-neu-b var(--dur-feedback) var(--ease-standard) backwards; }
+  }
+  @keyframes suche-neu-a { from { opacity: .6; } }
+  @keyframes suche-neu-b { from { opacity: .6; } }
 }

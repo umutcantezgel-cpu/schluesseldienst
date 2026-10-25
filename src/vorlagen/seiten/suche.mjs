@@ -1,11 +1,27 @@
 // V11 Suche (Arbeitsansicht, nicht indexiert): Suchfeld ohne <form> (CSP form-action mailto:), Ergebnisse in zwei
-// Registern (Seiten, Orte), Statuszeile aria-live. Ab 64em 8/4: Suche links, „Andere Wege“ in der Randspalte, damit der
-// Ausweg ohne Scrollen sichtbar ist. Ohne JS: Hinweis und Wege über Sitemap und Einsatzgebiet.
+// Registern (Seiten, Orte), Statuszeile aria-live. Ohne Anfrage (oder ohne Treffer) steht dort das Register
+// „Hauptthemen“ im selben Stil, mit direkten Links – auch ohne JS. Ab 64em 8/4: Suche links, „Andere Wege“ in der
+// Randspalte neben Kopf und Feld, damit der Ausweg ohne Scrollen sichtbar ist.
 // Indizes: /daten/seiten.*.json (Build), /daten/orte.*.json und /daten/plz.*.json (Ortssuche), alle mit SRI.
 import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import inhalt from '../../inhalte/system.mjs';
 import { brotkrumenLd } from '../teile/brotkrumen.mjs';
+import { zusammen } from './recht.mjs';
+
+// Registereintrag wie die Treffer aus dem Modul suche: Bereich links, Titel als gestreckter Link, Kurztext darunter
+const eintrag = (e) => html`<li class="suche-treffer"><span class="suche-bereich">${e.bereich}</span><div class="suche-inhalt"><a class="suche-link" href="${e.pfad}">${zusammen(e.titel)}</a>${e.text ? html`<p class="suche-text">${zusammen(e.text)}</p>` : ''}</div></li>`;
+
+function themen(sk, t) {
+  const index = sk.assets.daten.seiten;
+  if (!index?.eintrag) return '';
+  const eintraege = t.pfade.map((p) => {
+    const e = index.eintrag(p);
+    if (!e) throw new Error(`Suche: Hauptthema ${p} fehlt im Seitenindex`);
+    return e;
+  });
+  return html`<section class="suche-themen" data-rolle="themen" aria-labelledby="suche-themen-titel"><h2 class="suche-block-titel" id="suche-themen-titel">${t.titel}</h2><ul class="suche-liste">${eintraege.map(eintrag)}</ul></section>`;
+}
 
 export function seiten(k) {
   const s = inhalt.suche;
@@ -31,13 +47,14 @@ export function seiten(k) {
 </div>
 <p class="suche-ohne-js">${s.ohneJs}</p>
 <p class="suche-status" role="status" aria-live="polite"></p>
+${themen(sk, s.themen)}
 <div class="suche-ergebnis" hidden>
 <section data-rolle="seiten-block" aria-labelledby="suche-seiten" hidden><h2 class="suche-block-titel" id="suche-seiten">${s.seiten}</h2><ul class="suche-liste" data-rolle="seiten"></ul></section>
 <section data-rolle="orte-block" aria-labelledby="suche-orte" hidden><h2 class="suche-block-titel" id="suche-orte">${s.orte}</h2><ul class="suche-liste" data-rolle="orte"></ul></section>
 </div>
 </div>
 <nav class="suche-rand" aria-labelledby="wege-titel">
-<h2 class="rand-titel suche-block-titel" id="wege-titel">Andere Wege</h2>
+<h2 class="suche-block-titel" id="wege-titel">Andere Wege</h2>
 <ul class="weiter suche-wege">${s.wege.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${w.titel}</span><span class="weiter-text">${w.text}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
 </nav>
 </div></div>

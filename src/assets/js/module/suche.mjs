@@ -1,6 +1,6 @@
 // Seitensuche (V11 /suche/): Seitenindex und Ortsindex laden beim ersten Fokus bzw. bei vorhandener Anfrage (?q=),
 // Ergebnisse als zwei Register (Bereich bzw. Entfernung links, Titel und Text rechts, Suchwort markiert), Anzahl in
-// einer Statuszeile (aria-live). Kein <form> (CSP form-action mailto:), die Anfrage steht per history.replaceState in
+// einer Statuszeile (aria-live). Das Register „Hauptthemen“ aus der Vorlage steht nur, solange keine Treffer stehen. Kein <form> (CSP form-action mailto:), die Anfrage steht per history.replaceState in
 // der Adresse. Eigener Leeren-Knopf statt des browsereigenen Kreuzes (Icon-System). Nur DOM-sichere APIs.
 import { seitenIndex, seitenSuchen, hervorheben, statusText } from '../logik/suche.mjs';
 import { indexAufbauen, suchen, plzDekodieren } from '../logik/ortsindex.mjs';
@@ -15,22 +15,31 @@ function knoten(tag, klasse, inhalt) {
   return e;
 }
 
+// „E-Mail“ bricht sonst nach „E-“ um (harter Bindestrich): Wort samt Kompositum in .kein-umbruch, wie in der Vorlage
+const KEIN_UMBRUCH = /(E-Mail(?:-\p{L}+)?)/u;
+const textKnoten = (s) => s.split(KEIN_UMBRUCH).map((t, i) => (i % 2 ? knoten('span', 'kein-umbruch', t) : document.createTextNode(t)));
+
 // Text mit <mark> um die Wörter, die die Anfrage treffen
 function markiert(tag, klasse, text, anfrage) {
   const e = knoten(tag, klasse);
-  e.append(...hervorheben(text, anfrage).map((t) => (t.treffer ? knoten('mark', null, t.text) : document.createTextNode(t.text))));
+  for (const t of hervorheben(text, anfrage)) {
+    if (!t.treffer) { e.append(...textKnoten(t.text)); continue; }
+    const m = knoten('mark');
+    m.append(...textKnoten(t.text));
+    e.append(m);
+  }
   return e;
 }
 
 // Ein Registereintrag: Marke links, Titel als Link (über die ganze Zeile gestreckt) und Text rechts
-function treffer({ marke, titel, pfad, text }, anfrage) {
+function treffer({ marke, markeKlasse = '', titel, pfad, text }, anfrage) {
   const li = knoten('li', 'suche-treffer');
   const a = markiert('a', 'suche-link', titel, anfrage);
   a.href = pfad;
   const inhalt = knoten('div', 'suche-inhalt');
   inhalt.append(a);
   if (text) inhalt.append(markiert('p', 'suche-text', text, anfrage));
-  li.append(knoten('span', 'suche-bereich', marke), inhalt);
+  li.append(knoten('span', `suche-bereich${markeKlasse}`, marke), inhalt);
   return li;
 }
 
@@ -42,6 +51,9 @@ export function suche(el) {
   const orteListe = el.querySelector('[data-rolle="orte"]');
   const ergebnis = el.querySelector('.suche-ergebnis');
   const ohneJs = el.querySelector('.suche-ohne-js');
+  const themen = el.querySelector('[data-rolle="themen"]');
+  // Hauptthemen genau dann, wenn keine Treffer stehen (leer, zu kurz, keine Treffer, Ladefehler)
+  const themenZeigen = () => { if (themen) themen.hidden = !ergebnis.hidden; };
   if (!eingabe || !status || !seitenListe || !orteListe) return;
   el.querySelector('.suche-feld').hidden = false;
   if (ohneJs) ohneJs.hidden = true;
@@ -57,7 +69,8 @@ export function suche(el) {
   };
 
   let stand = 'a';
-  const zeigen = async () => {
+  // still: erste Anzeige einer Anfrage aus der Adresse – keine Rückmeldung, weil niemand etwas getan hat (P6)
+  const zeigen = async ({ still = false } = {}) => {
     const q = eingabe.value.trim();
     if (leeren) leeren.hidden = !eingabe.value;
     const adresse = new URL(window.location.href);
@@ -65,30 +78,35 @@ export function suche(el) {
     history.replaceState(null, '', `${adresse.pathname}${adresse.search}`);
     if (q.length < 2) {
       ergebnis.hidden = true;
+      themenZeigen();
       status.textContent = q ? el.getAttribute('data-kurz') : '';
       return;
     }
     const d = await laden();
-    if (!d || eingabe.value.trim() !== q) return;
+    if (eingabe.value.trim() !== q) return;
+    if (!d) { ergebnis.hidden = true; themenZeigen(); return; }
     const alleSeiten = seitenSuchen(d.seiten, q, Infinity);
     const seiten = alleSeiten.slice(0, MAX_SEITEN);
     const ergebnisOrte = suchen(d.orte, d.plz, q, 8);
     const orte = ergebnisOrte.treffer.filter((o) => o.slug);
     seitenListe.replaceChildren(...seiten.map((s) => treffer({ marke: s.bereich, titel: s.titel, pfad: s.pfad, text: s.text }, q)));
-    orteListe.replaceChildren(...orte.map((o) => treffer({ marke: `${o.km} km`, titel: o.name, pfad: `/schluesseldienst-${o.slug}/`, text: o.zusatz }, q)));
+    orteListe.replaceChildren(...orte.map((o) => treffer({ marke: `${o.km}\u00A0km`, markeKlasse: ' suche-km', titel: o.name, pfad: `/schluesseldienst-${o.slug}/`, text: o.zusatz }, q)));
     el.querySelector('[data-rolle="seiten-block"]').hidden = !seiten.length;
     el.querySelector('[data-rolle="orte-block"]').hidden = !orte.length;
     ergebnis.hidden = !(seiten.length || orte.length);
+    themenZeigen();
     // M-12-Rückmeldung: Die neue Liste blendet kurz von .6 auf; der Wechsel des Attributs startet die Animation neu
-    stand = stand === 'a' ? 'b' : 'a';
-    ergebnis.setAttribute('data-stand', stand);
+    if (!still) {
+      stand = stand === 'a' ? 'b' : 'a';
+      ergebnis.setAttribute('data-stand', stand);
+    }
     status.textContent = statusText({ seiten: seiten.length, seitenGesamt: alleSeiten.length, orte: orte.length, orteGesamt: Math.max(orte.length, ergebnisOrte.gesamt) })
       || el.getAttribute('data-leer');
   };
 
   let zeitgeber = 0;
   eingabe.addEventListener('focus', laden, { once: true });
-  eingabe.addEventListener('input', () => { clearTimeout(zeitgeber); zeitgeber = setTimeout(zeigen, WARTEN); });
+  eingabe.addEventListener('input', () => { clearTimeout(zeitgeber); zeitgeber = setTimeout(() => zeigen(), WARTEN); });
   // Enter und Esc (type=search) zeigen sofort, ohne die Wartezeit
   eingabe.addEventListener('search', () => { clearTimeout(zeitgeber); zeigen(); });
   leeren?.addEventListener('click', () => {
@@ -97,5 +115,6 @@ export function suche(el) {
     eingabe.focus();
   });
   const start = new URL(window.location.href).searchParams.get('q');
-  if (start) { eingabe.value = start.slice(0, 80); zeigen(); }
+  // Mit Anfrage in der Adresse warten die Hauptthemen verborgen auf das Ergebnis, statt kurz aufzublitzen
+  if (start) { eingabe.value = start.slice(0, 80); if (themen) themen.hidden = true; zeigen({ still: true }); }
 }

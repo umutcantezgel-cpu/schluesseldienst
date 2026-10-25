@@ -5,7 +5,8 @@
 import { access } from 'node:fs/promises';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { html } from '../../../bau/lib/html.mjs';
+import { html, roh, escape } from '../../../bau/lib/html.mjs';
+import { textTrennen } from '../../../bau/lib/trennen.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import { GRUPPEN } from '../../konfig/leistungen.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
@@ -14,6 +15,7 @@ import { brotkrumenLd } from '../teile/brotkrumen.mjs';
 import { preistabelle } from '../teile/preisauszug.mjs';
 import { rufknopf } from '../teile/rufknopf.mjs';
 import { falleRiegel } from '../teile/illustrationen/falle-riegel.mjs';
+import { zylinderSchnitt } from '../teile/illustrationen/zylinder.mjs';
 import { notoeffnungObjekte } from '../teile/illustrationen/objekte.mjs';
 import { tuerSchichten } from '../teile/illustrationen/tuerschichten.mjs';
 import { grundriss } from '../teile/illustrationen/grundriss.mjs';
@@ -24,15 +26,16 @@ import { datenschrank } from '../teile/illustrationen/datenschrank.mjs';
 
 // Figuren für den Kopf: eigene je Leistung (inhalt.figur: '<name>'), sonst die Gruppenfigur mit der Schicht,
 // dem Objekt oder der Stufe der Leistung hervorgehoben (zustand/fokus), sonst das ganze Gruppenbild.
+// Der Zylinder-Schnitt (I-01) erklärt die Zylinderseite selbst: Stifte, Federn, Schlüssel und Scherlinie.
 const FIGUREN = {
   'falle-riegel': () => falleRiegel({ praefix: 'kopf-fr' }),
+  zylinder: () => zylinderSchnitt({ praefix: 'kopf-zy', dekorativ: true }),
 };
 const JE_LEISTUNG = {
   autooeffnung: () => notoeffnungObjekte('', { fokus: 'auto' }),
   garagenoeffnung: () => notoeffnungObjekte('', { fokus: 'garage' }),
   tresoroeffnung: () => notoeffnungObjekte('', { fokus: 'tresor' }),
   einbruchschaden: () => tuerSchichten({ praefix: 'kopf-ts' }),
-  schliesszylinder: () => tuerSchichten({ praefix: 'kopf-ts', zustand: 1 }),
   schutzbeschlaege: () => tuerSchichten({ praefix: 'kopf-ts', zustand: 2 }),
   tuerschloesser: () => tuerSchichten({ praefix: 'kopf-ts', zustand: 3 }),
   tuersicherung: () => tuerSchichten({ praefix: 'kopf-ts', zustand: 4 }),
@@ -91,9 +94,11 @@ function blick(inh) {
 </section>`;
 }
 
-// Hauptteil 8/4: Text links, rechts der Preisauszug als klebende Randspalte. Mit Preis passt die Spalte nur dann in
-// die Bildschirmhöhe, wenn „Mehr aus …“ nicht auch darin steht – die Liste rückt dann unter den Text (mobil hinter
-// den Preis, wie im Quelltext). Ohne Preis klebt die kurze Liste selbst.
+// Hauptteil 8/4: Text links, rechts der Preisauszug als Randspalte. Mit Preis passt die Spalte nur dann in die
+// Bildschirmhöhe, wenn „Mehr aus …“ nicht auch darin steht – die Liste rückt dann unter den Text (mobil hinter den
+// Preis, wie im Quelltext). Ohne Preis klebt die kurze Liste selbst. Ein Preisauszug mit mehreren Positionen ist
+// höher als übliche Laptop-Bildschirme und klebt deshalb nicht (leistung-rand-lang): abgeschnitten mitzulaufen oder
+// in sich zu rollen versteckte Hinweis und Link zur Preisseite.
 function hauptteil(sk, g, l, inh) {
   const geschwister = g.leistungen.filter((x) => x.id !== l.id);
   const mehr = html`<nav class="rand-block leistung-mehr" aria-labelledby="rand-gruppe">
@@ -113,7 +118,7 @@ ${a.absaetze.map((p) => html`<p>${text(p)}</p>`)}
 ${a.liste ? html`<ul class="leistung-liste">${a.liste.map((x) => html`<li>${text(x)}</li>`)}</ul>` : ''}
 </section>`)}
 </div>
-${inh.preis ? html`<aside class="leistung-rand" aria-label="Preise">${preis}</aside>
+${inh.preis ? html`<aside class="leistung-rand${inh.preis.positionen.length > 1 ? ' leistung-rand-lang' : ''}" aria-label="Preise">${preis}</aside>
 ${mehr}` : html`<aside class="leistung-rand" aria-label="Weitere Leistungen">${mehr}</aside>`}
 </div></div></div>`;
 }
@@ -127,11 +132,14 @@ ${faq(sk, liste)}
 </section>`;
 }
 
+// Kartentitel wirken als Überschrift und trennen deshalb nur an den Fugen der Wortliste (K-006), wie h1–h4 im Bau
+const kartenTitel = (t) => roh(textTrennen(escape(t)));
+
 function weiter(sk, liste) {
   return html`<section class="sektion sektion-dicht" aria-labelledby="weiter-titel">
 <div class="raster">
 ${abschnittKopf({ id: 'weiter-titel', titel: 'Weiterlesen' })}
-<ul class="weiter">${liste.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${w.titel}</span><span class="weiter-text">${w.text}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
+<ul class="weiter">${liste.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${kartenTitel(w.titel)}</span><span class="weiter-text">${w.text}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
 </div>
 </section>`;
 }
