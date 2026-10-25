@@ -17,8 +17,8 @@ function kopf() {
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="verz-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>
-<nav class="verz-sprung" aria-label="${inhalt.sprungTitel}">
-<ul>${GRUPPEN.map((g) => html`<li><a href="#${anker(g)}"><span class="verz-nr" aria-hidden="true">${g.nr}</span>${g.titel}</a></li>`)}</ul>
+<nav class="verz-sprung" aria-label="${inhalt.sprungTitel}" data-modul="gruppenfilter">
+<ul>${GRUPPEN.map((g) => html`<li><a href="#${anker(g)}" data-gruppe="${g.id}"><span class="verz-nr" aria-hidden="true">${g.nr}</span>${g.titel}</a></li>`)}</ul>
 </nav>
 </div>
 </section>`;
@@ -27,7 +27,7 @@ function kopf() {
 // Rhythmus: Fläche (Band) und Dichte wechseln von Gruppe zu Gruppe
 function gruppe(sk, g, i) {
   const klasse = i % 2 === 0 ? 'sektion band' : 'sektion-dicht';
-  return html`<section class="${klasse} verz-gruppe" id="${anker(g)}" aria-labelledby="${anker(g)}-titel">
+  return html`<section class="${klasse} verz-gruppe" id="${anker(g)}" data-gruppe="${g.id}" aria-labelledby="${anker(g)}-titel">
 <div class="raster">
 ${abschnittKopf({ id: `${anker(g)}-titel`, titel: `[${g.titel}](${g.pfad})`, nr: g.nr })}
 <ul class="verz-liste">${g.leistungen.map((l) => html`<li class="verz-eintrag">${sk.icon(l.icon, { klasse: 'verz-icon' })}<div class="verz-text"><h3 class="verz-titel"><a href="${l.pfad}">${l.titel}</a></h3><p class="verz-kurz">${l.kurz}</p></div></li>`)}</ul>

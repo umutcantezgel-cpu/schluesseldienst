@@ -9,8 +9,9 @@ import { tagesband } from './module/tagesband.mjs';
 import { preisrechner } from './module/preisrechner.mjs';
 import { composer } from './module/composer.mjs';
 import { suche } from './module/suche.mjs';
+import { gruppenfilter } from './module/gruppenfilter.mjs';
 
-const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner, composer, suche };
+const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner, composer, suche, gruppenfilter };
 
 function starten() {
   document.documentElement.classList.add('js');

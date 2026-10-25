@@ -12,6 +12,13 @@
   .verz-sprung a:hover { border-color: var(--c-kupfer); }
   .verz-nr { font-family: var(--ff-mono); font-size: var(--fs--1); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); color: var(--c-kupfer); }
 
+  /* Gruppenfilter (mit JavaScript): Sprunglinks werden Umschaltknöpfe; gedrückt = gefüllt und fett, nicht nur Farbe */
+  .verz-sprung button { display: inline-flex; align-items: center; gap: var(--sp-2xs); min-block-size: var(--ziel-min); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); background: transparent; color: var(--c-tinte); }
+  .verz-sprung button:hover { border-color: var(--c-kupfer); }
+  .verz-sprung button[aria-pressed="true"] { background: var(--c-lahn); border-color: var(--c-lahn); color: var(--c-auf-lahn); font-weight: var(--fw-ui); }
+  .verz-sprung button[aria-pressed="true"] .verz-nr { color: var(--c-auf-lahn); }
+  .verz-status { margin-block-start: var(--sp-s); font-size: var(--fs--1); color: var(--c-tinte-2); }
+
   /* Gruppenabschnitte: Anker sitzen unter dem klebenden Kopf */
   .verz-gruppe { scroll-margin-block-start: var(--sp-l); }
   @media (min-width: 64em) { .verz-gruppe { scroll-margin-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); } }
