@@ -8,6 +8,7 @@ export const name = 'budgets';
 
 const GRENZE = {
   cssGz: 14336,
+  cssDruckGz: 3072,
   jsGz: 16384,
   woff2Summe: 76800,
   ortRoh: 30720,
@@ -31,6 +32,24 @@ function attribute(tag) {
 function istSchriftVorladen(tag) {
   const a = attribute(tag);
   return (a.rel ?? '').toLowerCase().split(/\s+/).includes('preload') && (a.as ?? '').toLowerCase() === 'font';
+}
+
+/** Entfernt @media-Blöcke für Druck und erzwungene Farben (mit verschachtelten Klammern) aus einem CSS-Text. */
+export function ohneSonderMedien(css) {
+  const muster = /@media\s*([^{]*)\{/g;
+  let aus = '';
+  let i = 0;
+  let m;
+  while ((m = muster.exec(css))) {
+    if (!/\bprint\b|forced-colors/.test(m[1])) continue;
+    let tiefe = 1;
+    let j = muster.lastIndex;
+    while (j < css.length && tiefe) { if (css[j] === '{') tiefe++; else if (css[j] === '}') tiefe--; j++; }
+    aus += css.slice(i, m.index);
+    i = j;
+    muster.lastIndex = j;
+  }
+  return aus + css.slice(i);
 }
 
 export async function pruefe(ctx) {
@@ -75,11 +94,14 @@ export async function pruefe(ctx) {
   // CSS je Seite: gemeinsames Bündel plus Ansichts-Stile (Summe gz); jede Datei wird einmal gemessen
   const cssGz = new Map();
   let cssSeiteMax = 0;
+  const druckLinks = new Set();
   // Klassen, die nur in Ansichts-Stilen definiert sind: Klasse → Bündelpfade (Seite muss eines davon laden)
   const nurAnsicht = new Map();
   const gemeinsam = new Set();
   const klassenIn = (text) => new Set([...text.matchAll(/\.([a-z][a-z0-9-]*)/g)].map((m) => m[1]));
-  if (ctx.assets?.css?.pfad) { const b = await lies(ctx.assets.css.pfad); if (b) for (const k of klassenIn(b.toString('utf8'))) gemeinsam.add(k); }
+  // Druck- und Kontrastregeln (@media print, forced-colors) im gemeinsamen Bündel gestalten Klassen nur um; ihre
+  // Bildschirm-Regeln kommen weiter aus dem Ansichts-Stil. Sie zählen deshalb nicht als gemeinsame Stile.
+  if (ctx.assets?.css?.pfad) { const b = await lies(ctx.assets.css.pfad); if (b) for (const k of klassenIn(ohneSonderMedien(b.toString('utf8')))) gemeinsam.add(k); }
   for (const a of Object.values(ctx.assets?.ansichten ?? {})) {
     const b = await lies(a.pfad);
     if (!b) continue;
@@ -96,6 +118,8 @@ export async function pruefe(ctx) {
     for (const l of links) {
       const a = attribute(l);
       if (a.rel !== 'stylesheet' || !a.href?.startsWith('/assets/')) continue;
+      // Druckstile (media="print") blockieren das Rendern nicht; eigenes Budget budgets/css-druck (D-CSS-02)
+      if (a.media === 'print') { druckLinks.add(a.href); continue; }
       if (!cssGz.has(a.href)) { const b = await lies(a.href); cssGz.set(a.href, b ? gz(b) : 0); }
       cssSumme += cssGz.get(a.href);
     }
@@ -120,6 +144,13 @@ export async function pruefe(ctx) {
   }
   messung.vorladenMax = vorladenMax;
   messung.cssSeiteMax = cssSeiteMax;
+  for (const href of druckLinks) {
+    const b = await lies(href);
+    if (!b) continue;
+    const g = gz(b);
+    messung.cssDruck = Math.max(messung.cssDruck || 0, g);
+    if (g > GRENZE.cssDruckGz) f('budgets/css-druck', 'fehler', `Druckstile gz ${g} B > ${GRENZE.cssDruckGz} B`, href);
+  }
   for (const [k, dateien] of stilFehlt) {
     const eindeutig = [...new Set(dateien)];
     f('budgets/stil-fehlt', 'fehler', `Klasse .${k} hat Regeln nur in einem Ansichts-Stil, den ${eindeutig.length} Seite(n) nicht laden (seite.stile ergänzen oder Regel nach komponenten/ verschieben)`, eindeutig[0]);

@@ -7,7 +7,7 @@ import { join, dirname, resolve, basename, extname, relative } from 'node:path';
 export const hash10 = (buf) => createHash('sha256').update(buf).digest('hex').slice(0, 10);
 export const sri = (buf) => 'sha384-' + createHash('sha384').update(buf).digest('base64');
 
-const CSS_REIHENFOLGE = ['token.css', 'schriften.css', 'basis.css', 'layout.css', 'komponenten/*', 'bewegung.css', 'hilfen.css', 'druck.css'];
+const CSS_REIHENFOLGE = ['token.css', 'schriften.css', 'basis.css', 'layout.css', 'komponenten/*', 'bewegung.css', 'hilfen.css'];
 
 async function dateien(ordner) {
   try { return (await readdir(ordner, { withFileTypes: true })).filter((d) => d.isFile()).map((d) => d.name).sort(); } catch { return []; }
@@ -37,6 +37,19 @@ export async function cssBuendeln(wurzel, pfadKarte) {
     }
   }
   return cssVerdichten(teile, pfadKarte);
+}
+
+/**
+ * Druckstile als eigene Datei: Seiten laden sie mit media="print", sie blockieren das Rendern am Bildschirm nicht
+ * und zählen nicht zum CSS-Budget je Seite, sondern zu einem eigenen (budgets/css-druck; ENTSCHEIDUNGEN D-CSS-02).
+ */
+export async function druckBuendeln(wurzel, pfadKarte) {
+  try {
+    return cssVerdichten([{ name: 'druck.css', text: await readFile(join(wurzel, 'src/assets/css/druck.css'), 'utf8') }], pfadKarte);
+  } catch (e) {
+    if (e.code === 'ENOENT') return null;
+    throw e;
+  }
 }
 
 /**

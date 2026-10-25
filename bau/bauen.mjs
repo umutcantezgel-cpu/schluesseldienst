@@ -8,7 +8,7 @@ import { execFileSync } from 'node:child_process';
 import { readdir, readFile, writeFile, mkdir, rm, rename } from 'node:fs/promises';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { cssBuendeln, ansichtenBuendeln, jsBuendeln, statischeAssets, hash10, sri } from './lib/assets.mjs';
+import { cssBuendeln, ansichtenBuendeln, druckBuendeln, jsBuendeln, statischeAssets, hash10, sri } from './lib/assets.mjs';
 import { Schreiber } from './lib/schreiben.mjs';
 import { vorkomprimieren } from './lib/vorkomprimieren.mjs';
 import { aufloesen } from './lib/markierung.mjs';
@@ -124,6 +124,13 @@ async function main() {
     await schreiber.schreibe(pfad, buf);
     ansichten[a.name] = { pfad, sri: sri(buf), bytes: buf.length };
   }
+  const druckCss = await druckBuendeln(WURZEL, karte);
+  let druck = null;
+  if (druckCss) {
+    const buf = Buffer.from(druckCss.text, 'utf8');
+    druck = { pfad: `/assets/druck.${hash10(buf)}.css`, sri: sri(buf), bytes: buf.length };
+    await schreiber.schreibe(druck.pfad, buf);
+  }
   const js = await jsBuendeln(join(WURZEL, 'src/assets/js/app.mjs'));
   const jsBuf = Buffer.from(js.text, 'utf8');
   const jsPfad = `/assets/app.${hash10(jsBuf)}.js`;
@@ -136,6 +143,7 @@ async function main() {
   const assets = {
     css: { pfad: cssPfad, sri: sri(cssBuf), bytes: cssBuf.length },
     ansichten,
+    druck,
     js: { pfad: jsPfad, sri: sri(jsBuf), bytes: jsBuf.length },
     favicon: favPfad,
     schriftVorladen,
@@ -232,7 +240,7 @@ async function main() {
   }
 
   // Vorkomprimierte Varianten nach dem Schreiben aller Dateien, vor dem Aufräumen (der Schreiber meldet sie dafür als geschrieben)
-  const vork = arg.vorkomprimieren ? await vorkomprimieren(schreiber) : null;
+  const vork = arg.vorkomprimieren ? await vorkomprimieren(schreiber, { ohneAufraeumen: Boolean(nur) }) : null;
   const entfernt = nur ? 0 : await schreiber.aufraeumen();
 
   // Platzhalter in der Konfiguration (auch ungerenderte)

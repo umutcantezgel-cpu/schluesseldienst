@@ -59,7 +59,8 @@ ${og ? html`<meta property="og:image" content="${basisUrl + og}">
 ${assets.schriftVorladen ? html`<link rel="preload" href="${assets.schriftVorladen}" as="font" type="font/woff2" crossorigin>` : ''}
 <link rel="stylesheet" href="${assets.css.pfad}" integrity="${assets.css.sri}">
 ${stile(seite, assets).map((a) => html`<link rel="stylesheet" href="${a.pfad}" integrity="${a.sri}">
-`)}<script type="module" src="${assets.js.pfad}" integrity="${assets.js.sri}"></script>
+`)}${assets.druck ? html`<link rel="stylesheet" href="${assets.druck.pfad}" integrity="${assets.druck.sri}" media="print">
+` : ''}<script type="module" src="${assets.js.pfad}" integrity="${assets.js.sri}"></script>
 <link rel="icon" href="${assets.favicon}" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
 ${ld.map((o) => html`<script type="application/ld+json">${jsonBlock(o)}</script>
