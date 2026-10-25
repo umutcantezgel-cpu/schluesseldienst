@@ -5,7 +5,7 @@
 import tunnel from './fakten/weilburg-tunnel.mjs';
 
 export default {
-  titel: 'Schlüsseldienst Weilburg über uns: Wer wir sind',
+  titel: 'Über uns: Schlüsseldienst in Weilburg',
   beschreibung: 'Wer hinter dem Schlüsseldienst in Weilburg steht: Sitz, Leistungsgruppen, unsere Arbeitsweise und der direkte Weg zu uns.',
   kicker: 'Über uns',
   h1: 'Über uns: der Schlüsseldienst in Weilburg',

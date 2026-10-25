@@ -1,7 +1,7 @@
 // Leistungsseite Nebelsysteme (V03, Muster Türöffnung) – eigene Texte nach Themenpass /sicherheitstechnik/nebelsysteme/
 // (src/konfig/themenpaesse.mjs). Keine Sekundenangaben, keine Gesundheitsversprechen, keine Superlative (K-010).
 export default {
-  titel: 'Nebelsystem Einbruchschutz in Weilburg: Sicht nehmen',
+  titel: 'Nebelsystem als Einbruchschutz in Weilburg',
   beschreibung: 'Sicherheitsnebel für Laden, Lager oder Haus: was er leistet, wie er an die Alarmanlage gekoppelt wird und was offen ist.',
   h1: 'Nebelsystem als Einbruchschutz: Sicht nehmen statt Tür halten',
   kurz: 'Ein Nebelsystem nimmt Eindringlingen im Raum die Sicht. Es hält keine Tür auf und ersetzt keine Alarmanlage. Ob es passt, entscheiden der Raum und das, was darin liegt.',

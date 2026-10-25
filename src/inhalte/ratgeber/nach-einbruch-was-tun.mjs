@@ -5,7 +5,7 @@ import notruf from '../fakten/notrufnummern.mjs';
 import versicherung from '../fakten/versicherung-schluessel.mjs';
 
 export default {
-  titel: 'Nach Einbruch was tun: Schritt für Schritt',
+  titel: 'Nach einem Einbruch: was tun? Schritt für Schritt',
   beschreibung: 'Nach einem Einbruch in der richtigen Reihenfolge handeln: eigene Sicherheit, Polizei, Stehlgutliste, Versicherung, Karten sperren und Notverschluss.',
   kategorie: 'notfall',
   kurztitel: 'Nach dem Einbruch',

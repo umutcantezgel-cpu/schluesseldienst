@@ -1,7 +1,7 @@
 // Leistungsseite Videoüberwachung (V03, Muster Türöffnung) – eigene Texte nach Themenpass /sicherheitstechnik/videoueberwachung/
 // (src/konfig/themenpaesse.mjs). Keine Rechtsberatung, keine Paragrafen, keine Zahlen (K-010, Faktenblatt recht-video).
 export default {
-  titel: 'Videoüberwachung Haus in Weilburg: Zweck zuerst',
+  titel: 'Videoüberwachung am Haus in Weilburg: Zweck zuerst',
   beschreibung: 'Kamera am Haus planen: erst den Zweck klären, dann Blickwinkel, Speicherung und Hinweise. Bei Grenzfragen hilft die Datenschutzaufsicht.',
   h1: 'Videoüberwachung am Haus in Weilburg und Umgebung',
   kurz: 'Eine Kamera braucht einen klaren Zweck: abschrecken, dokumentieren oder melden. Daraus folgen Blickwinkel, Speicherung und Hinweise. Bei Grenzfragen wenden Sie sich an die Datenschutzaufsicht Ihres Landes.',

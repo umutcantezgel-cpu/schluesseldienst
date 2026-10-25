@@ -3,8 +3,8 @@
 import nr from '../fakten/notrufnummern.mjs';
 
 export default {
-  titel: 'Ausgesperrt was tun? Die ersten Schritte in Ruhe',
-  beschreibung: 'Ausgesperrt was tun? Zweitschlüssel prüfen, Hausverwaltung fragen, Selbstversuche vermeiden und einen seriösen Betrieb mit Gesamtpreis finden.',
+  titel: 'Ausgesperrt – was tun? Die ersten Schritte in Ruhe',
+  beschreibung: 'Ausgesperrt – was tun? Zweitschlüssel prüfen, Hausverwaltung fragen, Selbstversuche vermeiden und einen seriösen Betrieb mit Gesamtpreis finden.',
   kategorie: 'notfall',
   kurztitel: 'Ausgesperrt: was tun',
   h1: 'Ausgesperrt: was Sie jetzt tun können',

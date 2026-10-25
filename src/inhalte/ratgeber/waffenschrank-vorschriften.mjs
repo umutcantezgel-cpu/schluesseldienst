@@ -9,7 +9,7 @@ const w = waffen.fakten;
 const n = wert.fakten;
 
 export default {
-  titel: 'Waffenschrank Vorschriften einfach erklärt',
+  titel: 'Waffenschrank: Vorschriften einfach erklärt',
   beschreibung: 'Was das Waffenrecht zur Aufbewahrung von Waffen und Munition sagt, was die Behörde kontrollieren darf und wann Sie die Waffenbehörde fragen sollten.',
   kategorie: 'recht',
   kurztitel: 'Waffenschrank Vorschriften',
