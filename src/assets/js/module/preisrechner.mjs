@@ -17,7 +17,7 @@ export function preisrechner(el) {
     const feld = j.fenster && el.querySelector(`input[name="fenster"][value="${j.fenster}"]`);
     if (feld) {
       feld.checked = true;
-      feld.closest('.rechner-option')?.setAttribute('data-jetzt', '');
+      feld.closest('.wahl-option')?.setAttribute('data-jetzt', '');
     }
   }
   const zeigen = () => {

@@ -109,19 +109,19 @@ function rechner(sk) {
   const { preise, zonen } = sk.konfig;
   const daten = JSON.stringify(rechnerDaten(sk));
   const band = istPlatzhalter(preise.tagesband) ? '' : JSON.stringify(preise.tagesband);
-  const option = (name, wert, titel, zusatz, an) => html`<label class="rechner-option"><input type="radio" name="${name}" value="${wert}"${an ? html` checked` : ''}><span class="rechner-option-text"><span class="rechner-option-titel">${titel}</span>${zusatz ? html`<span class="rechner-option-zusatz">${zusatz}</span>` : ''}</span></label>`;
+  const option = (name, wert, titel, zusatz, an) => html`<label class="wahl-option"><input type="radio" name="${name}" value="${wert}"${an ? html` checked` : ''}><span class="wahl-option-text"><span class="wahl-option-titel">${titel}</span>${zusatz ? html`<span class="wahl-option-zusatz">${zusatz}</span>` : ''}</span></label>`;
   return html`<section class="sektion band" aria-labelledby="rechner-titel">
 <div class="raster">
 ${abschnittKopf({ id: 'rechner-titel', titel: r.titel, einleitung: r.einleitung })}
 <div class="rechner" role="group" data-modul="preisrechner" data-preise="${daten}"${band ? html` data-band="${band}"` : ''} aria-labelledby="rechner-titel">
 <fieldset class="rechner-feld rechner-feld-position"><legend>${r.fragen.position}</legend>
-<div class="rechner-optionen">${preise.positionen.map((p, i) => option('position', p.id, p.titel, '', i === 0))}</div>
+<div class="wahl-optionen">${preise.positionen.map((p, i) => option('position', p.id, p.titel, '', i === 0))}</div>
 </fieldset>
 <fieldset class="rechner-feld"><legend>${r.fragen.fenster}</legend>
-<div class="rechner-optionen">${preise.zeitfenster.map((z, i) => option('fenster', z.id, z.titel, fensterZeit(preise, z), i === 0))}</div>
+<div class="wahl-optionen">${preise.zeitfenster.map((z, i) => option('fenster', z.id, z.titel, fensterZeit(preise, z), i === 0))}</div>
 </fieldset>
 <fieldset class="rechner-feld"><legend>${r.fragen.zone}</legend>
-<div class="rechner-optionen">${zonen.stufen.map((s, i) => option('zone', s.id, `Zone ${s.id} · ${s.titel}`, '', i === 0))}</div>
+<div class="wahl-optionen">${zonen.stufen.map((s, i) => option('zone', s.id, `Zone ${s.id} · ${s.titel}`, '', i === 0))}</div>
 <p class="rechner-zonen-link"><a href="#anfahrt-titel">Zone Ihres Orts prüfen</a></p>
 </fieldset>
 <div class="rechner-ergebnis">

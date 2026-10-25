@@ -8,6 +8,12 @@ import { istPlatzhalter } from '../lib/platzhalter.mjs';
 
 export const name = 'sicherheit';
 
+// Navigation per location nur auf eigene Pfade („/x“, nicht „//host“) oder mailto: – als Literal am Anfang des Ziels.
+// (?=\S) verhindert, dass \s* zurückweicht und ein Leerzeichen als „fremdes Ziel“ zählt.
+export function navigationFremd(js) {
+  return /location\.(assign|replace)\(\s*(?=\S)(?![`'"](\/[^/]|mailto:))/.test(js) || /location\.href\s*=\s*(?=\S)(?![`'"](\/[^/]|mailto:))/.test(js);
+}
+
 const sha384 = (buf) => 'sha384-' + createHash('sha384').update(buf).digest('base64');
 const sha256 = (s) => createHash('sha256').update(s).digest('hex');
 const ERLAUBTE_ENDUNGEN = /\.(html|css|js|json|xml|txt|woff2|png|jpg|webp|avif|svg|webmanifest|ico)$/;
@@ -167,7 +173,7 @@ export async function pruefe(ctx) {
       for (const re of JS_VERBOTEN) if (re.test(js)) f('S20-js', datei, `Verbotenes Muster ${re}`);
       for (const fe of js.matchAll(/fetch\(\s*(['"`])([^'"`]*)/g)) if (!fe[2].startsWith('/daten/')) f('S20-fetch', datei, `fetch auf ${fe[2]}`);
       // Navigation nur auf eigene Pfade oder mailto:
-      if (/location\.(assign|replace)\(\s*(?![`'"](\/[^/]|mailto:))/.test(js) || /location\.href\s*=\s*(?![`'"](\/[^/]|mailto:))/.test(js)) f('S20-navigation', datei, 'Navigation per location auf nicht-eigenes Ziel');
+      if (navigationFremd(js)) f('S20-navigation', datei, 'Navigation per location auf nicht-eigenes Ziel');
     }
     if (datei.endsWith('.css')) {
       const css = await readFile(join(ctx.dist, datei), 'utf8');

@@ -90,3 +90,10 @@ test('Links: fehlendes Ziel, fehlender Anker, Waise → rot', async () => {
   assert.ok(r.includes('links/anker'));
   assert.ok(r.includes('links/waise'));
 });
+
+test('S20-navigation: eigene Pfade und mailto: als Literal erlaubt, alles andere nicht', () => {
+  const ok = ["location.href = '/preise/'", 'location.href = `mailto:${a}`', 'location.assign(`/schluesseldienst-${s}/`)', "location.replace('/x')"];
+  const fremd = ['location.href = url', "location.href = 'https://x.de'", "location.href = '//boese.de'", 'location.replace( ziel )', 'location.assign(`${basis}/x`)'];
+  for (const js of ok) assert.equal(sicherheit.navigationFremd(js), false, js);
+  for (const js of fremd) assert.equal(sicherheit.navigationFremd(js), true, js);
+});

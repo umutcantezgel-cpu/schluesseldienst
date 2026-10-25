@@ -7,8 +7,9 @@ import { abspielen } from './module/abspielen.mjs';
 import { szene } from './module/szene.mjs';
 import { tagesband } from './module/tagesband.mjs';
 import { preisrechner } from './module/preisrechner.mjs';
+import { composer } from './module/composer.mjs';
 
-const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner };
+const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner, composer };
 
 function starten() {
   document.documentElement.classList.add('js');
