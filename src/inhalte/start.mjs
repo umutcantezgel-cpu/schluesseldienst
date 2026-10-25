@@ -5,7 +5,7 @@ export default {
   beschreibung: 'Schlüsseldienst mit Sitz in Weilburg: Türen öffnen, Schlösser tauschen, Einbruchschutz und Tresore. Preise offen, ehrliche Angaben zum Einsatzgebiet.',
   hero: {
     kicker: 'Schlüsseldienst in Weilburg an der Lahn',
-    h1: 'Tür zu? Wir finden die Linie, auf der sie aufgeht.',
+    h1: ['Tür zu?', 'Wir finden die Linie, auf der sie aufgeht.'],
     text: 'Ruhig im Ton, präzise im Handwerk, offen im Preis – für Weilburg, den Landkreis Limburg-Weilburg und das Umland.',
     pruefTitel: 'Kommen Sie zu mir?',
     pruefHinweis: 'Ort oder Postleitzahl eingeben – Sie sehen sofort Entfernung und Einsatzzone ab Weilburg.',
@@ -49,7 +49,12 @@ export default {
   },
   preis: {
     titel: 'Preis vor Arbeit',
-    aussage: 'Was eine Öffnung kostet, hängt von drei Dingen ab: ob die Tür nur zugefallen oder abgeschlossen ist, zu welcher Uhrzeit Sie anrufen und wie weit Ihr Ort von Weilburg entfernt ist.',
+    aussage: 'Was eine Öffnung kostet, hängt von drei Dingen ab – genau den drei Achsen der Tabelle:',
+    faktoren: [
+      { icon: 'tuer', text: 'ob die Tür nur zugefallen oder abgeschlossen ist' },
+      { icon: 'uhr', text: 'zu welcher Uhrzeit Sie anrufen' },
+      { icon: 'entfernung', text: 'wie weit Ihr Ort von Weilburg entfernt ist' },
+    ],
     zusageJa: 'Den Gesamtpreis mit Anfahrt und Mehrwertsteuer nennen wir Ihnen am Telefon, bevor wir losfahren.',
     zusageNein: 'Fragen Sie am Telefon nach dem Gesamtpreis mit Anfahrt und Mehrwertsteuer.',
     positionen: ['tuer-zugefallen', 'tuer-abgeschlossen', 'auto'],

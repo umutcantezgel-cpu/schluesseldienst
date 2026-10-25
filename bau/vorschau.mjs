@@ -10,7 +10,9 @@ import { parseArgs } from 'node:util';
 import { kopfzeilen, CACHE, MIME } from '../src/konfig/sicherheit.mjs';
 
 const WURZEL = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const { values: arg } = parseArgs({ options: { port: { type: 'string' }, aus: { type: 'string' }, still: { type: 'boolean' } } });
+// Server und Argumente nur bei direktem Aufruf (Import für Tests startet nichts).
+const DIREKT = Boolean(process.argv[1]) && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const { values: arg } = DIREKT ? parseArgs({ options: { port: { type: 'string' }, aus: { type: 'string' }, still: { type: 'boolean' } } }) : { values: {} };
 const PORT = Number(arg.port || 4173);
 const BASIS = resolve(WURZEL, arg.aus || 'dist');
 const HERKUNFT = `http://127.0.0.1:${PORT}`;
@@ -55,4 +57,4 @@ const server = createServer(async (anf, antw) => {
   return senden(200, { 'Content-Type': typ, ...cacheFuer(p) }, await readFile(gefunden));
 });
 
-server.listen(PORT, '127.0.0.1', () => { if (!arg.still) console.log(`Vorschau: ${HERKUNFT}/  (Ordner ${BASIS})`); });
+if (DIREKT) server.listen(PORT, '127.0.0.1', () => { if (!arg.still) console.log(`Vorschau: ${HERKUNFT}/  (Ordner ${BASIS})`); });

@@ -3,10 +3,17 @@
 import { kopfzeilen, CACHE, MIME, SICHERER_PFAD } from '../../src/konfig/sicherheit.mjs';
 
 export function pruefeWeiterleitungen(liste, existiert) {
+  const quellen = new Set();
+  for (const { von } of liste) {
+    if (quellen.has(von)) throw new Error(`Weiterleitung doppelt: ${von}`);
+    quellen.add(von);
+  }
   for (const { von, nach } of liste) {
     if (!SICHERER_PFAD.test(von) || !SICHERER_PFAD.test(nach)) throw new Error(`Weiterleitung mit unsicherem Pfad: ${von} → ${nach}`);
-    if (!existiert(nach)) throw new Error(`Weiterleitungsziel existiert nicht: ${nach}`);
     if (von === nach) throw new Error(`Weiterleitung auf sich selbst: ${von}`);
+    // Keine Ketten und damit keine Schleifen: ein Ziel darf selbst keine Quelle sein (ein Sprung, SEO-sauber).
+    if (quellen.has(nach)) throw new Error(`Weiterleitungskette: ${von} → ${nach} wird selbst weitergeleitet`);
+    if (!existiert(nach)) throw new Error(`Weiterleitungsziel existiert nicht: ${nach}`);
   }
   return liste;
 }

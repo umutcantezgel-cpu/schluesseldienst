@@ -33,6 +33,8 @@ export function text(eingabe) {
       return `<a href="${ziel}">${label}</a>`;
     });
     s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    // Gedankenstrich nie am Zeilenanfang: geschütztes Leerzeichen davor.
+    s = s.replace(/ (–|—)/g, '\u00A0$1');
     return s;
   }).join(''));
 }

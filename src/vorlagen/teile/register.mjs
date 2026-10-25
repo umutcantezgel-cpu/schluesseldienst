@@ -1,10 +1,11 @@
-// Leistungsregister (V01, nicht uniform): großes Feld für die erste Gruppe mit Illustration,
-// drei Registereinträge mit Unterleistungen. Je Eintrag ein gestreckter Link (keine verschachtelten Links).
+// Leistungsregister (V01, nicht uniform): breites Feld für die erste Gruppe mit Objekt-Illustration (I-06…I-09),
+// darunter drei Registereinträge mit Unterleistungen in drei Spalten. Je Eintrag ein gestreckter Link (keine verschachtelten Links).
 import { html } from '../../../bau/lib/html.mjs';
 import { GRUPPEN } from '../../konfig/leistungen.mjs';
 import { icon } from './icons.mjs';
+import { notoeffnungObjekte } from './illustrationen/objekte.mjs';
 
-export function leistungsRegister(sk, { gross = null } = {}) {
+export function leistungsRegister(sk, { gross = notoeffnungObjekte() } = {}) {
   const [erste, ...rest] = GRUPPEN;
   return html`<div class="register">
 <article class="register-gross">
@@ -21,7 +22,7 @@ ${rest.map((g) => html`<article class="register-eintrag">
 <div>
 <h3><a class="gestreckt" href="${g.pfad}">${g.titel}</a></h3>
 <p>${g.kurz}</p>
-<p class="register-unter">${g.leistungen.map((l) => l.titel).join(' · ')}</p>
+<p class="register-unter">${g.leistungen.map((l) => l.titel).join('\u00A0· ')}</p>
 </div>
 ${icon(sk, g.icon, { klasse: 'register-icon' })}
 </article>`)}

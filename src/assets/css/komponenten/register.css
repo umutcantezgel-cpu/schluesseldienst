@@ -7,18 +7,23 @@
   .gestreckt::after { content: ""; position: absolute; inset: 0; z-index: 1; }
   .register article:focus-within { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: var(--linie-fokus); border-radius: var(--r-m); }
   .register .gestreckt:focus-visible { outline: none; }
-  .register-gross { display: grid; gap: var(--sp-m); padding: var(--sp-l); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); border-block-start: var(--linie-scher) solid var(--c-kupfer); }
+  .register-gross { display: grid; gap: var(--sp-l); align-items: end; padding: var(--sp-l); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); border-block-start: var(--linie-scher) solid var(--c-kupfer); }
   .register-gross h3 { font-size: var(--fs-3); }
   .register-liste { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-min)), 1fr)); gap: var(--sp-2xs) var(--sp-m); }
   .register-liste li { display: flex; align-items: center; gap: var(--sp-2xs); margin: 0; }
   .i-text { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-lahn-text); }
-  .register-eintrag { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--sp-s); align-items: start; padding-block: var(--sp-m); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .register-eintrag { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--sp-s); align-items: start; align-content: start; padding-block: var(--sp-m); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
   .register-eintrag h3 { font-size: var(--fs-2); }
   .register-unter { color: var(--c-tinte-3); font-size: var(--fs--1); margin-block-start: var(--sp-2xs); }
   .register-icon { inline-size: var(--icon-gross); block-size: var(--icon-gross); color: var(--c-tinte-2); }
   .register article:hover h3 a { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .register-figur .ill-objekte { display: block; inline-size: 100%; block-size: auto; }
   @media (min-width: 64em) {
-    .register { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-rows: repeat(3, auto); column-gap: var(--sp-xl); }
-    .register-gross { grid-row: 1 / span 3; align-self: start; }
+    .register { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--sp-xl); row-gap: var(--sp-m); }
+    .register-gross { grid-column: 1 / -1; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--sp-xl); }
+    .register-eintrag { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "nr icon" "text text"; }
+    .register-eintrag .register-nr { grid-area: nr; align-self: end; }
+    .register-eintrag > div { grid-area: text; }
+    .register-eintrag .register-icon { grid-area: icon; }
   }
 }

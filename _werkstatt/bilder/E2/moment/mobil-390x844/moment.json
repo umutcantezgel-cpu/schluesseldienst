@@ -1,49 +1,49 @@
 {
   "werkzeug": "moment",
   "url": "http://127.0.0.1:4173/",
-  "selektor": ".hero-figur",
+  "selektor": "#hero-figur",
   "anzahlElemente": 1,
   "viewport": "390x844",
   "drosselung": "aus (CDP-Rate 1)",
-  "domcontentloaded": "2026-10-25T13:04:06.157Z",
+  "domcontentloaded": "2026-10-25T13:36:06.135Z",
   "blockierteExterneAnfragen": 0,
   "fotos": [
     {
       "datei": "moment-01.jpg",
       "sollMs": 0,
-      "istMs": 78,
+      "istMs": 90,
       "dauerMs": 104,
-      "bytes": 7292
+      "bytes": 7272
     },
     {
       "datei": "moment-02.jpg",
       "sollMs": 300,
-      "istMs": 301,
-      "dauerMs": 114,
-      "bytes": 7280
+      "istMs": 300,
+      "dauerMs": 79,
+      "bytes": 7361
     },
     {
       "datei": "moment-03.jpg",
       "sollMs": 600,
-      "istMs": 602,
-      "dauerMs": 80,
-      "bytes": 7278
+      "istMs": 601,
+      "dauerMs": 76,
+      "bytes": 7316
     },
     {
       "datei": "moment-04.jpg",
       "sollMs": 900,
       "istMs": 901,
-      "dauerMs": 83,
-      "bytes": 7494
+      "dauerMs": 76,
+      "bytes": 7437
     },
     {
       "datei": "moment-05.jpg",
       "sollMs": 1300,
       "istMs": 1300,
-      "dauerMs": 83,
-      "bytes": 7805
+      "dauerMs": 77,
+      "bytes": 7917
     }
   ],
   "fehler": 0,
-  "zeitpunkt": "2026-10-25T13:04:07.642Z"
+  "zeitpunkt": "2026-10-25T13:36:07.596Z"
 }

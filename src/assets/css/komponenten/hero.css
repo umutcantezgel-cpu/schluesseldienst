@@ -1,36 +1,42 @@
 /* Hero der Startseite (V01): mobil eigene Komposition (Kopf → Zylinder-Band → Handlung),
-   ab 64em Teilung 7/5, die Figur läuft rechts aus dem Raster. */
+   ab 64em Teilung 7/5 auf den Rasterlinien; die Figur endet an breit-end (P1: keine Linie ins Nichts).
+   Die Scherlinie des Zylinders ist hier die eine führende Kupferlinie – die Kopflinie entfällt. */
 @layer komponenten {
   .hero {
-    display: grid; gap: var(--sp-m) var(--luecke);
+    display: grid; column-gap: 0; row-gap: var(--sp-m);
     grid-template-columns: [voll-start] minmax(var(--rand), 1fr) [inhalt-start] min(100% - 2 * var(--rand), var(--inhalt-max)) [inhalt-end] minmax(var(--rand), 1fr) [voll-end];
-    grid-template-areas: ". kopf ." "figur figur figur" ". rest .";
+    grid-template-areas: ". kopf ." ". figur ." ". rest .";
     padding-block: var(--sp-f-m) var(--sp-sektion);
     overflow-x: clip;
   }
   .hero-kopf { grid-area: kopf; min-inline-size: 0; }
-  .hero-figur { grid-area: figur; margin: 0; padding-inline: var(--rand); min-inline-size: 0; inline-size: 100%; max-inline-size: 100vw; }
+  .hero-figur { grid-area: figur; margin: 0; min-inline-size: 0; }
   .hero-rest { grid-area: rest; min-inline-size: 0; display: grid; gap: var(--sp-m); align-content: start; }
   .hero-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
   .hero h1 { font-size: var(--fs-5); max-inline-size: var(--mass); hyphens: manual; }
-  .hero-linie { inline-size: var(--sp-3xl); margin-block-start: var(--sp-m); }
-  .hero-einleitung { font-size: var(--fs-1); color: var(--c-tinte-2); line-height: var(--lh-dicht); }
+  .h1-zeile { display: block; text-wrap: balance; }
+  .hero-linie { display: none; }
+  .hero-einleitung { font-size: var(--fs-1); color: var(--c-tinte-2); line-height: var(--lh-dicht); max-inline-size: var(--mass); }
   .hero-handlung { display: none; }
-  .hero-figur .zylinder { inline-size: 100%; min-inline-size: 0; block-size: auto; max-block-size: var(--hero-band-max); }
+  .hero-figur .zylinder { display: block; inline-size: 100%; block-size: auto; max-block-size: var(--hero-band-max); }
   .hero-figur-text { display: none; }
   @media (min-width: 48em) {
     .hero-figur .zylinder { max-block-size: none; max-inline-size: var(--hero-figur-max); }
   }
   @media (min-width: 64em) {
     .hero {
-      grid-template-columns: [voll-start] minmax(var(--rand), 1fr) [inhalt-start] minmax(0, calc(var(--inhalt-max) * .58)) [figur-start] minmax(0, calc(var(--inhalt-max) * .42)) [inhalt-end] minmax(var(--rand), 1fr) [voll-end];
-      grid-template-areas: ". kopf figur figur" ". rest figur figur";
-      grid-template-rows: auto 1fr; column-gap: var(--sp-xl); padding-block-start: var(--sp-sektion);
+      grid-template-columns:
+        [voll-start] minmax(var(--rand), 1fr) [breit-start] minmax(0, var(--spalte-breit))
+        [inhalt-start] minmax(0, calc(var(--inhalt-max) * 7 / 12)) [figur-start] minmax(0, calc(var(--inhalt-max) * 5 / 12)) [inhalt-end]
+        minmax(0, var(--spalte-breit)) [breit-end] minmax(var(--rand), 1fr) [voll-end];
+      grid-template-areas: ". . kopf figur figur ." ". . rest figur figur .";
+      grid-template-rows: auto 1fr; padding-block-start: var(--sp-sektion);
     }
-    .hero-figur { padding-inline: 0; align-self: center; }
-    .hero-figur .zylinder { max-inline-size: none; inline-size: calc(100% + var(--sp-xl)); }
-    .hero-figur-text { display: block; font-size: var(--fs--1); color: var(--c-tinte-3); margin-block-start: var(--sp-s); max-inline-size: var(--mass); }
+    .hero-kopf, .hero-rest { padding-inline-end: var(--sp-xl); }
+    .hero-figur { align-self: center; }
+    .hero-figur .zylinder { max-inline-size: none; }
+    .hero-figur-text { display: grid; justify-items: start; gap: var(--sp-2xs); font-size: var(--fs--1); color: var(--c-tinte-3); margin-block-start: var(--sp-s); max-inline-size: var(--mass); }
     .hero-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
   }
-  .hero-abspielen { margin-inline-start: var(--sp-2xs); }
+  .hero-figur-text .hero-abspielen { padding-inline: 0; min-block-size: var(--ziel-min); }
 }

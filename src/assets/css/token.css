@@ -10,6 +10,8 @@
     --c-linie: #D3CEC4; --c-linie-ui: #76828B;
     --c-lahn: #1C5A4F; --c-auf-lahn: #FFFFFF; --c-lahn-text: #1C5A4F; --c-lahn-hell: #DCEBE5;
     --c-kupfer: #A84A22; --c-kupfer-hell: #F6E3D8;
+    /* Nachtband (dunkles Band): hell = Tinte-Nacht, dunkel = eigener Lahn-Nachtton, damit es sich von Papier-2 abhebt */
+    --c-band-nacht: #0E161B;
     --c-fehler: #B42318; --c-fehler-hell: #FDECEA;
     --c-warnung: #8A5300; --c-warnung-hell: #FDF1DC;
     --c-erfolg: #1E6B3A; --c-erfolg-hell: #E3F1E7;
@@ -47,7 +49,7 @@
     --spalte-az: 16em;
     --menue-blatt-max: 85svh;
     --karte-min: 16rem;
-    --hero-figur-max: 30rem;
+    --hero-figur-max: 30rem; --figur-schmal: 21rem;
     --hero-band-max: 7.5rem;
     --nav-panel-breit: min(56rem, 80vw);
 
@@ -86,7 +88,7 @@
     --auftritt-weg: 24px; --zustand-weg: 8px; --feedback-weg: 4px;
     --vt-aus: 160ms; --vt-ein: 240ms; --vt-linie: 400ms;
     /* SVG-Beschriftung in Nutzereinheiten */
-    --svg-text-s: 15px; --svg-text-m: 16px; --svg-text-l: 18px;
+    --svg-text-s: 15px; --svg-text-m: 16px; --svg-text-l: 18px; --svg-halo: 4px;
   }
 
   @supports (transition-timing-function: linear(0, 1)) {
@@ -107,4 +109,6 @@
       --c-ueberlagerung: light-dark(rgb(19 32 42 / .48), rgb(0 0 0 / .64));
     }
   }
+
+  @media (prefers-color-scheme: dark) { :root { --c-band-nacht: #0F2A2B; } }
 }

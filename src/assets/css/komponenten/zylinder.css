@@ -8,6 +8,7 @@
   .zy-kanal { fill: var(--c-papier); stroke-width: 1.5; }
   .zy-oberstift, .zy-kernstift { fill: var(--c-flaeche); }
   .zy-feder { stroke-width: 1.5; }
+  .zy-kernstift-schraffur { stroke: none; }
   .zy-bart, .zy-reide { fill: var(--c-linie); }
   .zy-reide-loch { fill: var(--c-papier); }
   .zy-scherlinie { stroke: var(--c-kupfer); stroke-width: 3; }

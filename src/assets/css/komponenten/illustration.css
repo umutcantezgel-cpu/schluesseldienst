@@ -1,0 +1,36 @@
+/* Szenen- und Objekt-Illustrationen (K-008): Raster 8, Strich 2, Linien Tinte, Flächen Papier-2 (flach),
+   Schnittflächen 45°-Schraffur, Kupfer nur für den aktiven Zustand (data-bei) und die Scherlinie. */
+@layer komponenten {
+  .ill { display: block; inline-size: 100%; block-size: auto; overflow: visible; fill: none; stroke: var(--c-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .ill-flaeche { fill: var(--c-papier-2); }
+  .ill-blatt { fill: var(--c-flaeche); }
+  .ill-dunkel { fill: var(--c-tinte); stroke: none; }
+  .ill-fenster { fill: var(--c-lahn-hell); stroke-width: 1.5; }
+  .ill-fein { stroke-width: 1.5; }
+  .ill-gestrichelt { stroke-width: 1.5; stroke-dasharray: 4 4; stroke: var(--c-tinte-3); }
+  .ill-wand { stroke-width: 1.5; }
+  .ill-innenwand { stroke-width: 4; }
+  .ill-oeffnung { fill: var(--c-papier); stroke: none; }
+  .ill-schraffur-linie { stroke: var(--c-tinte); stroke-width: 1; opacity: .18; }
+  .ill-bolzen { fill: var(--c-tinte-2); stroke-width: 1.5; }
+  .ill-melder { fill: var(--c-flaeche); stroke-width: 1.5; }
+  .ill-zone { stroke: var(--c-lahn); stroke-width: 1.5; stroke-dasharray: 6 4; }
+  .ill-zone-flaeche { fill: var(--c-lahn); fill-opacity: .14; stroke: var(--c-lahn); stroke-width: 1.5; }
+  .ill-boden { stroke: var(--c-tinte-2); }
+  .ill-teil { transform-box: fill-box; transform-origin: center; }
+
+  /* Schrittzustände (M-17): Grundregel = Endzustand; data-zustand blendet spätere Teile aus und färbt den aktiven */
+  [data-zustand="1"] :is([data-ab="2"], [data-ab="3"], [data-ab="4"], [data-ab="5"]),
+  [data-zustand="2"] :is([data-ab="3"], [data-ab="4"], [data-ab="5"]),
+  [data-zustand="3"] :is([data-ab="4"], [data-ab="5"]),
+  [data-zustand="4"] [data-ab="5"] { opacity: 0; transform: translateY(var(--zustand-weg)); }
+  [data-zustand="1"] [data-bei="1"], [data-zustand="2"] [data-bei="2"], [data-zustand="3"] [data-bei="3"],
+  [data-zustand="4"] [data-bei="4"], [data-zustand="5"] [data-bei="5"] { stroke: var(--c-kupfer); }
+  /* Zylinder im Szenenbetrieb: noch nicht gesetzte Stifte hängen unter der Scherlinie, Feder gestreckt */
+  [data-zustand="1"] :is([data-setzt="2"], [data-setzt="3"], [data-setzt="4"]),
+  [data-zustand="2"] :is([data-setzt="3"], [data-setzt="4"]),
+  [data-zustand="3"] [data-setzt="4"] { transform: translateY(var(--m16-stift-weg)); }
+  [data-zustand="1"] :is([data-setzt="2"], [data-setzt="3"], [data-setzt="4"]) .zy-feder,
+  [data-zustand="2"] :is([data-setzt="3"], [data-setzt="4"]) .zy-feder,
+  [data-zustand="3"] [data-setzt="4"] .zy-feder { transform: scaleY(var(--m16-feder)); }
+}

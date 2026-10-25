@@ -15,17 +15,24 @@ function feder(x) {
   return p.join(' ');
 }
 
-export function zylinderSchnitt({ praefix = 'zy', klasse = '', titel = 'Schnitt durch einen Schließzylinder: Liegen alle Stifte auf der Scherlinie, lässt sich der Kern drehen.' } = {}) {
-  const schluesselOben = [`M-60 152`, `L92 152`];
+// Szenenbetrieb (M-17, „Stift für Stift“): schluessel=false blendet den Schlüssel aus; stiftAb[i] = Schritt, ab dem
+// Stiftpaar i auf der Scherlinie sitzt (davor per CSS versetzt); linieAb = Schritt, ab dem die Linie erscheint;
+// zustand = fester Schritt für Einzelbilder; dekorativ = ohne Titel, aria-hidden.
+export function zylinderSchnitt({ praefix = 'zy', klasse = '', titel = 'Schnitt durch einen Schließzylinder: Liegen alle Stifte auf der Scherlinie, lässt sich der Kern drehen.', schluessel = true, stiftAb = null, linieAb = null, zustand = null, dekorativ = false } = {}) {
+  const schluesselOben = [`M-12 152`, `L92 152`];
   X.forEach((x, i) => { const y = SCHER_Y + STIFTE[i]; schluesselOben.push(`L${x - 10} ${y}`, `L${x + 10} ${y}`); });
-  schluesselOben.push('L404 140', 'L420 152', 'L420 172', 'L-60 172');
-  const stifte = X.map((x, i) => `<g class="zy-stiftpaar" style-frei="" data-i="${i}">
+  schluesselOben.push('L404 140', 'L420 152', 'L420 172', 'L-12 172');
+  const stiftAttr = (i) => (stiftAb ? ` data-setzt="${stiftAb[i]}" data-bei="${stiftAb[i]}"` : '');
+  const stifte = X.map((x, i) => `<g class="zy-stiftpaar" style-frei="" data-i="${i}"${stiftAttr(i)}>
 <path class="zy-feder" d="${feder(x)}"/>
 <rect class="zy-oberstift" x="${x - 8}" y="88" width="16" height="${SCHER_Y - 88}" rx="2"/>
 <rect class="zy-kernstift" x="${x - 8}" y="${SCHER_Y}" width="16" height="${STIFTE[i]}" rx="2"/>
+<rect class="zy-kernstift-schraffur" fill="url(#${praefix}-schraffur)" x="${x - 8}" y="${SCHER_Y}" width="16" height="${STIFTE[i]}" rx="2"/>
 </g>`).join('\n').replace(/ style-frei=""/g, '');
-  return roh(`<svg class="zylinder ${klasse}" viewBox="-80 24 540 176" role="img" aria-labelledby="${praefix}-titel" preserveAspectRatio="xMidYMid meet">
-<title id="${praefix}-titel">${titel}</title>
+  const kopf = dekorativ ? 'aria-hidden="true" focusable="false"' : `role="img" aria-labelledby="${praefix}-titel"`;
+  const box = schluessel ? '-80 24 540 176' : '48 24 408 176';
+  return roh(`<svg class="zylinder ${klasse}" viewBox="${box}" ${kopf}${zustand ? ` data-zustand="${zustand}"` : ''} preserveAspectRatio="xMidYMid meet">
+${dekorativ ? '' : `<title id="${praefix}-titel">${titel}</title>`}
 <defs><pattern id="${praefix}-schraffur" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" class="zy-schraffur-linie"/></pattern></defs>
 <g class="zy-gehaeuse">
 <path class="zy-flaeche" d="M64 40H440V184H64Z"/>
@@ -39,11 +46,11 @@ ${X.map((x) => `<path class="zy-kanal" d="M${x - 10} ${SCHER_Y}H${x + 10}V150H${
 <g class="zy-stifte">
 ${stifte}
 </g>
-<g class="zy-schluessel">
+${schluessel ? `<g class="zy-schluessel">
 <circle class="zy-reide" cx="-40" cy="162" r="28"/>
 <circle class="zy-reide-loch" cx="-48" cy="162" r="8"/>
 <path class="zy-bart" d="${schluesselOben.join(' ')}Z"/>
-</g>
-<path class="zy-scherlinie" d="M72 ${SCHER_Y}H432"/>
+</g>` : ''}
+<path class="zy-scherlinie" d="M72 ${SCHER_Y}H432"${linieAb ? ` data-ab="${linieAb}"` : ''}/>
 </svg>`);
 }

@@ -7,14 +7,14 @@
     "light",
     "dark"
   ],
-  "zeitpunkt": "2026-10-25T13:15:43.889Z",
+  "zeitpunkt": "2026-10-25T13:36:02.892Z",
   "seiten": [
     {
       "pfad": "/",
       "geraet": "mobil",
       "schema": "light",
       "status": 200,
-      "hoeheGesamt": 10267,
+      "hoeheGesamt": 10590,
       "ausschnitte": 12,
       "gekuerzt": true
     },
@@ -23,7 +23,7 @@
       "geraet": "mobil",
       "schema": "dark",
       "status": 200,
-      "hoeheGesamt": 10267,
+      "hoeheGesamt": 10590,
       "ausschnitte": 12,
       "gekuerzt": true
     },
@@ -32,7 +32,7 @@
       "geraet": "tablet",
       "schema": "light",
       "status": 200,
-      "hoeheGesamt": 8658,
+      "hoeheGesamt": 8982,
       "ausschnitte": 9,
       "gekuerzt": false
     },
@@ -41,7 +41,7 @@
       "geraet": "tablet",
       "schema": "dark",
       "status": 200,
-      "hoeheGesamt": 8658,
+      "hoeheGesamt": 8982,
       "ausschnitte": 9,
       "gekuerzt": false
     },
@@ -50,7 +50,7 @@
       "geraet": "desktop",
       "schema": "light",
       "status": 200,
-      "hoeheGesamt": 7340,
+      "hoeheGesamt": 7251,
       "ausschnitte": 9,
       "gekuerzt": false
     },
@@ -59,7 +59,7 @@
       "geraet": "desktop",
       "schema": "dark",
       "status": 200,
-      "hoeheGesamt": 7340,
+      "hoeheGesamt": 7251,
       "ausschnitte": 9,
       "gekuerzt": false
     }
@@ -394,7 +394,7 @@
       "nr": 9,
       "breite": 768,
       "hoehe": 1024,
-      "scrollY": 7634
+      "scrollY": 7958
     },
     {
       "datei": "start__tablet__dark__01.jpg",
@@ -484,7 +484,7 @@
       "nr": 9,
       "breite": 768,
       "hoehe": 1024,
-      "scrollY": 7634
+      "scrollY": 7958
     },
     {
       "datei": "start__desktop__light__01.jpg",
@@ -574,7 +574,7 @@
       "nr": 9,
       "breite": 1440,
       "hoehe": 900,
-      "scrollY": 6440
+      "scrollY": 6351
     },
     {
       "datei": "start__desktop__dark__01.jpg",
@@ -664,7 +664,7 @@
       "nr": 9,
       "breite": 1440,
       "hoehe": 900,
-      "scrollY": 6440
+      "scrollY": 6351
     }
   ]
 }

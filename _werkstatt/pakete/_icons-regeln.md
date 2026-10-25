@@ -1,0 +1,10 @@
+## Icon-Regeln (KERN K-008, verbindlich für E3-GRAF-01…03)
+- Datei: `src/assets/icons/<name>.svg`, genau eine Zeile: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">…</svg>`. Keine weiteren Attribute am `<svg>`, kein `id`, `class`, `style`, `transform`, `stroke*`, `fill` (Ausnahme unten); die Darstellung (Strich 1.5, runde Enden, `currentColor`) setzt das CSS.
+- Elemente nur `path`, `circle`, `rect`, `line`, `polyline`. Pfadbefehle nur M/L/H/V/A/Z (groß oder klein), **keine Béziers** (C/S/Q/T).
+- Raster 24×24, **aktive Fläche 2–22**: kein Punkt (auch kein Bogenscheitel) außerhalb. Formgrundlagen: Kreis Ø20, Quadrat 18, quer 20×16, hoch 16×20 – die Hauptform eines Icons nutzt eine davon, damit alle Icons optisch gleich groß wirken.
+- Gerade Segmente nur **0°, 45°, 90°**. Bögen nur Kreisbögen (rx = ry), Radius Vielfaches von 0,5 (bevorzugt ganzzahlig). Koordinaten Vielfache von 0,25 (bevorzugt ganze und halbe Einheiten).
+- Eckradius 2 (unter 8 Einheiten Kantenlänge: 1). Mindestabstand zwischen parallelen Strichen 2 Einheiten (Mitte zu Mitte ≥ 2), sonst verschwimmt es in 20 px.
+- Füllung nur für Punkte: `<circle … r=".75" fill="currentColor"/>` (r ≤ 1), sonst nie.
+- Stil wie die vorhandenen 31 Icons: sachlich, technische Strichzeichnung, kein Schatten, keine Perspektive, keine Marke, keine Schrift, kein Emoji-Charakter. Erkennbar in 20 px. Vorbilder lesen: `tuer.svg`, `tresor.svg`, `zylinder.svg`, `schutzbeschlag.svg`, `sicherheitstuer.svg`.
+- Sichtprüfung: `node _werkstatt/werkzeuge/iconbogen.mjs --aus .cache/<KENNUNG> --namen <deine,icons,…>` und zusätzlich ohne `--namen` (Gesamtbogen, Familienwirkung) → beide PNG mit dem Read-Werkzeug ansehen und selbstkritisch nachbessern (mindestens eine Überarbeitungsrunde). Belegpfade im Bericht.
+- Linter (sobald `bau/pruefen/icons.mjs` existiert): `node --input-type=module -e "import('/home/user/schluesseldienst/bau/pruefen/icons.mjs').then(async m=>{const b=await m.pruefe({wurzel:'/home/user/schluesseldienst',modus:'vorschau'});console.log(b.filter(x=>x.schwere!=='info'))})"` → deine Icons ohne Befund.

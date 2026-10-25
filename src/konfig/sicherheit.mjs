@@ -69,4 +69,5 @@ export const MIME = {
 };
 
 /** Pfade, die Weiterleitungsquellen/-ziele sein dürfen (Schutz vor offenen Weiterleitungen). */
-export const SICHERER_PFAD = /^\/[a-z0-9/-]*$/;
+// Nur „/“ oder Segmente aus [a-z0-9-] mit genau einem „/“ dazwischen – nie „//“ (protokollrelative Ziele).
+export const SICHERER_PFAD = /^(?:\/|\/[a-z0-9-]+(?:\/[a-z0-9-]+)*\/?)$/;

@@ -9,5 +9,8 @@
   .triage-schritte li { margin: 0; padding-inline-start: var(--sp-3xs); }
   .triage-schritte li::marker { color: var(--c-kupfer); font-weight: var(--fw-titel); }
   .triage-link a { font-weight: var(--fw-ui); }
-  @media (min-width: 64em) { .triage { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-xl); } }
+  @media (min-width: 64em) {
+    .triage { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, auto); column-gap: var(--sp-xl); row-gap: 0; }
+    .triage-fall { grid-row: span 3; grid-template-rows: subgrid; row-gap: var(--sp-s); }
+  }
 }

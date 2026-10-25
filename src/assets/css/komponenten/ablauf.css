@@ -1,7 +1,8 @@
 /* Ablauf in vier Schritten entlang der Scherlinie (Staffel ≤ 8). */
 @layer komponenten {
   .ablauf { list-style: none; padding: 0; display: grid; gap: var(--sp-l); position: relative; }
-  .ablauf-schritt { margin: 0; display: grid; gap: var(--sp-2xs); position: relative; padding-inline-start: var(--sp-2xl); }
+  .ablauf-schritt { margin: 0; display: grid; gap: var(--sp-2xs); align-content: start; position: relative; padding-inline-start: var(--sp-2xl); }
+  .ablauf::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: calc(var(--ziel-min) / 2 - var(--linie-scher) / 2); inline-size: var(--linie-scher); background: var(--c-kupfer); transform-origin: top center; }
   .ablauf-nr {
     position: absolute; inset-inline-start: 0; inset-block-start: 0; display: grid; place-items: center;
     inline-size: var(--ziel-min); block-size: var(--ziel-min); border-radius: var(--r-rund); border: var(--linie-scher) solid var(--c-kupfer);
@@ -11,7 +12,7 @@
   .ablauf-schritt p { color: var(--c-tinte-2); }
   @media (min-width: 64em) {
     .ablauf { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-l); }
-    .ablauf::before { content: ""; position: absolute; inset-inline: 0; inset-block-start: calc(var(--ziel-min) / 2); block-size: var(--linie-scher); background: var(--c-kupfer); transform-origin: left center; }
+    .ablauf::before { inset-inline: 0; inset-block: calc(var(--ziel-min) / 2 - var(--linie-scher) / 2) auto; inline-size: auto; block-size: var(--linie-scher); transform-origin: left center; }
     .ablauf-schritt { padding-inline-start: 0; padding-block-start: calc(var(--ziel-min) + var(--sp-s)); }
   }
 }

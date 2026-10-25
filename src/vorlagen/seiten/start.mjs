@@ -12,7 +12,7 @@ import { leistungsRegister } from '../teile/register.mjs';
 import { ortspruefung } from '../teile/ortspruefung.mjs';
 import { rufknopf } from '../teile/rufknopf.mjs';
 import { zusage } from '../teile/zusage.mjs';
-import { gebietskarte } from '../teile/gebietskarte.mjs';
+import { gebietskarte, gebietsLegende } from '../teile/gebietskarte.mjs';
 import { zylinderSchnitt } from '../teile/illustrationen/zylinder.mjs';
 import { rechnungIllustration } from '../teile/illustrationen/rechnung.mjs';
 
@@ -37,7 +37,7 @@ function hero(sk) {
   return html`<section class="hero" aria-labelledby="hero-titel">
 <div class="hero-kopf">
 <p class="hero-kicker">${h.kicker}</p>
-<h1 id="hero-titel">${h.h1}</h1>
+<h1 id="hero-titel">${h.h1.map((z, i) => html`${i ? ' ' : ''}<span class="h1-zeile">${z}</span>`)}</h1>
 <span class="scherlinie scherlinie-leit hero-linie" aria-hidden="true"></span>
 </div>
 <figure class="hero-figur" id="hero-figur" data-moment="scherlinie">
@@ -46,7 +46,7 @@ ${zylinderSchnitt({ praefix: 'hero-zy' })}
 <button class="knopf knopf-still hero-abspielen" type="button" data-modul="abspielen" aria-controls="hero-figur" hidden>${h.abspielen}</button></figcaption>
 </figure>
 <div class="hero-rest">
-<p class="hero-einleitung">${h.text}</p>
+<p class="hero-einleitung">${text(h.text)}</p>
 <div class="hero-handlung">${rufknopf(sk, { variante: 'gross' })}</div>
 ${ortspruefung(sk, { id: 'hero-ort', titel: h.pruefTitel, hinweis: h.pruefHinweis })}
 </div>
@@ -76,7 +76,8 @@ function preisAbschnitt(sk) {
 <div class="raster"><div class="preis-teilung">
 <div class="preis-aussage">
 ${abschnittKopf({ id: 'preis-titel', titel: p.titel })}
-<p class="preis-gross">${p.aussage}</p>
+<p class="preis-aussage-text">${text(p.aussage)}</p>
+<ul class="preis-faktoren">${p.faktoren.map((f) => html`<li>${sk.icon(f.icon, { klasse: 'preis-faktor-icon' })}<span>${f.text}</span></li>`)}</ul>
 <p>${zusage(sk, 'preisVorAuftrag', p.zusageJa, p.zusageNein)}</p>
 <p><a class="knopf knopf-sekundaer" href="/preise/">${p.link}${sk.icon('pfeil-rechts')}</a></p>
 </div>
@@ -125,7 +126,7 @@ ${kern.length ? html`<h3 class="gebiet-liste-titel">Kerngebiet: ${String(kern.le
 <ul class="gebiet-liste">${kern.slice(0, 18).map((o) => html`<li><a href="/schluesseldienst-${o.slug}/">${o.name}</a> <span class="gebiet-km" data-daten="">${String(o.km)}&nbsp;km</span></li>`)}</ul>` : ''}
 <p><a class="knopf knopf-sekundaer" href="/einsatzgebiet/">${g.link}${sk.icon('pfeil-rechts')}</a></p>
 </div>
-<figure class="gebiet-figur">${gebietskarte(sk, { praefix: 'start-gk' })}</figure>
+<figure class="gebiet-figur">${gebietskarte(sk, { praefix: 'start-gk' })}${gebietsLegende()}</figure>
 </div></div>
 </section>`;
 }
@@ -134,12 +135,12 @@ function serioes(sk) {
   const s = inhalt.serioes;
   return html`<section class="sektion band-dunkel" aria-labelledby="serioes-titel">
 <div class="raster"><div class="serioes-teilung">
-<div>
+<figure class="serioes-figur">${rechnungIllustration()}</figure>
+<div class="serioes-text">
 ${abschnittKopf({ id: 'serioes-titel', titel: s.titel, einleitung: s.einleitung })}
-<ol class="checkliste">${s.punkte.map((p) => html`<li>${sk.icon('haken', { klasse: 'checkliste-icon' })}<span>${p}</span></li>`)}</ol>
+<ol class="checkliste">${s.punkte.map((p) => html`<li>${sk.icon('haken', { klasse: 'checkliste-icon' })}<span>${text(p)}</span></li>`)}</ol>
 <p><a href="${s.link.pfad}">${s.link.text}</a></p>
 </div>
-<figure class="serioes-figur">${rechnungIllustration()}</figure>
 </div></div>
 </section>`;
 }

@@ -2,25 +2,32 @@
 @layer komponenten {
   .preis-teilung { display: grid; gap: var(--sp-l); }
   @media (min-width: 64em) { .preis-teilung { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--sp-xl); align-items: start; } }
-  .preis-gross { font-size: var(--fs-2); line-height: var(--lh-titel); font-weight: var(--fw-ui); margin-block-end: var(--sp-s); }
+  .preis-aussage-text { font-size: var(--fs-1); line-height: var(--lh-dicht); }
+  .preis-faktoren { list-style: none; padding: 0; display: grid; gap: var(--sp-xs); margin-block: var(--sp-s) var(--sp-m); }
+  .preis-faktoren li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); align-items: center; margin: 0; padding-block: var(--sp-2xs); border-block-start: var(--linie-haar) solid var(--c-linie); }
+  .preis-faktor-icon { inline-size: var(--icon-ui); block-size: var(--icon-ui); color: var(--c-lahn-text); }
+  .preis-auszug .hinweis { max-inline-size: none; }
   .preis-tabelle-huelle { container-type: inline-size; overflow-x: auto; }
   .preis-tabelle { inline-size: 100%; border-collapse: collapse; font-size: var(--fs--1); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
   .preis-tabelle caption { text-align: start; font-weight: var(--fw-titel); font-size: var(--fs-0); padding-block-end: var(--sp-xs); }
-  .preis-tabelle th, .preis-tabelle td { padding: var(--sp-xs) var(--sp-s); text-align: start; vertical-align: top; border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .preis-tabelle th, .preis-tabelle td { padding: var(--sp-xs); text-align: start; vertical-align: top; border-block-end: var(--linie-haar) solid var(--c-linie); }
   .preis-tabelle thead th { font-weight: var(--fw-ui); color: var(--c-tinte-2); }
-  .preis-tabelle tbody th { font-weight: var(--fw-ui); }
+  .preis-tabelle tbody th { font-weight: var(--fw-ui); inline-size: 30%; hyphens: manual; }
   .preis-tabelle tbody th a { color: var(--c-tinte); }
   .preis-fenster, .preis-zeit, .preis-hinweis { display: block; }
   .preis-zeit, .preis-hinweis { color: var(--c-tinte-3); font-weight: var(--fw-text); }
   .preis { font-weight: var(--fw-titel); white-space: nowrap; }
-  .preis.preis-offen, .preis .platzhalter { white-space: normal; }
+  .preis.preis-offen { white-space: normal; }
+  .preis .platzhalter, .preis-zeit .platzhalter { white-space: nowrap; }
   .preis-offen { font-weight: var(--fw-text); }
   @container (max-width: 30em) {
-    .preis-tabelle caption { display: block; }
+    .preis-tabelle caption { display: block; padding: var(--sp-s) var(--sp-s) var(--sp-xs); }
+    .preis-tabelle tr { padding-inline: var(--sp-s); }
     .preis-tabelle thead { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); }
     .preis-tabelle, .preis-tabelle tbody, .preis-tabelle tr, .preis-tabelle th, .preis-tabelle td { display: block; }
     .preis-tabelle tr { padding-block: var(--sp-xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
     .preis-tabelle th, .preis-tabelle td { border: 0; padding-block: var(--sp-3xs); }
+    .preis-tabelle tbody th { inline-size: auto; }
     .preis-tabelle td { display: flex; justify-content: space-between; gap: var(--sp-s); }
     .preis-tabelle td::before { content: attr(data-titel); color: var(--c-tinte-2); }
   }

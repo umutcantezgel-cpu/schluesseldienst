@@ -16,8 +16,9 @@
   .sektion { padding-block: var(--sp-sektion); }
   .sektion-dicht { padding-block: var(--sp-f-m); }
   .band { background: var(--c-papier-2); }
-  .band-dunkel { color-scheme: dark; background: var(--c-papier); color: var(--c-tinte); }
-  @media (prefers-color-scheme: dark) { .band-dunkel { background: var(--c-papier-2); } }
+  .band-dunkel { color-scheme: dark; background: var(--c-band-nacht); color: var(--c-tinte); border-block: var(--linie-haar) solid var(--c-linie); }
+  /* Sektionsabstand und Fußabstand addieren sich nicht */
+  main > .sektion:last-child:not(.band, .band-dunkel) { padding-block-end: 0; }
 
   /* Kopf */
   .kopf { background: var(--c-papier); border-block-end: var(--linie-haar) solid var(--c-linie); }

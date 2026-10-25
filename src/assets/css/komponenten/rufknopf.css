@@ -23,7 +23,11 @@
   .rufknopf-leiste { justify-content: center; min-block-size: var(--rufleiste-hoehe); }
   .rufknopf-leiste .ruf-text { justify-items: start; }
   .rufknopf-leiste .ruf-beschriftung { font-size: var(--fs--1); }
-  .rufknopf[data-zustand="platzhalter"] { background: var(--c-kupfer-hell); color: var(--c-tinte); outline: var(--linie-haar) dashed var(--c-kupfer); cursor: not-allowed; }
+  .rufknopf[data-zustand="platzhalter"] {
+    background: repeating-linear-gradient(var(--winkel-schraffur), var(--c-kupfer-hell) 0 var(--sp-3xs), var(--c-papier) var(--sp-3xs) var(--sp-2xs));
+    color: var(--c-tinte); outline: var(--linie-haar) dashed var(--c-kupfer); cursor: not-allowed;
+  }
+  .rufknopf[data-zustand="platzhalter"] .platzhalter { outline: none; background: none; padding: 0; }
   .rufknopf[data-zustand="ausserhalb"] .ruf-status { font-weight: var(--fw-ui); }
   @media (pointer: coarse) { .rufknopf { min-block-size: var(--ziel-touch); } }
   @media (forced-colors: active) { .rufknopf { border: var(--linie-ui) solid ButtonText; } }
