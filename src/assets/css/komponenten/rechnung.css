@@ -1,0 +1,13 @@
+/* I-08 Rechnung (Startseite, Ratgeber): Beleg mit Mono-Positionen, Summe auf der Scherlinie. */
+@layer komponenten {
+  .rechnung { inline-size: 100%; max-inline-size: var(--figur-schmal); fill: none; stroke: var(--c-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .re-blatt { fill: var(--c-flaeche); }
+  .re-text { fill: var(--c-tinte-2); stroke: none; font-family: var(--ff-mono); font-size: var(--svg-text-s); }
+  .re-kopf-text { fill: var(--c-tinte); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); }
+  .re-summe-text { fill: var(--c-tinte); font-weight: var(--fw-titel); }
+  .re-punkte { stroke-dasharray: 1 6; stroke-width: 2.5; stroke: var(--c-tinte-3); }
+  .re-betrag { stroke-width: 4; stroke: var(--c-tinte-2); }
+  .re-trenner { stroke: var(--c-linie-ui); }
+  .re-summe { stroke-width: 6; }
+  .re-scherlinie { stroke: var(--c-kupfer); stroke-width: 3; transform-box: fill-box; transform-origin: left center; }
+}

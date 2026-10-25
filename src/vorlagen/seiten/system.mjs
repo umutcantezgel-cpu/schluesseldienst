@@ -8,7 +8,7 @@ export function seiten() {
   return [{
     pfad: '/404.html', titel: 'Seite nicht gefunden', titelOhneMarke: true,
     beschreibung: 'Diese Seite gibt es nicht. Über die Ortssuche, die Leistungen oder die Startseite finden Sie weiter.',
-    typ: 'system', ansicht: 'V12', indexierbar: false,
+    typ: 'system', ansicht: 'V12', indexierbar: false, stile: ['start'],
     inhalt: (sk) => html`<section class="sektion raster fehlerseite" aria-labelledby="fehler-titel">
 <p class="hero-kicker">Fehler 404</p>
 <h1 id="fehler-titel">Dieser Schlüssel passt nicht.</h1>

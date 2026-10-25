@@ -8,7 +8,7 @@ import { execFileSync } from 'node:child_process';
 import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { cssBuendeln, jsBuendeln, statischeAssets, hash10, sri } from './lib/assets.mjs';
+import { cssBuendeln, ansichtenBuendeln, jsBuendeln, statischeAssets, hash10, sri } from './lib/assets.mjs';
 import { Schreiber } from './lib/schreiben.mjs';
 import { aufloesen } from './lib/markierung.mjs';
 import { platzhalterIn, istPlatzhalter } from './lib/platzhalter.mjs';
@@ -101,6 +101,13 @@ async function main() {
   const cssBuf = Buffer.from(css.text, 'utf8');
   const cssPfad = `/assets/app.${hash10(cssBuf)}.css`;
   await schreiber.schreibe(cssPfad, cssBuf);
+  const ansichten = {};
+  for (const a of await ansichtenBuendeln(WURZEL, karte)) {
+    const buf = Buffer.from(a.text, 'utf8');
+    const pfad = `/assets/${a.name}.${hash10(buf)}.css`;
+    await schreiber.schreibe(pfad, buf);
+    ansichten[a.name] = { pfad, sri: sri(buf), bytes: buf.length };
+  }
   const js = await jsBuendeln(join(WURZEL, 'src/assets/js/app.mjs'));
   const jsBuf = Buffer.from(js.text, 'utf8');
   const jsPfad = `/assets/app.${hash10(jsBuf)}.js`;
@@ -112,6 +119,7 @@ async function main() {
   const schriftVorladen = [...karte.entries()].find(([q]) => /atkinson-next-latin-wght/.test(q))?.[1] || null;
   const assets = {
     css: { pfad: cssPfad, sri: sri(cssBuf), bytes: cssBuf.length },
+    ansichten,
     js: { pfad: jsPfad, sri: sri(jsBuf), bytes: jsBuf.length },
     favicon: favPfad,
     schriftVorladen,

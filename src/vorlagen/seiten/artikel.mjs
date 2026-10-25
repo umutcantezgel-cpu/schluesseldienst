@@ -97,7 +97,7 @@ export async function seiten(k) {
     const kat = KATEGORIEN[inh.kategorie];
     aus.push({
       pfad: a.pfad, titel: inh.titel, beschreibung: inh.beschreibung, typ: 'arbeit', ansicht: 'V08', sitemap: 'ratgeber',
-      ogTyp: 'article', koerperKlasse: 'seite-artikel', brotkrumen: stufen,
+      ogTyp: 'article', koerperKlasse: 'seite-artikel', stile: ['ratgeber'], brotkrumen: stufen,
       jsonld: [artikelLd(k, a, inh), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, a.pfad, inh.faq)],
       inhalt: (sk) => html`<article class="artikel" aria-labelledby="artikel-titel">
 <header class="artikel-kopf"><div class="raster"><div class="artikel-kopf-teilung"><div class="artikel-kopf-innen">

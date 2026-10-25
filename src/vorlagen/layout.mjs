@@ -17,6 +17,15 @@ function titelMitMarke(sk) {
   return mit.length <= konfig.seo.titelMax ? mit : seite.titel;
 }
 
+// Ansichts-Stile der Seite (seite.stile): unbekannte Namen brechen den Build ab
+function stile(seite, assets) {
+  return (seite.stile || []).map((name) => {
+    const a = assets.ansichten?.[name];
+    if (!a) throw new Error(`Seite ${seite.pfad}: unbekannter Ansichts-Stil ${name}`);
+    return a;
+  });
+}
+
 export function layout(sk) {
   const { seite, konfig, assets, basisUrl, modus } = sk;
   const kanonisch = basisUrl + seite.pfad;
@@ -49,7 +58,8 @@ ${og ? html`<meta property="og:image" content="${basisUrl + og}">
 <meta name="twitter:card" content="summary_large_image">` : ''}
 ${assets.schriftVorladen ? html`<link rel="preload" href="${assets.schriftVorladen}" as="font" type="font/woff2" crossorigin>` : ''}
 <link rel="stylesheet" href="${assets.css.pfad}" integrity="${assets.css.sri}">
-<script type="module" src="${assets.js.pfad}" integrity="${assets.js.sri}"></script>
+${stile(seite, assets).map((a) => html`<link rel="stylesheet" href="${a.pfad}" integrity="${a.sri}">
+`)}<script type="module" src="${assets.js.pfad}" integrity="${assets.js.sri}"></script>
 <link rel="icon" href="${assets.favicon}" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
 ${ld.map((o) => html`<script type="application/ld+json">${jsonBlock(o)}</script>

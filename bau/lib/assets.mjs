@@ -13,7 +13,18 @@ async function dateien(ordner) {
   try { return (await readdir(ordner, { withFileTypes: true })).filter((d) => d.isFile()).map((d) => d.name).sort(); } catch { return []; }
 }
 
-/** Bündelt die CSS-Dateien in fester Reihenfolge; ersetzt url("/assets/…") durch Fingerabdruck-Pfade. */
+function cssVerdichten(teile, pfadKarte) {
+  const text = teile.map((t) => t.text).join('\n')
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/url\(\s*["']?(\/assets\/[^"')]+)["']?\s*\)/g, (m, p) => {
+      if (!pfadKarte.has(p)) throw new Error(`CSS verweist auf unbekanntes Asset ${p}`);
+      return `url("${pfadKarte.get(p)}")`;
+    })
+    .split('\n').map((z) => z.trim()).filter(Boolean).join('\n');
+  return { text: text + '\n', dateien: teile.map((t) => t.name) };
+}
+
+/** Bündelt die gemeinsamen CSS-Dateien in fester Reihenfolge; ersetzt url("/assets/…") durch Fingerabdruck-Pfade. */
 export async function cssBuendeln(wurzel, pfadKarte) {
   const css = join(wurzel, 'src/assets/css');
   const teile = [];
@@ -25,14 +36,25 @@ export async function cssBuendeln(wurzel, pfadKarte) {
       try { teile.push({ name: eintrag, text: await readFile(join(css, eintrag), 'utf8') }); } catch { /* optional */ }
     }
   }
-  let text = teile.map((t) => t.text).join('\n')
-    .replace(/\/\*[\s\S]*?\*\//g, '')
-    .replace(/url\(\s*["']?(\/assets\/[^"')]+)["']?\s*\)/g, (m, p) => {
-      if (!pfadKarte.has(p)) throw new Error(`CSS verweist auf unbekanntes Asset ${p}`);
-      return `url("${pfadKarte.get(p)}")`;
-    })
-    .split('\n').map((z) => z.trim()).filter(Boolean).join('\n');
-  return { text: text + '\n', dateien: teile.map((t) => t.name) };
+  return cssVerdichten(teile, pfadKarte);
+}
+
+/**
+ * Ansichts-Stile: je Unterordner von src/assets/css/ansichten/ ein eigenes Bündel, das nur Seiten mit
+ * `stile: ['<ordner>']` laden. So bleibt das gemeinsame Bündel klein; das Budget gilt je Seite (Summe).
+ */
+export async function ansichtenBuendeln(wurzel, pfadKarte) {
+  const basis = join(wurzel, 'src/assets/css/ansichten');
+  let ordner = [];
+  try { ordner = (await readdir(basis, { withFileTypes: true })).filter((d) => d.isDirectory()).map((d) => d.name).sort(); } catch { return []; }
+  const aus = [];
+  for (const name of ordner) {
+    if (!/^[a-z][a-z0-9-]*$/.test(name)) throw new Error(`Ansichts-Stil mit ungültigem Namen: ${name}`);
+    const teile = [];
+    for (const n of await dateien(join(basis, name))) if (n.endsWith('.css')) teile.push({ name: `ansichten/${name}/${n}`, text: await readFile(join(basis, name, n), 'utf8') });
+    if (teile.length) aus.push({ name, ...cssVerdichten(teile, pfadKarte) });
+  }
+  return aus;
 }
 
 const IMPORT = /^import\s*\{([^}]*)\}\s*from\s*['"](\.{1,2}\/[^'"]+)['"];?\s*$/gm;

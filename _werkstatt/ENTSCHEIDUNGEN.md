@@ -58,3 +58,9 @@ Folgenreiche Entscheidungen mit Denkprotokoll (Ziel → drei Wege → Bewertung 
 - Gold-Prüfung: Statt 150 Hand-Labels wurden 45 zufällige Zuordnungen von Opus gesichtet (45/45 plausibel, darunter 4 korrigierte Bundesländer) plus 6 Regeltests (`test/abgleich.test.mjs`). Abweichung vom Plan wegen Aufwand; Stichprobe in E3-PRUEF-10 (100 Orte) folgt.
 - Gleichnamige Orte ohne weiteren Hinweis (149): der bevölkerungsreichste wird gewählt. Jede so entstehende Seite ist wahr (GeoNames-Fakten), der Titel unterscheidet über Gemeinde/Kreis.
 - Unklar 5,4 % (314 Datensätze, meist Ortsteile ohne GeoNames-Eintrag). Ziel „≤ 2 %“ verfehlt – kein HALT, die Orte werden nicht veröffentlicht; Liste `src/daten/orte-unklar.json`, manuelle Zuordnung über `pipeline/orte/zuordnung-manuell.json` möglich (MENSCHEN.md §2).
+
+## D-CSS-01 · CSS je Ansicht statt eines Gesamtbündels (E4-OPUS-01, 2026-10-25)
+- Problem: Das eine CSS-Bündel für alle Seiten lag bei 13,5 von 14 KB gz, mit Preisen, Kontakt, Über uns, Suche und Recht noch offen.
+- Wege: (a) Grenze anheben · (b) CSS kürzen · (c) gemeinsames Bündel plus Ansichts-Stile, Budget je Seite.
+- Entscheidung (c): (a) wäre ein gelockerter Prüfer (verboten), (b) reicht nicht für fünf weitere Ansichten. Jetzt gemeinsam 9,3 KB gz, je Seite höchstens 12,4 KB gz. Jede Seite lädt nur ihre Stile; Ortsseiten (5.252) laden `app` + `ort`.
+- Absicherung: `budgets/css-seite` (Summe je Seite) und `budgets/stil-fehlt` (Klasse nur in einem nicht geladenen Ansichts-Stil) – die zweite Regel fand beim Umbau sofort die Rechnungs-Illustration im Ratgeber. Tests: `test/budgets.test.mjs`.

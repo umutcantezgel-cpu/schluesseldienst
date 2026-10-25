@@ -261,7 +261,7 @@ export async function seiten(k) {
     aus.push({
       pfad, titel: sonder?.titel || titelVon(o, z, name), beschreibung: sonder?.beschreibung || beschreibungVon(o, z, name),
       typ: 'ort', ansicht: 'V07', sitemap: `orte-${o.landSlug}`, indexierbar: z.indexierung !== false,
-      koerperKlasse: 'seite-ort', brotkrumen: stufen,
+      koerperKlasse: 'seite-ort', stile: ['ort'], brotkrumen: stufen,
       jsonld: [ortLd(k, o, name, z), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, pfad, fragen)],
       inhalt: (sk) => html`${kopf(sk, o, z, werte, sonder)}
 ${sonderAbschnitte(sonder)}

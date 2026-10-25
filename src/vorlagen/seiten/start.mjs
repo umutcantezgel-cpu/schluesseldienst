@@ -158,7 +158,7 @@ ${faq(sk, f.fragen)}
 export function seiten(k) {
   return [{
     pfad: '/', titel: inhalt.titel, titelOhneMarke: false, beschreibung: inhalt.beschreibung,
-    typ: 'erzaehlung', ansicht: 'V01', sitemap: 'seiten', koerperKlasse: 'seite-start',
+    typ: 'erzaehlung', ansicht: 'V01', sitemap: 'seiten', koerperKlasse: 'seite-start', stile: ['start', 'register', 'gebiet'],
     jsonld: [betriebLd({ ...k }), websiteLd(k), faqLd(k.basisUrl, '/', inhalt.faq.fragen)],
     inhalt: (sk) => html`${hero(sk)}
 ${triage(sk)}

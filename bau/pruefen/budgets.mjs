@@ -72,10 +72,44 @@ export async function pruefe(ctx) {
   const orte = [];
   const sonstige = [];
   let vorladenMax = 0;
+  // CSS je Seite: gemeinsames Bündel plus Ansichts-Stile (Summe gz); jede Datei wird einmal gemessen
+  const cssGz = new Map();
+  let cssSeiteMax = 0;
+  // Klassen, die nur in Ansichts-Stilen definiert sind: Klasse → Bündelpfade (Seite muss eines davon laden)
+  const nurAnsicht = new Map();
+  const gemeinsam = new Set();
+  const klassenIn = (text) => new Set([...text.matchAll(/\.([a-z][a-z0-9-]*)/g)].map((m) => m[1]));
+  if (ctx.assets?.css?.pfad) { const b = await lies(ctx.assets.css.pfad); if (b) for (const k of klassenIn(b.toString('utf8'))) gemeinsam.add(k); }
+  for (const a of Object.values(ctx.assets?.ansichten ?? {})) {
+    const b = await lies(a.pfad);
+    if (!b) continue;
+    for (const k of klassenIn(b.toString('utf8'))) if (!gemeinsam.has(k)) nurAnsicht.set(k, [...(nurAnsicht.get(k) || []), a.pfad]);
+  }
+  const stilFehlt = new Map();
   for (const s of ctx.seiten ?? []) {
     const buf = await lies(s.datei);
     if (!buf) continue;
-    const vorladen = [...buf.toString('utf8').matchAll(/<link\b[^>]*>/gi)].filter((m) => istSchriftVorladen(m[0])).length;
+    const html = buf.toString('utf8');
+    const links = [...html.matchAll(/<link\b[^>]*>/gi)].map((m) => m[0]);
+    const vorladen = links.filter(istSchriftVorladen).length;
+    let cssSumme = 0;
+    for (const l of links) {
+      const a = attribute(l);
+      if (a.rel !== 'stylesheet' || !a.href?.startsWith('/assets/')) continue;
+      if (!cssGz.has(a.href)) { const b = await lies(a.href); cssGz.set(a.href, b ? gz(b) : 0); }
+      cssSumme += cssGz.get(a.href);
+    }
+    cssSeiteMax = Math.max(cssSeiteMax, cssSumme);
+    if (nurAnsicht.size) {
+      const geladen = new Set(links.map(attribute).filter((a) => a.rel === 'stylesheet').map((a) => a.href));
+      for (const m of html.matchAll(/\sclass="([^"]+)"/g)) {
+        for (const k of m[1].split(/\s+/)) {
+          const quellen = nurAnsicht.get(k);
+          if (quellen && !quellen.some((q) => geladen.has(q))) stilFehlt.set(k, [...(stilFehlt.get(k) || []), s.datei]);
+        }
+      }
+    }
+    if (cssSumme > GRENZE.cssGz) f('budgets/css-seite', 'fehler', `CSS dieser Seite gz ${cssSumme} B > ${GRENZE.cssGz} B (gemeinsam + Ansicht)`, s.datei);
     vorladenMax = Math.max(vorladenMax, vorladen);
     if (vorladen > 1) f('budgets/schrift-vorladen', 'fehler', `${vorladen} Schriften mit rel="preload" und as="font" (erlaubt: 1)`, s.datei);
     if (ORTSSEITE.test(s.datei)) orte.push({ datei: s.datei, roh: buf.length });
@@ -85,6 +119,11 @@ export async function pruefe(ctx) {
     }
   }
   messung.vorladenMax = vorladenMax;
+  messung.cssSeiteMax = cssSeiteMax;
+  for (const [k, dateien] of stilFehlt) {
+    const eindeutig = [...new Set(dateien)];
+    f('budgets/stil-fehlt', 'fehler', `Klasse .${k} hat Regeln nur in einem Ansichts-Stil, den ${eindeutig.length} Seite(n) nicht laden (seite.stile ergänzen oder Regel nach komponenten/ verschieben)`, eindeutig[0]);
+  }
 
   const ueber = orte.filter((o) => o.roh > GRENZE.ortRoh);
   for (const o of ueber.slice(0, EINZELBEFUNDE_ORT_MAX)) {
@@ -111,7 +150,7 @@ export async function pruefe(ctx) {
   messung.daten = datenMessung;
 
   f('budgets/messung', 'info', [
-    `CSS gz ${messung.css ?? '–'} B (Grenze ${GRENZE.cssGz})`,
+    `CSS gz gemeinsam ${messung.css ?? '–'} B, je Seite max ${cssSeiteMax} B (Grenze ${GRENZE.cssGz})`,
     `JS gz ${messung.js ?? '–'} B (Grenze ${GRENZE.jsGz})`,
     `Schriften .woff2 zusammen ${woffSumme} B (Grenze ${GRENZE.woff2Summe})`,
     `vorgeladene Schriften je Seite max ${vorladenMax} (Grenze 1)`,

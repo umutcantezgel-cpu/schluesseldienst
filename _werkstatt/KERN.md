@@ -147,7 +147,7 @@ Nichts läuft automatisch länger als 5 s → kein Pause-Knopf nötig. Nichts bl
 
 ## K-011 Budgets
 - LCP ≤ 2,5 s · CLS ≤ 0,1 · INP ≤ 200 ms (4× Drosselung) · Lighthouse mobil Perf ≥ 95, A11y/BP/SEO 100 (im Messbuild).
-- Bewegungscode ≤ 12 KB gz (hart 60 KB) · JS gesamt ≤ 16 KB gz · CSS ≤ 14 KB gz · Schriften vorgeladen ≤ 1 Datei, gesamt ≤ 75 KB · Ortsseiten-HTML ≤ 30 KB roh · Orts-Index ≤ 80 KB gz, PLZ-Index ≤ 50 KB gz (laden erst bei Fokus).
+- Bewegungscode ≤ 12 KB gz (hart 60 KB) · JS gesamt ≤ 16 KB gz · CSS ≤ 14 KB gz je Seite (gemeinsames Bündel `app.css` aus `komponenten/` plus die Ansichts-Stile der Seite aus `ansichten/<name>/`, Angabe `stile: […]` im Seitenobjekt; Prüfer `budgets/css-seite`, `budgets/stil-fehlt`) · Schriften vorgeladen ≤ 1 Datei, gesamt ≤ 75 KB · Ortsseiten-HTML ≤ 30 KB roh · Orts-Index ≤ 80 KB gz, PLZ-Index ≤ 50 KB gz (laden erst bei Fokus).
 - Große Momente: ≤ 5 % verworfene Bilder bei 4× Drosselung (Ersatzmessung headless, UMGEBUNGSAUSNAHME für echte Geräte).
 - Build: ganzer Lauf ≤ 60 s, Stichprobe ≤ 5 s.
 

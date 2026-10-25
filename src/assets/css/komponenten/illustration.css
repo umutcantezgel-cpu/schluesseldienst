@@ -2,6 +2,7 @@
    Schnittflächen 45°-Schraffur, Kupfer nur für den aktiven Zustand (data-bei) und die Scherlinie. */
 @layer komponenten {
   .ill { display: block; inline-size: 100%; block-size: auto; overflow: visible; fill: none; stroke: var(--c-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .ill-objekte { display: block; inline-size: 100%; block-size: auto; }
   .ill-flaeche { fill: var(--c-papier-2); }
   .ill-blatt { fill: var(--c-flaeche); }
   .ill-dunkel { fill: var(--c-tinte); stroke: none; }

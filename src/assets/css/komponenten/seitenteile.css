@@ -1,0 +1,26 @@
+/* Seitenteile mehrerer Ansichten: Kicker und Einleitung im Seitenkopf, Teilung 4/8, Fließtext, Randtitel,
+   Weiterlesen-Karten und dunkles Schlussband. */
+@layer komponenten {
+  .gruppe-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
+  .gruppe-einleitung { font-size: var(--fs-1); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block: var(--sp-m) var(--sp-l); }
+  .gruppe-teilung { display: grid; gap: var(--sp-l); }
+  .fliesstext { display: grid; gap: var(--sp-s); max-inline-size: var(--mass); }
+  .rand-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); padding-block-start: var(--sp-xs); border-block-start: var(--linie-scher) solid var(--c-kupfer); }
+  .weiter { list-style: none; padding: 0; display: grid; gap: var(--sp-s); }
+  .weiter li { margin: 0; }
+  .weiter a { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "titel pfeil" "text pfeil"; column-gap: var(--sp-s); padding: var(--sp-s) var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); color: var(--c-tinte); text-decoration: none; }
+  .weiter a:hover .weiter-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .weiter-titel { grid-area: titel; font-weight: var(--fw-titel); }
+  .weiter-text { grid-area: text; font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .weiter-pfeil { grid-area: pfeil; align-self: center; inline-size: var(--icon-ui); block-size: var(--icon-ui); color: var(--c-kupfer); }
+  .schluss h2 { font-size: var(--fs-3); }
+  .schluss p { color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block-start: var(--sp-xs); }
+  .schluss-teilung { display: grid; gap: var(--sp-l); align-items: center; }
+  .schluss-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
+  @media (min-width: 48em) { .weiter { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 64em) {
+    .gruppe-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; }
+    .schluss-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+    .schluss-handlung { justify-content: flex-end; }
+  }
+}
