@@ -1,23 +1,29 @@
-/* V11 Verzeichnis (Arbeitsansicht): Leistungsregister mit Sprungleiste und HTML-Sitemap mit Länder- und Kreislisten.
-   Dicht und ruhig, ohne Bewegung. Die Kupferlinie führt über die Abschnittsköpfe (global); hier nur Tokens. */
+/* V11 Verzeichnis (Arbeitsansicht): Leistungsregister mit Sprungleiste bzw. Gruppenfilter und HTML-Sitemap mit Länder-
+   und Kreislisten. Dicht und ruhig; einzige Bewegung ist der Zustandswechsel M-05 beim Gruppenfilter (bewegung.css). Die Kupferlinie führt über die Abschnittsköpfe (global); hier nur Tokens. */
 @layer komponenten {
   .verz-kopf { padding-block: var(--sp-m) var(--sp-l); }
   .verz-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; }
 
-  /* Sprungleiste zu den Gruppen (Anker, ohne JavaScript) */
+  /* Sprungleiste zu den Gruppen und „Alle“ (Anker ohne JavaScript, Filter mit JavaScript) */
   .verz-sprung { margin-block-start: var(--sp-l); }
   .verz-sprung ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-xs); }
   .verz-sprung li { margin: 0; }
-  .verz-sprung a { display: inline-flex; align-items: center; gap: var(--sp-2xs); min-block-size: var(--ziel-min); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); color: var(--c-tinte); text-decoration: none; }
-  .verz-sprung a:hover { border-color: var(--c-kupfer); }
+  /* Sprunglinks (ohne JavaScript) und Filterknöpfe (gruppenfilter.mjs) gleich groß: der Austausch verschiebt nichts */
+  .verz-sprung :is(a, button) { display: inline-flex; align-items: center; gap: var(--sp-2xs); min-block-size: var(--ziel-min); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); background: transparent; color: var(--c-tinte); font: inherit; text-decoration: none; }
+  .verz-sprung :is(a, button):hover { border-color: var(--c-kupfer); }
   .verz-nr { font-family: var(--ff-mono); font-size: var(--fs--1); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); color: var(--c-kupfer); }
 
-  /* Gruppenfilter (mit JavaScript): Sprunglinks werden Umschaltknöpfe; gedrückt = gefüllt und fett, nicht nur Farbe */
-  .verz-sprung button { display: inline-flex; align-items: center; gap: var(--sp-2xs); min-block-size: var(--ziel-min); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); background: transparent; color: var(--c-tinte); }
-  .verz-sprung button:hover { border-color: var(--c-kupfer); }
-  .verz-sprung button[aria-pressed="true"] { background: var(--c-lahn); border-color: var(--c-lahn); color: var(--c-auf-lahn); font-weight: var(--fw-ui); }
+  /* Gruppenfilter (mit JavaScript): gedrückt = gefüllte Fläche (Form, nicht nur Farbe); gleiche Schriftstärke, damit
+     die Breite gleich bleibt */
+  .verz-sprung button[aria-pressed="true"] { background: var(--c-lahn); border-color: var(--c-lahn); color: var(--c-auf-lahn); }
   .verz-sprung button[aria-pressed="true"] .verz-nr { color: var(--c-auf-lahn); }
-  .verz-status { margin-block-start: var(--sp-s); font-size: var(--fs--1); color: var(--c-tinte-2); }
+  /* Touch: Sprunglinks und Knöpfe mindestens 48 px hoch (K-009) */
+  @media (pointer: coarse) { .verz-sprung :is(a, button) { min-block-size: var(--ziel-touch); } }
+  /* Druck: der gedrückte Knopf bleibt auf Papier lesbar (Tinte statt Weiß auf Weiß) */
+  @media print {
+    .verz-sprung button[aria-pressed="true"] { color: var(--c-tinte); }
+    .verz-sprung button[aria-pressed="true"] .verz-nr { color: var(--c-kupfer); }
+  }
 
   /* Gruppenabschnitte: Anker sitzen unter dem klebenden Kopf */
   .verz-gruppe { scroll-margin-block-start: var(--sp-l); }

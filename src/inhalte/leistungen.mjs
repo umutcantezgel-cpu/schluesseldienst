@@ -7,6 +7,9 @@ export default {
   h1: 'Alle Leistungen auf einen Blick',
   einleitung: 'Hier stehen alle Leistungen des Betriebs, geordnet nach vier Gruppen. Ein Satz nennt jeweils, worum es geht; die Detailseite führt weiter.',
   sprungTitel: 'Gruppen im Register',
+  // Mit JavaScript wird die Sprungleiste zum Filter (Modul gruppenfilter); „Alle“ springt ohne JavaScript zur ersten Gruppe
+  filterTitel: 'Leistungen nach Gruppe filtern',
+  sprungAlle: 'Alle',
   schluss: {
     titel: 'Welche Leistung passt zu Ihrem Fall?',
     text: 'Die Preise und die Anfahrt je Zone stehen auf der Preisseite. Sind Sie unsicher, welche Leistung gemeint ist, schreiben Sie uns über die Kontaktseite.',

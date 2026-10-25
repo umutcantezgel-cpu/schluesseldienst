@@ -1,5 +1,5 @@
 // V11 Verzeichnis: Register aller Leistungen (Themenpass /leistungen/). Abschnittsfolge:
-// Kopf mit Sprungleiste zu den vier Gruppen (Anker, ohne JavaScript) · je Gruppe ein Abschnitt mit der Liste
+// Kopf mit Sprungleiste zu den vier Gruppen und „Alle“ (Anker; mit JavaScript Filter, K-07) · je Gruppe ein Abschnitt mit der Liste
 // (abwechselnd Band und Dichte) · Schlussband mit Preisen und Kontakt. Texte in src/inhalte/leistungen.mjs,
 // Gruppen und Leistungen aus src/konfig/leistungen.mjs.
 import { html } from '../../../bau/lib/html.mjs';
@@ -17,8 +17,8 @@ function kopf() {
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="verz-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>
-<nav class="verz-sprung" aria-label="${inhalt.sprungTitel}" data-modul="gruppenfilter">
-<ul>${GRUPPEN.map((g) => html`<li><a href="#${anker(g)}" data-gruppe="${g.id}"><span class="verz-nr" aria-hidden="true">${g.nr}</span>${g.titel}</a></li>`)}</ul>
+<nav class="verz-sprung" aria-label="${inhalt.sprungTitel}" data-modul="gruppenfilter" data-filter-titel="${inhalt.filterTitel}">
+<ul>${GRUPPEN.map((g) => html`<li><a href="#${anker(g)}" data-gruppe="${g.id}"><span class="verz-nr" aria-hidden="true">${g.nr}</span>${g.titel}</a></li>`)}<li><a href="#${anker(GRUPPEN[0])}" data-gruppe="">${inhalt.sprungAlle}</a></li></ul>
 </nav>
 </div>
 </section>`;

@@ -18,7 +18,7 @@
     .ort-karte .lk-km { animation: m20-erscheinen var(--dur-zustand) var(--ease-aus) calc(var(--m19-start) + var(--m19-linie)) backwards; }
 
     /* M-05 Zustand (Gruppenfilter /leistungen/): nur eingeblendete Gruppen nach einem Wechsel gleiten von −8 px; Basis = Endzustand */
-    .verz-gruppe[data-zustand="neu"] { animation: m05-einblenden var(--dur-zustand) var(--ease-standard) backwards; }
+    .verz-gruppe[data-zustand="neu"] { animation: m05-einblenden var(--dur-zustand) var(--ease-ein) backwards; }
 
     /* M-21 Charakter (404): Der falsche Schlüssel rüttelt – Stifte wackeln, die Linienhälften finden nicht zusammen */
     [data-moment="falsch"] .zy-stiftpaar { animation: m21-wackeln var(--m21-dauer) var(--ease-standard) var(--m21-start); }
@@ -56,6 +56,10 @@
     ::view-transition-group(scherlinie) { animation-duration: var(--vt-linie); animation-timing-function: var(--ease-standard); }
   }
 
+  /* M-05 bei reduzierter Bewegung: nur Deckkraft, Dauer feedback (Register K-007) */
+  @media (prefers-reduced-motion: reduce) {
+    .verz-gruppe[data-zustand="neu"] { animation: m20-erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
+  }
   @keyframes m16-schluessel { from { transform: translateX(-40%); } }
   @keyframes m16-stift { from { transform: translateY(var(--m16-stift-weg)); } }
   @keyframes m16-feder { from { transform: scaleY(var(--m16-feder)); } }
