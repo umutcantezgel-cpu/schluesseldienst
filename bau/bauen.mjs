@@ -10,7 +10,7 @@ import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { cssBuendeln, ansichtenBuendeln, druckBuendeln, jsBuendeln, statischeAssets, hash10, sri } from './lib/assets.mjs';
 import { Schreiber } from './lib/schreiben.mjs';
-import { vorkomprimieren } from './lib/vorkomprimieren.mjs';
+import { vorkomprimieren, veralteteVariantenEntfernen } from './lib/vorkomprimieren.mjs';
 import { aufloesen } from './lib/markierung.mjs';
 import { platzhalterIn, istPlatzhalter } from './lib/platzhalter.mjs';
 import { setzeRoutenPruefer, fehlendeLinksHolen } from './lib/inhalt.mjs';
@@ -244,6 +244,7 @@ async function main() {
 
   // Vorkomprimierte Varianten nach dem Schreiben aller Dateien, vor dem Aufräumen (der Schreiber meldet sie dafür als geschrieben)
   const vork = arg.vorkomprimieren ? await vorkomprimieren(schreiber, { ohneAufraeumen: Boolean(nur) }) : null;
+  if (!vork) await veralteteVariantenEntfernen(schreiber);
   const entfernt = nur ? 0 : await schreiber.aufraeumen();
 
   // Platzhalter in der Konfiguration (auch ungerenderte)

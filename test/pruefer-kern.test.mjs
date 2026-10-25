@@ -131,3 +131,15 @@ test('S14-variante: .br/.gz nur mit Quelldatei und gleichem Inhalt; andere Archi
     ['sicherheit/S14-variante', '/weg.html.gz'],
   ]);
 });
+
+test('S14-variante prüft alle Varianten auf der Platte, auch solche, die dieser Lauf nicht geschrieben hat (--nur)', async () => {
+  const { brotliCompressSync } = await import('node:zlib');
+  const html = seite('/', '<p>x</p>');
+  const ctx = await ctxMit([{ pfad: '/', html }]);
+  await mkdir(join(DIST, 'alt'), { recursive: true });
+  await writeFile(join(DIST, 'alt/index.html'), html); // Quelle aus einem früheren Lauf, nicht in ctx.dateien
+  await writeFile(join(DIST, 'alt/index.html.br'), brotliCompressSync(Buffer.from(html)));
+  await writeFile(join(DIST, 'index.html.br'), brotliCompressSync(Buffer.from('<p>veraltet</p>')));
+  const befunde = (await sicherheit.pruefe(ctx)).filter((b) => b.regel.startsWith('sicherheit/S14'));
+  assert.deepEqual(befunde.map((b) => [b.regel, b.datei]), [['sicherheit/S14-variante', '/index.html.br']]);
+});

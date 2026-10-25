@@ -1,6 +1,6 @@
 // Sicherheits-Linter über die gesamte Ausgabe (S01–S21). Jede Verletzung ist ein Fehler.
 // Arbeitet mit regulären Ausdrücken auf dem eigenen, wohlgeformten HTML des Generators.
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { gunzipSync, brotliDecompressSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
@@ -163,20 +163,25 @@ export async function pruefe(ctx) {
     if (ctx.modus === 'release' && s.indexierbar && /<meta name="robots" content="noindex/.test(h)) f('S21-noindex', d, 'Indexierbare Seite trägt noindex');
   }
 
+  // S14-variante: jede .br/.gz im Ausgabeordner (nicht nur die dieses Laufs) braucht ihre Quelle daneben und muss
+  // entpackt genau der Quelle gleichen – sonst lieferte der Server veraltete oder fremde Inhalte aus
+  for (const datei of await variantenAufPlatte(ctx.dist)) {
+    const variante = datei.match(VARIANTE);
+    if (!variante) continue; // andere Archive meldet die Allowlist unten
+    const quelle = await readFile(join(ctx.dist, variante[1])).catch(() => null);
+    if (!quelle) { f('S14-variante', datei, 'Vorkomprimierte Variante ohne Quelldatei in der Ausgabe'); continue; }
+    const roh = await readFile(join(ctx.dist, datei));
+    let inhalt = null;
+    try { inhalt = variante[2] === 'br' ? brotliDecompressSync(roh) : gunzipSync(roh); } catch { /* unten gemeldet */ }
+    if (!inhalt || !inhalt.equals(quelle)) f('S14-variante', datei, 'Vorkomprimierte Variante weicht von der Quelldatei ab');
+  }
+
   // S14 Datei-Allowlist, S15 Daten, S20 JS-Regeln, CSS ohne data:-URLs
-  const vorhanden = new Set(ctx.dateien);
   for (const datei of ctx.dateien) {
     const basis = datei.split('/').pop();
     const erlaubtePunkt = ['.htaccess', '_headers', '_redirects'].includes(basis) || datei.startsWith('/.well-known/');
-    const variante = datei.match(VARIANTE);
-    if (variante) {
-      if (!vorhanden.has(variante[1])) f('S14-variante', datei, 'Vorkomprimierte Variante ohne Quelldatei in der Ausgabe');
-      else {
-        const [roh, quelle] = await Promise.all([readFile(join(ctx.dist, datei)), readFile(join(ctx.dist, variante[1]))]);
-        let inhalt = null;
-        try { inhalt = variante[2] === 'br' ? brotliDecompressSync(roh) : gunzipSync(roh); } catch { /* unten gemeldet */ }
-        if (!inhalt || !inhalt.equals(quelle)) f('S14-variante', datei, 'Vorkomprimierte Variante weicht von der Quelldatei ab');
-      }
+    if (VARIANTE.test(datei)) {
+      // Varianten prüft der Durchlauf über die Platte unten (auch solche, die dieser Lauf nicht geschrieben hat)
     } else if (!erlaubtePunkt && (basis.startsWith('.') || !ERLAUBTE_ENDUNGEN.test(basis)) && basis !== 'OFL.txt') f('S14-datei', datei, 'Datei nicht auf der Allowlist');
     // Wettbewerber nur als exakte Kennung (Domainstamm), nicht als Teilwort – sonst träfe es Orte wie Hadamar oder Richterich.
     if (/_werkstatt|richter-sicherheitstechnik|schluesseldienst-adam(?![a-z])|\/src\/|\.map$|\.mjs$|\.md$/i.test(datei)) f('S14-datei', datei, 'Unzulässiger Pfad in der Ausgabe');
@@ -201,4 +206,15 @@ export async function pruefe(ctx) {
     }
   }
   return befunde;
+}
+
+/** Alle Dateien auf .br/.gz unterhalb des Ausgabeordners, als Pfad ab der Wurzel („/a/index.html.br“). */
+async function variantenAufPlatte(wurzel, rel = '') {
+  const liste = [];
+  for (const e of await readdir(join(wurzel, rel), { withFileTypes: true }).catch(() => [])) {
+    const pfad = `${rel}/${e.name}`;
+    if (e.isDirectory()) liste.push(...(await variantenAufPlatte(wurzel, pfad)));
+    else if (e.isFile() && /\.(br|gz)$/.test(e.name)) liste.push(pfad);
+  }
+  return liste;
 }

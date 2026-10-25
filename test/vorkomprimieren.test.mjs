@@ -251,14 +251,26 @@ describe('Hoster-Konfiguration für vorkomprimierte Dateien', () => {
     assert.ok(!gz.test('br, deflate'));
   });
 
-  test('Apache: keine Doppelkompression (mod_deflate für .br/.gz aus, auch bei direkter Anforderung)', () => {
-    assert.ok(apache.includes('SetEnvIfNoCase Request_URI \\.(br|gz)$ no-gzip dont-vary'));
-    assert.ok(apache.includes('<IfModule mod_deflate.c>'));
+  test('Apache: keine Doppelkompression durch mod_deflate oder mod_brotli (am Dateinamen, nicht über E=… der Rewrites)', () => {
+    assert.ok(apache.includes('  SetEnvIfNoCase Request_URI \\.(br|gz)$ no-gzip no-brotli dont-vary'));
+    // SetEnvIf nur, wenn mod_setenvif geladen ist (sonst 500)
+    const i = zeilen.indexOf('  SetEnvIfNoCase Request_URI \\.(br|gz)$ no-gzip no-brotli dont-vary');
+    assert.ok(zeilen.lastIndexOf('<IfModule mod_setenvif.c>', i) > zeilen.lastIndexOf('</IfModule>', i));
   });
 
-  test('Apache: direkt angeforderte .br/.gz-Dateien werden mit 404 abgewiesen', () => {
-    assert.ok(zeilen.includes('  RewriteCond %{THE_REQUEST} \\.(br|gz)[\\s?]'));
-    assert.ok(zeilen.includes('  RewriteRule ^ - [R=404,L]'));
+  test('Apache: Brotli-Antworten ohne Content-Language (Serverstandard „AddLanguage br .br“ aufgehoben)', () => {
+    assert.ok(zeilen.includes('  RemoveLanguage .br .gz'));
+  });
+
+  test('Apache: direkt angeforderte .br/.gz → 404 nach dem dekodierten Pfad ohne Query; interne Umwege ausgenommen', () => {
+    const i = zeilen.indexOf('  RewriteRule \\.(br|gz)$ - [R=404,L]');
+    assert.ok(i > 0);
+    assert.equal(zeilen[i - 1], '  RewriteCond %{ENV:REDIRECT_STATUS} ^$');
+    assert.ok(!apache.includes('THE_REQUEST'), 'Query-Strings wie ?ref=x.com.br dürfen nicht treffen');
+    // vor den Ausliefer-Regeln
+    assert.ok(i < zeilen.findIndex((z) => z.includes('$1.br [L')));
+    const muster = /\.(br|gz)$/;
+    assert.deepEqual(['index.html.br', 'a/b.css.gz', '', 'kontakt/'].map((p) => muster.test(p)), [true, true, false, false]);
   });
 
   test('Apache: Cache-Regeln für Assets bleiben unverändert', () => {
@@ -302,5 +314,20 @@ test('--vorkomprimieren nur mit --ziel=apache oder nginx: Netlify/Cloudflare bre
     assert.equal(r.status, 2, ziel);
     assert.match(r.stderr, /--vorkomprimieren nur mit --ziel=apache oder nginx/);
     assert.equal(angelegt, false);
+  }
+});
+
+test('ohne --vorkomprimieren: Varianten neu geschriebener Dateien werden gelöscht (keine veralteten .br/.gz nach --nur)', async () => {
+  const { veralteteVariantenEntfernen } = await import('../bau/lib/vorkomprimieren.mjs');
+  const dist = await mkdtemp(join(tmpdir(), 'vork-alt-'));
+  try {
+    await mkdir(join(dist, 'a'), { recursive: true });
+    for (const n of ['a/index.html.br', 'a/index.html.gz', 'b.css.gz']) await writeFile(join(dist, n), 'alt');
+    const s = new Schreiber(dist);
+    await s.schreibe('/a/index.html', HTML);
+    assert.equal(await veralteteVariantenEntfernen(s), 2);
+    assert.deepEqual((await readdir(dist, { recursive: true })).filter((n) => /\.(br|gz)$/.test(n)).sort(), ['b.css.gz'], 'nur Varianten geschriebener Dateien');
+  } finally {
+    await rm(dist, { recursive: true, force: true });
   }
 });
