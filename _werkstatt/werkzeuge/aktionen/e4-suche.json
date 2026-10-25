@@ -1,0 +1,4 @@
+[
+  { "typ": "klick", "selektor": "#suche-eingabe" },
+  { "typ": "tippen", "selektor": "#suche-eingabe", "text": "zyl" }
+]

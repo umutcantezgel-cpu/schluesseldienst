@@ -1,0 +1,4 @@
+[
+  { "typ": "klick", "selektor": "label.wahl-option:has(input[name=\"zone\"][value=\"B\"])" },
+  { "typ": "klick", "selektor": "label.wahl-option:has(input[name=\"position\"][value=\"zylinder\"])" }
+]

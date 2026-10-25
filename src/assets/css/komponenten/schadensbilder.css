@@ -1,0 +1,5 @@
+/* Schadensbilder (I-13, Ratgeber): die Spur je Feld in Kupfer, nur das Entscheidende. Strich 2 und Schraffur
+   kommen aus illustration.css; alle Werte über Tokens. */
+@layer komponenten {
+  .sb-spur { fill: none; stroke: var(--c-kupfer); stroke-width: var(--linie-scher); stroke-linecap: round; stroke-linejoin: round; }
+}
