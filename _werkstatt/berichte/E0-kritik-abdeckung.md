@@ -1,0 +1,65 @@
+> **Vermerk:** Dieser Bericht entstand in der Planungsphase. Wo er vom genehmigten Plan (`_werkstatt/PLAN-GENEHMIGT.md`) abweicht, ist er **überholt durch PLAN**. Liste der überholten Punkte: `_werkstatt/ENTSCHEIDUNGEN.md` → „Überholte Panel-Punkte“.
+
+- **[KRITISCH] · Abnahme / Platzhalter** · Der harte Katalog verlangt „Platzhalter = 0“. Der Plan rendert aber jede Ansicht mit sichtbaren Platzhaltern (Z.12, 15, 176): Name, Telefon und Zonenpreis auf rund 6.000 Ortsseiten. Damit können Z-04 und der Katalog nie grün werden. · **Korrektur:** In ABNAHME.md definieren, dass „Platzhalter“ im Katalog Füll- oder Blindtext und erfundene Werte meint. Konfig-Lücken mit `data-platzhalter` sind eine gezählte UMGEBUNGSAUSNAHME (Liste in MENSCHEN.md). S10 weist sie getrennt aus, und die Sichtabnahme bewertet nach dieser Regel.
+- **[KRITISCH] · Messbarkeit** · Lighthouse „SEO 100“ (Z.266), S21, die Prüfung „Sitemap = indexierbare Seiten“ und die Canonicals sind nicht erreichbar. Die Vorschau ist noindex mit `Disallow: /` (Z.43), `--release` scheitert an den Platzhaltern, und der Origin ist unbekannt. · **Korrektur:** Einen dritten Modus `--abnahme` einführen: indexierbar, Origin `http://127.0.0.1:4173`, Platzhalter erlaubt, `paket.mjs` verweigert ihn. Alle Messungen laufen auf diesem Modus.
+- **[KRITISCH] · Übergabe Z-10** · Wird `_werkstatt` vor dem Zusammenführen gelöscht (Z.240), verschwinden MENSCHEN.md (offene Punkte, unklare Orte), ENTSCHEIDUNGEN.md, der Abgleich-Bericht und alle Prüfwerkzeuge (axe, Lighthouse, Smoke). · **Korrektur:** Vorher `docs/` anlegen (BETRIEB, OFFENE-PUNKTE, ENTSCHEIDUNGEN, orte-abgleich) und die Werkzeuge nach `werkzeuge/` mit eigener package.json verschieben. Dazu ein README.
+- **[WICHTIG] · Ansehen ohne `dist/`** · Der Plan nennt nur `--release` und `paket.mjs` (Z.37–39). Beide scheitern absichtlich an den Platzhaltern. `file://` funktioniert nicht (Wurzel-URLs, fetch mit SRI, CSP). · **Korrektur:** In README und BERICHT festhalten: `node bau/bauen.mjs` plus `node bau/vorschau.mjs`, dann http://127.0.0.1:4173 öffnen (Node ≥ 22.12). Dazu `paket.mjs --vorschau` (noindex). Bildsätze der 12 Ansichten (≤ 1440 px, komprimiert) committen. Die Ablageregel für Bilder fehlt bisher im Plan.
+- **[WICHTIG] · Seiteninventar** · Gegen die Sitemaps geprüft:
+  - R hat 14 Einbruchschutz-Produktslugs, nicht 13 (Z.115). `schutzbeschlag-europa` fehlt.
+  - R `sitemap.html` (HTML-Sitemap) und `news-leser.html` haben kein Ziel.
+  - A `in-der-naehe` zeigt auf `/einsatzgebiet/`, aber Geolocation ist verboten (Z.89). Die Funktion ist damit undefiniert.
+  - Die R-Zählung 5.308 = 5.258 DE + 50 NL `slotenmaker-*` stimmt. A hat 18 Kern- und 532 Orts-URLs, ebenfalls korrekt.
+  - **Korrektur:** Die fehlenden Zeilen ergänzen. „In der Nähe“ wird zur PLZ-Prüfung. Eine `quellen-abdeckung.json` mit allen 49 R- und 18 A-Kern-URLs (Ziel oder „entfällt“ mit Grund) anlegen und per Test prüfen.
+- **[WICHTIG] · „Wirklich alle Seiten“** · Galerie entfällt, Karriere erscheint nur mit Daten, und unklare Orte werden nicht veröffentlicht. Für keine dieser Abweichungen gibt es einen ENTSCHEIDUNGEN-Eintrag. · **Korrektur:**
+  - Das Galerie-Thema (Schäden durch Feuerwehr, Selbstversuch, Einbruch) als Ratgeber mit Illustrationen umsetzen.
+  - Die Vorlagen für Karriere und Galerie bauen und mit Test-Fixture prüfen; nur die Ausgabe ist bedingt.
+  - Unklare Orte: Ziel ≤ 2 %. Opus löst sie in E2 über `zuordnung-manuell.json`.
+- **[WICHTIG] · Zählungen** · „Vier Gruppen“ (Z.14), V02 (4) in W1 und vier M-17-Szenen stehen gegen 5 Hubs (`/einbau/` und `/tresore/` getrennt). Bei den Detailseiten gibt es 23 in der Tabelle, „~26“ in W2 und „~30“ in den Panels. · **Korrektur:** Entweder ein Hub `/einbau-tresore/` oder 5 Hubs mit 5 Szenen. Eine exakte Routenliste kommt in PLAN.md.
+- **[WICHTIG] · NL-Orte** · Offen sind:
+  - die Sprache (Panel 1 sagt Deutsch, Panel 2 `/slotenmaker/` auf Niederländisch);
+  - die Hub-Ebene, denn NL hat keine Länder und Kreise;
+  - Block 6 „Landesregel“;
+  - Slug-Kollisionen: Beckum und Borne gibt es in DE und NL, und die Regel `-{kreis}` greift dort nicht.
+  - **Korrektur:** Standard Deutsch, `/einsatzgebiet/niederlande/{provincie}/`, Block 6 entweder als NL-Regel mit VERIFIZIEREN oder entfallen lassen, Kollisions-Suffix `-nl`.
+- **[WICHTIG] · Eindeutige Titel** · Der Build bricht bei doppelten Titeln ab (Z.146). Es gibt 193 mehrdeutige Namen („Hausen“ ×7), aber keine Regel zur Unterscheidung, also bricht der Build sicher ab. · **Korrektur:** Fallback-Kette `{Ort} ({Gemeinde})` → `+Kreis` → `+Land`.
+- **[WICHTIG] · Weilburg-Seite** · Die Ortsvorlage erzeugt für Weilburg „0 km … von Weilburg“. · **Korrektur:** Die Weilburg-Seite schreibt Opus von Hand. Ortsteile unter 3 km bekommen eine eigene Formulierung.
+- **[WICHTIG] · Panel-Berichte widersprechen dem Plan** · Die Berichte landen in `_werkstatt/berichte` (Z.209), und Haiku liest sie. Abweichend vom Plan stehen dort:
+  - Zonen 15/30/60 (Panel 2) und 25/50/100 (Panel 3);
+  - URL `/schluesseldienst/<slug>/`;
+  - Theme- und Bewegungsschalter (gegen Z.156);
+  - „Nummer kopieren“ (M-23) trotz `clipboard-write=()`;
+  - Theme-Wechsel (M-22);
+  - gehashtes Inline-Snippet mit WAAPI (gegen Z.83);
+  - Zustände für einen Formular-Endpoint;
+  - Geolocation.
+  - **Korrektur:** M-22 und M-23 streichen und das Register neu nummerieren. In ENTSCHEIDUNGEN.md eine Liste „überholt“ anlegen und jedem Bericht einen Kopfvermerk geben.
+- **[WICHTIG] · CSP gegen Grafik** · Panel 3 setzt die Kartennadel über `style="--x"`. Das verletzt `style-src 'self'` und S04. · **Korrektur:** Die Position über SVG-Attribute setzen (`x`/`y`, `transform=`). `view-transition-name` nur über Klassen vergeben.
+- **[WICHTIG] · Determinismus-Linter** · Das Verbot von `Date.now` (Z.42) trifft auch Client-JS: Rufleisten-Status, „jetzt gültig“ und den Zeitpunkt im Preisrechner. · **Korrektur:** Den Linter auf `bau/`, `pipeline/` und `src/{konfig,vorlagen,inhalte}` begrenzen.
+- **[WICHTIG] · Z-Abdeckung in der Verifikation** · Es fehlen:
+  - Z-05: dropped Frames ≤ 5 % bei 4× CPU;
+  - Z-08: INP ≤ 200 ms (Lighthouse misst kein INP) und „nicht schlechter als E0“;
+  - Z-07: Tastaturpfad;
+  - Z-09: Überlauf-Assertion bei 320 und 1920 px, 200 % Zoom, forced-colors;
+  - Z-03: ein Linter, der Werte außerhalb der Tokens erkennt;
+  - ein Emoji-Linter (Panel 3 nutzt ☎ ▾ ≡).
+  - **Korrektur:** Für jeden Punkt ein Haiku-Werkzeug. Die E0-Baseline ist die erste Messung in E2; Werte der Wettbewerber sind nur informativ.
+- **[WICHTIG] · Z-04 „Vorher“** · Die Screenshot-URLs in den Scrapes sind am 18.10.2026 abgelaufen. Live-Aufnahmen gehen (HTTP 200), aber Marke und Telefonnummer heben die Blindheit auf. · **Korrektur:**
+  - Live aufnehmen, höchstens 6 Seiten.
+  - Namen und Nummern auf beiden Seiten maskieren, A/B-Reihenfolge zufällig.
+  - Feste Paare: V01 ↔ Start R/A, V03 ↔ A tueroeffnung, V04 ↔ A preise, V07 ↔ Ortsseite.
+  - Ab der zweiten Etappe ist „vorher“ die vorige Etappe.
+- **[WICHTIG] · Reihenfolge der Prüfer** · Die Prüfer für Plagiat, Ehrlichkeit, JSON-LD, Links und vnu kommen erst in W4 (Z.230). Die Texte entstehen aber in W1–W3, und das E2-Tor braucht Prüfstufe B. Prüfstufe A ist gar nicht definiert. · **Korrektur:** Die Prüfer in den E2-Kern vorziehen und Prüfstufe A pro Paket festlegen.
+- **[WICHTIG] · Parallelität** · Routen, Navigation und Themenpässe liegen in gemeinsamen Dateien. Vier Slots würden dort kollidieren. · **Korrektur:** Opus füllt alle Register in E2 vollständig. Die Pakete schreiben nur eigene Inhaltsmodule.
+- **[WICHTIG] · VERIFIZIEREN** · Ungeprüfte Fakten (Rauchmelderpflicht, KfW, WaffG) erscheinen auf rund 6.000 Seiten (Z.137). Die Release-Sperre gilt nur für Platzhalter. · **Korrektur:** S10 sperrt auch VERIFIZIEREN, und die Vorschau markiert sie sichtbar.
+- **[NICE] · Wortlaut Z.262** · „`--release` muss ohne Platzhalter scheitern“ ist invertiert. · **Korrektur:** „mit Platzhaltern“.
+- **[NICE] · Header Z.88** · „COEP same-origin“ ist kein gültiger Wert. · **Korrektur:** `require-corp`.
+- **[NICE] · Dauern** · Das Register übernimmt aus Panel 3 Ausgänge von 100 und 200 ms. Das liegt unter den Master-Spannen 120–180 und 240–400 ms. · **Korrektur:** Angleichen oder die Ausnahme begründen.
+- **[NICE] · Werkzeuge** · „Installiert außerhalb des Repos“ widerspricht „liegen in `_werkstatt/werkzeuge`“ (Z.99). Playwright ist nicht gepinnt, und axe braucht wegen Trusted Types `bypassCSP`. · **Korrektur:** Klären und in der Werkzeug-package.json festhalten.
+- **[NICE] · Ehrlichkeit und Fairness** · „Keine Vor-Ort-Behauptung außerhalb Weilburgs“ blockiert berechtigte Sätze in Zone A/B. · **Korrektur:** Nur Niederlassungs-Behauptungen verbieten. Dark Patterns (Countdown, „nur heute“) in den Prüfer aufnehmen. Den Verzicht auf 3D/Shader in ENTSCHEIDUNGEN.md begründen.
+
+### Critical Files for Implementation
+- /root/.claude/plans/nutze-das-was-vorhanden-bright-sphinx.md
+- /home/user/schluesseldienst/Richter Schlüsseldienst/01a12b76-b326-7756-a303-8fa6e684874c 2/www.richter-sicherheitstechnik.de_share_sitemap.xml.md
+- /home/user/schluesseldienst/Schlüsseldienst Adam/dff09287-3472-45a0-bec3-2e544301d508.zip (Sitemap-JSON mit Regionskommentaren)
+- /tmp/claude-0/-home-user-schluesseldienst/1c755066-2813-53d2-8900-86f00ac6d061/scratchpad/panel3.md
+- /tmp/claude-0/-home-user-schluesseldienst/1c755066-2813-53d2-8900-86f00ac6d061/scratchpad/panel2.md

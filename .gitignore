@@ -1,1 +1,10 @@
 .DS_Store
+# Build-Ausgaben und Zwischenstände (nie committen)
+/dist/
+/.cache/
+/release/
+node_modules/
+# Werkzeug-Abhängigkeiten liegen außerhalb des Repos; lokale Reste trotzdem ausschließen
+/_werkstatt/werkzeuge/node_modules/
+/_werkstatt/bilder/roh/
+*.log
