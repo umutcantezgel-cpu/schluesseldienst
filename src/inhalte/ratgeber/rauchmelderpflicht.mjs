@@ -10,10 +10,11 @@ export default {
   kategorie: 'recht',
   kurztitel: 'Rauchmelderpflicht',
   h1: 'Rauchmelderpflicht: Wer, wo und was gilt',
-  kurz: [rr.fakten['hessen-wohnungen'], ' Die Betriebsbereitschaft liegt bei den unmittelbaren Besitzern, sofern der Eigentümer sie nicht übernommen hat. Die Regeln anderer Länder unterscheiden sich davon.'],
+  // Zwei Sätze ohne Paragrafen: Den Gesetzeswortlaut mit Beleg bringt der Abschnitt „Welche Räume“.
+  kurz: 'In Hessen braucht jeder Schlafraum, jedes Kinderzimmer und jeder Flur auf dem Rettungsweg mindestens einen Rauchwarnmelder. Betriebsbereit halten ihn die unmittelbaren Besitzer, sofern der Eigentümer das nicht übernommen hat.',
   stand: '2026-10-25',
-  figur: 'grundriss',
-  figurText: 'Schematische Wohnung mit Kreisen für Rauchwarnmelder; welche Räume Pflicht sind, steht im Text.',
+  figur: 'rauchmelder',
+  figurText: 'Schema einer Wohnung: Melder im Schlafzimmer, im Kinderzimmer und im Flur, über den der Rettungsweg führt. Das Wohnzimmer nennt die hessische Aufzählung nicht.',
   wichtig: [
     'In Hessen gehören **Rauchwarnmelder** in Schlafräume, Kinderzimmer und Flure auf dem Rettungsweg.',
     'Ein Melder muss so betrieben werden, dass er **Brandrauch früh meldet**.',

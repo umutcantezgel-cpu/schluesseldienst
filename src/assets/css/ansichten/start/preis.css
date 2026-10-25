@@ -1,0 +1,10 @@
+/* „Preis vor Arbeit“ auf der Startseite: Der Weg zu allen Preisen folgt dem Tabellenauszug in der rechten Spalte
+   (Vorlage start.mjs), damit beide Spalten etwa gleich abschließen. Nur dieser Abschnitt (.start-preis). */
+@layer komponenten {
+  .start-preis .preis-auszug { display: grid; align-content: start; }
+  .start-preis-weiter { margin-block-start: var(--sp-m); }
+  @media (min-width: 64em) {
+    /* Tabellentitel auf Höhe der H2: um Kupfermarke und Abstand des Abschnittskopfs versetzt */
+    .start-preis .preis-auszug { padding-block-start: calc(var(--linie-scher) + var(--sp-s)); }
+  }
+}

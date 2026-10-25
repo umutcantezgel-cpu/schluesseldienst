@@ -48,8 +48,8 @@ ${zylinderSchnitt({ praefix: 'hero-zy' })}
 <div class="hero-rest">
 <p class="hero-einleitung">${text(h.text)}</p>
 <div class="hero-handlung">${rufknopf(sk, { variante: 'gross' })}</div>
-${ortspruefung(sk, { id: 'hero-ort', titel: h.pruefTitel, hinweis: h.pruefHinweis })}
 </div>
+<div class="hero-ort">${ortspruefung(sk, { id: 'hero-ort', titel: h.pruefTitel, hinweis: h.pruefHinweis })}</div>
 </section>`;
 }
 
@@ -72,18 +72,20 @@ ${t.faelle.map((f, i) => html`<li class="triage-fall">
 function preisAbschnitt(sk) {
   const p = inhalt.preis;
   const offen = istPlatzhalter(sk.konfig.preise.positionen[0].preise.werktag);
-  return html`<section class="sektion" aria-labelledby="preis-titel">
+  // Der Weg zu allen Preisen folgt dem Tabellenauszug (rechts), die Zusage der Erklärung (links): Beide Spalten
+  // schließen so etwa gleich ab.
+  return html`<section class="sektion start-preis" aria-labelledby="preis-titel">
 <div class="raster"><div class="preis-teilung">
 <div class="preis-aussage">
 ${abschnittKopf({ id: 'preis-titel', titel: p.titel })}
 <p class="preis-aussage-text">${text(p.aussage)}</p>
 <ul class="preis-faktoren">${p.faktoren.map((f) => html`<li>${sk.icon(f.icon, { klasse: 'preis-faktor-icon' })}<span>${f.text}</span></li>`)}</ul>
 <p>${zusage(sk, 'preisVorAuftrag', p.zusageJa, p.zusageNein)}</p>
-<p><a class="knopf knopf-sekundaer" href="/preise/">${p.link}${sk.icon('pfeil-rechts')}</a></p>
 </div>
 <div class="preis-auszug">
 ${preistabelle(sk, { positionen: p.positionen, id: 'start-preise' })}
 ${offen ? html`<p class="hinweis hinweis-platzhalter">Die Preisliste des Betriebs wird noch eingetragen; bis dahin stehen hier Platzhalter.</p>` : ''}
+<p class="start-preis-weiter"><a class="knopf knopf-sekundaer" href="/preise/">${p.link}${sk.icon('pfeil-rechts')}</a></p>
 </div>
 </div></div>
 </section>`;

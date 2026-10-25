@@ -13,8 +13,34 @@ const ZUSATZ = {
   nebel: `<path class="ill-akzent-flaeche" d="M240 124A20 20 0 0 1 252 88A28 28 0 0 1 300 72A26 26 0 0 1 340 100A16 16 0 0 1 344 124Z"/><rect class="ill-melder" x="336" y="40" width="24" height="16" rx="2"/><path d="M340 48H356"/>`,
 };
 
-export function grundriss({ praefix = 'gr', zustand = null, klasse = '', zusatz = '' } = {}) {
+// Variante „rauchmelder“ (Ratgeber Rauchmelderpflicht): dieselbe Wohnung, aber nur die Melder, die der Text als
+// Pflicht nennt. Der Flur erschließt hier alle Räume, damit „Flur auf dem Rettungsweg“ im Bild stimmt; Pflichträume
+// tragen die Lahn-Zone (Kupfer bleibt Scherlinie und Fokus), das Wohnzimmer bleibt leer. Räume sind beschriftet.
+const RAEUME = [
+  { name: 'Wohnen', x: 48, y: 64 },
+  { name: 'Schlafen', x: 232, y: 64, zone: 'M224 40H360V144H224Z', melder: [296, 104] },
+  { name: 'Kind', x: 48, y: 216, zone: 'M40 192H208V280H40Z', melder: [128, 248] },
+  { name: 'Flur', x: 232, y: 192, zone: 'M224 160H360V280H224Z', melder: [304, 224] },
+];
+
+function rauchmelderPlan(sf) {
+  return `<g class="ill-grund">
+<path class="ill-wand" fill="${sf}" fill-rule="evenodd" d="M24 24H376V296H24Z M32 32H368V288H32Z"/>
+<path class="ill-innenwand" d="M216 32V152 M216 184V232 M216 264V288 M32 184H216 M216 152H288 M320 152H368"/>
+${fenster(80, 20, 72, 16)}${fenster(264, 20, 56, 16)}${fenster(20, 216, 16, 48)}
+<rect class="ill-oeffnung" x="280" y="284" width="32" height="16"/>
+<path class="ill-fein" d="M280 288V256A32 32 0 0 1 312 288"/>
+</g>
+<g class="gr-pflicht">${RAEUME.filter((r) => r.zone).map((r) => `<path class="ill-zone-flaeche" d="${r.zone}"/>`).join('')}</g>
+<g class="gr-melder">${RAEUME.filter((r) => r.melder).map((r) => rauch(...r.melder)).join('')}</g>
+<g class="gr-raeume">${RAEUME.map((r) => `<text class="ill-text gr-raum" x="${r.x}" y="${r.y}">${r.name}</text>`).join('')}</g>`;
+}
+
+export function grundriss({ praefix = 'gr', zustand = null, klasse = '', zusatz = '', variante = '' } = {}) {
   const sf = `url(#${praefix}-schraffur)`;
+  if (variante === 'rauchmelder') {
+    return roh(illRahmen({ klasse: `ill-grundriss ill-grundriss-rauch ${klasse}`, viewBox: '8 8 384 304', praefix, zustand: null, inhalt: rauchmelderPlan(sf) }));
+  }
   const inhalt = `<g class="ill-grund">
 <path class="ill-wand" fill="${sf}" fill-rule="evenodd" d="M24 24H376V296H24Z M32 32H368V288H32Z"/>
 <path class="ill-innenwand" d="M216 32V120 M216 152V288 M32 184H120 M152 184H216 M216 152H288 M320 152H368"/>

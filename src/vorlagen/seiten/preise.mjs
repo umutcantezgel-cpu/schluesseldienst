@@ -94,8 +94,8 @@ ${abschnittKopf({ id: 'anfahrt-titel', titel: a.titel, einleitung: a.einleitung 
 <caption>Anfahrt je Zone ab Weilburg</caption>
 <thead><tr><th scope="col">Zone</th><th scope="col">Entfernung</th><th scope="col">Anfahrt</th><th scope="col">Notöffnung</th></tr></thead>
 <tbody>
-${stufen.map((s, i) => html`<tr><th scope="row"><span class="zone-kurz">${s.id}</span> ${s.titel}</th><td data-titel="Entfernung">${radius(s, i)}</td><td data-titel="Anfahrt">${kosten(s)}</td><td data-titel="Notöffnung">${notfall(s)}</td></tr>`)}
-<tr><th scope="row"><span class="zone-kurz">NL</span> ${nl.titel}</th><td data-titel="Entfernung">wie Zone ${nl.wieZone}</td><td data-titel="Anfahrt">${a.zeilen.NL}</td><td data-titel="Notöffnung">nach Absprache</td></tr>
+${stufen.map((s, i) => html`<tr><th scope="row"><span class="zone-kurz">${s.id}</span> ${s.titel}</th><td class="anfahrt-radius" data-titel="Entfernung">${radius(s, i)}</td><td data-titel="Anfahrt">${kosten(s)}</td><td data-titel="Notöffnung">${notfall(s)}</td></tr>`)}
+<tr><th scope="row"><span class="zone-kurz">NL</span> ${nl.titel}</th><td class="anfahrt-radius" data-titel="Entfernung">wie Zone ${nl.wieZone}</td><td data-titel="Anfahrt">${a.zeilen.NL}</td><td data-titel="Notöffnung">nach Absprache</td></tr>
 </tbody>
 </table>
 </div>
@@ -127,8 +127,8 @@ ${abschnittKopf({ id: 'rechner-titel', titel: r.titel, einleitung: r.einleitung 
 </fieldset>
 <div class="rechner-ergebnis">
 <p class="rechner-ergebnis-titel">${r.ergebnis}</p>
+<dl class="rechner-posten"></dl>
 <output class="rechner-summe" aria-live="polite">${r.ohneJs}</output>
-<p class="rechner-aufschluesselung"></p>
 <p class="rechner-hinweis">${r.hinweis}</p>
 </div>
 </div>

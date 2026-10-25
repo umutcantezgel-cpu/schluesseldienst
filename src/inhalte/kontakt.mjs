@@ -38,6 +38,8 @@ export default {
     fehlerTitel: 'Bitte prüfen Sie diese Angaben',
     gekuerzt: 'Ihre Nachricht war für eine E-Mail-Vorlage zu lang und wurde gekürzt. Ergänzen Sie den Rest bitte direkt in der E-Mail.',
     ohneProgramm: 'Öffnet sich kein E-Mail-Programm, schreiben Sie uns direkt an',
+    // nur in Vorschau-Builds sichtbar: Die Adresse ist noch ein Platzhalter (der Release-Build verweigert ihn)
+    ohneAdresse: 'Die E-Mail-Adresse ist noch nicht eingetragen – deshalb öffnet sich noch kein E-Mail-Programm.',
   },
   zeiten: {
     titel: 'Erreichbarkeit',

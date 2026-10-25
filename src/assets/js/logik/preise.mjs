@@ -52,11 +52,14 @@ export function fensterBei(band, art, minute) {
   return treffer ? treffer[0] : null;
 }
 
-/** Fenster und Position im Tag (0…1) zu einem Zeitpunkt in Europe/Berlin. Feiertage kennt die Logik nicht. */
+/**
+ * Fenster und Position im Tag (0…1) zu einem Zeitpunkt in Europe/Berlin. Feiertage kennt die Logik nicht.
+ * Ohne Tagesband (Uhrzeiten noch offen) gibt es Tagesart und Position, aber kein Fenster.
+ */
 export function jetzt(band, datum) {
   const { tag, minuten: m } = berlinZeit(datum);
   const art = tagArt(tag);
-  return { art, fenster: fensterBei(band, art, m), anteil: m / (24 * 60) };
+  return { art, fenster: band ? fensterBei(band, art, m) : null, anteil: m / (24 * 60) };
 }
 
 /**

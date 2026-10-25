@@ -1,4 +1,4 @@
-/* Hero der Startseite (V01): mobil eigene Komposition (Kopf → Zylinder-Band → Handlung),
+/* Hero der Startseite (V01): mobil eigene Komposition (Kopf → Zylinder-Band → Einleitung → Ortsprüfung),
    ab 64em Teilung 7/5 auf den Rasterlinien; die Figur endet an breit-end (P1: keine Linie ins Nichts).
    Die Kopflinie über dem Kicker ist wie auf jeder Seite das gemeinsame Element des Seitenwechsels (M-15);
    die Scherlinie des Zylinders nimmt sie in der Figur auf. */
@@ -6,13 +6,14 @@
   .hero {
     display: grid; column-gap: 0; row-gap: var(--sp-m);
     grid-template-columns: [voll-start] minmax(var(--rand), 1fr) [inhalt-start] min(100% - 2 * var(--rand), var(--inhalt-max)) [inhalt-end] minmax(var(--rand), 1fr) [voll-end];
-    grid-template-areas: ". kopf ." ". figur ." ". rest .";
+    grid-template-areas: ". kopf ." ". figur ." ". rest ." ". ort .";
     padding-block: var(--sp-f-m) var(--sp-sektion);
     overflow-x: clip;
   }
   .hero-kopf { grid-area: kopf; min-inline-size: 0; }
   .hero-figur { grid-area: figur; margin: 0; min-inline-size: 0; }
   .hero-rest { grid-area: rest; min-inline-size: 0; display: grid; gap: var(--sp-m); align-content: start; }
+  .hero-ort { grid-area: ort; min-inline-size: 0; }
   .hero-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
   .hero h1 { font-size: var(--fs-5); max-inline-size: var(--mass); hyphens: manual; }
   .h1-zeile { display: block; text-wrap: balance; }
@@ -29,14 +30,27 @@
         [voll-start] minmax(var(--rand), 1fr) [breit-start] minmax(0, var(--spalte-breit))
         [inhalt-start] minmax(0, calc(var(--inhalt-max) * 7 / 12)) [figur-start] minmax(0, calc(var(--inhalt-max) * 5 / 12)) [inhalt-end]
         minmax(0, var(--spalte-breit)) [breit-end] minmax(var(--rand), 1fr) [voll-end];
-      grid-template-areas: ". . kopf figur figur ." ". . rest figur figur .";
-      grid-template-rows: auto 1fr; padding-block-start: var(--sp-sektion);
+      grid-template-areas: ". . kopf figur figur ." ". . rest figur figur ." ". . ort ort . .";
+      grid-template-rows: auto auto auto; padding-block-start: var(--sp-sektion);
     }
     .hero-kopf, .hero-rest { padding-inline-end: var(--sp-xl); }
-    .hero-figur { align-self: start; margin-block-start: var(--hero-figur-versatz); padding-inline-start: var(--sp-l); }
+    /* Die Scherlinie der Figur trifft die Grundlinie der zweiten H1-Zeile („… die Linie,“); die Kopflinie über dem
+       Kicker schiebt die H1 um Linie und Abstand nach unten, die Figur folgt um dasselbe Maß */
+    .hero-figur { align-self: start; margin-block-start: calc(var(--hero-figur-versatz) + var(--linie-scher) + var(--sp-s)); padding-inline-start: var(--sp-l); }
     .hero-figur .zylinder { max-inline-size: none; }
     .hero-figur-text { display: grid; justify-items: start; gap: var(--sp-2xs); font-size: var(--fs--1); color: var(--c-tinte-3); margin-block-start: var(--sp-s); max-inline-size: var(--mass); }
     .hero-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
+    /* Ortsprüfung als Leiste über beide Spalten: Frage links unter der Einleitung, Feld rechts unter der Figur
+       (subgrid auf den Hero-Spalten). So endet keine Spalte mit einem leeren Block, und beide Aufgaben – anrufen,
+       Ort prüfen – stehen im ersten Bildschirm. */
+    .hero-ort {
+      display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-columns: subgrid;
+      margin-block-start: var(--sp-l); padding-block-start: var(--sp-m); border-block-start: var(--linie-haar) solid var(--c-linie);
+    }
+    .hero-ort .ortspruefung { grid-column: 1 / -1; max-inline-size: none; grid-template-columns: subgrid; column-gap: 0; align-items: center; }
+    .hero-ort :is(.ortspruefung-titel, .ortspruefung-hinweis) { grid-column: 1; padding-inline-end: var(--sp-xl); max-inline-size: var(--mass); }
+    .hero-ort .ortspruefung-feld { grid-column: 2; grid-row: 1 / 3; padding-inline-start: var(--sp-l); }
+    .hero-ort .ortspruefung-ergebnis { grid-column: 2; margin-inline-start: var(--sp-l); }
   }
   .hero-figur-text .hero-abspielen { padding-inline: 0; min-block-size: var(--ziel-min); }
   /* „Ablauf noch einmal ansehen“: Platz von Anfang an reserviert (kein Layoutsprung, wenn das Skript ihn freigibt);

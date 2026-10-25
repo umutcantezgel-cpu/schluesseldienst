@@ -13,6 +13,8 @@ import { ortspruefung } from '../teile/ortspruefung.mjs';
 import { gebietskarte, gebietsLegende } from '../teile/gebietskarte.mjs';
 
 const ZEICHEN = new Intl.Collator('de');
+// Tausenderpunkt nach K-010 („1.234“), wie auf den Hubs
+const zahl = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 function zaehlen(orte) {
   const zonen = {}; const laender = new Map();
@@ -46,7 +48,7 @@ function karte(sk, ringe) {
   return html`<section class="sektion band" aria-labelledby="karte-titel">
 <div class="raster">
 ${abschnittKopf({ id: 'karte-titel', titel: inhalt.karte.titel, einleitung: inhalt.karte.text })}
-<figure class="gebiet-grosskarte" data-moment="ringe">${gebietskarte(sk, { praefix: 'gebiet-gk', radiusKm: ringe.at(-1) + 8, ringe, zelleKm: 5, beschriftet: 12, klasse: 'gebietskarte-gross', schrift: 1.6 })}${gebietsLegende(ringe)}</figure>
+<figure class="gebiet-grosskarte" data-moment="ringe">${gebietskarte(sk, { praefix: 'gebiet-gk', radiusKm: ringe.at(-1) + 8, ringe, zelleKm: 5, beschriftet: 12, klasse: 'gebietskarte-gross', schrift: 1.6, schriftMobil: 2.3 })}${gebietsLegende(ringe)}</figure>
 </div>
 </section>`;
 }
@@ -68,13 +70,13 @@ ${stufen.map((s, i) => html`<li class="zone zone-${s.id.toLowerCase()}">
 <li>${z.planbar}</li>
 <li>${anfahrtZeile(s.id)}</li>
 </ul>
-<p class="zone-anzahl"><span data-daten="">${String(anzahl[s.id] || 0)}</span> ${z.orteZeile}</p>
+<p class="zone-anzahl"><span data-daten="">${zahl(anzahl[s.id] || 0)}</span> ${z.orteZeile}</p>
 </li>`)}
 <li class="zone zone-nl">
 <p class="zone-kennung"><span class="zone-buchstabe">NL</span> ${nl.titel}</p>
 <p class="zone-radius">wie Zone ${nl.wieZone}, ohne Preisangaben</p>
 <ul class="zone-merkmale"><li>${z.notoeffnung['nach-absprache']}</li><li>${z.planbar}</li></ul>
-<p class="zone-anzahl"><span data-daten="">${String(anzahl.NL || 0)}</span> ${z.orteZeile}</p>
+<p class="zone-anzahl"><span data-daten="">${zahl(anzahl.NL || 0)}</span> ${z.orteZeile}</p>
 </li>
 </ol>
 </div>
@@ -85,7 +87,7 @@ function laender(sk, liste) {
   return html`<section class="sektion band" aria-labelledby="laender-titel">
 <div class="raster">
 ${abschnittKopf({ id: 'laender-titel', titel: inhalt.laender.titel, einleitung: inhalt.laender.einleitung })}
-<ul class="laender">${liste.map((l) => html`<li><a href="${l.pfad}"><span class="land-name">${l.titel}</span><span class="land-zahl"><span data-daten="">${String(l.anzahl)}</span> ${l.anzahl === 1 ? 'Ort' : 'Orte'} · ab <span data-daten="">${String(l.kmMin)}</span>&nbsp;km</span></a></li>`)}</ul>
+<ul class="laender">${liste.map((l) => html`<li><a href="${l.pfad}"><span class="land-name">${l.titel}</span><span class="land-zahl"><span data-daten="">${zahl(l.anzahl)}</span> ${l.anzahl === 1 ? 'Ort' : 'Orte'} · ab <span data-daten="">${zahl(l.kmMin)}</span>&nbsp;km</span></a></li>`)}</ul>
 </div>
 </section>`;
 }

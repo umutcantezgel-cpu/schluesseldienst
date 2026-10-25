@@ -74,7 +74,7 @@ function kopf(sk, g, l, inh) {
 <div class="raster"><div class="leistung-kopf-teilung">
 <div>
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
-<p class="leistung-kicker"><a href="${g.pfad}">${g.titel}</a></p>
+<p class="leistung-kicker"><span class="leistung-nr">${g.nr}</span> ${g.titel}</p>
 <h1 id="leistung-titel">${inh.h1}</h1>
 <p class="leistung-kurz">${text(inh.kurz)}</p>
 <div class="leistung-handlung">${g.id === 'notoeffnung' ? rufknopf(sk, { variante: 'gross' }) : html`<a class="knopf knopf-primaer" href="/kontakt/">Beratung anfragen${sk.icon('pfeil-rechts')}</a>`}</div>
@@ -91,9 +91,21 @@ function blick(inh) {
 </section>`;
 }
 
+// Hauptteil 8/4: Text links, rechts der Preisauszug als klebende Randspalte. Mit Preis passt die Spalte nur dann in
+// die Bildschirmhöhe, wenn „Mehr aus …“ nicht auch darin steht – die Liste rückt dann unter den Text (mobil hinter
+// den Preis, wie im Quelltext). Ohne Preis klebt die kurze Liste selbst.
 function hauptteil(sk, g, l, inh) {
   const geschwister = g.leistungen.filter((x) => x.id !== l.id);
-  return html`<div class="sektion"><div class="raster"><div class="leistung-teilung">
+  const mehr = html`<nav class="rand-block leistung-mehr" aria-labelledby="rand-gruppe">
+<h2 class="rand-titel" id="rand-gruppe">Mehr aus ${g.titel}</h2>
+<ul class="rand-liste">${geschwister.map((x) => html`<li><a href="${x.pfad}">${sk.icon(x.icon, { klasse: 'rand-icon' })}<span>${x.titel}</span></a></li>`)}</ul>
+</nav>`;
+  const preis = inh.preis ? html`<section class="rand-block" aria-labelledby="rand-preis">
+<h2 class="rand-titel" id="rand-preis">Was es kostet</h2>
+${preistabelle(sk, { positionen: inh.preis.positionen, id: 'leistung-preise', titel: 'Gesamtpreise in Zone A' })}
+<p class="rand-text">${text(inh.preis.text)}</p>
+</section>` : '';
+  return html`<div class="sektion"><div class="raster"><div class="leistung-teilung${inh.preis ? ' leistung-teilung-preis' : ''}">
 <div class="leistung-text">
 ${inh.abschnitte.map((a, i) => html`<section class="leistung-abschnitt" aria-labelledby="abschnitt-${String(i + 1)}">
 <h2 id="abschnitt-${String(i + 1)}">${text(a.titel)}</h2>
@@ -101,17 +113,8 @@ ${a.absaetze.map((p) => html`<p>${text(p)}</p>`)}
 ${a.liste ? html`<ul class="leistung-liste">${a.liste.map((x) => html`<li>${text(x)}</li>`)}</ul>` : ''}
 </section>`)}
 </div>
-<aside class="leistung-rand" aria-label="Preise und weitere Leistungen">
-${inh.preis ? html`<section class="rand-block" aria-labelledby="rand-preis">
-<h2 class="rand-titel" id="rand-preis">Was es kostet</h2>
-${preistabelle(sk, { positionen: inh.preis.positionen, id: 'leistung-preise', titel: 'Gesamtpreise in Zone A' })}
-<p class="rand-text">${text(inh.preis.text)}</p>
-</section>` : ''}
-<nav class="rand-block" aria-labelledby="rand-gruppe">
-<h2 class="rand-titel" id="rand-gruppe">Mehr aus ${g.titel}</h2>
-<ul class="rand-liste">${geschwister.map((x) => html`<li><a href="${x.pfad}">${sk.icon(x.icon, { klasse: 'rand-icon' })}<span>${x.titel}</span></a></li>`)}</ul>
-</nav>
-</aside>
+${inh.preis ? html`<aside class="leistung-rand" aria-label="Preise">${preis}</aside>
+${mehr}` : html`<aside class="leistung-rand" aria-label="Weitere Leistungen">${mehr}</aside>`}
 </div></div></div>`;
 }
 

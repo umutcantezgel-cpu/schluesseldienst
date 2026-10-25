@@ -1,4 +1,5 @@
-/* V02 Leistungsgruppe: Kopf 7/5 mit Register der Gruppe, Nachweisliste. Gemeinsame Seitenteile: komponenten/seitenteile.css. */
+/* V02 Leistungsgruppe: Kopf 7/5 mit Register der Gruppe, Nachweisliste, Wissen als Registerblatt.
+   Gemeinsame Seitenteile: komponenten/seitenteile.css. */
 @layer komponenten {
   .gruppe-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
   .gruppe-kopf-teilung { display: grid; gap: var(--sp-xl); }
@@ -18,9 +19,26 @@
   .nachweis-eintrag { display: grid; gap: var(--sp-3xs); padding-block: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
   .nachweis dt { font-weight: var(--fw-titel); }
   .nachweis dd { margin: 0; color: var(--c-tinte-2); max-inline-size: var(--mass); }
+
+  /* Wissen als Registerblatt: ein Abschnitt, Einträge mit Haarlinie und Kupfermarke (Scherlinien-Trenner, K-008),
+     Abstand zwischen Einträgen statt voller Sektionsabstände */
+  .gruppe-wissen-raster { display: grid; gap: var(--sp-xl); }
+  .gruppe-eintrag-leit { display: grid; gap: var(--sp-l); }
+  .gruppe-eintrag-leit > .abschnitt-kopf { margin-block-end: 0; }
+  .gruppe-eintrag { position: relative; display: grid; gap: var(--sp-s); align-content: start; padding-block-start: var(--sp-m); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .gruppe-eintrag::before { content: ""; position: absolute; inset-block-start: calc(-1 * var(--linie-haar)); inset-inline-start: 0; inline-size: var(--sp-xl); block-size: var(--linie-scher); background: var(--c-kupfer); }
+  .gruppe-eintrag-titel { font-size: var(--fs-2); }
+  @media (min-width: 48em) {
+    .gruppe-wissen-raster { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-xl); row-gap: var(--sp-2xl); }
+    /* Der führende Abschnitt teilt sich an derselben Fuge wie die Spalten darunter: Titel links, Text rechts */
+    .gruppe-eintrag-leit { grid-column: 1 / -1; grid-template-columns: subgrid; align-items: start; }
+  }
+
   @media (min-width: 64em) {
     .gruppe-kopf { padding-block-start: var(--sp-sektion); }
     .gruppe-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
     .gruppe-kopf h1 { font-size: var(--fs-5); }
+    /* Das Register rechts ist länger als der Text links: Der Text bleibt stehen, bis das Register endet */
+    .gruppe-kopf-text { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-xl)); }
   }
 }

@@ -38,14 +38,33 @@ export async function datenIndizes(daten, schreiber) {
 }
 
 // Seitenindex für /suche/: alle indexierbaren Seiten außer Ortsseiten (die findet die Ortssuche).
-// Format { v: 1, s: [[titel, pfad, bereich, kurztext], …] }, Kurztext = Meta-Beschreibung, gekürzt.
-const BEREICH = { V01: 'Start', V02: 'Leistungen', V03: 'Leistung', V04: 'Preise', V05: 'Einsatzgebiet', V06: 'Einsatzgebiet', V08: 'Ratgeber', V09: 'Betrieb', V10: 'Kontakt', V11: 'Übersicht', V12: 'Rechtliches' };
+// Format { v: 1, s: [[titel, pfad, bereich, kurztext], …] }, Kurztext = Meta-Beschreibung, an einer Wortgrenze gekürzt.
+// Eine Marke je Art: Leistungsgruppe und Leistungsdetail sind beide „Leistungen“.
+const BEREICH = { V01: 'Start', V02: 'Leistungen', V03: 'Leistungen', V04: 'Preise', V05: 'Einsatzgebiet', V06: 'Einsatzgebiet', V08: 'Ratgeber', V09: 'Betrieb', V10: 'Kontakt', V11: 'Übersicht', V12: 'Rechtliches' };
+const KURZ = 140;
+
+// Satzende: Wort ab vier Buchstaben vor dem Punkt (keine Abkürzung wie „z. B.“, „bzw.“), danach ein Großbuchstabe
+const SATZENDE = /\p{L}{4}[.?!](?= \p{Lu})/gu;
+
+/** Kürzt auf höchstens `max` Zeichen: bevorzugt nach einem ganzen Satz (ohne Auslassungspunkte), sonst am Ende eines
+ *  Satzteils in den letzten 40 % oder an der letzten Wortgrenze mit „…“ – nie mitten im Wort. */
+export function kurztext(s, max = KURZ) {
+  const t = String(s || '').replace(/\s+/g, ' ').trim();
+  if (t.length <= max) return t;
+  const schnitt = t.slice(0, max + 1);
+  const saetze = [...schnitt.matchAll(SATZENDE)].map((m) => m.index + m[0].length).filter((i) => i >= max * 0.5);
+  if (saetze.length) return schnitt.slice(0, saetze[saetze.length - 1]);
+  const satzteil = Math.max(...[', ', '; ', ': ', ' – '].map((z) => schnitt.lastIndexOf(z)));
+  const ende = satzteil >= max * 0.6 ? satzteil : schnitt.lastIndexOf(' ');
+  const kopf = (ende > 0 ? schnitt.slice(0, ende) : t.slice(0, max)).replace(/[\s,;:–—-]+$/u, '');
+  return `${kopf}\u00A0…`;
+}
 const ORTSSEITE = /^\/schluesseldienst-[^/]+\/$/;
 
 export async function seitenIndexSchreiben(seiten, schreiber) {
   const s = seiten
     .filter((x) => x.indexierbar !== false && x.pfad !== '/404.html' && !ORTSSEITE.test(x.pfad) && typeof x.titel === 'string')
-    .map((x) => [x.titel, x.pfad, BEREICH[x.ansicht] || 'Seite', String(x.beschreibung || '').slice(0, 140)]);
+    .map((x) => [x.titel, x.pfad, BEREICH[x.ansicht] || 'Seite', kurztext(x.beschreibung)]);
   const buf = Buffer.from(JSON.stringify({ v: 1, s }));
   const pfad = `/daten/seiten.${hash10(buf)}.json`;
   await schreiber.schreibe(pfad, buf);

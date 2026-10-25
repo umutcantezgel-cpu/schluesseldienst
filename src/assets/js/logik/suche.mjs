@@ -37,3 +37,28 @@ export function seitenSuchen(index, anfrage, max = 20) {
   treffer.sort((a, b) => b.summe - a.summe || a.e.titel.length - b.e.titel.length);
   return treffer.slice(0, max).map((t) => t.e);
 }
+
+/** Teile eines Textes für die Hervorhebung: [{ text, treffer }]. Markiert werden ganze Wörter, deren Normalform ein
+ *  Wort der Anfrage enthält – dieselbe Einebnung wie bei der Wertung, „tur“ markiert also „Türöffnung“. */
+export function hervorheben(text, anfrage) {
+  const woerter = WOERTER(anfrage).filter((w) => w.length >= 2);
+  const teile = [];
+  for (const stueck of String(text ?? '').split(/([\p{L}\p{N}]+)/u)) {
+    if (!stueck) continue;
+    const form = WOERTER(stueck).join('');
+    const treffer = Boolean(form) && woerter.some((w) => form.includes(w));
+    const letztes = teile[teile.length - 1];
+    if (letztes && letztes.treffer === treffer) letztes.text += stueck; else teile.push({ text: stueck, treffer });
+  }
+  return teile;
+}
+
+const anzahl = (n, gesamt, eins, viele, vieleDativ) => (n < gesamt ? `${n} von ${gesamt} ${vieleDativ}` : `${n} ${n === 1 ? eins : viele}`);
+
+/** Statuszeile der Suche: nur Teile mit Treffern („1 Ort“, nicht „0 Seiten, 1 Ort“); gekürzte Listen als „20 von 34“. */
+export function statusText({ seiten = 0, seitenGesamt = seiten, orte = 0, orteGesamt = orte }) {
+  const teile = [];
+  if (seiten) teile.push(anzahl(seiten, seitenGesamt, 'Seite', 'Seiten', 'Seiten'));
+  if (orte) teile.push(anzahl(orte, orteGesamt, 'Ort', 'Orte', 'Orten'));
+  return teile.join(' · ');
+}

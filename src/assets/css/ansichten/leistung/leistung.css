@@ -2,8 +2,9 @@
 @layer komponenten {
   .leistung-kopf { padding-block: var(--sp-f-m) var(--sp-xl); }
   .leistung-kopf-teilung { display: grid; gap: var(--sp-l); align-items: center; }
-  .leistung-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; margin-block-end: var(--sp-xs); }
-  .leistung-kicker a { color: var(--c-tinte-3); }
+  /* Kicker als Text wie in V02 (Gruppennummer in Kupfer); der Weg zurück führt über die Brotkrumen (K-009) */
+  .leistung-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
+  .leistung-nr { font-family: var(--ff-mono); color: var(--c-kupfer); font-weight: var(--fw-titel); }
   .leistung-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
   .leistung-kurz { font-size: var(--fs-1); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block: var(--sp-s) var(--sp-m); }
   .leistung-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
@@ -28,11 +29,17 @@
   .rand-liste a:hover span { text-decoration: underline; }
   .rand-icon { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-lahn-text); }
   .leistung-rand .preis-tabelle-huelle { container-type: inline-size; }
+  .leistung-mehr .rand-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-min)), 1fr)); column-gap: var(--sp-l); }
   @media (min-width: 64em) {
     .leistung-kopf { padding-block-start: var(--sp-sektion); }
     .leistung-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
     .leistung-kopf h1 { font-size: var(--fs-5); }
-    .leistung-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
-    .leistung-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+    .leistung-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); grid-template-areas: "text rand"; align-items: start; }
+    .leistung-text { grid-area: text; }
+    /* Die Randspalte klebt nur mit dem, was in die Höhe passt; auf sehr niedrigen Bildschirmen rollt sie in sich,
+       statt unten abgeschnitten mitzulaufen */
+    .leistung-rand { grid-area: rand; position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); max-block-size: calc(100vh - var(--kopf-hoehe-desktop) - 2 * var(--sp-m)); overflow-y: auto; }
+    .leistung-teilung-preis { grid-template-areas: "text rand" "mehr rand"; row-gap: var(--sp-xl); }
+    .leistung-teilung-preis .leistung-mehr { grid-area: mehr; max-inline-size: var(--mass); }
   }
 }

@@ -1,7 +1,9 @@
 // V10 Kontakt (Arbeitsansicht). Abschnittsfolge nach Themenpass /kontakt/:
 // Kopf mit zwei Wegen (Notfall anrufen | Planbares schreiben) · Composer (Band) · Erreichbarkeit und Anschrift (6/6) ·
 // FAQ (Band) · Weiterlesen. Der Composer ist ein <form method="get" action="mailto:…"> (S12): ohne JS sendet er nur
-// subject und body, mit JS baut das Modul composer eine geprüfte mailto:-Adresse aus allen Feldern.
+// subject und body, mit JS baut das Modul composer eine geprüfte mailto:-Adresse aus allen Feldern. Fehlt die Adresse
+// (Platzhalter, nur Vorschau), arbeitet der Composer als Gruppe ohne Ziel: Felder, Notfall-Panel und Prüfung laufen,
+// statt des Mail-Programms erscheint der Grund (K-009: Absenden nie deaktiviert).
 import { html, attrUrl } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import { istPlatzhalter } from '../../../bau/lib/platzhalter.mjs';
@@ -13,6 +15,10 @@ import { rufknopf } from '../teile/rufknopf.mjs';
 import { betriebLd } from './start.mjs';
 
 const TAGE = [['mo', 'Montag'], ['di', 'Dienstag'], ['mi', 'Mittwoch'], ['do', 'Donnerstag'], ['fr', 'Freitag'], ['sa', 'Samstag'], ['so', 'Sonntag']];
+// „E-Mail“ bricht sonst nach „E-“ um (harter Bindestrich); Wort samt Kompositum („E-Mail-Programm“) zusammenhalten
+const KEIN_UMBRUCH = /(E-Mail(?:-\p{L}+)?)/u;
+const zusammen = (s) => s.split(KEIN_UMBRUCH).map((t, i) => (i % 2 ? html`<span class="kein-umbruch">${t}</span>` : t));
+
 const REGELN = [
   { id: 'k-ort', titel: 'Ort oder Postleitzahl', pflicht: true },
   { id: 'k-nachricht', titel: 'Ihre Nachricht', pflicht: true, min: 10 },
@@ -35,8 +41,8 @@ ${rufknopf(sk, { variante: 'gross' })}
 </section>
 <section class="kontakt-weg" aria-labelledby="weg-planbar">
 ${sk.icon('mail', { klasse: 'kontakt-weg-icon' })}
-<h2 id="weg-planbar">${p.titel}</h2>
-<p>${text(p.text)}</p>
+<h2 id="weg-planbar">${zusammen(p.titel)}</h2>
+<p>${text(zusammen(p.text))}</p>
 <p><a class="knopf knopf-sekundaer" href="#anfrage-titel">${p.link}${sk.icon('pfeil-rechts')}</a></p>
 </section>
 </div>
@@ -83,14 +89,17 @@ ${feld(sk, 'k-zeitraum', f.zeitraum)}
 ${feld(sk, 'k-nachricht', f.nachricht, { pflicht: true, mehrzeilig: true, nurJs: false, name: 'body' })}
 <p class="composer-warnung">${sk.icon('warnung', { klasse: 'composer-warnung-icon' })}<span>${c.warnung}</span></p>
 <p class="composer-gekuerzt" data-rolle="gekuerzt" hidden>${c.gekuerzt}</p>
+${offen ? html`<p class="composer-ohne-adresse" data-rolle="ohne-adresse" tabindex="-1" hidden>${sk.icon('info', { klasse: 'composer-hinweis-icon' })}<span>${zusammen(c.ohneAdresse)}</span></p>` : ''}
 <div class="composer-handlung">
-<button class="knopf knopf-primaer" type="submit">${c.knopf}${sk.icon('mail')}</button>
+<button class="knopf knopf-primaer" type="${offen ? 'button' : 'submit'}" data-rolle="absenden">${zusammen(c.knopf)}${sk.icon('mail')}</button>
 <p class="composer-direkt">${c.ohneProgramm} ${offen ? email : html`<a href="${attrUrl(`mailto:${email}`)}">${email}</a>`}.</p>
 </div>
 </div>`;
-  // Ohne konfigurierte Adresse gibt es kein Ziel: Gruppe statt Formular, Platzhalter sichtbar (Release gesperrt)
-  if (offen) return html`<div class="composer" data-zustand="platzhalter">${felder}</div>`;
-  return html`<form class="composer" method="get" action="${attrUrl(`mailto:${email}`)}" data-modul="composer" data-an="${email}" data-regeln="${JSON.stringify(REGELN)}" novalidate>
+  const daten = html` data-modul="composer" data-an="${email}" data-regeln="${JSON.stringify(REGELN)}"`;
+  // Ohne konfigurierte Adresse gibt es kein Ziel: Gruppe statt Formular, Platzhalter sichtbar (Release gesperrt).
+  // Das Modul läuft trotzdem (Felder, Notfall-Panel, Fehlerübersicht) und nennt beim Absenden den Grund.
+  if (offen) return html`<div class="composer" data-zustand="platzhalter"${daten}>${felder}</div>`;
+  return html`<form class="composer" method="get" action="${attrUrl(`mailto:${email}`)}"${daten} novalidate>
 <input type="hidden" name="subject" value="Anfrage über die Website">
 ${felder}
 </form>`;
@@ -136,7 +145,7 @@ export function seiten(k) {
     inhalt: (sk) => html`${kopf(sk)}
 <section class="sektion band" aria-labelledby="anfrage-titel">
 <div class="raster"><div class="kontakt-composer-teilung">
-${abschnittKopf({ id: 'anfrage-titel', titel: inhalt.composer.titel, einleitung: inhalt.composer.einleitung })}
+${abschnittKopf({ id: 'anfrage-titel', titel: inhalt.composer.titel, einleitung: zusammen(inhalt.composer.einleitung) })}
 ${composer(sk)}
 </div></div>
 </section>

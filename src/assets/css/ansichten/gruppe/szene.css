@@ -4,14 +4,18 @@
 @layer komponenten {
   .szene-teilung { display: grid; gap: var(--sp-l); }
   .szene-schritte { list-style: none; padding: 0; display: grid; gap: var(--sp-xl); }
-  .szene-schritt { margin: 0; display: grid; gap: var(--sp-2xs); align-content: start; padding-inline-start: var(--sp-m); border-inline-start: var(--linie-scher) solid var(--c-linie); }
-  .szene-schritt[data-aktiv] { border-inline-start-color: var(--c-kupfer); }
+  .szene-schritt { position: relative; margin: 0; display: grid; gap: var(--sp-2xs); align-content: start; padding-inline-start: var(--sp-m); border-inline-start: var(--linie-scher) solid var(--c-linie); }
+  /* Der aktive Schritt: Die Kupferlinie legt sich über die graue Schiene (P1: die Linie führt durch die Szene) */
+  .szene-schritt::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: calc(-1 * var(--linie-scher)); inline-size: var(--linie-scher); background: var(--c-kupfer); transform: scaleY(0); transform-origin: top; }
+  .szene-schritt[data-aktiv]::before { transform: none; }
   .szene-nr { font-family: var(--ff-mono); font-size: var(--fs--1); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); color: var(--c-kupfer); }
   .szene-titel { font-size: var(--fs-2); }
   .szene-schritt p { color: var(--c-tinte-2); max-inline-size: var(--mass); }
   .szene-einzelbild { max-inline-size: var(--figur-schmal); margin-block-start: var(--sp-s); padding: var(--sp-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
   .szene-buehne { display: none; }
   .szene-figur { padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  /* In der schmalen Spalte reißt „pretty“ die letzten Zeilen weit auf; dort gilt der normale Umbruch */
+  @media (max-width: 48em) { .szene-schritt p { text-wrap: wrap; } }
   @media (min-width: 64em) {
     .szene-teilung { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: "kopf kopf" "buehne schritte"; column-gap: var(--sp-xl); }
     .szene-kopf { grid-area: kopf; }
@@ -19,22 +23,28 @@
     .szene-buehne { grid-area: buehne; }
     .szene-einzelbild { max-inline-size: var(--hero-figur-max); }
   }
+  @media (prefers-reduced-motion: no-preference) {
+    /* M-17: Die Linie des Schritts zieht sich in Lesrichtung mit dem Figurenwechsel (gleiche Dauer und Kurve) */
+    .szene-schritt::before { transition: transform var(--m17-teil) var(--ease-standard); }
+  }
   @media (prefers-reduced-motion: no-preference) and (min-height: 40em) {
     [data-szene="laeuft"] .szene-einzelbild { display: none; }
     [data-szene="laeuft"] .szene-buehne { display: block; }
     [data-szene="laeuft"] .szene-teilung { grid-template-areas: "kopf" "buehne" "schritte"; }
     [data-szene="laeuft"] .szene-kopf { grid-area: kopf; }
     [data-szene="laeuft"] .szene-schritte { grid-area: schritte; gap: 0; }
-    [data-szene="laeuft"] .szene-buehne { grid-area: buehne; position: sticky; inset-block-start: var(--kopf-hoehe); z-index: var(--z-szene); align-self: start; padding-block: var(--sp-2xs); background: var(--c-papier); }
+    /* Mobil klebt der Kopf nicht (K-006): Die Bühne sitzt bündig oben, sonst liefe Text durch den Spalt darüber */
+    [data-szene="laeuft"] .szene-buehne { grid-area: buehne; position: sticky; inset-block-start: 0; z-index: var(--z-szene); align-self: start; padding-block: var(--sp-2xs); background: var(--c-papier); box-shadow: 0 var(--linie-haar) 0 var(--c-linie); }
     .band[data-szene="laeuft"] .szene-buehne { background: var(--c-papier-2); }
     [data-szene="laeuft"] .szene-figur { padding: var(--sp-2xs); }
-    [data-szene="laeuft"] .szene-figur .ill, [data-szene="laeuft"] .szene-figur .zylinder { max-block-size: var(--szene-figur-mobil); margin-inline: auto; }
+    /* Kleine feste Figur (K-006): höchstens 10rem hoch, auf niedrigen Geräten weniger */
+    [data-szene="laeuft"] .szene-figur .ill, [data-szene="laeuft"] .szene-figur .zylinder { max-block-size: min(var(--szene-figur-mobil), var(--szene-figur-mobil-max)); margin-inline: auto; }
     [data-szene="laeuft"] .szene-schritt { min-block-size: var(--szene-schritt-min-mobil); align-content: center; }
     [data-szene="laeuft"] .szene-schritt:last-child { min-block-size: auto; padding-block-end: var(--sp-xl); }
   }
   @media (prefers-reduced-motion: no-preference) and (min-height: 40em) and (min-width: 64em) {
     [data-szene="laeuft"] .szene-teilung { grid-template-areas: "kopf kopf" "buehne schritte"; }
-    [data-szene="laeuft"] .szene-buehne { position: static; padding-block: 0; background: none; align-self: stretch; }
+    [data-szene="laeuft"] .szene-buehne { position: static; padding-block: 0; background: none; box-shadow: none; align-self: stretch; }
     [data-szene="laeuft"] .szene-figur { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-xl)); padding: var(--sp-l); }
     [data-szene="laeuft"] .szene-figur .ill, [data-szene="laeuft"] .szene-figur .zylinder { max-block-size: none; }
     [data-szene="laeuft"] .szene-schritt { min-block-size: var(--szene-schritt-min); }

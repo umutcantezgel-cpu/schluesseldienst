@@ -1,6 +1,8 @@
 // Kontakt-Composer (V10, K-009): Anliegen → Felder → mailto:. „Notfall jetzt“ zeigt das Ruf-Panel statt der
 // E-Mail-Felder. Fehlerübersicht mit Fokus, Feldfehler über aria-invalid/aria-describedby; der Knopf ist nie
-// deaktiviert. Ohne JS sendet das Formular nativ (method=get, nur subject und body). Nur DOM-sichere APIs.
+// deaktiviert. Ohne JS sendet das Formular nativ (method=get, nur subject und body). Ohne Empfänger (Platzhalter in der
+// Vorschau) ist der Composer eine Gruppe ohne <form>: Absenden über den Knopf, statt des Mail-Programms erscheint der
+// Grund. Nur DOM-sichere APIs.
 import { mailtoUrl, pruefen } from '../logik/mailto.mjs';
 
 export function composer(form) {
@@ -10,6 +12,7 @@ export function composer(form) {
   const notfall = form.querySelector('[data-rolle="notfall"]');
   const mailteil = form.querySelector('[data-rolle="mail"]');
   const hinweis = form.querySelector('[data-rolle="gekuerzt"]');
+  const ohneAdresse = form.querySelector('[data-rolle="ohne-adresse"]');
   // Zusatzfelder ohne name-Attribut: nur mit JS sinnvoll, deshalb erst jetzt sichtbar
   for (const el of form.querySelectorAll('[data-nur-js]')) el.hidden = false;
 
@@ -38,8 +41,9 @@ export function composer(form) {
     }
   };
 
-  form.addEventListener('submit', (e) => {
+  const absenden = (e) => {
     e.preventDefault();
+    if (ohneAdresse) ohneAdresse.hidden = true;
     const a = anliegen();
     if (a?.value === 'notfall') { notfall?.querySelector('a, [tabindex]')?.focus(); return; }
     const regeln = JSON.parse(form.getAttribute('data-regeln') || '[]');
@@ -66,10 +70,14 @@ export function composer(form) {
     try {
       ergebnis = mailtoUrl({ an, betreff, felder, nachricht: form.querySelector('#k-nachricht')?.value });
     } catch {
-      return; // Empfänger noch nicht konfiguriert (Vorschau): nichts öffnen
+      // Empfänger noch nicht konfiguriert (Vorschau): nichts öffnen, aber den Grund nennen
+      if (ohneAdresse) { ohneAdresse.hidden = false; ohneAdresse.focus(); }
+      return;
     }
     if (hinweis) hinweis.hidden = !ergebnis.gekuerzt;
     // Schema als Literal: Navigation nur zu mailto: (Sicherheitsregel S20); mailtoUrl liefert immer „mailto:…“
     window.location.href = `mailto:${ergebnis.url.slice('mailto:'.length)}`;
-  });
+  };
+  if (form instanceof HTMLFormElement) form.addEventListener('submit', absenden);
+  else form.querySelector('[data-rolle="absenden"]')?.addEventListener('click', absenden);
 }

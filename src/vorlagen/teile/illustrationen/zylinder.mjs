@@ -16,23 +16,42 @@ function feder(x) {
   return p.join(' ');
 }
 
+// Feder des falschen Schlüssels (404): oben fest im Kanal, unten am versetzten Oberstift – gestaucht oder gedehnt,
+// nie über den Kanal hinaus. Gleiche Windungszahl wie feder(), Stützpunkte auf halbe Einheiten gerundet.
+function federBis(x, unten) {
+  const schritt = (unten - 56) / 8;
+  const p = [`M${x - 6} 56`];
+  for (let k = 1, s = 1; k <= 8; k++, s = -s) p.push(`L${x + 6 * s} ${Math.round((56 + k * schritt) * 2) / 2}`);
+  return p.join(' ');
+}
+
 // Szenenbetrieb (M-17, „Stift für Stift“): schluessel=false blendet den Schlüssel aus; stiftAb[i] = Schritt, ab dem
 // Stiftpaar i auf der Scherlinie sitzt (davor per CSS versetzt); linieAb = Schritt, ab dem die Linie erscheint;
 // zustand = fester Schritt für Einzelbilder; dekorativ = ohne Titel, aria-hidden.
-// falsch = falscher Schlüssel (404): Stiftpaare per transform-Attribut einer Hülle versetzt (die Bewegung M-21 animiert
-// das innere Paar), Scherlinie in zwei Hälften mit Lücke.
+// falsch = falscher Schlüssel (404): Ober- und Kernstift per transform-Attribut einer inneren Hülle auf den Einschnitt
+// versetzt, die Feder bleibt oben im Kanal und folgt gestaucht oder gedehnt (die Bewegung M-21 animiert das ganze Paar),
+// Scherlinie in zwei Hälften mit Lücke.
 export function zylinderSchnitt({ praefix = 'zy', klasse = '', titel = 'Schnitt durch einen Schließzylinder: Liegen alle Stifte auf der Scherlinie, lässt sich der Kern drehen.', schluessel = true, stiftAb = null, linieAb = null, zustand = null, dekorativ = false, falsch = false } = {}) {
   const schnitte = falsch ? FALSCH : STIFTE;
   const schluesselOben = [`M-12 152`, `L92 152`];
   X.forEach((x, i) => { const y = SCHER_Y + schnitte[i]; schluesselOben.push(`L${x - 10} ${y}`, `L${x + 10} ${y}`); });
   schluesselOben.push('L404 140', 'L420 152', 'L420 172', 'L-12 172');
   const stiftAttr = (i) => (stiftAb ? ` data-setzt="${stiftAb[i]}" data-bei="${stiftAb[i]}"` : '');
-  const stifte = X.map((x, i) => `<g class="zy-stiftpaar" style-frei="" data-i="${i}"${stiftAttr(i)}>
-<path class="zy-feder" d="${feder(x)}"/>
-<rect class="zy-oberstift" x="${x - 8}" y="88" width="16" height="${SCHER_Y - 88}" rx="2"/>
+  const stiftKoerper = (x, i) => `<rect class="zy-oberstift" x="${x - 8}" y="88" width="16" height="${SCHER_Y - 88}" rx="2"/>
 <rect class="zy-kernstift" x="${x - 8}" y="${SCHER_Y}" width="16" height="${STIFTE[i]}" rx="2"/>
-<rect class="zy-kernstift-schraffur" fill="url(#${praefix}-schraffur)" x="${x - 8}" y="${SCHER_Y}" width="16" height="${STIFTE[i]}" rx="2"/>
-</g>`).map((g, i) => (falsch ? `<g transform="translate(0 ${FALSCH[i] - STIFTE[i]})">${g}</g>` : g)).join('\n').replace(/ style-frei=""/g, '');
+<rect class="zy-kernstift-schraffur" fill="url(#${praefix}-schraffur)" x="${x - 8}" y="${SCHER_Y}" width="16" height="${STIFTE[i]}" rx="2"/>`;
+  const stifte = falsch
+    ? X.map((x, i) => {
+      const versatz = FALSCH[i] - STIFTE[i];
+      return `<g class="zy-stiftpaar" data-i="${i}">
+<path class="zy-feder" d="${federBis(x, 88 + versatz)}"/>
+<g transform="translate(0 ${versatz})">${stiftKoerper(x, i)}</g>
+</g>`;
+    }).join('\n')
+    : X.map((x, i) => `<g class="zy-stiftpaar" style-frei="" data-i="${i}"${stiftAttr(i)}>
+<path class="zy-feder" d="${feder(x)}"/>
+${stiftKoerper(x, i)}
+</g>`).join('\n').replace(/ style-frei=""/g, '');
   const kopf = dekorativ ? 'aria-hidden="true" focusable="false"' : `role="img" aria-labelledby="${praefix}-titel"`;
   const box = schluessel ? '-80 24 540 176' : '48 24 408 176';
   return roh(`<svg class="zylinder ${klasse}" viewBox="${box}" ${kopf}${zustand ? ` data-zustand="${zustand}"` : ''} preserveAspectRatio="xMidYMid meet">

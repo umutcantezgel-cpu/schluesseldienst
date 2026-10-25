@@ -1,6 +1,7 @@
 // V02 Leistungsgruppe (Erzählansicht). Abschnittsfolge:
-// Kopf mit Register der Gruppe (7/5) · Szene M-17 (Band) · Nachweis/Inhalt (Teilung 4/8) · Abschnitt für Betriebe ·
-// Preisauszug (falls Preise) · Häufige Fragen · Weiterlesen · Schlussband (dunkel) mit Anruf.
+// Kopf mit Register der Gruppe (7/5) · Szene M-17 (Band) · Nachweis (Teilung 4/8) · Wissen (alle Textabschnitte in
+// einem Registerblatt) · Abschnitt für Betriebe (dicht) · Preisauszug (falls Preise) · Häufige Fragen · Weiterlesen ·
+// Schlussband (dunkel) mit Anruf. Nach der Szene wechseln Papier und Band ab (Rhythmusregel K-006).
 // Inhalte: src/inhalte/<gruppe>/index.mjs (nur Gruppen mit Inhaltsmodul werden gebaut).
 import { access } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -56,8 +57,11 @@ function kopf(sk, g, inh) {
 </section>`;
 }
 
-function nachweis(sk, n) {
-  return html`<section class="sektion" aria-labelledby="nachweis-titel">
+const flaeche = (band) => (band ? ' band' : '');
+const absaetze = (a) => html`<div class="fliesstext">${a.absaetze.map((p) => html`<p>${text(p)}</p>`)}</div>`;
+
+function nachweis(sk, n, band) {
+  return html`<section class="sektion${flaeche(band)}" aria-labelledby="nachweis-titel">
 <div class="raster"><div class="gruppe-teilung">
 ${abschnittKopf({ id: 'nachweis-titel', titel: n.titel, einleitung: n.einleitung })}
 <dl class="nachweis">${n.eintraege.map((e) => html`<div class="nachweis-eintrag"><dt>${e.objekt}</dt><dd>${text(e.text)}</dd></div>`)}</dl>
@@ -65,17 +69,35 @@ ${abschnittKopf({ id: 'nachweis-titel', titel: n.titel, einleitung: n.einleitung
 </section>`;
 }
 
-function textAbschnitt(id, a, band = false) {
-  return html`<section class="sektion${band ? ' band' : ''}" aria-labelledby="${id}">
+// Wissen: Die Textabschnitte stehen als Registerblatt in einem Abschnitt statt als gleiche Teilungen hintereinander
+// (die glichen sich in Fläche, Layout und Dichte). Bei ungerader Zahl führt der erste Abschnitt über die volle
+// Breite, die übrigen stehen zweispaltig, jeder mit Haarlinie und Kupfermarke. Jeder Eintrag bleibt ein eigener
+// Abschnitt mit H2 – es kommt keine erfundene Sammelüberschrift dazu.
+function wissen(liste, band) {
+  const mitLeit = liste.length % 2 === 1;
+  return html`<div class="sektion gruppe-wissen${flaeche(band)}">
+<div class="raster"><div class="gruppe-wissen-raster">
+${liste.map((a, i) => {
+    const id = `abschnitt-${i + 1}`;
+    return mitLeit && i === 0
+      ? html`<section class="gruppe-eintrag-leit" aria-labelledby="${id}">${abschnittKopf({ id, titel: a.titel })}${absaetze(a)}</section>`
+      : html`<section class="gruppe-eintrag" aria-labelledby="${id}"><h2 class="gruppe-eintrag-titel" id="${id}">${text(a.titel)}</h2>${absaetze(a)}</section>`;
+  })}
+</div></div>
+</div>`;
+}
+
+function textAbschnitt(id, a, { band = false, dicht = false } = {}) {
+  return html`<section class="sektion${dicht ? ' sektion-dicht' : ''}${flaeche(band)}" aria-labelledby="${id}">
 <div class="raster"><div class="gruppe-teilung">
 ${abschnittKopf({ id, titel: a.titel })}
-<div class="fliesstext">${a.absaetze.map((p) => html`<p>${text(p)}</p>`)}</div>
+${absaetze(a)}
 </div></div>
 </section>`;
 }
 
-function preis(sk, p) {
-  return html`<section class="sektion" aria-labelledby="gruppe-preis-titel">
+function preis(sk, p, band) {
+  return html`<section class="sektion${flaeche(band)}" aria-labelledby="gruppe-preis-titel">
 <div class="raster"><div class="gruppe-teilung">
 ${abschnittKopf({ id: 'gruppe-preis-titel', titel: p.titel, einleitung: p.text })}
 <div class="preis-auszug">${preistabelle(sk, { positionen: p.positionen, id: 'gruppe-preise' })}</div>
@@ -83,8 +105,8 @@ ${abschnittKopf({ id: 'gruppe-preis-titel', titel: p.titel, einleitung: p.text }
 </section>`;
 }
 
-function fragen(sk, liste) {
-  return html`<section class="sektion" aria-labelledby="faq-titel">
+function fragen(sk, liste, band) {
+  return html`<section class="sektion${flaeche(band)}" aria-labelledby="faq-titel">
 <div class="raster"><div class="faq-teilung">
 ${abschnittKopf({ id: 'faq-titel', titel: 'Häufige Fragen' })}
 ${faq(sk, liste)}
@@ -113,6 +135,19 @@ function schluss(sk, s, notfall) {
 </section>`;
 }
 
+// Abschnitte zwischen Szene (Band) und Weiterlesen (Papier, dicht): Die Fläche wechselt ab Papier, damit sich
+// Nachbarn immer in der Fläche und zusätzlich in Layout oder Dichte unterscheiden (K-006).
+function mittelteil(sk, inh) {
+  const folge = [
+    inh.nachweis && ((band) => nachweis(sk, inh.nachweis, band)),
+    inh.abschnitte?.length && ((band) => wissen(inh.abschnitte, band)),
+    inh.betriebe && ((band) => textAbschnitt('betriebe-titel', inh.betriebe, { band, dicht: true })),
+    inh.preis && ((band) => preis(sk, inh.preis, band)),
+    (band) => fragen(sk, inh.faq, band),
+  ].filter(Boolean);
+  return folge.map((abschnitt, i) => abschnitt(i % 2 === 1));
+}
+
 async function inhaltLaden(wurzel, id) {
   const datei = join(wurzel, 'src/inhalte', id, 'index.mjs');
   try { await access(datei); } catch { return null; }
@@ -131,11 +166,7 @@ export async function seiten(k) {
       jsonld: [gruppenLd(k, g, inh), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, g.pfad, inh.faq)],
       inhalt: (sk) => html`${kopf(sk, g, inh)}
 ${szene({ id: 'szene', titel: inh.szene.titel, einleitung: inh.szene.einleitung, figur: FIGUREN[g.id], schritte: inh.szene.schritte, klasse: 'band' })}
-${inh.nachweis ? nachweis(sk, inh.nachweis) : ''}
-${(inh.abschnitte || []).map((a, i) => textAbschnitt(`abschnitt-${i + 1}`, a))}
-${inh.betriebe ? textAbschnitt('betriebe-titel', inh.betriebe, true) : ''}
-${inh.preis ? preis(sk, inh.preis) : ''}
-${fragen(sk, inh.faq)}
+${mittelteil(sk, inh)}
 ${weiter(sk, inh.weiter)}
 ${schluss(sk, inh.schluss, g.id === 'notoeffnung')}`,
     });
