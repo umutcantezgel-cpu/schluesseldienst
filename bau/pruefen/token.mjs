@@ -8,6 +8,8 @@ export const name = 'token';
 
 const CSS_AUSGENOMMEN = new Set(['token.css', 'schriften.css']);
 const BREAKPOINTS_EM = new Set([30, 48, 64, 80]);
+// Höhen-Breakpoint für Szenen (KERN K-006/K-007: klebende Figur erst ab 640 px Höhe = 40em).
+const HOEHE_EM = new Set([40]);
 const CSS_GLOBAL = /^\s*(inherit|initial|unset|revert|revert-layer)\s*$/i;
 
 // Benannte CSS-Farben. Nicht enthalten sind transparent, currentColor, inherit und die Systemfarben
@@ -132,7 +134,8 @@ function pruefeAtRegel(kopf, offset, melde) {
     const zahl = t[1];
     const einheit = t[2].toLowerCase();
     if (einheit === 'em' && (art === 'container' || BREAKPOINTS_EM.has(Number(zahl)))) continue;
-    melde('token/breakpoint', 'warnung', offset + t.index, `Wert ${zahl}${t[2]} in @${art} – Breakpoints aus K-005 nutzen (30em, 48em, 64em, 80em)`);
+    if (einheit === 'em' && HOEHE_EM.has(Number(zahl)) && /(min|max)-height\s*:\s*$/i.test(kopf.slice(0, t.index))) continue;
+    melde('token/breakpoint', 'warnung', offset + t.index, `Wert ${zahl}${t[2]} in @${art} – Breakpoints aus K-005 nutzen (30em, 48em, 64em, 80em; Höhe 40em)`);
   }
 }
 

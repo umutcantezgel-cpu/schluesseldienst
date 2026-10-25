@@ -1,0 +1,45 @@
+/* V02 Leistungsgruppe: Kopf 7/5 mit Register der Gruppe, Inhaltsteilung 4/8, Nachweisliste, Weiterlesen, Schlussband. */
+@layer komponenten {
+  .gruppe-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
+  .gruppe-kopf-teilung { display: grid; gap: var(--sp-xl); }
+  .gruppe-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
+  .gruppe-nr { font-family: var(--ff-mono); color: var(--c-kupfer); font-weight: var(--fw-titel); }
+  .gruppe-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
+  .gruppe-einleitung { font-size: var(--fs-1); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block: var(--sp-m) var(--sp-l); }
+  .gruppe-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
+  .gruppe-register { border-block-start: var(--linie-scher) solid var(--c-kupfer); padding-block-start: var(--sp-s); }
+  .gruppe-register-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-2xs); }
+  .gruppe-register ul { list-style: none; padding: 0; }
+  .gruppe-register li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .gruppe-register a { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon name" "icon kurz"; column-gap: var(--sp-s); padding-block: var(--sp-s); color: var(--c-tinte); text-decoration: none; }
+  .gruppe-register a:hover .gruppe-register-name { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .gruppe-register-icon { grid-area: icon; inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); align-self: start; }
+  .gruppe-register-name { grid-area: name; font-weight: var(--fw-titel); }
+  .gruppe-register-kurz { grid-area: kurz; font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .gruppe-teilung { display: grid; gap: var(--sp-l); }
+  .fliesstext { display: grid; gap: var(--sp-s); max-inline-size: var(--mass); }
+  .nachweis { display: grid; gap: 0; margin: 0; }
+  .nachweis-eintrag { display: grid; gap: var(--sp-3xs); padding-block: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .nachweis dt { font-weight: var(--fw-titel); }
+  .nachweis dd { margin: 0; color: var(--c-tinte-2); max-inline-size: var(--mass); }
+  .weiter { list-style: none; padding: 0; display: grid; gap: var(--sp-s); }
+  .weiter li { margin: 0; }
+  .weiter a { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "titel pfeil" "text pfeil"; column-gap: var(--sp-s); padding: var(--sp-s) var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); color: var(--c-tinte); text-decoration: none; }
+  .weiter a:hover .weiter-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .weiter-titel { grid-area: titel; font-weight: var(--fw-titel); }
+  .weiter-text { grid-area: text; font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .weiter-pfeil { grid-area: pfeil; align-self: center; inline-size: var(--icon-ui); block-size: var(--icon-ui); color: var(--c-kupfer); }
+  .schluss h2 { font-size: var(--fs-3); }
+  .schluss p { color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block-start: var(--sp-xs); }
+  .schluss-teilung { display: grid; gap: var(--sp-l); align-items: center; }
+  .schluss-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
+  @media (min-width: 48em) { .weiter { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 64em) {
+    .gruppe-kopf { padding-block-start: var(--sp-sektion); }
+    .gruppe-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
+    .gruppe-kopf h1 { font-size: var(--fs-5); }
+    .gruppe-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; }
+    .schluss-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+    .schluss-handlung { justify-content: flex-end; }
+  }
+}

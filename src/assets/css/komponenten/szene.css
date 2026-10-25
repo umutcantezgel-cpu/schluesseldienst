@@ -1,0 +1,42 @@
+/* Szene M-17 (Erzählansicht V02): Teilung 5/7 (Figur links, Schritte rechts). Grundzustand ohne JS, bei
+   reduzierter Bewegung oder unter 640 px Höhe: jeder Schritt mit eigenem Einzelbild. Mit JS und genug Höhe:
+   klebende Bühne, Zustand je Schritt in der Viewport-Mitte (nie klebend bei reduzierter Bewegung). */
+@layer komponenten {
+  .szene-teilung { display: grid; gap: var(--sp-l); }
+  .szene-schritte { list-style: none; padding: 0; display: grid; gap: var(--sp-xl); }
+  .szene-schritt { margin: 0; display: grid; gap: var(--sp-2xs); align-content: start; padding-inline-start: var(--sp-m); border-inline-start: var(--linie-scher) solid var(--c-linie); }
+  .szene-schritt[data-aktiv] { border-inline-start-color: var(--c-kupfer); }
+  .szene-nr { font-family: var(--ff-mono); font-size: var(--fs--1); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); color: var(--c-kupfer); }
+  .szene-titel { font-size: var(--fs-2); }
+  .szene-schritt p { color: var(--c-tinte-2); max-inline-size: var(--mass); }
+  .szene-einzelbild { max-inline-size: var(--figur-schmal); margin-block-start: var(--sp-s); padding: var(--sp-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  .szene-buehne { display: none; }
+  .szene-figur { padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  @media (min-width: 64em) {
+    .szene-teilung { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: "kopf kopf" "buehne schritte"; column-gap: var(--sp-xl); }
+    .szene-kopf { grid-area: kopf; }
+    .szene-schritte { grid-area: schritte; }
+    .szene-buehne { grid-area: buehne; }
+    .szene-einzelbild { max-inline-size: var(--hero-figur-max); }
+  }
+  @media (prefers-reduced-motion: no-preference) and (min-height: 40em) {
+    [data-szene="laeuft"] .szene-einzelbild { display: none; }
+    [data-szene="laeuft"] .szene-buehne { display: block; }
+    [data-szene="laeuft"] .szene-teilung { grid-template-areas: "kopf" "buehne" "schritte"; }
+    [data-szene="laeuft"] .szene-kopf { grid-area: kopf; }
+    [data-szene="laeuft"] .szene-schritte { grid-area: schritte; gap: 0; }
+    [data-szene="laeuft"] .szene-buehne { grid-area: buehne; position: sticky; inset-block-start: var(--kopf-hoehe); z-index: var(--z-szene); align-self: start; padding-block: var(--sp-2xs); background: var(--c-papier); }
+    .band[data-szene="laeuft"] .szene-buehne { background: var(--c-papier-2); }
+    [data-szene="laeuft"] .szene-figur { padding: var(--sp-2xs); }
+    [data-szene="laeuft"] .szene-figur .ill, [data-szene="laeuft"] .szene-figur .zylinder { max-block-size: var(--szene-figur-mobil); margin-inline: auto; }
+    [data-szene="laeuft"] .szene-schritt { min-block-size: var(--szene-schritt-min-mobil); align-content: center; }
+    [data-szene="laeuft"] .szene-schritt:last-child { min-block-size: auto; padding-block-end: var(--sp-xl); }
+  }
+  @media (prefers-reduced-motion: no-preference) and (min-height: 40em) and (min-width: 64em) {
+    [data-szene="laeuft"] .szene-teilung { grid-template-areas: "kopf kopf" "buehne schritte"; }
+    [data-szene="laeuft"] .szene-buehne { position: static; padding-block: 0; background: none; align-self: stretch; }
+    [data-szene="laeuft"] .szene-figur { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-xl)); padding: var(--sp-l); }
+    [data-szene="laeuft"] .szene-figur .ill, [data-szene="laeuft"] .szene-figur .zylinder { max-block-size: none; }
+    [data-szene="laeuft"] .szene-schritt { min-block-size: var(--szene-schritt-min); }
+  }
+}

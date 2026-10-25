@@ -18,6 +18,14 @@
   .ill-zone-flaeche { fill: var(--c-lahn); fill-opacity: .14; stroke: var(--c-lahn); stroke-width: 1.5; }
   .ill-boden { stroke: var(--c-tinte-2); }
   .ill-teil { transform-box: fill-box; transform-origin: center; }
+  .ill-schnitt { stroke-width: 1.5; }
+  .ill-stulp { stroke-width: 4; }
+  .ill-blech { stroke-width: 2; }
+  .ill-gedimmt { opacity: .28; }
+  .ill-schliesspunkt { fill: var(--c-kupfer); stroke: var(--c-kupfer); }
+  .ill-schliesspunkt-ring, .ill-schliesspunkt-strich { stroke: var(--c-kupfer); }
+  .ill-akzent-flaeche { fill: var(--c-kupfer-hell); stroke: var(--c-kupfer); }
+  .ill-text { fill: var(--c-tinte-2); stroke: none; font-family: var(--ff-mono); font-size: var(--svg-text-m); }
 
   /* Schrittzustände (M-17): Grundregel = Endzustand; data-zustand blendet spätere Teile aus und färbt den aktiven */
   [data-zustand="1"] :is([data-ab="2"], [data-ab="3"], [data-ab="4"], [data-ab="5"]),

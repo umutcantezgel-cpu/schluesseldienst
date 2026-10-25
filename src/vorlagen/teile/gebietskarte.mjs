@@ -46,12 +46,13 @@ export function gebietskarte(sk, { praefix = 'gk', radiusKm = 56, ringe = [20, 5
     beschriftungen.push(`<text class="gk-name" x="${rechts ? x + 8 : x - 8}" y="${y + 5}"${rechts ? '' : ' text-anchor="end"'}>${esc(o.name)}</text>`);
   }
   const namen = beschriftungen.join('');
-  const ringSvg = ringe.map((km) => `<circle class="gk-ring" cx="0" cy="0" r="${km * masstab}"/><text class="gk-ring-text" x="0" y="${-km * masstab - 6}">${km} km</text>`).join('');
+  const ringSvg = ringe.map((km) => `<circle class="gk-ring" cx="0" cy="0" r="${km * masstab}"/>`).join('');
+  const ringText = ringe.map((km) => `<text class="gk-ring-text" x="0" y="${-km * masstab - 6}">${km} km</text>`).join('');
   return roh(`<svg class="gebietskarte" viewBox="${-r} ${-r} ${2 * r} ${2 * r}" role="img" aria-labelledby="${praefix}-titel">
 <title id="${praefix}-titel">${esc(titel || `Gemeinden im Umkreis von ${radiusKm} km um Weilburg; Ringe bei ${ringe.join(' und ')} km Luftlinie.`)}</title>
 <g class="gk-ringe">${ringSvg}</g>
 <g class="gk-punkte">${punkte}</g>
-<g class="gk-namen">${namen}</g>
+<g class="gk-namen">${ringText}${namen}</g>
 <g class="gk-sitz"><circle class="gk-sitz-ring" cx="0" cy="0" r="10"/><circle class="gk-sitz-punkt" cx="0" cy="0" r="6"/><text class="gk-sitz-name" x="14" y="-14">Weilburg</text></g>
 </svg>`);
 }

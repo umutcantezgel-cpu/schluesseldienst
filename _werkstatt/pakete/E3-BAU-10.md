@@ -1,0 +1,13 @@
+# E3-BAU-10 · Rolle Baumeister · Modell Haiku · Stufe 2 · Kern-Version 1
+Schreibrechte (exakt): src/inhalte/einbau-tresore/{moebeltresore,wertschutzschraenke,datensicherungsschraenke}.mjs
+Ausgaben (gitignored, frei): /home/user/schluesseldienst/.cache/E3-BAU-10/**
+Umfang: 3 Detailseiten (V03), Vorschau-Port 4190
+
+## Rollenbriefing Baumeister
+Du baust nach einem fertigen Muster und änderst das Muster nicht. Häufige Fehler: Muster „verbessern“ statt befolgen; Behauptungen ohne Beleg; Werbeton statt Handwerk; Zahlen in Fließtexten; drei Seiten, die sich gleich lesen.
+
+## Aufgabe in einem Satz
+Schreibe die Inhaltsmodule für /einbau-tresore/moebeltresore/, /einbau-tresore/wertschutzschraenke/, /einbau-tresore/datensicherungsschraenke/ nach dem Muster der Türöffnung und den Themenpässen – jede Seite mit eigenem Blickwinkel (Feld „kern“ des Passes).
+
+## Regeln
+`_werkstatt/pakete/_detailseite.md` vollständig lesen und einhalten.

@@ -1,0 +1,30 @@
+## Detailseite (V03) – gemeinsame Regeln für E3-BAU-04…11
+- Muster (lesen, nicht ändern): Vorlage `src/vorlagen/seiten/leistung.mjs`, Inhaltsmodul `src/inhalte/notoeffnung/tueroeffnung.mjs`. Jede deiner Dateien hat genau diese Form (`export default { … }`) und liegt unter `src/inhalte/<gruppe>/<leistung>.mjs` (Gruppe und ID aus `src/konfig/leistungen.mjs`).
+- Felder:
+  - Pflicht:
+    - `titel` (≤ 60 Zeichen, enthält den Hauptsuchbegriff des Themenpasses);
+    - `beschreibung` (70–155 Zeichen);
+    - `h1`;
+    - `kurz` (2–3 Sätze Kurzantwort auf die Suchabsicht);
+    - `blick` (genau 4 Einträge `{ titel, text }`, Text ≤ 8 Wörter);
+    - `abschnitte` (jeder Pflichtabschnitt des Themenpasses als `{ titel, absaetze[] }`, optional `liste[]`);
+    - `faq` (genau die Fragen des Themenpasses, wortgleich);
+    - `weiter` (3 Einträge aus `verwandt`/`abgrenzung` des Passes, ohne Selbstverweis).
+  - Optional:
+    - `preis` – nur wenn `src/konfig/preise.mjs` passende Positionen hat (Notöffnung: `auto`, `garage`, `tresor`; Zylindertausch: `zylinder`). Sonst weglassen.
+    - `figurText` – eine Zeile, die beschreibt, was die Kopffigur zeigt. Die Figur wählt die Vorlage selbst; `figur` nicht setzen.
+- Themenpass: `src/konfig/themenpaesse.mjs`, Eintrag deiner Route. Er legt fest: Hauptsuchbegriff, Absicht, Kern, Pflichtabschnitte, Fragen, Abgrenzung (verlinken statt ausbreiten), Vorsicht (unbedingt einhalten).
+- Sprache und Verbote wie `_werkstatt/pakete/_gruppenseite.md`, Abschnitt „Sprache“:
+  - Sie-Anrede, ruhig und konkret;
+  - keine Zahlen, Normen, Paragrafen, Prozent, Jahre, Minuten oder Preise im Text;
+  - keine Superlative, Marken, Zertifikate oder „polizeilich empfohlen“;
+  - keine Zusagen außerhalb der Konfiguration.
+  - Begriffe wie Widerstandsklasse, Widerstandsgrad oder Norm darfst du ohne Nummer nennen und auf den Ratgeber verlinken.
+- Links nur auf Routen aus `src/konfig/routen.mjs` (Mini-Syntax `[Text](/pfad/)`).
+- Nichts von den Wettbewerbern übernehmen. Der Plagiatsprüfer läuft im Build.
+- Prüfen:
+  - `node bau/bauen.mjs --messen --pruefen --aus=.cache/<KENNUNG>/dist` → alle Prüfer grün.
+  - Vorschau `node bau/vorschau.mjs --aus .cache/<KENNUNG>/dist --port <PORT> --still &`.
+  - Bildsatz `node _werkstatt/werkzeuge/bildsatz.mjs --basis http://127.0.0.1:<PORT> --pfade <pfad1>,<pfad2>,<pfad3> --schemata light --aus .cache/<KENNUNG>/bilder`.
+  - Je Seite Desktop 01–02 und Mobil 01–02 ansehen und nachschärfen.
+  - Zum Schluss deinen Vorschau-Prozess per PID beenden.

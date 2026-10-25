@@ -57,3 +57,10 @@ test('Vorlagen: style-Attribut und Hex-Farbe sind Fehler; Kommentare und Code ni
     ['token/farbe', 'fehler', 2],
   ]);
 });
+
+test('Höhen-Breakpoint 40em nur für min-/max-height erlaubt (Szenen, KERN K-006)', () => {
+  const ok = pruefeCss('@media (prefers-reduced-motion: no-preference) and (min-height: 40em) { .a { color: var(--c-tinte); } }', 'hoehe.css');
+  assert.equal(ok.filter((b) => b.regel === 'token/breakpoint').length, 0);
+  const breite = pruefeCss('@media (min-width: 40em) { .a { color: var(--c-tinte); } }', 'breite.css');
+  assert.equal(breite.filter((b) => b.regel === 'token/breakpoint').length, 1);
+});

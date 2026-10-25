@@ -44,7 +44,7 @@ Ratgeber-Artikel: ausgesperrt-was-tun · tuer-zugefallen-oder-abgeschlossen · s
 | E2-OPUS-06 | Referenz V01 Startseite komplett: I-01, M-16, Ortssuche/PLZ-Prüfung (JS), Preisauszug, Triage, Register, Ablauf, Seriös-erkennen, FAQ | Opus | Opus | 3 | `src/vorlagen/seiten/start.mjs`, `src/inhalte/start.mjs`, `src/assets/js/**`, `src/assets/css/komponenten/*.css` | 05 | Z-04 Z-05 | |
 | E2-OPUS-07 | Registries: Routen, Navigation, Themenpässe aller Inhaltsseiten | Opus | Opus | 3 | `src/konfig/{navigation,routen,themenpaesse}.mjs` | 01 | Z-01 | |
 | E2-PRUEF-08 | Prüfstufe B Referenz + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E2-pruefstufe-b.md`, `_werkstatt/bilder/E2/**` | 06 | Z-02…Z-09 | |
-| E2-REVIEW | Sichtabnahme Referenz (frischer Opus-Agent) ≥ 8 | Opus | Opus | 3 | `_werkstatt/berichte/E2-sichtabnahme.md` | PRUEF-08 | Z-04 | |
+| E2-REVIEW | Sichtabnahme Referenz (frischer Opus-Agent) ≥ 8 | Opus | Opus | 3 | `_werkstatt/berichte/E2-sichtabnahme.md` | PRUEF-08 | Z-04 | 2 Anläufe: 6,8 → 7,5 (offen, s. u.) |
 | E3-OPUS-01 | Szenen-Engine M-17 + Illustrationen I-03/I-04/I-05 | Opus | Opus | 3 | `src/assets/js/module/szene.mjs`, `src/vorlagen/teile/illustrationen/*.mjs` | E2 | Z-05 Z-06 | |
 | E3-OPUS-02 | V02-Vorlage + Gruppenseite `/notoeffnung/` als Muster | Opus | Opus | 3 | `src/vorlagen/seiten/gruppe.mjs`, `src/inhalte/notoeffnung/index.mjs` | E3-OPUS-01 | Z-04 | |
 | E3-BAU-01…03 | Gruppenseiten `/einbruchschutz/`, `/sicherheitstechnik/`, `/einbau-tresore/` (je 1 Paket) | Baumeister | H | 2 | je genau eine Datei: `src/inhalte/einbruchschutz/index.mjs` · `src/inhalte/sicherheitstechnik/index.mjs` · `src/inhalte/einbau-tresore/index.mjs` | E3-OPUS-02 | Z-01 Z-04 | |
@@ -92,4 +92,4 @@ Ratgeber-Artikel: ausgesperrt-was-tun · tuer-zugefallen-oder-abgeschlossen · s
 - Regel aus L0: Bereichspakete (…01…03) bekommen vor Wellenstart ein Paketblatt in `_werkstatt/pakete/` mit exakter, disjunkter Dateiliste.
 
 ## Offene Punkte
-- (keine)
+- **E2-Tor (Sichtabnahme V01) nach zwei Anläufen nicht erreicht (L3):** Anlauf 1 = 6,8, Anlauf 2 = 7,5 (Typografie 8, Komposition 7, Farbe 8, Bewegung 8, Grafik 7, Details 7). Arbeit geht weiter. Die Kategorien unter 8 sind als Pakete der Etappe 3 umgesetzt: E3-V01-KOMP, E3-V01-GRAFIK und E3-V01-DET (je 1 von höchstens 2 im Lauf). Umgesetzt sind die fünf Schwellen-Änderungen aus `berichte/E2-sichtabnahme-2.md`: Hero an Grundlinie und breit-Kante, Preistabelle 4/8, Triage- und Knopfabstände, Karte, kupferne Schließpunkte und alarmzentrale. Nachweis über Prüfstufe C und E5-REVIEW (Z-04).

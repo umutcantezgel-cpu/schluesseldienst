@@ -1,0 +1,39 @@
+/* V03 Leistungsdetail (Arbeitsansicht): Kopf 7/5, „Auf einen Blick“-Leiste, Text 8/4 mit Randspalte. */
+@layer komponenten {
+  .leistung-kopf { padding-block: var(--sp-f-m) var(--sp-xl); }
+  .leistung-kopf-teilung { display: grid; gap: var(--sp-l); align-items: center; }
+  .leistung-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; margin-block-end: var(--sp-xs); }
+  .leistung-kicker a { color: var(--c-tinte-3); }
+  .leistung-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
+  .leistung-kurz { font-size: var(--fs-1); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block: var(--sp-s) var(--sp-m); }
+  .leistung-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
+  .leistung-figur { margin: 0; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  .leistung-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); margin-block-start: var(--sp-s); max-inline-size: var(--mass); }
+  .leistung-blick { border-block: var(--linie-haar) solid var(--c-linie-ui); background: var(--c-papier-2); }
+  .blick { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); margin: 0; }
+  .blick-eintrag { padding: var(--sp-s) var(--sp-m) var(--sp-s) 0; }
+  .blick dt { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-kupfer); }
+  .blick dd { margin: 0; font-weight: var(--fw-ui); }
+  .leistung-teilung { display: grid; gap: var(--sp-xl); }
+  .leistung-text { display: grid; gap: var(--sp-l); }
+  .leistung-abschnitt { display: grid; gap: var(--sp-xs); max-inline-size: var(--mass); }
+  .leistung-abschnitt h2 { font-size: var(--fs-2); }
+  .leistung-liste { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
+  .leistung-rand { display: grid; gap: var(--sp-l); align-content: start; }
+  .rand-block { display: grid; gap: var(--sp-xs); }
+  .rand-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); padding-block-start: var(--sp-xs); border-block-start: var(--linie-scher) solid var(--c-kupfer); }
+  .rand-text { font-size: var(--fs--1); color: var(--c-tinte-2); }
+  .rand-liste { list-style: none; padding: 0; }
+  .rand-liste li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .rand-liste a { display: flex; align-items: center; gap: var(--sp-xs); min-block-size: var(--ziel-min); color: var(--c-tinte); text-decoration: none; }
+  .rand-liste a:hover span { text-decoration: underline; }
+  .rand-icon { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-lahn-text); }
+  .leistung-rand .preis-tabelle-huelle { container-type: inline-size; }
+  @media (min-width: 64em) {
+    .leistung-kopf { padding-block-start: var(--sp-sektion); }
+    .leistung-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
+    .leistung-kopf h1 { font-size: var(--fs-5); }
+    .leistung-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
+    .leistung-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+  }
+}

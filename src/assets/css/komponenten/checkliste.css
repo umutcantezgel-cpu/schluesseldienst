@@ -11,7 +11,7 @@
   .serioes-figur { display: none; margin: 0; }
   @media (min-width: 64em) {
     .serioes-teilung { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--sp-xl); align-items: start; }
-    .serioes-figur { display: block; }
+    .serioes-figur { display: block; position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-xl)); }
   }
   .rechnung { inline-size: 100%; max-inline-size: var(--figur-schmal); fill: none; stroke: var(--c-tinte); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .re-blatt { fill: var(--c-flaeche); }

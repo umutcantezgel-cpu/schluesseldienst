@@ -1,9 +1,9 @@
 # PRÜFPUNKT
-- Letzter grüner Commit: siehe `git log` (E2-OPUS-07 Register + E2-PRUEF-08)
-- Etappe: E2 (Kern & Referenz) – Prüfstufe B V01 bestanden (nach A11y-Korrektur), Sichtabnahme läuft
-- Nächster exakter Schritt: E2-REVIEW auswerten (`_werkstatt/berichte/E2-sichtabnahme.md`) → Kategorien < 8 einarbeiten (höchstens 2 Anläufe) → Etappentor → E3-OPUS-01 Szenen-Engine M-17 + I-03/04/05 → E3-OPUS-02 V02 `/notoeffnung/`
-- Laufende Pakete: E2-REVIEW (frischer Opus-Agent)
-- Offene Pakete: E3 laut PLAN.md (W1: E3-OPUS-01/02, E3-BAU-01…03, E3-GRAF-01…03, E3-PRUEF-09)
-- Entscheidungen aus Rückfragen der Pakete: Vorher-Bilder bleiben in `.cache/vorher/` (gitignored, nie committet, Personenfoto bleibt dort unmaskiert, weil die Bilder das Repo nicht verlassen); Mess-Sperre setzen jetzt alle Browser-Werkzeuge selbst; Sichtbarkeit der Scherlinie wird über die Bildbox geprüft, nicht über `isVisible()`.
+- Letzter grüner Commit: siehe `git log` (E2-REVIEW Anlauf 1 eingearbeitet, E3 W1)
+- Etappe: E2-Tor (Sichtabnahme Anlauf 2 läuft) · E3 W1 parallel (Vorlagen ändern V01 nicht)
+- Nächster exakter Schritt: Anlauf 2 auswerten (`_werkstatt/berichte/E2-sichtabnahme-2.md`); bei ≥ 8 Tor schließen, sonst Befunde einarbeiten und als UMGEBUNGS-/GESTALTUNGSRISIKO in BERICHT führen (max. 2 Anläufe) → E3-OPUS-03 V03-Vorlage + /notoeffnung/tueroeffnung/ → E3-BAU-04…11 Detailseiten
+- Laufende Pakete: E2-REVIEW-2 (Opus), E3-BAU-01/02/03 (Gruppenseiten), E4-KUND-03 (Faktenblätter Normen)
+- Zweite Vorschau für eigene Tests: `node bau/bauen.mjs --messen --aus=.cache/opus-dist && node bau/vorschau.mjs --aus .cache/opus-dist --port 4180`
+- Entscheidungen: Vorher-Bilder bleiben in `.cache/vorher/`; Mess-Sperre in allen Browser-Werkzeugen; Preis-/Mailto-Tests schreiben E4-OPUS-01/02 mit ihrer Logik; Höhen-Breakpoint 40em nur für Szenen (KERN K-006 ergänzt); Telefon-Icon von Opus neu gezeichnet (Erkennbarkeit).
 - Werkzeuge nach Neustart: siehe `_werkstatt/werkzeuge/README.md` (npm ci in /home/user/werkzeuge-cache)
 - Vorschau: `node bau/bauen.mjs && node bau/vorschau.mjs` → http://127.0.0.1:4173

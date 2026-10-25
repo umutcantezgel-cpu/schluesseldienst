@@ -4,8 +4,9 @@ import { aufklapper } from './module/aufklapper.mjs';
 import { erreichbarkeit } from './module/erreichbarkeit.mjs';
 import { ortssuche } from './module/ortssuche.mjs';
 import { abspielen } from './module/abspielen.mjs';
+import { szene } from './module/szene.mjs';
 
-const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen };
+const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene };
 
 function starten() {
   document.documentElement.classList.add('js');

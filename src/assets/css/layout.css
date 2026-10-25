@@ -17,14 +17,12 @@
   .sektion-dicht { padding-block: var(--sp-f-m); }
   .band { background: var(--c-papier-2); }
   .band-dunkel { color-scheme: dark; background: var(--c-band-nacht); color: var(--c-tinte); border-block: var(--linie-haar) solid var(--c-linie); }
-  /* Sektionsabstand und Fußabstand addieren sich nicht */
-  main > .sektion:last-child:not(.band, .band-dunkel) { padding-block-end: 0; }
 
   /* Kopf */
   .kopf { background: var(--c-papier); border-block-end: var(--linie-haar) solid var(--c-linie); }
   .kopf-innen {
     display: flex; align-items: center; gap: var(--sp-s); min-block-size: var(--kopf-hoehe);
-    max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit)); margin-inline: auto; padding-inline: var(--rand);
+    max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit) + 2 * var(--rand)); margin-inline: auto; padding-inline: var(--rand);
   }
   .wortmarke { display: inline-flex; align-items: center; gap: var(--sp-2xs); color: var(--c-tinte); text-decoration: none; font-weight: var(--fw-display); font-size: var(--fs-1); letter-spacing: var(--ls-display); min-block-size: var(--ziel-min); }
   .wortmarke .signet { inline-size: var(--icon-leistung); block-size: var(--icon-leistung); fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -42,10 +40,11 @@
   }
 
   /* Fuß */
-  .fuss { background: var(--c-papier-2); color: var(--c-tinte-2); margin-block-start: var(--sp-sektion); }
+  /* Kein eigener Abstand: die letzte Sektion bringt ihren Innenabstand mit, ein Band schließt bündig an */
+  .fuss { background: var(--c-papier-2); color: var(--c-tinte-2); }
   .fuss-innen {
     display: grid; gap: var(--sp-l); padding: var(--sp-xl) var(--rand) var(--sp-l);
-    max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit)); margin-inline: auto;
+    max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit) + 2 * var(--rand)); margin-inline: auto;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr));
   }
   .fuss-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
@@ -56,7 +55,7 @@
   .fuss a:hover { text-decoration: underline; }
   .fuss address { line-height: var(--lh-text); margin-block-start: var(--sp-xs); }
   .fuss address a { min-block-size: 0; display: inline; text-decoration: underline; }
-  .fuss-linie { display: flex; align-items: center; gap: var(--sp-xs); padding: var(--sp-s) var(--rand) var(--sp-l); max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit)); margin-inline: auto; font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .fuss-linie { display: flex; align-items: center; gap: var(--sp-xs); padding: var(--sp-s) var(--rand) var(--sp-l); max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit) + 2 * var(--rand)); margin-inline: auto; font-size: var(--fs--1); color: var(--c-tinte-3); }
   .fuss-linie .scherlinie { flex: 1; }
   .fuss-ort::before { content: ""; display: inline-block; inline-size: var(--sp-2xs); block-size: var(--sp-2xs); border-radius: var(--r-rund); background: var(--c-kupfer); margin-inline-end: var(--sp-2xs); vertical-align: middle; }
 

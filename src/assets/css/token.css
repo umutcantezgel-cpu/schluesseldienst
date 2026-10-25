@@ -50,6 +50,12 @@
     --menue-blatt-max: 85svh;
     --karte-min: 16rem;
     --hero-figur-max: 30rem; --figur-schmal: 21rem;
+    /* Hero ab 64em: Versatz der Zylinderfigur, damit die Scherlinie die Grundlinie der zweiten H1-Zeile trifft */
+    --hero-figur-versatz: 3.75rem;
+    /* Gebietskarte: Punktgrößen je Zone (SVG-Einheiten) */
+    --gk-punkt: 5; --gk-punkt-c: 3;
+    /* Szene M-17: Schritthöhe (Scrollweg je Schritt), Figur mobil */
+    --szene-schritt-min: 52vh; --szene-schritt-min-mobil: 48vh; --szene-figur-mobil: 28vh;
     --hero-band-max: 7.5rem;
     --nav-panel-breit: min(56rem, 80vw);
 
@@ -84,6 +90,8 @@
     /* Großer Moment M-16 „Scherlinie“ (gesamt ≤ 1.400 ms) */
     --m16-schluessel: 420ms; --m16-stift-start: 380ms; --m16-stift: 360ms; --m16-staffel: 70ms;
     --m16-linie-start: 900ms; --m16-linie: 480ms; --m16-stift-weg: 14px; --m16-feder: 1.25;
+    /* Großer Moment M-17 „Szene“: Teile wechseln mit 360 ms (standard) */
+    --m17-teil: 360ms;
     /* Auftritte und Seitenwechsel */
     --auftritt-weg: 24px; --zustand-weg: 8px; --feedback-weg: 4px;
     --vt-aus: 160ms; --vt-ein: 240ms; --vt-linie: 400ms;

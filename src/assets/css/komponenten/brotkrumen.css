@@ -1,6 +1,6 @@
 /* Brotkrumen (K-009): Desktop als Pfad, mobil nur „← Elternseite“. */
 @layer komponenten {
-  .brotkrumen { font-size: var(--fs--1); color: var(--c-tinte-2); padding-block: var(--sp-s); max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit)); margin-inline: auto; padding-inline: var(--rand); }
+  .brotkrumen { font-size: var(--fs--1); color: var(--c-tinte-2); padding-block: var(--sp-s); max-inline-size: calc(var(--inhalt-max) + 2 * var(--rand)); margin-inline: auto; padding-inline: var(--rand); }
   .brotkrumen ol { display: none; list-style: none; padding: 0; flex-wrap: wrap; gap: var(--sp-2xs); }
   .brotkrumen li { display: inline-flex; align-items: center; gap: var(--sp-2xs); margin: 0; }
   .brotkrumen li + li::before { content: "/"; color: var(--c-tinte-3); }

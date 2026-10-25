@@ -22,6 +22,9 @@
       [data-ansicht="V01"] .ablauf::before { animation: linie-ziehen linear both; animation-timeline: view(); animation-range: entry 20% cover 45%; }
     }
 
+    /* M-17 Szene: Teile wechseln mit dem Schritt (nur transform/opacity; Farbe des aktiven Teils springt) */
+    .szene-figur :is([data-ab], [data-setzt], [data-setzt] .zy-feder) { transition: opacity var(--m17-teil) var(--ease-standard), transform var(--m17-teil) var(--ease-standard); }
+
     /* M-15 Seitenwechsel mit der Scherlinie als gemeinsamem Element */
     @view-transition { navigation: auto; }
     ::view-transition-old(root) { animation-duration: var(--vt-aus); }
@@ -29,7 +32,7 @@
     ::view-transition-group(scherlinie) { animation-duration: var(--vt-linie); animation-timing-function: var(--ease-standard); }
   }
 
-  @keyframes m16-schluessel { from { transform: translateX(-40%); opacity: 0; } }
+  @keyframes m16-schluessel { from { transform: translateX(-40%); } }
   @keyframes m16-stift { from { transform: translateY(var(--m16-stift-weg)); } }
   @keyframes m16-feder { from { transform: scaleY(var(--m16-feder)); } }
   @keyframes m16-linie { from { transform: scaleX(0); } }

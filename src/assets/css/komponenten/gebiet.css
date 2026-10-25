@@ -11,10 +11,10 @@
   .gebietskarte { inline-size: 100%; max-inline-size: var(--hero-figur-max); margin-inline: auto; font-family: var(--ff-text); }
   .gk-ring { fill: none; stroke: var(--c-linie-ui); stroke-width: 1.5; stroke-dasharray: 4 6; }
   .gk-ring-text { fill: var(--c-tinte-3); font-size: var(--svg-text-m); text-anchor: middle; }
-  .gk-raster { fill: none; stroke-width: 5; stroke-linecap: round; }
+  .gk-raster { fill: none; stroke-width: var(--gk-punkt); stroke-linecap: round; }
   .gk-raster.gk-zone-a { stroke: var(--c-lahn); }
-  .gk-raster.gk-zone-b { stroke: var(--c-tinte-3); }
-  .gk-raster.gk-zone-c, .gk-raster.gk-zone-d { stroke: var(--c-linie-ui); stroke-width: 3.5; }
+  .gk-raster.gk-zone-b { stroke: var(--c-tinte-2); }
+  .gk-raster.gk-zone-c, .gk-raster.gk-zone-d { stroke: var(--c-tinte-3); stroke-width: var(--gk-punkt-c); }
   .gk-name { fill: var(--c-tinte-2); font-size: var(--svg-text-s); }
   .gk-name, .gk-ring-text, .gk-sitz-name { paint-order: stroke; stroke: var(--c-papier-2); stroke-width: var(--svg-halo); stroke-linejoin: round; }
   .gk-sitz-ring { fill: var(--c-papier-2); stroke: var(--c-kupfer); stroke-width: 2; }
@@ -22,8 +22,8 @@
   .gk-sitz-name { fill: var(--c-tinte); font-size: var(--svg-text-l); font-weight: var(--fw-titel); }
   .gk-legende { display: flex; flex-wrap: wrap; gap: var(--sp-2xs) var(--sp-m); justify-content: center; margin-block-start: var(--sp-s); font-size: var(--fs--1); color: var(--c-tinte-2); }
   .gk-legende > span { display: inline-flex; align-items: center; gap: var(--sp-2xs); }
-  .gk-marke { inline-size: var(--sp-xs); block-size: var(--sp-xs); border-radius: var(--r-rund); background: var(--c-tinte-3); }
+  .gk-marke { inline-size: var(--sp-xs); block-size: var(--sp-xs); border-radius: var(--r-rund); background: var(--c-tinte-2); }
   .gk-marke-a { background: var(--c-lahn); }
-  .gk-marke-c { background: var(--c-linie-ui); }
+  .gk-marke-c { background: var(--c-tinte-3); transform: scale(.6); }
   .gk-marke-ring { background: none; border: var(--linie-ui) dashed var(--c-linie-ui); }
 }
