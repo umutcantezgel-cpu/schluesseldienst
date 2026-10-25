@@ -173,7 +173,7 @@ export function seiten(k) {
   const stufen = [{ titel: 'Preise', pfad: '/preise/' }];
   return [{
     pfad: '/preise/', titel: inhalt.titel, beschreibung: inhalt.beschreibung, typ: 'arbeit', ansicht: 'V04', sitemap: 'seiten',
-    koerperKlasse: 'seite-preise', stile: ['preise'], brotkrumen: stufen,
+    koerperKlasse: 'seite-preise', stile: ['preise'], ogBild: '/assets/og/preise.png', brotkrumen: stufen,
     jsonld: [preiseLd(k), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, '/preise/', inhalt.faq)],
     inhalt: (sk) => html`${kopf(sk)}
 ${liste(sk)}

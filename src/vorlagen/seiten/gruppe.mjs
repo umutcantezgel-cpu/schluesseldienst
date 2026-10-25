@@ -126,7 +126,7 @@ export async function seiten(k) {
     const stufen = [{ titel: g.titel, pfad: g.pfad }];
     aus.push({
       pfad: g.pfad, titel: inh.titel, beschreibung: inh.beschreibung, typ: 'erzaehlung', ansicht: 'V02',
-      sitemap: 'leistungen', koerperKlasse: `seite-gruppe seite-gruppe-${g.id}`, stile: ['register', 'gruppe'], brotkrumen: stufen,
+      sitemap: 'leistungen', koerperKlasse: `seite-gruppe seite-gruppe-${g.id}`, stile: ['register', 'gruppe'], ogBild: `/assets/og/${g.id}.png`, brotkrumen: stufen,
       jsonld: [gruppenLd(k, g, inh), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, g.pfad, inh.faq)],
       inhalt: (sk) => html`${kopf(sk, g, inh)}
 ${szene({ id: 'szene', titel: inh.szene.titel, einleitung: inh.szene.einleitung, figur: FIGUREN[g.id], schritte: inh.szene.schritte, klasse: 'band' })}

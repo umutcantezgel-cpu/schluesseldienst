@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>OG-Vorlage</title>
+<style>
+  @font-face {
+    font-family: "Atkinson Hyperlegible Next Variable";
+    font-style: normal;
+    font-weight: 200 800;
+    font-display: block;
+    src: url("{{SCHRIFT}}") format("woff2-variations");
+  }
+  :root { color-scheme: light; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #F4F2ED;
+    color: #13202A;
+    font-family: "Atkinson Hyperlegible Next Variable", sans-serif;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+  }
+  .signet {
+    position: absolute;
+    left: 80px;
+    top: 80px;
+    width: 92px;
+    height: 92px;
+    color: #13202A;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .signet-linie { stroke: #A84A22; }
+  .titel {
+    position: absolute;
+    left: 80px;
+    right: 80px;
+    top: 0;
+    margin: 0;
+    font-size: 104px;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    hyphens: manual;
+  }
+  .marke { display: inline-block; width: 0; height: 0; }
+  .linie {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 6px;
+    background: #A84A22;
+  }
+  .unter {
+    position: absolute;
+    left: 80px;
+    right: 80px;
+    top: 0;
+    margin: 0;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #3E4B55;
+  }
+</style>
+</head>
+<body lang="de">
+<svg class="signet" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="signet-bogen" d="M15.4 11.5A7 7 0 1 0 15.4 20.5"/><path class="signet-linie" d="M5 16H29M24 16v3.5M27 16v2"/></svg>
+<h1 class="titel">{{TITEL}}</h1>
+<div class="linie"></div>
+{{UNTER}}
+<script>
+  (async () => {
+    // Grundlinie der letzten Titelzeile in px von oben; die Scherlinie beginnt direkt darunter.
+    const BASIS = 410;
+    const ZEILENHOEHE = 1.08;
+    const titel = document.querySelector('.titel');
+    const linie = document.querySelector('.linie');
+    const unter = document.querySelector('.unter');
+    try {
+      const geladen = await document.fonts.load('700 48px "Atkinson Hyperlegible Next Variable"');
+      await document.fonts.ready;
+      const schrift = geladen.length > 0 && geladen.every((f) => f.status === 'loaded');
+      // Größte Titelgröße von 104 px bis 64 px, die in höchstens zwei Zeilen passt.
+      let groesse = null;
+      for (let g = 104; g >= 64; g -= 2) {
+        titel.style.fontSize = g + 'px';
+        if (Math.round(titel.getBoundingClientRect().height / (g * ZEILENHOEHE)) <= 2) { groesse = g; break; }
+      }
+      if (groesse === null) throw new Error('Titel passt ab 64 px nicht in zwei Zeilen');
+      // Leere Marke am Zeilenende: ihre Unterkante liegt auf der Grundlinie der letzten Zeile.
+      const marke = document.createElement('span');
+      marke.className = 'marke';
+      titel.appendChild(marke);
+      const zeilen = Math.round(titel.getBoundingClientRect().height / (groesse * ZEILENHOEHE));
+      const basisIst = marke.getBoundingClientRect().bottom;
+      marke.remove();
+      titel.style.top = (BASIS - basisIst) + 'px';
+      linie.style.top = BASIS + 'px';
+      if (unter) unter.style.top = (BASIS + 40) + 'px';
+      window.og = { ok: true, schrift, groesse, zeilen, basis: BASIS };
+    } catch (e) {
+      window.og = { ok: false, fehler: String((e && e.message) || e) };
+    }
+  })();
+</script>
+</body>
+</html>

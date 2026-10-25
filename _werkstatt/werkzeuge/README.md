@@ -26,6 +26,8 @@ Die Abhängigkeiten liegen außerhalb des Repos (Standard `/home/user/werkzeuge-
 | `linkgraph.mjs` | Linkgraph: eingehende Links, Klicktiefe, Links auf fehlende Ziele (E3-PRUEF-10) |
 | `aehnlichkeit.mjs` | Textähnlichkeit der Ortsseiten: Wort-5-Gramme, Jaccard, Zufalls- und Nachbarpaare (E3-PRUEF-10) |
 | `ortsstichprobe.mjs` | Geschichtete Stichprobe von Ortsseiten gegen `src/daten/orte.json` (E3-PRUEF-10) |
+| `og.mjs` | OG-Vorschaubilder (1200 × 630 PNG) je Seitentyp aus `og/vorlage.html` mit lokaler Schrift (E4-GRAF-04); Aufruf `node _werkstatt/werkzeuge/og.mjs [--nur <name>] [--aus src/assets/og] [--klein]` |
+| `live-check.mjs` | Live-Prüfung einer ausgelieferten Basis-URL gegen `src/konfig/sicherheit.mjs` und den Ausgabeordner: Kopfzeilen, MIME, Cache, 404, Weiterleitungen, offene Weiterleitungen, HTTPS (E4-PRUEF-12) |
 
 Die Argumente der E0-PRUEF-01-Werkzeuge stehen in den Skripten selbst (`parseArgs`). Die vier Werkzeuge dieses Pakets haben folgende Aufrufe; alle schreiben ihre Ergebnisse als JSON nach `--aus`.
 
@@ -61,4 +63,9 @@ Exit-Codes aller Werkzeuge: 0 ok, 1 Schwelle überschritten bzw. vnu-Fehler, 2 W
 node _werkstatt/werkzeuge/linkgraph.mjs --dist .cache/dist --aus .cache/linkgraph.json
 node _werkstatt/werkzeuge/aehnlichkeit.mjs --dist .cache/dist --paare 2000 --saat 7 --aus .cache/aehnlichkeit.json
 node _werkstatt/werkzeuge/ortsstichprobe.mjs --dist .cache/dist --daten src/daten/orte.json --saat 7 --aus .cache/ortsstichprobe.json
+```
+
+```sh
+# Live-Prüfung einer Basis-URL gegen den Ausgabeordner (nur lesen; Exit 1 bei FEHLER, 2 bei Werkzeugfehler)
+node _werkstatt/werkzeuge/live-check.mjs --basis https://beispiel.de --dist .cache/dist --aus .cache/live-check.json
 ```

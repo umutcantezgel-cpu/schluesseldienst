@@ -147,7 +147,7 @@ export async function seiten(k) {
       const stufen = [{ titel: g.titel, pfad: g.pfad }, { titel: l.titel, pfad: l.pfad }];
       aus.push({
         pfad: l.pfad, titel: inh.titel, beschreibung: inh.beschreibung, typ: 'arbeit', ansicht: 'V03',
-        sitemap: 'leistungen', koerperKlasse: `seite-leistung seite-gruppe-${g.id}`, stile: ['leistung'], brotkrumen: stufen,
+        sitemap: 'leistungen', koerperKlasse: `seite-leistung seite-gruppe-${g.id}`, stile: ['leistung'], ogBild: `/assets/og/${g.id}.png`, brotkrumen: stufen,
         jsonld: [leistungLd(k, g, l, inh), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, l.pfad, inh.faq)],
         inhalt: (sk) => html`${kopf(sk, g, l, inh)}
 ${blick(inh)}

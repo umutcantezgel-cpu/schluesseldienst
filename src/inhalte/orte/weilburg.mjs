@@ -1,7 +1,7 @@
 // Sonderseite Weilburg (Sitz des Betriebs), von Hand geschrieben. Hauptsuchbegriff laut Themenpass-Muster:
 // „schlüsseldienst weilburg stadtteile“ (die Startseite trägt „schlüsseldienst weilburg“).
 // Der Tunnel-Fakt ist bis zur Prüfung als „verifizieren“ markiert (Faktenblatt weilburg-tunnel).
-import { fakt } from '../../../bau/lib/fakten.mjs';
+import tunnel from '../fakten/weilburg-tunnel.mjs';
 
 export default {
   titel: 'Schlüsseldienst in Weilburg und allen Stadtteilen',
@@ -19,7 +19,7 @@ export default {
     {
       titel: 'Der gerade Weg',
       absaetze: [
-        ['Wie der ', fakt({ id: 'weilburg-tunnel.abkuerzung', text: 'Weilburger Schiffstunnel die Lahnschleife abkürzt', quelle: 'weilburg-tunnel', status: 'verifizieren' }), ', suchen wir in jedem Schloss die eine Linie, auf der es ohne Gewalt aufgeht. Ruhig im Ton, präzise im Handwerk, offen im Preis.'],
+        [tunnel.fakten.abkuerzung, ' Diese gerade Linie suchen wir in jedem Schloss: die eine, auf der es ohne Gewalt aufgeht. Ruhig im Ton, präzise im Handwerk, offen im Preis.'],
       ],
     },
   ],

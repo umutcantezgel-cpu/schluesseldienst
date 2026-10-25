@@ -19,7 +19,7 @@ export async function seiten(k) {
   const url = `${k.basisUrl}/ratgeber/`;
   return [{
     pfad: '/ratgeber/', titel: INHALT.titel, beschreibung: INHALT.beschreibung, typ: 'arbeit', ansicht: 'V08', sitemap: 'ratgeber',
-    koerperKlasse: 'seite-ratgeber', stile: ['ratgeber'], brotkrumen: stufen,
+    koerperKlasse: 'seite-ratgeber', stile: ['ratgeber'], ogBild: '/assets/og/ratgeber.png', brotkrumen: stufen,
     jsonld: [
       { '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${url}#seite`, name: INHALT.titel, url,
         mainEntity: { '@type': 'ItemList', itemListElement: artikel.map((a, i) => ({ '@type': 'ListItem', position: i + 1, url: `${k.basisUrl}${a.pfad}`, name: a.inhalt.h1 })) } },

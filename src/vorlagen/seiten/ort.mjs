@@ -263,7 +263,7 @@ export async function seiten(k) {
     aus.push({
       pfad, titel: sonder?.titel || titelVon(o, z, name), beschreibung: sonder?.beschreibung || beschreibungVon(o, z, name),
       typ: 'ort', ansicht: 'V07', sitemap: `orte-${o.landSlug}`, indexierbar: z.indexierung !== false,
-      koerperKlasse: 'seite-ort', stile: ['ort'], brotkrumen: stufen,
+      koerperKlasse: 'seite-ort', stile: ['ort'], ogBild: z.id === 'A' || z.id === 'B' ? '/assets/og/ort-nah.png' : '/assets/og/ort-fern.png', brotkrumen: stufen,
       // Ohne FAQPage-Daten: FAQ-Ergebnisse zeigt die Suche nur noch bei wenigen Website-Arten; spart ~1 KB je Ortsseite (D-SEO-02)
       jsonld: [ortLd(k, o, name, z), brotkrumenLd(k.basisUrl, stufen)],
       inhalt: (sk) => html`${kopf(sk, o, z, werte, sonder)}

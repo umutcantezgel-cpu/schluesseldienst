@@ -51,7 +51,7 @@ export async function seiten(k) {
   const eintraege = GRUPPEN.flatMap((g) => g.leistungen);
   return [{
     pfad: '/leistungen/', titel: inhalt.titel, beschreibung: inhalt.beschreibung, typ: 'arbeit', ansicht: 'V11', sitemap: 'leistungen',
-    koerperKlasse: 'seite-leistungen', stile: ['verzeichnis'], brotkrumen: stufen,
+    koerperKlasse: 'seite-leistungen', stile: ['verzeichnis'], ogBild: '/assets/og/leistungen.png', brotkrumen: stufen,
     jsonld: [
       { '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${url}#seite`, name: inhalt.titel, url, inLanguage: 'de', about: { '@id': `${k.basisUrl}/#betrieb` },
         mainEntity: { '@type': 'ItemList', itemListElement: eintraege.map((l, i) => ({ '@type': 'ListItem', position: i + 1, name: l.titel, url: `${k.basisUrl}${l.pfad}` })) } },

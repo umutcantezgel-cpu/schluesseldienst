@@ -153,7 +153,7 @@ function seite(k, { pfad, stufen, h1, titel, beschreibung, kicker, satz, abschni
   if (titel.length > TITEL_MAX) throw new Error(`Hub ${pfad}: Titel ${titel.length} Zeichen`);
   if (beschreibung.length < BESCHREIBUNG_MIN || beschreibung.length > BESCHREIBUNG_MAX) throw new Error(`Hub ${pfad}: Beschreibung ${beschreibung.length} Zeichen`);
   return {
-    pfad, titel, beschreibung, typ: 'hub', ansicht: 'V06', sitemap: 'hubs', koerperKlasse: 'seite-hub', stile: ['hubs'], brotkrumen: stufen,
+    pfad, titel, beschreibung, typ: 'hub', ansicht: 'V06', sitemap: 'hubs', koerperKlasse: 'seite-hub', stile: ['hubs'], ogBild: '/assets/og/einsatzgebiet.png', brotkrumen: stufen,
     jsonld: [brotkrumenLd(k.basisUrl, stufen), { '@context': 'https://schema.org', '@type': 'CollectionPage', name: h1, url: `${k.basisUrl}${pfad}` }],
     inhalt: () => html`<section class="hub-kopf" aria-labelledby="hub-titel"><div class="raster">
 <p class="hub-kicker">${kicker}</p>

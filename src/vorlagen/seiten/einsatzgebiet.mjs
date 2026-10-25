@@ -95,7 +95,7 @@ export function seiten(k) {
   const stufen = [{ titel: 'Einsatzgebiet', pfad: '/einsatzgebiet/' }];
   return [{
     pfad: '/einsatzgebiet/', titel: inhalt.titel, beschreibung: inhalt.beschreibung, typ: 'erzaehlung', ansicht: 'V05',
-    sitemap: 'hubs', koerperKlasse: 'seite-einsatzgebiet', stile: ['gebiet', 'einsatzgebiet'], brotkrumen: stufen,
+    sitemap: 'hubs', koerperKlasse: 'seite-einsatzgebiet', stile: ['gebiet', 'einsatzgebiet'], ogBild: '/assets/og/einsatzgebiet.png', brotkrumen: stufen,
     jsonld: [
       { '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': `${k.basisUrl}/einsatzgebiet/#seite`, name: inhalt.titel, url: `${k.basisUrl}/einsatzgebiet/`, about: { '@id': `${k.basisUrl}/#betrieb` } },
       brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, '/einsatzgebiet/', inhalt.faq),
