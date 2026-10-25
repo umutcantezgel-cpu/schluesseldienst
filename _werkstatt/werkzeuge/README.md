@@ -45,7 +45,7 @@ Exit-Codes aller Werkzeuge: 0 ok, 1 Schwelle überschritten bzw. vnu-Fehler, 2 W
 
 ## Hinweise
 
-- **Messungen nie parallel zu Builds.** Die Sperrdatei `.cache/mess.lock` markiert eine laufende Messung. Der Aufrufer legt sie an und entfernt sie danach; ein Build wartet, solange sie existiert. Die Werkzeuge setzen die Sperre nicht selbst.
+- **Messungen nie parallel.** Alle Browser-Werkzeuge (bild, bildsatz, axe, smoke, moment, lighthouse, inp, bildrate) setzen die Sperrdatei `.cache/mess.lock` selbst über `mitMessSperre` und warten, solange eine andere Messung läuft (höchstens 10 min). Builds während einer Messung vermeiden.
 - **Median statt Einzelmessung:** Lighthouse-Einzelläufe können abweichen (im Nachweis Best-Practices 96 im Einzellauf, 100 im Medianlauf). Für Schwellen immer den Median verwenden.
 - **Bildrate ohne GPU:** Headless ohne GPU ist die Messung eine Ersatzmessung (UMGEBUNGSAUSNAHME, in der Ausgabe ausgewiesen). Die GPU-Bildrate steht in `_werkstatt/MENSCHEN.md`.
 - **INP:** Die Schwelle `--max` gilt für den Maximalwert; p98 wird nur ausgegeben. Event Timing meldet Ereignisse erst ab 16 ms; Aktionen ohne Meldung werden als solche ausgewiesen.

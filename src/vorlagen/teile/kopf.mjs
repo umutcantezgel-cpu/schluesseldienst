@@ -29,7 +29,7 @@ ${p.untermenue.map((g) => html`<div class="hauptnav-gruppe">
 </li>` : html`<li class="hauptnav-punkt"><a href="${p.pfad}"${attr('aria-current', aktiv(sk, p.pfad))}>${p.titel}</a></li>`)}
 </ul>
 </nav>
-<a class="kopf-suche" href="/suche/">${icon(sk, 'suche')}<span>Suche</span></a>
+<a class="kopf-suche" href="/suche/">${icon(sk, 'suche')}<span class="unsichtbar">Suche</span></a>
 <div class="kopf-ruf">${rufknopf(sk, { variante: 'kopf' })}</div>
 </div>
 </header>`;

@@ -1,0 +1,8 @@
+[
+  { "typ": "klick", "selektor": "#hero-ort-eingabe" },
+  { "typ": "tippen", "selektor": "#hero-ort-eingabe", "text": "weil" },
+  { "typ": "taste", "text": "ArrowDown" },
+  { "typ": "taste", "text": "Enter" },
+  { "typ": "klick", "selektor": ".faq-frage >> nth=0" },
+  { "typ": "klick", "selektor": ".faq-frage >> nth=1" }
+]

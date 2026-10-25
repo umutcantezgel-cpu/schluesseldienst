@@ -6,7 +6,7 @@
 // Exit: 0 ok · 1 Schwelle überschritten · 2 Werkzeugfehler
 import { parseArgs } from 'node:util';
 import { readFile } from 'node:fs/promises';
-import { blockiereExtern, CHROMIUM, importiere, schreibeJson } from './lib.mjs';
+import { blockiereExtern, CHROMIUM, importiere, schreibeJson, mitMessSperre } from './lib.mjs';
 
 const TYPEN = ['klick', 'taste', 'tippen'];
 
@@ -97,7 +97,7 @@ async function main() {
   }
 }
 
-main().catch((e) => {
+mitMessSperre('inp', main).catch((e) => {
   console.error(`inp: Werkzeugfehler: ${e.message}`);
   process.exitCode = 2;
 });

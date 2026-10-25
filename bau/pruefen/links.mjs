@@ -10,6 +10,7 @@ export async function pruefe(ctx) {
   const kanten = new Map();
   const eingehend = new Map();
   const ids = new Map();
+  const geplantFehlt = new Set();
   for (const s of ctx.seiten) ids.set(s.pfad, new Set([...s.html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1])));
 
   for (const s of ctx.seiten) {
@@ -27,7 +28,12 @@ export async function pruefe(ctx) {
       if (/index\.html$/.test(pfad)) b('index-html', 'fehler', s.datei, `Link mit index.html: ${url}`);
       const istSeite = pfad.endsWith('/');
       const ziel = istSeite ? pfad + 'index.html' : pfad;
-      if (!dateien.has(ziel)) { b('ziel-fehlt', 'fehler', s.datei, `Ziel fehlt: ${url}`); continue; }
+      if (!dateien.has(ziel)) {
+        // Außerhalb des Release: Ziele aus dem Routenregister sind geplant (Sammelhinweis), alles andere ein Fehler.
+        if (ctx.modus !== 'release' && istSeite && ctx.geplant?.(pfad)) geplantFehlt.add(pfad);
+        else b('ziel-fehlt', 'fehler', s.datei, `Ziel fehlt: ${url}`);
+        continue;
+      }
       if (!istSeite && tag === 'a' && !/\.[a-z0-9]+$/.test(pfad)) b('schraegstrich', 'fehler', s.datei, `Seitenlink ohne Schrägstrich: ${url}`);
       if (anker && istSeite && seitenPfade.has(pfad) && !ids.get(pfad)?.has(anker)) b('anker', 'fehler', s.datei, `Anker fehlt im Ziel: ${url}`);
       if (tag === 'a' && istSeite && pfad !== s.pfad) ziele.add(pfad);
@@ -53,5 +59,6 @@ export async function pruefe(ctx) {
     const tiefen = [...tiefe.values()];
     befunde.push({ regel: 'links/graph', schwere: 'info', meldung: `erreichbar ${tiefe.size}/${ctx.seiten.length}, max. Tiefe ${Math.max(...tiefen)}` });
   }
+  if (geplantFehlt.size) befunde.push({ regel: 'links/geplant', schwere: 'info', meldung: `${geplantFehlt.size} verlinkte Ziele noch nicht gebaut (Routenregister): ${[...geplantFehlt].sort().join(', ')}` });
   return befunde;
 }

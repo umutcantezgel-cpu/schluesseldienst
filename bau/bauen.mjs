@@ -20,6 +20,7 @@ import { iconsLaden, icon as iconRoh } from '../src/vorlagen/teile/icons.mjs';
 import { datenIndizes } from './lib/datenindex.mjs';
 import { layout } from '../src/vorlagen/layout.mjs';
 import { signet } from '../src/vorlagen/teile/signet.mjs';
+import { istGeplant } from '../src/konfig/routen.mjs';
 
 const WURZEL = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -144,6 +145,9 @@ async function main() {
   }
   k.routen = routen;
   setzeRoutenPruefer((p) => routen.has(p));
+  // Geplant = im Routenregister (src/konfig/routen.mjs) oder Ortsslug aus den Daten; alles andere ist ein Tippfehler.
+  const slugs = new Set((daten.orte || []).map((o) => o.slug).filter(Boolean));
+  const geplant = (p) => istGeplant(p, { slugs });
 
   // Rendern
   const alleP = new Set();
@@ -163,8 +167,10 @@ async function main() {
     gerendert.push({ pfad: s.pfad, datei, html, typ: s.typ || 'seite', ansicht: s.ansicht, indexierbar: s.indexierbar !== false && s.pfad !== '/404.html', sitemap: s.sitemap || null });
   }
   const fehlend = [...new Set(fehlendeLinksHolen())];
+  const unbekannt = fehlend.filter((p) => !geplant(p));
+  if (unbekannt.length) throw new Error(`Interne Links auf unbekannte Routen (nicht im Routenregister): ${unbekannt.join(', ')}`);
   if (fehlend.length) {
-    if (modus !== 'release') log(`Warnung: interne Links ohne Ziel (noch nicht gebaut): ${fehlend.join(', ')}`);
+    if (modus !== 'release') log(`Hinweis: ${fehlend.length} interne Links auf geplante, noch nicht gebaute Seiten`);
     else throw new Error(`Interne Links ohne Ziel: ${fehlend.join(', ')}`);
   }
 
@@ -212,7 +218,7 @@ async function main() {
   let fehler = 0;
   if (arg.pruefen || modus === 'release') {
     const dateien = [...schreiber.geschrieben].map((d) => schreiber.relativ(d));
-    const ergebnisse = await pruefeAlles({ wurzel: WURZEL, dist: aus, modus, basisUrl, seiten: gerendert, dateien, konfig, assets, daten });
+    const ergebnisse = await pruefeAlles({ wurzel: WURZEL, dist: aus, modus, basisUrl, seiten: gerendert, dateien, konfig, assets, daten, geplant });
     const a = auswerten(ergebnisse, { streng: modus === 'release' ? ['seo/titel-laenge', 'seo/beschreibung-laenge'] : [] });
     log(a.text);
     bericht.pruefung = { fehler: a.fehler, warnungen: a.warnungen, je: ergebnisse.map((e) => ({ name: e.name, fehler: e.befunde.filter((b) => b.schwere === 'fehler').length, warnungen: e.befunde.filter((b) => b.schwere === 'warnung').length })) };

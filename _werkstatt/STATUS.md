@@ -1,4 +1,4 @@
-STATUS · Branch claude/bold-noether-fk2n4f · Etappe 2/6 · Welle E2 · Pflicht 14/67 · Kür 0/8 · Kriterien 0/10 · Ausnahmen 0 · Bestand grün (95/95 Tests, Prüfer grün außer Links zu noch fehlenden Seiten) · Nächster Schritt: Etappentor E2 (Prüfstufe B + Sichtabnahme V01)
+STATUS · Branch claude/bold-noether-fk2n4f · Etappe 2/6 · Welle E2 · Pflicht 17/67 · Kür 0/8 · Kriterien 0/10 · Ausnahmen 0 · Bestand grün (104/104 Tests, alle 10 Prüfer grün) · Nächster Schritt: E2-REVIEW auswerten → Befunde einarbeiten → E3 Welle 1
 
 # STATUS
 
@@ -25,3 +25,4 @@ STATUS · Branch claude/bold-noether-fk2n4f · Etappe 2/6 · Welle E2 · Pflicht
 ## Verlauf (eine Zeile je Stunde/Meilenstein)
 - 2026-10-25 13:05 MEZ · E0 gestartet · _werkstatt angelegt, Auftrag wörtlich gesichert, Planberichte gesichert
 - 2026-10-25 14:00 MEZ · E0/E1 abgeschlossen (Werkzeuge, Themenmatrizen, KERN v1, PLAN v2, ABNAHME) · E2: Generator, Prüfer (12 Module), Orts-Pipeline (5.252 Orte), Referenz V01 gebaut · 95 Tests grün
+- 2026-10-25 14:15 MEZ · E0-PRUEF-03 Vorher-Baseline fertig (Wettbewerber Perf 55–74, LCP 4,7–8,7 s) · E2-PRUEF-08 Prüfstufe B V01: Perf 98, LCP 2,1 s, CLS 0, INP 48 ms, Bildrate 2 %, 0 Überlauf; A11y-Befund (Suchlink) behoben → axe 0, Lighthouse A11y 100 · E2-OPUS-07 Register: Routen, Themenpässe (66 Seiten + 3 Muster), 33 Faktenblätter, Quellenabdeckung 48 R + 18 A · Links-Prüfer unterscheidet geplant/unbekannt · 104 Tests grün

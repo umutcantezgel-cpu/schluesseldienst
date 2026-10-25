@@ -1,0 +1,49 @@
+{
+  "werkzeug": "moment",
+  "url": "http://127.0.0.1:4173/",
+  "selektor": ".hero-figur",
+  "anzahlElemente": 1,
+  "viewport": "1440x900",
+  "drosselung": "aus (CDP-Rate 1)",
+  "domcontentloaded": "2026-10-25T13:04:03.612Z",
+  "blockierteExterneAnfragen": 0,
+  "fotos": [
+    {
+      "datei": "moment-01.jpg",
+      "sollMs": 0,
+      "istMs": 112,
+      "dauerMs": 119,
+      "bytes": 22508
+    },
+    {
+      "datei": "moment-02.jpg",
+      "sollMs": 300,
+      "istMs": 300,
+      "dauerMs": 84,
+      "bytes": 22750
+    },
+    {
+      "datei": "moment-03.jpg",
+      "sollMs": 600,
+      "istMs": 601,
+      "dauerMs": 79,
+      "bytes": 22629
+    },
+    {
+      "datei": "moment-04.jpg",
+      "sollMs": 900,
+      "istMs": 901,
+      "dauerMs": 79,
+      "bytes": 22796
+    },
+    {
+      "datei": "moment-05.jpg",
+      "sollMs": 1300,
+      "istMs": 1300,
+      "dauerMs": 96,
+      "bytes": 23207
+    }
+  ],
+  "fehler": 0,
+  "zeitpunkt": "2026-10-25T13:04:05.120Z"
+}

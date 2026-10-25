@@ -4,11 +4,11 @@
 //   [--max-lcp ms] [--max-cls x] [--max-tbt ms] [--max-fcp ms] [--max-si ms]
 // Exit: 0 ok · 1 Schwelle verfehlt · 2 Werkzeugfehler
 import { parseArgs } from 'node:util';
-import { CHROMIUM, importiere, median, schreibeJson } from './lib.mjs';
+import { CHROMIUM, importiere, median, schreibeJson, mitMessSperre } from './lib.mjs';
 
 const KATEGORIEN = { perf: 'performance', a11y: 'accessibility', bp: 'best-practices', seo: 'seo' };
-const AUDITS = { lcp: 'largest-contentful-paint', cls: 'cumulative-layout-shift', tbt: 'total-blocking-time', fcp: 'first-contentful-paint', si: 'speed-index' };
-const NAMEN = { perf: 'Performance', a11y: 'Accessibility', bp: 'Best-Practices', seo: 'SEO', lcp: 'LCP', cls: 'CLS', tbt: 'TBT', fcp: 'FCP', si: 'Speed Index' };
+const AUDITS = { lcp: 'largest-contentful-paint', cls: 'cumulative-layout-shift', tbt: 'total-blocking-time', fcp: 'first-contentful-paint', si: 'speed-index', bytes: 'total-byte-weight' };
+const NAMEN = { perf: 'Performance', a11y: 'Accessibility', bp: 'Best-Practices', seo: 'SEO', lcp: 'LCP', cls: 'CLS', tbt: 'TBT', fcp: 'FCP', si: 'Speed Index', bytes: 'Bytes' };
 const KZ = Object.keys(NAMEN);
 const SCHWELLEN = [
   { kz: 'perf', art: 'min', opt: 'min-perf' }, { kz: 'a11y', art: 'min', opt: 'min-a11y' },
@@ -22,6 +22,9 @@ function messen(lhr) {
   const werte = {};
   for (const [kz, id] of Object.entries(KATEGORIEN)) werte[kz] = lhr.categories[id].score * 100;
   for (const [kz, id] of Object.entries(AUDITS)) werte[kz] = lhr.audits[id]?.numericValue ?? null;
+  // Nicht bestandene, gewichtete Audits der Kategorien außer Performance (zeigt, was Punkte kostet).
+  werte.mangel = Object.entries(KATEGORIEN).filter(([kz]) => kz !== 'perf').flatMap(([, id]) => lhr.categories[id].auditRefs
+    .filter((r) => r.weight > 0 && lhr.audits[r.id]?.score !== null && lhr.audits[r.id]?.score < 1).map((r) => `${id}/${r.id}`));
   return werte;
 }
 const gemessen = (werte) => werte.filter(Number.isFinite);
@@ -105,7 +108,7 @@ async function main() {
   }
 }
 
-main().catch((e) => {
+mitMessSperre('lighthouse', main).catch((e) => {
   console.error(`lighthouse: Werkzeugfehler: ${e.message}`);
   process.exitCode = 2;
 });

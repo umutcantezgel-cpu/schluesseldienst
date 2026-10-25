@@ -11,7 +11,7 @@
   .rufknopf:active::before { opacity: var(--deck-aktiv); }
   .rufknopf:focus-visible { outline-offset: var(--linie-fokus); }
   .ruf-icon { inline-size: var(--icon-ui); block-size: var(--icon-ui); }
-  .ruf-text { display: grid; }
+  .ruf-text { display: grid; row-gap: var(--sp-3xs); }
   .ruf-beschriftung { font-weight: var(--fw-ui); }
   .ruf-nummer { font-weight: var(--fw-titel); white-space: nowrap; font-size: var(--fs-1); }
   .ruf-status { font-size: var(--fs--1); }

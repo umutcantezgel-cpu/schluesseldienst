@@ -4,7 +4,7 @@
 //   [--ausloeser laden|scroll|klick:<selektor>] [--max-verworfen 5]
 // Exit: 0 ok · 1 Schwelle überschritten · 2 Werkzeugfehler
 import { parseArgs } from 'node:util';
-import { blockiereExtern, CHROMIUM, importiere, median, schreibeJson } from './lib.mjs';
+import { blockiereExtern, CHROMIUM, importiere, median, schreibeJson, mitMessSperre } from './lib.mjs';
 
 const GRENZE_MS = 1.5 * 16.7;
 const UMGEBUNG = 'UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)';
@@ -95,7 +95,7 @@ async function main() {
   }
 }
 
-main().catch((e) => {
+mitMessSperre('bildrate', main).catch((e) => {
   console.error(`bildrate: Werkzeugfehler: ${e.message}`);
   process.exitCode = 2;
 });

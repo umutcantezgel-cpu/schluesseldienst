@@ -30,7 +30,6 @@
   .wortmarke .signet-linie { stroke: var(--c-kupfer); }
   .hauptnav { display: none; margin-inline-start: auto; }
   .kopf-suche { margin-inline-start: auto; display: inline-flex; align-items: center; gap: var(--sp-2xs); min-block-size: var(--ziel-min); min-inline-size: var(--ziel-min); justify-content: center; color: var(--c-tinte); text-decoration: none; }
-  .kopf-suche span { display: none; }
   .kopf-ruf { display: none; }
 
   @media (min-width: 64em) {

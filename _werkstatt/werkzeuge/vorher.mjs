@@ -82,6 +82,13 @@ function maskiereSeite() {
       z.logos++;
     }
   }
+  // Wortmarken oft als CSS-Hintergrundbild (div.logo): über Klasse oder id ausblenden.
+  for (const el of document.querySelectorAll('[class*="logo" i], [id*="logo" i]')) {
+    if (el.style.visibility !== 'hidden') {
+      el.style.visibility = 'hidden';
+      z.logos++;
+    }
+  }
   return z;
 }
 

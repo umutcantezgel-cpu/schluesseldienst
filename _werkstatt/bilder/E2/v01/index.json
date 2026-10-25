@@ -1,0 +1,670 @@
+{
+  "basis": "http://127.0.0.1:4173/",
+  "pfade": [
+    "/"
+  ],
+  "schemata": [
+    "light",
+    "dark"
+  ],
+  "zeitpunkt": "2026-10-25T13:15:43.889Z",
+  "seiten": [
+    {
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "status": 200,
+      "hoeheGesamt": 10267,
+      "ausschnitte": 12,
+      "gekuerzt": true
+    },
+    {
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "status": 200,
+      "hoeheGesamt": 10267,
+      "ausschnitte": 12,
+      "gekuerzt": true
+    },
+    {
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "light",
+      "status": 200,
+      "hoeheGesamt": 8658,
+      "ausschnitte": 9,
+      "gekuerzt": false
+    },
+    {
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "dark",
+      "status": 200,
+      "hoeheGesamt": 8658,
+      "ausschnitte": 9,
+      "gekuerzt": false
+    },
+    {
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "light",
+      "status": 200,
+      "hoeheGesamt": 7340,
+      "ausschnitte": 9,
+      "gekuerzt": false
+    },
+    {
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "dark",
+      "status": 200,
+      "hoeheGesamt": 7340,
+      "ausschnitte": 9,
+      "gekuerzt": false
+    }
+  ],
+  "anzahl": 60,
+  "bilder": [
+    {
+      "datei": "start__mobil__light__01.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 1,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 0
+    },
+    {
+      "datei": "start__mobil__light__02.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 2,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 844
+    },
+    {
+      "datei": "start__mobil__light__03.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 3,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 1688
+    },
+    {
+      "datei": "start__mobil__light__04.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 4,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 2532
+    },
+    {
+      "datei": "start__mobil__light__05.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 5,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 3376
+    },
+    {
+      "datei": "start__mobil__light__06.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 6,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 4220
+    },
+    {
+      "datei": "start__mobil__light__07.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 7,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 5064
+    },
+    {
+      "datei": "start__mobil__light__08.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 8,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 5908
+    },
+    {
+      "datei": "start__mobil__light__09.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 9,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 6752
+    },
+    {
+      "datei": "start__mobil__light__10.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 10,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 7596
+    },
+    {
+      "datei": "start__mobil__light__11.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 11,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 8440
+    },
+    {
+      "datei": "start__mobil__light__12.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "light",
+      "nr": 12,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 9284
+    },
+    {
+      "datei": "start__mobil__dark__01.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 1,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 0
+    },
+    {
+      "datei": "start__mobil__dark__02.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 2,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 844
+    },
+    {
+      "datei": "start__mobil__dark__03.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 3,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 1688
+    },
+    {
+      "datei": "start__mobil__dark__04.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 4,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 2532
+    },
+    {
+      "datei": "start__mobil__dark__05.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 5,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 3376
+    },
+    {
+      "datei": "start__mobil__dark__06.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 6,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 4220
+    },
+    {
+      "datei": "start__mobil__dark__07.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 7,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 5064
+    },
+    {
+      "datei": "start__mobil__dark__08.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 8,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 5908
+    },
+    {
+      "datei": "start__mobil__dark__09.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 9,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 6752
+    },
+    {
+      "datei": "start__mobil__dark__10.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 10,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 7596
+    },
+    {
+      "datei": "start__mobil__dark__11.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 11,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 8440
+    },
+    {
+      "datei": "start__mobil__dark__12.jpg",
+      "pfad": "/",
+      "geraet": "mobil",
+      "schema": "dark",
+      "nr": 12,
+      "breite": 390,
+      "hoehe": 844,
+      "scrollY": 9284
+    },
+    {
+      "datei": "start__tablet__light__01.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "light",
+      "nr": 1,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 0
+    },
+    {
+      "datei": "start__tablet__light__02.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "light",
+      "nr": 2,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 1024
+    },
+    {
+      "datei": "start__tablet__light__03.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "light",
+      "nr": 3,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 2048
+    },
+    {
+      "datei": "start__tablet__light__04.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "light",
+      "nr": 4,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 3072
+    },
+    {
+      "datei": "start__tablet__light__05.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "light",
+      "nr": 5,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 4096
+    },
+    {
+      "datei": "start__tablet__light__06.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "light",
+      "nr": 6,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 5120
+    },
+    {
+      "datei": "start__tablet__light__07.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "light",
+      "nr": 7,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 6144
+    },
+    {
+      "datei": "start__tablet__light__08.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "light",
+      "nr": 8,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 7168
+    },
+    {
+      "datei": "start__tablet__light__09.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "light",
+      "nr": 9,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 7634
+    },
+    {
+      "datei": "start__tablet__dark__01.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "dark",
+      "nr": 1,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 0
+    },
+    {
+      "datei": "start__tablet__dark__02.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "dark",
+      "nr": 2,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 1024
+    },
+    {
+      "datei": "start__tablet__dark__03.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "dark",
+      "nr": 3,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 2048
+    },
+    {
+      "datei": "start__tablet__dark__04.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "dark",
+      "nr": 4,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 3072
+    },
+    {
+      "datei": "start__tablet__dark__05.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "dark",
+      "nr": 5,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 4096
+    },
+    {
+      "datei": "start__tablet__dark__06.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "dark",
+      "nr": 6,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 5120
+    },
+    {
+      "datei": "start__tablet__dark__07.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "dark",
+      "nr": 7,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 6144
+    },
+    {
+      "datei": "start__tablet__dark__08.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "dark",
+      "nr": 8,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 7168
+    },
+    {
+      "datei": "start__tablet__dark__09.jpg",
+      "pfad": "/",
+      "geraet": "tablet",
+      "schema": "dark",
+      "nr": 9,
+      "breite": 768,
+      "hoehe": 1024,
+      "scrollY": 7634
+    },
+    {
+      "datei": "start__desktop__light__01.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "light",
+      "nr": 1,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 0
+    },
+    {
+      "datei": "start__desktop__light__02.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "light",
+      "nr": 2,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 900
+    },
+    {
+      "datei": "start__desktop__light__03.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "light",
+      "nr": 3,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 1800
+    },
+    {
+      "datei": "start__desktop__light__04.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "light",
+      "nr": 4,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 2700
+    },
+    {
+      "datei": "start__desktop__light__05.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "light",
+      "nr": 5,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 3600
+    },
+    {
+      "datei": "start__desktop__light__06.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "light",
+      "nr": 6,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 4500
+    },
+    {
+      "datei": "start__desktop__light__07.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "light",
+      "nr": 7,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 5400
+    },
+    {
+      "datei": "start__desktop__light__08.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "light",
+      "nr": 8,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 6300
+    },
+    {
+      "datei": "start__desktop__light__09.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "light",
+      "nr": 9,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 6440
+    },
+    {
+      "datei": "start__desktop__dark__01.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "dark",
+      "nr": 1,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 0
+    },
+    {
+      "datei": "start__desktop__dark__02.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "dark",
+      "nr": 2,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 900
+    },
+    {
+      "datei": "start__desktop__dark__03.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "dark",
+      "nr": 3,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 1800
+    },
+    {
+      "datei": "start__desktop__dark__04.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "dark",
+      "nr": 4,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 2700
+    },
+    {
+      "datei": "start__desktop__dark__05.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "dark",
+      "nr": 5,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 3600
+    },
+    {
+      "datei": "start__desktop__dark__06.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "dark",
+      "nr": 6,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 4500
+    },
+    {
+      "datei": "start__desktop__dark__07.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "dark",
+      "nr": 7,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 5400
+    },
+    {
+      "datei": "start__desktop__dark__08.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "dark",
+      "nr": 8,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 6300
+    },
+    {
+      "datei": "start__desktop__dark__09.jpg",
+      "pfad": "/",
+      "geraet": "desktop",
+      "schema": "dark",
+      "nr": 9,
+      "breite": 1440,
+      "hoehe": 900,
+      "scrollY": 6440
+    }
+  ]
+}
