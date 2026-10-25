@@ -21,6 +21,12 @@
     /* M-05 Zustand (Gruppenfilter /leistungen/): nur eingeblendete Gruppen nach einem Wechsel gleiten von −8 px; Basis = Endzustand */
     .verz-gruppe[data-zustand="neu"] { animation: m05-einblenden var(--dur-zustand) var(--ease-ein) backwards; }
 
+    /* M-07 FAQ öffnen: Antwort Deckkraft + Y −4px (der Chevron dreht per Übergang, faq.css) */
+    .faq-eintrag[open] .faq-antwort { animation: m-feedback-ein var(--dur-zustand) var(--ease-ein) backwards; }
+    /* M-08 Combobox-Liste und M-09 Feldfehler/Fehlerübersicht: Rückmeldung beim Erscheinen, kein Schütteln */
+    .ortspruefung-liste:not([hidden]) { animation: m-feedback-ein var(--dur-feedback) var(--ease-ein) backwards; }
+    .composer-fehler:not([hidden]), .composer-fehlerliste:not([hidden]) { animation: m20-erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
+
     /* M-21 Charakter (404): Der falsche Schlüssel rüttelt – Stifte wackeln, die Linienhälften finden nicht zusammen */
     [data-moment="falsch"] .zy-stiftpaar { animation: m21-wackeln var(--m21-dauer) var(--ease-standard) var(--m21-start); }
     [data-moment="falsch"] .zy-scherlinie-links { animation: m21-links var(--m21-dauer) var(--ease-standard) var(--m21-start); }
@@ -30,7 +36,7 @@
     @supports (animation-timeline: view()) {
       [data-ansicht="V01"] .sektion .abschnitt-kopf h2,
       [data-ansicht="V01"] .gebiet-figur,
-      [data-ansicht="V01"] .register-gross { animation: auftritt linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+      [data-ansicht="V01"] .register-gross { animation: auftritt linear both; animation-timeline: view(); animation-range: entry 0% entry 30%; }
       [data-ansicht="V01"] .abschnitt-linie { animation: linie-ziehen linear both; animation-timeline: view(); animation-range: entry 10% entry 45%; }
       [data-ansicht="V01"] .ablauf::before { animation: linie-ziehen linear both; animation-timeline: view(); animation-range: entry 20% cover 45%; }
 
@@ -70,6 +76,7 @@
   @keyframes m18-karte { from { transform: scale(var(--m18-karte-start)); opacity: 0; } }
   @keyframes m18-ring { from { transform: scale(var(--m18-ring-start)); opacity: 0; } }
   @keyframes m20-erscheinen { from { opacity: 0; } }
+  @keyframes m-feedback-ein { from { opacity: 0; transform: translateY(calc(-1 * var(--feedback-weg))); } }
   @keyframes m05-einblenden { from { opacity: 0; transform: translateY(calc(-1 * var(--zustand-weg))); } }
   @keyframes m21-wackeln { 17%, 50%, 83% { transform: translateY(calc(-1 * var(--m21-weg))); } 33%, 67% { transform: translateY(var(--m21-weg)); } }
   @keyframes m21-links { 25%, 75% { transform: translateX(calc(-1 * var(--m21-linie))); } }

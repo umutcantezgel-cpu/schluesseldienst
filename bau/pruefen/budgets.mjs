@@ -8,7 +8,7 @@ export const name = 'budgets';
 
 const GRENZE = {
   cssGz: 14336,
-  cssDruckGz: 3072,
+  cssDruckGz: 3072, // je Sonderstil-Datei (Druck, erzwungene Farben)
   jsGz: 16384,
   woff2Summe: 76800,
   ortRoh: 30720,
@@ -66,17 +66,22 @@ export async function pruefe(ctx) {
   const messung = {};
 
   // Bundles: CSS und JS aus dem Build-Ergebnis
+  // JS je Seite (D-JS-01): jedes Bündel einzeln gegen die Grenze; gemessen wird das größte
   for (const [art, bez, grenze] of [['css', 'CSS', GRENZE.cssGz], ['js', 'JS', GRENZE.jsGz]]) {
-    const pfad = ctx.assets?.[art]?.pfad;
-    if (!pfad) {
+    const pfade = art === 'js' && ctx.assets?.jsBuendel?.length ? ctx.assets.jsBuendel.map((b) => b.pfad) : [ctx.assets?.[art]?.pfad].filter(Boolean);
+    if (!pfade.length) {
       f('budgets/fehlt', 'fehler', `${bez}-Bundle nicht gemeldet (ctx.assets.${art}.pfad fehlt)`);
       continue;
     }
-    const buf = await lies(pfad);
-    if (!buf) continue;
-    messung[art] = gz(buf);
-    if (messung[art] > grenze) f(`budgets/${art}`, 'fehler', `${bez} gz ${messung[art]} B > ${grenze} B`, pfad);
+    for (const pfad of pfade) {
+      const buf = await lies(pfad);
+      if (!buf) continue;
+      const g = gz(buf);
+      messung[art] = Math.max(messung[art] ?? 0, g);
+      if (g > grenze) f(`budgets/${art}`, 'fehler', `${bez} gz ${g} B > ${grenze} B`, pfad);
+    }
   }
+  if (ctx.assets?.jsBuendel?.length) messung.jsBuendel = ctx.assets.jsBuendel.length;
 
   // Schriften: Summe aller .woff2 (Warnung) und vorgeladene Schriften je Seite (Fehler)
   let woffSumme = 0;
@@ -94,7 +99,7 @@ export async function pruefe(ctx) {
   // CSS je Seite: gemeinsames Bündel plus Ansichts-Stile (Summe gz); jede Datei wird einmal gemessen
   const cssGz = new Map();
   let cssSeiteMax = 0;
-  const druckLinks = new Set();
+  const sonderLinks = new Map(); // href → media
   // Klassen, die nur in Ansichts-Stilen definiert sind: Klasse → Bündelpfade (Seite muss eines davon laden)
   const nurAnsicht = new Map();
   const gemeinsam = new Set();
@@ -118,8 +123,9 @@ export async function pruefe(ctx) {
     for (const l of links) {
       const a = attribute(l);
       if (a.rel !== 'stylesheet' || !a.href?.startsWith('/assets/')) continue;
-      // Druckstile (media="print") blockieren das Rendern nicht; eigenes Budget budgets/css-druck (D-CSS-02)
-      if (a.media === 'print') { druckLinks.add(a.href); continue; }
+      // Sonderstile (media="print", forced-colors) blockieren das Rendern nur, wenn ihr Medium zutrifft; eigenes Budget
+      // je Datei (D-CSS-02, D-CSS-03). Andere media-Angaben zählen weiter zur Summe.
+      if (a.media === 'print' || /forced-colors/.test(a.media ?? '')) { sonderLinks.set(a.href, a.media); continue; }
       if (!cssGz.has(a.href)) { const b = await lies(a.href); cssGz.set(a.href, b ? gz(b) : 0); }
       cssSumme += cssGz.get(a.href);
     }
@@ -144,12 +150,13 @@ export async function pruefe(ctx) {
   }
   messung.vorladenMax = vorladenMax;
   messung.cssSeiteMax = cssSeiteMax;
-  for (const href of druckLinks) {
+  for (const [href, media] of sonderLinks) {
     const b = await lies(href);
     if (!b) continue;
     const g = gz(b);
-    messung.cssDruck = Math.max(messung.cssDruck || 0, g);
-    if (g > GRENZE.cssDruckGz) f('budgets/css-druck', 'fehler', `Druckstile gz ${g} B > ${GRENZE.cssDruckGz} B`, href);
+    const druck = media === 'print';
+    messung[druck ? 'cssDruck' : 'cssKontrast'] = Math.max(messung[druck ? 'cssDruck' : 'cssKontrast'] || 0, g);
+    if (g > GRENZE.cssDruckGz) f(druck ? 'budgets/css-druck' : 'budgets/css-sonder', 'fehler', `${druck ? 'Druckstile' : `Sonderstile (${media})`} gz ${g} B > ${GRENZE.cssDruckGz} B`, href);
   }
   for (const [k, dateien] of stilFehlt) {
     const eindeutig = [...new Set(dateien)];
@@ -182,7 +189,7 @@ export async function pruefe(ctx) {
 
   f('budgets/messung', 'info', [
     `CSS gz gemeinsam ${messung.css ?? '–'} B, je Seite max ${cssSeiteMax} B (Grenze ${GRENZE.cssGz})`,
-    `JS gz ${messung.js ?? '–'} B (Grenze ${GRENZE.jsGz})`,
+    `JS gz ${messung.js ?? '–'} B${messung.jsBuendel ? ` (größtes von ${messung.jsBuendel} Bündeln)` : ''} (Grenze ${GRENZE.jsGz})`,
     `Schriften .woff2 zusammen ${woffSumme} B (Grenze ${GRENZE.woff2Summe})`,
     `vorgeladene Schriften je Seite max ${vorladenMax} (Grenze 1)`,
     `Ortsseiten ${orte.length}, größte ${messung.orte.max} B roh (Grenze ${GRENZE.ortRoh}), Summe ${ortSumme} B`,

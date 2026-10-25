@@ -43,7 +43,7 @@ function hero(sk) {
 <figure class="hero-figur" id="hero-figur" data-moment="scherlinie">
 ${zylinderSchnitt({ praefix: 'hero-zy' })}
 <figcaption class="hero-figur-text">Liegen alle Stifte auf der Scherlinie, dreht sich der Kern – ohne Gewalt.
-<button class="knopf knopf-still hero-abspielen" type="button" data-modul="abspielen" aria-controls="hero-figur" hidden>${h.abspielen}</button></figcaption>
+<button class="knopf knopf-still hero-abspielen" type="button" data-modul="abspielen" aria-controls="hero-figur">${h.abspielen}</button></figcaption>
 </figure>
 <div class="hero-rest">
 <p class="hero-einleitung">${text(h.text)}</p>

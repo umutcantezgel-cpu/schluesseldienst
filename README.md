@@ -41,6 +41,8 @@ Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML
 | `--port=<n>` | Port der Basis-Adresse in Vorschau und Messung (Standard 4173). |
 | `--still` | Nur Fehler und Hinweise auf der Konsole. |
 
+Vorschau-Server: `node bau/vorschau.mjs [--aus <ordner>] [--port <n>] [--komprimieren]` – mit `--komprimieren` liefert er Textdateien gzip-komprimiert aus, wie ein Hoster mit Kompression (Messungen unter Produktionsbedingungen).
+
 ## Verzeichnisaufbau
 
 - `bau/`: Generator (`bauen.mjs`), Vorschau-Server (`vorschau.mjs`), `lib/` mit Ausgabe, Assets, Platzhaltern, Faktenblöcken und Hoster-Dateien, `pruefen/` mit den Prüfern.

@@ -8,7 +8,7 @@ import { execFileSync } from 'node:child_process';
 import { readdir, readFile, writeFile, mkdir, rm, rename } from 'node:fs/promises';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { cssBuendeln, ansichtenBuendeln, druckBuendeln, jsBuendeln, statischeAssets, hash10, sri } from './lib/assets.mjs';
+import { cssBuendeln, ansichtenBuendeln, sonderstileBuendeln, jsBuendeln, statischeAssets, hash10, sri } from './lib/assets.mjs';
 import { Schreiber } from './lib/schreiben.mjs';
 import { vorkomprimieren, veralteteVariantenEntfernen } from './lib/vorkomprimieren.mjs';
 import { aufloesen } from './lib/markierung.mjs';
@@ -121,23 +121,41 @@ async function main() {
   const cssPfad = `/assets/app.${hash10(cssBuf)}.css`;
   await schreiber.schreibe(cssPfad, cssBuf);
   const ansichten = {};
+  const ansichtTexte = {};
   for (const a of await ansichtenBuendeln(WURZEL, karte)) {
     const buf = Buffer.from(a.text, 'utf8');
     const pfad = `/assets/${a.name}.${hash10(buf)}.css`;
     await schreiber.schreibe(pfad, buf);
     ansichten[a.name] = { pfad, sri: sri(buf), bytes: buf.length };
+    ansichtTexte[a.name] = a.text;
   }
-  const druckCss = await druckBuendeln(WURZEL, karte);
-  let druck = null;
-  if (druckCss) {
-    const buf = Buffer.from(druckCss.text, 'utf8');
-    druck = { pfad: `/assets/druck.${hash10(buf)}.css`, sri: sri(buf), bytes: buf.length };
-    await schreiber.schreibe(druck.pfad, buf);
+  // Sonderstile (Druck, erzwungene Farben): eigene Dateien mit media-Angabe, nicht renderblockierend
+  const sonderstile = [];
+  for (const s of await sonderstileBuendeln(WURZEL, karte)) {
+    const buf = Buffer.from(s.text, 'utf8');
+    const eintrag = { name: s.name, media: s.media, pfad: `/assets/${s.name}.${hash10(buf)}.css`, sri: sri(buf), bytes: buf.length };
+    await schreiber.schreibe(eintrag.pfad, buf);
+    sonderstile.push(eintrag);
   }
-  const js = await jsBuendeln(join(WURZEL, 'src/assets/js/app.mjs'));
-  const jsBuf = Buffer.from(js.text, 'utf8');
-  const jsPfad = `/assets/app.${hash10(jsBuf)}.js`;
-  await schreiber.schreibe(jsPfad, jsBuf);
+  // JS je Seite (D-JS-01): Die Vorlage setzt eine Marke; nach dem Rendern bekommt jede Seite das Bündel genau der Module,
+  // die sie über data-modul nutzt (gebaut und geschrieben beim ersten Bedarf, je Inhalt einmal).
+  const JS_EINSTIEG = join(WURZEL, 'src/assets/js/app.mjs');
+  const JS_MARKE = { pfad: '/assets/app.MODULE.js', sri: 'MODULE' };
+  const jsJeSchluessel = new Map();
+  const jsJePfad = new Map();
+  async function jsFuer(namen) {
+    const schluessel = [...namen].sort().join(',');
+    if (!jsJeSchluessel.has(schluessel)) {
+      const buf = Buffer.from((await jsBuendeln(JS_EINSTIEG, { module: new Set(namen) })).text, 'utf8');
+      const pfad = `/assets/app.${hash10(buf)}.js`;
+      if (!jsJePfad.has(pfad)) {
+        await schreiber.schreibe(pfad, buf);
+        jsJePfad.set(pfad, { pfad, sri: sri(buf), bytes: buf.length, module: schluessel });
+      }
+      jsJeSchluessel.set(schluessel, jsJePfad.get(pfad));
+    }
+    return jsJeSchluessel.get(schluessel);
+  }
   const favSvg = String(signet('fav')).replace('<svg class="fav"', '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="#A84A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"').replace(' aria-hidden="true" focusable="false"', '');
   const favBuf = Buffer.from(favSvg, 'utf8');
   const favPfad = `/assets/favicon.${hash10(favBuf)}.svg`;
@@ -146,8 +164,8 @@ async function main() {
   const assets = {
     css: { pfad: cssPfad, sri: sri(cssBuf), bytes: cssBuf.length },
     ansichten,
-    druck,
-    js: { pfad: jsPfad, sri: sri(jsBuf), bytes: jsBuf.length },
+    sonderstile,
+    js: JS_MARKE, // nach dem Rendern: größtes Bündel; alle Bündel in jsBuendel
     favicon: favPfad,
     schriftVorladen,
     pfad(quelle, { optional = false } = {}) {
@@ -175,6 +193,19 @@ async function main() {
       seiten.push({ ...s, modul: name });
     }
   }
+  // Seiten mit mehreren Ansichts-Stilen laden sie als eine Datei (Name „a+b“), damit vor dem ersten Bild nur zwei
+  // Stylesheets nötig sind (gemeinsam + Ansicht); die Bytes je Seite bleiben gleich (D-CSS-01, Nachtrag)
+  for (const s of seiten) {
+    const namen = s.stile || [];
+    const schluessel = namen.join('+');
+    if (namen.length < 2 || assets.ansichten[schluessel]) continue;
+    const fehlt = namen.find((n) => !(n in ansichtTexte));
+    if (fehlt) throw new Error(`Seite ${s.pfad}: unbekannter Ansichts-Stil ${fehlt}`);
+    const buf = Buffer.from(namen.map((n) => ansichtTexte[n]).join(''), 'utf8');
+    const pfad = `/assets/${namen.join('-')}.${hash10(buf)}.css`;
+    await schreiber.schreibe(pfad, buf);
+    assets.ansichten[schluessel] = { pfad, sri: sri(buf), bytes: buf.length, teile: namen };
+  }
   const routen = new Set();
   for (const s of seiten) {
     if (routen.has(s.pfad)) throw new Error(`Doppelte Route ${s.pfad}`);
@@ -198,13 +229,21 @@ async function main() {
     const sk = Object.assign(Object.create(k), { seite: s, icons: new Set() });
     sk.icon = (name, opt) => iconRoh(sk, name, opt);
     const roh = String(layout(sk));
-    const { html, platzhalter, fakten } = aufloesen(roh);
+    const aufgeloest = aufloesen(roh);
+    const { platzhalter, fakten } = aufgeloest;
+    const marke = `<script type="module" src="${JS_MARKE.pfad}" integrity="${JS_MARKE.sri}"></script>`;
+    if (!aufgeloest.html.includes(marke)) throw new Error(`${s.pfad}: Skript-Marke der Vorlage fehlt`);
+    const js = await jsFuer(new Set([...aufgeloest.html.matchAll(/\sdata-modul="([a-z][a-z0-9-]*)"/g)].map((m) => m[1])));
+    const html = aufgeloest.html.replace(marke, `<script type="module" src="${js.pfad}" integrity="${js.sri}"></script>`);
     platzhalter.forEach((p) => alleP.add(p));
     fakten.forEach((f) => alleF.add(f));
     const datei = zielDatei(s.pfad);
     await schreiber.schreibe(datei, html);
     gerendert.push({ pfad: s.pfad, datei, html, typ: s.typ || 'seite', ansicht: s.ansicht, indexierbar: s.indexierbar !== false && s.pfad !== '/404.html', sitemap: s.sitemap || null });
   }
+  // Alle JS-Bündel für Prüfer und Bericht; assets.js zeigt auf das größte
+  assets.jsBuendel = [...jsJePfad.values()].sort((a, b) => b.bytes - a.bytes);
+  if (assets.jsBuendel.length) assets.js = assets.jsBuendel[0];
   const fehlend = [...new Set(fehlendeLinksHolen())];
   const unbekannt = fehlend.filter((p) => !geplant(p));
   if (unbekannt.length) throw new Error(`Interne Links auf unbekannte Routen (nicht im Routenregister): ${unbekannt.join(', ')}`);
@@ -251,11 +290,11 @@ async function main() {
   const konfigP = platzhalterIn({ betrieb: konfig.betrieb, preise: konfig.preise, zonen: konfig.zonen });
   const bericht = {
     modus, basisUrl, datum, seiten: gerendert.length, dateien: schreiber.bericht(), entfernt,
-    css: assets.css.bytes, js: assets.js.bytes, platzhalterAusgabe: alleP.size, platzhalterKonfig: konfigP.length,
+    css: assets.css.bytes, js: assets.js.bytes, jsBuendel: (assets.jsBuendel ?? []).map((b) => ({ module: b.module, bytes: b.bytes })), platzhalterAusgabe: alleP.size, platzhalterKonfig: konfigP.length,
     faktenUngeprueft: alleF.size, ms: Math.round(performance.now() - start),
     ...(vork && { vorkomprimiert: vork }),
   };
-  log(`Build ${modus}: ${bericht.seiten} Seiten, ${bericht.dateien.geaendert} geändert, ${entfernt} entfernt, CSS ${bericht.css} B, JS ${bericht.js} B, ${bericht.ms} ms`);
+  log(`Build ${modus}: ${bericht.seiten} Seiten, ${bericht.dateien.geaendert} geändert, ${entfernt} entfernt, CSS ${bericht.css} B, JS ${bericht.jsBuendel.length} Bündel bis ${bericht.js} B, ${bericht.ms} ms`);
   if (vork) log(`Vorkomprimiert: ${vork.neu} neu, ${vork.unveraendert} unverändert, ${vork.zuGross} nicht kleiner, ${vork.entfernt} entfernt · .br ${vork.br} B · .gz ${vork.gz} B (Quellen ${vork.original} B) · ${vork.ms} ms`);
   log(`Platzhalter: ${alleP.size} in der Ausgabe, ${konfigP.length} in der Konfiguration · ungeprüfte Fakten: ${alleF.size}`);
 

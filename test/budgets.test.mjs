@@ -90,3 +90,17 @@ test('Druckstile (media="print") zählen nicht zur Summe je Seite, haben aber ei
   const b2 = await lauf({ ...GRUND, 'assets/druck.css': druckGross, 'preise/index.html': mitDruck(['preise'], 'knopf') });
   assert.deepEqual(b2.filter((x) => x.schwere === 'fehler').map((x) => x.regel), ['budgets/css-druck']);
 });
+
+test('Stile für erzwungene Farben (media="(forced-colors: active)") zählen wie Druckstile nicht zur Summe; andere media schon', async () => {
+  const { createHash } = await import('node:crypto');
+  const rauschen = (n) => Array.from({ length: n }, (_, i) => createHash('sha256').update(String(i)).digest('hex')).join('');
+  const mit = (media) => seite(['preise'], 'knopf').replace('</head>', `<link rel="stylesheet" href="/assets/k.css" media="${media}"></head>`);
+  const app = `.knopf{content:"${rauschen(350)}"}`;
+  const k = `.kopf{content:"${rauschen(75)}"}`;
+  const b1 = await lauf({ ...GRUND, 'assets/app.css': app, 'assets/k.css': k, 'preise/index.html': mit('(forced-colors: active)') });
+  assert.deepEqual(b1.filter((x) => x.schwere === 'fehler').map((x) => x.regel), []);
+  const b2 = await lauf({ ...GRUND, 'assets/app.css': app, 'assets/k.css': k, 'preise/index.html': mit('(min-width: 48em)') });
+  assert.deepEqual(b2.filter((x) => x.schwere === 'fehler').map((x) => x.regel), ['budgets/css-seite']);
+  const b3 = await lauf({ ...GRUND, 'assets/k.css': `.kopf{content:"${rauschen(100)}"}`, 'preise/index.html': mit('(forced-colors: active)') });
+  assert.deepEqual(b3.filter((x) => x.schwere === 'fehler').map((x) => x.regel), ['budgets/css-sonder']);
+});

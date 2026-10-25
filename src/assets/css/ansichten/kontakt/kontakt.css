@@ -31,7 +31,8 @@
   .composer-eingabe[aria-invalid="true"] { border-color: var(--c-fehler); box-shadow: inset 0 0 0 1px var(--c-fehler); }
   .composer-fehler { font-size: var(--fs--1); font-weight: var(--fw-ui); color: var(--c-fehler); }
   .composer-fehlerliste { padding: var(--sp-s) var(--sp-m); border-inline-start: var(--sp-3xs) solid var(--c-fehler); background: var(--c-fehler-hell); border-radius: var(--r-s); }
-  .composer-fehlerliste:focus-visible { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: var(--linie-fokus); }
+  /* :focus statt :focus-visible: der Fokus kommt nach dem Absenden per Skript, auch nach einem Mausklick */
+  .composer-fehlerliste:focus { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: var(--linie-fokus); }
   .composer-fehler-titel { font-weight: var(--fw-titel); }
   .composer-fehlerliste ul { margin-block-start: var(--sp-2xs); padding-inline-start: var(--sp-m); }
   .composer-fehlerliste a { color: var(--c-fehler); font-weight: var(--fw-ui); }

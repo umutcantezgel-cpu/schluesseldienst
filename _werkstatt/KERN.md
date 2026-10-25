@@ -106,22 +106,22 @@ Technik: nur `transform`/`opacity`; CSS `@layer bewegung`; Startzustände nur in
 | M-02 | Rückmeldung | Hover-Überlagerung (`::before` Deckkraft .10) | feedback / standard | gleich (nur Deckkraft) |
 | M-03 | Rückmeldung | `:active` | scale .98, feedback | nur Überlagerung |
 | M-04 | Orientierung | Rufleisten-Status | keine Animation (bewusst, P2) | – |
-| M-05 | Zustand | Navigations-Panel | Deckkraft + Y −8px, zustand / zustand-aus | Deckkraft, feedback |
-| M-06 | Zustand | Menü-Blatt (`@starting-style`) | Y 100%→0, 320ms ein / 240ms aus; Hintergrund Deckkraft | Deckkraft 150ms |
+| M-05 | Zustand | Navigations-Panel (Aufklapper-Pfeil dreht mit); Gruppenfilter /leistungen/ (nach einem Wechsel eingeblendete Gruppen) | Deckkraft + Y −8px, zustand / zustand-aus | Deckkraft, feedback |
+| M-06 | Zustand | Menü-Blatt (`@starting-style`) | Y 100%→0, zustand (300ms) ein / 240ms aus; Hintergrund Deckkraft | Deckkraft 150ms |
 | M-07 | Zustand | FAQ öffnen | Inhalt Deckkraft + Y −4px, zustand; Chevron dreht | sofort |
 | M-08 | Rückmeldung | Combobox-Liste | Deckkraft + Y −4px, feedback | sofort |
 | M-09 | Rückmeldung | Feldfehler / Fehlerübersicht | Deckkraft, feedback; kein Schütteln | sofort |
 | M-10 | Rückmeldung | Ladeanzeige (einzige Endlos-Animation, nur während Laden, erst nach 300ms) | Drehung 900ms linear | statisches Icon + Text |
-| M-11 | Rückmeldung | Erfolg (z. B. E-Mail vorbereitet) | Deckkraft + scale .96→1, zustand | sofort |
+| M-11 | – | entfällt: keine Erfolgsmeldung (PLAN Kontakt; der Composer öffnet nur das Mailprogramm) | – | – |
 | M-12 | Rückmeldung | Ergebnis Rechner/PLZ-Prüfung | Deckkraft .6→1, feedback; nie hochzählen | sofort |
-| M-13 | Hierarchie | Abschnittsauftritt (nur Erzählansichten; Überschriften und Figuren, nie Fließtext) | Y 24px + Deckkraft, view() entry 0–30 %, ein | keiner |
-| M-14 | Orientierung | Linie am Abschnittskopf | scaleX .2→1, view() entry, linie | statisch bei 1 |
+| M-13 | Hierarchie | Abschnittsauftritt (V01; die übrigen Erzählansichten tragen ihre großen Momente M-17, M-18, M-20; Überschriften und Figuren, nie Fließtext) | Y 24px + Deckkraft, view() entry 0–30 %, ein | keiner |
+| M-14 | Orientierung | Linie am Abschnittskopf; Linie des Ablaufs (V01) | scaleX .2→1, view() entry, linie | statisch bei 1 |
 | M-15 | Zusammenhang | Seitenwechsel (View Transition) | Wurzel aus 160 / ein 240; Gruppe `scherlinie` 400 standard; Rufleiste und Kopf stehen | keiner |
-| M-16 | **Großer Moment Start: „Scherlinie“** | Laden | Schlüssel X −40%→0 420 ein; 5 Stiftpaare auf die Scherlinie 360 einrasten, Staffel 70; Linie scaleX 480 linie ab 900ms; gesamt ≤ 1.400ms. H1, Ortsprüfung, Anruf nie animiert. Knopf „Ablauf noch einmal ansehen“ startet neu. | Endzustand statisch |
+| M-16 | **Großer Moment Start: „Scherlinie“** | Laden | Schlüssel X −40%→0 420 ein; 5 Stiftpaare auf die Scherlinie 360 einrasten, Staffel 70, Federn stauchen mit (scaleY); Linie scaleX 480 linie ab 900ms; gesamt ≤ 1.400ms. H1, Ortsprüfung, Anruf nie animiert. Knopf „Ablauf noch einmal ansehen“ startet neu. | Endzustand statisch |
 | M-17 | **Großer Moment Leistungsgruppe: Szene** | Scrollen (Schritt in Viewport-Mitte) | Figur `[data-schritt=n]`, Teile 360 standard; Notöffnung „Stift für Stift“, Einbruchschutz „Tür-Schichten“, Sicherheitstechnik „Grundriss-Zonen“, Einbau & Tresore „Widerstandsstufen“ | nicht klebend; kleine statische Einzelbilder |
-| M-18 | **Großer Moment Einsatzgebiet: „Ringe um Weilburg“** | view() | Rasterkarte (ein `<path>`) scale .42→1, Ringe scale .6→1 + Deckkraft, Staffel 120 | statische Hessen-Ansicht |
-| M-19 | Zusammenhang | Ort gewählt (Karte) | Linie auf Peilung gedreht (SVG-`transform`-Attribut), scaleX 0→1 480 linie; km-Beschriftung blendet ein | sofort |
-| M-20 | **Großer Moment Über uns: „Der gerade Weg“** | view() | Tunnel-Linie scaleX über den Bogen | statisch |
+| M-18 | **Großer Moment Einsatzgebiet: „Ringe um Weilburg“** | view() | Rasterkarte (ein `<path>`) scale .42→1, Ringe scale .6→1 + Deckkraft, Staffel über gestaffelte view()-Bereiche | statische Hessen-Ansicht |
+| M-19 | Zusammenhang | Ortsseite geladen (Lagekarte, K-04) | Linie auf Peilung gedreht (SVG-`transform`-Attribut), scaleX 0→1 480 linie; km-Beschriftung blendet ein | sofort |
+| M-20 | **Großer Moment Über uns: „Der gerade Weg“** | view() | Fluss im Bogen, dann Tunnel-Linie scaleX über den Bogen; Tor und Beschriftung „Schiffstunnel“ blenden ein | statisch |
 | M-21 | Charakter | 404 | Stifte wackeln 3× (Y ±3px, gesamt 600ms), Linienhälften X ±4px | statischer gebrochener Zustand |
 Nichts läuft automatisch länger als 5 s → kein Pause-Knopf nötig. Nichts blinkt.
 
@@ -147,7 +147,7 @@ Nichts läuft automatisch länger als 5 s → kein Pause-Knopf nötig. Nichts bl
 
 ## K-011 Budgets
 - LCP ≤ 2,5 s · CLS ≤ 0,1 · INP ≤ 200 ms (4× Drosselung) · Lighthouse mobil Perf ≥ 95, A11y/BP/SEO 100 (im Messbuild).
-- Bewegungscode ≤ 12 KB gz (hart 60 KB) · JS gesamt ≤ 16 KB gz · CSS ≤ 14 KB gz je Seite (gemeinsames Bündel `app.css` aus `komponenten/` plus die Ansichts-Stile der Seite aus `ansichten/<name>/`, Angabe `stile: […]` im Seitenobjekt; Prüfer `budgets/css-seite`, `budgets/stil-fehlt`; Druck- und Kontrastregeln im gemeinsamen Bündel zählen dort nicht als gemeinsame Stile) · Druckstile als eigene Datei `druck.*.css` mit `media="print"` (nicht renderblockierend, nicht in der Summe je Seite) ≤ 3 KB gz (`budgets/css-druck`) · Schriften vorgeladen ≤ 1 Datei, gesamt ≤ 75 KB · Ortsseiten-HTML ≤ 30 KB roh · Orts-Index ≤ 80 KB gz, PLZ-Index ≤ 50 KB gz (laden erst bei Fokus).
+- Bewegungscode ≤ 12 KB gz (hart 60 KB) · JS je Seite (Bündel der genutzten Module, D-JS-01) ≤ 16 KB gz · CSS ≤ 14 KB gz je Seite (gemeinsames Bündel `app.css` aus `komponenten/` plus die Ansichts-Stile der Seite aus `ansichten/<name>/`, Angabe `stile: […]` im Seitenobjekt; Prüfer `budgets/css-seite`, `budgets/stil-fehlt`; Druck- und Kontrastregeln im gemeinsamen Bündel zählen dort nicht als gemeinsame Stile) · Sonderstile als eigene Dateien, nicht renderblockierend und nicht in der Summe je Seite: Druck `druck.*.css` mit `media="print"` ≤ 3 KB gz (`budgets/css-druck`), erzwungene Farben `kontrast.*.css` mit `media="(forced-colors: active)"` ≤ 3 KB gz (`budgets/css-sonder`) · Schriften vorgeladen ≤ 1 Datei, gesamt ≤ 75 KB · Ortsseiten-HTML ≤ 30 KB roh · Orts-Index ≤ 80 KB gz, PLZ-Index ≤ 50 KB gz (laden erst bei Fokus).
 - Große Momente: ≤ 5 % verworfene Bilder bei 4× Drosselung (Ersatzmessung headless, UMGEBUNGSAUSNAHME für echte Geräte).
 - Build: ganzer Lauf ≤ 60 s, Stichprobe ≤ 5 s (ohne `--vorkomprimieren`; dieser Release-Schritt kostet kalt zusätzlich ≈ 1–1,5 min, warm ≈ 5 s – ENTSCHEIDUNGEN D-K05-01).
 

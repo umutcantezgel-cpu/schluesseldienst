@@ -19,6 +19,9 @@ function titelMitMarke(sk) {
 
 // Ansichts-Stile der Seite (seite.stile): unbekannte Namen brechen den Build ab
 function stile(seite, assets) {
+  // mehrere Ansichts-Stile: die zusammengesetzte Datei „a+b“, wenn der Build sie angelegt hat
+  const kombi = (seite.stile || []).length > 1 ? assets.ansichten?.[seite.stile.join('+')] : null;
+  if (kombi) return [kombi];
   return (seite.stile || []).map((name) => {
     const a = assets.ansichten?.[name];
     if (!a) throw new Error(`Seite ${seite.pfad}: unbekannter Ansichts-Stil ${name}`);
@@ -59,8 +62,8 @@ ${og ? html`<meta property="og:image" content="${basisUrl + og}">
 ${assets.schriftVorladen ? html`<link rel="preload" href="${assets.schriftVorladen}" as="font" type="font/woff2" crossorigin>` : ''}
 <link rel="stylesheet" href="${assets.css.pfad}" integrity="${assets.css.sri}">
 ${stile(seite, assets).map((a) => html`<link rel="stylesheet" href="${a.pfad}" integrity="${a.sri}">
-`)}${assets.druck ? html`<link rel="stylesheet" href="${assets.druck.pfad}" integrity="${assets.druck.sri}" media="print">
-` : ''}<script type="module" src="${assets.js.pfad}" integrity="${assets.js.sri}"></script>
+`)}${(assets.sonderstile ?? []).map((a) => html`<link rel="stylesheet" href="${a.pfad}" integrity="${a.sri}" media="${a.media}">
+`)}<script type="module" src="${assets.js.pfad}" integrity="${assets.js.sri}"></script>
 <link rel="icon" href="${assets.favicon}" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
 ${ld.map((o) => html`<script type="application/ld+json">${jsonBlock(o)}</script>
@@ -68,11 +71,11 @@ ${ld.map((o) => html`<script type="application/ld+json">${jsonBlock(o)}</script>
 <body class="${seite.koerperKlasse || ''}" data-ansicht="${seite.ansicht || ''}">
 <a class="sprunglink" href="#inhalt">Zum Inhalt springen</a>
 ${kopf(sk)}
+${rufleiste(sk)}
 <main id="inhalt" tabindex="-1">
 ${krumen}${inhalt}
 </main>
 ${fuss(sk)}
-${rufleiste(sk)}
 ${symbole(sk)}
 </body>
 </html>

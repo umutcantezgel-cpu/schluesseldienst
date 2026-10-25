@@ -2,7 +2,10 @@
 // Lokaler Vorschau-Server (nur 127.0.0.1) mit exakt den Produktions-Headern aus src/konfig/sicherheit.mjs.
 // Schutz: Pfad-Ausbrüche, kodierte Schrägstriche und Doppel-Schrägstriche werden abgewiesen;
 // Weiterleitungen nur auf feste Herkunft (nie aus dem Host-Header).
+// --komprimieren: Textantworten gzip-komprimiert, wenn der Client gzip annimmt – wie ein Hoster mit Kompression
+// (Messungen unter Produktionsbedingungen; ohne den Schalter unkomprimiert wie bisher, vergleichbar mit E2–E4).
 import { createServer } from 'node:http';
+import { gzipSync } from 'node:zlib';
 import { readFile, stat } from 'node:fs/promises';
 import { join, resolve, extname, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -12,7 +15,7 @@ import { kopfzeilen, CACHE, MIME } from '../src/konfig/sicherheit.mjs';
 const WURZEL = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // Server und Argumente nur bei direktem Aufruf (Import für Tests startet nichts).
 const DIREKT = Boolean(process.argv[1]) && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-const { values: arg } = DIREKT ? parseArgs({ options: { port: { type: 'string' }, aus: { type: 'string' }, still: { type: 'boolean' } } }) : { values: {} };
+const { values: arg } = DIREKT ? parseArgs({ options: { port: { type: 'string' }, aus: { type: 'string' }, still: { type: 'boolean' }, komprimieren: { type: 'boolean' } } }) : { values: {} };
 const PORT = Number(arg.port || 4173);
 const BASIS = resolve(WURZEL, arg.aus || 'dist');
 const HERKUNFT = `http://127.0.0.1:${PORT}`;
@@ -38,8 +41,18 @@ export function pfadPruefen(roh) {
 
 async function datei(p) { try { const s = await stat(p); return s.isFile() ? p : null; } catch { return null; } }
 
+const TEXT = /^(text\/|application\/(javascript|json|xml|manifest\+json)|image\/svg\+xml)/;
+const nimmtGzip = (kopf) => /(^|,)\s*gzip\s*(;\s*q=(?!0(\.0*)?\s*(,|$))[\d.]+)?\s*(,|$)/i.test(kopf || '');
+
 const server = createServer(async (anf, antw) => {
-  const senden = (status, kopf, inhalt) => { antw.writeHead(status, { ...KOPF, ...kopf }); antw.end(anf.method === 'HEAD' ? undefined : inhalt); };
+  const senden = (status, kopf, inhalt) => {
+    if (arg.komprimieren && inhalt && TEXT.test(kopf['Content-Type'] || '')) {
+      kopf = { ...kopf, Vary: 'Accept-Encoding' };
+      if (nimmtGzip(anf.headers['accept-encoding'])) { inhalt = gzipSync(inhalt, { level: 6 }); kopf['Content-Encoding'] = 'gzip'; }
+    }
+    antw.writeHead(status, { ...KOPF, ...kopf });
+    antw.end(anf.method === 'HEAD' ? undefined : inhalt);
+  };
   if (anf.method !== 'GET' && anf.method !== 'HEAD') return senden(405, { Allow: 'GET, HEAD', 'Content-Type': 'text/plain; charset=utf-8' }, '405');
   const p = pfadPruefen(anf.url || '/');
   if (p === null) return senden(400, { 'Content-Type': 'text/plain; charset=utf-8' }, '400');

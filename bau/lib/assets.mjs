@@ -7,7 +7,7 @@ import { join, dirname, resolve, basename, extname, relative } from 'node:path';
 export const hash10 = (buf) => createHash('sha256').update(buf).digest('hex').slice(0, 10);
 export const sri = (buf) => 'sha384-' + createHash('sha384').update(buf).digest('base64');
 
-const CSS_REIHENFOLGE = ['token.css', 'schriften.css', 'basis.css', 'layout.css', 'komponenten/*', 'bewegung.css', 'hilfen.css'];
+const CSS_REIHENFOLGE = ['token.css', 'schriften.css', 'basis.css', 'layout.css', 'komponenten/*', 'bewegung.css'];
 
 async function dateien(ordner) {
   try { return (await readdir(ordner, { withFileTypes: true })).filter((d) => d.isFile()).map((d) => d.name).sort(); } catch { return []; }
@@ -40,16 +40,24 @@ export async function cssBuendeln(wurzel, pfadKarte) {
 }
 
 /**
- * Druckstile als eigene Datei: Seiten laden sie mit media="print", sie blockieren das Rendern am Bildschirm nicht
- * und zählen nicht zum CSS-Budget je Seite, sondern zu einem eigenen (budgets/css-druck; ENTSCHEIDUNGEN D-CSS-02).
+ * Sonderstile als eigene Dateien mit media-Angabe: Druck (media="print", D-CSS-02) und erzwungene Farben
+ * (media="(forced-colors: active)", D-CSS-03). Sie blockieren das Rendern nur, wenn ihr Medium zutrifft, und zählen
+ * nicht zum CSS-Budget je Seite, sondern je Datei zu einem eigenen (budgets/css-druck, budgets/css-sonder).
  */
-export async function druckBuendeln(wurzel, pfadKarte) {
-  try {
-    return cssVerdichten([{ name: 'druck.css', text: await readFile(join(wurzel, 'src/assets/css/druck.css'), 'utf8') }], pfadKarte);
-  } catch (e) {
-    if (e.code === 'ENOENT') return null;
-    throw e;
+export const SONDERSTILE = [
+  { name: 'druck', datei: 'druck.css', media: 'print' },
+  { name: 'kontrast', datei: 'hilfen.css', media: '(forced-colors: active)' },
+];
+export async function sonderstileBuendeln(wurzel, pfadKarte) {
+  const aus = [];
+  for (const s of SONDERSTILE) {
+    try {
+      aus.push({ ...s, ...cssVerdichten([{ name: s.datei, text: await readFile(join(wurzel, 'src/assets/css', s.datei), 'utf8') }], pfadKarte) });
+    } catch (e) {
+      if (e.code !== 'ENOENT') throw e;
+    }
   }
+  return aus;
 }
 
 /**
@@ -74,7 +82,17 @@ const IMPORT = /^import\s*\{([^}]*)\}\s*from\s*['"](\.{1,2}\/[^'"]+)['"];?\s*$/g
 const DEKLARATION = /^(?:export\s+)?(?:async\s+)?(?:const|let|function\*?|class)\s+([A-Za-z_$][\w$]*)/gm;
 
 /** Führt ES-Module ab einem Einstieg flach zusammen (nur benannte relative Importe, keine Umbenennung). */
-export async function jsBuendeln(einstieg) {
+// JS je Seite (D-JS-01): Aus dem Einstieg bleiben nur die Importe und MODULE-Einträge der genannten Module;
+// ihre Abhängigkeiten (logik/) folgen über die Importe. Unbekannte Namen werden übergangen (wie zur Laufzeit).
+function einstiegFiltern(quelle, module) {
+  const ohne = quelle.replace(IMPORT, (zeile, namen) => (namen.split(',').map((n) => n.trim()).filter(Boolean).every((n) => module.has(n)) ? zeile : ''));
+  const MODULZEILE = /^const MODULE = \{([^}]*)\};$/m;
+  if (!MODULZEILE.test(ohne)) throw new Error('JS-Einstieg: Zeile „const MODULE = { … };“ fehlt');
+  return ohne.replace(MODULZEILE, (z, namen) => `const MODULE = { ${namen.split(',').map((n) => n.trim()).filter((n) => module.has(n)).join(', ')} };`);
+}
+
+/** Bündelt den Einstieg mit seinen Importen; mit { module } nur die genannten Module (JS je Seite). */
+export async function jsBuendeln(einstieg, { module = null } = {}) {
   const besucht = new Map();
   const reihenfolge = [];
   const namen = new Map();
@@ -83,7 +101,8 @@ export async function jsBuendeln(einstieg) {
     if (kette.includes(abs)) throw new Error(`JS-Zyklus: ${[...kette, abs].map((p) => basename(p)).join(' → ')}`);
     if (besucht.has(abs)) return;
     besucht.set(abs, true);
-    const quelle = await readFile(abs, 'utf8');
+    let quelle = await readFile(abs, 'utf8');
+    if (module && abs === resolve(einstieg)) quelle = einstiegFiltern(quelle, module);
     if (/\bimport\s*\(/.test(quelle)) throw new Error(`${basename(abs)}: dynamisches import() ist verboten`);
     if (/^\s*import\s+[^{\s]/m.test(quelle) || /^\s*export\s+(default|\*|\{)/m.test(quelle)) throw new Error(`${basename(abs)}: nur benannte Importe/Exporte erlaubt`);
     for (const m of quelle.matchAll(IMPORT)) {

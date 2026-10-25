@@ -39,4 +39,8 @@
     .hero-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
   }
   .hero-figur-text .hero-abspielen { padding-inline: 0; min-block-size: var(--ziel-min); }
+  /* „Ablauf noch einmal ansehen“: Platz von Anfang an reserviert (kein Layoutsprung, wenn das Skript ihn freigibt);
+     ohne JavaScript unsichtbar und nicht fokussierbar, bei reduzierter Bewegung gar nicht vorhanden */
+  html:not(.js) .hero-abspielen { visibility: hidden; }
+  @media (prefers-reduced-motion: reduce) { .hero-abspielen { display: none; } }
 }

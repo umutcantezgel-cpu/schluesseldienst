@@ -111,7 +111,7 @@ ${verzeichnis(orte)}
 }
 
 // Der Kreis in Zahlen (K-08): vier feste Einträge, berechnet nur aus orte.json und den Zonen aus zonen.mjs.
-// Keine Wertung, keine Fließtext-Varianten. Jede Zahl steht in data-daten. Niederlande: ohne PLZ (nur deutsche Kreise).
+// Keine Wertung, keine Fließtext-Varianten. Jede Zahl steht in data-daten. Niederlande: vierstellige Postleitzahlen.
 const zahlD = (n) => html`<span data-daten="">${zahl(n)}</span>`;
 const kmD = (n) => html`<span data-daten="">${zahl(n)}</span>&nbsp;km`;
 const ein = (n, eins, viele) => (n === 1 ? eins : viele);
@@ -127,8 +127,11 @@ function zonenZeile(orte, zonen) {
   return liste.map((z, i) => html`${i ? ', ' : ''}${zahlD(z.n)} ${ein(z.n, 'Ort', 'Orte')} in Zone ${z.id} (${z.titel})`);
 }
 
-function plzZeile(orte) {
-  const plz = orte.filter((o) => o.staat === 'DE').flatMap((o) => o.plz || []).filter((p) => /^\d{5}$/.test(p)).sort();
+// Deutsche Postleitzahlen fünfstellig, niederländische vierstellig (Ziffernteil, wie in den GeoNames-Daten)
+const PLZ_FORM = { DE: /^\d{5}$/, NL: /^\d{4}$/ };
+function plzZeile(orte, staat) {
+  const form = PLZ_FORM[staat] ?? PLZ_FORM.DE;
+  const plz = orte.filter((o) => o.staat === staat).flatMap((o) => o.plz || []).filter((p) => form.test(p)).sort();
   if (!plz.length) return 'Keine Postleitzahl in den Daten';
   const [kleinste, groesste] = [plz[0], plz[plz.length - 1]];
   // ausgeschrieben, weil die Spanne über mehrere Leitregionen reichen kann (kein lückenloser Bereich)
@@ -160,7 +163,7 @@ export function kennzahlenAbschnitt(zonen, orte, staat, art) {
       : html`<dt>Nächster und entferntester Ort ab Weilburg</dt><dd><span class="kreis-zahlen-zeile">Nächster: ${ortLink(naechster)}, ${nachWeilburg(naechster)}</span><span class="kreis-zahlen-zeile">Entferntester: ${ortLink(entferntester)}, ${nachWeilburg(entferntester)}</span></dd>`,
     html`<dt>Verteilung auf die Zonen</dt><dd>${zonenZeile(orte, zonen)}</dd>`,
   ];
-  if (staat === 'DE') eintraege.push(html`<dt>Postleitzahlen</dt><dd>${plzZeile(orte)}</dd>`);
+  eintraege.push(html`<dt>Postleitzahlen</dt><dd>${plzZeile(orte, staat)}</dd>`);
   return html`<section class="sektion sektion-dicht" aria-labelledby="hub-zahlen-titel"><div class="raster">
 ${abschnittKopf({ id: 'hub-zahlen-titel', titel: `${art === 'Kreis' ? 'Der' : 'Die'} ${art} in Zahlen` })}
 <dl class="kreis-zahlen">${eintraege}</dl>

@@ -39,10 +39,11 @@ test('ein Ort bzw. gleiche Entfernung: eine Zeile statt zweimal desselben Orts',
   assert.match(drei, /Entferntester: C, 30 km/);
 });
 
-test('Null-Werte entfallen; PLZ ausgeschrieben; NL ohne PLZ', () => {
+test('Null-Werte entfallen; PLZ ausgeschrieben; NL mit vierstelligen PLZ', () => {
   const nurOrtsteile = text(kennzahlenAbschnitt(zonen, [ort('X', 3, 'ortsteil', ['35781']), ort('Y', 4, 'ortsteil', ['65627'])], 'DE', 'Stadt'));
   assert.match(nurOrtsteile, /2 Ortsteile/);
   assert.doesNotMatch(nurOrtsteile, /\d Gemeinde/);
   assert.match(nurOrtsteile, /kleinste 35781, größte 65627/);
-  assert.doesNotMatch(text(kennzahlenAbschnitt(zonen, [ort('Z', 300)], 'NL', 'Provinz')), /Postleitzahlen/);
+  const nl = { ...ort('Z', 300, 'gemeinde', ['7601', '7611']), staat: 'NL', zone: 'NL' };
+  assert.match(text(kennzahlenAbschnitt(zonen, [nl], 'NL', 'Provinz')), /Postleitzahlen.*kleinste 7601, größte 7611/s);
 });

@@ -2,7 +2,8 @@
    Farben auf Systemfarben. Deshalb: Flächen mit innerer 1px-Kante (outline, damit Akzentkanten als border erhalten
    bleiben), Auswahl und Hauptaktion über dicken Highlight-Rahmen (keine Highlight-Fläche: Chromium legt hinter Text sonst
    eine Canvas-Rückplatte), Striche in Textfarbe, Akzente in Highlight. :where() gibt den Kanten kein Gewicht, damit Fokus
-   und Auswahl gewinnen. Nur unter forced-colors: active; die Normalansicht bleibt unberührt. */
+   und Auswahl gewinnen. Nur unter forced-colors: active; die Normalansicht bleibt unberührt. Eigene Datei, geladen mit
+   media="(forced-colors: active)" (blockiert das Rendern nur in Kontrastdesigns; ENTSCHEIDUNGEN D-CSS-03). */
 @layer hilfen {
   @media (forced-colors: active) {
 

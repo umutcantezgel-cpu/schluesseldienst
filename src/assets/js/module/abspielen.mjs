@@ -1,5 +1,5 @@
 // „Ablauf noch einmal ansehen“ (M-16): startet die CSS-Animation des großen Moments neu.
-// Nur sichtbar, wenn keine reduzierte Bewegung eingestellt ist.
+// Nur sichtbar, wenn keine reduzierte Bewegung eingestellt ist (Grundzustand per CSS in hero.css, ohne Layoutsprung).
 export function abspielen(knopf) {
   const ziel = document.getElementById(knopf.getAttribute('aria-controls'));
   const bewegung = window.matchMedia('(prefers-reduced-motion: no-preference)');
