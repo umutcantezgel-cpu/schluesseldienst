@@ -20,6 +20,7 @@ import { rechnungIllustration } from '../teile/illustrationen/rechnung.mjs';
 import { fensterSchichten } from '../teile/illustrationen/fensterschichten.mjs';
 import { notoeffnungObjekte } from '../teile/illustrationen/objekte.mjs';
 import { zylinderSchnitt } from '../teile/illustrationen/zylinder.mjs';
+import { schadensbilder } from '../teile/illustrationen/schadensbilder.mjs';
 
 export const KATEGORIEN = {
   notfall: { titel: 'Im Notfall', kurz: 'Ausgesperrt, Schlüssel weg, Einbruch – was jetzt hilft.' },
@@ -37,6 +38,7 @@ const FIGUREN = {
   'fenster-schichten': (p) => fensterSchichten({ praefix: p }),
   objekte: () => notoeffnungObjekte(),
   zylinder: (p) => zylinderSchnitt({ praefix: p, dekorativ: true }),
+  schadensbilder: (p) => schadensbilder({ praefix: p }),
 };
 
 const anker = (i) => `teil-${i + 1}`;

@@ -8,8 +8,8 @@ export default {
   h1: 'Schäden durch falsche Türöffnung',
   kurz: 'Schäden an Tür und Schloss entstehen durch Selbstversuche, gewaltsame Öffnung etwa bei einem Feuerwehreinsatz und durch Einbrüche. Die Spuren ähneln sich oft, unterscheiden sich aber in Ort und Art. Wer sie kennt, kann besser einschätzen, was repariert werden muss.',
   stand: '2026-10-25',
-  figur: 'tuer-schichten',
-  figurText: 'Schematische Wohnungstür: Zylinder, Beschlag und Schließblech sind die Stellen, an denen Spuren bleiben.',
+  figur: 'schadensbilder',
+  figurText: 'Schematische Türkante mit Schloss: links eine gewaltsam geöffnete Zarge, in der Mitte Kratzer an Zylinder und Beschlag nach einem Selbstversuch, rechts Hebelspuren an Kante und Schließblech nach einem Einbruch.',
   wichtig: [
     'Ein **Selbstversuch** mit Karte oder Draht hinterlässt oft Spuren an Lack, Falle oder Schließblech.',
     'Eine **gewaltsame Öffnung** beschädigt Tür und Beschlag, auch wenn sie nötig war.',
