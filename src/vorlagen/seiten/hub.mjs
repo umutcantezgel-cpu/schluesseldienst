@@ -131,10 +131,21 @@ function plzZeile(orte) {
   const plz = orte.filter((o) => o.staat === 'DE').flatMap((o) => o.plz || []).filter((p) => /^\d{5}$/.test(p)).sort();
   if (!plz.length) return 'Keine Postleitzahl in den Daten';
   const [kleinste, groesste] = [plz[0], plz[plz.length - 1]];
-  return kleinste === groesste ? html`<span data-daten="">${kleinste}</span>` : html`<span data-daten="">${kleinste}–${groesste}</span>`;
+  // ausgeschrieben, weil die Spanne über mehrere Leitregionen reichen kann (kein lückenloser Bereich)
+  return kleinste === groesste ? html`<span data-daten="">${kleinste}</span>` : html`kleinste <span data-daten="">${kleinste}</span>, größte <span data-daten="">${groesste}</span>`;
 }
 
-// art: 'Kreis' | 'Provinz' | 'Stadt' (Stadtstaaten) – nur für die Überschrift
+// Gebietsart für die Überschrift: Provinz (NL), Stadt (kreisfreie Städte, auch die drei, die GeoNames ohne Zusatz
+// führt), Region (Kommunalverbände) oder Kreis
+const STADT_OHNE_ZUSATZ = new Set(['Delmenhorst', 'Dessau-Roßlau', 'Frankfurt am Main']);
+function gebietsart(titel, nl) {
+  if (nl) return 'Provinz';
+  if (/^(Kreisfreie Stadt|Stadtkreis|Landeshauptstadt)\s/.test(titel) || STADT_OHNE_ZUSATZ.has(titel)) return 'Stadt';
+  if (/^(Region|Städteregion|Regionalverband)\s/.test(titel)) return 'Region';
+  return 'Kreis';
+}
+
+// art: 'Kreis' | 'Provinz' | 'Stadt' | 'Region' – nur für die Überschrift
 function kennzahlenAbschnitt(zonen, orte, staat, art) {
   const gemeinden = orte.filter((o) => o.typ === 'gemeinde').length;
   const ortsteile = orte.filter((o) => o.typ === 'ortsteil').length;
@@ -143,7 +154,10 @@ function kennzahlenAbschnitt(zonen, orte, staat, art) {
   const eintraege = [
     // Null-Werte entfallen (Stadtstaaten haben in den Daten nur Ortsteile)
     html`<dt>Gemeinden und Ortsteile</dt><dd>${[[gemeinden, 'Gemeinde', 'Gemeinden'], [ortsteile, 'Ortsteil', 'Ortsteile']].filter(([n]) => n > 0).map(([n, eins, viele], i) => html`${i ? ' · ' : ''}${zahlD(n)} ${ein(n, eins, viele)}`)}</dd>`,
-    html`<dt>Nächster und entferntester Ort ab Weilburg</dt><dd><span class="kreis-zahlen-zeile">Nächster: ${ortLink(naechster)}, ${nachWeilburg(naechster)}</span><span class="kreis-zahlen-zeile">Entferntester: ${ortLink(entferntester)}, ${nachWeilburg(entferntester)}</span></dd>`,
+    // ein Ort oder alle gleich weit: eine Zeile statt zweimal desselben Orts
+    naechster.km === entferntester.km
+      ? html`<dt>Entfernung ab Weilburg</dt><dd>${orte.length === 1 ? html`Einziger Ort: ${ortLink(naechster)}, ${nachWeilburg(naechster)}` : html`Alle Orte: ${nachWeilburg(naechster)}`}</dd>`
+      : html`<dt>Nächster und entferntester Ort ab Weilburg</dt><dd><span class="kreis-zahlen-zeile">Nächster: ${ortLink(naechster)}, ${nachWeilburg(naechster)}</span><span class="kreis-zahlen-zeile">Entferntester: ${ortLink(entferntester)}, ${nachWeilburg(entferntester)}</span></dd>`,
     html`<dt>Verteilung auf die Zonen</dt><dd>${zonenZeile(orte, zonen)}</dd>`,
   ];
   if (staat === 'DE') eintraege.push(html`<dt>Postleitzahlen</dt><dd>${plzZeile(orte)}</dd>`);
@@ -246,7 +260,7 @@ export function seiten(k) {
         pfad, stufen, h1, titel, kicker: `Einsatzgebiet · ${l.titel}`,
         beschreibung: `${orteText(kr.orte.length)} im Verzeichnis: ${name}. ${SITZ_ZEILE}`,
         satz: html`<span data-daten="">${orteText(kr.orte.length)}</span>, ${entfernungSatz(sk)}. Die Zone steht bei jedem Ort.`,
-        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, kr.orte, l.staat, nl ? 'Provinz' : 'Kreis')}${azAbschnitt(kr.orte)}${weitereKreise(l, kr)}`,
+        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, kr.orte, l.staat, gebietsart(kr.titel, nl))}${azAbschnitt(kr.orte)}${weitereKreise(l, kr)}`,
       }));
     }
   }
