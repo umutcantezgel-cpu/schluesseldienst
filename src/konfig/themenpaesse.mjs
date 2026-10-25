@@ -737,7 +737,7 @@ rg('rauchmelderpflicht', {
   keyword: 'rauchmelderpflicht',
   neben: ['rauchmelderpflicht hessen', 'wer muss rauchmelder installieren'],
   absicht: 'Klären, wer wo Rauchmelder installieren und warten muss.',
-  kern: 'Hessen ausführlich, übrige Länder als Tabelle aus dem Faktenblatt; Mieter und Eigentümer getrennt.',
+  kern: 'Hessen ausführlich, dazu die Länder mit geprüftem Wortlaut im Faktenblatt; für die übrigen der Weg zur Bauaufsicht. Mieter und Eigentümer getrennt.',
   abschnitte: ['Pflicht in Hessen', 'Wer einbaut, wer wartet', 'Welche Räume', 'Andere Länder im Überblick'],
   fragen: ['Wer muss in einer Mietwohnung die Rauchmelder warten?', 'In welchen Räumen sind Rauchmelder vorgeschrieben?', 'Gilt die Pflicht auch für Bestandsbauten?'],
   fakten: ['recht-rauchmelder', 'norm-rauchmelder'],
