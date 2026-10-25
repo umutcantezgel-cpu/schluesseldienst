@@ -1,0 +1,4156 @@
+{
+ "basis": "http://127.0.0.1:4201/",
+ "pfade": [
+  "/",
+  "/einbruchschutz/",
+  "/notoeffnung/tueroeffnung/",
+  "/preise/",
+  "/einsatzgebiet/",
+  "/einsatzgebiet/hessen/limburg-weilburg/",
+  "/schluesseldienst-loehnberg/",
+  "/ratgeber/rauchmelderpflicht/",
+  "/ueber-uns/",
+  "/kontakt/",
+  "/suche/",
+  "/impressum/",
+  "/gibt-es-nicht/"
+ ],
+ "schemata": [
+  "light",
+  "dark"
+ ],
+ "zeitpunkt": "2026-10-25T20:18:28.681Z",
+ "seiten": [
+  {
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 11274,
+   "ausschnitte": 12,
+   "gekuerzt": true
+  },
+  {
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 11274,
+   "ausschnitte": 12,
+   "gekuerzt": true
+  },
+  {
+   "pfad": "/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 9330,
+   "ausschnitte": 10,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 9330,
+   "ausschnitte": 10,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 7597,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 7597,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 9805,
+   "ausschnitte": 12,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 9805,
+   "ausschnitte": 12,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 8809,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 8809,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 7767,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 7767,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 7038,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 7038,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5318,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5318,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 3993,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 3993,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 10828,
+   "ausschnitte": 12,
+   "gekuerzt": true
+  },
+  {
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 10828,
+   "ausschnitte": 12,
+   "gekuerzt": true
+  },
+  {
+   "pfad": "/preise/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 8579,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/preise/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 8579,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 6609,
+   "ausschnitte": 8,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 6609,
+   "ausschnitte": 8,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 7540,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 7540,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5917,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5917,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5283,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5283,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 11047,
+   "ausschnitte": 12,
+   "gekuerzt": true
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 11047,
+   "ausschnitte": 12,
+   "gekuerzt": true
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 6430,
+   "ausschnitte": 7,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 6430,
+   "ausschnitte": 7,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5006,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5006,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5944,
+   "ausschnitte": 8,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5944,
+   "ausschnitte": 8,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 4499,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 4499,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 3376,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 3376,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 7186,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 7186,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5591,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5591,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 4626,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 4626,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5165,
+   "ausschnitte": 7,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5165,
+   "ausschnitte": 7,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ueber-uns/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 4163,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ueber-uns/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 4163,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ueber-uns/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 3682,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/ueber-uns/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 3682,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 6157,
+   "ausschnitte": 8,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 6157,
+   "ausschnitte": 8,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/kontakt/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 4396,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/kontakt/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 4396,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/kontakt/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 4030,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/kontakt/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 4030,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/suche/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 3007,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/suche/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 3007,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/suche/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 2097,
+   "ausschnitte": 3,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/suche/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 2097,
+   "ausschnitte": 3,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/suche/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 1869,
+   "ausschnitte": 3,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/suche/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 1869,
+   "ausschnitte": 3,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 4898,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 4898,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/impressum/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 3783,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/impressum/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 3783,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/impressum/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 3216,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/impressum/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 3216,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 404,
+   "hoeheGesamt": 3289,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 404,
+   "hoeheGesamt": 3289,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 404,
+   "hoeheGesamt": 2251,
+   "ausschnitte": 3,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 404,
+   "hoeheGesamt": 2251,
+   "ausschnitte": 3,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 404,
+   "hoeheGesamt": 2015,
+   "ausschnitte": 3,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 404,
+   "hoeheGesamt": 2015,
+   "ausschnitte": 3,
+   "gekuerzt": false
+  }
+ ],
+ "anzahl": 526,
+ "bilder": [
+  {
+   "datei": "start__mobil__light__01.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "start__mobil__light__02.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "start__mobil__light__03.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "start__mobil__light__04.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "start__mobil__light__05.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "start__mobil__light__06.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "start__mobil__light__07.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "start__mobil__light__08.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "start__mobil__light__09.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6752
+  },
+  {
+   "datei": "start__mobil__light__10.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 10,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 7596
+  },
+  {
+   "datei": "start__mobil__light__11.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 11,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 8440
+  },
+  {
+   "datei": "start__mobil__light__12.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 12,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 9284
+  },
+  {
+   "datei": "start__mobil__dark__01.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "start__mobil__dark__02.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "start__mobil__dark__03.jpg",
+   "pfad": "/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "start__tablet__light__01.jpg",
+   "pfad": "/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "start__tablet__light__02.jpg",
+   "pfad": "/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "start__tablet__light__03.jpg",
+   "pfad": "/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "start__tablet__dark__01.jpg",
+   "pfad": "/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "start__tablet__dark__02.jpg",
+   "pfad": "/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "start__tablet__dark__03.jpg",
+   "pfad": "/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "start__desktop__light__01.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "start__desktop__light__02.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "start__desktop__light__03.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "start__desktop__light__04.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "start__desktop__light__05.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3600
+  },
+  {
+   "datei": "start__desktop__light__06.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 6,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 4500
+  },
+  {
+   "datei": "start__desktop__light__07.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 7,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 5400
+  },
+  {
+   "datei": "start__desktop__light__08.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 8,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 6300
+  },
+  {
+   "datei": "start__desktop__light__09.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 9,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 6697
+  },
+  {
+   "datei": "start__desktop__dark__01.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "start__desktop__dark__02.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "start__desktop__dark__03.jpg",
+   "pfad": "/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__04.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__05.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__06.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__07.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__08.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__09.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6752
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__10.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 10,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 7596
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__11.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 11,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 8440
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__12.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 12,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 8961
+  },
+  {
+   "datei": "einbruchschutz__mobil__dark__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__mobil__dark__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einbruchschutz__mobil__dark__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einbruchschutz__tablet__light__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__tablet__light__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einbruchschutz__tablet__light__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einbruchschutz__tablet__dark__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__tablet__dark__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einbruchschutz__tablet__dark__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__04.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__05.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3600
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__06.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 6,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 4500
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__07.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 7,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 5400
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__08.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 8,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 6300
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__09.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 9,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 6867
+  },
+  {
+   "datei": "einbruchschutz__desktop__dark__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__desktop__dark__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einbruchschutz__desktop__dark__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__04.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__05.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__06.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__07.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__08.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__09.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6194
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__dark__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__dark__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__dark__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__light__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__light__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__light__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__dark__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__dark__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__dark__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__light__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__light__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__light__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__light__04.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__light__05.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3093
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__dark__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__dark__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__dark__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "preise__mobil__light__01.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "preise__mobil__light__02.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "preise__mobil__light__03.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "preise__mobil__light__04.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "preise__mobil__light__05.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "preise__mobil__light__06.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "preise__mobil__light__07.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "preise__mobil__light__08.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "preise__mobil__light__09.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6752
+  },
+  {
+   "datei": "preise__mobil__light__10.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 10,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 7596
+  },
+  {
+   "datei": "preise__mobil__light__11.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 11,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 8440
+  },
+  {
+   "datei": "preise__mobil__light__12.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 12,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 9284
+  },
+  {
+   "datei": "preise__mobil__dark__01.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "preise__mobil__dark__02.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "preise__mobil__dark__03.jpg",
+   "pfad": "/preise/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "preise__tablet__light__01.jpg",
+   "pfad": "/preise/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "preise__tablet__light__02.jpg",
+   "pfad": "/preise/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "preise__tablet__light__03.jpg",
+   "pfad": "/preise/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "preise__tablet__dark__01.jpg",
+   "pfad": "/preise/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "preise__tablet__dark__02.jpg",
+   "pfad": "/preise/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "preise__tablet__dark__03.jpg",
+   "pfad": "/preise/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "preise__desktop__light__01.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "preise__desktop__light__02.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "preise__desktop__light__03.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "preise__desktop__light__04.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "preise__desktop__light__05.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3600
+  },
+  {
+   "datei": "preise__desktop__light__06.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 6,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 4500
+  },
+  {
+   "datei": "preise__desktop__light__07.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 7,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 5400
+  },
+  {
+   "datei": "preise__desktop__light__08.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 8,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 5709
+  },
+  {
+   "datei": "preise__desktop__dark__01.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "preise__desktop__dark__02.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "preise__desktop__dark__03.jpg",
+   "pfad": "/preise/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__04.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__05.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__06.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__07.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__08.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__09.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6696
+  },
+  {
+   "datei": "einsatzgebiet__mobil__dark__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__mobil__dark__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einsatzgebiet__mobil__dark__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einsatzgebiet__tablet__light__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__tablet__light__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einsatzgebiet__tablet__light__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einsatzgebiet__tablet__dark__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__tablet__dark__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einsatzgebiet__tablet__dark__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__04.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__05.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3600
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__06.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 6,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 4383
+  },
+  {
+   "datei": "einsatzgebiet__desktop__dark__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__desktop__dark__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einsatzgebiet__desktop__dark__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__04.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__05.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__06.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__07.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__08.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__09.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6752
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__10.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 10,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 7596
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__11.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 11,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 8440
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__12.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 12,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 9284
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__dark__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__dark__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__dark__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__light__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__light__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__light__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__dark__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__dark__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__dark__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__04.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__05.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3600
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__06.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 6,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 4106
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__dark__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__dark__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__dark__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__04.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__05.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__06.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__07.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__08.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5100
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__dark__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__dark__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__dark__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__light__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__light__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__light__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__dark__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__dark__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__dark__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__light__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__light__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__light__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__light__04.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2476
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__dark__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__dark__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__dark__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__light__01.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__light__02.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__light__03.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__light__04.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__light__05.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__light__06.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__light__07.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__light__08.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__light__09.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6342
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__dark__01.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__dark__02.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__mobil__dark__03.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__tablet__light__01.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__tablet__light__02.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__tablet__light__03.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__tablet__dark__01.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__tablet__dark__02.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__tablet__dark__03.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__desktop__light__01.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__desktop__light__02.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__desktop__light__03.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__desktop__light__04.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__desktop__light__05.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3600
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__desktop__light__06.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 6,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3726
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__desktop__dark__01.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__desktop__dark__02.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "ratgeber-rauchmelderpflicht__desktop__dark__03.jpg",
+   "pfad": "/ratgeber/rauchmelderpflicht/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "ueber-uns__mobil__light__01.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "ueber-uns__mobil__light__02.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "ueber-uns__mobil__light__03.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "ueber-uns__mobil__light__04.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "ueber-uns__mobil__light__05.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "ueber-uns__mobil__light__06.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "ueber-uns__mobil__light__07.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4321
+  },
+  {
+   "datei": "ueber-uns__mobil__dark__01.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "ueber-uns__mobil__dark__02.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "ueber-uns__mobil__dark__03.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "ueber-uns__tablet__light__01.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "ueber-uns__tablet__light__02.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "ueber-uns__tablet__light__03.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "ueber-uns__tablet__dark__01.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "ueber-uns__tablet__dark__02.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "ueber-uns__tablet__dark__03.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "ueber-uns__desktop__light__01.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "ueber-uns__desktop__light__02.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "ueber-uns__desktop__light__03.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "ueber-uns__desktop__light__04.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "ueber-uns__desktop__light__05.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2782
+  },
+  {
+   "datei": "ueber-uns__desktop__dark__01.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "ueber-uns__desktop__dark__02.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "ueber-uns__desktop__dark__03.jpg",
+   "pfad": "/ueber-uns/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "kontakt__mobil__light__01.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "kontakt__mobil__light__02.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "kontakt__mobil__light__03.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "kontakt__mobil__light__04.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "kontakt__mobil__light__05.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "kontakt__mobil__light__06.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "kontakt__mobil__light__07.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "kontakt__mobil__light__08.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5313
+  },
+  {
+   "datei": "kontakt__mobil__dark__01.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "kontakt__mobil__dark__02.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "kontakt__mobil__dark__03.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "kontakt__tablet__light__01.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "kontakt__tablet__light__02.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "kontakt__tablet__light__03.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "kontakt__tablet__dark__01.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "kontakt__tablet__dark__02.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "kontakt__tablet__dark__03.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "kontakt__desktop__light__01.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "kontakt__desktop__light__02.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "kontakt__desktop__light__03.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "kontakt__desktop__light__04.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "kontakt__desktop__light__05.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3130
+  },
+  {
+   "datei": "kontakt__desktop__dark__01.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "kontakt__desktop__dark__02.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "kontakt__desktop__dark__03.jpg",
+   "pfad": "/kontakt/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "suche__mobil__light__01.jpg",
+   "pfad": "/suche/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "suche__mobil__light__02.jpg",
+   "pfad": "/suche/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "suche__mobil__light__03.jpg",
+   "pfad": "/suche/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "suche__mobil__light__04.jpg",
+   "pfad": "/suche/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2163
+  },
+  {
+   "datei": "suche__mobil__dark__01.jpg",
+   "pfad": "/suche/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "suche__mobil__dark__02.jpg",
+   "pfad": "/suche/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "suche__mobil__dark__03.jpg",
+   "pfad": "/suche/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "suche__tablet__light__01.jpg",
+   "pfad": "/suche/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "suche__tablet__light__02.jpg",
+   "pfad": "/suche/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "suche__tablet__light__03.jpg",
+   "pfad": "/suche/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1073
+  },
+  {
+   "datei": "suche__tablet__dark__01.jpg",
+   "pfad": "/suche/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "suche__tablet__dark__02.jpg",
+   "pfad": "/suche/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "suche__tablet__dark__03.jpg",
+   "pfad": "/suche/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1073
+  },
+  {
+   "datei": "suche__desktop__light__01.jpg",
+   "pfad": "/suche/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "suche__desktop__light__02.jpg",
+   "pfad": "/suche/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "suche__desktop__light__03.jpg",
+   "pfad": "/suche/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 969
+  },
+  {
+   "datei": "suche__desktop__dark__01.jpg",
+   "pfad": "/suche/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "suche__desktop__dark__02.jpg",
+   "pfad": "/suche/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "suche__desktop__dark__03.jpg",
+   "pfad": "/suche/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 969
+  },
+  {
+   "datei": "impressum__mobil__light__01.jpg",
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "impressum__mobil__light__02.jpg",
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "impressum__mobil__light__03.jpg",
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "impressum__mobil__light__04.jpg",
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "impressum__mobil__light__05.jpg",
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "impressum__mobil__light__06.jpg",
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4054
+  },
+  {
+   "datei": "impressum__mobil__dark__01.jpg",
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "impressum__mobil__dark__02.jpg",
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "impressum__mobil__dark__03.jpg",
+   "pfad": "/impressum/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "impressum__tablet__light__01.jpg",
+   "pfad": "/impressum/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "impressum__tablet__light__02.jpg",
+   "pfad": "/impressum/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "impressum__tablet__light__03.jpg",
+   "pfad": "/impressum/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "impressum__tablet__dark__01.jpg",
+   "pfad": "/impressum/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "impressum__tablet__dark__02.jpg",
+   "pfad": "/impressum/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "impressum__tablet__dark__03.jpg",
+   "pfad": "/impressum/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "impressum__desktop__light__01.jpg",
+   "pfad": "/impressum/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "impressum__desktop__light__02.jpg",
+   "pfad": "/impressum/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "impressum__desktop__light__03.jpg",
+   "pfad": "/impressum/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "impressum__desktop__light__04.jpg",
+   "pfad": "/impressum/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2316
+  },
+  {
+   "datei": "impressum__desktop__dark__01.jpg",
+   "pfad": "/impressum/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "impressum__desktop__dark__02.jpg",
+   "pfad": "/impressum/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "impressum__desktop__dark__03.jpg",
+   "pfad": "/impressum/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "gibt-es-nicht__mobil__light__01.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "gibt-es-nicht__mobil__light__02.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "gibt-es-nicht__mobil__light__03.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "gibt-es-nicht__mobil__light__04.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2445
+  },
+  {
+   "datei": "gibt-es-nicht__mobil__dark__01.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "gibt-es-nicht__mobil__dark__02.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "gibt-es-nicht__mobil__dark__03.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "gibt-es-nicht__tablet__light__01.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "gibt-es-nicht__tablet__light__02.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "gibt-es-nicht__tablet__light__03.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1227
+  },
+  {
+   "datei": "gibt-es-nicht__tablet__dark__01.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "gibt-es-nicht__tablet__dark__02.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "gibt-es-nicht__tablet__dark__03.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1227
+  },
+  {
+   "datei": "gibt-es-nicht__desktop__light__01.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "gibt-es-nicht__desktop__light__02.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "gibt-es-nicht__desktop__light__03.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1115
+  },
+  {
+   "datei": "gibt-es-nicht__desktop__dark__01.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "gibt-es-nicht__desktop__dark__02.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "gibt-es-nicht__desktop__dark__03.jpg",
+   "pfad": "/gibt-es-nicht/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1115
+  }
+ ],
+ "gekuerzt": "Hell Desktop und Mobil vollständig; Tablet und Dunkel nur Ausschnitte 1–3 (E3-Regel). Größenziel < 15 MB NICHT erreicht: 20,3 MB (Entscheidung beim Orchestrator, siehe Bericht)",
+ "kuerzung": {
+  "vorher": 526,
+  "nachher": 341,
+  "entfernt": 185,
+  "bytesVorher": 29916427,
+  "bytesNachher": 20287131,
+  "gekappteSeiten": [
+   "/ mobil light",
+   "/ mobil dark",
+   "/preise/ mobil light",
+   "/preise/ mobil dark",
+   "/einsatzgebiet/hessen/limburg-weilburg/ mobil light",
+   "/einsatzgebiet/hessen/limburg-weilburg/ mobil dark"
+  ]
+ }
+}
