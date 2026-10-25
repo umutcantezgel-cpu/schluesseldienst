@@ -1,0 +1,37 @@
+/* V11 Suche und V12 404: ruhiger Seitenkopf, Suchfeld groß, Treffer als Linkliste mit Bereich; 404 mit Figur 7/5. */
+@layer komponenten {
+  .system-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
+  .system-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; }
+  .suche { display: grid; gap: var(--sp-s); max-inline-size: var(--karte-gross); }
+  .suche-feld { display: grid; gap: var(--sp-2xs); }
+  .suche-label { font-weight: var(--fw-ui); }
+  .suche-eingabe-huelle { position: relative; }
+  .suche-icon { position: absolute; inset-inline-start: var(--sp-s); inset-block-start: 50%; translate: 0 -50%; inline-size: var(--icon-ui); block-size: var(--icon-ui); color: var(--c-tinte-3); pointer-events: none; }
+  .suche-eingabe { font: inherit; font-size: var(--fs-1); inline-size: 100%; min-block-size: var(--ziel-touch); padding: var(--sp-xs) var(--sp-s) var(--sp-xs) var(--sp-xl); color: var(--c-tinte); background: var(--c-flaeche); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  .suche-eingabe:focus-visible { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: var(--linie-fokus); }
+  .suche-status { font-size: var(--fs--1); color: var(--c-tinte-2); min-block-size: var(--lh-text); }
+  .suche-ohne-js { color: var(--c-tinte-2); }
+  .suche-ergebnis { display: grid; gap: var(--sp-l); }
+  .suche-ergebnis section { display: grid; gap: var(--sp-xs); }
+  .suche-liste { list-style: none; padding: 0; display: grid; }
+  .suche-treffer { margin: 0; padding-block: var(--sp-xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .suche-link { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--sp-xs); min-block-size: var(--ziel-min); color: var(--c-tinte); text-decoration: none; }
+  .suche-link:hover .suche-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .suche-titel { font-weight: var(--fw-ui); }
+  .suche-bereich { font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .suche-text { font-size: var(--fs--1); color: var(--c-tinte-2); max-inline-size: var(--mass); }
+
+  .fehler-teilung { display: grid; gap: var(--sp-xl); align-items: center; }
+  .fehler-wege { margin-block-start: var(--sp-m); }
+  .fehler-figur { margin: 0; display: grid; gap: var(--sp-s); }
+  .fehler-figur .zylinder { max-inline-size: var(--hero-figur-max); }
+  .fehler-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); }
+  .fehler-unten { display: grid; gap: var(--sp-l); align-items: end; }
+  @media (min-width: 48em) { .fehler-unten { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
+  @media (min-width: 64em) {
+    .system-kopf { padding-block-start: var(--sp-sektion); }
+    .system-kopf h1 { font-size: var(--fs-5); }
+    .fehler-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+    .fehler-wege { grid-template-columns: minmax(0, 1fr); }
+  }
+}

@@ -1,26 +1,34 @@
-// Systemseiten: 404 (V12). Ruhige Arbeitsansicht mit Ortssuche und den wichtigsten Wegen.
-// M-21 (Charakter) folgt mit E4-BAU-21.
+// V12 Systemseite 404 (Arbeitsansicht, nicht indexiert): Text 7/5 mit dem Zylinder eines falschen Schlüssels (M-21,
+// Charakter: Stifte wackeln, die Linienhälften finden nicht zusammen; ohne Bewegung der gebrochene Zustand).
+// Darunter drei Wege, Ortssuche und Anruf.
 import { html } from '../../../bau/lib/html.mjs';
+import { text } from '../../../bau/lib/inhalt.mjs';
+import inhalt from '../../inhalte/system.mjs';
 import { ortspruefung } from '../teile/ortspruefung.mjs';
 import { rufknopf } from '../teile/rufknopf.mjs';
+import { zylinderSchnitt } from '../teile/illustrationen/zylinder.mjs';
 
 export function seiten() {
+  const f = inhalt.fehler;
   return [{
-    pfad: '/404.html', titel: 'Seite nicht gefunden', titelOhneMarke: true,
-    beschreibung: 'Diese Seite gibt es nicht. Über die Ortssuche, die Leistungen oder die Startseite finden Sie weiter.',
-    typ: 'system', ansicht: 'V12', indexierbar: false, stile: ['start'],
-    inhalt: (sk) => html`<section class="sektion raster fehlerseite" aria-labelledby="fehler-titel">
-<p class="hero-kicker">Fehler 404</p>
-<h1 id="fehler-titel">Dieser Schlüssel passt nicht.</h1>
-<p class="abschnitt-einleitung">Die Adresse führt zu keiner Seite. Vielleicht hilft einer dieser Wege weiter:</p>
-<ul class="fehler-wege">
-<li><a href="/">Zur Startseite</a></li>
-<li><a href="/leistungen/">Alle Leistungen</a></li>
-<li><a href="/preise/">Preise</a></li>
-<li><a href="/kontakt/">Kontakt</a></li>
-</ul>
-${ortspruefung(sk, { id: 'fehler-ort', modus: 'navigieren', titel: 'Ort suchen', hinweis: 'Ort oder Postleitzahl eingeben und zur Ortsseite springen.' })}
+    pfad: '/404.html', titel: f.titel, titelOhneMarke: true, beschreibung: f.beschreibung,
+    typ: 'system', ansicht: 'V12', indexierbar: false, koerperKlasse: 'seite-fehler', stile: ['system'],
+    inhalt: (sk) => html`<section class="system-kopf" aria-labelledby="fehler-titel">
+<div class="raster"><div class="fehler-teilung">
+<div>
+<p class="gruppe-kicker">${f.kicker}</p>
+<h1 id="fehler-titel">${f.h1}</h1>
+<p class="gruppe-einleitung">${text(f.text)}</p>
+<ul class="weiter fehler-wege">${f.wege.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${w.titel}</span><span class="weiter-text">${w.text}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
+</div>
+<figure class="fehler-figur" data-moment="falsch">${zylinderSchnitt({ praefix: 'fehler-zy', falsch: true, dekorativ: true })}<figcaption>${f.figur}</figcaption></figure>
+</div></div>
+</section>
+<section class="sektion band sektion-dicht" aria-label="Ort suchen oder anrufen">
+<div class="raster"><div class="fehler-unten">
+${ortspruefung(sk, { id: 'fehler-ort', modus: 'navigieren', titel: f.ortTitel, hinweis: f.ortHinweis })}
 <div class="fehler-ruf">${rufknopf(sk, { variante: 'gross' })}</div>
+</div></div>
 </section>`,
   }];
 }

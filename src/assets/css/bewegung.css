@@ -13,6 +13,11 @@
     [data-moment="scherlinie"] .zy-stiftpaar:nth-child(5), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(5) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel) * 4); }
     [data-moment="scherlinie"] .zy-scherlinie { animation: m16-linie var(--m16-linie) var(--ease-linie) var(--m16-linie-start) backwards; }
 
+    /* M-21 Charakter (404): Der falsche Schlüssel rüttelt – Stifte wackeln, die Linienhälften finden nicht zusammen */
+    [data-moment="falsch"] .zy-stiftpaar { animation: m21-wackeln var(--m21-dauer) var(--ease-standard) var(--m21-start); }
+    [data-moment="falsch"] .zy-scherlinie-links { animation: m21-links var(--m21-dauer) var(--ease-standard) var(--m21-start); }
+    [data-moment="falsch"] .zy-scherlinie-rechts { animation: m21-rechts var(--m21-dauer) var(--ease-standard) var(--m21-start); }
+
     /* M-13 Abschnittsauftritt und M-14 Kopflinie (nur Erzählansichten, scrollgebunden, rückwärts stimmig) */
     @supports (animation-timeline: view()) {
       [data-ansicht="V01"] .sektion .abschnitt-kopf h2,
@@ -28,6 +33,10 @@
       [data-moment="ringe"] .gk-ring:nth-of-type(1) { animation-range: entry 10% cover 30%; }
       [data-moment="ringe"] .gk-ring:nth-of-type(2) { animation-range: entry 15% cover 38%; }
       [data-moment="ringe"] .gk-ring:nth-of-type(3) { animation-range: entry 20% cover 46%; }
+      /* M-20 „Der gerade Weg“ (Über uns): erst die Schleife der Lahn, dann zieht der Tunnel als Kupferlinie gerade durch */
+      [data-moment="gerader-weg"] .lb-fluss-teil { animation: auftritt linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+      [data-moment="gerader-weg"] .lb-tunnel { transform-box: fill-box; transform-origin: left center; animation: m16-linie linear both; animation-timeline: view(); animation-range: cover 25% cover 45%; }
+      [data-moment="gerader-weg"] .lb-tor, [data-moment="gerader-weg"] .lb-text-tunnel { animation: m20-erscheinen linear both; animation-timeline: view(); animation-range: cover 35% cover 50%; }
     }
 
     /* M-17 Szene: Teile wechseln mit dem Schritt (nur transform/opacity; Farbe des aktiven Teils springt) */
@@ -48,4 +57,8 @@
   @keyframes linie-ziehen { from { transform: scaleX(.2); } }
   @keyframes m18-karte { from { transform: scale(var(--m18-karte-start)); opacity: 0; } }
   @keyframes m18-ring { from { transform: scale(var(--m18-ring-start)); opacity: 0; } }
+  @keyframes m20-erscheinen { from { opacity: 0; } }
+  @keyframes m21-wackeln { 17%, 50%, 83% { transform: translateY(calc(-1 * var(--m21-weg))); } 33%, 67% { transform: translateY(var(--m21-weg)); } }
+  @keyframes m21-links { 25%, 75% { transform: translateX(calc(-1 * var(--m21-linie))); } }
+  @keyframes m21-rechts { 25%, 75% { transform: translateX(var(--m21-linie)); } }
 }

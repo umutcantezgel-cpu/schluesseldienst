@@ -1,0 +1,12 @@
+/* I-11 Lahnbogen: Wasser als breiter Lahn-Streifen mit feiner Mittellinie, Bergsporn in Papier 2, Tunnel als Scherlinie. */
+@layer komponenten {
+  .ill-lahnbogen { max-inline-size: var(--karte-gross); }
+  .lb-wasser { stroke: var(--c-lahn-hell); stroke-width: 22; }
+  .lb-fluss { stroke: var(--c-lahn); stroke-width: 2; }
+  .lb-berg { fill: var(--c-papier-2); stroke-width: 1.5; }
+  .lb-tunnel { stroke: var(--c-kupfer); stroke-width: 4; }
+  .lb-tor { fill: var(--c-kupfer); stroke: none; }
+  .lb-text { fill: var(--c-tinte); stroke: none; font-size: var(--svg-text-l); font-weight: var(--fw-ui); }
+  .lb-text-fluss { fill: var(--c-lahn-text); font-style: normal; }
+  .lb-text-tunnel { fill: var(--c-kupfer); font-family: var(--ff-mono); font-size: var(--svg-text-m); font-weight: var(--fw-text); }
+}

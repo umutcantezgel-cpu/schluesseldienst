@@ -22,7 +22,7 @@ export default {
   faq: {
     entfernung: { frage: 'Wie weit ist {ort} von Weilburg entfernt?', antwort: 'Rund {km} km Luftlinie; {ort} liegt {richtung} von Weilburg. Die Strecke auf der Straße ist meist etwas länger.' },
     zone: { frage: 'Zu welcher Zone gehört {ort}?', antwort: '{ort} gehört zur Zone {zone} – {zonenKurz}. Was das für Leistungen und Anfahrt bedeutet, steht im [Einsatzgebiet](/einsatzgebiet/).' },
-    plz: { frage: 'Welche Postleitzahlen hat {ort}?', antwort: 'Für {ort} gilt {plzSatz}. Über die Ortssuche im [Einsatzgebiet](/einsatzgebiet/) finden Sie jeden Ort auch über seine Postleitzahl.' },
+    plz: { frage: 'Welche Postleitzahlen hat {ort}?', antwort: 'Für {ort} {plzSatz}. Über die Ortssuche im [Einsatzgebiet](/einsatzgebiet/) finden Sie jeden Ort auch über seine Postleitzahl.' },
   },
   serioesTitel: 'Woran Sie einen seriösen Schlüsseldienst erkennen',
   serioes: [

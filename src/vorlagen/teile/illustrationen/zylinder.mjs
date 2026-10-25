@@ -7,6 +7,7 @@ import { roh } from '../../../../bau/lib/html.mjs';
 const STIFTE = [26, 16, 32, 20, 12];   // Länge der Kernstifte = Einschnitttiefe des Schlüssels
 const X = [120, 184, 248, 312, 376];   // Mitte der Stiftkanäle
 const SCHER_Y = 120;                   // Scherlinie (Trennfuge Kern/Gehäuse)
+const FALSCH = [16, 30, 14, 28, 22];   // Einschnitte eines falschen Schlüssels (404, M-21): kein Stift trifft die Linie
 
 function feder(x) {
   // Zickzack-Feder im 45°-Raster zwischen y 56 und 88
@@ -18,9 +19,12 @@ function feder(x) {
 // Szenenbetrieb (M-17, „Stift für Stift“): schluessel=false blendet den Schlüssel aus; stiftAb[i] = Schritt, ab dem
 // Stiftpaar i auf der Scherlinie sitzt (davor per CSS versetzt); linieAb = Schritt, ab dem die Linie erscheint;
 // zustand = fester Schritt für Einzelbilder; dekorativ = ohne Titel, aria-hidden.
-export function zylinderSchnitt({ praefix = 'zy', klasse = '', titel = 'Schnitt durch einen Schließzylinder: Liegen alle Stifte auf der Scherlinie, lässt sich der Kern drehen.', schluessel = true, stiftAb = null, linieAb = null, zustand = null, dekorativ = false } = {}) {
+// falsch = falscher Schlüssel (404): Stiftpaare per transform-Attribut einer Hülle versetzt (die Bewegung M-21 animiert
+// das innere Paar), Scherlinie in zwei Hälften mit Lücke.
+export function zylinderSchnitt({ praefix = 'zy', klasse = '', titel = 'Schnitt durch einen Schließzylinder: Liegen alle Stifte auf der Scherlinie, lässt sich der Kern drehen.', schluessel = true, stiftAb = null, linieAb = null, zustand = null, dekorativ = false, falsch = false } = {}) {
+  const schnitte = falsch ? FALSCH : STIFTE;
   const schluesselOben = [`M-12 152`, `L92 152`];
-  X.forEach((x, i) => { const y = SCHER_Y + STIFTE[i]; schluesselOben.push(`L${x - 10} ${y}`, `L${x + 10} ${y}`); });
+  X.forEach((x, i) => { const y = SCHER_Y + schnitte[i]; schluesselOben.push(`L${x - 10} ${y}`, `L${x + 10} ${y}`); });
   schluesselOben.push('L404 140', 'L420 152', 'L420 172', 'L-12 172');
   const stiftAttr = (i) => (stiftAb ? ` data-setzt="${stiftAb[i]}" data-bei="${stiftAb[i]}"` : '');
   const stifte = X.map((x, i) => `<g class="zy-stiftpaar" style-frei="" data-i="${i}"${stiftAttr(i)}>
@@ -28,7 +32,7 @@ export function zylinderSchnitt({ praefix = 'zy', klasse = '', titel = 'Schnitt 
 <rect class="zy-oberstift" x="${x - 8}" y="88" width="16" height="${SCHER_Y - 88}" rx="2"/>
 <rect class="zy-kernstift" x="${x - 8}" y="${SCHER_Y}" width="16" height="${STIFTE[i]}" rx="2"/>
 <rect class="zy-kernstift-schraffur" fill="url(#${praefix}-schraffur)" x="${x - 8}" y="${SCHER_Y}" width="16" height="${STIFTE[i]}" rx="2"/>
-</g>`).join('\n').replace(/ style-frei=""/g, '');
+</g>`).map((g, i) => (falsch ? `<g transform="translate(0 ${FALSCH[i] - STIFTE[i]})">${g}</g>` : g)).join('\n').replace(/ style-frei=""/g, '');
   const kopf = dekorativ ? 'aria-hidden="true" focusable="false"' : `role="img" aria-labelledby="${praefix}-titel"`;
   const box = schluessel ? '-80 24 540 176' : '48 24 408 176';
   return roh(`<svg class="zylinder ${klasse}" viewBox="${box}" ${kopf}${zustand ? ` data-zustand="${zustand}"` : ''} preserveAspectRatio="xMidYMid meet">
@@ -51,6 +55,8 @@ ${schluessel ? `<g class="zy-schluessel">
 <circle class="zy-reide-loch" cx="-48" cy="162" r="8"/>
 <path class="zy-bart" d="${schluesselOben.join(' ')}Z"/>
 </g>` : ''}
-<path class="zy-scherlinie" d="M72 ${SCHER_Y}H432"${linieAb ? ` data-ab="${linieAb}"` : ''}/>
+${falsch
+    ? `<path class="zy-scherlinie zy-scherlinie-links" d="M72 ${SCHER_Y}H244"/><path class="zy-scherlinie zy-scherlinie-rechts" d="M260 ${SCHER_Y}H432"/>`
+    : `<path class="zy-scherlinie" d="M72 ${SCHER_Y}H432"${linieAb ? ` data-ab="${linieAb}"` : ''}/>`}
 </svg>`);
 }

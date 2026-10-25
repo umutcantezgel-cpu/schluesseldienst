@@ -12,7 +12,7 @@ import { istPlatzhalter } from '../../../bau/lib/platzhalter.mjs';
 import { GRUPPEN } from '../../konfig/leistungen.mjs';
 import texte from '../../inhalte/orte/texte.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
-import { faq, faqLd } from '../teile/faq.mjs';
+import { faq } from '../teile/faq.mjs';
 import { brotkrumenLd } from '../teile/brotkrumen.mjs';
 import { preistabelle, betrag } from '../teile/preisauszug.mjs';
 import { rufknopf } from '../teile/rufknopf.mjs';
@@ -67,7 +67,7 @@ function werteVon(o, z) {
   return {
     ort: D.anzeige.get(o.id), name: o.name, gemeinde: o.gemeinde, kreis: o.kreis, land: o.land, km: String(o.km),
     richtung: o.richtung || '', zone: z.nl ? 'D' : z.id, zonenKurz: z.kurz,
-    plz: plz.join(', '), plzSatz: plz.length === 1 ? `die Postleitzahl ${plz[0]}` : `die Postleitzahlen ${plz.join(', ')}`,
+    plz: plz.join(', '), plzSatz: plz.length === 1 ? `gilt die Postleitzahl ${plz[0]}` : `gelten die Postleitzahlen ${plz.join(', ')}`,
   };
 }
 
@@ -264,7 +264,8 @@ export async function seiten(k) {
       pfad, titel: sonder?.titel || titelVon(o, z, name), beschreibung: sonder?.beschreibung || beschreibungVon(o, z, name),
       typ: 'ort', ansicht: 'V07', sitemap: `orte-${o.landSlug}`, indexierbar: z.indexierung !== false,
       koerperKlasse: 'seite-ort', stile: ['ort'], brotkrumen: stufen,
-      jsonld: [ortLd(k, o, name, z), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, pfad, fragen)],
+      // Ohne FAQPage-Daten: FAQ-Ergebnisse zeigt die Suche nur noch bei wenigen Website-Arten; spart ~1 KB je Ortsseite (D-SEO-02)
+      jsonld: [ortLd(k, o, name, z), brotkrumenLd(k.basisUrl, stufen)],
       inhalt: (sk) => html`${kopf(sk, o, z, werte, sonder)}
 ${sonderAbschnitte(sonder)}
 ${leistungen(sk, o, z, werte)}

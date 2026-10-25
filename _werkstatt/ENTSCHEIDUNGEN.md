@@ -64,3 +64,7 @@ Folgenreiche Entscheidungen mit Denkprotokoll (Ziel → drei Wege → Bewertung 
 - Wege: (a) Grenze anheben · (b) CSS kürzen · (c) gemeinsames Bündel plus Ansichts-Stile, Budget je Seite.
 - Entscheidung (c): (a) wäre ein gelockerter Prüfer (verboten), (b) reicht nicht für fünf weitere Ansichten. Jetzt gemeinsam 9,3 KB gz, je Seite höchstens 12,4 KB gz. Jede Seite lädt nur ihre Stile; Ortsseiten (5.252) laden `app` + `ort`.
 - Absicherung: `budgets/css-seite` (Summe je Seite) und `budgets/stil-fehlt` (Klasse nur in einem nicht geladenen Ansichts-Stil) – die zweite Regel fand beim Umbau sofort die Rechnungs-Illustration im Ratgeber. Tests: `test/budgets.test.mjs`.
+
+## D-SEO-02 · Ortsseiten ohne FAQPage-Daten (2026-10-25)
+- Problem: Ortsseiten lagen am Budget (30 KB roh); die FAQ stand sichtbar und noch einmal als JSON-LD auf jeder der 5.252 Seiten.
+- Entscheidung: Ortsseiten behalten die sichtbaren Fragen, aber ohne `FAQPage`-Block. Google zeigt FAQ-Ergebnisse seit 2023 nur noch für wenige Website-Arten; der Block brächte hier keinen Nutzen, kostet aber rund 1 KB je Seite (≈ 5 MB gesamt). Inhaltsseiten (Leistungen, Ratgeber, Preise, Kontakt) behalten `FAQPage`.

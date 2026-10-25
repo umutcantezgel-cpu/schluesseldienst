@@ -8,8 +8,9 @@ import { szene } from './module/szene.mjs';
 import { tagesband } from './module/tagesband.mjs';
 import { preisrechner } from './module/preisrechner.mjs';
 import { composer } from './module/composer.mjs';
+import { suche } from './module/suche.mjs';
 
-const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner, composer };
+const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner, composer, suche };
 
 function starten() {
   document.documentElement.classList.add('js');

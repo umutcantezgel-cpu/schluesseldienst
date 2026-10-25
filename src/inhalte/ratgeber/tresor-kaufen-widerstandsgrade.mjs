@@ -6,7 +6,7 @@ import ts from '../fakten/norm-tresorschloss.mjs';
 import ds from '../fakten/norm-datensicherung.mjs';
 
 export default {
-  titel: 'Tresor kaufen worauf achten – Grad, Schloss, Ort',
+  titel: 'Tresor kaufen: worauf achten? Grad, Schloss, Ort',
   beschreibung: 'Tresor kaufen, worauf achten: was hinein soll, welcher Widerstandsgrad passt, wo der Tresor steht und welches Schloss zu Ihnen gehört.',
   kategorie: 'technik',
   kurztitel: 'Tresor kaufen',

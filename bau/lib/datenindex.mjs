@@ -36,3 +36,18 @@ export async function datenIndizes(daten, schreiber) {
   }
   return ergebnis;
 }
+
+// Seitenindex für /suche/: alle indexierbaren Seiten außer Ortsseiten (die findet die Ortssuche).
+// Format { v: 1, s: [[titel, pfad, bereich, kurztext], …] }, Kurztext = Meta-Beschreibung, gekürzt.
+const BEREICH = { V01: 'Start', V02: 'Leistungen', V03: 'Leistung', V04: 'Preise', V05: 'Einsatzgebiet', V06: 'Einsatzgebiet', V08: 'Ratgeber', V09: 'Betrieb', V10: 'Kontakt', V11: 'Übersicht', V12: 'Rechtliches' };
+const ORTSSEITE = /^\/schluesseldienst-[^/]+\/$/;
+
+export async function seitenIndexSchreiben(seiten, schreiber) {
+  const s = seiten
+    .filter((x) => x.indexierbar !== false && x.pfad !== '/404.html' && !ORTSSEITE.test(x.pfad) && typeof x.titel === 'string')
+    .map((x) => [x.titel, x.pfad, BEREICH[x.ansicht] || 'Seite', String(x.beschreibung || '').slice(0, 140)]);
+  const buf = Buffer.from(JSON.stringify({ v: 1, s }));
+  const pfad = `/daten/seiten.${hash10(buf)}.json`;
+  await schreiber.schreibe(pfad, buf);
+  return { pfad, sri: sri(buf), anzahl: s.length, bytes: buf.length };
+}

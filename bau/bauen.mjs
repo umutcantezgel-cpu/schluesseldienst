@@ -17,7 +17,7 @@ import { sitemaps, robots, securityTxt, manifest } from './lib/dateien.mjs';
 import { headersDatei, htaccess, nginx, pruefeWeiterleitungen } from './lib/hosting.mjs';
 import { pruefeAlles, auswerten } from './pruefen/index.mjs';
 import { iconsLaden, icon as iconRoh } from '../src/vorlagen/teile/icons.mjs';
-import { datenIndizes } from './lib/datenindex.mjs';
+import { datenIndizes, seitenIndexSchreiben } from './lib/datenindex.mjs';
 import { layout } from '../src/vorlagen/layout.mjs';
 import { signet } from '../src/vorlagen/teile/signet.mjs';
 import { istGeplant } from '../src/konfig/routen.mjs';
@@ -154,6 +154,8 @@ async function main() {
     routen.add(s.pfad);
   }
   k.routen = routen;
+  // Seitenindex für /suche/ (vor dem Rendern, damit die Suchseite Pfad und SRI kennt)
+  assets.daten.seiten = await seitenIndexSchreiben(seiten, schreiber);
   setzeRoutenPruefer((p) => routen.has(p));
   // Geplant = im Routenregister (src/konfig/routen.mjs) oder Ortsslug aus den Daten; alles andere ist ein Tippfehler.
   const slugs = new Set((daten.orte || []).map((o) => o.slug).filter(Boolean));
