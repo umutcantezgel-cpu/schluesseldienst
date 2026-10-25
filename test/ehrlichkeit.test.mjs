@@ -104,6 +104,14 @@ test('ehrlichkeit/superlativ: „Nr. 1“ in einer Fundstelle (Satz/Abs./Ziffer 
   assert.equal(regel(await ehrlich(ctx([seite('Wir sind die Nr. 1 in Weilburg.')])), 'ehrlichkeit/superlativ').length, 1);
 });
 
+test('Quellenangaben (data-quelle) zitieren fremde Titel und lösen keine Regel aus; derselbe Text ohne Attribut schon', async () => {
+  const seite = (li) => ({ pfad: '/', datei: 'x.html', html: `<main><ul>${li}</ul></main>`, typ: 'test' });
+  const mit = await ehrlich(ctx([seite('<li data-daten="" data-quelle="">Leitfaden Einbruchmeldeanlagen nach DIN EN 50131 und VdS</li>')]));
+  assert.equal(regel(mit, 'ehrlichkeit/alter-zertifikat').length, 0);
+  const ohne = await ehrlich(ctx([seite('<li>Leitfaden Einbruchmeldeanlagen nach DIN EN 50131 und VdS</li>')]));
+  assert.equal(regel(ohne, 'ehrlichkeit/alter-zertifikat').length, 1);
+});
+
 test('ehrlichkeit/garantie: Garantie-Begriffe und 100 % sind fehler; „schadensfrei garantiert“ zählt einmal', async () => {
   const treffer = meldungen(await ehrlich(ctx([await fixture('garantie.html')])), 'ehrlichkeit/garantie');
   // Titel „Garantie“, Meta „Garantie“, im Text: Garantiert, 100 %, Garantie, Garantien, schadensfrei garantiert

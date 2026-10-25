@@ -81,7 +81,11 @@ export function hauptHtml(html) {
   return ohne.slice(oeffnen + 1, ende);
 }
 
-/** Sichtbarer Text eines <main>-Inhalts (HTML). Der Inhalt von .platzhalter-Elementen entfällt. */
+/**
+ * Sichtbarer Text eines <main>-Inhalts (HTML). Der Inhalt von .platzhalter-Elementen entfällt, ebenso Quellenangaben
+ * mit data-quelle: Sie zitieren Titel fremder Dokumente wörtlich (z. B. „… nach DIN EN 50131 und VdS“) und sind keine
+ * Aussage des Betriebs. Quellen stammen nur aus geprüften Faktenblättern.
+ */
 export function sichtbarerText(haupt) {
   let aus = '';
   const stapel = [];
@@ -104,7 +108,7 @@ export function sichtbarerText(haupt) {
     if (!INLINE.has(element) && verborgen === 0) aus += ' ';
     const attrs = m[3];
     if (VOID.has(element) || /\/\s*$/.test(attrs)) continue;
-    const verbirgt = attrs.includes('platzhalter') && klassen(attrs).includes('platzhalter');
+    const verbirgt = (attrs.includes('platzhalter') && klassen(attrs).includes('platzhalter')) || (attrs.includes('data-quelle') && hatAttr(attrs, 'data-quelle'));
     stapel.push({ element, verbirgt });
     if (verbirgt) verborgen += 1;
   }

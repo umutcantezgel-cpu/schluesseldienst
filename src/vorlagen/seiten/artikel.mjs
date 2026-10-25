@@ -141,7 +141,7 @@ ${faq(sk, inh.faq)}
 </div></div></section>
 ${quellen.length ? html`<section class="sektion sektion-dicht" aria-labelledby="quellen-titel"><div class="raster"><div class="faq-teilung">
 ${abschnittKopf({ id: 'quellen-titel', titel: 'Quellen' })}
-<ul class="artikel-quellen">${quellen.map((q) => html`<li data-daten="">${q.titel}${q.host ? html` <span class="artikel-quelle-host">(${q.host})</span>` : ''}</li>`)}</ul>
+<ul class="artikel-quellen">${quellen.map((q) => html`<li data-daten="" data-quelle="">${q.titel}${q.host ? html` <span class="artikel-quelle-host">(${q.host})</span>` : ''}</li>`)}</ul>
 </div></div></section>` : ''}
 <section class="sektion sektion-dicht" aria-labelledby="weiter-titel">
 <div class="raster">
