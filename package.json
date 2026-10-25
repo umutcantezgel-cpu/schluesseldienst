@@ -1,0 +1,16 @@
+{
+  "name": "schluesseldienst-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Statische Website für einen Schlüsseldienst mit Sitz in Weilburg – eigener Generator ohne Abhängigkeiten.",
+  "type": "module",
+  "engines": { "node": ">=22.12 <23" },
+  "scripts": {
+    "bauen": "node bau/bauen.mjs",
+    "vorschau": "node bau/vorschau.mjs",
+    "pruefen": "node bau/bauen.mjs --messen --pruefen",
+    "release": "node bau/bauen.mjs --release",
+    "test": "node --test test/",
+    "orte": "node pipeline/orte/alle.mjs"
+  }
+}

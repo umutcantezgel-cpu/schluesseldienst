@@ -1,0 +1,16 @@
+{
+  "name": "werkstatt-werkzeuge",
+  "private": true,
+  "description": "Prüfwerkzeuge des Werkstatt-Laufs. Nie Abhängigkeit der Website. Installation außerhalb des Repos: siehe README.md",
+  "type": "module",
+  "engines": { "node": ">=22.19 <23" },
+  "dependencies": {
+    "playwright-core": "1.63.0",
+    "axe-core": "4.14.0",
+    "lighthouse": "13.5.0",
+    "svgo": "4.1.0",
+    "vnu-jar": "26.10.9",
+    "@fontsource-variable/atkinson-hyperlegible-next": "5.3.0",
+    "@fontsource-variable/atkinson-hyperlegible-mono": "5.3.0"
+  }
+}
