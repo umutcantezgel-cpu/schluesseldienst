@@ -1,14 +1,14 @@
 // V08 Ratgeber-Artikel (Arbeitsansicht, Teilung 8/4). Abschnittsfolge:
 // Kopf (Kategorie, H1, Kurzantwort, Stand) · „Das Wichtigste“ · Text mit Inhaltsverzeichnis in der Randspalte ·
-// Häufige Fragen · Quellen (aus den Faktenblättern des Themenpasses, ohne Links) · Weiterlesen.
+// Häufige Fragen · Quellen (nur die der verwendeten Fakten, ohne Links) · Weiterlesen.
 // Inhalte: src/inhalte/ratgeber/<id>.mjs (nur Artikel mit Inhaltsmodul werden gebaut; Reihenfolge aus RATGEBER).
 import { access } from 'node:fs/promises';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { html } from '../../../bau/lib/html.mjs';
+import { Fakt } from '../../../bau/lib/fakten.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import { RATGEBER } from '../../konfig/routen.mjs';
-import { PAESSE } from '../../konfig/themenpaesse.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
 import { faq, faqLd } from '../teile/faq.mjs';
 import { brotkrumenLd } from '../teile/brotkrumen.mjs';
@@ -52,13 +52,28 @@ export async function artikelLaden(wurzel) {
   return aus;
 }
 
-async function quellenLaden(wurzel, ids) {
+// Alle Fakt-Objekte im Artikel (beliebig tief in Abschnitten, Listen, Hinweisen und FAQ)
+function faktenIn(wert, aus = []) {
+  if (wert instanceof Fakt) aus.push(wert);
+  else if (Array.isArray(wert)) for (const w of wert) faktenIn(w, aus);
+  else if (wert && typeof wert === 'object') for (const w of Object.values(wert)) faktenIn(w, aus);
+  return aus;
+}
+
+// Quellen nur der tatsächlich verwendeten Fakten: Blatt aus der Fakt-ID („blatt.kurzname“), Quelle aus fakt.quelle
+async function quellenLaden(wurzel, fakten) {
+  const genutzt = new Map();
+  for (const f of fakten) {
+    const blatt = f.id.split('.')[0];
+    if (!genutzt.has(blatt)) genutzt.set(blatt, new Set());
+    genutzt.get(blatt).add(f.quelle);
+  }
   const aus = [];
-  for (const id of ids) {
+  for (const [id, qids] of genutzt) {
     const datei = join(wurzel, 'src/inhalte/fakten', `${id}.mjs`);
     try { await access(datei); } catch { continue; }
     const m = await import(pathToFileURL(datei).href);
-    for (const q of m.quellen || []) {
+    for (const q of (m.quellen || []).filter((x) => qids.has(x.id))) {
       let host = '';
       try { host = new URL(q.url).host.replace(/^www\./, ''); } catch { /* ohne Adresse */ }
       aus.push({ titel: q.titel, host, abgerufen: q.abgerufen });
@@ -93,7 +108,7 @@ export async function seiten(k) {
   for (const a of artikel) {
     const inh = a.inhalt;
     const stufen = [{ titel: 'Ratgeber', pfad: '/ratgeber/' }, { titel: inh.kurztitel || inh.h1, pfad: a.pfad }];
-    const quellen = await quellenLaden(k.wurzel, PAESSE[a.pfad]?.fakten || []);
+    const quellen = await quellenLaden(k.wurzel, faktenIn(inh));
     const kat = KATEGORIEN[inh.kategorie];
     aus.push({
       pfad: a.pfad, titel: inh.titel, beschreibung: inh.beschreibung, typ: 'arbeit', ansicht: 'V08', sitemap: 'ratgeber',
