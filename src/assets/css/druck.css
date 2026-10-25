@@ -1,0 +1,70 @@
+/* Druck (K-01): A4 mit Papierweiß und Tinte, Haarlinien statt Flächen. Gilt für Preise, Ratgeber-Artikel
+   und Ortsseiten. Alles im Druckmedium der letzten Ebene; der Bildschirm bleibt unverändert. */
+@layer hilfen {
+  @media print {
+    @page { size: A4; margin: var(--sp-xl); }
+
+    :root { color-scheme: light; }
+    body { padding-block-end: 0; }
+
+    /* Flächen: Papierweiß, keine Hintergrundflächen, keine Schatten, keine Bewegung (Basiszustand ist der Endzustand) */
+    * { background: none; box-shadow: none; animation: none; transition: none; }
+    .scherlinie, .abschnitt-linie { background: var(--c-kupfer); }
+    .formel-teil + .formel-teil::before { background: Canvas; }
+    .band { border-block-start: var(--linie-haar) solid var(--c-tinte); }
+
+    /* Ausgeblendet: Navigation, Suche, Rufleiste, Menü, Sprunglink, Weiterlesen, Schlussband, Bewegungs-Bühnen,
+       Preisrechner (die Tabelle enthält alle Preise), Ortsprüfung (ein Eingabefeld), Inhaltsverzeichnis,
+       Pfeil-Icons, die „jetzt“-Markierung des Tagesbands und die Links der Fußzeile */
+    .kopf, .hauptnav, .kopf-suche, .kopf-ruf, .rufleiste, .menue-blatt, .sprunglink,
+    .band-dunkel, .szene-buehne, .artikel-rand, .preise-pruefung, .faq-chevron, .ruf-status,
+    .tb-jetzt, .tb-jetzt-text, .ort-handlung .knopf, .fuss-spalte,
+    section[aria-labelledby="weiter-titel"], section[aria-labelledby="rechner-titel"] { display: none; }
+
+    /* Abstände: kompakt, damit weniger Seiten entstehen */
+    .sektion, .sektion-dicht { padding-block: var(--sp-m); }
+    .preise-kopf, .ort-kopf, .artikel-kopf { padding-block: var(--sp-s); }
+    .abschnitt-kopf { margin-block-end: var(--sp-m); }
+    .fuss-innen, .fuss-linie { padding-block: var(--sp-s); }
+
+    /* Seitenumbrüche: Überschriften bleiben beim Text, Tabellen, Figuren und Blöcke bleiben ganz */
+    h1, h2, h3, h4, .abschnitt-kopf { break-after: avoid; }
+    figure, .artikel-figur, .ort-karte, .tagesband, .preise-regel, .formel-teil, .artikel-wichtig,
+    .preis-tabelle-huelle, .preis-tabelle tr, .faq-eintrag, .hinweis, li { break-inside: avoid; }
+
+    /* Links im Fließtext: unterstrichen, ohne URL-Anhang (die Seite hat nur interne Links) */
+    a { color: var(--c-tinte); text-decoration: underline; text-decoration-thickness: var(--linie-haar); text-underline-offset: var(--unterstrich-abstand); }
+    .wortmarke { text-decoration: none; }
+
+    /* Häufige Fragen: Antworten sichtbar, Zeilen ohne Mindesthöhe */
+    details::details-content { display: block; content-visibility: visible; }
+    .faq-frage { min-block-size: auto; }
+
+    /* Preistabelle und Anfahrt-Tabelle: volle Breite, Rahmenlinien */
+    .preis-tabelle-huelle { overflow: visible; }
+    .preis-tabelle { inline-size: 100%; border: var(--linie-ui) solid var(--c-tinte); background: none; box-shadow: none; }
+    .preis-tabelle th, .preis-tabelle td { border: var(--linie-haar) solid var(--c-tinte-3); }
+    .preis-tabelle thead { display: table-header-group; }
+
+    /* Tagesband: Vorrang für Tinte, Segment „jetzt“ ohne Hervorhebung */
+    .tagesband { padding: var(--sp-s); }
+    .tb-nacht { fill-opacity: .5; }
+    .tb-eintrag-nacht::before { opacity: .5; }
+    .tb-teil[data-jetzt] { stroke: var(--c-flaeche); stroke-width: 2; }
+    .tb-eintrag[data-jetzt] dt::after { content: none; }
+
+    /* Rufknopf: Telefonnummer bleibt lesbar, als Rahmen in Tinte statt Fläche */
+    .rufknopf, .knopf-primaer { color: var(--c-tinte); border: var(--linie-ui) solid var(--c-tinte); }
+
+    /* Ortsseite: Lagekarte klein, Leistungen als Liste mit Haarlinie */
+    .ort-karte { max-inline-size: var(--karte-min); padding: 0; }
+    .ort-leistungen a { padding: var(--sp-xs) 0; border-block-start: var(--linie-haar) solid var(--c-linie-ui); text-decoration: none; }
+
+    /* Artikel: Figur höchstens so breit wie die schmale Figur-Breite, damit sie unter der halben Seitenhöhe bleibt */
+    .artikel-figur { max-inline-size: var(--figur-schmal); padding: var(--sp-s); }
+    /* Fließtext als Blöcke statt Grid: Seitenumbrüche von Hinweisen und Abschnitten bleiben korrekt */
+    .artikel-text, .artikel-teil { display: block; }
+    .artikel-text > * + * { margin-block-start: var(--sp-l); }
+    .artikel-teil > * + * { margin-block-start: var(--sp-xs); }
+  }
+}
