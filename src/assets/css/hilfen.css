@@ -18,7 +18,7 @@
     }
 
     /* Akzentkanten der Scherlinie (Kupfer): Farbe Highlight, Breite und Lage bleiben */
-    .kontakt-weg, .register-gross, .gebiet-pruefung, .preise-pruefung, .rechner-ergebnis, .gruppe-register, .rand-titel,
+    .kontakt-weg, .register-gross, .gebiet-pruefung, .rechner-ergebnis, .gruppe-register, .rand-titel,
     .zone-a, .hauptnav-panel { border-block-start-color: Highlight; }
     .artikel-wichtig, .hinweis, .ortspruefung-ergebnis, .artikel-toc a[aria-current] { border-inline-start-color: Highlight; }
     .szene-schritt { border-inline-start-color: GrayText; }

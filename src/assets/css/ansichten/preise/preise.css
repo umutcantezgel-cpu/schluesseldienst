@@ -65,7 +65,8 @@
   .tb-eintrag-wochenende::before { background: var(--c-tinte-3); opacity: .3; }
   /* Legende in der Größe der Bandbeschriftung: Sie erklärt das Band, sie konkurriert nicht mit ihm */
   .tb-eintrag dt { font-size: var(--fs--1); font-weight: var(--fw-ui); line-height: var(--lh-titel); color: var(--c-tinte); }
-  .tb-eintrag dd { margin: 0; font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .tb-eintrag dd { margin: 0; font-size: var(--fs--1); line-height: var(--lh-dicht); color: var(--c-tinte-3); }
+  .tb-spanne { white-space: nowrap; }
   .tb-eintrag[data-jetzt] dt::after { content: " · jetzt"; color: var(--c-kupfer); font-weight: var(--fw-titel); }
   /* Bildunterschrift im Band: gilt für Band und Legende, deshalb unter einer Haarlinie in derselben Karte */
   .tb-hinweis { padding-block-start: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie); font-size: var(--fs--1); color: var(--c-tinte-2); }
@@ -81,7 +82,7 @@
 
   /* Auf /preise/ steht die Tabellenbeschriftung in beiden Formen der Tabelle wie ein Kartentitel in der Fläche
      (in der Blockform tut sie das ohnehin). So beginnen Tabelle und Ortsprüfung auf derselben Kante, und
-     Beschriftung und Kartentitel (beide fs-0, gleicher Innenabstand oben) stehen auf einer Grundlinie. */
+     Beschriftung und Kartentitel (beide fs-0 mit lh-titel, gleicher Innenabstand oben) stehen auf einer Grundlinie. */
   .seite-preise .preis-tabelle caption { background: var(--c-flaeche); padding-block-start: var(--sp-m); border-start-start-radius: var(--r-m); border-start-end-radius: var(--r-m); }
   /* Erste und letzte Spalte rücken so weit ein wie Tagesband und Ortsprüfung (sp-m): Alle Flächen der Seite haben
      denselben Innenrand. In der Blockform ergibt sich derselbe Rand aus Zeilen- und Zellenabstand (preis.css). */
@@ -97,7 +98,7 @@
   .preise-anfahrt-teilung { display: grid; gap: var(--sp-xl); }
   .zone-kurz { font-family: var(--ff-mono); color: var(--c-kupfer); font-weight: var(--fw-titel); }
   .preise-pruefung { padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); align-self: start; }
-  .preise-pruefung .ortspruefung-titel { font-size: var(--fs-0); }
+  .preise-pruefung .ortspruefung-titel { font-size: var(--fs-0); line-height: var(--lh-titel); }
   .preise-pruefung .ortspruefung-hinweis { hyphens: manual; text-wrap: pretty; }
 
   .rechner { display: grid; gap: var(--sp-m); padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-2); }
@@ -127,14 +128,14 @@
   .preise-regel-liste { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
   .preise-zahlarten { color: var(--c-tinte-2); }
 
-  /* Tagesband nach der eigenen Breite: lange Uhrzeiten, sobald fünf nebeneinander passen; Namen im Balken nur,
-     wenn sie in ihren Abschnitt passen (Klasse aus der Vorlage) */
+  /* Tagesband nach der eigenen Breite: Legende zweispaltig ab 17em (bei 390 px Viewport ist das Band 307 px breit);
+     lange Uhrzeiten erst ab 19em, dann bleiben auch zwischen „00:00“ und „06:00“ mindestens 16 px. Namen im Balken
+     nur, wenn sie in ihren Abschnitt passen (Klasse aus der Vorlage). */
   /* em bezieht sich hier auf die Schriftgröße des Bands (fs-0, mindestens 17 px); tagesband.mjs rechnet mit diesen Stufen */
-  /* 17em: bei 390 px Viewport ist das Band 306 px breit (Innenrand sp-m wie alle Flächen der Seite) */
-  @container (min-width: 17em) {
+  @container (min-width: 17em) { .tagesband-legende { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @container (min-width: 19em) {
     .tb-lang { display: inline; }
     .tb-kurz { display: none; }
-    .tagesband-legende { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @container (min-width: 44em) { .tagesband-legende { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   @container (min-width: 24em) { .tb-name-ab-s { display: inline; } }

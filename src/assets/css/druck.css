@@ -61,7 +61,7 @@
     .tb-eintrag-werktag::before { border-color: var(--c-lahn-hell); }
     .tb-eintrag-abend::before { border-color: var(--c-lahn); }
     .tb-eintrag-nacht::before { border-color: var(--c-tinte); }
-    .tb-eintrag-wochenende::before { border-color: var(--c-kupfer-hell); }
+    .tb-eintrag-wochenende::before { border-color: var(--c-tinte-3); } /* Kupfer-hell bleibt Platzhaltern vorbehalten */
     .gk-marke { border: calc(var(--sp-xs) / 2) solid var(--c-tinte-2); }
     .gk-marke-a { border-color: var(--c-lahn); }
     .gk-marke-c { border-color: var(--c-tinte-3); }

@@ -32,6 +32,10 @@ const BEREICHE = [['0', 240], ['s', 408], ['m', 612], ['l', 782], ['xl', 952]];
 const nameAb = (name, anteil) => BEREICHE.find(([, breite]) => anteil * breite >= name.length * 8 + 20)?.[0] ?? null;
 
 const pz = (wert) => `${Number(wert.toFixed(3))}%`;
+// Uhrzeit der Legende: jede Spanne („07:00–18:00“) bleibt beisammen, umbrochen wird nur zwischen Tagesart und Spanne
+const legendenZeit = (zeit) => (typeof zeit === 'string'
+  ? zeit.split(/(\d\d:\d\d–\d\d:\d\d)/).map((teil, i) => (i % 2 ? html`<span class="tb-spanne">${teil}</span>` : teil))
+  : zeit);
 const anteilVon = (hhmm) => minutenVon(hhmm) / (24 * 60);
 
 function skala() {
@@ -71,7 +75,7 @@ export function tagesband(sk, { praefix = 'tb', jetztText = 'jetzt', hinweis = '
   const marke = html`<g class="tb-jetzt" data-rolle="marke"><line x1="0" x2="0" y1="${MARKE_Y}" y2="${SKALA_Y + 6}"/><circle cx="0" cy="${MARKE_Y}" r="4"/><text class="tb-jetzt-text" x="0" dx="8" y="${MARKE_TEXT_Y}">${jetztText} <tspan class="tb-jetzt-zeit"></tspan></text></g>`;
   return html`<figure class="tagesband" data-modul="tagesband" data-band="${daten}"${offen ? html` data-zustand="offen"` : ''}>
 <svg class="tagesband-svg" width="100%" height="${H}" aria-hidden="true" focusable="false">${offen ? html`<defs><pattern id="${praefix}-schraffur" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path class="tb-schraffur" d="M0 0V6"/></pattern></defs>` : ''}${TAGESARTEN.map((art) => zeile({ art, band, offen, titel, praefix }))}${marke}</svg>
-<dl class="tagesband-legende">${fenster.map((f) => html`<div class="tb-eintrag tb-eintrag-${f.id}" data-fenster="${f.id}"><dt>${f.titel}</dt><dd>${fensterZeit(preise, f)}</dd></div>`)}</dl>
+<dl class="tagesband-legende">${fenster.map((f) => html`<div class="tb-eintrag tb-eintrag-${f.id}" data-fenster="${f.id}"><dt>${f.titel}</dt><dd>${legendenZeit(fensterZeit(preise, f))}</dd></div>`)}</dl>
 ${hinweis ? html`<figcaption class="tb-hinweis">${hinweis}</figcaption>` : ''}
 </figure>`;
 }

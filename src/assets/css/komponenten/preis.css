@@ -10,7 +10,7 @@
   .preis-auszug .hinweis { max-inline-size: none; }
   .preis-tabelle-huelle { container-type: inline-size; overflow-x: auto; }
   .preis-tabelle { inline-size: 100%; border-collapse: collapse; font-size: var(--fs--1); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
-  .preis-tabelle caption { text-align: start; font-weight: var(--fw-titel); font-size: var(--fs-0); padding-block-end: var(--sp-xs); }
+  .preis-tabelle caption { text-align: start; font-weight: var(--fw-titel); font-size: var(--fs-0); line-height: var(--lh-titel); text-wrap: balance; padding-block-end: var(--sp-xs); }
   .preis-tabelle th, .preis-tabelle td { padding: var(--sp-xs) var(--sp-2xs); text-align: start; vertical-align: top; border-block-end: var(--linie-haar) solid var(--c-linie); }
   .preis-tabelle thead th { font-weight: var(--fw-ui); color: var(--c-tinte-2); }
   .preis-tabelle tbody th { font-weight: var(--fw-ui); inline-size: 30%; hyphens: manual; }
