@@ -43,10 +43,10 @@
   .kreis-zahlen dt { padding-block: var(--sp-xs) var(--sp-3xs); border-block-start: var(--linie-haar) solid var(--c-linie); font-weight: var(--fw-ui); color: var(--c-tinte-2); }
   .kreis-zahlen dd { margin: 0; padding-block: var(--sp-3xs) var(--sp-xs); max-inline-size: var(--mass); font-variant-numeric: tabular-nums; }
   .kreis-zahlen-zeile { display: block; }
-  .kreis-zahlen a { color: var(--c-lahn-text); }
-  .kreis-zahlen a:hover { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
   @media (min-width: 48em) {
     .kreis-zahlen { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--sp-l); }
     .kreis-zahlen dd { border-block-start: var(--linie-haar) solid var(--c-linie); }
+    /* zwei Spalten: Bezeichnung und Wert auf gleicher Höhe */
+    .kreis-zahlen dt, .kreis-zahlen dd { padding-block: var(--sp-xs); }
   }
 }

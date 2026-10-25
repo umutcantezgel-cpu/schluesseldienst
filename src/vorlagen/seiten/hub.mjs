@@ -3,6 +3,7 @@
 // Länder mit Kreisen: Kreisliste mit Ortszahl und Entfernungsspanne. Kreise und Stadtstaaten (kreisSlug === landSlug):
 // A–Z-Verzeichnis aller Orte mit klebender Buchstabenleiste; Gemeinden fett, Ortsteile eingerückt, je km und Zone.
 // Niederlande: die Kreise sind Provinzen. Hubs setzen k.hubs.aktiv und k.hubs.laender (Fußnavigation, Ortsseiten).
+// Kreis-, Provinz- und Stadtstaatseiten beginnen mit „… in Zahlen“ (K-08): Zahlen nur aus den Daten, ohne Wertung.
 import { html } from '../../../bau/lib/html.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
 import { brotkrumenLd } from '../teile/brotkrumen.mjs';
@@ -133,19 +134,21 @@ function plzZeile(orte) {
   return kleinste === groesste ? html`<span data-daten="">${kleinste}</span>` : html`<span data-daten="">${kleinste}–${groesste}</span>`;
 }
 
-function kennzahlenAbschnitt(zonen, orte, staat) {
+// art: 'Kreis' | 'Provinz' | 'Stadt' (Stadtstaaten) – nur für die Überschrift
+function kennzahlenAbschnitt(zonen, orte, staat, art) {
   const gemeinden = orte.filter((o) => o.typ === 'gemeinde').length;
   const ortsteile = orte.filter((o) => o.typ === 'ortsteil').length;
   const naechster = [...orte].sort(nachKm(1))[0];
   const entferntester = [...orte].sort(nachKm(-1))[0];
   const eintraege = [
-    html`<dt>Gemeinden und Ortsteile</dt><dd>${zahlD(gemeinden)} ${ein(gemeinden, 'Gemeinde', 'Gemeinden')} · ${zahlD(ortsteile)} ${ein(ortsteile, 'Ortsteil', 'Ortsteile')}</dd>`,
+    // Null-Werte entfallen (Stadtstaaten haben in den Daten nur Ortsteile)
+    html`<dt>Gemeinden und Ortsteile</dt><dd>${[[gemeinden, 'Gemeinde', 'Gemeinden'], [ortsteile, 'Ortsteil', 'Ortsteile']].filter(([n]) => n > 0).map(([n, eins, viele], i) => html`${i ? ' · ' : ''}${zahlD(n)} ${ein(n, eins, viele)}`)}</dd>`,
     html`<dt>Nächster und entferntester Ort ab Weilburg</dt><dd><span class="kreis-zahlen-zeile">Nächster: ${ortLink(naechster)}, ${nachWeilburg(naechster)}</span><span class="kreis-zahlen-zeile">Entferntester: ${ortLink(entferntester)}, ${nachWeilburg(entferntester)}</span></dd>`,
     html`<dt>Verteilung auf die Zonen</dt><dd>${zonenZeile(orte, zonen)}</dd>`,
   ];
   if (staat === 'DE') eintraege.push(html`<dt>Postleitzahlen</dt><dd>${plzZeile(orte)}</dd>`);
   return html`<section class="sektion sektion-dicht" aria-labelledby="hub-zahlen-titel"><div class="raster">
-${abschnittKopf({ id: 'hub-zahlen-titel', titel: 'Der Kreis in Zahlen' })}
+${abschnittKopf({ id: 'hub-zahlen-titel', titel: `${art === 'Kreis' ? 'Der' : 'Die'} ${art} in Zahlen` })}
 <dl class="kreis-zahlen">${eintraege}</dl>
 </div></section>`;
 }
@@ -222,7 +225,7 @@ export function seiten(k) {
         pfad: pfadLand, stufen: stufenLand, h1: h1Land, titel: titelMit(l.titel, 'Orte A–Z'), kicker: 'Einsatzgebiet',
         beschreibung: `${orteText(n)} im Verzeichnis: ${l.titel}, A–Z geordnet. ${SITZ_ZEILE}`,
         satz: html`<span data-daten="">${orteText(n)}</span>, ${entfernungSatz(s)}. Die Zone steht bei jedem Ort.`,
-        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, l.orte, l.staat)}${azAbschnitt(l.orte)}`,
+        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, l.orte, l.staat, 'Stadt')}${azAbschnitt(l.orte)}`,
       }));
       continue;
     }
@@ -243,7 +246,7 @@ export function seiten(k) {
         pfad, stufen, h1, titel, kicker: `Einsatzgebiet · ${l.titel}`,
         beschreibung: `${orteText(kr.orte.length)} im Verzeichnis: ${name}. ${SITZ_ZEILE}`,
         satz: html`<span data-daten="">${orteText(kr.orte.length)}</span>, ${entfernungSatz(sk)}. Die Zone steht bei jedem Ort.`,
-        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, kr.orte, l.staat)}${azAbschnitt(kr.orte)}${weitereKreise(l, kr)}`,
+        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, kr.orte, l.staat, nl ? 'Provinz' : 'Kreis')}${azAbschnitt(kr.orte)}${weitereKreise(l, kr)}`,
       }));
     }
   }
