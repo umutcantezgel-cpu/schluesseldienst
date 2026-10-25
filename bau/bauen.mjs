@@ -16,7 +16,7 @@ import { platzhalterIn, istPlatzhalter } from './lib/platzhalter.mjs';
 import { setzeRoutenPruefer, fehlendeLinksHolen } from './lib/inhalt.mjs';
 import { sitemaps, robots, securityTxt, manifest } from './lib/dateien.mjs';
 import { headersDatei, htaccess, nginx, pruefeWeiterleitungen } from './lib/hosting.mjs';
-import { pruefeAlles, auswerten } from './pruefen/index.mjs';
+import { pruefeAlles, auswerten, RELEASE_STRENG } from './pruefen/index.mjs';
 import { iconsLaden, icon as iconRoh } from '../src/vorlagen/teile/icons.mjs';
 import { datenIndizes, seitenIndexSchreiben } from './lib/datenindex.mjs';
 import { layout } from '../src/vorlagen/layout.mjs';
@@ -37,9 +37,24 @@ const modus = arg.release ? 'release' : arg.messen ? 'messen' : 'vorschau';
 const log = (...t) => { if (!arg.still) console.log(...t); };
 const start = performance.now();
 
+// Datum aus dem Commit (PLAN: Determinismus). Ohne eigenen Git-Checkout verweigert der Release, statt still
+// ein festes Datum in Sitemap und security.txt (Expires) zu schreiben; Vorschau und Messen melden den Rückfall.
 function commitDatum() {
-  if (arg.datum) return `${arg.datum}T00:00:00Z`;
-  try { return execFileSync('git', ['log', '-1', '--format=%cI'], { cwd: WURZEL, encoding: 'utf8' }).trim(); } catch { return '2026-01-01T00:00:00Z'; }
+  if (arg.datum) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(arg.datum) || Number.isNaN(Date.parse(`${arg.datum}T00:00:00Z`))) throw new Error(`--datum=${arg.datum} ist kein gültiges Datum (JJJJ-MM-TT).`);
+    return `${arg.datum}T00:00:00Z`;
+  }
+  const opt = { cwd: WURZEL, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] };
+  try {
+    // nur der eigene Checkout zählt, nicht ein umgebendes fremdes Repo (Kopien unter .cache/)
+    if (resolve(execFileSync('git', ['rev-parse', '--show-toplevel'], opt).trim()) === WURZEL) {
+      const d = execFileSync('git', ['log', '-1', '--format=%cI'], opt).trim();
+      if (d) return d;
+    }
+  } catch { /* kein Git-Checkout */ }
+  if (modus === 'release') throw new Error('Release: kein Commit-Datum gefunden (Kopie ohne .git?). --datum=JJJJ-MM-TT angeben.');
+  console.warn('Hinweis: kein Commit-Datum gefunden – Sitemap-lastmod und security.txt-Expires nutzen 2026-01-01. Mit --datum=JJJJ-MM-TT setzen.');
+  return '2026-01-01T00:00:00Z';
 }
 
 async function konfigLaden() {
@@ -236,7 +251,7 @@ async function main() {
   if (arg.pruefen || modus === 'release') {
     const dateien = [...schreiber.geschrieben].map((d) => schreiber.relativ(d));
     const ergebnisse = await pruefeAlles({ wurzel: WURZEL, dist: aus, modus, basisUrl, seiten: gerendert, dateien, konfig, assets, daten, geplant });
-    const a = auswerten(ergebnisse, { streng: modus === 'release' ? ['seo/titel-laenge', 'seo/beschreibung-laenge'] : [] });
+    const a = auswerten(ergebnisse, { streng: modus === 'release' ? RELEASE_STRENG : [] });
     log(a.text);
     bericht.pruefung = { fehler: a.fehler, warnungen: a.warnungen, je: ergebnisse.map((e) => ({ name: e.name, fehler: e.befunde.filter((b) => b.schwere === 'fehler').length, warnungen: e.befunde.filter((b) => b.schwere === 'warnung').length })) };
     fehler += a.fehler;

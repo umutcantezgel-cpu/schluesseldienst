@@ -1,10 +1,12 @@
 // Barrierefreiheit (V12) – ENTWURF: freiwillige Erklärung. Die Rechtslage steht nur über den Fakt aus
-// dem Faktenblatt recht-bfsg (Stichtag). Ob der Betrieb unter das Gesetz fällt, ist nicht belegt und
-// wird im Text ausdrücklich als ungeprüft benannt. Prozentwerte werden nicht genannt.
+// dem Faktenblatt recht-bfsg (Stichtag). Ob der Betrieb unter das Gesetz fällt, ist nicht belegt: Die Antwort
+// ist ein Platzhalter (recht.barrierefreiheit.geltung) und sperrt den Release bis zur rechtlichen Prüfung.
+// Prozentwerte werden nicht genannt.
 import { platzhalter } from '../../../bau/lib/platzhalter.mjs';
 import recht from '../fakten/recht-bfsg.mjs';
 
 const f = recht.fakten;
+const geltung = platzhalter('recht.barrierefreiheit.geltung', 'nicht geprüft, wird nach der rechtlichen Prüfung ergänzt');
 
 export default {
   id: 'barrierefreiheit',
@@ -44,7 +46,7 @@ export default {
       titel: 'Rechtlicher Rahmen',
       bloecke: [
         { absatz: ['Zur Rechtslage: ', f.stichtag] },
-        { absatz: 'Ob unsere Leistungen davon erfasst sind, ist noch nicht geprüft.' },
+        { absatz: ['Ob das Gesetz für unsere Leistungen gilt: ', geltung] },
         { absatz: 'Diese Seite ist eine freiwillige Erklärung.' },
       ],
     },

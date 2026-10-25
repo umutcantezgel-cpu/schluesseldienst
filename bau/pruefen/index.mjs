@@ -26,6 +26,11 @@ export async function pruefeAlles(ctx, { nur = null } = {}) {
   return ergebnisse;
 }
 
+// Regeln, deren Warnungen im Release als Fehler zählen. Ortsseiten melden zu lange Titel unter
+// `seo/titel-laenge-ort` und stehen bewusst nicht hier (PLAN-GENEHMIGT: „über 60 Zeichen gibt es bei
+// Ortsseiten nur eine Warnung“; ENTSCHEIDUNGEN D-SEO-04).
+export const RELEASE_STRENG = ['seo/titel-laenge', 'seo/beschreibung-laenge'];
+
 /** Zusammenfassung; im Release-Modus zählen Warnungen der Regeln in `streng` als Fehler. */
 export function auswerten(ergebnisse, { streng = [] } = {}) {
   let fehler = 0; let warnungen = 0;

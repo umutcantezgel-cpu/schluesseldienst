@@ -21,7 +21,8 @@ export async function pruefe(ctx) {
     if (!t) b('titel-fehlt', 'fehler', d, 'Kein <title>');
     if (!desc) b('beschreibung-fehlt', 'fehler', d, 'Keine Meta-Beschreibung');
     if (s.indexierbar) {
-      if (t.length > titelMax) b('titel-laenge', 'warnung', d, `Titel ${t.length} Zeichen (> ${titelMax}): ${t}`);
+      // Ortsseiten: eigene Regel, nur Warnung – auch im Release (PLAN-GENEHMIGT, Slugs; ENTSCHEIDUNGEN D-SEO-04)
+      if (t.length > titelMax) b(s.typ === 'ort' ? 'titel-laenge-ort' : 'titel-laenge', 'warnung', d, `Titel ${t.length} Zeichen (> ${titelMax}): ${t}`);
       if (desc && (desc.length < beschreibungMin || desc.length > beschreibungMax)) b('beschreibung-laenge', 'warnung', d, `Beschreibung ${desc.length} Zeichen (${beschreibungMin}–${beschreibungMax})`);
       if (titel.has(t)) b('titel-doppelt', 'fehler', d, `Titel doppelt mit ${titel.get(t)}: ${t}`); else titel.set(t, d);
       if (beschreibungen.has(desc)) b('beschreibung-doppelt', ctx.modus === 'release' ? 'fehler' : 'warnung', d, `Beschreibung doppelt mit ${beschreibungen.get(desc)}`); else beschreibungen.set(desc, d);

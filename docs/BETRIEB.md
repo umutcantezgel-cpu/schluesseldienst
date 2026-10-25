@@ -56,7 +56,7 @@ Die Platzhalter auf den Seiten entstehen aus diesen Angaben und aus den Inhaltsd
 ## 4. `src/konfig/seo.mjs`
 
 - `standardBeschreibung`: Beschreibung der Startseite. Der Prüfer `seo` warnt, wenn Beschreibungen außerhalb von `beschreibungMin` (70) und `beschreibungMax` (155) Zeichen liegen.
-- `titelMax` (60): Grenze für den Prüfer `seo`. Der Markenzusatz im Titel wird nur angehängt, wenn der Titel darunter bleibt.
+- `titelMax` (60): Grenze für den Prüfer `seo`. Der Markenzusatz im Titel wird nur angehängt, wenn der Titel darunter bleibt. Im Release ist ein längerer Titel ein Fehler, außer bei Ortsseiten: Dort bleibt es eine Warnung (`seo/titel-laenge-ort`), weil Namensdoppel und Entfernungsangabe nicht gekürzt werden.
 - `ogBild`, `themeColor`: Standardbild und Farben.
 
 Die Basis-Adresse steht nicht in dieser Datei, sondern in `betrieb.basisUrl`.
@@ -79,7 +79,8 @@ Die Freigabe entfernt die Markierung. Sie ersetzt keine fachliche oder rechtlich
 Impressum, Datenschutz, Widerruf, Barrierefreiheit sowie Quellen und Lizenzen sind Entwürfe. Jede Datei in `src/inhalte/recht/` enthält `freigabe: platzhalter('recht.<seite>.freigabe', …)`. Der Platzhalter erscheint als Hinweis oben auf der Seite und verhindert den Release.
 
 - Die Angaben im Impressum kommen aus `betrieb.mjs`.
-- Wie der Freigabevermerk nach der Prüfung lauten soll, ist im Code nicht festgelegt. Das klärt der Betrieb mit der prüfenden Stelle.
+- Nach der Freigabe `freigabe: null` setzen; der Hinweis oben auf der Seite entfällt dann. Wer stattdessen einen Vermerk als Text einträgt, sieht ihn als schlichten Hinweis ohne Platzhalterfläche. Wie ein solcher Vermerk lauten soll, ist im Code nicht festgelegt.
+- Offene Rechtsfragen stehen als eigene Platzhalter im Text und sperren den Release ebenfalls: `recht.widerruf.notoeffnung` (Ausnahme für Notöffnungen) und `recht.barrierefreiheit.geltung` (gilt das Barrierefreiheitsstärkungsgesetz für den Betrieb?).
 - Die rechtliche Prüfung nimmt ein Jurist vor (MENSCHEN §3).
 
 ## 7. Orte nachpflegen

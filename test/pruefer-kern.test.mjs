@@ -97,3 +97,18 @@ test('S20-navigation: eigene Pfade und mailto: als Literal erlaubt, alles andere
   for (const js of ok) assert.equal(sicherheit.navigationFremd(js), false, js);
   for (const js of fremd) assert.equal(sicherheit.navigationFremd(js), true, js);
 });
+
+test('SEO: Titel > 60 bei Ortsseiten nur Warnung, auch im Release; andere Seiten bleiben im Release Fehler (D-SEO-04)', async () => {
+  const { auswerten, RELEASE_STRENG } = await import('../bau/pruefen/index.mjs');
+  const lang = 'Schlüsseldienst Sulzbach (Regionalverband Saarbrücken), 158 km ab Weilburg';
+  const mit = (pfad) => seite(pfad, '<p>x</p>').replace(/<title>[^<]*<\/title>/, `<title>${lang} ${pfad}</title>`);
+  const ctx = await ctxMit([
+    { pfad: '/schluesseldienst-sulzbach/', typ: 'ort', html: mit('/schluesseldienst-sulzbach/') },
+    { pfad: '/b/', typ: 'seite', html: mit('/b/') },
+  ]);
+  const befunde = (await seo.pruefe(ctx)).filter((b) => b.regel.startsWith('seo/titel-laenge'));
+  assert.deepEqual(befunde.map((b) => [b.regel, b.datei]).sort(), [['seo/titel-laenge', '/b/index.html'], ['seo/titel-laenge-ort', '/schluesseldienst-sulzbach/index.html']]);
+  const a = auswerten([{ name: 'seo', ms: 0, befunde }], { streng: RELEASE_STRENG });
+  assert.equal(a.fehler, 1);
+  assert.equal(a.warnungen, 1);
+});

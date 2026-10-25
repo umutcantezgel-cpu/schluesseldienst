@@ -36,9 +36,9 @@ Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML
 | `--nur=<pfadpräfix>` | Nur Seiten mit diesem Pfadanfang (plus 404). Räumt die Ausgabe nicht auf. |
 | `--stichprobe=<n>` | Nur n Ortsseiten, zum Entwickeln. Verweise auf fehlende Orte sind dann erwartbar. |
 | `--pruefen` | Führt alle Prüfer aus. Im Release immer. |
-| `--datum=JJJJ-MM-TT` | Build-Datum für Sitemap und `security.txt`. Standard ist das Datum des letzten Commits. |
+| `--datum=JJJJ-MM-TT` | Build-Datum für Sitemap und `security.txt`. Standard ist das Datum des letzten Commits. Ohne Git-Checkout ist `--datum` im Release Pflicht (sonst bricht er ab). |
 | `--port=<n>` | Port der Basis-Adresse in Vorschau und Messung (Standard 4173). |
-| `--still` | Nur Fehler auf der Konsole. |
+| `--still` | Nur Fehler und Hinweise auf der Konsole. |
 
 ## Verzeichnisaufbau
 

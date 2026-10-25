@@ -91,7 +91,7 @@ function inhalt(sk, inh) {
   const weiter = SEITEN.filter((x) => x.id !== inh.id);
   return html`<article class="recht" aria-labelledby="recht-titel">
 <header class="recht-kopf"><div class="raster">
-<p class="recht-freigabe hinweis hinweis-platzhalter">${inh.freigabe}</p>
+${inh.freigabe ? html`<p class="recht-freigabe hinweis${istPlatzhalter(inh.freigabe) ? ' hinweis-platzhalter' : ''}">${inh.freigabe}</p>` : ''}
 <p class="gruppe-kicker">${inh.kicker}</p>
 <h1 id="recht-titel">${inh.h1}</h1>
 <p class="recht-einleitung">${text(inh.einleitung)}</p>

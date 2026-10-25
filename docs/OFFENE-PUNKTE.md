@@ -50,7 +50,7 @@ Diese Punkte stehen nicht in den genannten Quellen. Sie entstanden bei der Dokum
 
 | Nr. | Bereich | Was fehlt | Wer entscheidet | Blockiert Release | Quelle |
 |---|---|---|---|---|---|
-| 32 | Titellänge | 72 Seiten haben einen Titel über 60 Zeichen, vor allem Ortsseiten der Zonen C und D mit Entfernungsangabe. Im Release ist das ein Fehler. Die Konventionen verlangen Sitz und Entfernung im Titel, die Grenze liegt bei 60 Zeichen. | Projektleitung (Grenze oder Formulierung) | ja | Build `--pruefen` |
+| 32 | Titellänge | 72 Ortsseiten haben einen Titel über 60 Zeichen (Namensdoppel mit Gemeinde oder Kreis, lange Namen in den Zonen C und D mit Entfernungsangabe). Laut genehmigtem Plan ist das bei Ortsseiten nur eine Warnung, auch im Release (Regel `seo/titel-laenge-ort`, ENTSCHEIDUNGEN D-SEO-04). Für alle anderen Seiten bleibt ein zu langer Titel im Release ein Fehler. Kürzere Formulierungen bleiben möglich. | Projektleitung (Formulierung) | nein | Build `--pruefen` |
 | 33 | Ortszahl | `src/daten/orte.json` enthält 5.252 Orte, `orte-unklar.json` 314 Einträge. Die Projektvorgaben (KERN) nennen rund 6.000 Ortsseiten, die Entscheidung D-004 rund 5.800. | Projektleitung | nein | `src/daten/` |
 | 34 | Lizenz | Im Repository liegt keine Lizenzdatei. Die Lizenz für Code und Texte ist nicht festgelegt. | Betrieb, Jurist | nein | Repository |
 | 35 | Historie als Quelle | `npm test` (Plagiatstest), `npm run orte` und `pipeline/fingerabdruck.mjs` lesen Dateien aus einem festen Commit der Historie. Eine Bereinigung der Historie (Nr. 24) würde sie brechen. | Projektleitung (Anpassung der Tests), Betrieb | nein | Prüfung der Skripte |

@@ -19,6 +19,8 @@ Jeder Punkt: Frage · Beleg · meine Standardannahme (gilt bis zu deiner Antwort
 
 ## 3. Recht und Fakten (fachliche Prüfung)
 - **[RELEASE]** Impressum, Datenschutzerklärung (Hosting-Logs, E-Mail/Telefon, § 25 TDDDG), Widerrufsbelehrung, Barrierefreiheitserklärung – alles Entwürfe, bitte rechtlich prüfen lassen.
+  - Barrierefreiheit: Platzhalter `recht.barrierefreiheit.geltung` – gilt das Barrierefreiheitsstärkungsgesetz für den Betrieb? Wenn ja, auch den Satz „Diese Seite ist eine freiwillige Erklärung.“ anpassen.
+  - Nach der Freigabe je Seite `freigabe: null` setzen (der Hinweis entfällt).
 - **[RELEASE]** Alle mit `VERIFIZIEREN` markierten Fakten (Rauchmelderpflicht je Bundesland, KfW-Förderstatus 2026, § 35a EStG, WaffG/AWaffV, DIN/EN-Normen, Polizei-Beratungsstellen) gegen die Primärquelle prüfen und freigeben. Redaktionelle Verantwortung für KI-erstellte Texte (KI-VO Art. 50 Abs. 4).
 - Restrisiko Datenbankrecht (§ 87b UrhG): Ortsauswahl folgt den Ortslisten der Wettbewerber, Ortsfakten stammen aus GeoNames. Bitte einschätzen lassen.
 - Restrisiko UWG § 5 bei Ortsseiten außerhalb des tatsächlichen Einsatzgebiets – Gegenmaßnahmen siehe ENTSCHEIDUNGEN D-004.

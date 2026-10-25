@@ -78,3 +78,11 @@ Folgenreiche Entscheidungen mit Denkprotokoll (Ziel → drei Wege → Bewertung 
 - Befund: Die Kürzungsregel aus E3 (hell Desktop/Mobil vollständig, sonst Ausschnitte 1–3) ergibt für zehn Pfade 14,76 MB.
 - Entscheidung: angenommen; die Bilder sind bereits im Verlauf (Commit `979d959`), ein Neukomprimieren würde den Verlauf nur vergrößern. Für E5 gilt < 15 MB (Paketblatt E5-PRUEF-14).
 - Kappung `MAX_AUSSCHNITTE = 12` in `bildsatz.mjs` betrifft `/preise/` (12 von 13) und `/sitemap/` mobil (12 von 21); sie steht in `index.json` (Feld `gekuerzt`) und ist damit sichtbar, keine stille Kürzung.
+
+## D-SEO-04 · Release: zu lange Titel bei Ortsseiten nur Warnung (Release-Prüfung, 2026-10-25)
+- Befund: Ein Release mit vollständig ausgefüllter Probekopie (alle Platzhalter gefüllt, alle Fakten geprüft) scheiterte allein an 72 × `seo/titel-laenge`, alles Ortsseiten (61–74 Zeichen). Ursache: Die Release-Verschärfung (`streng`, eingeführt in E2) galt pauschal für alle Seiten.
+- Plan wörtlich (PLAN-GENEHMIGT, Slugs): „der Kreis wird nie gekürzt, über 60 Zeichen gibt es bei Ortsseiten nur eine Warnung.“ Die Verschärfung ging also über den genehmigten Plan hinaus.
+- Entscheidung: Der Prüfer `seo` meldet zu lange Titel von Ortsseiten (`typ: 'ort'`) unter der eigenen Regel `seo/titel-laenge-ort` (Warnung); sie steht nicht in `RELEASE_STRENG` (`bau/pruefen/index.mjs`). Für alle anderen Seiten bleibt ein zu langer Titel im Release ein Fehler.
+- Keine Lockerung im Sinne von G7: Jeder Fall wird weiter gemeldet; hergestellt wird der genehmigte Stand. Test: `test/pruefer-kern.test.mjs` (Ortsseite Warnung, andere Seite Fehler, mit derselben Konstante wie der Build).
+- Auslegung „Kreis nie gekürzt“: Der Kurzname im Titel lässt nur das Typwort „Landkreis“/„Kreis“ weg, der Kreisname selbst bleibt vollständig.
+- Weitere Befunde derselben Prüfung, alle von zwei Gegenprüfern bestätigt und umgesetzt: leerer Freigabe-Kasten auf Rechtsseiten nach der Freigabe (`recht.mjs`, Test `test/recht.test.mjs`); offene BFSG-Frage als fester Text statt Platzhalter (`recht.barrierefreiheit.geltung`); stilles Ersatzdatum 2026-01-01 ohne Git-Checkout auch im Release (jetzt Abbruch mit Hinweis auf `--datum`, Test `test/bau-datum.test.mjs`).
