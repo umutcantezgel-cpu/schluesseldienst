@@ -49,11 +49,12 @@
     --spalte-az: 16em;
     --menue-blatt-max: 85svh;
     --karte-min: 16rem;
-    --hero-figur-max: 30rem; --figur-schmal: 21rem;
+    --hero-figur-max: 30rem; --figur-schmal: 21rem; --karte-gross: 46rem;
     /* Hero ab 64em: Versatz der Zylinderfigur, damit die Scherlinie die Grundlinie der zweiten H1-Zeile trifft */
     --hero-figur-versatz: 3.75rem;
     /* Gebietskarte: Punktgrößen je Zone (SVG-Einheiten) */
-    --gk-punkt: 5; --gk-punkt-c: 3;
+    --gk-punkt: 5; --gk-punkt-c: 3; --gk-punkt-gross: 9; --gk-punkt-gross-c: 6;
+    --svg-text-gross: 24px; --svg-text-gross-l: 30px;
     /* Szene M-17: Schritthöhe (Scrollweg je Schritt), Figur mobil */
     --szene-schritt-min: 52vh; --szene-schritt-min-mobil: 48vh; --szene-figur-mobil: 28vh;
     --hero-band-max: 7.5rem;
@@ -92,6 +93,8 @@
     --m16-linie-start: 900ms; --m16-linie: 480ms; --m16-stift-weg: 14px; --m16-feder: 1.25;
     /* Großer Moment M-17 „Szene“: Teile wechseln mit 360 ms (standard) */
     --m17-teil: 360ms;
+    /* Großer Moment M-18 „Ringe um Weilburg“: scrollgebunden, Ringe gestaffelt */
+    --m18-karte-start: .42; --m18-ring-start: .6;
     /* Auftritte und Seitenwechsel */
     --auftritt-weg: 24px; --zustand-weg: 8px; --feedback-weg: 4px;
     --vt-aus: 160ms; --vt-ein: 240ms; --vt-linie: 400ms;

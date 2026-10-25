@@ -4,7 +4,7 @@
 import { html, attr } from '../../../bau/lib/html.mjs';
 import { icon } from './icons.mjs';
 
-export function ortspruefung(sk, { id = 'ort', modus = 'pruefen', titel, hinweis }) {
+export function ortspruefung(sk, { id = 'ort', modus = 'pruefen', titel, hinweis, ersatz = { pfad: '/einsatzgebiet/', text: 'Alle Orte und Zonen ansehen' } }) {
   const d = sk.assets.daten;
   const bereit = d.orte && d.plz;
   const z = sk.konfig.zonen;
@@ -18,7 +18,7 @@ ${icon(sk, 'suche', { klasse: 'ortspruefung-icon' })}
 <input class="ortspruefung-eingabe" id="${id}-eingabe" type="text" inputmode="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="${id}-liste" aria-describedby="${id}-hinweis" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="z. B. Löhnberg oder 35781">
 <ul class="ortspruefung-liste" id="${id}-liste" role="listbox" aria-label="Vorschläge" hidden></ul>
 </div>
-<a class="ortspruefung-ersatz" href="/einsatzgebiet/">${icon(sk, 'standort')}<span>Alle Orte und Zonen ansehen</span></a>
+<a class="ortspruefung-ersatz" href="${ersatz.pfad}">${icon(sk, 'standort')}<span>${ersatz.text}</span></a>
 </div>
 <p class="ortspruefung-status unsichtbar" role="status" aria-live="polite"></p>
 <div class="ortspruefung-ergebnis" hidden></div>

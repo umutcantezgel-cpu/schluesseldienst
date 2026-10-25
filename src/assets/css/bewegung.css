@@ -20,6 +20,14 @@
       [data-ansicht="V01"] .register-gross { animation: auftritt linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
       [data-ansicht="V01"] .abschnitt-linie { animation: linie-ziehen linear both; animation-timeline: view(); animation-range: entry 10% entry 45%; }
       [data-ansicht="V01"] .ablauf::before { animation: linie-ziehen linear both; animation-timeline: view(); animation-range: entry 20% cover 45%; }
+
+      /* M-18 Großer Moment Einsatzgebiet: Rasterkarte wächst aus Weilburg, Ringe folgen gestaffelt */
+      [data-moment="ringe"] .gk-punkte, [data-moment="ringe"] .gk-ring { transform-box: fill-box; transform-origin: center; }
+      [data-moment="ringe"] .gk-punkte { animation: m18-karte linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
+      [data-moment="ringe"] .gk-ring { animation: m18-ring linear both; animation-timeline: view(); }
+      [data-moment="ringe"] .gk-ring:nth-of-type(1) { animation-range: entry 10% cover 30%; }
+      [data-moment="ringe"] .gk-ring:nth-of-type(2) { animation-range: entry 15% cover 38%; }
+      [data-moment="ringe"] .gk-ring:nth-of-type(3) { animation-range: entry 20% cover 46%; }
     }
 
     /* M-17 Szene: Teile wechseln mit dem Schritt (nur transform/opacity; Farbe des aktiven Teils springt) */
@@ -38,4 +46,6 @@
   @keyframes m16-linie { from { transform: scaleX(0); } }
   @keyframes auftritt { from { opacity: 0; transform: translateY(var(--auftritt-weg)); } }
   @keyframes linie-ziehen { from { transform: scaleX(.2); } }
+  @keyframes m18-karte { from { transform: scale(var(--m18-karte-start)); opacity: 0; } }
+  @keyframes m18-ring { from { transform: scale(var(--m18-ring-start)); opacity: 0; } }
 }

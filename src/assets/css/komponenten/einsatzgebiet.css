@@ -1,0 +1,36 @@
+/* V05 Einsatzgebiet: Kopf 7/5 mit Ortsprüfung, große Rasterkarte (M-18), Zonenkarten, Länderverzeichnis. */
+@layer komponenten {
+  .gebiet-kopf { padding-block: var(--sp-m) var(--sp-sektion); }
+  .gebiet-kopf-teilung { display: grid; gap: var(--sp-xl); align-items: end; }
+  .gebiet-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
+  .gebiet-pruefung { padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); border-block-start: var(--linie-scher) solid var(--c-kupfer); }
+  .gebiet-grosskarte { margin: 0; }
+  .gebietskarte.gebietskarte-gross { max-inline-size: var(--karte-gross); }
+  .gebietskarte-gross .gk-raster { stroke-width: var(--gk-punkt-gross); }
+  .gebietskarte-gross .gk-raster.gk-zone-c { stroke-width: var(--gk-punkt-gross-c); }
+  .gebietskarte-gross .gk-name { font-size: var(--svg-text-gross); }
+  .gebietskarte-gross .gk-ring-text { font-size: var(--svg-text-gross); }
+  .gebietskarte-gross .gk-sitz-name { font-size: var(--svg-text-gross-l); }
+  .zonen { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); gap: var(--sp-s); }
+  .zone { margin: 0; display: grid; gap: var(--sp-2xs); align-content: start; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); border-block-start: var(--sp-3xs) solid var(--c-linie-ui); }
+  .zone-a { border-block-start-color: var(--c-lahn); }
+  .zone-b { border-block-start-color: var(--c-tinte-2); }
+  .zone-kennung { font-weight: var(--fw-titel); font-size: var(--fs-1); display: flex; align-items: baseline; gap: var(--sp-xs); }
+  .zone-buchstabe { font-family: var(--ff-mono); color: var(--c-kupfer); }
+  .zone-radius { color: var(--c-tinte-2); }
+  .zone-merkmale { list-style-type: "– "; padding-inline-start: var(--sp-s); display: grid; gap: var(--sp-3xs); font-size: var(--fs--1); }
+  .zone-merkmale li { margin: 0; }
+  .zone-merkmale li::marker { color: var(--c-kupfer); font-weight: var(--fw-titel); }
+  .zone-anzahl { font-size: var(--fs--1); color: var(--c-tinte-3); border-block-start: var(--linie-haar) solid var(--c-linie); padding-block-start: var(--sp-2xs); margin-block-start: auto; }
+  .laender { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-min)), 1fr)); gap: 0 var(--sp-l); hyphens: manual; }
+  .laender li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie-ui); }
+  .laender a { display: grid; gap: var(--sp-3xs); padding-block: var(--sp-xs); min-block-size: var(--ziel-touch); color: var(--c-tinte); text-decoration: none; }
+  .laender a:hover .land-name { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .land-name { font-weight: var(--fw-ui); }
+  .land-zahl { font-size: var(--fs--1); color: var(--c-tinte-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  @media (min-width: 64em) {
+    .gebiet-kopf { padding-block-start: var(--sp-sektion); }
+    .gebiet-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+    .gebiet-kopf h1 { font-size: var(--fs-5); }
+  }
+}
