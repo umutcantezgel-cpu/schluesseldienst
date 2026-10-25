@@ -1,101 +1,70 @@
-/* Erzwungene Farben (K-06, Windows-Kontrastdesigns): Der Browser ersetzt Farben, Hintergründe und Schatten.
-   Flächen tragen deshalb eine 1px-Kante in Textfarbe, Auswahl und Akzente liegen auf Highlight, Grafiken setzen
-   Striche und Füllungen in Systemfarben. Nur unter forced-colors: active; die Normalansicht bleibt unberührt. */
+/* Erzwungene Farben (K-06, Windows-Kontrastdesigns). Der Browser ersetzt Hintergründe, Rahmenfarben und Schatten;
+   SVG-Farben übernimmt er nicht. Deshalb: Karten mit innerer 1px-Kante (outline, damit Akzentkanten als border bleiben),
+   Auswahl und Hauptaktionen auf Highlight, Grafiken mit Strichen in Textfarbe, Flächen in Canvas, Akzente in Highlight.
+   Nur unter forced-colors: active; die Normalansicht bleibt unberührt. */
 @layer hilfen {
   @media (forced-colors: active) {
 
-    /* Flächen, die nur über Hintergrund und Schatten abgesetzt sind: 1px-Kante in Textfarbe */
-    .weiter a, .kontakt-weg, .composer, .composer-notfall, .rechner, .rechner-ergebnis, .tagesband, .zone,
-    .register article, .register-gross, .preise-pruefung, .gebiet-pruefung, .ortspruefung-ergebnis, .ueber-wert,
-    .stelle, .leistung-figur, .artikel-figur, .artikel-wichtig, .ratgeber-liste a, .ort-karte, .ort-leistungen a,
-    .szene-einzelbild, .szene-figur, .betrieb-figur, .hinweis, .preis-tabelle, .sprunglink, .menue-blatt,
-    .hauptnav-panel {
-      border: var(--linie-haar) solid CanvasText;
+    /* Karten und Flächen (Hintergrund und Schatten fallen weg): innere 1px-Kante; :where, damit Fokus gewinnt */
+    :where(.weiter a, .kontakt-weg, .composer, .composer-notfall, .rechner, .rechner-ergebnis, .tagesband, .zone,
+      .register article, .register-gross, .preise-pruefung, .gebiet-pruefung, .ortspruefung-ergebnis, .ueber-wert,
+      .stelle, .leistung-figur, .artikel-figur, .artikel-wichtig, .ratgeber-liste a, .ort-karte, .ort-leistungen a,
+      .szene-figur, .szene-einzelbild, .betrieb-figur, .hinweis, .preis-tabelle, .hauptnav-panel) {
+      outline: var(--linie-haar) solid CanvasText;
+      outline-offset: calc(-1 * var(--linie-haar));
     }
 
-    /* Obere und seitliche Akzentkanten (Kupfer der Scherlinie) als Highlight; Kontakt-Wege im Standard als Textkante */
-    .kontakt-weg { border-block-start: var(--linie-scher) solid CanvasText; }
-    .zone { border-block-start: var(--sp-3xs) solid CanvasText; }
-    .kontakt-weg-notfall, .register-gross, .gebiet-pruefung, .preise-pruefung, .rechner-ergebnis,
-    .gruppe-register, .rand-titel, .hauptnav-panel { border-block-start: var(--linie-scher) solid Highlight; }
-    .zone-a { border-block-start: var(--sp-3xs) solid Highlight; }
-    .ratgeber-liste a, .artikel-wichtig, .hinweis, .ortspruefung-ergebnis { border-inline-start: var(--sp-3xs) solid Highlight; }
-    .szene-schritt { border-inline-start-color: Highlight; }
+    /* Akzentkanten (Kupfer der Scherlinie) als Highlight; Farbe der Kante, Breite bleibt */
+    .kontakt-weg-notfall, .register-gross, .gebiet-pruefung, .preise-pruefung, .rechner-ergebnis, .gruppe-register,
+    .rand-titel, .zone-a, .hauptnav-panel { border-block-start-color: Highlight; }
+    .ratgeber-liste a, .artikel-wichtig, .hinweis, .ortspruefung-ergebnis, .szene-schritt { border-inline-start-color: Highlight; }
     .hinweis-platzhalter { border-style: dashed; }
     .composer-eingabe[aria-invalid="true"] { border-width: var(--linie-scher); }
-    .knopf[aria-disabled="true"] { opacity: 1; border-style: dashed; }
 
-    /* Knöpfe: Hauptaktion als Highlight-Fläche, Rufknopf ebenso; Platzhalter-Rufknopf als gestrichelter Rahmen */
-    .knopf-primaer, .rufknopf { background: Highlight; color: HighlightText; }
-    .rufknopf[data-zustand="platzhalter"] { background: Canvas; color: CanvasText; outline: var(--linie-ui) dashed CanvasText; }
-    .rufknopf[data-zustand="platzhalter"] .platzhalter { outline: none; }
-    .verz-sprung button[aria-pressed="true"] { background: Highlight; color: HighlightText; }
-
-    /* Platzhalter und Schraffuren: Fläche weg, gestrichelter Umriss in Textfarbe bleibt */
-    .platzhalter { outline: var(--linie-haar) dashed CanvasText; background: none; }
-    .rufleiste { border-block-start: var(--linie-ui) solid CanvasText; }
-
-    /* Auswahlkarten: gewählte Option mit 2px-Kante in Highlight, „jetzt“-Marke mit Stärke */
+    /* Auswahl und Hauptaktionen: Highlight-Fläche mit HighlightText; Platzhalter-Rufknopf in Canvas */
     .wahl-option:has(input:checked) { border: var(--linie-scher) solid Highlight; }
+    .knopf-primaer, .rufknopf, [aria-pressed="true"] { background: Highlight; color: HighlightText; }
+    .knopf-primaer svg, .rufknopf svg { color: HighlightText; }
+    .rufknopf[data-zustand="platzhalter"] { background: Canvas; color: CanvasText; }
+    .rufknopf[data-zustand="platzhalter"] svg { color: CanvasText; }
+    .knopf[aria-disabled="true"] { opacity: 1; border-style: dashed; }
     .hauptnav-punkt > a[aria-current] { text-decoration-line: underline; text-decoration-thickness: var(--linie-scher); }
+    svg { color: CanvasText; }
 
-    /* Fokus: überall sichtbarer Rahmen in Highlight (auch dort, wo die Normalansicht den Umriss entfernt) */
-    :focus-visible, .wahl-option:has(input:focus-visible), .register article:focus-within, .suche-eingabe:focus-visible {
-      outline-color: Highlight;
-    }
-    .verz-eintrag a:focus-visible { outline: var(--linie-fokus) solid Highlight; outline-offset: var(--linie-fokus); }
+    /* Fokus: Highlight; Karten mit eigenem Umriss behalten den Fokusrahmen */
+    :focus-visible { outline: var(--linie-fokus) solid Highlight; outline-offset: var(--linie-fokus); }
+    .register article:focus-within { outline: var(--linie-fokus) solid Highlight; outline-offset: var(--linie-fokus); }
 
-    /* Linien, Balken und Trennungen, die als Hintergrund gezeichnet sind */
+    /* Linien und Balken, die als Hintergrund gezeichnet sind */
     hr { background: CanvasText; }
-    .abschnitt-linie, .scherlinie, .fuss-ort::before, .ablauf::before, .wortmarke .signet-linie { background: Highlight; }
+    .abschnitt-linie, .scherlinie, .fuss-ort::before, .ablauf::before { background: Highlight; }
     .gk-marke { background: CanvasText; }
-    .gk-marke-a { background: Highlight; }
-    .gk-marke-c { background: GrayText; }
 
-    /* Tagesband: Segmente und Legende in Systemfarben; Nacht Textfarbe, Abend Grautext, Wochenende Mark */
-    .tb-eintrag::before { border: var(--linie-haar) solid CanvasText; opacity: 1; }
-    .tb-eintrag-werktag::before { background: Canvas; }
+    /* Tagesband: Legende und Segmente; Nacht Textfarbe, Abend Grautext, Wochenende Mark */
+    .tb-eintrag::before { outline: var(--linie-haar) solid CanvasText; }
     .tb-eintrag-abend::before { background: GrayText; opacity: 1; }
     .tb-eintrag-nacht::before { background: CanvasText; opacity: 1; }
     .tb-eintrag-wochenende::before { background: Mark; }
-    .tb-werktag { fill: Canvas; }
-    .tb-abend { fill: GrayText; fill-opacity: 1; }
-    .tb-nacht { fill: CanvasText; fill-opacity: 1; }
+    .tb-abend { fill: GrayText; }
+    .tb-nacht, .tb-abend { fill-opacity: 1; }
     .tb-wochenende { fill: Mark; }
-    .tb-offen { fill: Canvas; stroke: CanvasText; }
-    .tb-strich, .tb-offen, .tb-schraffur { stroke: CanvasText; }
-    .tb-schraffur { display: none; }
+    .tb-offen { stroke-dasharray: 4 4; }
     .tb-teil { stroke: Canvas; }
-    .tb-teil[data-jetzt] { stroke: Highlight; stroke-width: var(--linie-fokus); }
-    .tb-jetzt { stroke: Highlight; fill: Highlight; }
-    .tb-zeile-titel, .tb-uhr, .tb-name { fill: CanvasText; }
 
-    /* Grafiken: Striche in Textfarbe, Flächen in Canvas, Akzente in Highlight, Schraffuren entfallen */
-    [fill^="url("] { fill: Canvas; }
-    .ill-schraffur-linie, .zy-schraffur-linie, .zy-kernstift-schraffur { display: none; }
-    .ill, .zylinder, .rechnung, .ill-boden, .ill-gestrichelt, .ill-zone, .ill-wand, .ill-schnitt { stroke: CanvasText; }
-    .ill-flaeche, .ill-blatt, .ill-fenster, .ill-oeffnung, .ill-melder, .ill-zone-flaeche, .ill-akzent-flaeche,
-    .zy-flaeche, .zy-kern-flaeche, .zy-kanal, .zy-oberstift, .zy-kernstift, .zy-reide-loch, .zy-reide,
-    .re-blatt, .lb-berg { fill: Canvas; }
-    .ill-dunkel, .ill-bolzen, .zy-bart, .ill-text, .re-text, .re-kopf-text, .re-summe-text { fill: CanvasText; }
-    .ill-dunkel, .ill-oeffnung, .ill-text { stroke: none; }
-    .ill-zone, .ill-zone-flaeche { stroke: Highlight; }
-    .ill-schliesspunkt, .ill-schliesspunkt-ring, .ill-schliesspunkt-strich, .ill-akzent-flaeche,
-    [data-zustand="4"] [data-bei="4"], [data-zustand="5"] [data-bei="5"] { stroke: Highlight; }
-    .ill-schliesspunkt { fill: Highlight; }
-    .zy-scherlinie, .re-scherlinie, .sb-spur, .lb-tunnel, .lb-tor, .lk-linie, .gk-sitz-ring { stroke: Highlight; }
-    .lb-tor, .gk-sitz-punkt, .lk-sitz { fill: Highlight; }
+    /* Grafiken: Striche in Textfarbe, Flächen in Canvas, dunkle Teile in Textfarbe, Akzente in Highlight */
+    svg:not(.i) * { stroke: CanvasText; }
+    svg text { fill: CanvasText; stroke: none; }
+    [fill^="url("], .ill-flaeche, .ill-blatt, .ill-fenster, .ill-oeffnung, .ill-melder, .ill-akzent-flaeche,
+    .zy-flaeche, .zy-kern-flaeche, .zy-kanal, .zy-oberstift, .zy-kernstift, .zy-reide, .zy-reide-loch,
+    .re-blatt, .lb-berg, .tb-werktag, .tb-offen, .gk-sitz-ring { fill: Canvas; }
+    .ill-zone, .ill-zone-flaeche { fill: none; }
+    .ill-dunkel, .ill-bolzen, .zy-bart, .tb-nacht, .lk-ort { fill: CanvasText; }
+    .ill-schliesspunkt, .lb-tor, .gk-sitz-punkt, .lk-sitz, .tb-jetzt { fill: Highlight; }
+    .zy-scherlinie, .re-scherlinie, .sb-spur, .lb-tunnel, .lk-linie, .gk-sitz-ring, .ill-zone, .ill-zone-flaeche,
+    .ill-schliesspunkt, .ill-schliesspunkt-ring, .ill-schliesspunkt-strich, .ill-akzent-flaeche, .tb-jetzt,
+    .tb-teil[data-jetzt], .signet-linie, [data-zustand="4"] [data-bei="4"], [data-zustand="5"] [data-bei="5"] { stroke: Highlight; }
     .lb-wasser { stroke: GrayText; }
-    .lb-fluss, .gk-ring, .lk-nachbarn, .lk-ort-ring { stroke: CanvasText; }
-    .gk-raster { stroke: CanvasText; }
-    .gk-raster.gk-zone-c, .gk-raster.gk-zone-d { stroke: GrayText; }
-    .gk-name, .gk-ring-text, .gk-sitz-name, .lk-ort-text, .lk-sitz-text, .lk-km, .lb-text, .lb-text-fluss,
-    .lb-text-tunnel, .tb-jetzt-text { fill: CanvasText; }
+    .ill-schraffur-linie, .zy-schraffur-linie, .zy-kernstift-schraffur, .tb-schraffur { display: none; }
     .gk-name, .gk-ring-text, .gk-sitz-name, .lk-ort-text, .lk-sitz-text, .lk-km { paint-order: stroke; stroke: Canvas; }
-    .gk-sitz-ring { fill: Canvas; }
-    .lk-ort { fill: CanvasText; }
-
-    /* Schrift in SVG ohne Farbe ist Textfarbe; Verzeichnis-Kontraste über CanvasText */
-    .tb-jetzt-text { stroke: none; }
   }
 }
