@@ -5,8 +5,10 @@ import { erreichbarkeit } from './module/erreichbarkeit.mjs';
 import { ortssuche } from './module/ortssuche.mjs';
 import { abspielen } from './module/abspielen.mjs';
 import { szene } from './module/szene.mjs';
+import { tagesband } from './module/tagesband.mjs';
+import { preisrechner } from './module/preisrechner.mjs';
 
-const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene };
+const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner };
 
 function starten() {
   document.documentElement.classList.add('js');

@@ -1,0 +1,99 @@
+/* V04 Preise: Kopf 7/5 mit Preisformel, Tagesband mit Legende, Anfahrt 7/5 mit Ortsprüfung, Rechner als Karte
+   (Fragen links, Ergebnis rechts klebend), drei Regel-Blöcke. Zustände über Attribute (data-jetzt, data-status). */
+@layer komponenten {
+  .preise-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
+  .preise-kopf-teilung { display: grid; gap: var(--sp-xl); }
+  .preise-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
+  .preise-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
+  .preise-formel { display: grid; gap: var(--sp-s); align-content: start; }
+  .formel { list-style: none; padding: 0; display: grid; gap: 0; counter-reset: formel; }
+  .formel-teil { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon titel" "icon text"; column-gap: var(--sp-s); padding-block: var(--sp-s); border-block-end: var(--linie-haar) solid var(--c-linie); position: relative; }
+  .formel-teil + .formel-teil::before { content: "+"; position: absolute; inset-block-start: calc(-1 * var(--sp-xs)); inset-inline-start: calc(var(--icon-leistung) + var(--sp-s)); font-family: var(--ff-mono); font-weight: var(--fw-titel); color: var(--c-kupfer); background: var(--c-papier); padding-inline: var(--sp-2xs); line-height: var(--lh-dicht); }
+  .formel-teil.formel-summe { border-block-end: var(--linie-scher) solid var(--c-kupfer); }
+  .formel-teil.formel-summe::before { content: "="; }
+  .formel-icon { grid-area: icon; inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); align-self: start; }
+  .formel-titel { grid-area: titel; font-weight: var(--fw-titel); }
+  .formel-text { grid-area: text; font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .formel-material, .formel-ust { font-size: var(--fs--1); color: var(--c-tinte-2); max-inline-size: var(--mass); }
+
+  .preise-liste { display: grid; gap: var(--sp-m); }
+  .preise-band-text { font-size: var(--fs--1); color: var(--c-tinte-2); }
+  .tagesband { margin: 0; display: grid; gap: var(--sp-s); padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  .tagesband-svg { display: block; inline-size: 100%; block-size: auto; overflow: visible; }
+  .tb-breit { display: none; }
+  .tb-schmal .tb-zeile-titel, .tb-schmal .tb-name { font-size: var(--svg-text-gross); }
+  .tb-schmal .tb-uhr, .tb-schmal .tb-jetzt-text { font-size: var(--svg-text-l); }
+  .tb-zeile-titel { font-size: var(--svg-text-m); font-weight: var(--fw-ui); fill: var(--c-tinte-2); }
+  .tb-uhr { font-family: var(--ff-mono); font-size: var(--svg-text-s); fill: var(--c-tinte-3); }
+  .tb-strich { stroke: var(--c-linie-ui); stroke-width: 1.5; }
+  .tb-offen { stroke: var(--c-linie-ui); stroke-width: 1.5; }
+  .tb-schraffur { stroke: var(--c-linie-ui); stroke-width: 1.5; }
+  .tb-teil { stroke: var(--c-flaeche); stroke-width: 2; }
+  .tb-werktag { fill: var(--c-lahn-hell); }
+  .tb-abend { fill: var(--c-lahn); fill-opacity: .45; }
+  .tb-nacht { fill: var(--c-tinte); fill-opacity: .8; }
+  .tb-wochenende { fill: var(--c-kupfer-hell); }
+  .tb-teil[data-jetzt] { stroke: var(--c-kupfer); stroke-width: 3; }
+  .tb-name { font-size: var(--svg-text-m); font-weight: var(--fw-ui); fill: var(--c-tinte); pointer-events: none; }
+  .tb-jetzt { stroke: var(--c-kupfer); stroke-width: 3; fill: var(--c-kupfer); }
+  .tb-jetzt:not([data-sichtbar]) { display: none; }
+  .tb-jetzt-text { stroke: none; font-family: var(--ff-mono); font-size: var(--svg-text-s); font-weight: var(--fw-titel); }
+  .tagesband-legende { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); gap: var(--sp-xs) var(--sp-m); }
+  .tb-eintrag { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--sp-xs); align-items: baseline; }
+  .tb-eintrag::before { content: ""; inline-size: var(--sp-s); block-size: var(--sp-s); border-radius: var(--r-s); grid-row: span 2; align-self: center; box-shadow: inset 0 0 0 1px var(--c-linie-ui); }
+  .tb-eintrag-werktag::before { background: var(--c-lahn-hell); }
+  .tb-eintrag-abend::before { background: var(--c-lahn); opacity: .45; }
+  .tb-eintrag-nacht::before { background: var(--c-tinte); opacity: .8; }
+  .tb-eintrag-wochenende::before { background: var(--c-kupfer-hell); }
+  .tb-eintrag dt { font-weight: var(--fw-ui); }
+  .tb-eintrag dd { margin: 0; font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .tb-eintrag[data-jetzt] dt::after { content: " · jetzt"; color: var(--c-kupfer); font-weight: var(--fw-titel); }
+  .preis-tabelle [data-jetzt] { background: var(--c-kupfer-hell); }
+
+  .preise-anfahrt-teilung { display: grid; gap: var(--sp-xl); }
+  .zone-kurz { font-family: var(--ff-mono); color: var(--c-kupfer); font-weight: var(--fw-titel); }
+  .preise-pruefung { padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); border-block-start: var(--linie-scher) solid var(--c-kupfer); align-self: start; }
+
+  .rechner { display: grid; gap: var(--sp-m); padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-2); }
+  .rechner-feld { margin: 0; padding: 0; border: 0; min-inline-size: 0; display: grid; gap: var(--sp-xs); align-content: start; }
+  .rechner-feld legend { font-weight: var(--fw-titel); font-size: var(--fs-1); padding: 0; margin-block-end: var(--sp-xs); }
+  .rechner-optionen { display: grid; gap: var(--sp-2xs); }
+  .rechner-option { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); align-items: start; min-block-size: var(--ziel-touch); padding: var(--sp-xs) var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-s); cursor: pointer; }
+  .rechner-option:hover { border-color: var(--c-tinte-3); }
+  .rechner-option:has(input:checked) { border-color: var(--c-lahn); box-shadow: inset 0 0 0 1px var(--c-lahn); background: var(--c-lahn-hell); }
+  .rechner-option:has(input:focus-visible) { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: var(--linie-fokus); }
+  .rechner-option input { margin: 0; margin-block-start: var(--sp-3xs); inline-size: var(--sp-s); block-size: var(--sp-s); accent-color: var(--c-lahn); }
+  .rechner-option-text { display: grid; }
+  .rechner-option-titel { font-weight: var(--fw-ui); }
+  .rechner-option-zusatz { font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .rechner-option[data-jetzt] .rechner-option-titel::after { content: " · jetzt"; color: var(--c-kupfer); font-weight: var(--fw-titel); }
+  .rechner-zonen-link { font-size: var(--fs--1); }
+  .rechner-ergebnis { display: grid; gap: var(--sp-2xs); align-content: start; padding: var(--sp-m); border-radius: var(--r-m); background: var(--c-papier); border-block-start: var(--linie-scher) solid var(--c-kupfer); }
+  .rechner-ergebnis-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
+  .rechner-summe { display: block; font-size: var(--fs-1); font-weight: var(--fw-ui); line-height: var(--lh-titel); }
+  .rechner[data-status="betrag"] .rechner-summe { font-size: var(--fs-4); font-weight: var(--fw-display); font-variant-numeric: tabular-nums; letter-spacing: var(--ls-display); }
+  .rechner-aufschluesselung { font-family: var(--ff-mono); font-size: var(--mono-groesse); color: var(--c-tinte-2); }
+  .rechner-aufschluesselung:empty { display: none; }
+  .rechner-hinweis { font-size: var(--fs--1); color: var(--c-tinte-3); }
+
+  .preise-regeln { display: grid; gap: var(--sp-l); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-breit)), 1fr)); }
+  .preise-regel { display: grid; gap: var(--sp-xs); align-content: start; padding-block-start: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .preise-regel h2 { font-size: var(--fs-2); }
+  .preise-regel p { max-inline-size: var(--mass); }
+  .preise-regel-icon { inline-size: var(--icon-gross); block-size: var(--icon-gross); color: var(--c-lahn-text); }
+  .preise-regel-liste { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
+  .preise-zahlarten { color: var(--c-tinte-2); }
+
+  @media (min-width: 48em) { .tb-breit { display: block; } .tb-schmal { display: none; } }
+  @media (min-width: 64em) {
+    .preise-kopf { padding-block-start: var(--sp-sektion); }
+    .preise-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
+    .preise-kopf h1 { font-size: var(--fs-5); }
+    .preise-anfahrt-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: end; }
+    .rechner { grid-template-columns: minmax(0, 4fr) minmax(0, 3fr) minmax(0, 3fr); grid-template-areas: "position fenster zone" "ergebnis ergebnis ergebnis"; padding: var(--sp-l); }
+    .rechner-feld-position { grid-area: position; }
+    .rechner-ergebnis { grid-area: ergebnis; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: var(--sp-l); }
+    .rechner-ergebnis-titel, .rechner-summe, .rechner-aufschluesselung { grid-column: 1; }
+    .rechner-hinweis { grid-column: 2; grid-row: 1 / span 3; align-self: end; max-inline-size: var(--karte-min); text-align: end; }
+  }
+}

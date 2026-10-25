@@ -19,7 +19,7 @@ export default {
     {
       titel: 'Der gerade Weg',
       absaetze: [
-        ['Wie der ', fakt({ id: 'weilburg-tunnel.abkuerzung', text: 'Weilburger Schiffstunnel die Lahnschleife unter dem Schlossberg abkürzt', quelle: 'weilburg-tunnel', status: 'verifizieren' }), ', suchen wir in jedem Schloss die eine Linie, auf der es ohne Gewalt aufgeht. Ruhig im Ton, präzise im Handwerk, offen im Preis.'],
+        ['Wie der ', fakt({ id: 'weilburg-tunnel.abkuerzung', text: 'Weilburger Schiffstunnel die Lahnschleife abkürzt', quelle: 'weilburg-tunnel', status: 'verifizieren' }), ', suchen wir in jedem Schloss die eine Linie, auf der es ohne Gewalt aufgeht. Ruhig im Ton, präzise im Handwerk, offen im Preis.'],
       ],
     },
   ],

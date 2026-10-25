@@ -40,6 +40,7 @@ export default {
     preisVorAuftrag: p('zusagen.preis-vor-auftrag', 'Zusage bestätigen: Gesamtpreis vor Arbeitsbeginn'),
     rechnungMitPositionen: p('zusagen.rechnung-positionen', 'Zusage bestätigen: Rechnung mit allen Positionen'),
     kartenzahlung: p('zusagen.kartenzahlung', 'Zusage bestätigen: Kartenzahlung vor Ort'),
+    erfolglos: p('zusagen.erfolglos', 'Zusage bestätigen: Was kostet ein Einsatz, wenn die Öffnung nicht gelingt?'),
   },
   bewertungen: { profilUrl: null },
   gruendungsjahr: null,
