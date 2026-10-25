@@ -1,0 +1,4 @@
+[
+  { "typ": "klick", "selektor": ".az-buchstaben a[href=\"#buchstabe-w\"]" },
+  { "typ": "taste", "text": "Tab" }
+]

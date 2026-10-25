@@ -1,0 +1,6 @@
+[
+  { "typ": "klick", "selektor": "#gebiet-ort-eingabe" },
+  { "typ": "tippen", "selektor": "#gebiet-ort-eingabe", "text": "löhn" },
+  { "typ": "taste", "text": "ArrowDown" },
+  { "typ": "taste", "text": "Enter" }
+]

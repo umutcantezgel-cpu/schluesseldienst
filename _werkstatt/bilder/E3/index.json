@@ -1,0 +1,2301 @@
+{
+ "basis": "http://127.0.0.1:4201/",
+ "pfade": [
+  "/einbruchschutz/",
+  "/notoeffnung/tueroeffnung/",
+  "/einbau-tresore/datensicherungsschraenke/",
+  "/einsatzgebiet/",
+  "/einsatzgebiet/hessen/limburg-weilburg/",
+  "/schluesseldienst-weilburg/",
+  "/schluesseldienst-loehnberg/"
+ ],
+ "schemata": [
+  "light",
+  "dark"
+ ],
+ "zeitpunkt": "2026-10-25T14:42:48.925Z",
+ "seiten": [
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 9805,
+   "ausschnitte": 12,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 9805,
+   "ausschnitte": 12,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 8809,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 8809,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 7767,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 7767,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 7038,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 7038,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5318,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5318,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 3993,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 3993,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5906,
+   "ausschnitte": 7,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5906,
+   "ausschnitte": 7,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 4892,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 4892,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 3631,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 3631,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 7540,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 7540,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5917,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5917,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5283,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5283,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 10536,
+   "ausschnitte": 12,
+   "gekuerzt": true
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 10536,
+   "ausschnitte": 12,
+   "gekuerzt": true
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 6031,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 6031,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 4566,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 4566,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 7045,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 7045,
+   "ausschnitte": 9,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5384,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5384,
+   "ausschnitte": 6,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 3945,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 3945,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 5944,
+   "ausschnitte": 8,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 5944,
+   "ausschnitte": 8,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 4499,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 4499,
+   "ausschnitte": 5,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "status": 200,
+   "hoeheGesamt": 3376,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  },
+  {
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "status": 200,
+   "hoeheGesamt": 3376,
+   "ausschnitte": 4,
+   "gekuerzt": false
+  }
+ ],
+ "anzahl": 190,
+ "bilder": [
+  {
+   "datei": "einbruchschutz__mobil__light__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__04.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__05.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__06.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__07.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__08.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__09.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6752
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__10.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 10,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 7596
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__11.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 11,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 8440
+  },
+  {
+   "datei": "einbruchschutz__mobil__light__12.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 12,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 8961
+  },
+  {
+   "datei": "einbruchschutz__mobil__dark__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__mobil__dark__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einbruchschutz__mobil__dark__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einbruchschutz__tablet__light__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__tablet__light__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einbruchschutz__tablet__light__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einbruchschutz__tablet__dark__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__tablet__dark__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einbruchschutz__tablet__dark__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__04.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__05.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3600
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__06.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 6,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 4500
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__07.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 7,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 5400
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__08.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 8,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 6300
+  },
+  {
+   "datei": "einbruchschutz__desktop__light__09.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 9,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 6867
+  },
+  {
+   "datei": "einbruchschutz__desktop__dark__01.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbruchschutz__desktop__dark__02.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einbruchschutz__desktop__dark__03.jpg",
+   "pfad": "/einbruchschutz/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__04.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__05.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__06.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__07.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__08.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__light__09.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6194
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__dark__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__dark__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__mobil__dark__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__light__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__light__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__light__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__dark__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__dark__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__tablet__dark__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__light__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__light__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__light__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__light__04.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__light__05.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3093
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__dark__01.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__dark__02.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "notoeffnung-tueroeffnung__desktop__dark__03.jpg",
+   "pfad": "/notoeffnung/tueroeffnung/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__mobil__light__01.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__mobil__light__02.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__mobil__light__03.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__mobil__light__04.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__mobil__light__05.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__mobil__light__06.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__mobil__light__07.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5062
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__mobil__dark__01.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__mobil__dark__02.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__mobil__dark__03.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__tablet__light__01.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__tablet__light__02.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__tablet__light__03.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__tablet__dark__01.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__tablet__dark__02.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__tablet__dark__03.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__desktop__light__01.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__desktop__light__02.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__desktop__light__03.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__desktop__light__04.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__desktop__light__05.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2731
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__desktop__dark__01.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__desktop__dark__02.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einbau-tresore-datensicherungsschraenke__desktop__dark__03.jpg",
+   "pfad": "/einbau-tresore/datensicherungsschraenke/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__04.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__05.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__06.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__07.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__08.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "einsatzgebiet__mobil__light__09.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6696
+  },
+  {
+   "datei": "einsatzgebiet__mobil__dark__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__mobil__dark__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einsatzgebiet__mobil__dark__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einsatzgebiet__tablet__light__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__tablet__light__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einsatzgebiet__tablet__light__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einsatzgebiet__tablet__dark__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__tablet__dark__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einsatzgebiet__tablet__dark__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__04.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__05.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3600
+  },
+  {
+   "datei": "einsatzgebiet__desktop__light__06.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 6,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 4383
+  },
+  {
+   "datei": "einsatzgebiet__desktop__dark__01.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet__desktop__dark__02.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einsatzgebiet__desktop__dark__03.jpg",
+   "pfad": "/einsatzgebiet/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__04.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__05.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__06.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__07.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__08.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__09.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6752
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__10.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 10,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 7596
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__11.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 11,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 8440
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__light__12.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 12,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 9284
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__dark__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__dark__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__mobil__dark__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__light__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__light__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__light__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__dark__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__dark__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__tablet__dark__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__04.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__05.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3600
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__light__06.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 6,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3666
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__dark__01.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__dark__02.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "einsatzgebiet-hessen-limburg-weilburg__desktop__dark__03.jpg",
+   "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__light__01.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__light__02.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__light__03.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__light__04.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__light__05.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__light__06.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__light__07.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__light__08.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5908
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__light__09.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 9,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 6201
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__dark__01.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__dark__02.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "schluesseldienst-weilburg__mobil__dark__03.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "schluesseldienst-weilburg__tablet__light__01.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-weilburg__tablet__light__02.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "schluesseldienst-weilburg__tablet__light__03.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "schluesseldienst-weilburg__tablet__dark__01.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-weilburg__tablet__dark__02.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "schluesseldienst-weilburg__tablet__dark__03.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "schluesseldienst-weilburg__desktop__light__01.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-weilburg__desktop__light__02.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "schluesseldienst-weilburg__desktop__light__03.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "schluesseldienst-weilburg__desktop__light__04.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2700
+  },
+  {
+   "datei": "schluesseldienst-weilburg__desktop__light__05.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 5,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 3045
+  },
+  {
+   "datei": "schluesseldienst-weilburg__desktop__dark__01.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-weilburg__desktop__dark__02.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "schluesseldienst-weilburg__desktop__dark__03.jpg",
+   "pfad": "/schluesseldienst-weilburg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__04.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 4,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 2532
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__05.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 5,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 3376
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__06.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 6,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 4220
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__07.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 7,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5064
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__light__08.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "light",
+   "nr": 8,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 5100
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__dark__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__dark__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 844
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__mobil__dark__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "mobil",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 390,
+   "hoehe": 844,
+   "scrollY": 1688
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__light__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__light__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__light__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "light",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__dark__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__dark__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 1024
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__tablet__dark__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "tablet",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 768,
+   "hoehe": 1024,
+   "scrollY": 2048
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__light__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__light__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__light__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__light__04.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "light",
+   "nr": 4,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 2476
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__dark__01.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 1,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 0
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__dark__02.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 2,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 900
+  },
+  {
+   "datei": "schluesseldienst-loehnberg__desktop__dark__03.jpg",
+   "pfad": "/schluesseldienst-loehnberg/",
+   "geraet": "desktop",
+   "schema": "dark",
+   "nr": 3,
+   "breite": 1440,
+   "hoehe": 900,
+   "scrollY": 1800
+  }
+ ],
+ "gekuerzt": "Opus: Hell Desktop und Mobil vollständig; Tablet und Dunkel nur Ausschnitte 1–3 (Größenziel < 12 MB)"
+}

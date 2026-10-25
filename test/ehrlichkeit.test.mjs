@@ -97,6 +97,13 @@ test('ehrlichkeit/superlativ: Nr. 1, bester, günstigste, billigste, schnellste,
   }
 });
 
+test('ehrlichkeit/superlativ: „Nr. 1“ in einer Fundstelle (Satz/Abs./Ziffer davor) ist kein Treffer', async () => {
+  const seite = (text) => ({ pfad: '/', datei: 'x.html', html: `<main><p>${text}</p></main>`, typ: 'test' });
+  const fundstellen = ['Nach § 14 Abs. 2 Satz 1 Nr. 1 HBO gilt das.', '§ 312g Abs. 2 Nr. 1 BGB', 'Ziffer 3 Nr. 1 der Bedingungen'];
+  for (const t of fundstellen) assert.equal(regel(await ehrlich(ctx([seite(t)])), 'ehrlichkeit/superlativ').length, 0, t);
+  assert.equal(regel(await ehrlich(ctx([seite('Wir sind die Nr. 1 in Weilburg.')])), 'ehrlichkeit/superlativ').length, 1);
+});
+
 test('ehrlichkeit/garantie: Garantie-Begriffe und 100 % sind fehler; „schadensfrei garantiert“ zählt einmal', async () => {
   const treffer = meldungen(await ehrlich(ctx([await fixture('garantie.html')])), 'ehrlichkeit/garantie');
   // Titel „Garantie“, Meta „Garantie“, im Text: Garantiert, 100 %, Garantie, Garantien, schadensfrei garantiert

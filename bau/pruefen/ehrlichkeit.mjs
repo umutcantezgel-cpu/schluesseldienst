@@ -276,7 +276,8 @@ const REGELN = [
     schwere: 'fehler',
     vorfilter: /nr|nummer|bester|beste|günstig|billig|schnell|marktf/i,
     muster: [
-      wort(/nr\.?\s*1/u), wort(/nummer\s*1/u), wort(/bester/u),
+      // „Nr. 1“ als Werbung, nicht als Fundstelle („§ 14 Abs. 2 Satz 1 Nr. 1 HBO“)
+      wort(/(?<!(?:satz|abs\.|absatz|ziff\.|ziffer)\s+\d+[a-z]?\s+)nr\.?\s*1/u), wort(/nummer\s*1/u), wort(/bester/u),
       wort(/beste[mnrs]?\s+schl(?:ü|ue)sseldienst/u), wort(/günstigste[mnrs]?/u), wort(/billigste[mnrs]?/u),
       wort(/schnellste[mnrs]?/u), wort(/marktf(?:ü|ue)hrer\p{L}*/u),
     ],

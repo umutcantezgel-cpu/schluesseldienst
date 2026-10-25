@@ -35,7 +35,9 @@ export function vorbereiten(k) {
   // Anzeigename: Ortsteile mit Gemeinde, Namensdoppel zusätzlich mit Kreis (nie gekürzt)
   // Klammerzusätze im Gemeindenamen („Waldbrunn (Westerwald)“) werden zu „/“, damit keine Doppelklammern entstehen
   const ohneKlammer = (s) => s.replace(/\s*\(([^)]+)\)/g, '/$1');
-  const basis = (o) => (o.typ === 'ortsteil' && o.gemeinde && o.gemeinde !== o.name ? `${o.name} (${ohneKlammer(o.gemeinde)})` : o.name);
+  // Steht die Gemeinde schon im Namen („Brake (Lemgo)“), wird sie nicht noch einmal angehängt
+  const hatGemeinde = (o) => o.name.includes(`(${o.gemeinde})`);
+  const basis = (o) => (o.typ === 'ortsteil' && o.gemeinde && o.gemeinde !== o.name && !hatGemeinde(o) ? `${o.name} (${ohneKlammer(o.gemeinde)})` : o.name);
   const zaehler = new Map();
   for (const o of orte) zaehler.set(basis(o), (zaehler.get(basis(o)) || 0) + 1);
   const anzeige = new Map(orte.map((o) => {
@@ -109,7 +111,7 @@ function kopf(sk, o, z, werte, sonder) {
     o.km > 0 ? html`<li><span data-daten="">${String(o.km)}</span>&nbsp;km ${o.richtung || ''} von Weilburg</li>` : html`<li>Sitz des Betriebs</li>`,
   ];
   const nah = z.notoeffnung === 'ja';
-  const h1Text = sonder?.h1 || (z.id === 'A' || z.id === 'B' ? `Schlüsseldienst für ${werte.ort}` : `Schlüsseldienst für ${werte.ort} – aus Weilburg`);
+  const h1Text = sonder?.h1 || (z.id === 'A' || z.id === 'B' ? `Schlüsseldienst für ${werte.ort}` : `Schlüsseldienst für ${werte.ort} – aus Weilburg (≈ ${o.km} km)`);
   return html`<section class="ort-kopf" aria-labelledby="ort-titel">
 <div class="raster"><div class="ort-kopf-teilung">
 <div>

@@ -23,6 +23,9 @@ Die Abhängigkeiten liegen außerhalb des Repos (Standard `/home/user/werkzeuge-
 | `ueberlauf.mjs` | Dokumentüberlauf bei fünf Breiten, erzwungenen Farben und 200 % Zoom (E0-PRUEF-01) |
 | `axe.mjs` | axe-core je Pfad für WCAG 2.0/2.1/2.2 A und AA (E0-PRUEF-01) |
 | `smoke.mjs` | Smoke-Prüfung je Pfad bei 390×844 und 1440×900 (E0-PRUEF-01) |
+| `linkgraph.mjs` | Linkgraph: eingehende Links, Klicktiefe, Links auf fehlende Ziele (E3-PRUEF-10) |
+| `aehnlichkeit.mjs` | Textähnlichkeit der Ortsseiten: Wort-5-Gramme, Jaccard, Zufalls- und Nachbarpaare (E3-PRUEF-10) |
+| `ortsstichprobe.mjs` | Geschichtete Stichprobe von Ortsseiten gegen `src/daten/orte.json` (E3-PRUEF-10) |
 
 Die Argumente der E0-PRUEF-01-Werkzeuge stehen in den Skripten selbst (`parseArgs`). Die vier Werkzeuge dieses Pakets haben folgende Aufrufe; alle schreiben ihre Ergebnisse als JSON nach `--aus`.
 
@@ -52,3 +55,10 @@ Exit-Codes aller Werkzeuge: 0 ok, 1 Schwelle überschritten bzw. vnu-Fehler, 2 W
 - **Stichprobe** (`vnu --stichprobe N`): gleichmäßig verteilte Auswahl aus der sortierten Dateiliste, damit Läufe wiederholbar sind.
 - **Bekannte Abweichung in lib.mjs:** `starteBrowser()` greift auf den Named-Export `chromium` von `playwright-core` zu. Das Paket ist CommonJS, der Export liegt nur unter `default`. Deshalb nutzen Browser-Werkzeuge eine lokale Starthilfe mit demselben Aufruf. `lib.mjs` ist nicht geändert; die Korrektur liegt beim Orchestrator.
 - Schreibt nichts in die Website. Nachweise und Aktionsdateien liegen unter `.cache/` (vom Repo ausgeschlossen).
+
+```sh
+# Linkgraph, Ähnlichkeit, Ortsstichprobe (ohne Browser, feste Saat)
+node _werkstatt/werkzeuge/linkgraph.mjs --dist .cache/dist --aus .cache/linkgraph.json
+node _werkstatt/werkzeuge/aehnlichkeit.mjs --dist .cache/dist --paare 2000 --saat 7 --aus .cache/aehnlichkeit.json
+node _werkstatt/werkzeuge/ortsstichprobe.mjs --dist .cache/dist --daten src/daten/orte.json --saat 7 --aus .cache/ortsstichprobe.json
+```

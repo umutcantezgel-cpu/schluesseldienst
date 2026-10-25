@@ -1,0 +1,11 @@
+{
+  "url": "http://127.0.0.1:4201/einbruchschutz/",
+  "breite": 390,
+  "hoehe": 844,
+  "schema": "light",
+  "bewegung": "reduce",
+  "voll": false,
+  "status": 200,
+  "fremdeAnfragen": [],
+  "zeitpunkt": "2026-10-25T14:40:03.185Z"
+}
