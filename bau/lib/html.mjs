@@ -57,3 +57,11 @@ export function jsonBlock(objekt) {
     .replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
   return new Roh(text);
 }
+
+/** Optionales Attribut: liefert ` name="wert"` oder nichts (null/undefined/false). */
+export function attr(name, w) {
+  if (!/^[a-z][a-z0-9-]*$/.test(name)) throw new Error(`attr: ungültiger Attributname ${name}`);
+  if (w === null || w === undefined || w === false) return new Roh('');
+  if (w === true) return new Roh(` ${name}`);
+  return new Roh(` ${name}="${wert(w)}"`);
+}

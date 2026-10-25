@@ -1,0 +1,20 @@
+/* Schaltflächen (K-009): primär (Lahn), sekundär (Rahmen), still. Alle Zustände über Überlagerung. */
+@layer komponenten {
+  .knopf {
+    position: relative; isolation: isolate; display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2xs);
+    min-block-size: var(--ziel-touch); padding: var(--sp-2xs) var(--sp-m); border-radius: var(--r-m); border: var(--linie-ui) solid transparent;
+    font-weight: var(--fw-ui); text-decoration: none; line-height: var(--lh-titel); cursor: pointer;
+  }
+  .knopf::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .knopf:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
+  .knopf:active { transform: scale(.98); }
+  .knopf:active::before { opacity: var(--deck-aktiv); }
+  .knopf-primaer { background: var(--c-lahn); color: var(--c-auf-lahn); }
+  .knopf-sekundaer { background: transparent; color: var(--c-tinte); border-color: var(--c-linie-ui); }
+  .knopf-still { background: transparent; color: var(--c-lahn-text); padding-inline: var(--sp-xs); }
+  .knopf[aria-disabled="true"] { opacity: .6; cursor: not-allowed; }
+  .knopf[aria-busy="true"] { cursor: progress; }
+  .knopf .i { inline-size: var(--icon-text); block-size: var(--icon-text); }
+  @media (forced-colors: active) { .knopf { border-color: ButtonText; } }
+  @media (prefers-reduced-motion: reduce) { .knopf:active { transform: none; } }
+}

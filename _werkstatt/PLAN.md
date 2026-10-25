@@ -1,4 +1,4 @@
-# PLAN · Version 1 (2026-10-25)
+# PLAN · Version 2 (2026-10-25, L0-Runde 1 eingearbeitet)
 Grundlage: `_werkstatt/PLAN-GENEHMIGT.md` (vom Menschen genehmigt) und KERN v1. Opus = Orchestrator (Stufe 3), H = Haiku (Stufe 1/2). Kennung `[Etappe]-[ROLLE]-[Nr]`. Spalte „Commit“ wird beim Abnehmen gefüllt.
 
 ## Mengengerüst
@@ -47,31 +47,31 @@ Ratgeber-Artikel: ausgesperrt-was-tun · tuer-zugefallen-oder-abgeschlossen · s
 | E2-REVIEW | Sichtabnahme Referenz (frischer Opus-Agent) ≥ 8 | Opus | Opus | 3 | `_werkstatt/berichte/E2-sichtabnahme.md` | PRUEF-08 | Z-04 | |
 | E3-OPUS-01 | Szenen-Engine M-17 + Illustrationen I-03/I-04/I-05 | Opus | Opus | 3 | `src/assets/js/module/szene.mjs`, `src/vorlagen/teile/illustrationen/*.mjs` | E2 | Z-05 Z-06 | |
 | E3-OPUS-02 | V02-Vorlage + Gruppenseite `/notoeffnung/` als Muster | Opus | Opus | 3 | `src/vorlagen/seiten/gruppe.mjs`, `src/inhalte/notoeffnung/index.mjs` | E3-OPUS-01 | Z-04 | |
-| E3-BAU-01…03 | Gruppenseiten `/einbruchschutz/`, `/sicherheitstechnik/`, `/einbau-tresore/` (je 1 Paket) | Baumeister | H | 2 | `src/inhalte/{gruppe}/index.mjs` | OPUS-02 | Z-01 Z-04 | |
-| E3-GRAF-01…03 | Icons nach Vertrag (41 restliche, in 3 Paketen) + Geometrie-Linter | Grafiker | H | 2 | `src/assets/icons/*.svg` (eigene Liste je Paket), `bau/pruefen/icons.mjs` (GRAF-01) | E2-OPUS-05 | Z-06 | |
-| E3-PRUEF-09 | Unit-Tests Logik (Preise, Mailto, Ortsindex, Redirects) | Prüfer | H | 2 | `test/{preise,mailto,ortsindex,redirect}.test.mjs` | E2 | Z-02 | |
-| E3-OPUS-03 | V03-Vorlage + `/notoeffnung/tueroeffnung/` als Muster | Opus | Opus | 3 | `src/vorlagen/seiten/leistung.mjs`, `src/inhalte/notoeffnung/tueroeffnung.mjs` | OPUS-02 | Z-04 | |
-| E3-BAU-04…11 | 22 Detailseiten in Dreierpaketen (8 Pakete) | Baumeister | H | 2 | je 3 Dateien `src/inhalte/{gruppe}/{seite}.mjs` | OPUS-03 | Z-01 | |
+| E3-BAU-01…03 | Gruppenseiten `/einbruchschutz/`, `/sicherheitstechnik/`, `/einbau-tresore/` (je 1 Paket) | Baumeister | H | 2 | je genau eine Datei: `src/inhalte/einbruchschutz/index.mjs` · `src/inhalte/sicherheitstechnik/index.mjs` · `src/inhalte/einbau-tresore/index.mjs` | E3-OPUS-02 | Z-01 Z-04 | |
+| E3-GRAF-01…03 | Icons nach Vertrag (restliche, in 3 Paketen) + Geometrie-Linter | Grafiker | H | 2 | exakte Icon-Dateiliste je Paket (disjunkt, im Paketblatt), `bau/pruefen/icons.mjs` nur GRAF-01 | E2-OPUS-05 | Z-06 | |
+| E3-PRUEF-09 | Unit-Tests Logik (Preise, Mailto, Ortsindex, Redirects) | Prüfer | H | 2 | `test/{preise,mailto,ortsindex,redirect}.test.mjs` | E2-OPUS-01, E2-OPUS-02 | Z-02 | |
+| E3-OPUS-03 | V03-Vorlage + `/notoeffnung/tueroeffnung/` als Muster | Opus | Opus | 3 | `src/vorlagen/seiten/leistung.mjs`, `src/inhalte/notoeffnung/tueroeffnung.mjs` | E3-OPUS-02 | Z-04 | |
+| E3-BAU-04…11 | 22 Detailseiten in Dreierpaketen (8 Pakete) | Baumeister | H | 2 | je 3 Dateien `src/inhalte/{gruppe}/{seite}.mjs`, Namen im Paketblatt, disjunkt | E3-OPUS-03 | Z-01 | |
 | E3-OPUS-04 | V07 Ortsseiten-Vorlage, Zonentexte, Orts-FAQ, Lagekarte, Weilburg-Seite | Opus | Opus | 3 | `src/vorlagen/seiten/ort.mjs`, `src/inhalte/orte/**` | E2-BAU-02 | Z-01 Z-08 | |
-| E3-BAU-12 | V06 Hubs Land/Kreis + A–Z-Verzeichnis | Baumeister | H | 2 | `src/vorlagen/seiten/hub.mjs`, `src/assets/css/komponenten/az.css` | OPUS-04 | Z-01 | |
-| E3-PRUEF-10 | Linkgraph-, Ähnlichkeits- und Ortsstichproben-Messung (100 Orte) | Prüfer | H | 1 | `_werkstatt/berichte/E3-orte.md` | BAU-12 | Z-02 | |
-| E3-PRUEF-11 | Prüfstufe B Etappe 3 + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E3-pruefstufe-b.md` | alle E3 | Z-02…Z-09 | |
+| E3-BAU-12 | V06 Hubs Land/Kreis + A–Z-Verzeichnis | Baumeister | H | 2 | `src/vorlagen/seiten/hub.mjs`, `src/assets/css/komponenten/az.css` | E3-OPUS-04 | Z-01 | |
+| E3-PRUEF-10 | Linkgraph-, Ähnlichkeits- und Ortsstichproben-Messung (100 Orte) | Prüfer | H | 1 | `_werkstatt/berichte/E3-orte.md` | E3-BAU-12, E3-OPUS-04 | Z-02 | |
+| E3-PRUEF-11 | Prüfstufe B Etappe 3 + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E3-pruefstufe-b.md` | E3-OPUS-01…04, E3-BAU-01…12 | Z-02…Z-09 | |
 | E4-OPUS-01 | V04 Preise + Rechner + 24-h-Zeitfensterleiste | Opus | Opus | 3 | `src/vorlagen/seiten/preise.mjs`, `src/assets/js/module/preisrechner.mjs`, `src/assets/js/logik/preise.mjs` | E3 | Z-01 Z-07 | |
 | E4-OPUS-02 | Mailto-Logik + V10 Kontakt | Opus | Opus | 3 | `src/assets/js/logik/mailto.mjs`, `src/assets/js/module/composer.mjs`, `src/vorlagen/seiten/kontakt.mjs` | E3 | Z-01 Z-07 | |
 | E4-OPUS-03 | V05 Einsatzgebiet + I-10 Rasterkarte + M-18/M-19 | Opus | Opus | 3 | `src/vorlagen/seiten/einsatzgebiet.mjs`, `pipeline/karte.mjs`, `src/assets/js/module/karte.mjs` | E3 | Z-04 Z-05 | |
 | E4-OPUS-04 | V08 Ratgeber-Vorlagen (Übersicht + Artikel) + Muster-Artikel `schluesseldienst-abzocke-erkennen` | Opus | Opus | 3 | `src/vorlagen/seiten/{ratgeber,artikel}.mjs`, `src/inhalte/ratgeber/schluesseldienst-abzocke-erkennen.mjs` | E3 | Z-01 | |
-| E4-KUND-03…05 | Faktenblätter mit Primärquellen (Ratgeber, Landesregeln) | Kundschafter | H | 1 | `src/inhalte/fakten/*.mjs` (eigene Liste je Paket) | – | Z-01 | |
-| E4-BAU-13…18 | 18 Ratgeber-Artikel in Dreierpaketen (6 Pakete) | Baumeister | H | 2 | je 3 Dateien `src/inhalte/ratgeber/*.mjs` | OPUS-04, KUND | Z-01 | |
-| E4-BAU-19 | V09 Über uns (ohne M-20) + Karriere-Vorlage mit Fixture | Baumeister | H | 2 | `src/vorlagen/seiten/{ueber-uns,karriere}.mjs`, `src/inhalte/ueber-uns.mjs` | E3 | Z-01 | |
+| E4-KUND-03…05 | Faktenblätter mit Primärquellen (Ratgeber, Landesregeln) | Kundschafter | H | 1 | exakte Dateiliste `src/inhalte/fakten/*.mjs` je Paket (disjunkt) | E2-OPUS-07, E4-OPUS-04 | Z-01 | |
+| E4-BAU-13…18 | 18 Ratgeber-Artikel in Dreierpaketen (6 Pakete) | Baumeister | H | 2 | je 3 Dateien `src/inhalte/ratgeber/*.mjs`, Namen im Paketblatt, disjunkt | E4-OPUS-04, E4-KUND-03…05 | Z-01 | |
+| E4-BAU-19 | V09 Über uns (ohne M-20) + Karriere-Vorlage mit Fixture | Baumeister | H | 2 | `src/vorlagen/seiten/{ueber-uns,karriere}.mjs`, `src/inhalte/ueber-uns.mjs` | E3-OPUS-02 (Muster Erzählansicht) | Z-01 | |
 | E4-OPUS-05 | M-20 „Der gerade Weg“ + I-11 Lahnbogen | Opus | Opus | 3 | `src/vorlagen/teile/illustrationen/lahnbogen.mjs` | BAU-19 | Z-04 Z-05 | |
-| E4-BAU-20 | Recht-Entwürfe: Impressum, Datenschutz, Widerruf, Barrierefreiheit, Quellen & Lizenzen | Baumeister | H | 2 | `src/inhalte/recht/*.mjs`, `src/vorlagen/seiten/recht.mjs` | E3 | Z-01 Z-10 | |
-| E4-BAU-21 | V11 Suche (Index + Modul), `/sitemap/`, `/leistungen/`-Register mit Filter, 404 mit M-21 | Baumeister | H | 2 | `src/vorlagen/seiten/{suche,sitemap,leistungen,fehler}.mjs`, `src/assets/js/module/suche.mjs` | E3 | Z-01 | |
-| E4-GRAF-04 | OG-Bilder (PNG je Seitentyp und Zone) per Werkzeugskript | Grafiker | H | 2 | `_werkstatt/werkzeuge/og.mjs`, `src/assets/og/*.png` | E3 | Z-06 | |
-| E4-PRUEF-12 | `live-check.mjs` (Header, MIME, 404, Weiterleitungen) | Prüfer | H | 2 | `werkzeuge/live-check.mjs` | E2 | Z-10 | |
-| E4-DOK-01 | README, `docs/` (BETRIEB, OFFENE-PUNKTE, Hoster-Checkliste) | Dokumentar | H | 1 | `README.md`, `docs/*.md` | E4 | Z-10 | |
-| E4-PRUEF-13 | Prüfstufe B Etappe 4 + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E4-pruefstufe-b.md` | alle E4 | Z-02…Z-09 | |
-| E5-PRUEF-14 | Prüfstufe C | Prüfer | H | 1 | `_werkstatt/berichte/E5-pruefstufe-c.md`, `_werkstatt/bilder/abschluss/**` | Pflicht | alle | |
-| E5-DOK-02 | BERICHT + Galerie (blind, Schlüssel getrennt), `werkzeuge/` und `docs/` herauslösen | Dokumentar | H | 1 | `_werkstatt/BERICHT.md`, `_werkstatt/bilder/galerie.html` | PRUEF-14 | Z-04 Z-10 | |
+| E4-BAU-20 | Recht-Entwürfe: Impressum, Datenschutz, Widerruf, Barrierefreiheit, Quellen & Lizenzen | Baumeister | H | 2 | `src/inhalte/recht/*.mjs`, `src/vorlagen/seiten/recht.mjs` | E3-OPUS-03 (Muster Arbeitsansicht) | Z-01 Z-10 | |
+| E4-BAU-21 | V11 Suche (Index + Modul), `/sitemap/`, `/leistungen/`-Register mit Filter, 404 mit M-21 | Baumeister | H | 2 | `src/vorlagen/seiten/{suche,sitemap,leistungen,fehler}.mjs`, `src/assets/js/module/suche.mjs` | E3-OPUS-03, E2-OPUS-06 (Ortssuche als Muster) | Z-01 | |
+| E4-GRAF-04 | OG-Bilder (PNG je Seitentyp und Zone) per Werkzeugskript | Grafiker | H | 2 | `_werkstatt/werkzeuge/og.mjs`, `src/assets/og/*.png` | E2-OPUS-05, E2-OPUS-06 | Z-06 | |
+| E4-PRUEF-12 | `live-check.mjs` (Header, MIME, 404, Weiterleitungen) | Prüfer | H | 2 | `werkzeuge/live-check.mjs` | E2-OPUS-01 | Z-10 | |
+| E4-DOK-01 | README, `docs/` (BETRIEB, OFFENE-PUNKTE, Hoster-Checkliste) | Dokumentar | H | 1 | `README.md`, `docs/*.md` | E2-OPUS-01, E4-OPUS-01…05 | Z-10 | |
+| E4-PRUEF-13 | Prüfstufe B Etappe 4 + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E4-pruefstufe-b.md` | E4-OPUS-01…05, E4-BAU-13…21 | Z-02…Z-09 | |
+| E5-PRUEF-14 | Prüfstufe C | Prüfer | H | 1 | `_werkstatt/berichte/E5-pruefstufe-c.md`, `_werkstatt/bilder/abschluss/**` | alle Pflichtpakete E2–E4; Maßstab E2-REVIEW | alle | |
+| E5-DOK-02 | BERICHT + Galerie (blind, Schlüssel getrennt), `werkzeuge/` und `docs/` herauslösen | Dokumentar | H | 1 | `_werkstatt/BERICHT.md`, `_werkstatt/bilder/galerie.html` | E5-PRUEF-14, E2-REVIEW | Z-04 Z-10 | |
 | E5-REVIEW | Endprüfung frischer Opus-Agent | Opus | Opus | 3 | `_werkstatt/berichte/E5-endpruefung.md` | DOK-02 | alle | |
 
 ## Kür (nach Wirkung, wächst nach dem Plan nicht)
@@ -87,8 +87,9 @@ Ratgeber-Artikel: ausgesperrt-was-tun · tuer-zugefallen-oder-abgeschlossen · s
 | K-08 | Kreis-Hub-Intros je Kreis aus Daten (Gemeindezahl, Fläche ohne Erfindung) | Baumeister | H |
 
 ## Modellanteil und Kapazität
-- Pflicht: 52 Pakete (Haiku 34, Opus 18 inkl. 2 Abnahmen) → Haiku-Anteil 65 %; mit Kür 60 Pakete (Haiku 40).
-- Kapazität: 34 Haiku-Pakete ÷ (4 Plätze × 3 Wellen/Tag) × 1,2 ≈ 3,4 Tage Haiku-Laufzeit; Opus-Pakete laufen dazwischen. Erwartete Laufzeit ≈ 5–6 Etappen.
+- Pflicht (Bereiche aufgelöst): 67 Pakete (Haiku 49, Opus 18 inkl. 2 Abnahmen) → Haiku-Anteil 73 %; mit Kür 75 Pakete (Haiku 54).
+- Kapazität: 49 Haiku-Pakete ÷ (4 Plätze × 3 Wellen/Tag) × 1,2 ≈ 4,9 Tage Haiku-Laufzeit; Opus-Pakete laufen dazwischen. Erwartete Laufzeit ≈ 6 Etappen.
+- Regel aus L0: Bereichspakete (…01…03) bekommen vor Wellenstart ein Paketblatt in `_werkstatt/pakete/` mit exakter, disjunkter Dateiliste.
 
 ## Offene Punkte
 - (keine)

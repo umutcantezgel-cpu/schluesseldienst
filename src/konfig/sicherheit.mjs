@@ -25,11 +25,11 @@ export function cspText({ meta = false } = {}) {
 }
 
 export const PERMISSIONS = [
-  'accelerometer', 'autoplay', 'bluetooth', 'browsing-topics', 'camera', 'clipboard-read', 'clipboard-write',
+  'accelerometer', 'autoplay', 'browsing-topics', 'camera', 'clipboard-read', 'clipboard-write',
   'compute-pressure', 'display-capture', 'encrypted-media', 'fullscreen', 'gamepad', 'geolocation', 'gyroscope',
   'hid', 'identity-credentials-get', 'idle-detection', 'local-fonts', 'magnetometer', 'microphone', 'midi',
   'otp-credentials', 'payment', 'picture-in-picture', 'publickey-credentials-create', 'publickey-credentials-get',
-  'screen-wake-lock', 'serial', 'storage-access', 'usb', 'web-share', 'window-management', 'xr-spatial-tracking',
+  'screen-wake-lock', 'serial', 'storage-access', 'usb', 'window-management', 'xr-spatial-tracking',
 ];
 
 /** Header für jede Antwort. */

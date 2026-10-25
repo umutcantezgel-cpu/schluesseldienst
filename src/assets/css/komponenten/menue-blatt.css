@@ -1,0 +1,24 @@
+/* Menü-Blatt (M-06): <dialog> als Blatt von unten, @starting-style für den Auftritt. */
+@layer komponenten {
+  .menue-blatt {
+    inset-block-end: 0; inset-block-start: auto; margin: 0; inline-size: 100%; max-inline-size: 100%; max-block-size: var(--menue-blatt-max);
+    padding: 0 var(--rand) calc(var(--sp-l) + env(safe-area-inset-bottom)); border: 0; border-radius: var(--r-xl) var(--r-xl) 0 0;
+    background: var(--c-flaeche); color: var(--c-tinte); box-shadow: var(--sh-3); overflow-y: auto;
+  }
+  .menue-blatt::backdrop { background: var(--c-ueberlagerung); }
+  .menue-blatt-kopf { display: flex; align-items: center; justify-content: space-between; position: sticky; inset-block-start: 0; background: var(--c-flaeche); padding-block: var(--sp-xs); border-block-end: var(--linie-scher) solid var(--c-kupfer); }
+  .menue-blatt-titel { font-size: var(--fs-1); }
+  .menue-blatt-zu { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--ziel-touch); min-block-size: var(--ziel-touch); background: none; border: 0; border-radius: var(--r-m); }
+  .menue-blatt-liste { list-style: none; padding: 0; margin-block-start: var(--sp-s); }
+  .menue-blatt-liste > li + li { margin-top: 0; border-block-start: var(--linie-haar) solid var(--c-linie); }
+  .menue-blatt-liste a { display: flex; align-items: center; min-block-size: var(--ziel-touch); color: var(--c-tinte); text-decoration: none; font-weight: var(--fw-ui); }
+  .menue-blatt-liste ul { list-style: none; padding: 0 0 var(--sp-xs) var(--sp-s); }
+  .menue-blatt-liste ul a { font-weight: var(--fw-text); }
+  .menue-blatt-liste ul li + li { margin-top: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    .menue-blatt[open] { transition: transform var(--dur-zustand) var(--ease-ein), display var(--dur-zustand) allow-discrete, overlay var(--dur-zustand) allow-discrete; }
+    @starting-style { .menue-blatt[open] { transform: translateY(100%); } }
+    .menue-blatt[open]::backdrop { transition: opacity var(--dur-zustand) var(--ease-standard); }
+    @starting-style { .menue-blatt[open]::backdrop { opacity: 0; } }
+  }
+}

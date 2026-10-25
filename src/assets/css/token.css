@@ -1,0 +1,101 @@
+/* Designsystem „Scherlinie“ – Tokens (KERN K-005). Werte nur hier; alle anderen Dateien nutzen var(--…). */
+@layer token, basis, layout, komponenten, bewegung, hilfen;
+
+@layer token {
+  :root {
+    color-scheme: light dark;
+    /* Farben – helles Thema als Rückfall für Browser ohne light-dark() */
+    --c-papier: #F4F2ED; --c-papier-2: #EAE6DE; --c-flaeche: #FFFFFF;
+    --c-tinte: #13202A; --c-tinte-2: #3E4B55; --c-tinte-3: #5A6670;
+    --c-linie: #D3CEC4; --c-linie-ui: #76828B;
+    --c-lahn: #1C5A4F; --c-auf-lahn: #FFFFFF; --c-lahn-text: #1C5A4F; --c-lahn-hell: #DCEBE5;
+    --c-kupfer: #A84A22; --c-kupfer-hell: #F6E3D8;
+    --c-fehler: #B42318; --c-fehler-hell: #FDECEA;
+    --c-warnung: #8A5300; --c-warnung-hell: #FDF1DC;
+    --c-erfolg: #1E6B3A; --c-erfolg-hell: #E3F1E7;
+    --c-schatten: rgb(19 32 42 / .10); --c-schatten-stark: rgb(19 32 42 / .18); --c-schatten-fein: rgb(19 32 42 / .08);
+    --c-ueberlagerung: rgb(19 32 42 / .48);
+    --c-fokus: var(--c-kupfer);
+
+    /* Schrift */
+    --ff-text: "Atkinson Hyperlegible Next Variable", "AHN Ersatz", system-ui, sans-serif;
+    --ff-mono: "Atkinson Hyperlegible Mono Variable", "AHM Ersatz", ui-monospace, monospace;
+    --fs--1: clamp(.875rem, .8542rem + .1042vw, .9375rem);
+    --fs-0: clamp(1.0625rem, 1.0208rem + .2083vw, 1.1875rem);
+    --fs-1: clamp(1.2188rem, 1.1458rem + .3646vw, 1.4375rem);
+    --fs-2: clamp(1.4063rem, 1.2708rem + .6771vw, 1.8125rem);
+    --fs-3: clamp(1.625rem, 1.3958rem + 1.1458vw, 2.3125rem);
+    --fs-4: clamp(1.875rem, 1.5208rem + 1.7708vw, 2.9375rem);
+    --fs-5: clamp(2.1875rem, 1.6667rem + 2.6042vw, 3.75rem);
+    --lh-text: 1.6; --lh-dicht: 1.45; --lh-titel: 1.15; --lh-display: 1.05;
+    --fw-text: 400; --fw-ui: 600; --fw-titel: 700; --fw-display: 780;
+    --ls-display: -0.015em; --ls-label: 0.06em;
+    --mass: 32em;
+    --mono-groesse: .95em; --unterstrich-abstand: .2em; --unterstrich-abstand-wellig: .25em;
+    --winkel-schraffur: -45deg;
+
+    /* Abstände */
+    --sp-3xs: .25rem; --sp-2xs: .5rem; --sp-xs: .75rem; --sp-s: 1rem; --sp-m: 1.5rem;
+    --sp-l: 2rem; --sp-xl: 3rem; --sp-2xl: 4rem; --sp-3xl: 6rem;
+    --sp-f-s: clamp(1rem, .8rem + 1vw, 1.5rem);
+    --sp-f-m: clamp(1.5rem, 1rem + 2.5vw, 3rem);
+    --sp-sektion: clamp(3rem, 2rem + 5vw, 7.5rem);
+    --rand: clamp(1rem, .5rem + 2.5vw, 2.5rem);
+    --luecke: clamp(1rem, .5rem + 1.5vw, 2rem);
+    --inhalt-max: 72rem;
+    --spalte-breit: 6rem;
+    --spalte-az: 16em;
+    --menue-blatt-max: 85svh;
+    --karte-min: 16rem;
+    --hero-figur-max: 30rem;
+    --hero-band-max: 7.5rem;
+    --nav-panel-breit: min(56rem, 80vw);
+
+    /* Maße für Bedienung */
+    --ziel-min: 2.75rem;          /* 44 px */
+    --ziel-touch: 3rem;           /* 48 px */
+    --kopf-hoehe: 3.5rem;         /* 56 px mobil */
+    --kopf-hoehe-desktop: 4.5rem; /* 72 px */
+    --rufleiste-hoehe: 3.5rem;    /* 56 px */
+    --icon-text: 1.25rem; --icon-ui: 1.5rem; --icon-leistung: 2rem; --icon-gross: 3rem;
+
+    /* Radien, Linien, Schatten, Ebenen */
+    --r-0: 0; --r-s: 2px; --r-m: 4px; --r-l: 8px; --r-xl: 16px; --r-rund: 999px;
+    --linie-haar: 1px; --linie-ui: 1.5px; --linie-scher: 2px; --linie-fokus: 3px;
+    --sh-1: 0 1px 0 var(--c-schatten-fein);
+    --sh-2: 0 2px 6px var(--c-schatten), 0 1px 2px var(--c-schatten-fein);
+    --sh-3: 0 12px 32px var(--c-schatten-stark);
+    --z-szene: 10; --z-kopf: 100; --z-rufleiste: 200; --z-popover: 300; --z-hinweis: 500; --z-skip: 600;
+
+    /* Bewegung */
+    --dur-feedback: 150ms; --dur-feedback-aus: 120ms;
+    --dur-zustand: 300ms; --dur-zustand-aus: 240ms;
+    --dur-auftritt: 640ms; --dur-auftritt-lang: 880ms; --dur-moment-max: 1400ms;
+    --stagger: 60ms;
+    --ease-standard: cubic-bezier(.2, 0, 0, 1);
+    --ease-ein: cubic-bezier(.16, 1, .3, 1);
+    --ease-aus: cubic-bezier(.3, 0, .8, .15);
+    --ease-linie: cubic-bezier(.65, 0, .35, 1);
+    --ease-einrasten: cubic-bezier(.34, 1.3, .64, 1);
+    --deck-hover: .10; --deck-aktiv: .18;
+  }
+
+  @supports (transition-timing-function: linear(0, 1)) {
+    :root { --ease-einrasten: linear(0, .36 12%, .78 26%, 1.04 40%, 1.07 48%, 1.02 60%, .995 74%, 1); }
+  }
+
+  @supports (color: light-dark(#000, #fff)) {
+    :root {
+      --c-papier: light-dark(#F4F2ED, #0E161B); --c-papier-2: light-dark(#EAE6DE, #131E24); --c-flaeche: light-dark(#FFFFFF, #18252C);
+      --c-tinte: light-dark(#13202A, #EDEAE3); --c-tinte-2: light-dark(#3E4B55, #BCC4C8); --c-tinte-3: light-dark(#5A6670, #97A1A7);
+      --c-linie: light-dark(#D3CEC4, #26343C); --c-linie-ui: light-dark(#76828B, #6E7C85);
+      --c-lahn: light-dark(#1C5A4F, #7BCDB6); --c-auf-lahn: light-dark(#FFFFFF, #0E161B); --c-lahn-text: light-dark(#1C5A4F, #86D3BE); --c-lahn-hell: light-dark(#DCEBE5, #17322D);
+      --c-kupfer: light-dark(#A84A22, #E8956B); --c-kupfer-hell: light-dark(#F6E3D8, #3A2419);
+      --c-fehler: light-dark(#B42318, #FF8A80); --c-fehler-hell: light-dark(#FDECEA, #3B1714);
+      --c-warnung: light-dark(#8A5300, #F2C26B); --c-warnung-hell: light-dark(#FDF1DC, #33270F);
+      --c-erfolg: light-dark(#1E6B3A, #7FD3A0); --c-erfolg-hell: light-dark(#E3F1E7, #12291B);
+      --c-schatten: light-dark(rgb(19 32 42 / .10), rgb(0 0 0 / .5)); --c-schatten-stark: light-dark(rgb(19 32 42 / .18), rgb(0 0 0 / .6)); --c-schatten-fein: light-dark(rgb(19 32 42 / .08), rgb(0 0 0 / .4));
+      --c-ueberlagerung: light-dark(rgb(19 32 42 / .48), rgb(0 0 0 / .64));
+    }
+  }
+}

@@ -73,6 +73,7 @@ export async function statischeAssets(wurzel) {
   for (const ordner of ['schriften', 'og', 'bilder']) {
     const abs = join(wurzel, 'src/assets', ordner);
     for (const n of await dateien(abs)) {
+      if (n === 'OFL.txt') { const buf = await readFile(join(abs, n)); liste.push({ quelle: `/assets/${ordner}/${n}`, pfad: `/assets/${ordner}/${n}`, inhalt: buf, sri: sri(buf) }); continue; }
       if (!/\.(woff2|png|jpg|webp|avif|svg)$/.test(n)) continue;
       const buf = await readFile(join(abs, n));
       const ext = extname(n);

@@ -1,0 +1,28 @@
+/* Rufknopf (K-009): Icon + Beschriftung + Nummer + Status. Zustände: Ruhe, Hover, Fokus, gedrückt, erreichbar, nacht, außerhalb, platzhalter. */
+@layer komponenten {
+  .rufknopf {
+    position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: var(--sp-xs);
+    min-block-size: var(--ziel-min); padding: var(--sp-2xs) var(--sp-s); border-radius: var(--r-m);
+    background: var(--c-lahn); color: var(--c-auf-lahn); text-decoration: none; line-height: var(--lh-titel);
+  }
+  .rufknopf::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: 0; }
+  .rufknopf:hover::before { opacity: var(--deck-hover); }
+  .rufknopf:active { transform: scale(.98); }
+  .rufknopf:active::before { opacity: var(--deck-aktiv); }
+  .rufknopf:focus-visible { outline-offset: var(--linie-fokus); }
+  .ruf-icon { inline-size: var(--icon-ui); block-size: var(--icon-ui); }
+  .ruf-text { display: grid; }
+  .ruf-beschriftung { font-weight: var(--fw-ui); }
+  .ruf-nummer { font-weight: var(--fw-titel); white-space: nowrap; font-size: var(--fs-1); }
+  .ruf-status { font-size: var(--fs--1); }
+  .ruf-status:empty { display: none; }
+  .rufknopf-kopf .ruf-beschriftung { display: none; }
+  .rufknopf-kopf .ruf-nummer { font-size: var(--fs-0); }
+  .rufknopf-leiste { justify-content: center; min-block-size: var(--rufleiste-hoehe); }
+  .rufknopf-leiste .ruf-text { justify-items: start; }
+  .rufknopf-leiste .ruf-beschriftung { font-size: var(--fs--1); }
+  .rufknopf[data-zustand="platzhalter"] { background: var(--c-kupfer-hell); color: var(--c-tinte); outline: var(--linie-haar) dashed var(--c-kupfer); cursor: not-allowed; }
+  .rufknopf[data-zustand="ausserhalb"] .ruf-status { font-weight: var(--fw-ui); }
+  @media (pointer: coarse) { .rufknopf { min-block-size: var(--ziel-touch); } }
+  @media (forced-colors: active) { .rufknopf { border: var(--linie-ui) solid ButtonText; } }
+}

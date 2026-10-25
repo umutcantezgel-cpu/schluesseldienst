@@ -1,0 +1,32 @@
+{
+  "dump/DE.zip": {
+    "sha256": "b70ce13ebdbcc46558039dd83499cae0237715f2d5888bb6771867693168e6ab",
+    "bytes": 7537072,
+    "geladen": "2026-10-25"
+  },
+  "dump/NL.zip": {
+    "sha256": "b368e126091ed6981822c9fd66e3cab8915cbb5727dcf7dc3b09e67279ed96f3",
+    "bytes": 727442,
+    "geladen": "2026-10-25"
+  },
+  "dump/admin1CodesASCII.txt": {
+    "sha256": "2e4867f5397acb056ea26377601b57af37cb4c81399770225018e9e439e91ad3",
+    "bytes": 151571,
+    "geladen": "2026-10-25"
+  },
+  "dump/admin2Codes.txt": {
+    "sha256": "9f49795da1fd460006a40e58a614dbc1a351c9277340a65fe8d73b5f97ec1852",
+    "bytes": 2371981,
+    "geladen": "2026-10-25"
+  },
+  "zip/DE.zip": {
+    "sha256": "07d6c2f537f3328c4cdb1327cc0b13abe9f39e2464c0a5f8a060a1fb3f6c5c12",
+    "bytes": 384020,
+    "geladen": "2026-10-25"
+  },
+  "zip/NL.zip": {
+    "sha256": "b3be98cfce1a696cb0924f2b9208fc5eae38e7436ad8723ace978a9c7e1e3520",
+    "bytes": 63558,
+    "geladen": "2026-10-25"
+  }
+}

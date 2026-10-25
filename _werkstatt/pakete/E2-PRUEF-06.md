@@ -1,0 +1,27 @@
+# E2-PRUEF-06 · Rolle Prüfer · Modell Haiku · Stufe 2 · Kern-Version 1
+Schreibrechte (exakt): bau/pruefen/token.mjs, bau/pruefen/jsonld.mjs, bau/pruefen/budgets.mjs, test/token.test.mjs, test/jsonld.test.mjs, test/fixtures/token/** (neu), test/fixtures/jsonld/** (neu)
+Umfang: 3 Prüfer-Module + 2 Testdateien + Fixtures
+
+## Rollenbriefing Prüfer
+Du schreibst Prüfungen und Tests für neue Logik und berichtest knapp mit Belegpfaden. Häufige Fehler: deuten statt berichten; zu breite Muster (Fehlalarme) oder zu enge (Lücken).
+
+## Aufgabe in einem Satz
+Baue drei Prüfer: Token-Linter (keine Werte außerhalb des Designsystems), JSON-LD-Prüfer (gültige, ehrliche strukturierte Daten) und Budget-Prüfer (Größen von CSS, JS, Schriften, Seiten, Indizes).
+
+## Kern-Auszug
+- K-004/K-005/K-011 aus `_werkstatt/KERN.md` lesen. Prüfer-Schnittstelle: `bau/pruefen/index.mjs`. `ctx.wurzel`, `ctx.dist`, `ctx.seiten`, `ctx.dateien` (relative Pfade aller Ausgabedateien), `ctx.assets.css.pfad`, `ctx.assets.js.pfad`, `ctx.assets.schriftVorladen`, `ctx.basisUrl`.
+- Token-Quelle: `src/assets/css/token.css` (nur dort dürfen Rohwerte stehen; dazu `src/assets/css/schriften.css` für `@font-face`).
+
+## Schritte
+1. `bau/pruefen/token.mjs` (name `token`) – prüft die **Quelldateien** `src/assets/css/**/*.css` außer `token.css` und `schriften.css`, sowie alle `src/vorlagen/**/*.mjs` und `src/inhalte/**/*.mjs`:
+   - CSS: Kommentare entfernen; je Deklaration (Eigenschaft: Wert) im Wert verboten: Hex-Farben `#[0-9a-f]{3,8}`, `rgb(`/`rgba(`/`hsl(`/`hsla(`/`oklch(`/`color-mix(` mit Literalen, benannte Farben außer `transparent`, `currentColor`, `inherit`, Systemfarben (`Canvas`, `CanvasText`, `ButtonText`, `ButtonFace`, `Highlight`, `HighlightText`, `LinkText`, `GrayText`); Längen mit `px` außer `0px`, `1px`, `-1px`; `rem`; `pt`; Zeiten `\d+m?s\b`; `cubic-bezier(`, `linear(` ; `font-family` mit Literal statt `var(`. Erlaubt: `0`, einheitenlose Zahlen (Faktoren, Deckkraft, Skalierung), `%`, `fr`, `deg` in `rotate(`, `em` **nur** in `@media`/`@container`-Bedingungen und in `--`-freien Werten wie `0.06em`? → NEIN: `em` in Deklarationen ist verboten (Tokens nutzen), `vw`/`vh`/`svh`/`dvh` nur als `100vw`, `100vh`, `100svh`, `100dvh`; `env(…)`; `var(…)`; `calc()` mit erlaubten Teilen. Custom-Property-Definitionen (`--x: …`) außerhalb token.css → `token/neue-variable` warnung.
+   - Media-Queries: nur `em`-Breakpoints aus K-005 (30em, 48em, 64em, 80em) bzw. `pointer`, `hover`, `prefers-*`, `forced-colors`, `print` → andere Werte warnung `token/breakpoint`.
+   - Vorlagen/Inhalte (.mjs): `style=` in Vorlagen-Strings → fehler `token/inline-style`; Hex-Farben → fehler `token/farbe`.
+   - Jeder Fund mit Datei:Zeile. Schwere: fehler (außer wie angegeben).
+2. `bau/pruefen/jsonld.mjs` (name `jsonld`) – für jede Seite alle `<script type="application/ld+json">`: JSON parsen (Fehler → fehler). Regeln: `@context` = `https://schema.org`; erlaubte `@type`: Locksmith, WebSite, WebPage, AboutPage, ContactPage, CollectionPage, ItemList, ListItem, BreadcrumbList, Service, Offer, UnitPriceSpecification, PriceSpecification, OfferCatalog, FAQPage, Question, Answer, Article, Person, Place, GeoCoordinates, PostalAddress, AdministrativeArea, City, Country, JobPosting, OpeningHoursSpecification, ImageObject. Verboten überall: `aggregateRating`, `review`, `Review`, `AggregateRating` → fehler `jsonld/bewertung`. `Locksmith` nur auf `/`, `/ueber-uns/`, `/kontakt/` → sonst fehler `jsonld/betrieb-je-ort`. `BreadcrumbList`: `position` 1…n lückenlos, `item` absolute URLs mit `ctx.basisUrl` und das Ziel muss eine gerenderte Seite sein (Pfad in `ctx.seiten`) → sonst fehler. `Offer`/`UnitPriceSpecification`: `price` muss eine Zahl (oder Zahl als String) sein und `priceCurrency` `EUR` → sonst fehler. `FAQPage`: jede `Question` hat `name` und `acceptedAnswer.text` (nicht leer). Alle Stringwerte: kein `[`…`]`-Platzhaltertext im Release-Modus (`ctx.modus === 'release'`) → fehler, sonst info.
+3. `bau/pruefen/budgets.mjs` (name `budgets`) – Größen aus `ctx.dist` (Dateien lesen, gzip mit `node:zlib` `gzipSync` Stufe 9): CSS gz ≤ 14.336 B, JS gz ≤ 16.384 B (fehler bei Überschreitung), Schriften: Anzahl `rel="preload"` mit `as="font"` je Seite ≤ 1 (fehler), Summe aller `.woff2` ≤ 76.800 B (warnung); Ortsseiten (`/schluesseldienst-*/index.html`) roh ≤ 30.720 B (fehler je Seite, aber höchstens 20 Einzelbefunde + Summe), sonstige Seiten roh ≤ 81.920 B (warnung); Dateien unter `/daten/` gz: `orte.*.json` ≤ 81.920 B, `plz.*.json` ≤ 51.200 B (fehler). Zusätzlich info-Befund mit allen gemessenen Werten (für Berichte).
+4. Tests `test/token.test.mjs` (Fixture-CSS mit erlaubten und verbotenen Werten, inkl. `@media (min-width: 64em)` ok, `@media (min-width: 700px)` warnung, `color: #fff` fehler, `transition: opacity 200ms` fehler, `transform: rotate(180deg)` ok, `margin: -1px` ok, `inline-size: 100vw` ok) und `test/jsonld.test.mjs` (gültige Seite; `aggregateRating` → fehler; Brotkrumen-Lücke → fehler; `Locksmith` auf Ortsseite → fehler; Offer ohne Zahl → fehler).
+5. Läufe: `node --test test/token.test.mjs test/jsonld.test.mjs` und `node bau/bauen.mjs --pruefen` – nenne die Token-Befunde in den **echten** CSS-Dateien des Projekts (Datei:Zeile, max. 30) in PRÜFUNG UND ERGEBNIS. Ändere die CSS-Dateien NICHT (gehören dem Orchestrator) – liste sie unter GEMEINSAME DATEIEN mit Vorschlag (welches Token).
+
+## Schnellprüfung und Selbstprüfung
+- `node --check`; Tests grün; Schreibrechte eingehalten (`git status --short`); nichts committet.
