@@ -20,6 +20,7 @@ import { grundriss } from '../teile/illustrationen/grundriss.mjs';
 import { widerstandsStufen } from '../teile/illustrationen/stufen.mjs';
 import { fensterSchichten } from '../teile/illustrationen/fensterschichten.mjs';
 import { tuerschliesserFigur } from '../teile/illustrationen/tuerschliesser.mjs';
+import { datenschrank } from '../teile/illustrationen/datenschrank.mjs';
 
 // Figuren für den Kopf: eigene je Leistung (inhalt.figur: '<name>'), sonst die Gruppenfigur mit der Schicht,
 // dem Objekt oder der Stufe der Leistung hervorgehoben (zustand/fokus), sonst das ganze Gruppenbild.
@@ -47,6 +48,7 @@ const JE_LEISTUNG = {
   tuerschliesser: () => tuerschliesserFigur({ praefix: 'kopf-tsl' }),
   wertschutzschraenke: () => widerstandsStufen({ praefix: 'kopf-ws', zustand: 3 }),
   waffenschraenke: () => widerstandsStufen({ praefix: 'kopf-ws', zustand: 4 }),
+  datensicherungsschraenke: () => datenschrank({ praefix: 'kopf-ds' }),
 };
 const GRUPPENBILD = {
   notoeffnung: () => notoeffnungObjekte(),

@@ -1,4 +1,4 @@
-STATUS · Branch claude/bold-noether-fk2n4f · Etappe 2→3/6 · Welle E3-W1 · Pflicht 25/67 · Kür 0/8 · Kriterien 0/10 · Ausnahmen 0 · Bestand grün (220 Tests, 11 Prüfer grün) · Nächster Schritt: E2-REVIEW Anlauf 2 auswerten; V03-Vorlage
+STATUS · Branch claude/bold-noether-fk2n4f · Etappe 3/6 (E4 parallel) · Welle E3-W2/E4-W3 · Pflicht 38/67 · Kür 0/8 · Kriterien 0/10 · Ausnahmen 0 · Bestand grün (220 Tests, 11 Prüfer grün, 5.527 Seiten) · Nächster Schritt: E4-OPUS-01 V04 Preise; Ratgeber-Pakete E4-BAU-13…18 einarbeiten
 
 # STATUS
 
@@ -27,3 +27,4 @@ STATUS · Branch claude/bold-noether-fk2n4f · Etappe 2→3/6 · Welle E3-W1 · 
 - 2026-10-25 14:00 MEZ · E0/E1 abgeschlossen (Werkzeuge, Themenmatrizen, KERN v1, PLAN v2, ABNAHME) · E2: Generator, Prüfer (12 Module), Orts-Pipeline (5.252 Orte), Referenz V01 gebaut · 95 Tests grün
 - 2026-10-25 14:15 MEZ · E0-PRUEF-03 Vorher-Baseline fertig (Wettbewerber Perf 55–74, LCP 4,7–8,7 s) · E2-PRUEF-08 Prüfstufe B V01: Perf 98, LCP 2,1 s, CLS 0, INP 48 ms, Bildrate 2 %, 0 Überlauf; A11y-Befund (Suchlink) behoben → axe 0, Lighthouse A11y 100 · E2-OPUS-07 Register: Routen, Themenpässe (66 Seiten + 3 Muster), 33 Faktenblätter, Quellenabdeckung 48 R + 18 A · Links-Prüfer unterscheidet geplant/unbekannt · 104 Tests grün
 - 2026-10-25 14:45 MEZ · E2-REVIEW Anlauf 1: 6,8 (nicht bestanden) → alle 10 Befunde eingearbeitet, Anlauf 2 läuft · E3-W1: Icons 56/56 nach Vertrag + Geometrie-Linter (GRAF-01…04), Unit-Tests Ortsindex/Redirect (PRUEF-09) fanden Lücke „//“ in SICHERER_PFAD → behoben · Szenen-Engine M-17 + I-03/04/05 + V02-Vorlage mit /notoeffnung/ · laufend: E3-BAU-01…03, E4-KUND-03
+- 2026-10-25 15:45 MEZ · E3 W2 fertig: 22/22 Detailseiten (BAU-04…11), Kopffiguren Fenster/Türschließer/Video/Nebel/Datenschrank (Opus) · V06 Hubs (BAU-12): 15 Länder + 228 Kreise, Titel ohne falschen Dativ, Kreise nach Namenskern, Sitz markiert · Ortsseiten jetzt gebaut (5.252), Titel > 60 von 588 auf 72 (Kurzname) · V08-Vorlagen + Musterartikel (E4-OPUS-04) · laufend: E4-KUND-04/05, E4-BAU-13/14

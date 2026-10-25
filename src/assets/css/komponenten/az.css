@@ -1,0 +1,40 @@
+/* V06 Hub (Land- und Kreisseite): Kreisliste, klebende Buchstabenleiste und A–Z-Verzeichnis in Spalten
+   mit Mindestbreite --spalte-az. Gemeinden fett, Ortsteile eingerückt. Dicht und ruhig, ohne Bewegung. */
+@layer komponenten {
+  .hub-kopf { padding-block: var(--sp-m) var(--sp-l); }
+  .hub-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
+  .hub-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; }
+  .hub-satz { max-inline-size: var(--mass); color: var(--c-tinte-2); margin-block-start: var(--sp-s); }
+
+  .az-meta, .hub-zahl { flex: none; color: var(--c-tinte-3); font-size: var(--fs--1); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .az-zusatz { font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .az-zeile, .hub-zeile { display: flex; justify-content: space-between; align-items: center; gap: 0 var(--sp-xs); }
+  .az-name { min-inline-size: 0; }
+  .az-zeile a, .hub-zeile a { display: inline-flex; align-items: center; min-block-size: var(--ziel-min); min-inline-size: 0; overflow-wrap: anywhere; color: var(--c-tinte); }
+  .hub-zeile a { display: inline-block; align-content: center; }
+  .hub-art { display: inline-block; color: var(--c-tinte-3); font-size: var(--fs--1); white-space: nowrap; }
+  .hub-art-sitz { color: var(--c-kupfer); font-weight: var(--fw-ui); }
+  .az-zeile a:hover, .hub-zeile a:hover { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+
+  .hub-kreise { list-style: none; padding: 0; margin: 0; columns: var(--spalte-az); column-gap: var(--sp-l); }
+  .hub-kreise li { break-inside: avoid; margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
+
+  .az-leiste { position: sticky; inset-block-start: 0; z-index: var(--z-szene); align-self: start; background: var(--c-papier); border-block-end: var(--linie-haar) solid var(--c-linie); padding-block: var(--sp-2xs); }
+  @media (min-width: 64em) { .az-leiste { inset-block-start: var(--kopf-hoehe-desktop); } }
+  .az-buchstaben { list-style: none; margin: 0; padding: var(--sp-3xs); display: flex; gap: var(--sp-3xs); overflow-x: auto; scrollbar-width: thin; }
+  .az-buchstaben li { margin: 0; flex: none; }
+  .az-buchstaben a, .az-leer { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--sp-l); min-block-size: var(--ziel-min); font-weight: var(--fw-ui); border-radius: var(--r-s); }
+  .az-buchstaben a { color: var(--c-lahn-text); text-decoration: none; }
+  .az-buchstaben a:hover { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .az-leer { color: var(--c-tinte-3); }
+
+  .az-verzeichnis { columns: var(--spalte-az); column-gap: var(--sp-l); margin-block-start: var(--sp-s); }
+  .az-gruppe { scroll-margin-block-start: calc(var(--ziel-min) + var(--sp-2xs) * 2 + var(--sp-m)); }
+  @media (min-width: 64em) { .az-gruppe { scroll-margin-block-start: calc(var(--kopf-hoehe-desktop) + var(--ziel-min) + var(--sp-2xs) * 2 + var(--sp-m)); } }
+  .az-buchstabe { font-size: var(--fs-1); color: var(--c-lahn-text); margin-block: var(--sp-m) var(--sp-2xs); break-after: avoid; }
+  .az-liste { list-style: none; padding: 0; margin: 0; }
+  .az-gemeinde, .az-einzel, .az-ortsteil { break-inside: avoid; margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .az-gemeinde > .az-zeile a { font-weight: var(--fw-titel); }
+  .az-ortsteile { list-style: none; padding: 0; margin: 0 0 var(--sp-2xs); margin-inline-start: var(--sp-s); padding-inline-start: var(--sp-s); border-inline-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .az-ortsteil { border-block-end: 0; }
+}

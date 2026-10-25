@@ -18,6 +18,7 @@ import { preistabelle, betrag } from '../teile/preisauszug.mjs';
 import { rufknopf } from '../teile/rufknopf.mjs';
 import { zusage } from '../teile/zusage.mjs';
 import { lagekarte } from '../teile/lagekarte.mjs';
+import { kreisName } from './hub.mjs';
 
 const TITEL_MAX = 60;
 const ZEICHEN = new Intl.Collator('de');
@@ -43,7 +44,11 @@ export function vorbereiten(k) {
     return [o.id, o.typ === 'ortsteil' ? `${o.name} (${ohneKlammer(o.gemeinde)}, ${o.kreis})` : `${o.name} (${o.kreis})`];
   }));
   const sitz = orte.find((o) => o.slug === 'weilburg') || { lat: 50.4844, lon: 8.2625, name: 'Weilburg', km: 0 };
-  D = { orte, nachId, anzeige, sitz };
+  // Kurzname nur für zu lange Titel: eindeutiger Ortsname allein, sonst Anzeige ohne „Landkreis“/„Kreis“
+  const namen = new Map();
+  for (const o of orte) namen.set(o.name, (namen.get(o.name) || 0) + 1);
+  const kurz = new Map(orte.map((o) => [o.id, namen.get(o.name) === 1 ? o.name : anzeige.get(o.id).replace(/\b(?:Landkreis|Kreis) /g, '')]));
+  D = { orte, nachId, anzeige, kurz, sitz };
   return D;
 }
 
@@ -66,11 +71,13 @@ function werteVon(o, z) {
 
 function titelVon(o, z, name) {
   const nl = z.nl ? ' (NL)' : '';
-  const kandidaten = z.id === 'A'
-    ? [`Schlüsseldienst ${name}: Türöffnung, Schlösser, Sicherheit`, `Schlüsseldienst ${name}: Türöffnung und Schlösser`, `Schlüsseldienst ${name}`]
+  const reihe = (n) => (z.id === 'A'
+    ? [`Schlüsseldienst ${n}: Türöffnung, Schlösser, Sicherheit`, `Schlüsseldienst ${n}: Türöffnung und Schlösser`, `Schlüsseldienst ${n}`]
     : z.id === 'B'
-      ? [`Schlüsseldienst ${name} – aus Weilburg, ${o.km} km`, `Schlüsseldienst ${name}, ${o.km} km ab Weilburg`, `Schlüsseldienst ${name} (${o.km} km)`]
-      : [`Schlüsseldienst für ${name}${nl} – aus Weilburg (≈ ${o.km} km)`, `Schlüsseldienst ${name}${nl} – aus Weilburg, ${o.km} km`, `Schlüsseldienst ${name}${nl}, ${o.km} km ab Weilburg`, `Schlüsseldienst ${name}${nl} (${o.km} km ab Weilburg)`];
+      ? [`Schlüsseldienst ${n} – aus Weilburg, ${o.km} km`, `Schlüsseldienst ${n}, ${o.km} km ab Weilburg`, `Schlüsseldienst ${n} (${o.km} km)`]
+      : [`Schlüsseldienst für ${n}${nl} – aus Weilburg (≈ ${o.km} km)`, `Schlüsseldienst ${n}${nl} – aus Weilburg, ${o.km} km`, `Schlüsseldienst ${n}${nl}, ${o.km} km ab Weilburg`]);
+  const kurz = D.kurz.get(o.id);
+  const kandidaten = [...reihe(name), ...(kurz !== name ? reihe(kurz) : [])];
   return kandidaten.find((t) => t.length <= TITEL_MAX) || kandidaten.at(-1);
 }
 
@@ -196,7 +203,7 @@ ${o.staat === 'DE' ? html`<p>${text(fuellen(texte.landesregel, werte))}</p>` : '
 
 function stufenVon(o, name) {
   const s = [{ titel: 'Einsatzgebiet', pfad: '/einsatzgebiet/' }, { titel: o.land, pfad: `/einsatzgebiet/${o.landSlug}/` }];
-  if (o.kreisSlug && o.kreisSlug !== o.landSlug) s.push({ titel: o.kreis, pfad: `/einsatzgebiet/${o.landSlug}/${o.kreisSlug}/` });
+  if (o.kreisSlug && o.kreisSlug !== o.landSlug) s.push({ titel: kreisName(o.kreis), pfad: `/einsatzgebiet/${o.landSlug}/${o.kreisSlug}/` });
   s.push({ titel: name, pfad: `/schluesseldienst-${o.slug}/` });
   return s;
 }

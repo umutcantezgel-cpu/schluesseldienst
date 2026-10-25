@@ -2,9 +2,13 @@
 // Antworten nutzen die Mini-Syntax; für JSON-LD wird sie zu reinem Text.
 import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
+import { Fakt } from '../../../bau/lib/fakten.mjs';
+import { Platzhalter } from '../../../bau/lib/platzhalter.mjs';
 import { icon } from './icons.mjs';
 
-const reinText = (s) => String(s).replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\*\*([^*]+)\*\*/g, '$1');
+// Antworten dürfen Listen aus Text, Fakt und Platzhalter sein (wie text()); im JSON-LD zählt nur der Wortlaut.
+const teil = (t) => (t instanceof Fakt ? t.text : t instanceof Platzhalter ? t.markierungJson() : String(t));
+const reinText = (s) => (Array.isArray(s) ? s : [s]).map(teil).join('').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\*\*([^*]+)\*\*/g, '$1');
 
 export function faq(sk, fragen) {
   return html`<div class="faq">

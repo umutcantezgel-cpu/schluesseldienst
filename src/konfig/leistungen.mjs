@@ -45,7 +45,7 @@ export const GRUPPEN = [
       { id: 'moebeltresore', pfad: '/einbau-tresore/moebeltresore/', titel: 'Möbeltresore', icon: 'tresor', kurz: 'Kleine Tresore für Schrank und Regal, mit Zahlen- oder Schlüsselschloss.' },
       { id: 'wertschutzschraenke', pfad: '/einbau-tresore/wertschutzschraenke/', titel: 'Wertschutzschränke', icon: 'wertschrank', kurz: 'Wertschutzschränke nach Widerstandsgrad auswählen, liefern und verankern.' },
       { id: 'datensicherungsschraenke', pfad: '/einbau-tresore/datensicherungsschraenke/', titel: 'Datensicherungsschränke', icon: 'datenschrank', kurz: 'Schränke, die Datenträger und Akten im Brandfall schützen.' },
-      { id: 'waffenschraenke', pfad: '/einbau-tresore/waffenschraenke/', titel: 'Waffenschränke', icon: 'waffenschrank', kurz: 'Waffenschränke für die gesetzliche Aufbewahrung liefern und fachgerecht aufstellen.' },
+      { id: 'waffenschraenke', pfad: '/einbau-tresore/waffenschraenke/', titel: 'Waffenschränke', icon: 'waffenschrank', kurz: 'Waffenschränke zur Aufbewahrung liefern und fachgerecht aufstellen.' },
     ],
   },
 ];
