@@ -1,0 +1,48 @@
+/* V11 Verzeichnis (Arbeitsansicht): Leistungsregister mit Sprungleiste und HTML-Sitemap mit Länder- und Kreislisten.
+   Dicht und ruhig, ohne Bewegung. Die Kupferlinie führt über die Abschnittsköpfe (global); hier nur Tokens. */
+@layer komponenten {
+  .verz-kopf { padding-block: var(--sp-m) var(--sp-l); }
+  .verz-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; }
+
+  /* Sprungleiste zu den Gruppen (Anker, ohne JavaScript) */
+  .verz-sprung { margin-block-start: var(--sp-l); }
+  .verz-sprung ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-xs); }
+  .verz-sprung li { margin: 0; }
+  .verz-sprung a { display: inline-flex; align-items: center; gap: var(--sp-2xs); min-block-size: var(--ziel-min); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); color: var(--c-tinte); text-decoration: none; }
+  .verz-sprung a:hover { border-color: var(--c-kupfer); }
+  .verz-nr { font-family: var(--ff-mono); font-size: var(--fs--1); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); color: var(--c-kupfer); }
+
+  /* Gruppenabschnitte: Anker sitzen unter dem klebenden Kopf */
+  .verz-gruppe { scroll-margin-block-start: var(--sp-l); }
+  @media (min-width: 64em) { .verz-gruppe { scroll-margin-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); } }
+
+  /* Leistungsliste: Raster aus Karten-Mindestbreite, jeder Eintrag mit gestrecktem Titel-Link */
+  .verz-liste { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-min)), 1fr)); gap: 0 var(--sp-l); }
+  .verz-eintrag { position: relative; display: flex; gap: var(--sp-s); align-items: start; margin: 0; padding-block: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .verz-eintrag:focus-within { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: var(--linie-fokus); border-radius: var(--r-m); }
+  .verz-eintrag a:focus-visible { outline: none; }
+  .verz-eintrag:hover .verz-titel a { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .verz-icon { inline-size: var(--icon-leistung); block-size: var(--icon-leistung); flex: none; color: var(--c-lahn-text); margin-block-start: var(--sp-3xs); }
+  .verz-text { display: grid; gap: var(--sp-3xs); min-inline-size: 0; }
+  .verz-titel { font-size: var(--fs-0); font-weight: var(--fw-titel); }
+  .verz-titel a { color: var(--c-tinte); text-decoration: none; }
+  .verz-titel a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+  .verz-kurz { font-size: var(--fs--1); color: var(--c-tinte-2); }
+
+  /* Listen für Sitemap und Ratgeber: ruhige Zeilen mit Mindestziel, mehrspaltig ab Spaltenbreite */
+  .verz-links { list-style: none; padding: 0; margin: 0; }
+  .verz-links li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .verz-links a { display: flex; align-items: center; min-block-size: var(--ziel-min); color: var(--c-lahn-text); text-decoration: none; overflow-wrap: anywhere; }
+  .verz-links a:hover { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .verz-spalten { columns: var(--spalte-az); column-gap: var(--sp-l); }
+  .verz-spalten li { break-inside: avoid; }
+
+  .verz-gruppen { display: grid; gap: var(--sp-m) var(--sp-xl); margin-block-start: var(--sp-m); }
+  @media (min-width: 48em) { .verz-gruppen { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .verz-gruppe-liste h3 { font-size: var(--fs-1); margin-block-end: var(--sp-3xs); }
+  .verz-gruppe-liste .verz-links { margin-block-end: var(--sp-s); }
+
+  .verz-laender { display: grid; gap: var(--sp-m); }
+  .verz-land h3 { font-size: var(--fs-0); margin-block-end: var(--sp-3xs); }
+  .verz-land .verz-links { margin-block-end: var(--sp-xs); }
+}

@@ -29,14 +29,14 @@ export const ROUTEN = [
   r('/ueber-uns/', 'V09', 'Über uns', '/', 'seiten', 'E4-BAU-19'),
   r('/karriere/', 'V09', 'Karriere', '/ueber-uns/', 'seiten', 'E4-BAU-19', { bedingung: 'stellen' }),
   r('/kontakt/', 'V10', 'Kontakt', '/', 'seiten', 'E4-OPUS-02'),
-  r('/suche/', 'V11', 'Suche', '/', null, 'E4-BAU-21', { indexierbar: false }),
+  r('/suche/', 'V11', 'Suche', '/', null, 'E4-OPUS-06', { indexierbar: false }),
   r('/sitemap/', 'V11', 'Sitemap', '/', 'seiten', 'E4-BAU-21'),
   r('/impressum/', 'V12', 'Impressum', '/', 'seiten', 'E4-BAU-20'),
   r('/datenschutz/', 'V12', 'Datenschutz', '/', 'seiten', 'E4-BAU-20'),
   r('/widerruf/', 'V12', 'Widerruf', '/', 'seiten', 'E4-BAU-20'),
   r('/barrierefreiheit/', 'V12', 'Barrierefreiheit', '/', 'seiten', 'E4-BAU-20'),
   r('/quellen-lizenzen/', 'V12', 'Quellen & Lizenzen', '/', 'seiten', 'E4-BAU-20'),
-  r('/404.html', 'V12', 'Seite nicht gefunden', null, null, 'E4-BAU-21', { indexierbar: false }),
+  r('/404.html', 'V12', 'Seite nicht gefunden', null, null, 'E4-OPUS-06', { indexierbar: false }),
 ];
 
 // Muster-Routen: gelten als geplant, wenn die Daten den Slug kennen.
