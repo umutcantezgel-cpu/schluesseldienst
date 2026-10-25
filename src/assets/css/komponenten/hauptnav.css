@@ -23,7 +23,7 @@
     inline-size: var(--nav-panel-breit); padding: var(--sp-l); background: var(--c-flaeche); border-radius: var(--r-l); box-shadow: var(--sh-3);
     border-block-start: var(--linie-scher) solid var(--c-kupfer);
     visibility: hidden; opacity: 0; transform: translateY(calc(-1 * var(--sp-2xs)));
-    transition: opacity var(--dur-zustand-aus) var(--ease-aus), transform var(--dur-zustand-aus) var(--ease-aus), visibility 0s linear var(--dur-zustand-aus);
+    transition: opacity var(--dur-zustand-aus) var(--ease-aus), transform var(--dur-zustand-aus) var(--ease-aus), visibility var(--dur-null) linear var(--dur-zustand-aus);
   }
   .js .hauptnav-panel[data-zustand="offen"] { visibility: visible; opacity: 1; transform: none; transition: opacity var(--dur-zustand) var(--ease-ein), transform var(--dur-zustand) var(--ease-ein); }
   .hauptnav-gruppe ul { list-style: none; padding: 0; margin-block-start: var(--sp-2xs); }

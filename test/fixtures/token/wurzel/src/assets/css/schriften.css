@@ -1,0 +1,2 @@
+/* Ausnahme: schriften.css enthält die @font-face-Regeln mit Rohwerten und wird nicht geprüft. */
+@font-face { font-family: "AHN Ersatz"; src: local("Arial"); size-adjust: 98.9%; ascent-override: 99.5%; }

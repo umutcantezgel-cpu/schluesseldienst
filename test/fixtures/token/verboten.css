@@ -1,0 +1,14 @@
+/* Kommentar mit #fff, 10px und 200ms bleibt ohne Befund. */
+.a { color: #fff; }
+.b { transition: opacity 200ms; }
+.c { padding: 10px; }
+.d { color: red; }
+.e { font-size: 1rem; }
+.f { line-height: 1.5em; }
+.g { transition-timing-function: cubic-bezier(.2, 0, 0, 1); }
+.h { font-family: "Arial", sans-serif; }
+.i { color: rgb(19 32 42 / .08); }
+.j { transition: visibility 0s linear; }
+.k { inline-size: 50vh; }
+.l { --eigene: 3; }
+@media (min-width: 700px) { .m { margin: 0; } }

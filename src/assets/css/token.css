@@ -68,7 +68,7 @@
     --z-szene: 10; --z-kopf: 100; --z-rufleiste: 200; --z-popover: 300; --z-hinweis: 500; --z-skip: 600;
 
     /* Bewegung */
-    --dur-feedback: 150ms; --dur-feedback-aus: 120ms;
+    --dur-null: 0s; --dur-feedback: 150ms; --dur-feedback-aus: 120ms;
     --dur-zustand: 300ms; --dur-zustand-aus: 240ms;
     --dur-auftritt: 640ms; --dur-auftritt-lang: 880ms; --dur-moment-max: 1400ms;
     --stagger: 60ms;

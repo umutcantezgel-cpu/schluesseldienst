@@ -10,7 +10,7 @@
     "vorschau": "node bau/vorschau.mjs",
     "pruefen": "node bau/bauen.mjs --messen --pruefen",
     "release": "node bau/bauen.mjs --release",
-    "test": "node --test test/",
+    "test": "node --test \"test/*.test.mjs\"",
     "orte": "node pipeline/orte/alle.mjs"
   }
 }

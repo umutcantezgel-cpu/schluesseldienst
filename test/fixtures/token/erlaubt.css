@@ -1,0 +1,15 @@
+/* Erlaubte Werte: keine Befunde erwartet. */
+.a { margin: -1px; outline: 1px solid Highlight; }
+.b { transform: rotate(180deg) scale(.98); color: transparent; background: currentColor; }
+.c { inline-size: 100vw; block-size: 100svh; min-block-size: 100dvh; }
+.d { font-family: var(--ff-text); font-style: normal; }
+.e { padding: 0; box-shadow: inset 0 calc(-1 * var(--linie-scher)) 0 var(--c-kupfer); }
+.f { grid-template-columns: [voll-start] minmax(var(--rand), 1fr); }
+.g { content: "←"; opacity: .6; }
+@media (min-width: 64em) { .h { display: none; } }
+@media (min-width: 30em) and (max-width: 80em) { .i { display: block; } }
+@media (prefers-reduced-motion: reduce) { .j { transition: none; } }
+@media (forced-colors: active) { .k { border: var(--linie-ui) solid ButtonText; } }
+@container (min-width: 40em) { .l { inline-size: 100%; } }
+@keyframes lauf { from { opacity: 0; } 100% { opacity: 1; } }
+em, i { font-style: normal; }

@@ -60,7 +60,7 @@
   .verifizieren { text-decoration: underline wavy var(--c-warnung); text-decoration-thickness: var(--linie-haar); text-underline-offset: var(--unterstrich-abstand-wellig); }
 
   @media print {
-    body { background: none; color: black; }
+    body { background: none; color: CanvasText; }
     .rufleiste, .kopf, .menue-blatt, .sprunglink { display: none !important; }
     a { color: inherit; }
   }

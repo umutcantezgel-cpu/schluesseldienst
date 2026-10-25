@@ -1,0 +1,2 @@
+/* Ausnahme: token.css darf Rohwerte enthalten und wird nicht geprüft. */
+:root { --c-tinte: #13202A; --fs-0: clamp(1.0625rem, 1.0208rem + .2083vw, 1.1875rem); }
