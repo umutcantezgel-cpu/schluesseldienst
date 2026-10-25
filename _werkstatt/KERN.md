@@ -3,7 +3,7 @@
 
 ## Das Projekt in fünf Sätzen
 1. Aus den Exporten zweier Schlüsseldienst-Websites (Richter, Adam) entsteht eine eigene, rein statische Website für einen neuen Schlüsseldienst mit Sitz in Weilburg an der Lahn; der Firmenname steht noch nicht fest.
-2. Die Seite deckt alle Themen beider Vorbilder ab – Notöffnungen, mechanischer Einbruchschutz, elektronische Sicherheitstechnik, Einbau und Tresore, Preise, Einsatzgebiet mit rund 6.000 Ortsseiten, Ratgeber, Kontakt und Recht –, aber mit eigenen Texten und ohne Kopien.
+2. Die Seite deckt alle Themen beider Vorbilder ab – Notöffnungen, mechanischer Einbruchschutz, elektronische Sicherheitstechnik, Einbau und Tresore, Preise, Einsatzgebiet mit 5.252 Ortsseiten (aus rund 5.800 Quellorten; 314 ungeklärte Orte bleiben unveröffentlicht), Ratgeber, Kontakt und Recht –, aber mit eigenen Texten und ohne Kopien.
 3. Ein eigener Generator in Node 22 ohne Abhängigkeiten erzeugt reines HTML, CSS und Vanilla-JavaScript; es gibt kein Backend, keine Drittanbieter und keine Cookies.
 4. Sicherheit hat Vorrang: strikte Content-Security-Policy mit Trusted Types, Sicherheits-Header für jeden Hoster und ein Sicherheits-Linter über die gesamte Ausgabe.
 5. Die Gestaltung „Scherlinie“ ist ruhig, präzise und offen im Preis, mit einer Kupferlinie als Leitelement, schnell und zugänglich nach WCAG 2.2 AA.

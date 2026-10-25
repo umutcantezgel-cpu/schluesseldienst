@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Orchestrator der Orts-Pipeline: führt die Stufen nacheinander als Kindprozesse aus und bricht bei Fehler ab.
-// Stufe 00 läuft ohne Download (nur Prüfung gegen quellen.lock.json und den Cache).
+// Stufe 00 prüft vorhandene Cache-Dateien gegen quellen.lock.json und lädt nur Dateien ohne Lock-Eintrag nach;
+// fehlt eine gelockte Datei im Cache, bricht sie ab (erneut laden nur mit 00-laden.mjs --neu-einlesen).
 // Aufruf: node pipeline/orte/alle.mjs  (npm run orte)
 import { execFile } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
