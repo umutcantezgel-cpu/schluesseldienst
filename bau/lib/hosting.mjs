@@ -51,6 +51,12 @@ export function htaccess(host, weiterleitungen = []) {
     'ErrorDocument 404 /404.html',
     'ServerSignature Off',
     ...typen,
+    '<IfModule mod_mime.c>',
+    '  # Vorkomprimierte Varianten: Typ und Kodierung kommen aus der Endung des Originals (index.html.gz → text/html),',
+    '  # nicht aus .gz/.br. Serverstandards wie „AddType application/x-gzip .gz“ und „AddEncoding x-gzip .gz“ werden aufgehoben.',
+    '  RemoveType .br .gz',
+    '  RemoveEncoding .br .gz',
+    '</IfModule>',
     'AddCharset utf-8 .html .css .js .json .xml .txt .webmanifest .svg',
     '<IfModule mod_headers.c>',
     ...Object.entries(k).map(([n, v]) => `  Header always set ${n} "${apacheWert(v)}"`),
@@ -58,7 +64,7 @@ export function htaccess(host, weiterleitungen = []) {
     '  Header always set Cache-Control "no-cache" "expr=%{CONTENT_TYPE} =~ m#^text/html#"',
     ...cache.map((z) => z.split('\n').map((l) => '  ' + l).join('\n')),
     '</IfModule>',
-    '# Vorkomprimierte Varianten: Vary immer; Content-Encoding nur an .br bzw. .gz (der Content-Type bleibt der des Originals).',
+    '# Vorkomprimierte Varianten: Vary immer; Content-Encoding nur an .br bzw. .gz (der Typ kommt aus der Endung des Originals, s. o.).',
     '<IfModule mod_headers.c>',
     `  <FilesMatch "\\.(${TEXT})$">`,
     '    Header always merge Vary Accept-Encoding',
@@ -94,6 +100,15 @@ export function htaccess(host, weiterleitungen = []) {
     `  RewriteCond %{HTTP:Accept-Encoding} ${annahme('gzip')} [NC]`,
     '  RewriteCond %{REQUEST_FILENAME}.gz -f',
     `  RewriteRule ^(.+\\.(${TEXT}))$ $1.gz [L,E=no-gzip:1,E=no-brotli:1,E=dont-vary:1]`,
+    '  # Verzeichnis-Adressen (/pfad/ → index.html) ausdrücklich, statt sich auf die Unteranfrage von mod_dir zu verlassen',
+    `  RewriteCond %{HTTP:Accept-Encoding} ${annahme('br')} [NC]`,
+    '  RewriteCond %{REQUEST_FILENAME} -d',
+    '  RewriteCond %{REQUEST_FILENAME}/index.html.br -f',
+    '  RewriteRule ^(.*/)?$ $1index.html.br [L,E=no-gzip:1,E=no-brotli:1,E=dont-vary:1]',
+    `  RewriteCond %{HTTP:Accept-Encoding} ${annahme('gzip')} [NC]`,
+    '  RewriteCond %{REQUEST_FILENAME} -d',
+    '  RewriteCond %{REQUEST_FILENAME}/index.html.gz -f',
+    '  RewriteRule ^(.*/)?$ $1index.html.gz [L,E=no-gzip:1,E=no-brotli:1,E=dont-vary:1]',
     '</IfModule>',
   ].join('\n') + '\n';
 }
@@ -135,6 +150,8 @@ server {
     include snippets/sicherheit-header.conf;
     error_page 404 /404.html;
     location ~ /\\.(?!well-known/) { return 404; }
+    # Vorkomprimierte Varianten nie direkt anfordern (wie Apache): ausgeliefert werden sie nur über gzip_static
+    location ~ \\.(br|gz)$ { return 404; }
 ${cacheBloecke.join('\n')}
 ${weiterleitungen.map((w) => `    location = ${w.von} { return 301 https://${host}${w.nach}; }`).join('\n')}
     location / {

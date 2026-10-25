@@ -112,3 +112,22 @@ test('SEO: Titel > 60 bei Ortsseiten nur Warnung, auch im Release; andere Seiten
   assert.equal(a.fehler, 1);
   assert.equal(a.warnungen, 1);
 });
+
+test('S14-variante: .br/.gz nur mit Quelldatei und gleichem Inhalt; andere Archive bleiben verboten', async () => {
+  const { brotliCompressSync, gzipSync } = await import('node:zlib');
+  const html = seite('/', '<p>x</p>');
+  const ctx = await ctxMit([{ pfad: '/', html }]);
+  const extra = {
+    '/index.html.br': brotliCompressSync(Buffer.from(html)),
+    '/index.html.gz': gzipSync(Buffer.from(html.replace('<p>x</p>', '<p>y</p>'))),
+    '/weg.html.gz': gzipSync(Buffer.from('<p>alt</p>')),
+    '/sicherung.tar.gz': gzipSync(Buffer.from('x')),
+  };
+  for (const [p, b] of Object.entries(extra)) { await writeFile(join(DIST, p), b); ctx.dateien.push(p); }
+  const befunde = (await sicherheit.pruefe(ctx)).filter((b) => b.regel.startsWith('sicherheit/S14'));
+  assert.deepEqual(befunde.map((b) => [b.regel, b.datei]).sort(), [
+    ['sicherheit/S14-datei', '/sicherung.tar.gz'],
+    ['sicherheit/S14-variante', '/index.html.gz'],
+    ['sicherheit/S14-variante', '/weg.html.gz'],
+  ]);
+});

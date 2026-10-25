@@ -32,7 +32,7 @@ Voraussetzung ist, dass [BETRIEB.md](BETRIEB.md) vollständig ist und der Releas
 ## 3. Ablauf eines Deploys
 
 1. **Vorbereitung.** `docs/BETRIEB.md` ist vollständig. `npm test` und `npm run pruefen` melden keine Fehler.
-2. **Release bauen.** `npm run release -- --ziel=<apache|nginx|netlify|cloudflare>` schreibt die Ausgabe nach `dist/`. Hochgeladen wird nur bei Exit-Code 0. Bei Exit-Code 1 verschiebt der Build die Ausgabe nach `dist.verweigert/`, bei Exit-Code 2 entsteht keine Ausgabe – in beiden Fällen wird nichts hochgeladen.
+2. **Release bauen.** `npm run release -- --ziel=<apache|nginx|netlify|cloudflare>` schreibt die Ausgabe nach `dist/`. Für Apache und nginx ohne eigene Kompression zusätzlich `--vorkomprimieren` (legt `.br`/`.gz` an; nginx braucht dafür `gzip_static`, Brotli nur mit dem Zusatzmodul ngx_brotli). Hochgeladen wird nur bei Exit-Code 0. Bei Exit-Code 1 verschiebt der Build die Ausgabe nach `dist.verweigert/`, bei Exit-Code 2 entsteht keine Ausgabe – in beiden Fällen wird nichts hochgeladen.
 3. **Hochladen.** Den gesamten Inhalt von `dist/` übertragen, mit `.htaccess` (Apache) bzw. `_headers` und `_redirects` (Netlify, Cloudflare). Bei nginx gehört das Snippet aus `release/nginx/` in die Serverkonfiguration; der Build legt es nicht in `dist/` ab.
 4. **Live-Prüfung.** Nach dem Deploy:
 

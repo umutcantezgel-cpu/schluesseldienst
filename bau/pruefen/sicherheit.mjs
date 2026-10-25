@@ -1,10 +1,12 @@
 // Sicherheits-Linter über die gesamte Ausgabe (S01–S21). Jede Verletzung ist ein Fehler.
 // Arbeitet mit regulären Ausdrücken auf dem eigenen, wohlgeformten HTML des Generators.
 import { readFile } from 'node:fs/promises';
+import { gunzipSync, brotliDecompressSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { cspText } from '../../src/konfig/sicherheit.mjs';
 import { istPlatzhalter } from '../lib/platzhalter.mjs';
+import { TEXT_ENDUNGEN } from '../lib/vorkomprimieren.mjs';
 
 export const name = 'sicherheit';
 
@@ -17,6 +19,9 @@ export function navigationFremd(js) {
 const sha384 = (buf) => 'sha384-' + createHash('sha384').update(buf).digest('base64');
 const sha256 = (s) => createHash('sha256').update(s).digest('hex');
 const ERLAUBTE_ENDUNGEN = /\.(html|css|js|json|xml|txt|woff2|png|jpg|webp|avif|svg|webmanifest|ico)$/;
+// Vorkomprimierte Varianten (--vorkomprimieren): nur <Textdatei>.br/.gz, deren Quelle in der Ausgabe liegt und deren
+// entpackter Inhalt der Quelle gleicht – damit gelten alle Prüfungen der Quelle auch für die Variante.
+const VARIANTE = new RegExp(`^(.+(?:${TEXT_ENDUNGEN.map((e) => e.replace('.', '\\.')).join('|')}))\\.(br|gz)$`);
 const GEHEIM = [
   ['google-api-schluessel', /AIza[0-9A-Za-z_-]{35}/],
   ['site-verification', /google-site-verification/i],
@@ -159,10 +164,20 @@ export async function pruefe(ctx) {
   }
 
   // S14 Datei-Allowlist, S15 Daten, S20 JS-Regeln, CSS ohne data:-URLs
+  const vorhanden = new Set(ctx.dateien);
   for (const datei of ctx.dateien) {
     const basis = datei.split('/').pop();
     const erlaubtePunkt = ['.htaccess', '_headers', '_redirects'].includes(basis) || datei.startsWith('/.well-known/');
-    if (!erlaubtePunkt && (basis.startsWith('.') || !ERLAUBTE_ENDUNGEN.test(basis)) && basis !== 'OFL.txt') f('S14-datei', datei, 'Datei nicht auf der Allowlist');
+    const variante = datei.match(VARIANTE);
+    if (variante) {
+      if (!vorhanden.has(variante[1])) f('S14-variante', datei, 'Vorkomprimierte Variante ohne Quelldatei in der Ausgabe');
+      else {
+        const [roh, quelle] = await Promise.all([readFile(join(ctx.dist, datei)), readFile(join(ctx.dist, variante[1]))]);
+        let inhalt = null;
+        try { inhalt = variante[2] === 'br' ? brotliDecompressSync(roh) : gunzipSync(roh); } catch { /* unten gemeldet */ }
+        if (!inhalt || !inhalt.equals(quelle)) f('S14-variante', datei, 'Vorkomprimierte Variante weicht von der Quelldatei ab');
+      }
+    } else if (!erlaubtePunkt && (basis.startsWith('.') || !ERLAUBTE_ENDUNGEN.test(basis)) && basis !== 'OFL.txt') f('S14-datei', datei, 'Datei nicht auf der Allowlist');
     // Wettbewerber nur als exakte Kennung (Domainstamm), nicht als Teilwort – sonst träfe es Orte wie Hadamar oder Richterich.
     if (/_werkstatt|richter-sicherheitstechnik|schluesseldienst-adam(?![a-z])|\/src\/|\.map$|\.mjs$|\.md$/i.test(datei)) f('S14-datei', datei, 'Unzulässiger Pfad in der Ausgabe');
     if (datei.startsWith('/daten/') && datei.endsWith('.json')) {

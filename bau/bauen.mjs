@@ -93,6 +93,9 @@ async function seitenModule() {
 const zielDatei = (pfad) => (pfad.endsWith('.html') ? pfad : pfad + 'index.html');
 
 async function main() {
+  // Vorkomprimierte Varianten nutzen nur Apache und nginx; Netlify und Cloudflare komprimieren selbst und würden
+  // die Dateien sonst als öffentliche Zusatzdateien ausliefern.
+  if (arg.vorkomprimieren && arg.ziel && !['apache', 'nginx'].includes(arg.ziel)) throw new Error(`--vorkomprimieren nur mit --ziel=apache oder nginx (nicht ${arg.ziel}).`);
   const datum = commitDatum();
   const tag = datum.slice(0, 10);
   const konfig = await konfigLaden();

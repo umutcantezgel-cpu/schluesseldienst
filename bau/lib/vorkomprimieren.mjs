@@ -49,15 +49,18 @@ function passt(variante, alt, original) {
 
 /**
  * Erzeugt, erneuert und entfernt die Varianten im Ausgabeordner des Schreibers.
+ * Quellen sind die Textdateien, die dieser Lauf geschrieben hat (schreiber.geschrieben). Veraltete Dateien früherer
+ * Läufe bekommen keine Varianten mehr; ihre alten .br/.gz fallen hier weg, auch wenn aufraeumen() danach die Quelle löscht.
+ * Mit ohneAufraeumen (--nur, dort läuft kein aufraeumen()) zählt jede vorhandene Textdatei als Quelle.
  * Schreibt über den Schreiber, damit die Varianten als „in diesem Lauf geschrieben“ gelten
- * (sonst würde schreiber.aufraeumen() sie löschen) und die Prüfer sie sehen.
+ * (sonst würde schreiber.aufraeumen() sie löschen) und die Prüfer sie sehen. Muss vor aufraeumen() laufen.
  * Rückgabe: { quellen, neu, unveraendert, zuGross, entfernt, original, br, gz, ms } – Bytes in original/br/gz.
  */
-export async function vorkomprimieren(schreiber) {
+export async function vorkomprimieren(schreiber, { ohneAufraeumen = false } = {}) {
   const start = performance.now();
   const wurzel = schreiber.ziel;
-  const alle = await dateienIn(wurzel);
-  const quellen = alle.filter((p) => TEXT_ENDUNGEN.includes(extname(p))).sort();
+  const vorhanden = ohneAufraeumen ? await dateienIn(wurzel) : [...schreiber.geschrieben];
+  const quellen = vorhanden.filter((p) => TEXT_ENDUNGEN.includes(extname(p))).sort();
   const behalten = new Set();
   const bericht = { quellen: quellen.length, neu: 0, unveraendert: 0, zuGross: 0, entfernt: 0, original: 0, br: 0, gz: 0 };
   for (const quelle of quellen) {
@@ -85,11 +88,12 @@ export async function vorkomprimieren(schreiber) {
       }
     }
   }
-  for (const pfad of alle) {
-    if (Object.keys(VARIANTEN).includes(extname(pfad)) && !behalten.has(pfad)) {
-      await unlink(pfad);
-      bericht.entfernt++;
-    }
+  // Verwaist: eine Variante, die dieser Lauf weder geschrieben noch behalten hat (Quelle fehlt oder ist nicht mehr kleiner).
+  for (const pfad of await dateienIn(wurzel)) {
+    if (!Object.keys(VARIANTEN).includes(extname(pfad))) continue;
+    if (behalten.has(pfad) || schreiber.geschrieben.has(pfad)) continue;
+    await unlink(pfad);
+    bericht.entfernt++;
   }
   bericht.ms = Math.round(performance.now() - start);
   return bericht;

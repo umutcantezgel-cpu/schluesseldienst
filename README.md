@@ -31,6 +31,7 @@ Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML
 | (keiner) oder `--vorschau` | Vorschau mit `noindex`. Ohne Schalter ist das der Standard. |
 | `--messen` | Indexierbar, Basis-Adresse lokal (`http://127.0.0.1:<port>`), für die Messwerkzeuge in `_werkstatt/`. |
 | `--release` | Strikt. Basis-Adresse aus `betrieb.basisUrl`; `--ziel` ist Pflicht. |
+| `--vorkomprimieren` | Legt zu jeder Textdatei `.br` und `.gz` an (nur wenn kleiner) und entfernt verwaiste Varianten. Nur ohne `--ziel` oder mit `--ziel=apache\|nginx`; Netlify und Cloudflare komprimieren selbst. Der Prüfer `sicherheit` (S14) verlangt zu jeder Variante die Quelldatei mit gleichem Inhalt. |
 | `--ziel=apache\|nginx\|netlify\|cloudflare` | Nur mit `--release`. Apache: `.htaccess` in der Ausgabe. Netlify und Cloudflare: `_headers` und `_redirects`. nginx: Snippet in `release/nginx/`, außerhalb der Ausgabe. |
 | `--aus=<ordner>` | Ausgabeordner statt `dist/`, relativ zum Repository. Die Berichte liegen daneben, zum Beispiel `<ordner>.bau-bericht.json`. |
 | `--nur=<pfadpräfix>` | Nur Seiten mit diesem Pfadanfang (plus 404). Räumt die Ausgabe nicht auf. |
