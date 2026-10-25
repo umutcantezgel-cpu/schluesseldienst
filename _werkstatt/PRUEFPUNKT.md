@@ -1,8 +1,6 @@
 # PRÜFPUNKT
-- Letzter grüner Commit: siehe `git log` (K-07 Gruppenfilter)
-- Etappe: E5 · Kür K-01, K-03…K-08 umgesetzt; K-02 geht in die Endprüfung · laufend: Workflow `kuer-abschluss` (Abschlussprüfung K-05/K-07/K-08) und Agent E5-PRUEF-14 (Prüfstufe C, Haiku)
-- Fortsetzungsplan: `/root/.claude/plans/nutze-das-was-vorhanden-bright-sphinx.md`, Abschnitt „Fortsetzung nach Neustart“
-- Nächster exakter Schritt: Abschlussprüfung auswerten (Mängel einarbeiten) → Bericht E5-PRUEF-14 prüfen und Befunde einarbeiten → E5-DOK-02 (BERICHT, Galerie, docs) → E5-REVIEW (frischer Opus-Panel-Workflow: Ansichtswerte ≥ 8, Blindvergleich V01/V03/V04/V07 gegen `.cache/vorher/bilder`, maskiert) → CLAUDE.md-Block entfernen
-- Release-Probe (alle Angaben gefüllt, aus HEAD): Scratchpad `release-probe2/` – `node bau/bauen.mjs --release --ziel=apache --datum=2026-10-25` grün
-- Apache-Test: Scratchpad `apache/httpd.conf` + `matrix.sh` (Docroot /srv/opus-k05/www, Port 4399)
+- Letzter grüner Commit: siehe `git log` (Prüfstufe C eingearbeitet)
+- Etappe: E5 · Kür fertig (K-02 in der Endprüfung) · Prüfstufe C fertig (Bericht `_werkstatt/berichte/E5-pruefstufe-c.md`) · laufend: Workflow `e5-endpruefung` (Skript unter workflows/scripts/e5-endpruefung-*.js; Bilder `.cache/e5-review/bilder`, Blindpaare `.cache/e5-review/blind/bilder`, Schlüssel `.cache/e5-review/blind-schluessel.json` – nie den Prüfern zeigen)
+- Vorschau läuft: 4201 (Messbuild `.cache/opus-e5/dist`, unkomprimiert), 4204 (gzip)
+- Nächster exakter Schritt: Ergebnisse der Endprüfung auswerten (Blindurteile mit Schlüssel abgleichen) → Bericht `_werkstatt/berichte/E5-endpruefung.md` → Ansichten < 8 nachbessern, zweiter Anlauf (max. 2) → E5-DOK-02 (BERICHT, Galerie, docs) → ABNAHME-Status → CLAUDE.md-Block entfernen
 - Tests: `npm test`
