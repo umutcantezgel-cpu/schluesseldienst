@@ -26,6 +26,7 @@ export async function seiten(k) {
       brotkrumenLd(k.basisUrl, stufen),
     ],
     inhalt: (sk) => html`<section class="ratgeber-kopf" aria-labelledby="ratgeber-titel"><div class="raster">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <h1 id="ratgeber-titel">${INHALT.h1}</h1>
 <p class="gruppe-einleitung">${text(INHALT.einleitung)}</p>
 ${artikel.length ? html`<nav class="ratgeber-sprung" aria-label="Kategorien"><ul>${Object.entries(KATEGORIEN).filter(([id]) => artikel.some((a) => a.inhalt.kategorie === id)).map(([id, kat]) => html`<li><a href="#${id}">${kat.titel}</a></li>`)}</ul></nav>` : ''}

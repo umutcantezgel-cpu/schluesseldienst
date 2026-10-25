@@ -36,9 +36,9 @@ function hero(sk) {
   const h = inhalt.hero;
   return html`<section class="hero" aria-labelledby="hero-titel">
 <div class="hero-kopf">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="hero-kicker">${h.kicker}</p>
 <h1 id="hero-titel">${h.h1.map((z, i) => html`${i ? ' ' : ''}<span class="h1-zeile">${z}</span>`)}</h1>
-<span class="scherlinie scherlinie-leit hero-linie" aria-hidden="true"></span>
 </div>
 <figure class="hero-figur" id="hero-figur" data-moment="scherlinie">
 ${zylinderSchnitt({ praefix: 'hero-zy' })}

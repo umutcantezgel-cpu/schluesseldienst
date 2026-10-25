@@ -17,6 +17,7 @@ const eintrag = (m) => (typeof m === 'string' ? m : [m.name, m.rolle].filter(Boo
 function kopf() {
   return html`<section class="betrieb-kopf" aria-labelledby="ueber-h1">
 <div class="raster">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="ueber-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>

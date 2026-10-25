@@ -15,6 +15,7 @@ const vorhanden = (w) => w !== undefined && w !== null && w !== '' && !(Array.is
 function kopf() {
   return html`<section class="betrieb-kopf" aria-labelledby="karriere-h1">
 <div class="raster">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="karriere-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>

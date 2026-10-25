@@ -22,6 +22,7 @@ function kopf(sk) {
   const { notfall: n, planbar: p } = inhalt;
   return html`<section class="kontakt-kopf" aria-labelledby="kontakt-h1">
 <div class="raster">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="kontakt-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>

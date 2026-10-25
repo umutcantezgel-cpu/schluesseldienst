@@ -73,6 +73,7 @@ function kopf(sk, g, l, inh) {
   return html`<section class="leistung-kopf" aria-labelledby="leistung-titel">
 <div class="raster"><div class="leistung-kopf-teilung">
 <div>
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="leistung-kicker"><a href="${g.pfad}">${g.titel}</a></p>
 <h1 id="leistung-titel">${inh.h1}</h1>
 <p class="leistung-kurz">${text(inh.kurz)}</p>

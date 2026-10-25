@@ -16,6 +16,7 @@ export function seiten() {
     inhalt: (sk) => html`<section class="system-kopf" aria-labelledby="fehler-titel">
 <div class="raster"><div class="fehler-teilung">
 <div>
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${f.kicker}</p>
 <h1 id="fehler-titel">${f.h1}</h1>
 <p class="gruppe-einleitung">${text(f.text)}</p>

@@ -27,7 +27,6 @@
 
   /* Gruppenabschnitte: Anker sitzen unter dem klebenden Kopf */
   .verz-gruppe { scroll-margin-block-start: var(--sp-l); }
-  @media (min-width: 64em) { .verz-gruppe { scroll-margin-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); } }
 
   /* Leistungsliste: Raster aus Karten-Mindestbreite, jeder Eintrag mit gestrecktem Titel-Link */
   .verz-liste { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-min)), 1fr)); gap: 0 var(--sp-l); }

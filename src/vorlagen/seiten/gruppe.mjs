@@ -42,6 +42,7 @@ function kopf(sk, g, inh) {
   return html`<section class="gruppe-kopf" aria-labelledby="gruppe-titel">
 <div class="raster"><div class="gruppe-kopf-teilung">
 <div class="gruppe-kopf-text">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker"><span class="gruppe-nr">${g.nr}</span> ${inh.kicker}</p>
 <h1 id="gruppe-titel">${inh.h1}</h1>
 <p class="gruppe-einleitung">${text(inh.einleitung)}</p>

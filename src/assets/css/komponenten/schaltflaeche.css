@@ -12,7 +12,10 @@
   .knopf-primaer { background: var(--c-lahn); color: var(--c-auf-lahn); }
   .knopf-sekundaer { background: transparent; color: var(--c-tinte); border-color: var(--c-linie-ui); }
   .knopf-still { background: transparent; color: var(--c-lahn-text); padding-inline: var(--sp-xs); }
-  .knopf[aria-disabled="true"] { opacity: .6; cursor: not-allowed; }
+  /* Nicht verfügbar (K-009): bleibt fokussierbar, der Grund steht im Text daneben; keine Überlagerung, kein Drücken */
+  .knopf[aria-disabled="true"] { background: var(--c-papier-2); color: var(--c-tinte-3); border: var(--linie-ui) dashed var(--c-linie-ui); cursor: not-allowed; }
+  .knopf[aria-disabled="true"]::before { content: none; }
+  .knopf[aria-disabled="true"]:active { transform: none; }
   .knopf[aria-busy="true"] { cursor: progress; }
   .knopf .i { inline-size: var(--icon-text); block-size: var(--icon-text); }
   @media (forced-colors: active) { .knopf { border-color: ButtonText; } }

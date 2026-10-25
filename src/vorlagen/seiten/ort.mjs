@@ -115,6 +115,7 @@ function kopf(sk, o, z, werte, sonder) {
   return html`<section class="ort-kopf" aria-labelledby="ort-titel">
 <div class="raster"><div class="ort-kopf-teilung">
 <div>
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="ort-kicker">${texte.kicker} · Zone ${z.nl ? 'NL' : z.id} – ${z.kurz}</p>
 <h1 id="ort-titel"${h1Text.length > 44 ? html` class="ort-h1-lang"` : ''}>${h1Text.split('/').map((t, i) => (i ? html`/<wbr>${t}` : t))}</h1>
 <ul class="ort-fakten">${fakten}</ul>

@@ -12,6 +12,7 @@ import { cssBuendeln, ansichtenBuendeln, sonderstileBuendeln, jsBuendeln, statis
 import { Schreiber } from './lib/schreiben.mjs';
 import { vorkomprimieren, veralteteVariantenEntfernen } from './lib/vorkomprimieren.mjs';
 import { aufloesen } from './lib/markierung.mjs';
+import { ueberschriftenTrennen } from './lib/trennen.mjs';
 import { platzhalterIn, istPlatzhalter } from './lib/platzhalter.mjs';
 import { setzeRoutenPruefer, fehlendeLinksHolen } from './lib/inhalt.mjs';
 import { sitemaps, robots, securityTxt, manifest } from './lib/dateien.mjs';
@@ -120,15 +121,11 @@ async function main() {
   const cssBuf = Buffer.from(css.text, 'utf8');
   const cssPfad = `/assets/app.${hash10(cssBuf)}.css`;
   await schreiber.schreibe(cssPfad, cssBuf);
+  // Ansichts-Stile: geschrieben wird erst nach dem Sammeln der Seiten, und nur, was eine Seite lädt (einzeln oder als
+  // zusammengesetzte Datei „a+b“) – sonst lägen Bündel ohne Verweis im Auslieferungsordner
   const ansichten = {};
   const ansichtTexte = {};
-  for (const a of await ansichtenBuendeln(WURZEL, karte)) {
-    const buf = Buffer.from(a.text, 'utf8');
-    const pfad = `/assets/${a.name}.${hash10(buf)}.css`;
-    await schreiber.schreibe(pfad, buf);
-    ansichten[a.name] = { pfad, sri: sri(buf), bytes: buf.length };
-    ansichtTexte[a.name] = a.text;
-  }
+  for (const a of await ansichtenBuendeln(WURZEL, karte)) ansichtTexte[a.name] = a.text;
   // Sonderstile (Druck, erzwungene Farben): eigene Dateien mit media-Angabe, nicht renderblockierend
   const sonderstile = [];
   for (const s of await sonderstileBuendeln(WURZEL, karte)) {
@@ -198,13 +195,13 @@ async function main() {
   for (const s of seiten) {
     const namen = s.stile || [];
     const schluessel = namen.join('+');
-    if (namen.length < 2 || assets.ansichten[schluessel]) continue;
+    if (!namen.length || assets.ansichten[schluessel]) continue;
     const fehlt = namen.find((n) => !(n in ansichtTexte));
     if (fehlt) throw new Error(`Seite ${s.pfad}: unbekannter Ansichts-Stil ${fehlt}`);
     const buf = Buffer.from(namen.map((n) => ansichtTexte[n]).join(''), 'utf8');
     const pfad = `/assets/${namen.join('-')}.${hash10(buf)}.css`;
     await schreiber.schreibe(pfad, buf);
-    assets.ansichten[schluessel] = { pfad, sri: sri(buf), bytes: buf.length, teile: namen };
+    assets.ansichten[schluessel] = { pfad, sri: sri(buf), bytes: buf.length, ...(namen.length > 1 ? { teile: namen } : {}) };
   }
   const routen = new Set();
   for (const s of seiten) {
@@ -234,7 +231,7 @@ async function main() {
     const marke = `<script type="module" src="${JS_MARKE.pfad}" integrity="${JS_MARKE.sri}"></script>`;
     if (!aufgeloest.html.includes(marke)) throw new Error(`${s.pfad}: Skript-Marke der Vorlage fehlt`);
     const js = await jsFuer(new Set([...aufgeloest.html.matchAll(/\sdata-modul="([a-z][a-z0-9-]*)"/g)].map((m) => m[1])));
-    const html = aufgeloest.html.replace(marke, `<script type="module" src="${js.pfad}" integrity="${js.sri}"></script>`);
+    const html = ueberschriftenTrennen(aufgeloest.html).replace(marke, `<script type="module" src="${js.pfad}" integrity="${js.sri}"></script>`);
     platzhalter.forEach((p) => alleP.add(p));
     fakten.forEach((f) => alleF.add(f));
     const datei = zielDatei(s.pfad);

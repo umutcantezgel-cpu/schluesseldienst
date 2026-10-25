@@ -1,13 +1,21 @@
 /* Auswahlkarten (Preisrechner, Kontakt-Composer): Radio mit Titel und Zusatz, gewählt in Lahn, Marke „jetzt“. */
 @layer komponenten {
   .wahl-optionen { display: grid; gap: var(--sp-2xs); }
-  .wahl-option { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); align-items: start; min-block-size: var(--ziel-touch); padding: var(--sp-xs) var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-s); cursor: pointer; }
+  .wahl-option { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); align-items: start; min-block-size: var(--ziel-touch); padding: var(--sp-xs) var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-s); cursor: pointer; }
+  /* M-02/M-03 wie bei .knopf; die Überlagerung liegt unter dem Inhalt (z-index -1 im eigenen Stapelkontext) */
+  .wahl-option::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
   .wahl-option:hover { border-color: var(--c-tinte-3); }
+  .wahl-option:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
+  .wahl-option:active { transform: scale(.98); }
+  .wahl-option:active::before { opacity: var(--deck-aktiv); }
   .wahl-option:has(input:checked) { border-color: var(--c-lahn); box-shadow: inset 0 0 0 1px var(--c-lahn); background: var(--c-lahn-hell); }
   .wahl-option:has(input:focus-visible) { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: var(--linie-fokus); }
+  /* Ein Fokusring: die Karte trägt ihn (:has), das Radio selbst nicht */
+  .wahl-option input:focus-visible { outline: none; }
   .wahl-option input { margin: 0; margin-block-start: var(--sp-3xs); inline-size: var(--sp-s); block-size: var(--sp-s); accent-color: var(--c-lahn); }
   .wahl-option-text { display: grid; }
   .wahl-option-titel { font-weight: var(--fw-ui); }
   .wahl-option-zusatz { font-size: var(--fs--1); color: var(--c-tinte-3); }
   .wahl-option[data-jetzt] .wahl-option-titel::after { content: " · jetzt"; color: var(--c-kupfer); font-weight: var(--fw-titel); }
+  @media (prefers-reduced-motion: reduce) { .wahl-option:active { transform: none; } }
 }

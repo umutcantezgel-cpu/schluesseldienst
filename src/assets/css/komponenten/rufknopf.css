@@ -5,8 +5,8 @@
     min-block-size: var(--ziel-min); padding: var(--sp-2xs) var(--sp-s); border-radius: var(--r-m);
     background: var(--c-lahn); color: var(--c-auf-lahn); text-decoration: none; line-height: var(--lh-titel);
   }
-  .rufknopf::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: 0; }
-  .rufknopf:hover::before { opacity: var(--deck-hover); }
+  .rufknopf::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .rufknopf:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
   .rufknopf:active { transform: scale(.98); }
   .rufknopf:active::before { opacity: var(--deck-aktiv); }
   .rufknopf:focus-visible { outline-offset: var(--linie-fokus); }
@@ -31,4 +31,5 @@
   .rufknopf[data-zustand="ausserhalb"] .ruf-status { font-weight: var(--fw-ui); }
   @media (pointer: coarse) { .rufknopf { min-block-size: var(--ziel-touch); } }
   @media (forced-colors: active) { .rufknopf { border: var(--linie-ui) solid ButtonText; } }
+  @media (prefers-reduced-motion: reduce) { .rufknopf:active { transform: none; } }
 }

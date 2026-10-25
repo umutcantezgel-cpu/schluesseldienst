@@ -1,6 +1,7 @@
 /* Hero der Startseite (V01): mobil eigene Komposition (Kopf → Zylinder-Band → Handlung),
    ab 64em Teilung 7/5 auf den Rasterlinien; die Figur endet an breit-end (P1: keine Linie ins Nichts).
-   Die Scherlinie des Zylinders ist hier die eine führende Kupferlinie – die Kopflinie entfällt. */
+   Die Kopflinie über dem Kicker ist wie auf jeder Seite das gemeinsame Element des Seitenwechsels (M-15);
+   die Scherlinie des Zylinders nimmt sie in der Figur auf. */
 @layer komponenten {
   .hero {
     display: grid; column-gap: 0; row-gap: var(--sp-m);
@@ -15,7 +16,6 @@
   .hero-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
   .hero h1 { font-size: var(--fs-5); max-inline-size: var(--mass); hyphens: manual; }
   .h1-zeile { display: block; text-wrap: balance; }
-  .hero-linie { display: none; }
   .hero-einleitung { font-size: var(--fs-1); color: var(--c-tinte-2); line-height: var(--lh-dicht); max-inline-size: var(--mass); }
   .hero-handlung { display: none; }
   .hero-figur .zylinder { display: block; inline-size: 100%; block-size: auto; max-block-size: var(--hero-band-max); }

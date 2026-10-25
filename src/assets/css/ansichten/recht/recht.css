@@ -9,7 +9,7 @@
 
   .recht-teilung { display: grid; gap: var(--sp-xl); }
   .recht-text { display: grid; gap: var(--sp-xl); max-inline-size: var(--mass); }
-  .recht-teil { display: grid; gap: var(--sp-s); scroll-margin-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+  .recht-teil { display: grid; gap: var(--sp-s); scroll-margin-block-start: var(--sp-m); }
   .recht-teil .abschnitt-kopf { margin-block-end: 0; }
   .recht-teil h2 { font-size: var(--fs-2); overflow-wrap: anywhere; }
   .recht-teil > p { margin: 0; overflow-wrap: anywhere; }

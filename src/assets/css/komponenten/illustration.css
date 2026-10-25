@@ -11,7 +11,8 @@
   .ill-gestrichelt { stroke-width: 1.5; stroke-dasharray: 4 4; stroke: var(--c-tinte-3); }
   .ill-wand { stroke-width: 1.5; }
   .ill-innenwand { stroke-width: 4; }
-  .ill-oeffnung { fill: var(--c-papier); stroke: none; }
+  /* Öffnungen zeigen den Grund, auf dem die Figur steht (--ill-grund setzt die Ansicht, sonst Papier) */
+  .ill-oeffnung { fill: var(--ill-grund, var(--c-papier)); stroke: none; }
   .ill-schraffur-linie { stroke: var(--c-tinte); stroke-width: 1; opacity: .18; }
   .ill-bolzen { fill: var(--c-tinte-2); stroke-width: 1.5; }
   .ill-melder { fill: var(--c-flaeche); stroke-width: 1.5; }
@@ -25,7 +26,8 @@
   .ill-gedimmt { opacity: .28; }
   .ill-schliesspunkt { fill: var(--c-kupfer); stroke: var(--c-kupfer); }
   .ill-schliesspunkt-ring, .ill-schliesspunkt-strich { stroke: var(--c-kupfer); }
-  .ill-akzent-flaeche { fill: var(--c-kupfer-hell); stroke: var(--c-kupfer); }
+  /* Aktiver Teil: Fläche flach wie alle Flächen, den Zustand trägt allein der Kupferstrich (Kupfer-hell bleibt Platzhaltern) */
+  .ill-akzent-flaeche { fill: var(--c-papier-2); stroke: var(--c-kupfer); stroke-width: var(--linie-scher); }
   .ill-text { fill: var(--c-tinte-2); stroke: none; font-family: var(--ff-mono); font-size: var(--svg-text-m); }
 
   /* Schrittzustände (M-17): Grundregel = Endzustand; data-zustand blendet spätere Teile aus und färbt den aktiven */

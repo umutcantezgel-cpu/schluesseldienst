@@ -217,6 +217,7 @@ function seite(k, { pfad, stufen, h1, titel, beschreibung, kicker, satz, abschni
     pfad, titel, beschreibung, typ: 'hub', ansicht: 'V06', sitemap: 'hubs', koerperKlasse: 'seite-hub', stile: ['hubs'], ogBild: '/assets/og/einsatzgebiet.png', brotkrumen: stufen,
     jsonld: [brotkrumenLd(k.basisUrl, stufen), { '@context': 'https://schema.org', '@type': 'CollectionPage', name: h1, url: `${k.basisUrl}${pfad}` }],
     inhalt: () => html`<section class="hub-kopf" aria-labelledby="hub-titel"><div class="raster">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="hub-kicker">${kicker}</p>
 <h1 id="hub-titel">${h1}</h1>
 <p class="hub-satz">${satz}</p>

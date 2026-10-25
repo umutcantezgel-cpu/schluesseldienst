@@ -32,6 +32,7 @@ function kopf(sk) {
   return html`<section class="gebiet-kopf" aria-labelledby="gebiet-h1">
 <div class="raster"><div class="gebiet-kopf-teilung">
 <div>
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="gebiet-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>

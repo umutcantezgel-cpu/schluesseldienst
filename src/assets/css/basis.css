@@ -8,7 +8,8 @@
     font-synthesis: none; font-optical-sizing: auto; text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased; hyphens: auto; hyphenate-limit-chars: 10 4 4; overflow-wrap: break-word;
   }
-  h1, h2, h3, h4 { margin: 0; font-weight: var(--fw-titel); line-height: var(--lh-titel); text-wrap: balance; color: var(--c-tinte); }
+  /* Überschriften trennen nur an den weichen Trennstellen der Wortliste (bau/lib/trennen.mjs, K-006), nie automatisch */
+  h1, h2, h3, h4 { margin: 0; font-weight: var(--fw-titel); line-height: var(--lh-titel); text-wrap: balance; color: var(--c-tinte); hyphens: manual; }
   h1 { font-size: var(--fs-4); font-weight: var(--fw-display); letter-spacing: var(--ls-display); line-height: var(--lh-display); }
   h2 { font-size: var(--fs-3); letter-spacing: var(--ls-display); }
   h3 { font-size: var(--fs-1); }
@@ -57,7 +58,9 @@
     outline: var(--linie-haar) dashed var(--c-kupfer); color: var(--c-tinte); padding: 0 var(--sp-3xs); border-radius: var(--r-s);
     font-weight: var(--fw-ui); overflow-wrap: break-word; hyphens: manual; -webkit-box-decoration-break: clone; box-decoration-break: clone;
   }
-  .verifizieren { text-decoration: underline wavy var(--c-warnung); text-decoration-thickness: var(--linie-haar); text-underline-offset: var(--unterstrich-abstand-wellig); }
+  /* Ruhiger als eine Wellenlinie: punktierte Unterstreichung plus Randmarke am Absatz (nur Vorschau-Builds) */
+  .verifizieren { text-decoration: underline dotted var(--c-warnung); text-decoration-thickness: var(--linie-ui); text-underline-offset: var(--unterstrich-abstand-wellig); }
+  :is(p, li, dd):has(> .verifizieren) { box-shadow: calc(-1 * var(--sp-2xs)) 0 0 0 var(--c-warnung-hell); }
 
   @media print {
     body { background: none; color: CanvasText; }

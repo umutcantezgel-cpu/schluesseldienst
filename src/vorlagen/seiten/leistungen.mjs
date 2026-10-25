@@ -14,6 +14,7 @@ const anker = (g) => `gruppe-${g.id}`;
 function kopf() {
   return html`<section class="verz-kopf" aria-labelledby="verz-h1">
 <div class="raster">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="verz-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>

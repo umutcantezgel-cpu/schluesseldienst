@@ -92,6 +92,7 @@ function inhalt(sk, inh) {
   return html`<article class="recht" aria-labelledby="recht-titel">
 <header class="recht-kopf"><div class="raster">
 ${inh.freigabe ? html`<p class="recht-freigabe hinweis${istPlatzhalter(inh.freigabe) ? ' hinweis-platzhalter' : ''}">${inh.freigabe}</p>` : ''}
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inh.kicker}</p>
 <h1 id="recht-titel">${inh.h1}</h1>
 <p class="recht-einleitung">${text(inh.einleitung)}</p>

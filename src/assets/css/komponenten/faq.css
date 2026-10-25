@@ -1,6 +1,7 @@
 /* Häufige Fragen (M-07): <details>, Zusammenfassung ≥ 48 px, Chevron dreht, beim Drucken offen. */
 @layer komponenten {
   .faq-teilung { display: grid; gap: var(--sp-l); }
+  .faq-teilung > .abschnitt-kopf { margin-block-end: 0; } /* der Abstand kommt aus gap, nicht doppelt */
   @media (min-width: 64em) { .faq-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; } }
   .faq { border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
   .faq-eintrag { border-block-end: var(--linie-haar) solid var(--c-linie-ui); }

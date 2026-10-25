@@ -118,6 +118,7 @@ export async function seiten(k) {
       jsonld: [artikelLd(k, a, inh), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, a.pfad, inh.faq)],
       inhalt: (sk) => html`<article class="artikel" aria-labelledby="artikel-titel">
 <header class="artikel-kopf"><div class="raster"><div class="artikel-kopf-teilung"><div class="artikel-kopf-innen">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="artikel-kicker"><a href="/ratgeber/#${inh.kategorie}">${kat.titel}</a></p>
 <h1 id="artikel-titel">${inh.h1}</h1>
 <p class="artikel-kurz">${text(inh.kurz)}</p>

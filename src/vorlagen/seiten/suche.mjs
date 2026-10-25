@@ -18,6 +18,7 @@ export function seiten(k) {
       const bereit = d.seiten && d.orte && d.plz;
       return html`<section class="system-kopf" aria-labelledby="suche-h1">
 <div class="raster">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${s.kicker}</p>
 <h1 id="suche-h1">${s.h1}</h1>
 <p class="gruppe-einleitung">${text(s.einleitung)}</p>

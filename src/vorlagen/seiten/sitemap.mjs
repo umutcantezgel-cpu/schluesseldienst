@@ -75,6 +75,7 @@ export async function seiten(k) {
       brotkrumenLd(k.basisUrl, stufen),
     ],
     inhalt: () => html`<section class="verz-kopf" aria-labelledby="sitemap-h1"><div class="raster">
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="sitemap-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>

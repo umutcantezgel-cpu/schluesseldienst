@@ -47,6 +47,7 @@ function kopf(sk) {
   return html`<section class="preise-kopf" aria-labelledby="preise-h1">
 <div class="raster"><div class="preise-kopf-teilung">
 <div>
+<span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="preise-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>

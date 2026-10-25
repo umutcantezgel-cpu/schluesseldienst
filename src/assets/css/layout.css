@@ -1,5 +1,8 @@
 /* Layout: Seitenraster mit benannten Linien, Kopf, Fuß, Rufleiste (KERN K-006). */
 @layer layout {
+  /* Fokus und Sprungziele liegen nie unter der festen Rufleiste (mobil) bzw. dem klebenden Kopf (ab 64em) – WCAG 2.4.11 */
+  html { scroll-padding-block-end: calc(var(--rufleiste-hoehe) + 2 * var(--sp-2xs) + env(safe-area-inset-bottom) + var(--sp-s)); }
+  @media (min-width: 64em) { html { scroll-padding-block: calc(var(--kopf-hoehe-desktop) + var(--sp-s)) 0; } }
   .raster {
     display: grid;
     grid-template-columns:
@@ -41,7 +44,9 @@
 
   /* Fuß */
   /* Kein eigener Abstand: die letzte Sektion bringt ihren Innenabstand mit, ein Band schließt bündig an */
-  .fuss { background: var(--c-papier-2); color: var(--c-tinte-2); }
+  .fuss { background: var(--c-papier-2); color: var(--c-tinte-2); border-block-start: var(--linie-haar) solid var(--c-linie); }
+  /* Ein dunkles Schlussband bringt seine Unterkante selbst mit – keine doppelte Linie */
+  main:has(> .band-dunkel:last-child) + .fuss { border-block-start: 0; }
   .fuss-innen {
     display: grid; gap: var(--sp-l); padding: var(--sp-xl) var(--rand) var(--sp-l);
     max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit) + 2 * var(--rand)); margin-inline: auto;
@@ -53,6 +58,10 @@
   .fuss li + li { margin-top: 0; }
   .fuss a { color: var(--c-tinte); display: inline-flex; align-items: center; min-block-size: var(--ziel-min); text-decoration: none; }
   .fuss a:hover { text-decoration: underline; }
+  /* Mobil stehen die Länder zweispaltig, damit der Fuß kein eigener Bildschirm wird */
+  .fuss-gebiet ul { columns: 2; column-gap: var(--sp-l); }
+  .fuss-gebiet li { break-inside: avoid; }
+  @media (min-width: 48em) { .fuss-gebiet ul { columns: auto; } }
   .fuss address { line-height: var(--lh-text); margin-block-start: var(--sp-xs); }
   .fuss address a { min-block-size: 0; display: inline; text-decoration: underline; }
   .fuss-linie { display: flex; align-items: center; gap: var(--sp-xs); padding: var(--sp-s) var(--rand) var(--sp-l); max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit) + 2 * var(--rand)); margin-inline: auto; font-size: var(--fs--1); color: var(--c-tinte-3); }

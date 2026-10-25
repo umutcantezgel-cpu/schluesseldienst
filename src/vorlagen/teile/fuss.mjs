@@ -28,7 +28,7 @@ ${wortmarke(sk)}
 <h2 class="fuss-titel" id="fuss-leistungen-titel">Leistungen</h2>
 ${liste(FUSS.leistungen)}
 </nav>
-<nav class="fuss-spalte" aria-labelledby="fuss-gebiet-titel">
+<nav class="fuss-spalte fuss-gebiet" aria-labelledby="fuss-gebiet-titel">
 <h2 class="fuss-titel" id="fuss-gebiet-titel">Einsatzgebiet</h2>
 ${liste([{ titel: 'Übersicht und Ortssuche', pfad: '/einsatzgebiet/' }, ...laender])}
 </nav>

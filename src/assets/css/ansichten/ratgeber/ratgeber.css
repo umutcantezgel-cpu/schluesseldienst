@@ -29,7 +29,7 @@
   .artikel-wichtig ul { list-style: none; padding: 0; display: grid; gap: var(--sp-xs); }
   .artikel-wichtig li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); margin: 0; }
   .artikel-wichtig-icon { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-kupfer); margin-block-start: var(--sp-3xs); }
-  .artikel-teil { display: grid; gap: var(--sp-xs); max-inline-size: var(--mass); scroll-margin-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+  .artikel-teil { display: grid; gap: var(--sp-xs); max-inline-size: var(--mass); scroll-margin-block-start: var(--sp-m); }
   .artikel-teil h2 { font-size: var(--fs-2); }
   .artikel-liste, .artikel-schritte { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
   .artikel-schritte li::marker { color: var(--c-kupfer); font-weight: var(--fw-titel); }
