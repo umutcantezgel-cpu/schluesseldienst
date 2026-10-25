@@ -162,7 +162,7 @@ export const PAESSE = {
     neben: ['notverschluss nach einbruch', 'tür nach einbruch sichern', 'einbruchschaden beseitigen'],
     absicht: 'Nach dem Einbruch: Wohnung wieder verschließen und Schwachstellen beheben.',
     kern: 'Trennt Notverschluss (heute) von Instandsetzung und Nachrüstung (später) und erklärt, was die Versicherung dafür braucht.',
-    abschnitte: ['Erst Polizei, dann wir', 'Notverschluss am selben Tag', 'Instandsetzung und Nachrüstung', 'Unterlagen für die Versicherung'],
+    abschnitte: ['Erst Polizei, dann wir', 'Notverschluss als erster Schritt', 'Instandsetzung und Nachrüstung', 'Unterlagen für die Versicherung'],
     fragen: [
       'Darf ich die Tür schon reparieren lassen, bevor die Polizei da war?',
       'Was ist ein Notverschluss?',
@@ -195,7 +195,7 @@ export const PAESSE = {
     keyword: 'sicherheitszylinder einbauen',
     neben: ['schließzylinder', 'profilzylinder tauschen lassen', 'zylinder mit sicherungskarte'],
     absicht: 'Zylinder erneuern oder aufwerten lassen.',
-    kern: 'Erklärt, woran ein guter Zylinder erkennbar ist (Schutzfunktionen, Überstand, Sicherungskarte) und wann der Tausch Pflicht ist.',
+    kern: 'Erklärt, woran ein guter Zylinder erkennbar ist (Schutzfunktionen, Überstand, Sicherungskarte) und wann ein Tausch nötig oder ratsam ist.',
     abschnitte: ['Schutzfunktionen: Bohren, Ziehen, Aufsperren', 'Richtig messen und Überstand vermeiden', 'Sicherungskarte und Nachschlüssel', 'Tausch nach Verlust, Umzug oder Einbruch'],
     fragen: [
       'Woran erkenne ich, dass mein Zylinder zu weit übersteht?',

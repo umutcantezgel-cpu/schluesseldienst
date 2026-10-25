@@ -89,6 +89,8 @@ async function main() {
     if (!arg.ziel || !['apache', 'nginx', 'netlify', 'cloudflare'].includes(arg.ziel)) throw new Error('Release: --ziel=apache|nginx|netlify|cloudflare angeben.');
   }
   const aus = resolve(WURZEL, arg.aus || 'dist');
+  // Berichte neben dem Ausgabeordner (parallele Builds mit --aus überschreiben sich nicht gegenseitig)
+  const berichtVon = (name) => (arg.aus ? `${aus}.${name}` : join(WURZEL, '.cache', name));
   const schreiber = new Schreiber(aus);
 
   // Assets
@@ -224,14 +226,14 @@ async function main() {
     bericht.pruefung = { fehler: a.fehler, warnungen: a.warnungen, je: ergebnisse.map((e) => ({ name: e.name, fehler: e.befunde.filter((b) => b.schwere === 'fehler').length, warnungen: e.befunde.filter((b) => b.schwere === 'warnung').length })) };
     fehler += a.fehler;
     await mkdir(join(WURZEL, '.cache'), { recursive: true });
-    await writeFile(join(WURZEL, '.cache/pruefbefunde.json'), JSON.stringify(ergebnisse, null, 1));
+    await writeFile(berichtVon('pruefbefunde.json'), JSON.stringify(ergebnisse, null, 1));
   }
   if (modus === 'release') {
     if (alleP.size || konfigP.length) { console.error(`Release verweigert: ${konfigP.length} Platzhalter in der Konfiguration:\n  ` + konfigP.map((p) => `${p.pfad} (${p.beschriftung})`).join('\n  ')); fehler++; }
     if (alleF.size) { console.error(`Release verweigert: ${alleF.size} ungeprüfte Fakten: ${[...alleF].join(', ')}`); fehler++; }
   }
   await mkdir(join(WURZEL, '.cache'), { recursive: true });
-  await writeFile(join(WURZEL, '.cache/bau-bericht.json'), JSON.stringify(bericht, null, 2));
+  await writeFile(berichtVon('bau-bericht.json'), JSON.stringify(bericht, null, 2));
   if (fehler) { console.error(`Build mit ${fehler} Fehler(n) beendet.`); process.exitCode = 1; }
 }
 

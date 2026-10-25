@@ -53,6 +53,7 @@ export async function pruefe(ctx) {
   let basis = null;
   try { basis = new URL(ctx.basisUrl); } catch { basis = null; }
   const release = ctx.modus === 'release';
+  const geplantFehlt = new Set();
 
   for (const seite of ctx.seiten ?? []) {
     const datei = seite.datei ?? seite.pfad;
@@ -62,7 +63,11 @@ export async function pruefe(ctx) {
       if (typeof ziel !== 'string' || !basis) return false;
       let url;
       try { url = new URL(ziel); } catch { return false; }
-      return url.origin === basis.origin && routen.has(url.pathname);
+      if (url.origin !== basis.origin) return false;
+      if (routen.has(url.pathname)) return true;
+      // Außerhalb des Release: geplante Routen (Routenregister/Muster) sind erlaubt, als Sammelhinweis.
+      if (!release && ctx.geplant?.(url.pathname)) { geplantFehlt.add(url.pathname); return true; }
+      return false;
     };
 
     const pruefeBrotkrumen = (o) => {
@@ -151,5 +156,6 @@ export async function pruefe(ctx) {
       });
     }
   }
+  if (geplantFehlt.size) befunde.push({ regel: 'jsonld/geplant', schwere: 'info', meldung: `${geplantFehlt.size} Brotkrumen-Ziele noch nicht gebaut (Routenregister)` });
   return befunde;
 }

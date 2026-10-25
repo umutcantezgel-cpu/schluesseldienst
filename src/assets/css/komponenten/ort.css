@@ -1,0 +1,53 @@
+/* V07 Ortsseite (Arbeitsansicht): Kopf 7/5 mit Faktenzeile und Lagekarte, Leistungen, Preise 4/8,
+   Umgebung in zwei Listen, FAQ, Hinweisband. Dicht und ruhig – keine Bewegung. */
+@layer komponenten {
+  .ort-kopf { padding-block: var(--sp-m) var(--sp-xl); }
+  .ort-kopf-teilung { display: grid; gap: var(--sp-l); align-items: center; }
+  .ort-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
+  .ort-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
+  .ort-fakten { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-3xs) 0; margin-block: var(--sp-s); font-size: var(--fs--1); color: var(--c-tinte-2); }
+  .ort-fakten li { margin: 0; }
+  .ort-fakten li + li::before { content: "·"; margin-inline: var(--sp-2xs); color: var(--c-kupfer); }
+  .ort-satz { max-inline-size: var(--mass); color: var(--c-tinte-2); margin-block-end: var(--sp-m); }
+  .ort-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
+  .ort-karte { margin: 0; padding: var(--sp-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  .lagekarte { display: block; inline-size: 100%; block-size: auto; overflow: visible; font-family: var(--ff-text); }
+  .lk-nachbarn { fill: none; stroke: var(--c-tinte-3); stroke-width: var(--gk-punkt); stroke-linecap: round; }
+  .lk-linie { fill: none; stroke: var(--c-kupfer); stroke-width: 2; stroke-dasharray: 6 4; }
+  .lk-sitz { fill: var(--c-kupfer); }
+  .lk-ort { fill: var(--c-lahn); }
+  .lk-ort-ring { fill: none; stroke: var(--c-lahn); stroke-width: 2; }
+  .lk-ort-text, .lk-sitz-text, .lk-km { paint-order: stroke; stroke: var(--c-flaeche); stroke-width: var(--svg-halo); stroke-linejoin: round; }
+  .lk-ort-text { fill: var(--c-tinte); font-size: var(--svg-text-m); font-weight: var(--fw-titel); }
+  .lk-sitz-text { fill: var(--c-tinte-2); font-size: var(--svg-text-s); }
+  .lk-km { fill: var(--c-kupfer); font-family: var(--ff-mono); font-size: var(--svg-text-s); }
+  .ort-hinweis { max-inline-size: var(--mass); color: var(--c-tinte-2); }
+  .ort-leistungen { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); gap: var(--sp-s); margin-block-start: var(--sp-s); }
+  .ort-leistungen li { margin: 0; }
+  .ort-leistungen a { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon titel" "icon kurz"; column-gap: var(--sp-s); block-size: 100%; padding: var(--sp-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); color: var(--c-tinte); text-decoration: none; }
+  .ort-leistungen a:hover .ort-leistung-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .ort-leistung-icon { grid-area: icon; inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); }
+  .ort-leistung-titel { grid-area: titel; font-weight: var(--fw-titel); }
+  .ort-leistung-kurz { grid-area: kurz; font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .ort-preis-teilung { display: grid; gap: var(--sp-l); }
+  .ort-anfahrt { margin-block-start: var(--sp-xs); font-size: var(--fs--1); }
+  .ort-umgebung { display: grid; gap: var(--sp-l); }
+  .ort-liste-titel { font-size: var(--fs-1); margin-block-end: var(--sp-xs); }
+  .ort-liste { list-style: none; padding: 0; columns: 2 var(--spalte-az); column-gap: var(--sp-l); }
+  .ort-liste li { margin: 0; break-inside: avoid; display: flex; justify-content: space-between; gap: var(--sp-xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .ort-liste a { display: inline-flex; align-items: center; min-block-size: var(--ziel-min); }
+  .ort-km { color: var(--c-tinte-3); font-variant-numeric: tabular-nums; align-self: center; white-space: nowrap; }
+  .ort-hinweise { display: grid; gap: var(--sp-l); }
+  .ort-serioes { list-style: none; padding: 0; display: grid; gap: var(--sp-2xs); margin-block-end: var(--sp-s); }
+  .ort-serioes li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); margin: 0; }
+  .ort-serioes-icon { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-kupfer); margin-block-start: var(--sp-3xs); }
+  .ort-fussnoten { display: grid; gap: var(--sp-xs); font-size: var(--fs--1); color: var(--c-tinte-2); align-content: start; }
+  @media (min-width: 64em) {
+    .ort-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
+    .ort-kopf h1 { font-size: var(--fs-5); }
+    .ort-kopf h1.ort-h1-lang { font-size: var(--fs-4); }
+    .ort-preis-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; }
+    .ort-umgebung { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-xl); }
+    .ort-hinweise { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
+  }
+}

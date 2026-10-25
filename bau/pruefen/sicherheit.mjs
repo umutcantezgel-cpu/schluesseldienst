@@ -157,7 +157,8 @@ export async function pruefe(ctx) {
     const basis = datei.split('/').pop();
     const erlaubtePunkt = ['.htaccess', '_headers', '_redirects'].includes(basis) || datei.startsWith('/.well-known/');
     if (!erlaubtePunkt && (basis.startsWith('.') || !ERLAUBTE_ENDUNGEN.test(basis)) && basis !== 'OFL.txt') f('S14-datei', datei, 'Datei nicht auf der Allowlist');
-    if (/_werkstatt|richter|adam|\/src\/|\.map$|\.mjs$|\.md$/i.test(datei)) f('S14-datei', datei, 'Unzulässiger Pfad in der Ausgabe');
+    // Wettbewerber nur als exakte Kennung (Domainstamm), nicht als Teilwort – sonst träfe es Orte wie Hadamar oder Richterich.
+    if (/_werkstatt|richter-sicherheitstechnik|schluesseldienst-adam(?![a-z])|\/src\/|\.map$|\.mjs$|\.md$/i.test(datei)) f('S14-datei', datei, 'Unzulässiger Pfad in der Ausgabe');
     if (datei.startsWith('/daten/') && datei.endsWith('.json')) {
       try { JSON.parse(await readFile(join(ctx.dist, datei), 'utf8')); } catch { f('S15-daten', datei, 'JSON nicht lesbar'); }
     }

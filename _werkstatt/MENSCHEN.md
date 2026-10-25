@@ -38,3 +38,10 @@ Jeder Punkt: Frage · Beleg · meine Standardannahme (gilt bis zu deiner Antwort
 ## 6. Tests, die die Cloud nicht kann (UMGEBUNGSAUSNAHMEN)
 - Echte Geräte (iPhone/Android), Firefox und Safari (nur Chromium ist installiert), GPU-Bildrate, Wirkung in der Google Search Console, Live-Header beim Hoster.
 - Geschmacksabnahme der Gestaltung durch dich.
+
+## 7. Texte und Fakten zur Freigabe (gesammelt aus den Paketen)
+- **Ablauf-Formulierungen ohne konfigurierte Zusage**: „Den Preis besprechen wir nach der Besichtigung.“ (Gruppen Einbruchschutz, Einbau & Tresore), „Den Ersatzteilpreis nennen wir Ihnen vorher.“ (Garagenöffnung), „vorab besprochen“ (Notöffnung). Bitte bestätigen oder streichen; die harten Zusagen (Gesamtpreis vor Arbeitsbeginn, Rechnung mit Positionen, Kartenzahlung) laufen über `src/konfig/betrieb.mjs → zusagen` und sind bis zur Bestätigung markierte Platzhalter.
+- **Fachangaben ohne Faktenblatt** (allgemein formuliert, fachliche Durchsicht nötig): Torarten und Notentriegelung, Notschlüssel bei Keyless-Fahrzeugen, Ursachen bei Tresoren, Sicherungskarte („Nachschlüssel nur mit Karte“), Begriffe Zentralschloss-/Hauptschlüsselanlage, Mietrecht bei Zusatzschlössern.
+- **Faktenblätter Normen (E4-KUND-03, 12 Blätter, 76 Fakten, alle „verifizieren“)**: Normtexte sind kostenpflichtig; alle Quellen sind Sekundärquellen. Offene Kernfragen: Zählung der RC-Klassen (RC 1 N/RC 2 N), Prüfwerte RC 2–6, Notentriegelung (welche Norm), Gegenstand EN 1047-1/EN 15659, Status EN 15685. Bericht: `_werkstatt/berichte/E4-KUND-03.md`. Ein Zugang zu den Normtexten (z. B. über die Kammer) würde die Blätter zu Primärquellen machen.
+- **Weilburger Schiffstunnel** (Seite `/schluesseldienst-weilburg/`, Leitidee): als „verifizieren“ markiert, bis das Faktenblatt `weilburg-tunnel` geprüft ist.
+- **Zonen und Leistungen**: Jede Ortsseite zeigt „[Leistungen in Zone X bestätigen]“, bis `src/konfig/zonen.mjs → leistungenBestaetigt` je Zone gesetzt ist (true/false). Für die Niederlanden gilt Zone D.
