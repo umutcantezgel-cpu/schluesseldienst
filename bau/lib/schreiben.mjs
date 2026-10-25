@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile, readdir, unlink, rmdir } from 'node:fs/prom
 import { dirname, join, relative } from 'node:path';
 
 export class Schreiber {
-  constructor(ziel) { this.ziel = ziel; this.geschrieben = new Set(); this.geaendert = 0; this.unveraendert = 0; }
+  constructor(ziel) { this.ziel = ziel; this.geschrieben = new Set(); this.geaendertDateien = new Set(); this.geaendert = 0; this.unveraendert = 0; }
   async schreibe(pfad, inhalt) {
     const datei = join(this.ziel, pfad);
     if (this.geschrieben.has(datei)) throw new Error(`Doppelt geschrieben: ${pfad}`);
@@ -15,6 +15,7 @@ export class Schreiber {
     } catch { /* neu */ }
     await mkdir(dirname(datei), { recursive: true });
     await writeFile(datei, neu);
+    this.geaendertDateien.add(datei);
     this.geaendert++;
   }
   /** Entfernt alles im Ziel, was in diesem Lauf nicht geschrieben wurde. */

@@ -81,7 +81,7 @@ Namensschema `--{kategorie}-{rolle}[-{stufe}]`. Farben als `light-dark(hell, dun
 - Zeilenhöhen: `--lh-text` 1.6 · `--lh-dicht` 1.45 · `--lh-titel` 1.15 · `--lh-display` 1.05. Gewichte: `--fw-text` 400 · `--fw-ui` 600 · `--fw-titel` 700 · `--fw-display` 780. Laufweite: `--ls-display` -0.015em · `--ls-label` 0.06em.
 - Textmaß: `--mass` 32em (≈ 71 Zeichen; nie `ch`, weil die Ziffer 0 breiter ist als der Buchstabendurchschnitt).
 - Abstände (4-px-Basis): `--sp-3xs` .25rem · `--sp-2xs` .5rem · `--sp-xs` .75rem · `--sp-s` 1rem · `--sp-m` 1.5rem · `--sp-l` 2rem · `--sp-xl` 3rem · `--sp-2xl` 4rem · `--sp-3xl` 6rem; fließend `--sp-f-s` clamp(1rem,.8rem + 1vw,1.5rem) · `--sp-f-m` clamp(1.5rem,1rem + 2.5vw,3rem) · `--sp-sektion` clamp(3rem,2rem + 5vw,7.5rem); Rand `--rand` clamp(1rem,.5rem + 2.5vw,2.5rem); Rasterlücke `--luecke` clamp(1rem,.5rem + 1.5vw,2rem).
-- Radien: `--r-0` 0 · `--r-s` 2px · `--r-m` 4px · `--r-l` 8px · `--r-xl` 16px (oben am Menü-Blatt) · `--r-rund` 999px (nur Statuspunkte).
+- Radien: `--r-0` 0 · `--r-s` 2px · `--r-m` 4px · `--r-l` 8px · `--r-xl` 16px (oben am Menü-Blatt) · `--r-rund` 999px (Statuspunkte und Filter-/Sprung-Pillen, z. B. Sprungleiste /leistungen/, Ratgeber).
 - Linien: `--linie-haar` 1px · `--linie-ui` 1.5px · `--linie-scher` 2px · `--linie-fokus` 3px.
 - Schatten hell: `--sh-1` 0 1px 0 rgb(19 32 42/.08) · `--sh-2` 0 2px 6px rgb(19 32 42/.10), 0 1px 2px rgb(19 32 42/.08) · `--sh-3` 0 12px 32px rgb(19 32 42/.18); dunkel: Ring `0 0 0 1px var(--c-linie-ui)` plus `rgb(0 0 0/.5)`.
 - Ebenen: `--z-szene` 10 · `--z-kopf` 100 · `--z-rufleiste` 200 · `--z-popover` 300 · `--z-hinweis` 500 · `--z-skip` 600; Dialoge in der Top-Layer.
@@ -149,7 +149,7 @@ Nichts läuft automatisch länger als 5 s → kein Pause-Knopf nötig. Nichts bl
 - LCP ≤ 2,5 s · CLS ≤ 0,1 · INP ≤ 200 ms (4× Drosselung) · Lighthouse mobil Perf ≥ 95, A11y/BP/SEO 100 (im Messbuild).
 - Bewegungscode ≤ 12 KB gz (hart 60 KB) · JS gesamt ≤ 16 KB gz · CSS ≤ 14 KB gz je Seite (gemeinsames Bündel `app.css` aus `komponenten/` plus die Ansichts-Stile der Seite aus `ansichten/<name>/`, Angabe `stile: […]` im Seitenobjekt; Prüfer `budgets/css-seite`, `budgets/stil-fehlt`; Druck- und Kontrastregeln im gemeinsamen Bündel zählen dort nicht als gemeinsame Stile) · Druckstile als eigene Datei `druck.*.css` mit `media="print"` (nicht renderblockierend, nicht in der Summe je Seite) ≤ 3 KB gz (`budgets/css-druck`) · Schriften vorgeladen ≤ 1 Datei, gesamt ≤ 75 KB · Ortsseiten-HTML ≤ 30 KB roh · Orts-Index ≤ 80 KB gz, PLZ-Index ≤ 50 KB gz (laden erst bei Fokus).
 - Große Momente: ≤ 5 % verworfene Bilder bei 4× Drosselung (Ersatzmessung headless, UMGEBUNGSAUSNAHME für echte Geräte).
-- Build: ganzer Lauf ≤ 60 s, Stichprobe ≤ 5 s (ohne `--vorkomprimieren`; dieser Release-Schritt kostet kalt zusätzlich ≈ 1 min, warm ≈ 5 s – ENTSCHEIDUNGEN D-K05-01).
+- Build: ganzer Lauf ≤ 60 s, Stichprobe ≤ 5 s (ohne `--vorkomprimieren`; dieser Release-Schritt kostet kalt zusätzlich ≈ 1–1,5 min, warm ≈ 5 s – ENTSCHEIDUNGEN D-K05-01).
 
 ## K-012 Glossar
 - **Scherlinie**: Trennfuge zwischen Kern und Gehäuse eines Zylinders; Leitelement der Gestaltung.

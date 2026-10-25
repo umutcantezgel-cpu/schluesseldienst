@@ -1,5 +1,6 @@
-/* Bewegungssystem (KERN K-007). Nur transform/opacity. Startzustände stehen ausschließlich in @keyframes
-   unter prefers-reduced-motion: no-preference (fill-mode backwards) – die Basisregel ist der Endzustand. */
+/* Bewegungssystem (KERN K-007). Nur transform/opacity. Startzustände stehen ausschließlich in @keyframes, fast alle
+   unter prefers-reduced-motion: no-preference (fill-mode backwards) – die Basisregel ist der Endzustand. Unter reduce
+   gibt es nur reine Deckkraft-Übergänge, wo das Register sie vorsieht (M-05). */
 @layer bewegung {
   @media (prefers-reduced-motion: no-preference) {
     /* M-16 Großer Moment Startseite: Schlüssel fährt ein, Stifte rasten auf die Scherlinie, Linie zieht durch */

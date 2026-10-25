@@ -232,8 +232,8 @@ describe('Hoster-Konfiguration für vorkomprimierte Dateien', () => {
   test('Apache: Rewrite nur bei vorhandener Datei und für Textendungen; br vor gzip', () => {
     assert.ok(zeilen.includes('  RewriteCond %{REQUEST_FILENAME}.br -f'));
     assert.ok(zeilen.includes('  RewriteCond %{REQUEST_FILENAME}.gz -f'));
-    assert.ok(apache.includes('  RewriteRule ^(.+\\.(html|css|js|json|xml|svg|txt|webmanifest))$ $1.br [L,E=no-gzip:1,E=no-brotli:1,E=dont-vary:1]'));
-    assert.ok(apache.includes('  RewriteRule ^(.+\\.(html|css|js|json|xml|svg|txt|webmanifest))$ $1.gz [L,E=no-gzip:1,E=no-brotli:1,E=dont-vary:1]'));
+    assert.ok(apache.includes('  RewriteRule ^(.+\\.(html|css|js|json|xml|svg|txt|webmanifest))$ $1.br [L]'));
+    assert.ok(apache.includes('  RewriteRule ^(.+\\.(html|css|js|json|xml|svg|txt|webmanifest))$ $1.gz [L]'));
     assert.ok(apache.indexOf('$1.br') < apache.indexOf('$1.gz'));
   });
 
@@ -291,8 +291,8 @@ describe('Hoster-Konfiguration für vorkomprimierte Dateien', () => {
 
 test('Apache: Verzeichnis-Adressen (/pfad/ → index.html) bekommen die Variante ausdrücklich, br vor gzip', () => {
   const apache = htaccess('www.example.org');
-  const br = apache.indexOf('  RewriteRule ^(.*/)?$ $1index.html.br [L,E=no-gzip:1,E=no-brotli:1,E=dont-vary:1]');
-  const gz = apache.indexOf('  RewriteRule ^(.*/)?$ $1index.html.gz [L,E=no-gzip:1,E=no-brotli:1,E=dont-vary:1]');
+  const br = apache.indexOf('  RewriteRule ^(.*/)?$ $1index.html.br [L]');
+  const gz = apache.indexOf('  RewriteRule ^(.*/)?$ $1index.html.gz [L]');
   assert.ok(br > 0 && gz > br, 'beide Regeln, br zuerst');
   assert.ok(apache.includes('  RewriteCond %{REQUEST_FILENAME}/index.html.br -f'));
   assert.ok(apache.includes('  RewriteCond %{REQUEST_FILENAME}/index.html.gz -f'));
@@ -317,16 +317,19 @@ test('--vorkomprimieren nur mit --ziel=apache oder nginx: Netlify/Cloudflare bre
   }
 });
 
-test('ohne --vorkomprimieren: Varianten neu geschriebener Dateien werden gelöscht (keine veralteten .br/.gz nach --nur)', async () => {
+test('ohne --vorkomprimieren: Varianten geänderter Dateien werden gelöscht, unveränderte behalten sie (--nur)', async () => {
   const { veralteteVariantenEntfernen } = await import('../bau/lib/vorkomprimieren.mjs');
   const dist = await mkdtemp(join(tmpdir(), 'vork-alt-'));
   try {
     await mkdir(join(dist, 'a'), { recursive: true });
     for (const n of ['a/index.html.br', 'a/index.html.gz', 'b.css.gz']) await writeFile(join(dist, n), 'alt');
     const s = new Schreiber(dist);
+    await writeFile(join(dist, 'c.css'), CSS); // unverändert: behält seine Variante
+    await writeFile(join(dist, 'c.css.gz'), 'alt');
     await s.schreibe('/a/index.html', HTML);
+    await s.schreibe('/c.css', CSS);
     assert.equal(await veralteteVariantenEntfernen(s), 2);
-    assert.deepEqual((await readdir(dist, { recursive: true })).filter((n) => /\.(br|gz)$/.test(n)).sort(), ['b.css.gz'], 'nur Varianten geschriebener Dateien');
+    assert.deepEqual((await readdir(dist, { recursive: true })).filter((n) => /\.(br|gz)$/.test(n)).sort(), ['b.css.gz', 'c.css.gz'], 'nur Varianten geänderter Dateien');
   } finally {
     await rm(dist, { recursive: true, force: true });
   }

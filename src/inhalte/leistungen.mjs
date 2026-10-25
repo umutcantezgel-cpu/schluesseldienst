@@ -10,6 +10,8 @@ export default {
   // Mit JavaScript wird die Sprungleiste zum Filter (Modul gruppenfilter); „Alle“ springt ohne JavaScript zur ersten Gruppe
   filterTitel: 'Leistungen nach Gruppe filtern',
   sprungAlle: 'Alle',
+  // Ohne JavaScript springt „Alle“ zur ersten Gruppe; der Name sagt das (enthält den sichtbaren Text, WCAG 2.5.3)
+  sprungAlleName: 'Alle Gruppen, ab der ersten Gruppe',
   schluss: {
     titel: 'Welche Leistung passt zu Ihrem Fall?',
     text: 'Die Preise und die Anfahrt je Zone stehen auf der Preisseite. Sind Sie unsicher, welche Leistung gemeint ist, schreiben Sie uns über die Kontaktseite.',

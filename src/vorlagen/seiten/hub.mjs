@@ -138,7 +138,7 @@ function plzZeile(orte) {
 // Gebietsart für die Überschrift: Provinz (NL), Stadt (kreisfreie Städte, auch die drei, die GeoNames ohne Zusatz
 // führt), Region (Kommunalverbände) oder Kreis
 const STADT_OHNE_ZUSATZ = new Set(['Delmenhorst', 'Dessau-Roßlau', 'Frankfurt am Main']);
-function gebietsart(titel, nl) {
+export function gebietsart(titel, nl) {
   if (nl) return 'Provinz';
   if (/^(Kreisfreie Stadt|Stadtkreis|Landeshauptstadt)\s/.test(titel) || STADT_OHNE_ZUSATZ.has(titel)) return 'Stadt';
   if (/^(Region|Städteregion|Regionalverband)\s/.test(titel)) return 'Region';
@@ -146,7 +146,7 @@ function gebietsart(titel, nl) {
 }
 
 // art: 'Kreis' | 'Provinz' | 'Stadt' | 'Region' – nur für die Überschrift
-function kennzahlenAbschnitt(zonen, orte, staat, art) {
+export function kennzahlenAbschnitt(zonen, orte, staat, art) {
   const gemeinden = orte.filter((o) => o.typ === 'gemeinde').length;
   const ortsteile = orte.filter((o) => o.typ === 'ortsteil').length;
   const naechster = [...orte].sort(nachKm(1))[0];
@@ -156,7 +156,7 @@ function kennzahlenAbschnitt(zonen, orte, staat, art) {
     html`<dt>Gemeinden und Ortsteile</dt><dd>${[[gemeinden, 'Gemeinde', 'Gemeinden'], [ortsteile, 'Ortsteil', 'Ortsteile']].filter(([n]) => n > 0).map(([n, eins, viele], i) => html`${i ? ' · ' : ''}${zahlD(n)} ${ein(n, eins, viele)}`)}</dd>`,
     // ein Ort oder alle gleich weit: eine Zeile statt zweimal desselben Orts
     naechster.km === entferntester.km
-      ? html`<dt>Entfernung ab Weilburg</dt><dd>${orte.length === 1 ? html`Einziger Ort: ${ortLink(naechster)}, ${nachWeilburg(naechster)}` : html`Alle Orte: ${nachWeilburg(naechster)}`}</dd>`
+      ? html`<dt>Entfernung ab Weilburg</dt><dd>${orte.length === 1 ? html`Einziger Ort: ${ortLink(naechster)}, ${nachWeilburg(naechster)}` : html`${orte.length === 2 ? 'Beide' : 'Alle'} Orte: ${nachWeilburg(naechster)}`}</dd>`
       : html`<dt>Nächster und entferntester Ort ab Weilburg</dt><dd><span class="kreis-zahlen-zeile">Nächster: ${ortLink(naechster)}, ${nachWeilburg(naechster)}</span><span class="kreis-zahlen-zeile">Entferntester: ${ortLink(entferntester)}, ${nachWeilburg(entferntester)}</span></dd>`,
     html`<dt>Verteilung auf die Zonen</dt><dd>${zonenZeile(orte, zonen)}</dd>`,
   ];

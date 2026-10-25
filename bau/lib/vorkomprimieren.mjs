@@ -112,12 +112,13 @@ export async function vorkomprimieren(schreiber, { ohneAufraeumen = false } = {}
 }
 
 /**
- * Ohne --vorkomprimieren: Varianten zu Dateien, die dieser Lauf neu geschrieben hat, sind veraltet und werden gelöscht
- * (sonst lieferte der Server bei --nur alte .br/.gz zu neuen Seiten aus). Rückgabe: Anzahl gelöschter Varianten.
+ * Ohne --vorkomprimieren: Varianten zu Dateien, deren Inhalt dieser Lauf geändert hat, sind veraltet und werden gelöscht
+ * (sonst lieferte der Server bei --nur alte .br/.gz zu neuen Seiten aus). Unveränderte Dateien behalten ihre Varianten.
+ * Rückgabe: Anzahl gelöschter Varianten.
  */
 export async function veralteteVariantenEntfernen(schreiber) {
   let n = 0;
-  for (const quelle of schreiber.geschrieben) {
+  for (const quelle of schreiber.geaendertDateien) {
     if (!TEXT_ENDUNGEN.includes(extname(quelle))) continue;
     for (const variante of Object.keys(VARIANTEN)) {
       const pfad = quelle + variante;

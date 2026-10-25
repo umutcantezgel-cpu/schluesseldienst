@@ -18,7 +18,7 @@ function kopf() {
 <h1 id="verz-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>
 <nav class="verz-sprung" aria-label="${inhalt.sprungTitel}" data-modul="gruppenfilter" data-filter-titel="${inhalt.filterTitel}">
-<ul>${GRUPPEN.map((g) => html`<li><a href="#${anker(g)}" data-gruppe="${g.id}"><span class="verz-nr" aria-hidden="true">${g.nr}</span>${g.titel}</a></li>`)}<li><a href="#${anker(GRUPPEN[0])}" data-gruppe="">${inhalt.sprungAlle}</a></li></ul>
+<ul>${GRUPPEN.map((g) => html`<li><a href="#${anker(g)}" data-gruppe="${g.id}"><span class="verz-nr" aria-hidden="true">${g.nr}</span>${g.titel}</a></li>`)}<li><a href="#${anker(GRUPPEN[0])}" data-gruppe="" aria-label="${inhalt.sprungAlleName}">${inhalt.sprungAlle}</a></li></ul>
 </nav>
 </div>
 </section>`;
