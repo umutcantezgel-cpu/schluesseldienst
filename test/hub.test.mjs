@@ -51,7 +51,8 @@ test('Null-Werte entfallen; PLZ ausgeschrieben; NL mit vierstelligen PLZ', () =>
   assert.match(text(kennzahlenAbschnitt(zonen, [nl], 'NL', 'Provinz')), /Postleitzahlen.*kleinste 7601, größte 7611/s);
 });
 
-// Lagekarte (Ortsseite) und Gebietslage (Hub) an echten Daten: nichts überdeckt Marken, Linie oder Schrift
+// Lagekarte (Ortsseite) und Gebietslage (Hub) an echten Daten: nichts überdeckt Marken, Linie, Bogen, Ringe,
+// Rasterpunkte oder Schrift
 
 const ORTE = JSON.parse(readFileSync(new URL('../src/daten/orte.json', import.meta.url), 'utf8')).filter((o) => o.slug);
 const NACH_ID = new Map(ORTE.map((o) => [o.id, o]));
@@ -93,6 +94,94 @@ test('Lagekarte: Punkte meiden Ort, Weilburg, Linie und Beschriftungen; Schrift 
       if (bogen) assert.equal(bogen[1], linie[1], `${o.slug}: Bogen nicht durch den Ort`);
       assert.match(k.s, /<clipPath id="t-zug"><rect class="lk-zug"/, 'M-19 zieht die Maske, nicht die Linie');
     }
+  }
+});
+
+// Schneidet die Linie eines Kreises (Bogen, Zonenring) die Kiste? Ganz innen oder ganz außen ist frei.
+const kreuzt = (k, [cx, cy, rr]) => {
+  const nah = Math.hypot(Math.max(k.x1 - cx, 0, cx - k.x2), Math.max(k.y1 - cy, 0, cy - k.y2));
+  const fern = Math.max(...[[k.x1, k.y1], [k.x2, k.y1], [k.x1, k.y2], [k.x2, k.y2]].map(([x, y]) => Math.hypot(x - cx, y - cy)));
+  return nah < rr && fern > rr;
+};
+
+test('Lagekarte: der Bogen um Weilburg läuft durch keine Beschriftung (außer am Ort) und nicht durch den Maßstab', () => {
+  const stichprobe = ORTE.filter((_, i) => i % 7 === 0).concat(ORTE.filter((o) => ['bremen', 'almelo', 'frankfurt-am-main', 'loehnberg'].includes(o.slug)));
+  let mitMassstab = 0;
+  for (const o of stichprobe) {
+    const nachbarn = (o.nachbarn || []).map((id) => NACH_ID.get(id)).filter(Boolean);
+    const k = zerlegen(lagekarte({ ort: o, sitz: SITZ, nachbarn, umgebung: ORTE, praefix: 't' }));
+    const bogen = /<circle class="lk-bogen" cx="(-?\d+)" cy="(-?\d+)" r="(\d+)"/.exec(k.s);
+    if (!bogen) continue;
+    const ring = [+bogen[1], +bogen[2], +bogen[3]];
+    for (const t of k.texte.filter((x) => x.klasse !== 'lk-ort-text')) {
+      assert.ok(!kreuzt(kiste(t, ...GROESSE[t.klasse]), ring), `${o.slug}: Bogen durch „${t.inhalt}“`);
+    }
+    const mass = /<path class="lk-mass" d="M(\d+) (\d+)h(\d+)/.exec(k.s);
+    if (mass) {
+      mitMassstab++;
+      assert.ok(!kreuzt({ x1: +mass[1], x2: +mass[1] + +mass[3], y1: +mass[2] - 3, y2: +mass[2] + 3 }, ring), `${o.slug}: Bogen durch den Maßstab`);
+    }
+  }
+  // Der Maßstab weicht dem Bogen aus, entfällt aber nur selten mangels Platz
+  assert.ok(mitMassstab / stichprobe.length > 0.9, `Maßstab nur auf ${mitMassstab} von ${stichprobe.length} Karten`);
+});
+
+test('Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten noch auf Ringen', () => {
+  const gebiete = { hessen: (o) => o.landSlug === 'hessen', 'limburg-weilburg': (o) => o.kreisSlug === 'limburg-weilburg', 'lahn-dill-kreis': (o) => o.kreisSlug === 'lahn-dill-kreis', westerwaldkreis: (o) => o.kreisSlug === 'westerwaldkreis' };
+  // Mobile und breite Schriftgröße (gebiet.css): Namen 18/15, Ringe 18/16, Weilburg 24/18 Einheiten
+  const LAGEN = [['schmal', { 'gk-name': 18, 'gk-ring-text': 18, 'gk-sitz-name': 24 }], ['breit', { 'gk-name': 15, 'gk-ring-text': 16, 'gk-sitz-name': 18 }]];
+  for (const [name, filter] of Object.entries(gebiete)) {
+    const s = String(gebietslage({ orte: ORTE.filter(filter), sitz: SITZ, titel: 'Test' }).svg);
+    const punkte = [...s.matchAll(/<path class="gk-raster ([^"]*)" d="([^"]+)"/g)]
+      .flatMap(([, klasse, d]) => [...d.matchAll(/M(-?\d+) (-?\d+)/g)].map(([, x, y]) => ({ x: +x, y: +y, nurBreit: klasse.includes('gl-nur-breit') })));
+    const ringe = [...s.matchAll(/class="gk-ring" cx="(-?\d+)" cy="(-?\d+)" r="(\d+)"/g)].map((m) => [+m[1], +m[2], +m[3]]);
+    const texte = [...s.matchAll(/<text class="(gk-[\w-]+)"([^>]*?) x="(-?\d+)" y="(-?\d+)"(?: text-anchor="(\w+)")?>([^<]*)</g)]
+      .map(([, klasse, zusatz, x, y, anker = 'start', inhalt]) => ({ klasse, rang2: zusatz.includes('data-rang="2"'), x: +x, y: +y, anker, inhalt }));
+    assert.ok(texte.some((t) => t.klasse === 'gk-name'), `${name}: kein Ortsname`);
+    for (const t of texte) {
+      for (const [lage, groesse] of LAGEN) {
+        if (lage === 'schmal' && t.rang2) continue; // Nebennamen entfallen mobil
+        const k = kiste(t, groesse[t.klasse], t.klasse === 'gk-sitz-name' ? 0.58 : 0.55);
+        const darunter = punkte.filter((q) => (lage === 'breit' || !q.nurBreit) && q.x > k.x1 && q.x < k.x2 && q.y > k.y1 && q.y < k.y2);
+        assert.equal(darunter.length, 0, `${name}: „${t.inhalt}“ (${lage}) auf ${darunter.length} Rasterpunkten`);
+        // Weilburg darf einen kleinen Ring kreuzen, dann unterbricht ihn eine Platte in Blattfarbe
+        if (t.klasse === 'gk-sitz-name') continue;
+        for (const rg of ringe) assert.ok(!kreuzt(k, rg), `${name}: Ring durch „${t.inhalt}“ (${lage})`);
+      }
+    }
+    const sitzText = texte.find((t) => t.klasse === 'gk-sitz-name');
+    if (ringe.some((rg) => kreuzt(kiste(sitzText, 24, 0.58), rg))) assert.match(s, /<rect class="gl-platte gl-nur-schmal"/, `${name}: Ring durch „Weilburg“ ohne Platte`);
+    // Führungslinien kreuzen keine Schrift
+    for (const [, x1, y1, x2, y2] of s.matchAll(/class="gl-fuehrung"[^>]*d="M(-?\d+) (-?\d+)L(-?\d+) (-?\d+)"/g)) {
+      for (const t of texte) {
+        const k = kiste(t, 15, 0.55);
+        for (let i = 0; i <= 10; i++) {
+          const [x, y] = [+x1 + ((x2 - x1) * i) / 10, +y1 + ((y2 - y1) * i) / 10];
+          assert.ok(!(x > k.x1 + 2 && x < k.x2 - 2 && y > k.y1 + 2 && y < k.y2 - 2), `${name}: Führungslinie durch „${t.inhalt}“`);
+        }
+      }
+    }
+  }
+});
+
+test('Gebietslage fern: Weilburg steht an der Kante, an der die Peilung das Blatt verlässt; Maßstab statt Ringen', () => {
+  for (const kreis of ['roth', 'berlin', 'vorpommern-greifswald']) {
+    const orte = ORTE.filter((o) => o.kreisSlug === kreis);
+    const r = gebietslage({ orte, sitz: SITZ, titel: 'Test' });
+    const s = String(r.svg);
+    assert.equal(r.fern, true, kreis);
+    const [, ax, ay, ex, ey] = /class="lk-linie" d="M(-?\d+) (-?\d+)L(-?\d+) (-?\d+)"/.exec(s).map(Number);
+    // Austrittspunkt an der Blattkante (360 × 240)
+    const t = Math.min(...[[ex - ax, 0, 360], [ey - ay, 0, 240]].flatMap(([d, lo, hi], i) => {
+      const a = i ? ay : ax;
+      return d > 0 ? [(hi - a) / d] : d < 0 ? [(lo - a) / d] : [];
+    }));
+    const [kx, ky] = [ax + (ex - ax) * t, ay + (ey - ay) * t];
+    const [, x, y, anker = 'start'] = /<text class="gk-sitz-name" x="(-?\d+)" y="(-?\d+)"(?: text-anchor="(\w+)")?>/.exec(s);
+    const b = 8 * 18 * 0.58; const x1 = anker === 'start' ? +x : +x - b;
+    const abstand = Math.hypot(Math.max(x1 - kx, 0, kx - (x1 + b)), Math.max(+y - 18 - ky, 0, ky - (+y + 30)));
+    assert.ok(abstand < 140, `${kreis}: „Weilburg“ ${Math.round(abstand)} Einheiten vom Austrittspunkt`);
+    assert.match(s, /class="lk-mass-text"[^>]*>[\d,]+ km</, `${kreis}: kein Maßstab`);
   }
 });
 

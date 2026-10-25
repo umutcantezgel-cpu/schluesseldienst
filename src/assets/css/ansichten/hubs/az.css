@@ -24,12 +24,19 @@
     .hub-figur .gl-nur-breit { display: inline; }
     .hub-figur .gl-nur-schmal { display: none; }
   }
+  /* Führungslinie vom Punkt zum Namen, wenn der Name erst am Rand des Rasters Platz fand; Nebennamen entfallen mobil
+     samt Linie (wie .gk-name[data-rang="2"] in gebiet.css) */
+  .hub-figur .gl-fuehrung { fill: none; stroke: var(--c-tinte-3); stroke-width: var(--linie-haar); }
+  .hub-figur .gl-fuehrung[data-rang="2"] { display: none; }
+  @media (min-width: 48em) { .hub-figur .gl-fuehrung[data-rang="2"] { display: inline; } }
   /* Legende: Einträge in ihrer Breite nebeneinander statt in zwei gleichen Spalten (dort brach „Luftlinie“ einzeln
      um); ein Eintrag wechselt als Ganzes in die nächste Zeile und bricht nur, wenn er allein breiter ist als die Figur */
   .hub-figur .gk-legende { display: flex; flex-wrap: wrap; }
   /* Ferne Gebiete: Peilung zur Kante in Richtung Weilburg, Entfernung in Kupfer wie auf der Ortsseite */
   .hub-figur .lk-linie { fill: none; stroke: var(--c-kupfer); stroke-width: 2; stroke-dasharray: 6 4; }
   .hub-figur .lk-km { fill: var(--c-kupfer); font-family: var(--ff-mono); font-weight: var(--fw-text); }
+  .hub-figur .lk-mass { fill: none; stroke: var(--c-tinte-3); stroke-width: var(--linie-ui); }
+  .hub-figur .lk-mass-text { fill: var(--c-tinte-3); font-size: var(--svg-text-s); paint-order: stroke; stroke: var(--c-flaeche); stroke-width: var(--svg-halo); stroke-linejoin: round; }
 
   /* „… in Zahlen“: Überschrift links, Tabelle rechts (4/8 wie Preise und FAQ der Ortsseite) */
   .hub-teilung { display: grid; gap: var(--sp-l); }

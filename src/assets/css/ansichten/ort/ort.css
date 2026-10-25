@@ -4,7 +4,8 @@
 @layer komponenten {
   .ort-kopf { padding-block: var(--sp-m) var(--sp-xl); }
   .ort-kopf-teilung { display: grid; gap: var(--sp-l); align-items: center; }
-  .ort-kicker { max-inline-size: none; font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
+  /* Kicker in Versalien trennt nicht („ÜBERRE-GIONAL“); er bricht an den Wortgrenzen, die Striche hängen fest */
+  .ort-kicker { max-inline-size: none; hyphens: manual; font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-xs); }
   .ort-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
   .ort-fakten { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-3xs) 0; margin-block: var(--sp-s); font-size: var(--fs--1); color: var(--c-tinte-2); }
   .ort-fakten li { margin: 0; }
@@ -57,8 +58,10 @@
   .ort-liste li { margin: 0; break-inside: avoid; display: flex; justify-content: space-between; gap: var(--sp-xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
   .ort-liste a { display: inline-flex; align-items: center; min-block-size: var(--ziel-min); }
   .ort-liste-km [data-daten] { color: var(--c-tinte-3); font-variant-numeric: tabular-nums; align-self: center; white-space: nowrap; }
-  /* Großstädte mit langer Ortsteilliste: beide Listen über die volle Breite in Spalten statt einer langen Hälfte */
-  .ort-umgebung-lang .ort-liste { columns: var(--spalte-az); }
+  /* Großstädte mit langer Ortsteilliste: beide Listen über die volle Breite in Spalten statt einer langen Hälfte;
+     mobil stehen die kurzen Ortsteilnamen zweispaltig (die Liste mit km bleibt einspaltig) */
+  .ort-umgebung-lang .ort-liste:not(.ort-liste-km) { columns: 2; }
+  @media (min-width: 48em) { .ort-umgebung-lang .ort-liste { columns: var(--spalte-az); } }
   .ort-hinweise { display: grid; gap: var(--sp-l); }
   .ort-serioes { list-style: none; padding: 0; display: grid; gap: var(--sp-2xs); margin-block-end: var(--sp-s); }
   .ort-serioes li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); margin: 0; }

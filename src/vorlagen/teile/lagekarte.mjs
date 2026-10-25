@@ -288,6 +288,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
     return x + 3 > kiste.x1 && x - 3 < kiste.x2 && y + 3 > kiste.y1 && y - 3 < kiste.y2;
   });
   const nurBreit = new Map(); // Zellen, die nur unter der mobilen Weilburg-Schrift liegen
+  const schrift = []; // Kisten der Beschriftungen und der Sitzmarke: Führungslinien der Namen kreuzen sie nicht
   const bel = belegung(B, H);
   // Schriftgrößen der Kisten: mobil (gebiet.css) ist die Schrift eine Stufe größer – geschätzt wird mit der größeren
   let sitzSvg; let ringe = []; let ringText = '';
@@ -307,7 +308,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
     const sitzL = wenigste(kandidaten.filter((c) => bel.frei(c.kiste)))
       || wenigste(kandidaten.filter((c) => bel.frei(c.kiste, { mitRingen: false })))
       || kandidaten[0] || umPunkt(sx, sy, 'Weilburg', 24, 0.64, 16)[0];
-    bel.kiste(sitzL.kiste);
+    bel.kiste(sitzL.kiste); schrift.push(sitzL.kiste, { x1: sx - 12, y1: sy - 12, x2: sx + 12, y2: sy + 12 });
     // Aussparung: Breit steht der Name eine Stufe kleiner (18 statt 24 Einheiten, gebiet.css). Punkte nur unter der
     // breiten Schrift entfallen ganz; die unter der größeren mobilen Schrift zeigt erst ab 48em ein eigener Pfad.
     const kisteBreit = textKiste(sitzL.x, sitzL.y, sitzL.anker, 'Weilburg', SCHRIFT.l, 0.62);
@@ -335,6 +336,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
         return { x, y, anker: 'middle', kiste: textKiste(x, y, 'middle', inhalt, g, 0.6) };
       }));
       const wahl = setzen(bel, kand);
+      if (wahl) schrift.push(wahl.kiste);
       return wahl ? text('gk-ring-text', wahl, inhalt) : '';
     }).join('');
   } else {
@@ -367,6 +369,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
       .map((c) => ({ ...c, d: Math.hypot(Math.max(c.kiste.x1 - kx, 0, kx - c.kiste.x2), Math.max(c.kiste.y1 - ky, 0, ky - c.kiste.y2)) }))
       .sort((a, c) => a.d - c.d);
     const sitzL = setzen(bel, kandidaten, { pflicht: true });
+    schrift.push(sitzL.kiste);
     const anker = sitzL.anker === 'start' ? '' : ` text-anchor="${sitzL.anker}"`;
     sitzSvg = `<path class="lk-linie" d="M${r(ax)} ${r(ay)}L${r(ex)} ${r(ey)}"/><text class="gk-sitz-name" x="${r(sitzL.x)}" y="${r(sitzL.y)}"${anker}>Weilburg<tspan class="lk-km" x="${r(sitzL.x)}" dy="26">${kmText}</tspan></text>`;
   }
@@ -381,22 +384,50 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
   };
   const raster = pfade(zellen, '') + pfade(nurBreit, ' gl-nur-breit');
   // Die größten Orte des Gebiets, am Punkt ihrer Rasterzelle und nur auf freier Fläche (weder auf Punkten noch auf
-  // Ringen); der Sitz trägt schon seinen Namen. Ab dem dritten nur breit (data-rang="2", gebiet.css)
-  const namen = [];
+  // Ringen); der Sitz trägt schon seinen Namen. Ab dem dritten nur breit (data-rang="2", gebiet.css). Liegt der Ort
+  // mitten im Raster, steht der Name am nächsten freien Rand und eine Haarlinie führt zum Punkt; sie kreuzt keine
+  // Schrift. Ohne freie Stelle in Reichweite entfällt der Name.
+  const kreuztSchrift = ([ax, ay, bx, by]) => {
+    const n = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 2));
+    return Array.from({ length: n + 1 }, (_, i) => [ax + ((bx - ax) * i) / n, ay + ((by - ay) * i) / n])
+      .some(([x, y]) => schrift.some((k) => x > k.x1 && x < k.x2 && y > k.y1 && y < k.y2));
+  };
+  const namen = []; const fuehrungen = [];
   for (const o of orte.filter((x) => x.pop > 0 && x.slug !== sitz.slug && x.name.length <= 24).sort((a, c) => c.pop - a.pop).slice(0, namenMax * 4)) {
     if (namen.length >= namenMax) break;
     const k = schluessel(p(o));
     if (!zellen.has(k)) continue;
     const [x, y] = mitte(k);
     const rang = namen.length < 2 ? 1 : 2;
-    const c = setzen(bel, umPunkt(x, y, o.name, rang === 1 ? SCHRIFT.l : SCHRIFT.s, 0.6, 8));
-    if (c) namen.push(text('gk-name', c, o.name, rang === 2 ? ' data-rang="2"' : ''));
+    let wahl = null; let fuehrung = null;
+    for (const d of [8, 18, 30, 44]) {
+      for (const c of umPunkt(x, y, o.name, rang === 1 ? SCHRIFT.l : SCHRIFT.s, 0.6, d).filter((q) => bel.innen(q.kiste) && bel.frei(q.kiste))) {
+        if (d === 8) { wahl = c; break; }
+        const { x1, y1, x2, y2 } = c.kiste;
+        const [nx, ny] = [Math.max(x1, Math.min(x, x2)), Math.max(y1, Math.min(y, y2))];
+        const l = Math.hypot(nx - x, ny - y) || 1; const [ux, uy] = [(nx - x) / l, (ny - y) / l];
+        const strecke = [x + ux * 4, y + uy * 4, nx - ux * 2, ny - uy * 2];
+        if (kreuztSchrift(strecke)) continue;
+        wahl = c; fuehrung = strecke; break;
+      }
+      if (wahl) break;
+    }
+    if (!wahl) continue;
+    bel.kiste(wahl.kiste); schrift.push(wahl.kiste);
+    const zusatz = rang === 2 ? ' data-rang="2"' : '';
+    namen.push(text('gk-name', wahl, o.name, zusatz));
+    if (fuehrung) {
+      bel.strecke(fuehrung);
+      fuehrungen.push(`<path class="gl-fuehrung"${zusatz} d="M${fuehrung.map(r).slice(0, 2).join(' ')}L${fuehrung.map(r).slice(2).join(' ')}"/>`);
+    }
   }
+  // Ferne Gebiete haben keine Zonenringe als Maß: ein Maßstab wie auf der Lagekarte, wo eine Ecke frei ist
+  const mass = fern ? massstab(bel, jeKm, B, H, [...zellen.keys()].map(mitte)) : '';
   const ringSvg = ringe.map(({ rr }) => `<circle class="gk-ring" cx="${sx}" cy="${sy}" r="${r(rr)}"/>`).join('');
   const svg = roh(`<svg class="gebietslage" viewBox="0 0 ${B} ${H}" role="img" aria-labelledby="${praefix}-titel">
 <title id="${praefix}-titel">${esc(titel)}</title>
 <g class="gk-ringe">${ringSvg}</g><g class="gk-punkte">${raster}</g>
-<g class="gk-namen">${ringText}${namen.join('')}</g>
+<g class="gk-namen">${fuehrungen.join('')}${ringText}${namen.join('')}${mass}</g>
 <g class="gk-sitz">${sitzSvg}</g>
 </svg>`);
   return { svg, zonen, ringe: ringe.map((x) => x.km), fern };

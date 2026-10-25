@@ -1,7 +1,8 @@
 // V02 Leistungsgruppe (Erzählansicht). Abschnittsfolge:
 // Kopf mit Register der Gruppe (7/5) · Szene M-17 (Band) · Nachweis (Teilung 4/8) · Wissen (alle Textabschnitte in
-// einem Registerblatt) · Abschnitt für Betriebe (dicht) · Preisauszug als Tabelle über die volle Breite (falls Preise) · Häufige Fragen · Weiterlesen ·
-// Schlussband (dunkel) mit Anruf. Nach der Szene wechseln Papier und Band ab (Rhythmusregel K-006).
+// einem Registerblatt) · Abschnitt für Betriebe (dicht) · Preisauszug als Tabelle über die volle Breite (falls Preise) ·
+// Häufige Fragen · Weiterlesen · Schlussband (dunkel) mit Anruf. Nach der Szene wechseln Papier und Band ab
+// (Rhythmusregel K-006).
 // Inhalte: src/inhalte/<gruppe>/index.mjs (nur Gruppen mit Inhaltsmodul werden gebaut).
 import { access } from 'node:fs/promises';
 import { join } from 'node:path';

@@ -46,6 +46,9 @@
     [data-szene="laeuft"] .szene-figur .ill, [data-szene="laeuft"] .szene-figur .zylinder { max-block-size: min(var(--szene-figur-mobil), var(--szene-figur-mobil-max)); margin-inline: auto; }
     [data-szene="laeuft"] .szene-schritt { min-block-size: var(--szene-schritt-min-mobil); align-content: center; }
     [data-szene="laeuft"] .szene-schritt:last-child { min-block-size: auto; padding-block-end: var(--sp-xl); }
+    /* Breitere Telefone und kleine Tablets: Die Figurkarte bleibt so breit wie auf dem Telefon und steht mittig,
+       statt als breites weißes Band um die kleine Figur zu laufen */
+    @media (min-width: 30em) { [data-szene="laeuft"] .szene-figur { max-inline-size: var(--figur-schmal); margin-inline: auto; } }
   }
   @media (prefers-reduced-motion: no-preference) and (min-height: 40em) and (min-width: 48em) {
     [data-szene="laeuft"] .szene-teilung { grid-template-areas: "kopf kopf" "buehne schritte"; }
@@ -55,7 +58,7 @@
     [data-szene="laeuft"] .szene-schritt > * { grid-column: auto; }
     [data-szene="laeuft"] .szene-buehne { position: static; padding-block: 0; background: none; box-shadow: none; align-self: stretch; }
     /* Unter 64em klebt der Kopf nicht: Die Figur hält nur den Abschnittsabstand zur Oberkante */
-    [data-szene="laeuft"] .szene-figur { position: sticky; inset-block-start: var(--sp-xl); padding: var(--sp-l); }
+    [data-szene="laeuft"] .szene-figur { position: sticky; inset-block-start: var(--sp-xl); padding: var(--sp-l); max-inline-size: none; margin-inline: 0; }
     [data-szene="laeuft"] .szene-figur .ill, [data-szene="laeuft"] .szene-figur .zylinder { max-block-size: none; }
     [data-szene="laeuft"] .szene-schritt { min-block-size: var(--szene-schritt-min); }
   }
