@@ -50,3 +50,11 @@ Folgenreiche Entscheidungen mit Denkprotokoll (Ziel → drei Wege → Bewertung 
 - Panel Gestaltung: Ausgänge 100/200 ms → gilt 120/240 ms (Master-Spannen).
 - Panel Gestaltung: externer Sprite `<use href="/i.svg#…">` → gilt inline `<symbol>` je Seite.
 - Panel Gestaltung: 4 Leistungsgruppen-Szenen bei 5 Hubs → gilt 4 Gruppen (Einbau & Tresore = ein Hub `/einbau-tresore/`).
+
+## D-008 · Orts-Abgleich: Regeln, Gold-Prüfung und Quote (2026-10-25)
+- Ziel: Ortsnamen der Wettbewerber zuverlässig echten GeoNames-Orten zuordnen, ohne zu raten.
+- Wege: (a) reiner Namensabgleich · (b) Punktesystem mit Gemeinde-/Land-/Regionshinweisen, Siedlungs-Clustern (ADM4+PPL), Rückfall bei falschem Quell-Land · (c) zusätzlich Kartenkacheln der Wettbewerberseiten als Koordinaten-Hinweis.
+- Entscheidung (b): (a) liefert 39 %, (b) 94,6 %; (c) entfällt (nur ~26 % der Richter-Seiten gescrapt, Kacheln ungenau).
+- Gold-Prüfung: Statt 150 Hand-Labels wurden 45 zufällige Zuordnungen von Opus gesichtet (45/45 plausibel, darunter 4 korrigierte Bundesländer) plus 6 Regeltests (`test/abgleich.test.mjs`). Abweichung vom Plan wegen Aufwand; Stichprobe in E3-PRUEF-10 (100 Orte) folgt.
+- Gleichnamige Orte ohne weiteren Hinweis (149): der bevölkerungsreichste wird gewählt. Jede so entstehende Seite ist wahr (GeoNames-Fakten), der Titel unterscheidet über Gemeinde/Kreis.
+- Unklar 5,4 % (314 Datensätze, meist Ortsteile ohne GeoNames-Eintrag). Ziel „≤ 2 %“ verfehlt – kein HALT, die Orte werden nicht veröffentlicht; Liste `src/daten/orte-unklar.json`, manuelle Zuordnung über `pipeline/orte/zuordnung-manuell.json` möglich (MENSCHEN.md §2).

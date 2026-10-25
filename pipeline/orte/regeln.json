@@ -1,0 +1,32 @@
+{
+  "laenderDe": {
+    "DE.01": "Baden-Württemberg", "DE.02": "Bayern", "DE.03": "Bremen", "DE.04": "Hamburg", "DE.05": "Hessen",
+    "DE.06": "Niedersachsen", "DE.07": "Nordrhein-Westfalen", "DE.08": "Rheinland-Pfalz", "DE.09": "Saarland",
+    "DE.10": "Schleswig-Holstein", "DE.11": "Brandenburg", "DE.12": "Mecklenburg-Vorpommern", "DE.13": "Sachsen",
+    "DE.14": "Sachsen-Anhalt", "DE.15": "Thüringen", "DE.16": "Berlin"
+  },
+  "provinzenNl": {
+    "NL.01": "Drenthe", "NL.02": "Friesland", "NL.03": "Gelderland", "NL.04": "Groningen", "NL.05": "Limburg",
+    "NL.06": "Noord-Brabant", "NL.07": "Noord-Holland", "NL.09": "Utrecht", "NL.10": "Zeeland", "NL.11": "Zuid-Holland",
+    "NL.15": "Overijssel", "NL.16": "Flevoland"
+  },
+  "richterLand": {
+    "NRW": "DE.07", "Hessen": "DE.05", "Niedersachsen": "DE.06", "Baden-Württemberg": "DE.01", "Rheinland-Pfalz": "DE.08",
+    "Bayern": "DE.02", "Saarland": "DE.09", "Brandenburg": "DE.11", "Bremen": "DE.03", "Thüringen": "DE.15",
+    "Mecklenburg-Vorpommern": "DE.12", "Sachsen-Anhalt": "DE.14", "Niederlande": "NL", "Berlin": "DE.16",
+    "Schleswig-Holstein": "DE.10"
+  },
+  "adamRegionKreise": {
+    "RHEINLAND-PFALZ": ["DE.08"], "OFFENBACH": ["offenbach"], "FRANKFURT AM MAIN": ["frankfurt"], "RHEINGAU-TAUNUS": ["rheingau-taunus"],
+    "GROSS-GERAU": ["gross-gerau"], "MAIN-TAUNUS-KREIS": ["main-taunus"], "HANAU & MAIN-KINZIG": ["main-kinzig", "hanau"],
+    "HOCHTAUNUSKREIS": ["hochtaunus"], "DARMSTADT-DIEBURG": ["darmstadt-dieburg"], "WETTERAUKREIS": ["wetterau"],
+    "BERGSTRASSE": ["bergstrasse"], "WIESBADEN": ["wiesbaden"], "MAINZ": ["mainz"], "LAHN-DILL / GIESSEN": ["lahn-dill", "giessen"],
+    "LIMBURG-WEILBURG": ["limburg-weilburg"], "WORMS": ["worms", "alzey-worms"], "ASCHAFFENBURG": ["aschaffenburg"],
+    "DARMSTADT": ["darmstadt"], "MAINZ UMLAND": ["mainz-bingen", "mainz"], "ODENWALD": ["odenwald", "darmstadt-dieburg", "bergstrasse"],
+    "GROSSSTÄDTE UMKREIS": [], "RHEIN-LAHN / WESTERWALD": ["rhein-lahn", "westerwald"], "PFALZ": ["bad-duerkheim", "rhein-pfalz", "ludwigshafen", "neustadt", "speyer", "frankenthal"],
+    "SONDERSLUGS": []
+  },
+  "adamZentrum": { "name": "Hochheim am Main", "lat": 50.0102, "lon": 8.3537, "radiusKm": 140 },
+  "stadtstaaten": ["bremen", "berlin", "hamburg"],
+  "schwelle": { "eindeutig": 10, "punkte": 12, "abstand": 3, "clusterKm": 5, "gemeindeNahKm": 25, "gemeindeFernKm": 40 }
+}
