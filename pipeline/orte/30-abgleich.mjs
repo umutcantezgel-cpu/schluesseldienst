@@ -291,6 +291,8 @@ async function main() {
 ## Unklar je Land/Region
 ${Object.entries(jeLand).sort((a, b) => b[1] - a[1]).map(([k, v]) => `- ${k}: ${v}`).join('\n')}
 `;
+  // Der Berichtsordner fehlt, sobald _werkstatt nach der Übergabe entfernt ist
+  await mkdir(join(WURZEL, '_werkstatt/berichte'), { recursive: true });
   await writeFile(join(WURZEL, '_werkstatt/berichte/orte-abgleich.md'), bericht);
   console.log(bericht);
 }
