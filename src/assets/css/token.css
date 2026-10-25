@@ -94,7 +94,7 @@
     /* Großer Moment M-17 „Szene“: Teile wechseln mit 360 ms (standard) */
     --m17-teil: 360ms;
     /* Großer Moment M-18 „Ringe um Weilburg“: scrollgebunden, Ringe gestaffelt */
-    --m18-karte-start: .42; --m18-ring-start: .6; --m21-dauer: 600ms; --m21-start: 500ms; --m21-weg: 3px; --m21-linie: 4px;
+    --m18-karte-start: .42; --m18-ring-start: .6; --m19-linie: 480ms; --m19-start: 240ms; --m21-dauer: 600ms; --m21-start: 500ms; --m21-weg: 3px; --m21-linie: 4px;
     /* Auftritte und Seitenwechsel */
     --auftritt-weg: 24px; --zustand-weg: 8px; --feedback-weg: 4px;
     --vt-aus: 160ms; --vt-ein: 240ms; --vt-linie: 400ms;

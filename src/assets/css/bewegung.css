@@ -13,6 +13,10 @@
     [data-moment="scherlinie"] .zy-stiftpaar:nth-child(5), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(5) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel) * 4); }
     [data-moment="scherlinie"] .zy-scherlinie { animation: m16-linie var(--m16-linie) var(--ease-linie) var(--m16-linie-start) backwards; }
 
+    /* M-19 Zusammenhang (Ortsseite): Die Peilungslinie zieht sich von Weilburg zum Ort, dann erscheint die Entfernung */
+    .ort-karte .lk-linie { transform-box: fill-box; transform-origin: left center; animation: m16-linie var(--m19-linie) var(--ease-linie) var(--m19-start) backwards; }
+    .ort-karte .lk-km { animation: m20-erscheinen var(--dur-zustand) var(--ease-aus) calc(var(--m19-start) + var(--m19-linie)) backwards; }
+
     /* M-21 Charakter (404): Der falsche Schlüssel rüttelt – Stifte wackeln, die Linienhälften finden nicht zusammen */
     [data-moment="falsch"] .zy-stiftpaar { animation: m21-wackeln var(--m21-dauer) var(--ease-standard) var(--m21-start); }
     [data-moment="falsch"] .zy-scherlinie-links { animation: m21-links var(--m21-dauer) var(--ease-standard) var(--m21-start); }

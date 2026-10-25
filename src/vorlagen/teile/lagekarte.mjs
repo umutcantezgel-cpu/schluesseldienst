@@ -23,7 +23,11 @@ export function lagekarte({ ort, sitz, nachbarn = [], praefix = 'lk' }) {
   const ortText = `<text class="lk-ort-text" x="${ox + od}" y="${ortOben ? oy - 14 : oy + 24}" text-anchor="${oa}">${esc(ort.name)}</text>`;
   const sitzText = ort.km > 0 ? `<text class="lk-sitz-text" x="${sx + sd}" y="${ortOben ? sy + 24 : sy - 14}" text-anchor="${sa}">Weilburg</text>` : '';
   const mx = Math.round((sx + ox) / 2); const my = Math.round((sy + oy) / 2);
-  const linie = ort.km > 0 ? `<path class="lk-linie" d="M${sx} ${sy}L${ox} ${oy}"/><text class="lk-km" x="${mx + 8}" y="${my - 6}">${ort.km} km</text>` : '';
+  // Peilungslinie waagerecht gezeichnet und per transform-Attribut der Hülle auf die Richtung gedreht: So kann M-19
+  // sie mit scaleX von Weilburg aus ziehen (CSS-transform am Pfad überschreibt das Attribut der Hülle nicht).
+  const laenge = Math.round(Math.hypot(ox - sx, oy - sy));
+  const winkel = Math.round((Math.atan2(oy - sy, ox - sx) * 1800) / Math.PI) / 10;
+  const linie = ort.km > 0 ? `<g transform="translate(${sx} ${sy}) rotate(${winkel})"><path class="lk-linie" d="M0 0H${laenge}"/></g><text class="lk-km" x="${mx + 8}" y="${my - 6}">${ort.km} km</text>` : '';
   return roh(`<svg class="lagekarte" viewBox="0 0 ${B} ${H}" role="img" aria-labelledby="${praefix}-titel">
 <title id="${praefix}-titel">${esc(ort.km > 0 ? `Lage von ${ort.name}: rund ${ort.km} km ${ort.richtung || ''} von Weilburg, dazu die Nachbarorte` : `Lage von ${ort.name} mit den Nachbarorten`)}</title>
 ${nachbarPunkte ? `<path class="lk-nachbarn" d="${nachbarPunkte}"/>` : ''}
