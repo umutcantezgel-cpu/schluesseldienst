@@ -121,7 +121,7 @@ Technik: nur `transform`/`opacity`; CSS `@layer bewegung`; Startzustände nur in
 | M-17 | **Großer Moment Leistungsgruppe: Szene** | Scrollen (Schritt in Viewport-Mitte) | Figur `[data-schritt=n]`, Teile 360 standard; Notöffnung „Stift für Stift“, Einbruchschutz „Tür-Schichten“, Sicherheitstechnik „Grundriss-Zonen“, Einbau & Tresore „Widerstandsstufen“ | nicht klebend; kleine statische Einzelbilder |
 | M-18 | **Großer Moment Einsatzgebiet: „Ringe um Weilburg“** | view() | Rasterkarte (ein `<path>`) scale .42→1, Ringe scale .6→1 + Deckkraft, Staffel über gestaffelte view()-Bereiche | statische Hessen-Ansicht |
 | M-19 | Zusammenhang | Ortsseite geladen (Lagekarte, K-04) | Linie auf Peilung gedreht (SVG-`transform`-Attribut), scaleX 0→1 480 linie; km-Beschriftung blendet ein | sofort |
-| M-20 | **Großer Moment Über uns: „Der gerade Weg“** | view() | Fluss im Bogen, dann Tunnel-Linie scaleX über den Bogen; Tor und Beschriftung „Schiffstunnel“ blenden ein | statisch |
+| M-20 | **Großer Moment Über uns: „Der gerade Weg“** | Laden (Figur im Seitenkopf, wie M-16), gesamt ≤ 1.400 ms | Fluss im Bogen (Auftritt 640), dann Tunnel-Linie scaleX über den Bogen (480, linie); Tor und Beschriftung „Schiffstunnel“ blenden ein (150) | statisch |
 | M-21 | Charakter | 404 | Stifte wackeln 3× (Y ±3px, gesamt 600ms), Linienhälften X ±4px | statischer gebrochener Zustand |
 Nichts läuft automatisch länger als 5 s → kein Pause-Knopf nötig. Nichts blinkt.
 

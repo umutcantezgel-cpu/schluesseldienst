@@ -1,32 +1,50 @@
-/* V09 Betrieb: Über uns (Erzählansicht) und Karriere (Arbeitsansicht). Kopf, Teilung „Wer wir sind“, drei Werte-Karten,
-   Leitidee mit Figurplatz (7/5), dunkles Schlussband mit Rufknopf, Stellen als Karten. Werte nur über Tokens. */
+/* V09 Betrieb: Über uns (Erzählansicht) und Karriere (Arbeitsansicht). Kopf mit Leitidee und Lahnbogen (7/5),
+   Teilung „Wer wir sind“ mit Gruppenkacheln, drei Werte, dunkles Schlussband mit Rufknopf, Stellen als Karten.
+   Werte nur über Tokens. */
 @layer komponenten {
   .betrieb-kopf { padding-block: var(--sp-f-m) var(--sp-m); }
   .betrieb-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; }
+  /* Über uns: Leitidee links, Lahnbogen rechts (7/5 wie die Heros); mobil folgt die Figur dem Leitsatz */
+  .betrieb-kopf-teilung { display: grid; gap: var(--sp-l); align-items: center; }
+  .betrieb-kopf-text { display: grid; align-content: start; }
+  .betrieb-leitsatz { font-size: var(--fs-1); line-height: var(--lh-dicht); max-inline-size: var(--mass); color: var(--c-tinte); font-weight: var(--fw-ui); margin-block-start: var(--sp-m); }
 
   .ueber-teilung { display: grid; gap: var(--sp-l); }
-  .ueber-wer { gap: var(--sp-s); }
-  /* Globale Regel li + li (basis.css) verschiebt Zellen im Raster: hier aufheben */
-  .ueber-gruppen { list-style: none; padding: 0; display: grid; gap: var(--sp-2xs); }
-  .ueber-gruppen li { display: flex; align-items: center; min-block-size: var(--ziel-min); margin: 0; }
-  .ueber-gruppen a { font-weight: var(--fw-ui); color: var(--c-lahn-text); }
+  .ueber-teilung .abschnitt-kopf { margin-block-end: 0; }
+  /* Sätze halten das Textmaß (p), die Kacheln nutzen die ganze Spalte und schließen rechts bündig mit dem Raster */
+  .ueber-wer { gap: var(--sp-s); max-inline-size: none; }
+  /* Leistungsgruppen als dichte Kacheln (K-009): Icon, Titel, Kurztext, ein Link je Kachel; li + li aus basis.css aufheben */
+  .ueber-gruppen { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); gap: var(--sp-s); margin-block-start: var(--sp-2xs); }
+  .ueber-gruppen li { margin: 0; display: grid; }
+  .ueber-gruppen a { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon titel" "icon kurz"; align-content: start; column-gap: var(--sp-s); row-gap: var(--sp-3xs); padding: var(--sp-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); color: var(--c-tinte); text-decoration: none; }
+  /* M-02 Überlagerung .10 und M-03 Drücken wie die Weiterlesen-Karten */
+  .ueber-gruppen a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .ueber-gruppen a:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
+  .ueber-gruppen a:active { transform: scale(.98); }
+  .ueber-gruppen a:active::before { opacity: var(--deck-aktiv); }
+  .ueber-gruppen a:hover .ueber-gruppe-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
+  .ueber-gruppe-icon { grid-area: icon; inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); }
+  .ueber-gruppe-titel { grid-area: titel; font-weight: var(--fw-titel); line-height: var(--lh-titel); align-self: center; }
+  .ueber-gruppe-kurz { grid-area: kurz; font-size: var(--fs--1); line-height: var(--lh-dicht); color: var(--c-tinte-3); }
   .ueber-unter { font-size: var(--fs-0); font-weight: var(--fw-titel); margin-block-start: var(--sp-xs); }
   .ueber-liste { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
 
-  .ueber-werte { list-style: none; padding: 0; display: grid; gap: var(--sp-s); }
+  /* Werte als Satzspiegel statt Karten: Haarlinie oben, Kupfer bleibt Kopflinie, Abschnittsmarke und Tunnel (P1) */
+  .ueber-werte { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-breit)), 1fr)); gap: var(--sp-l) var(--sp-xl); }
   .ueber-werte li { margin: 0; }
-  .ueber-wert { display: grid; gap: var(--sp-xs); align-content: start; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-2); border-block-start: var(--linie-scher) solid var(--c-kupfer); }
-  .ueber-wert h3 { font-size: var(--fs-1); }
+  .ueber-wert { display: grid; gap: var(--sp-xs); align-content: start; padding-block-start: var(--sp-s); border-block-start: var(--linie-ui) solid var(--c-linie-ui); }
+  .ueber-wert h3 { font-size: var(--fs-2); }
   .ueber-wert p { color: var(--c-tinte-2); }
 
-  .ueber-weg { display: grid; gap: var(--sp-l); align-items: center; }
-  .ueber-weg .abschnitt-kopf { margin-block-end: 0; }
-  /* Figurplatz: reserviert das Seitenverhältnis, damit die Illustration später ohne Sprung einsetzt */
-  .betrieb-figur { margin: 0; display: grid; gap: var(--sp-s); align-content: center; padding: var(--sp-m); border-radius: var(--r-m); background: var(--c-flaeche); box-shadow: var(--sh-1); }
-  .betrieb-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); }
+  /* Figur frei auf dem Papier wie die Heros; die Containerbreite steuert die Beschriftung (lahnbogen.css) */
+  .betrieb-figur { container-type: inline-size; inline-size: 100%; max-inline-size: var(--hero-figur-max); margin: 0; display: grid; gap: var(--sp-s); }
+  /* Zwei kurze Sätze mit Eigennamen: kein automatisches Trennen („Weil-burger“), der Umbruch fällt zwischen Wörter */
+  .betrieb-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); text-wrap: pretty; hyphens: manual; }
 
-  .ueber-ruf { display: grid; gap: var(--sp-m); justify-items: start; max-inline-size: var(--mass); }
+  .ueber-ruf { display: grid; gap: var(--sp-m); justify-items: start; }
+  .ueber-ruf .abschnitt-kopf { margin-block-end: 0; }
   .ueber-ruf-handlung { display: grid; gap: var(--sp-s); justify-items: start; }
+  @media (prefers-reduced-motion: reduce) { .ueber-gruppen a:active { transform: none; } }
 
   .stellen { display: grid; gap: var(--sp-m); }
   /* Die Abschnittsmarke trägt die Kupferlinie; der Abstand steuert die Karte (gap) */
@@ -39,14 +57,21 @@
   .stelle-liste { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); max-inline-size: var(--mass); }
   .stelle-kontakt { color: var(--c-tinte-2); max-inline-size: var(--mass); }
 
+  /* Tablet: Wert links, Satz rechts – eine Zeile je Wert statt drei schmaler Spalten. Die Figur behält ihre
+     Höchstbreite, die Bildunterschrift steht als Legende daneben auf der Grundlinie statt unter einer leeren Hälfte. */
   @media (min-width: 48em) {
-    .ueber-werte { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .ueber-gruppen { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ueber-wert { grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); column-gap: var(--sp-l); align-items: baseline; }
+    .betrieb-figur { max-inline-size: none; grid-template-columns: minmax(0, var(--hero-figur-max)) minmax(0, 1fr); column-gap: var(--sp-l); align-items: end; }
   }
   @media (min-width: 64em) {
+    .ueber-wert { grid-template-columns: none; }
     .betrieb-kopf { padding-block-start: var(--sp-sektion); }
     .betrieb-kopf h1 { font-size: var(--fs-5); }
+    .betrieb-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
+    .betrieb-figur { justify-self: end; max-inline-size: var(--hero-figur-max); grid-template-columns: none; }
     .ueber-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; }
-    .ueber-weg { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
+    .ueber-werte { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    /* Dunkles Band: Text links, Handlung rechts auf der Grundlinie – das Band trägt über die ganze Breite */
+    .ueber-ruf { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--sp-xl); align-items: end; }
   }
 }

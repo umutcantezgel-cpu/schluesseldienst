@@ -14,11 +14,13 @@ export default {
   kurz: 'In Hessen braucht jeder Schlafraum, jedes Kinderzimmer und jeder Flur auf dem Rettungsweg mindestens einen Rauchwarnmelder. Betriebsbereit halten ihn die unmittelbaren Besitzer, sofern der Eigentümer das nicht übernommen hat.',
   stand: '2026-10-25',
   figur: 'rauchmelder',
-  figurText: 'Schema einer Wohnung: Melder im Schlafzimmer, im Kinderzimmer und im Flur, über den der Rettungsweg führt. Das Wohnzimmer nennt die hessische Aufzählung nicht.',
+  // Die Bildunterschrift erklärt das Bild, sie wiederholt die Aufzählung aus Kurzantwort und Text nicht
+  figurText: 'Schema einer Wohnung: Getönt sind die Räume mit Melderpflicht. Der Flur führt zur Wohnungstür.',
+  // Reihenfolge wie die Abschnitte; die Räume nennt schon die Kurzantwort, hier steht nur, was dort fehlt
   wichtig: [
-    'In Hessen gehören **Rauchwarnmelder** in Schlafräume, Kinderzimmer und Flure auf dem Rettungsweg.',
     'Ein Melder muss so betrieben werden, dass er **Brandrauch früh meldet**.',
     'Im **Mietverhältnis** klären Sie schriftlich, wer die Betriebsbereitschaft übernimmt.',
+    '**Wohnzimmer und Küche** nennt die hessische Aufzählung nicht.',
   ],
   abschnitte: [
     {

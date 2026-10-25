@@ -7,6 +7,9 @@
   .gebiet-liste li { margin: 0; break-inside: avoid; display: flex; justify-content: space-between; gap: var(--sp-xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
   .gebiet-liste a { display: inline-flex; align-items: center; min-block-size: var(--ziel-min); }
   .gebiet-km { color: var(--c-tinte-3); font-variant-numeric: tabular-nums; align-self: center; }
+  /* Mobil (eine Spalte) nur die acht nächsten Gemeinden – der Anriss bleibt kurz, alle Orte stehen eine Seite weiter */
+  .gebiet-liste li:nth-child(n + 9) { display: none; }
+  @media (min-width: 48em) { .gebiet-liste li:nth-child(n + 9) { display: flex; } }
   .gebiet-figur { margin: 0; }
   .gebietskarte { inline-size: 100%; max-inline-size: var(--hero-figur-max); margin-inline: auto; font-family: var(--ff-text); }
   .gk-ring { fill: none; stroke: var(--c-linie-ui); stroke-width: 1.5; stroke-dasharray: 4 6; }

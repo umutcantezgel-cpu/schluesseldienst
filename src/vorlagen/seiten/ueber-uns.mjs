@@ -1,7 +1,8 @@
 // V09 Über uns (Erzählansicht). Abschnittsfolge nach Themenpass /ueber-uns/:
-// Kopf · Wer wir sind (Konfiguration; jede fehlende Angabe entfällt) · Wofür wir stehen (Band, drei Karten) ·
-// Der gerade Weg (Leitidee mit Fakt und leerem Figurplatz für E4-OPUS-05) · Wie Sie uns erreichen (dunkles Band) ·
-// Weiterlesen. Locksmith-JSON-LD nur hier (Start, Über uns, Kontakt); keine Personen, keine Bewertungen.
+// Kopf mit der Leitidee „Der gerade Weg“ (Leitsatz, Lahnbogen I-11 mit Fakt und M-20 als Blickfang des ersten
+// Bildschirms) · Wer wir sind (Konfiguration; jede fehlende Angabe entfällt) · Wofür wir stehen (Band) ·
+// Wie Sie uns erreichen (dunkles Band) · Weiterlesen. Locksmith-JSON-LD nur hier (Start, Über uns, Kontakt);
+// keine Personen, keine Bewertungen.
 import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import inhalt from '../../inhalte/ueber-uns.mjs';
@@ -14,14 +15,21 @@ import { lahnbogen } from '../teile/illustrationen/lahnbogen.mjs';
 const liste = (w) => (Array.isArray(w) ? w.filter(Boolean) : []);
 const eintrag = (m) => (typeof m === 'string' ? m : [m.name, m.rolle].filter(Boolean).join(', '));
 
+// Die Leitidee steht im Kopf: Leitsatz links, der Lahnbogen rechts; der Fakt zum Tunnel erklärt das Bild in der
+// Bildunterschrift (dort stört die Prüfmarke der Vorschau den Lead nicht). M-20 läuft hier einmal beim Laden
+// (lahnbogen.css), weil die Figur von Anfang an im Bild ist – ein view()-Zeitstrahl wäre dort schon abgelaufen.
 function kopf() {
+  const w = inhalt.weg;
   return html`<section class="betrieb-kopf" aria-labelledby="ueber-h1">
-<div class="raster">
+<div class="raster"><div class="betrieb-kopf-teilung">
+<div class="betrieb-kopf-text">
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="ueber-h1">${inhalt.h1}</h1>
-<p class="gruppe-einleitung">${text(inhalt.einleitung)}</p>
+<p class="betrieb-leitsatz">${text(w.text)}</p>
 </div>
+<figure class="betrieb-figur" data-moment="gerader-weg">${lahnbogen()}<figcaption>${w.bild} ${w.fakt}</figcaption></figure>
+</div></div>
 </section>`;
 }
 
@@ -37,7 +45,7 @@ ${abschnittKopf({ id: 'wer-titel', titel: inhalt.wer.titel })}
 <div class="fliesstext ueber-wer">
 <p>${b.name} hat seinen Sitz in ${sitz.gemeinde} (${sitz.kreis}, ${sitz.land}).</p>
 <p>Unsere Leistungen sind in Gruppen gegliedert:</p>
-<ul class="ueber-gruppen">${l.GRUPPEN.map((g) => html`<li><a href="${g.pfad}">${g.titel}</a></li>`)}</ul>
+<ul class="ueber-gruppen">${l.GRUPPEN.map((g) => html`<li><a href="${g.pfad}">${sk.icon(g.icon, { klasse: 'ueber-gruppe-icon' })}<span class="ueber-gruppe-titel">${g.titel}</span><span class="ueber-gruppe-kurz">${g.kurz}</span></a></li>`)}</ul>
 ${b.gruendungsjahr ? html`<p>Der Betrieb wurde <span data-daten="">${String(b.gruendungsjahr)}</span> gegründet.</p>` : ''}
 ${qualifikationen.length ? html`<h3 class="ueber-unter">Qualifikationen</h3><ul class="ueber-liste">${qualifikationen.map((q) => html`<li>${q}</li>`)}</ul>` : ''}
 ${team.length ? html`<h3 class="ueber-unter">Team</h3><ul class="ueber-liste">${team.map((m) => html`<li>${eintrag(m)}</li>`)}</ul>` : ''}
@@ -54,21 +62,6 @@ function werte() {
 ${abschnittKopf({ id: 'werte-titel', titel: w.titel })}
 <ul class="ueber-werte">${w.eintraege.map((e) => html`<li class="ueber-wert"><h3>${e.titel}</h3><p>${text(e.text)}</p></li>`)}</ul>
 </div>
-</section>`;
-}
-
-// Leitidee: der Fakt aus dem Faktenblatt steht als Satz, daneben der stilisierte Lahnbogen (I-11) mit M-20 „Der gerade Weg“.
-function weg() {
-  const w = inhalt.weg;
-  return html`<section class="sektion" aria-labelledby="weg-titel">
-<div class="raster"><div class="ueber-weg">
-<div class="fliesstext">
-${abschnittKopf({ id: 'weg-titel', titel: w.titel })}
-<p>${w.fakt}</p>
-<p>${text(w.text)}</p>
-</div>
-<figure class="betrieb-figur" data-moment="gerader-weg">${lahnbogen()}<figcaption>Stilisiert, ohne Maßstab: die Lahnschleife bei Weilburg und der Schiffstunnel als gerader Weg.</figcaption></figure>
-</div></div>
 </section>`;
 }
 
@@ -107,7 +100,6 @@ export function seiten(k) {
     inhalt: (sk) => html`${kopf()}
 ${wer(sk)}
 ${werte()}
-${weg()}
 ${ruf(sk)}
 ${weiter(sk)}`,
   }];

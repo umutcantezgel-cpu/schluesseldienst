@@ -1,8 +1,14 @@
-/* Ablauf in vier Schritten entlang der Scherlinie (Staffel ≤ 8). */
+/* Ablauf in vier Schritten entlang der Scherlinie (Staffel ≤ 8). Die Linie verbindet nur die vier Marken und endet
+   am letzten Schritt (P1: keine Linie ins Nichts). */
 @layer komponenten {
   .ablauf { list-style: none; padding: 0; display: grid; gap: var(--sp-l); position: relative; }
   .ablauf-schritt { margin: 0; display: grid; gap: var(--sp-2xs); align-content: start; position: relative; padding-inline-start: var(--sp-2xl); }
-  .ablauf::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: calc(var(--ziel-min) / 2 - var(--linie-scher) / 2); inline-size: var(--linie-scher); background: var(--c-kupfer); transform-origin: top center; }
+  /* Mobil senkrecht: je Schritt ein Verbinder von der eigenen Marke bis zur nächsten (die Schritthöhe ist frei);
+     als Rahmenlinie, damit sie auch bei erzwungenen Farben sichtbar bleibt */
+  .ablauf-schritt:not(:last-child)::after {
+    content: ""; position: absolute; inset-inline-start: calc(var(--ziel-min) / 2 - var(--linie-scher) / 2);
+    inset-block: var(--ziel-min) calc(-1 * var(--sp-l)); border-inline-start: var(--linie-scher) solid var(--c-kupfer);
+  }
   .ablauf-nr {
     position: absolute; inset-inline-start: 0; inset-block-start: 0; display: grid; place-items: center;
     inline-size: var(--ziel-min); block-size: var(--ziel-min); border-radius: var(--r-rund); border: var(--linie-scher) solid var(--c-kupfer);
@@ -12,7 +18,14 @@
   .ablauf-schritt p { color: var(--c-tinte-2); }
   @media (min-width: 64em) {
     .ablauf { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-l); }
-    .ablauf::before { inset-inline: 0; inset-block: calc(var(--ziel-min) / 2 - var(--linie-scher) / 2) auto; inline-size: auto; block-size: var(--linie-scher); transform-origin: left center; }
+    .ablauf-schritt:not(:last-child)::after { content: none; }
+    /* Waagerecht eine durchgehende Linie (M-14 zieht sie): von der ersten bis zur Mitte der vierten Marke –
+       das Ende liegt eine Spaltenbreite minus halbe Marke vor dem rechten Rand */
+    .ablauf::before {
+      content: ""; position: absolute; inset-block: calc(var(--ziel-min) / 2 - var(--linie-scher) / 2) auto;
+      inset-inline: 0 calc((100% - 3 * var(--sp-l)) / 4 - var(--ziel-min) / 2);
+      block-size: var(--linie-scher); background: var(--c-kupfer); transform-origin: left center;
+    }
     .ablauf-schritt { padding-inline-start: 0; padding-block-start: calc(var(--ziel-min) + var(--sp-s)); }
   }
 }

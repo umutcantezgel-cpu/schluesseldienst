@@ -16,11 +16,13 @@ const ZUSATZ = {
 // Variante „rauchmelder“ (Ratgeber Rauchmelderpflicht): dieselbe Wohnung, aber nur die Melder, die der Text als
 // Pflicht nennt. Der Flur erschließt hier alle Räume, damit „Flur auf dem Rettungsweg“ im Bild stimmt; Pflichträume
 // tragen die Lahn-Zone (Kupfer bleibt Scherlinie und Fokus), das Wohnzimmer bleibt leer. Räume sind beschriftet.
+// Name und Melder stehen auf der Mittelachse des Raums: So bleibt beidseits Luft zur Zonenkante, auch wenn die
+// Schrift auf schmalen Telefonen stufenweise größer wird (ratgeber.css).
 const RAEUME = [
-  { name: 'Wohnen', x: 48, y: 64 },
-  { name: 'Schlafen', x: 232, y: 64, zone: 'M224 40H360V144H224Z', melder: [296, 104] },
-  { name: 'Kind', x: 48, y: 216, zone: 'M40 192H208V280H40Z', melder: [128, 248] },
-  { name: 'Flur', x: 232, y: 192, zone: 'M224 160H360V280H224Z', melder: [304, 224] },
+  { name: 'Wohnen', x: 124, y: 72 },
+  { name: 'Schlafen', x: 292, y: 72, zone: 'M224 40H360V144H224Z', melder: [292, 108] },
+  { name: 'Kind', x: 124, y: 224, zone: 'M40 192H208V280H40Z', melder: [124, 250] },
+  { name: 'Flur', x: 292, y: 192, zone: 'M224 160H360V280H224Z', melder: [292, 226] },
 ];
 
 function rauchmelderPlan(sf) {
@@ -33,7 +35,7 @@ ${fenster(80, 20, 72, 16)}${fenster(264, 20, 56, 16)}${fenster(20, 216, 16, 48)}
 </g>
 <g class="gr-pflicht">${RAEUME.filter((r) => r.zone).map((r) => `<path class="ill-zone-flaeche" d="${r.zone}"/>`).join('')}</g>
 <g class="gr-melder">${RAEUME.filter((r) => r.melder).map((r) => rauch(...r.melder)).join('')}</g>
-<g class="gr-raeume">${RAEUME.map((r) => `<text class="ill-text gr-raum" x="${r.x}" y="${r.y}">${r.name}</text>`).join('')}</g>`;
+<g class="gr-raeume">${RAEUME.map((r) => `<text class="ill-text gr-raum" x="${r.x}" y="${r.y}" text-anchor="middle">${r.name}</text>`).join('')}</g>`;
 }
 
 export function grundriss({ praefix = 'gr', zustand = null, klasse = '', zusatz = '', variante = '' } = {}) {

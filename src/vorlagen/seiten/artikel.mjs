@@ -1,6 +1,7 @@
 // V08 Ratgeber-Artikel (Arbeitsansicht, Teilung 8/4). Abschnittsfolge:
-// Kopf (Kategorie, H1, Kurzantwort, Stand) · „Das Wichtigste“ · Text mit Inhaltsverzeichnis in der Randspalte ·
-// Häufige Fragen · Quellen (nur die der verwendeten Fakten, ohne Links) · Weiterlesen.
+// Kopf (Kategorie, H1, Kurzantwort, Stand) · „Das Wichtigste“ · Inhaltsverzeichnis · Text · Häufige Fragen ·
+// Quellen (nur die der verwendeten Fakten, ohne Links) · Weiterlesen. Das Verzeichnis steht im Quelltext vor dem Text,
+// damit es mobil vor dem ersten Abschnitt liegt; ab 64em klebt es in der Randspalte (Modul inhalt markiert den Abschnitt).
 // Inhalte: src/inhalte/ratgeber/<id>.mjs (nur Artikel mit Inhaltsmodul werden gebaut; Reihenfolge aus RATGEBER).
 import { access } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -33,6 +34,7 @@ const FIGUREN = {
   'falle-riegel': (p) => falleRiegel({ praefix: p }),
   'tuer-schichten': (p) => tuerSchichten({ praefix: p }),
   grundriss: (p) => grundriss({ praefix: p }),
+  rauchmelder: (p) => grundriss({ praefix: p, variante: 'rauchmelder' }),
   stufen: (p) => widerstandsStufen({ praefix: p }),
   rechnung: () => rechnungIllustration(),
   'fenster-schichten': (p) => fensterSchichten({ praefix: p }),
@@ -125,17 +127,17 @@ export async function seiten(k) {
 <p class="artikel-stand">Stand: <time datetime="${inh.stand}">${datum(inh.stand)}</time></p>
 </div>${inh.figur && FIGUREN[inh.figur] ? html`<figure class="artikel-figur">${FIGUREN[inh.figur]('artikel-fig')}${inh.figurText ? html`<figcaption>${inh.figurText}</figcaption>` : ''}</figure>` : ''}</div></div></header>
 <div class="sektion sektion-dicht"><div class="raster"><div class="artikel-teilung">
-<div class="artikel-text">
 <aside class="artikel-wichtig" aria-labelledby="wichtig-titel">
 <h2 class="artikel-wichtig-titel" id="wichtig-titel">Das Wichtigste</h2>
 <ul>${inh.wichtig.map((w) => html`<li>${sk.icon('haken', { klasse: 'artikel-wichtig-icon' })}<span>${text(w)}</span></li>`)}</ul>
 </aside>
-${inh.abschnitte.map((x, i) => abschnitt(x, i))}
-</div>
-<nav class="artikel-rand" aria-labelledby="inhalt-titel">
+<nav class="artikel-rand" aria-labelledby="inhalt-titel" data-modul="inhalt">
 <h2 class="rand-titel" id="inhalt-titel">Inhalt</h2>
 <ol class="artikel-toc">${inh.abschnitte.map((x, i) => html`<li><a href="#${anker(i)}">${x.titel}</a></li>`)}</ol>
 </nav>
+<div class="artikel-text">
+${inh.abschnitte.map((x, i) => abschnitt(x, i))}
+</div>
 </div></div></div>
 </article>
 <section class="sektion band" aria-labelledby="faq-titel"><div class="raster"><div class="faq-teilung">

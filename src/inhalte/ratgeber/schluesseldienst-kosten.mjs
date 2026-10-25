@@ -9,7 +9,7 @@ export default {
   kategorie: 'recht',
   kurztitel: 'Was kostet es?',
   h1: 'Was kostet ein Schlüsseldienst?',
-  kurz: 'Den Preis bestimmen die Anfahrt, die Arbeitszeit, mögliche Zuschläge und gegebenenfalls das Material. Wer vorab nach dem Gesamtpreis fragt, weiß vor dem Einsatz, womit er rechnen muss. Ein genannter Gesamtpreis gibt Ihnen eine Grundlage für die Entscheidung.',
+  kurz: 'Den Preis bestimmen die Anfahrt, die Arbeitszeit, mögliche Zuschläge und gegebenenfalls das Material. Wer vorab nach dem Gesamtpreis fragt, weiß vor dem Einsatz, womit er rechnen muss.',
   stand: '2026-10-25',
   figur: 'rechnung',
   figurText: 'Die Zeichnung zeigt den Aufbau einer Rechnung mit einzelnen Positionen, ohne Beträge.',

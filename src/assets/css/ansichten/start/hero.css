@@ -25,10 +25,13 @@
     .hero-figur .zylinder { max-block-size: none; }
   }
   @media (min-width: 64em) {
+    /* Inhaltsbreite wie .raster (feste Spur min(100% − 2 Rand, Inhalt-max)), geteilt 7/5: So beginnt der Hero auf
+       derselben Linie wie alle Abschnitte darunter – auch zwischen 64em und 80em, wo flexible Spuren 1:1 teilten */
     .hero {
       grid-template-columns:
         [voll-start] minmax(var(--rand), 1fr) [breit-start] minmax(0, var(--spalte-breit))
-        [inhalt-start] minmax(0, calc(var(--inhalt-max) * 7 / 12)) [figur-start] minmax(0, calc(var(--inhalt-max) * 5 / 12)) [inhalt-end]
+        [inhalt-start] calc(min(100% - 2 * var(--rand), var(--inhalt-max)) * 7 / 12)
+        [figur-start] calc(min(100% - 2 * var(--rand), var(--inhalt-max)) * 5 / 12) [inhalt-end]
         minmax(0, var(--spalte-breit)) [breit-end] minmax(var(--rand), 1fr) [voll-end];
       grid-template-areas: ". . kopf figur figur ." ". . rest figur figur ." ". . ort ort . .";
       grid-template-rows: auto auto auto; padding-block-start: var(--sp-sektion);

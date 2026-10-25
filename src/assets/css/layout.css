@@ -24,10 +24,11 @@
   /* Kopf */
   .kopf { background: var(--c-papier); border-block-end: var(--linie-haar) solid var(--c-linie); }
   .kopf-innen {
+    position: relative; /* Bezug für das Leistungen-Panel der Hauptnavigation */
     display: flex; align-items: center; gap: var(--sp-s); min-block-size: var(--kopf-hoehe);
     max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit) + 2 * var(--rand)); margin-inline: auto; padding-inline: var(--rand);
   }
-  .wortmarke { display: inline-flex; align-items: center; gap: var(--sp-2xs); color: var(--c-tinte); text-decoration: none; font-weight: var(--fw-display); font-size: var(--fs-1); letter-spacing: var(--ls-display); min-block-size: var(--ziel-min); }
+  .wortmarke { flex: none; display: inline-flex; align-items: center; gap: var(--sp-2xs); color: var(--c-tinte); text-decoration: none; font-weight: var(--fw-display); font-size: var(--fs-1); letter-spacing: var(--ls-display); min-block-size: var(--ziel-min); }
   .wortmarke .signet { inline-size: var(--icon-leistung); block-size: var(--icon-leistung); fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .wortmarke .signet-linie { stroke: var(--c-kupfer); }
   .hauptnav { display: none; margin-inline-start: auto; }
@@ -41,6 +42,7 @@
     .kopf-suche { margin-inline-start: 0; }
     .kopf-ruf { display: block; }
   }
+  @media (64em <= width < 80em) { .kopf-innen { gap: var(--sp-xs); } }
 
   /* Fuß */
   /* Kein eigener Abstand: die letzte Sektion bringt ihren Innenabstand mit, ein Band schließt bündig an */

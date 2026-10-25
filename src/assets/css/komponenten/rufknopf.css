@@ -18,6 +18,8 @@
   .ruf-status:empty { display: none; }
   .rufknopf-kopf .ruf-beschriftung { display: none; }
   .rufknopf-kopf .ruf-nummer { font-size: var(--fs-0); }
+  /* 64–80em: Kopf dichter (sonst läuft er bei 1024 px über, siehe hauptnav.css) */
+  @media (64em <= width < 80em) { .rufknopf-kopf { padding-inline: var(--sp-xs); } .rufknopf-kopf .ruf-nummer { font-size: var(--fs--1); } }
   .rufknopf-gross { min-block-size: var(--ziel-touch); padding: var(--sp-xs) var(--sp-l); }
   .rufknopf-gross .ruf-nummer { font-size: var(--fs-2); }
   .rufknopf-leiste { justify-content: center; min-block-size: var(--rufleiste-hoehe); }

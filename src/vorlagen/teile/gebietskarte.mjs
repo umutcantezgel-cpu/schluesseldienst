@@ -7,7 +7,7 @@ import { roh, html } from '../../../bau/lib/html.mjs';
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (z) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[z]);
 
-export function gebietskarte(sk, { praefix = 'gk', radiusKm = 56, ringe = [20, 50], beschriftet = 7, titel, zelleKm = 3, klasse = '', schrift = 1, schriftMobil = 1.2 } = {}) {
+export function gebietskarte(sk, { praefix = 'gk', radiusKm = 56, ringe = [20, 50], beschriftet = 7, beschriftetMobil = 5, titel, zelleKm = 3, klasse = '', schrift = 1, schriftMobil = 1.2 } = {}) {
   const orte = sk.daten.orte || [];
   const sitz = orte.find((o) => o.km === 0 && o.typ === 'gemeinde') || { lat: 50.4844, lon: 8.2625, name: 'Weilburg' };
   const kx = 111.32 * Math.cos((sitz.lat * Math.PI) / 180);
@@ -32,38 +32,47 @@ export function gebietskarte(sk, { praefix = 'gk', radiusKm = 56, ringe = [20, 5
   const ebenen = [[], [], [], []];
   for (const k of [...zellen.keys()].sort()) { const [ix, iy] = k.split(',').map(Number); ebenen[zellen.get(k)].push(`M${ix * zelle + r} ${iy * zelle + r}h0`); }
   const punkte = ebenen.map((d, i) => (d.length ? `<path class="gk-raster gk-zone-${'abcd'[i]}" d="${d.join('')}"/>` : '')).join('');
-  // Beschriftungen gierig nach Einwohnerzahl, ohne Überlappung (geschätzte Textbreite) und innerhalb der Karte.
-  // schrift = Faktor der Beschriftungsgröße gegenüber der kleinen Karte (Kollisionskisten wachsen mit). Erst wird mit
-  // der größeren Mobilschrift (schriftMobil, unter 48em) gesetzt, dann mit der Desktopschrift aufgefüllt; was nur
-  // im zweiten Durchgang Platz fand, trägt data-rang="2" und entfällt mobil, damit sich dort nichts überlagert.
+  // Beschriftungen gierig nach Einwohnerzahl, ohne Überlappung (geschätzte Textbreite, dazu etwas Luft) und innerhalb
+  // der Karte; passt ein Name rechts vom Punkt nicht, wird links versucht. schrift = Faktor der Beschriftungsgröße
+  // gegenüber 15 Einheiten (Kollisionskisten wachsen mit). Erst wird mit der größeren Mobilschrift (schriftMobil, unter
+  // 48em) gesetzt, dann mit der Desktopschrift aufgefüllt; was nur im zweiten Durchgang Platz fand, trägt
+  // data-rang="2" und entfällt mobil, damit sich dort nichts überlagert.
   const grundKisten = (f) => [{ x1: 4, y1: -30 * f, x2: 110 * f, y2: -2 }, ...ringe.map((km) => ({ x1: -32 * f, y1: -km * masstab - 6 - 16 * f, x2: 32 * f, y2: -km * masstab }))];
   const kiste = (o, f, rechts) => {
     const [x, y] = p(o);
     const breite = o.name.length * 8.5 * f;
-    return rechts ? { x1: x + 6, y1: y - 12 * f, x2: x + 10 + breite, y2: y + 8 * f } : { x1: x - 10 - breite, y1: y - 12 * f, x2: x - 6, y2: y + 8 * f };
+    const luft = 4 * f;
+    return rechts
+      ? { x1: x + 6 - luft, y1: y - 12 * f - luft, x2: x + 10 + breite + luft, y2: y + 8 * f + luft }
+      : { x1: x - 10 - breite - luft, y1: y - 12 * f - luft, x2: x - 6 + luft, y2: y + 8 * f + luft };
   };
-  const passtRechts = (o, f) => p(o)[0] + 8 + o.name.length * 8.5 * f <= r;
+  const innen = (k) => k.x1 >= -r && k.x2 <= r && k.y1 >= -r && k.y2 <= r; // innerhalb der viewBox
   const ueberlappt = (kisten, k) => kisten.some((b) => k.x1 < b.x2 && k.x2 > b.x1 && k.y1 < b.y2 && k.y2 > b.y1);
+  const setzen = (kisten, o, f) => {
+    for (const rechts of [true, false]) {
+      const k = kiste(o, f, rechts);
+      if (innen(k) && !ueberlappt(kisten, k)) return { k, rechts };
+    }
+    return null;
+  };
   const kandidaten = [...gemeinden].filter((o) => o.km > 4).sort((a, b) => (b.pop || 0) - (a.pop || 0) || a.slug.localeCompare(b.slug));
   const gesetzt = []; // { o, rechts, rang }
   const mobil = grundKisten(schriftMobil);
   for (const o of kandidaten) {
-    if (gesetzt.length >= beschriftet) break;
-    const rechts = passtRechts(o, schriftMobil);
-    const k = kiste(o, schriftMobil, rechts);
-    if (ueberlappt(mobil, k)) continue;
-    mobil.push(k);
-    gesetzt.push({ o, rechts, rang: 1 });
+    if (gesetzt.length >= Math.min(beschriftet, beschriftetMobil)) break;
+    const t = setzen(mobil, o, schriftMobil);
+    if (!t) continue;
+    mobil.push(t.k);
+    gesetzt.push({ o, rechts: t.rechts, rang: 1 });
   }
   const gross = [...grundKisten(schrift), ...gesetzt.map((g) => kiste(g.o, schrift, g.rechts))];
   for (const o of kandidaten) {
     if (gesetzt.length >= beschriftet) break;
     if (gesetzt.some((g) => g.o === o)) continue;
-    const rechts = passtRechts(o, schrift);
-    const k = kiste(o, schrift, rechts);
-    if (ueberlappt(gross, k)) continue;
-    gross.push(k);
-    gesetzt.push({ o, rechts, rang: 2 });
+    const t = setzen(gross, o, schrift);
+    if (!t) continue;
+    gross.push(t.k);
+    gesetzt.push({ o, rechts: t.rechts, rang: 2 });
   }
   const namen = gesetzt.map(({ o, rechts, rang }) => {
     const [x, y] = p(o);

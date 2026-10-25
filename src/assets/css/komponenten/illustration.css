@@ -11,8 +11,8 @@
   .ill-gestrichelt { stroke-width: 1.5; stroke-dasharray: 4 4; stroke: var(--c-tinte-3); }
   .ill-wand { stroke-width: 1.5; }
   .ill-innenwand { stroke-width: 4; }
-  /* Öffnungen zeigen den Grund, auf dem die Figur steht (--ill-grund setzt die Ansicht, sonst Papier) */
-  .ill-oeffnung { fill: var(--ill-grund, var(--c-papier)); stroke: none; }
+  /* Öffnungen zeigen den Grund, auf dem die Figur steht: Papier; Ansichten mit anderer Fläche setzen fill selbst */
+  .ill-oeffnung { fill: var(--c-papier); stroke: none; }
   .ill-schraffur-linie { stroke: var(--c-tinte); stroke-width: 1; opacity: .18; }
   .ill-bolzen { fill: var(--c-tinte-2); stroke-width: 1.5; }
   .ill-melder { fill: var(--c-flaeche); stroke-width: 1.5; }

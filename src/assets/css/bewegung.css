@@ -14,8 +14,16 @@
     [data-moment="scherlinie"] .zy-stiftpaar:nth-child(5), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(5) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel) * 4); }
     [data-moment="scherlinie"] .zy-scherlinie { animation: m16-linie var(--m16-linie) var(--ease-linie) var(--m16-linie-start) backwards; }
 
-    /* M-19 Zusammenhang (Ortsseite): Die Peilungslinie zieht sich von Weilburg zum Ort, dann erscheint die Entfernung */
-    .ort-karte .lk-linie { transform-box: fill-box; transform-origin: left center; animation: m16-linie var(--m19-linie) var(--ease-linie) var(--m19-start) backwards; }
+    /* M-20 „Der gerade Weg“ (Über uns, Figur im Seitenkopf): einmal nach dem Laden wie M-16, gesamt ≤ 1.400 ms – erst die
+       Schleife der Lahn, dann zieht der Tunnel als Kupferlinie gerade durch, zuletzt Tore und Name (ein view()-Zeitstrahl
+       wäre im Kopf schon abgelaufen, bevor jemand scrollt) */
+    [data-moment="gerader-weg"] .lb-fluss-teil { animation: auftritt var(--dur-auftritt) var(--ease-ein) backwards; }
+    [data-moment="gerader-weg"] .lb-tunnel { transform-box: fill-box; transform-origin: left center; animation: m16-linie var(--m16-linie) var(--ease-linie) var(--dur-auftritt) backwards; }
+    [data-moment="gerader-weg"] :is(.lb-tor, .lb-text-tunnel) { animation: m20-erscheinen var(--dur-feedback) var(--ease-standard) calc(var(--dur-auftritt) + var(--m16-linie)) backwards; }
+
+    /* M-19 Zusammenhang (Ortsseite): Die Peilungslinie zieht sich von Weilburg zum Ort, dann erscheint die Entfernung.
+       Gezogen wird die Maske der Linie (clipPath), nicht die Linie selbst – sonst stauchte scaleX das Strichmuster. */
+    .ort-karte .lk-zug { transform-box: fill-box; transform-origin: left center; animation: m16-linie var(--m19-linie) var(--ease-linie) var(--m19-start) backwards; }
     .ort-karte .lk-km { animation: m20-erscheinen var(--dur-zustand) var(--ease-aus) calc(var(--m19-start) + var(--m19-linie)) backwards; }
 
     /* M-05 Zustand (Gruppenfilter /leistungen/): nur eingeblendete Gruppen nach einem Wechsel gleiten von −8 px; Basis = Endzustand */
@@ -51,10 +59,6 @@
       [data-moment="ringe"] .gk-ring:nth-of-type(3) { animation-range: entry 20% cover 46%; }
       /* Die Namen erscheinen erst, wenn ihre Punkte stehen – sie schweben nicht über leerer Fläche */
       [data-moment="ringe"] .gk-namen { animation: m20-erscheinen linear both; animation-timeline: view(); animation-range: cover 30% cover 45%; }
-      /* M-20 „Der gerade Weg“ (Über uns): erst die Schleife der Lahn, dann zieht der Tunnel als Kupferlinie gerade durch */
-      [data-moment="gerader-weg"] .lb-fluss-teil { animation: auftritt linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
-      [data-moment="gerader-weg"] .lb-tunnel { transform-box: fill-box; transform-origin: left center; animation: m16-linie linear both; animation-timeline: view(); animation-range: cover 25% cover 45%; }
-      [data-moment="gerader-weg"] .lb-tor, [data-moment="gerader-weg"] .lb-text-tunnel { animation: m20-erscheinen linear both; animation-timeline: view(); animation-range: cover 35% cover 50%; }
     }
 
     /* M-17 Szene: Teile wechseln mit dem Schritt (nur transform/opacity; Farbe des aktiven Teils springt) */

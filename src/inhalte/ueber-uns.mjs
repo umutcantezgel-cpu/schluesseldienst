@@ -8,8 +8,8 @@ export default {
   titel: 'Über uns: Schlüsseldienst in Weilburg',
   beschreibung: 'Wer hinter dem Schlüsseldienst in Weilburg steht: Sitz, Leistungsgruppen, unsere Arbeitsweise und der direkte Weg zu uns.',
   kicker: 'Über uns',
-  h1: 'Über uns: der Schlüsseldienst in Weilburg',
-  einleitung: 'Wer hinter dem Betrieb steht und welche Leistungen wir anbieten.',
+  // Der Kicker nennt die Seite schon; die H1 wiederholt ihn nicht
+  h1: 'Der Schlüsseldienst in Weilburg',
   wer: {
     titel: 'Wer wir sind',
   },
@@ -21,10 +21,11 @@ export default {
       { titel: 'Offen', text: 'Den Gesamtpreis finden Sie vorab auf der [Preisseite](/preise/), nach Zeitfenster und Zone.' },
     ],
   },
+  // Leitidee im Seitenkopf (K-001): Der Leitsatz steht für sich, der Fakt erklärt das Bild in der Bildunterschrift
   weg: {
-    titel: 'Der gerade Weg',
     fakt: tunnel.fakten.abkuerzung,
-    text: 'Bei jedem Schloss halten wir es genauso: Wir suchen die eine Linie, auf der es ohne Gewalt aufgeht.',
+    text: 'Bei jedem Schloss suchen wir den geraden Weg: die eine Linie, auf der es ohne Gewalt aufgeht.',
+    bild: 'Stilisiert, ohne Maßstab: die Lahnschleife bei Weilburg.',
   },
   ruf: {
     titel: 'Wie Sie uns erreichen',

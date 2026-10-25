@@ -9,9 +9,9 @@
 
     /* Flächen, die nur über Hintergrund oder Schatten abgesetzt sind: innere 1px-Kante in Textfarbe */
     :where(.weiter a, .kontakt-weg, .composer, .composer-notfall, .rechner, .rechner-ergebnis, .tagesband, .zone,
-      .register article, .register-gross, .preise-pruefung, .gebiet-pruefung, .ortspruefung-ergebnis, .ortspruefung-liste, .ueber-wert,
+      .register article, .register-gross, .preise-pruefung, .gebiet-pruefung, .ortspruefung-ergebnis, .ortspruefung-liste, .ueber-gruppen a,
       .leistung-figur, .artikel-figur, .artikel-wichtig, .ratgeber-liste a, .ort-karte, .ort-leistungen a,
-      .szene-figur, .szene-einzelbild, .betrieb-figur, .hinweis, .preis-tabelle, .sprunglink, .menue-blatt,
+      .szene-figur, .szene-einzelbild, .hinweis, .preis-tabelle, .sprunglink, .menue-blatt,
       .hauptnav-panel) {
       outline: var(--linie-haar) solid CanvasText;
       outline-offset: calc(-1 * var(--linie-haar));
@@ -19,8 +19,8 @@
 
     /* Akzentkanten der Scherlinie (Kupfer): Farbe Highlight, Breite und Lage bleiben */
     .kontakt-weg, .register-gross, .gebiet-pruefung, .preise-pruefung, .rechner-ergebnis, .gruppe-register, .rand-titel,
-    .zone-a, .ueber-wert, .hauptnav-panel { border-block-start-color: Highlight; }
-    .ratgeber-liste a, .artikel-wichtig, .hinweis, .ortspruefung-ergebnis { border-inline-start-color: Highlight; }
+    .zone-a, .hauptnav-panel { border-block-start-color: Highlight; }
+    .artikel-wichtig, .hinweis, .ortspruefung-ergebnis, .artikel-toc a[aria-current] { border-inline-start-color: Highlight; }
     .szene-schritt { border-inline-start-color: GrayText; }
     .szene-schritt[data-aktiv] { border-inline-start-color: Highlight; }
     .hinweis-platzhalter { border-style: dashed; }

@@ -10,8 +10,9 @@ import { preisrechner } from './module/preisrechner.mjs';
 import { composer } from './module/composer.mjs';
 import { suche } from './module/suche.mjs';
 import { gruppenfilter } from './module/gruppenfilter.mjs';
+import { inhalt } from './module/inhalt.mjs';
 
-const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner, composer, suche, gruppenfilter };
+const MODULE = { menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner, composer, suche, gruppenfilter, inhalt };
 
 function starten() {
   document.documentElement.classList.add('js');

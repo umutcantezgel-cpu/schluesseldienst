@@ -26,5 +26,14 @@ test('unbekannte Modulnamen werden übergangen; ohne Module bleibt ein leerer St
 
 test('ohne Angabe bleibt das volle Bündel unverändert', async () => {
   const b = await jsBuendeln(EINSTIEG);
-  assert.match(b.text, /const MODULE = \{ menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner, composer, suche, gruppenfilter \};/);
+  assert.match(b.text, /const MODULE = \{ menue, aufklapper, erreichbarkeit, ortssuche, abspielen, szene, tagesband, preisrechner, composer, suche, gruppenfilter, inhalt \};/);
+});
+
+test('Inhaltsverzeichnis (V08) kommt nur in Bündel, die es nennen', async () => {
+  const mit = await jsBuendeln(EINSTIEG, { module: new Set(['menue', 'inhalt']) });
+  const ohne = await jsBuendeln(EINSTIEG, { module: new Set(['menue']) });
+  assert.ok(dateien(mit).includes('module/inhalt.mjs'));
+  assert.ok(!dateien(ohne).includes('module/inhalt.mjs'));
+  // Trusted Types: nur DOM-APIs, keine HTML-Strings
+  assert.doesNotMatch(mit.text, /innerHTML|outerHTML|insertAdjacentHTML/);
 });

@@ -7,44 +7,82 @@
   .ratgeber-sprung a { display: inline-flex; align-items: center; min-block-size: var(--ziel-min); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); color: var(--c-tinte); text-decoration: none; }
   .ratgeber-sprung a:hover { border-color: var(--c-kupfer); }
   .ratgeber-liste { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-breit)), 1fr)); gap: var(--sp-s); }
-  .ratgeber-liste li { margin: 0; }
-  .ratgeber-liste a { display: grid; gap: var(--sp-3xs); block-size: 100%; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); color: var(--c-tinte); text-decoration: none; border-inline-start: var(--linie-scher) solid var(--c-kupfer); }
+  .ratgeber-liste li { margin: 0; display: grid; }
+  /* Dichte Kachel (K-009) mit Bildzeichen statt Kupferkante: Kupfer bleibt Kopflinie und Abschnittsmarke (P1) */
+  .ratgeber-liste a { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon titel" "icon kurz"; align-content: start; column-gap: var(--sp-s); row-gap: var(--sp-2xs); padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); color: var(--c-tinte); text-decoration: none; }
+  /* M-02 Überlagerung .10 und M-03 Drücken wie die Weiterlesen-Karten */
+  .ratgeber-liste a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .ratgeber-liste a:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
+  .ratgeber-liste a:active { transform: scale(.98); }
+  .ratgeber-liste a:active::before { opacity: var(--deck-aktiv); }
   .ratgeber-liste a:hover .ratgeber-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
-  .ratgeber-titel { font-weight: var(--fw-titel); font-size: var(--fs-1); }
-  .ratgeber-kurz { font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .ratgeber-icon { grid-area: icon; inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); }
+  .ratgeber-titel { grid-area: titel; font-weight: var(--fw-titel); font-size: var(--fs-1); line-height: var(--lh-titel); text-wrap: balance; }
+  .ratgeber-kurz { grid-area: kurz; font-size: var(--fs--1); line-height: var(--lh-dicht); color: var(--c-tinte-3); }
+  @media (prefers-reduced-motion: reduce) { .ratgeber-liste a:active { transform: none; } }
   .artikel-kopf { padding-block: var(--sp-m) var(--sp-l); }
   .artikel-kopf-teilung { display: grid; gap: var(--sp-l); align-items: center; }
   .artikel-kopf-innen { display: grid; gap: var(--sp-xs); }
   .artikel-kicker { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; }
   .artikel-kicker a { color: var(--c-tinte-3); }
   .artikel-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
-  .artikel-kurz { font-size: var(--fs-1); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); }
+  /* Kurzantwort: mobil in Lesegröße, damit Figur und „Das Wichtigste“ nah am ersten Bildschirm bleiben */
+  .artikel-kurz { font-size: var(--fs-0); line-height: var(--lh-text); color: var(--c-tinte-2); max-inline-size: var(--mass); }
   .artikel-stand { font-size: var(--fs--1); color: var(--c-tinte-3); }
-  .artikel-figur { margin: 0; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); max-inline-size: var(--hero-figur-max); }
-  .artikel-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); margin-block-start: var(--sp-s); }
-  .artikel-teilung { display: grid; gap: var(--sp-xl); }
+  /* Containerbreite steuert die Beschriftung der Figur (Nutzereinheiten schrumpfen mit der Figur) */
+  .artikel-figur { container-type: inline-size; inline-size: 100%; margin: 0; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); max-inline-size: var(--hero-figur-max); display: grid; row-gap: var(--sp-s); }
+  .artikel-figur > svg { margin-inline: auto; }
+  .artikel-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); text-wrap: pretty; }
+  /* Öffnungen zeigen das Blatt, auf dem die Figur liegt – nicht das Papier dahinter */
+  .artikel-figur .ill-oeffnung { fill: var(--c-flaeche); }
+  /* Variante Rauchmelder: Raumnamen als Planbeschriftung, nicht als technische Kennung */
+  .gr-raum { font-family: var(--ff-text); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; font-size: var(--svg-text-s); }
+  @container (max-width: 22em) { .gr-raum { font-size: var(--svg-text-l); } }
+  /* Größte Stufe ohne Sperrung: „Schlafen“ bliebe sonst nicht in seiner Zone (Telefone um 320–370 px) */
+  @container (max-width: 17em) { .gr-raum { font-size: var(--svg-text-gross); letter-spacing: 0; } }
+
+  /* Teilung: mobil Wichtigstes · Inhalt · Text untereinander; ab 64em Text links, Inhalt klebt rechts über die ganze Höhe */
+  .artikel-teilung { display: grid; row-gap: var(--sp-l); column-gap: var(--sp-xl); }
   .artikel-text { display: grid; gap: var(--sp-l); }
   .artikel-wichtig { padding: var(--sp-m); background: var(--c-papier-2); border-radius: var(--r-m); border-inline-start: var(--sp-3xs) solid var(--c-kupfer); max-inline-size: var(--mass); }
   .artikel-wichtig-titel { font-size: var(--fs-0); margin-block-end: var(--sp-xs); }
   .artikel-wichtig ul { list-style: none; padding: 0; display: grid; gap: var(--sp-xs); }
-  .artikel-wichtig li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); margin: 0; }
+  .artikel-wichtig li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); margin: 0; text-wrap: pretty; }
   .artikel-wichtig-icon { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-kupfer); margin-block-start: var(--sp-3xs); }
   .artikel-teil { display: grid; gap: var(--sp-xs); max-inline-size: var(--mass); scroll-margin-block-start: var(--sp-m); }
   .artikel-teil h2 { font-size: var(--fs-2); }
+  /* Hinweise laufen bis zur rechten Textkante: --mass gilt schon für den Abschnitt, an der kleineren Schrift gemessen wäre er schmaler */
+  .artikel-teil .hinweis { max-inline-size: none; }
   .artikel-liste, .artikel-schritte { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
   .artikel-schritte li::marker { color: var(--c-kupfer); font-weight: var(--fw-titel); }
   .hinweis-warnung { border-color: var(--c-warnung); background: var(--c-warnung-hell); }
-  .artikel-rand { align-self: start; }
-  .artikel-toc { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-2xs); font-size: var(--fs--1); }
-  .artikel-toc a { color: var(--c-tinte-2); }
+
+  /* Inhaltsverzeichnis als Schiene: jeder Eintrag ein Stück Linie, der gelesene Abschnitt trägt Kupfer (aktiver Zustand) */
+  .artikel-rand { align-self: start; display: grid; gap: var(--sp-xs); max-inline-size: var(--mass); }
+  .artikel-rand .rand-titel { border-block-start: 0; padding-block-start: 0; }
+  .artikel-toc { list-style: none; padding: 0; counter-reset: toc; font-size: var(--fs--1); }
+  .artikel-toc li { margin: 0; counter-increment: toc; }
+  .artikel-toc a { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; gap: var(--sp-xs); min-block-size: var(--ziel-min); padding: var(--sp-2xs) var(--sp-s); border-inline-start: var(--linie-scher) solid var(--c-linie); color: var(--c-tinte-2); text-decoration: none; }
+  .artikel-toc a::before { content: counter(toc, decimal-leading-zero); font-family: var(--ff-mono); font-size: var(--mono-groesse); color: var(--c-tinte-3); }
+  .artikel-toc a:hover { color: var(--c-tinte); text-decoration: underline; text-decoration-thickness: var(--linie-ui); }
+  .artikel-toc a[aria-current] { color: var(--c-tinte); font-weight: var(--fw-ui); border-inline-start-color: var(--c-kupfer); }
+  .artikel-toc a[aria-current]::before { color: var(--c-kupfer); }
+  @media (pointer: coarse) { .artikel-toc a { min-block-size: var(--ziel-touch); } }
   .artikel-quellen { list-style: none; padding: 0; display: grid; gap: var(--sp-2xs); font-size: var(--fs--1); color: var(--c-tinte-2); }
   .artikel-quellen li { margin: 0; padding-block-end: var(--sp-2xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
   .artikel-quelle-host { color: var(--c-tinte-3); }
+  @media (min-width: 48em) {
+    .artikel-kurz { font-size: var(--fs-1); line-height: var(--lh-dicht); }
+    /* Tablet: Das Blatt nimmt die ganze Spalte, die Bildunterschrift steht als Legende neben der Figur auf ihrer
+       Grundlinie – statt eines schmalen Blatts vor einer leeren rechten Hälfte. Die Figur bleibt so groß wie bisher. */
+    .artikel-figur { max-inline-size: none; grid-template-columns: minmax(0, calc(var(--hero-figur-max) - 2 * var(--sp-m))) minmax(0, 1fr); column-gap: var(--sp-l); align-items: end; }
+  }
   @media (min-width: 64em) {
     .artikel-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
-    .artikel-figur { justify-self: end; }
+    .artikel-figur { justify-self: end; max-inline-size: var(--hero-figur-max); grid-template-columns: none; }
     .artikel-kopf h1 { font-size: var(--fs-5); }
     .artikel-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
-    .artikel-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+    .artikel-wichtig, .artikel-text { grid-column: 1; }
+    .artikel-rand { grid-column: 2; grid-row: 1 / span 2; position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
   }
 }
