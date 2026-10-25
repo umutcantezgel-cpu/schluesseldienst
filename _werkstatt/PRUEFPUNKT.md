@@ -1,10 +1,10 @@
 # PRÜFPUNKT
-- Letzter grüner Commit: siehe `git log` (E3 W2 Detailseiten, V06 Hubs, V08-Vorlagen)
-- Etappe: E3 (W2 fertig, E3-PRUEF-10/11 offen) · E4 parallel (Ratgeber, Faktenblätter)
-- Nächster exakter Schritt: E4-OPUS-01 V04 `/preise/` (Vorlage `src/vorlagen/seiten/preise.mjs`, Tagesband, Rechner-Logik `src/assets/js/logik/preisrechner.mjs` + Modul + Tests) → E4-OPUS-02 Mailto + V10 Kontakt
-- Laufende Pakete: E4-KUND-04 (Recht-Faktenblätter), E4-KUND-05 (Statistik/Notruf/Tunnel/Lizenzen), E4-BAU-13 (Zylinder/Haustür-Check/RC), E4-BAU-14 (Tresor/zugefallen/Schadensbilder)
-- Wartend: E4-BAU-15 (braucht KUND-05), E4-BAU-16 (KUND-04/05), E4-BAU-17 (KUND-04), E4-BAU-18 (KUND-04/05); Paketblätter liegen in `_werkstatt/pakete/`
+- Letzter grüner Commit: siehe `git log` (E4-OPUS-02 Kontakt, E4-BAU-16)
+- Etappe: E4 (W3) · E3 abgeschlossen (Prüfstufe B bestanden, Bericht `_werkstatt/berichte/E3-pruefstufe-b.md`)
+- Nächster exakter Schritt: Rückgaben E4-BAU-18 (Ratgeber Förderung/Waffen/Alarm), E4-BAU-19 (Über uns/Karriere), E4-BAU-20 (Rechtsseiten), E4-BAU-21 (Leistungen/Sitemap) prüfen und committen → E4-OPUS-05 (Lahnbogen-Illustration + M-20 auf /ueber-uns/, Figurplatz `data-figur="lahnbogen"`) → Suche `/suche/` und 404 mit M-21 (Opus) → E4-GRAF-04 OG-Bilder → E4-PRUEF-12 live-check → E4-DOK-01 → E4-PRUEF-13
+- Laufende Pakete: E4-BAU-18, E4-BAU-19, E4-BAU-20, E4-BAU-21 (alle Haiku)
+- Bekannt: Gesamtbuild bricht ab, solange E4-BAU-21 sein CSS-Bündel `verzeichnis` noch nicht angelegt hat (unfertiger Arbeitsbaum, nicht committet). Eigene Prüfungen dann mit `--nur=`.
+- Fixture-Prüfungen (nicht im Repo): Scratchpad `probe/` mit Beispielpreisen/E-Mail; Skripte `rechner-test.mjs`, `composer-test.mjs`
 - Zweite Vorschau für eigene Tests: `node bau/bauen.mjs --messen --aus=.cache/opus-dist && node bau/vorschau.mjs --aus .cache/opus-dist --port 4180`
-- Entscheidungen: Hub-Titel ohne Präposition („Schlüsseldienst Westerwaldkreis: Orte A–Z“); kreisfreie Städte als „Name (kreisfreie Stadt)“; Ortsseiten-Titel > 60 nur Warnung (72 Fälle); Möbeltresor-Verankerung als Empfehlung, nicht als Zusage
-- Werkzeuge nach Neustart: siehe `_werkstatt/werkzeuge/README.md` (npm ci in /home/user/werkzeuge-cache)
-- Tests: `npm test` (nicht `node --test test/`)
+- Entscheidungen: CSS je Ansicht (D-CSS-01); Rechner als Gruppe ohne <form> (S12); Composer als <form method=get action=mailto:>; Quellenlisten nur aus verwendeten Fakten
+- Tests: `npm test`
