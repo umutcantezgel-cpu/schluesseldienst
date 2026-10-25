@@ -109,6 +109,47 @@ ${verzeichnis(orte)}
 </div></section>`;
 }
 
+// Der Kreis in Zahlen (K-08): vier feste Einträge, berechnet nur aus orte.json und den Zonen aus zonen.mjs.
+// Keine Wertung, keine Fließtext-Varianten. Jede Zahl steht in data-daten. Niederlande: ohne PLZ (nur deutsche Kreise).
+const zahlD = (n) => html`<span data-daten="">${zahl(n)}</span>`;
+const kmD = (n) => html`<span data-daten="">${zahl(n)}</span>&nbsp;km`;
+const ein = (n, eins, viele) => (n === 1 ? eins : viele);
+const nachKm = (richtung) => (a, b) => (richtung * (a.km - b.km)) || ZEICHEN.compare(a.name, b.name);
+const nachWeilburg = (o) => (o.km === 0 ? 'Sitz des Betriebs' : kmD(o.km));
+const ortLink = (o) => html`<a href="/schluesseldienst-${o.slug}/">${o.name}</a>`;
+
+function zonenZeile(orte, zonen) {
+  const liste = [...zonen.stufen.map((s) => ({ id: s.id, titel: s.titel })), { id: 'NL', titel: zonen.nl.titel }]
+    .map((z) => ({ ...z, n: orte.filter((o) => o.zone === z.id).length }))
+    .filter((z) => z.n > 0);
+  if (liste.reduce((a, z) => a + z.n, 0) !== orte.length) throw new Error(`Hub: Orte mit unbekannter Zone (${orte.length} Orte)`);
+  return liste.map((z, i) => html`${i ? ', ' : ''}${zahlD(z.n)} ${ein(z.n, 'Ort', 'Orte')} in Zone ${z.id} (${z.titel})`);
+}
+
+function plzZeile(orte) {
+  const plz = orte.filter((o) => o.staat === 'DE').flatMap((o) => o.plz || []).filter((p) => /^\d{5}$/.test(p)).sort();
+  if (!plz.length) return 'Keine Postleitzahl in den Daten';
+  const [kleinste, groesste] = [plz[0], plz[plz.length - 1]];
+  return kleinste === groesste ? html`<span data-daten="">${kleinste}</span>` : html`<span data-daten="">${kleinste}–${groesste}</span>`;
+}
+
+function kennzahlenAbschnitt(zonen, orte, staat) {
+  const gemeinden = orte.filter((o) => o.typ === 'gemeinde').length;
+  const ortsteile = orte.filter((o) => o.typ === 'ortsteil').length;
+  const naechster = [...orte].sort(nachKm(1))[0];
+  const entferntester = [...orte].sort(nachKm(-1))[0];
+  const eintraege = [
+    html`<dt>Gemeinden und Ortsteile</dt><dd>${zahlD(gemeinden)} ${ein(gemeinden, 'Gemeinde', 'Gemeinden')} · ${zahlD(ortsteile)} ${ein(ortsteile, 'Ortsteil', 'Ortsteile')}</dd>`,
+    html`<dt>Nächster und entferntester Ort ab Weilburg</dt><dd><span class="kreis-zahlen-zeile">Nächster: ${ortLink(naechster)}, ${nachWeilburg(naechster)}</span><span class="kreis-zahlen-zeile">Entferntester: ${ortLink(entferntester)}, ${nachWeilburg(entferntester)}</span></dd>`,
+    html`<dt>Verteilung auf die Zonen</dt><dd>${zonenZeile(orte, zonen)}</dd>`,
+  ];
+  if (staat === 'DE') eintraege.push(html`<dt>Postleitzahlen</dt><dd>${plzZeile(orte)}</dd>`);
+  return html`<section class="sektion sektion-dicht" aria-labelledby="hub-zahlen-titel"><div class="raster">
+${abschnittKopf({ id: 'hub-zahlen-titel', titel: 'Der Kreis in Zahlen' })}
+<dl class="kreis-zahlen">${eintraege}</dl>
+</div></section>`;
+}
+
 // Listen nach dem Namenskern sortiert („Limburg-Weilburg“ unter L, nicht alle Landkreise unter L); die Art steht leise dahinter
 const ART = /^(Landkreis|Kreis|Stadtkreis|Städteregion|Region|Kreisfreie Stadt)\s+(.+)$/;
 const kreisTeile = (titel) => { const m = ART.exec(titel); return m ? { kern: m[2], art: m[1] === 'Kreisfreie Stadt' ? 'kreisfreie Stadt' : m[1] } : { kern: titel, art: '' }; };
@@ -181,7 +222,7 @@ export function seiten(k) {
         pfad: pfadLand, stufen: stufenLand, h1: h1Land, titel: titelMit(l.titel, 'Orte A–Z'), kicker: 'Einsatzgebiet',
         beschreibung: `${orteText(n)} im Verzeichnis: ${l.titel}, A–Z geordnet. ${SITZ_ZEILE}`,
         satz: html`<span data-daten="">${orteText(n)}</span>, ${entfernungSatz(s)}. Die Zone steht bei jedem Ort.`,
-        abschnitt: azAbschnitt(l.orte),
+        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, l.orte, l.staat)}${azAbschnitt(l.orte)}`,
       }));
       continue;
     }
@@ -202,7 +243,7 @@ export function seiten(k) {
         pfad, stufen, h1, titel, kicker: `Einsatzgebiet · ${l.titel}`,
         beschreibung: `${orteText(kr.orte.length)} im Verzeichnis: ${name}. ${SITZ_ZEILE}`,
         satz: html`<span data-daten="">${orteText(kr.orte.length)}</span>, ${entfernungSatz(sk)}. Die Zone steht bei jedem Ort.`,
-        abschnitt: html`${azAbschnitt(kr.orte)}${weitereKreise(l, kr)}`,
+        abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, kr.orte, l.staat)}${azAbschnitt(kr.orte)}${weitereKreise(l, kr)}`,
       }));
     }
   }

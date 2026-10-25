@@ -1,6 +1,12 @@
 // Erzeugt Hoster-Konfigurationen aus src/konfig/sicherheit.mjs (eine Quelle, gleiche Header überall).
 // Weiterleitungen: nur geprüfte Pfade, Ziele mit fest eingetragenem Host (Schutz vor offenen Weiterleitungen).
 import { kopfzeilen, CACHE, MIME, SICHERER_PFAD } from '../../src/konfig/sicherheit.mjs';
+import { TEXT_ENDUNGEN } from './vorkomprimieren.mjs';
+
+// Vorkomprimierte Varianten (.br/.gz): Textendungen als Alternation; Annahme eines Kodierungs-Tokens im
+// Accept-Encoding (q=0 zählt als „nicht angenommen“).
+const TEXT = TEXT_ENDUNGEN.map((e) => e.slice(1)).join('|');
+const annahme = (token) => `(^|,)\\s*${token}\\s*(;\\s*q=(0\\.\\d*[1-9]\\d*|1(\\.0*)?)\\s*)?(,|$)`;
 
 export function pruefeWeiterleitungen(liste, existiert) {
   const quellen = new Set();
@@ -52,6 +58,24 @@ export function htaccess(host, weiterleitungen = []) {
     '  Header always set Cache-Control "no-cache" "expr=%{CONTENT_TYPE} =~ m#^text/html#"',
     ...cache.map((z) => z.split('\n').map((l) => '  ' + l).join('\n')),
     '</IfModule>',
+    '# Vorkomprimierte Varianten: Vary immer; Content-Encoding nur an .br bzw. .gz (der Content-Type bleibt der des Originals).',
+    '<IfModule mod_headers.c>',
+    `  <FilesMatch "\\.(${TEXT})$">`,
+    '    Header always merge Vary Accept-Encoding',
+    '  </FilesMatch>',
+    `  <FilesMatch "\\.(${TEXT})\\.br$">`,
+    '    Header always set Content-Encoding br',
+    '    Header always merge Vary Accept-Encoding',
+    '  </FilesMatch>',
+    `  <FilesMatch "\\.(${TEXT})\\.gz$">`,
+    '    Header always set Content-Encoding gzip',
+    '    Header always merge Vary Accept-Encoding',
+    '  </FilesMatch>',
+    '</IfModule>',
+    '<IfModule mod_deflate.c>',
+    '  # Keine Doppelkompression: vorkomprimierte Dateien nie erneut komprimieren (die Rewrite-Regeln setzen dieselben Variablen)',
+    '  SetEnvIfNoCase Request_URI \\.(br|gz)$ no-gzip dont-vary',
+    '</IfModule>',
     '<IfModule mod_rewrite.c>',
     '  RewriteEngine On',
     '  RewriteCond %{HTTPS} !=on',
@@ -60,6 +84,16 @@ export function htaccess(host, weiterleitungen = []) {
     `  RewriteRule ^ https://${host}%{REQUEST_URI} [R=301,L,NE]`,
     '  RewriteRule (^|/)\\.(?!well-known/) - [R=404,L]',
     ...weiterleitungen.map((w) => `  RewriteRule ^${w.von.slice(1).replace(/[.+?()[\]{}|^$\\]/g, '\\$&')}$ https://${host}${w.nach} [R=301,L]`),
+    '  # Vorkomprimierte Varianten: .br/.gz nie direkt anfordern – ausgeliefert werden sie nur über die Regeln unten',
+    '  RewriteCond %{THE_REQUEST} \\.(br|gz)[\\s?]',
+    '  RewriteRule ^ - [R=404,L]',
+    '  # Vorkomprimiert ausliefern, nur bei angenommener Kodierung und vorhandener Datei; br vor gzip',
+    `  RewriteCond %{HTTP:Accept-Encoding} ${annahme('br')} [NC]`,
+    '  RewriteCond %{REQUEST_FILENAME}.br -f',
+    `  RewriteRule ^(.+\\.(${TEXT}))$ $1.br [L,E=no-gzip:1,E=no-brotli:1,E=dont-vary:1]`,
+    `  RewriteCond %{HTTP:Accept-Encoding} ${annahme('gzip')} [NC]`,
+    '  RewriteCond %{REQUEST_FILENAME}.gz -f',
+    `  RewriteRule ^(.+\\.(${TEXT}))$ $1.gz [L,E=no-gzip:1,E=no-brotli:1,E=dont-vary:1]`,
     '</IfModule>',
   ].join('\n') + '\n';
 }
@@ -93,6 +127,11 @@ server {
     server_tokens off;
     absolute_redirect off;
     charset utf-8;
+    # Vorkomprimiert (vorkomprimieren): .gz wird ausgeliefert, wenn der Client gzip annimmt.
+    # gzip_static braucht das Modul ngx_http_gzip_static_module (nginx -V prüfen); gzip_vary setzt Vary: Accept-Encoding.
+    gzip_static on;
+    gzip_vary on;
+    # brotli_static on;  – nur mit dem Zusatzmodul ngx_brotli (nicht im Standard-nginx) und passenden brotli_types
     include snippets/sicherheit-header.conf;
     error_page 404 /404.html;
     location ~ /\\.(?!well-known/) { return 404; }

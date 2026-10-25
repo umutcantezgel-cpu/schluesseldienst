@@ -2,7 +2,7 @@
 // Generator: erzeugt die statische Website in dist/ (oder --aus=…).
 // Modi: --vorschau (Standard, noindex) · --messen (indexierbar, lokaler Origin) · --release (strikt).
 // Weitere Schalter: --pruefen · --aus=<ordner> · --port=<n> · --datum=JJJJ-MM-TT · --ziel=apache|nginx|netlify|cloudflare
-//                   --stichprobe=<n> (nur n Ortsseiten) · --nur=<pfadpräfix>
+//                   --stichprobe=<n> (nur n Ortsseiten) · --nur=<pfadpräfix> · --vorkomprimieren (.br/.gz zu Textdateien)
 import { parseArgs } from 'node:util';
 import { execFileSync } from 'node:child_process';
 import { readdir, readFile, writeFile, mkdir, rm, rename } from 'node:fs/promises';
@@ -10,6 +10,7 @@ import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { cssBuendeln, ansichtenBuendeln, jsBuendeln, statischeAssets, hash10, sri } from './lib/assets.mjs';
 import { Schreiber } from './lib/schreiben.mjs';
+import { vorkomprimieren } from './lib/vorkomprimieren.mjs';
 import { aufloesen } from './lib/markierung.mjs';
 import { platzhalterIn, istPlatzhalter } from './lib/platzhalter.mjs';
 import { setzeRoutenPruefer, fehlendeLinksHolen } from './lib/inhalt.mjs';
@@ -28,7 +29,7 @@ const { values: arg } = parseArgs({
   options: {
     vorschau: { type: 'boolean' }, messen: { type: 'boolean' }, release: { type: 'boolean' }, pruefen: { type: 'boolean' },
     aus: { type: 'string' }, port: { type: 'string' }, datum: { type: 'string' }, ziel: { type: 'string' },
-    stichprobe: { type: 'string' }, nur: { type: 'string' }, still: { type: 'boolean' },
+    stichprobe: { type: 'string' }, nur: { type: 'string' }, still: { type: 'boolean' }, vorkomprimieren: { type: 'boolean' },
   },
 });
 
@@ -215,6 +216,8 @@ async function main() {
     }
   }
 
+  // Vorkomprimierte Varianten nach dem Schreiben aller Dateien, vor dem Aufräumen (der Schreiber meldet sie dafür als geschrieben)
+  const vork = arg.vorkomprimieren ? await vorkomprimieren(schreiber) : null;
   const entfernt = nur ? 0 : await schreiber.aufraeumen();
 
   // Platzhalter in der Konfiguration (auch ungerenderte)
@@ -223,8 +226,10 @@ async function main() {
     modus, basisUrl, datum, seiten: gerendert.length, dateien: schreiber.bericht(), entfernt,
     css: assets.css.bytes, js: assets.js.bytes, platzhalterAusgabe: alleP.size, platzhalterKonfig: konfigP.length,
     faktenUngeprueft: alleF.size, ms: Math.round(performance.now() - start),
+    ...(vork && { vorkomprimiert: vork }),
   };
   log(`Build ${modus}: ${bericht.seiten} Seiten, ${bericht.dateien.geaendert} geändert, ${entfernt} entfernt, CSS ${bericht.css} B, JS ${bericht.js} B, ${bericht.ms} ms`);
+  if (vork) log(`Vorkomprimiert: ${vork.neu} neu, ${vork.unveraendert} unverändert, ${vork.zuGross} nicht kleiner, ${vork.entfernt} entfernt · .br ${vork.br} B · .gz ${vork.gz} B (Quellen ${vork.original} B) · ${vork.ms} ms`);
   log(`Platzhalter: ${alleP.size} in der Ausgabe, ${konfigP.length} in der Konfiguration · ungeprüfte Fakten: ${alleF.size}`);
 
   let fehler = 0;
