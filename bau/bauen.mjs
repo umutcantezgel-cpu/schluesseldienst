@@ -5,7 +5,7 @@
 //                   --stichprobe=<n> (nur n Ortsseiten) · --nur=<pfadpräfix>
 import { parseArgs } from 'node:util';
 import { execFileSync } from 'node:child_process';
-import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readdir, readFile, writeFile, mkdir, rm, rename } from 'node:fs/promises';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { cssBuendeln, ansichtenBuendeln, jsBuendeln, statischeAssets, hash10, sri } from './lib/assets.mjs';
@@ -245,6 +245,13 @@ async function main() {
   await mkdir(join(WURZEL, '.cache'), { recursive: true });
   await writeFile(berichtVon('bau-bericht.json'), JSON.stringify(bericht, null, 2));
   if (fehler) { console.error(`Build mit ${fehler} Fehler(n) beendet.`); process.exitCode = 1; }
+  // Ein verweigerter Release hinterlässt keinen hochladbaren Ordner: Die Ausgabe wird beiseitegelegt.
+  if (fehler && modus === 'release') {
+    const verworfen = `${aus}.verweigert`;
+    await rm(verworfen, { recursive: true, force: true });
+    await rename(aus, verworfen);
+    console.error(`Release verweigert: Ausgabe nach ${verworfen} verschoben – nicht hochladen.`);
+  }
 }
 
 main().catch((e) => { console.error(e.stack || String(e)); process.exitCode = 2; });

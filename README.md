@@ -22,7 +22,7 @@ Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML
 | `npm run pruefen` | Messbuild mit allen elf Prüfern, etwa 40 Sekunden. Schreibt ebenfalls nach `dist/`; Exit-Code 1 bei Fehlern. |
 | `npm run release` | Scheitert absichtlich, solange `betrieb.basisUrl` ein Platzhalter ist (siehe unten). |
 
-**Was „Release scheitert an Platzhaltern“ bedeutet.** `npm run release` verlangt eine echte Adresse in `betrieb.basisUrl` (`https://` und die Domain, ohne Pfad). Solange dort der Platzhalter steht, bricht der Lauf sofort mit Exit-Code 2 ab und schreibt nichts. Ist die Adresse gesetzt, prüft der Release weiter und verweigert die Ausgabe bei Platzhaltern in der Konfiguration oder auf den Seiten, bei Fakten mit Status „verifizieren“, bei Fehlern der Prüfer und bei internen Links ohne Ziel. Dann endet der Lauf mit Exit-Code 1. **In diesem Fall wird `dist/` trotzdem geschrieben. Laden Sie daraus nichts hoch.** Die Fehlermeldung nennt, was fehlt.
+**Was „Release scheitert an Platzhaltern“ bedeutet.** `npm run release` verlangt eine echte Adresse in `betrieb.basisUrl` (`https://` und die Domain, ohne Pfad). Solange dort der Platzhalter steht, bricht der Lauf sofort mit Exit-Code 2 ab und schreibt nichts. Ist die Adresse gesetzt, prüft der Release weiter und verweigert die Ausgabe bei Platzhaltern in der Konfiguration oder auf den Seiten, bei Fakten mit Status „verifizieren“, bei Fehlern der Prüfer und bei internen Links ohne Ziel. Dann endet der Lauf mit Exit-Code 1. In diesem Fall verschiebt der Build die Ausgabe nach `dist.verweigert/` (bzw. `<--aus>.verweigert/`); ein hochladbarer `dist/`-Ordner bleibt nicht zurück. Die Fehlermeldung nennt, was fehlt.
 
 ## Build-Modi und Schalter
 
