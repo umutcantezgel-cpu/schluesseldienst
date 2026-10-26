@@ -1,0 +1,41 @@
+== mobil (neu) ==
+{"basis":"http://127.0.0.1:4298/","breite":390,"hoehe":844,"fokusStopps":185,"ohne":0,"ringQuellen":{"element":184,"vorfahr:label.wahl-option":1},"h2":[4,6],"h2akt":2,"h3":[6,true,1],"h4":[3,46,true,23],"h5":[{"ort":10,"nachricht":4,"absenden":1},true,"ohne-adresse"],"menue":{"tabSchritteBisMenue":4,"tabSchritteBisAnruf":12,"anrufFokusSichtbar":true,"blatt":{"vorhanden":true,"ueberSichtfeld":true,"rufknopfAlsLink":true}}}
+H1 neu (Seite|Tab bis Anruf|Fokus sichtbar|tel-Links):
+  /|5|true|tel4
+  /einbruchschutz/|5|true|tel3
+  /notoeffnung/tueroeffnung/|5|true|tel4
+  /preise/|5|true|tel5
+  /einsatzgebiet/|5|true|tel3
+  /einsatzgebiet/hessen/limburg-weilburg/|5|true|tel4
+  /schluesseldienst-loehnberg/|5|true|tel4
+  /ratgeber/rauchmelderpflicht/|5|true|tel3
+  /ueber-uns/|5|true|tel4
+  /kontakt/|5|true|tel5
+  /suche/|5|true|tel3
+  /impressum/|5|true|tel3
+  /gibt-es-nicht/|5|true|tel4
+Anzahl Seiten mit erreichbarem Anruf: 13 von 13; Fokus sichtbar dort: 13
+== Vergleich mit frueher (Unterschiede in Kennzahlen): menue
+  menue alt={"tabSchritteBisMenue":4,"tabSchritteBisAnruf":12,"anrufFokusSichtbar":true,"blatt":{"vorhanden":true,"ueberSichtfeld":false,"rufknopfAlsLink":true}} neu={"tabSchritteBisMenue":4,"tabSchritteBisAnruf":12,"anrufFokusSichtbar":true,"blatt":{"vorhanden":true,"ueberSichtfeld":true,"rufknopfAlsLink":true}}
+H1 identisch zu frueher: true
+Protokollschritte alt=185 neu=185
+== desktop (neu) ==
+{"basis":"http://127.0.0.1:4298/","breite":1440,"hoehe":900,"fokusStopps":252,"ohne":0,"ringQuellen":{"element":251,"vorfahr:label.wahl-option":1},"h2":[5],"h2akt":1,"h3":[14,true,1],"h4":[2,52,true,23],"h5":[{"ort":16,"nachricht":4,"absenden":1},true,"ohne-adresse"],"menue":null}
+H1 neu (Seite|Tab bis Anruf|Fokus sichtbar|tel-Links):
+  /|11|true|tel4
+  /einbruchschutz/|11|true|tel3
+  /notoeffnung/tueroeffnung/|11|true|tel4
+  /preise/|11|true|tel5
+  /einsatzgebiet/|11|true|tel3
+  /einsatzgebiet/hessen/limburg-weilburg/|11|true|tel4
+  /schluesseldienst-loehnberg/|11|true|tel4
+  /ratgeber/rauchmelderpflicht/|11|true|tel3
+  /ueber-uns/|11|true|tel4
+  /kontakt/|11|true|tel5
+  /suche/|11|true|tel3
+  /impressum/|11|true|tel3
+  /gibt-es-nicht/|11|true|tel4
+Anzahl Seiten mit erreichbarem Anruf: 13 von 13; Fokus sichtbar dort: 13
+== Vergleich mit frueher (Unterschiede in Kennzahlen): keine
+H1 identisch zu frueher: true
+Protokollschritte alt=252 neu=252

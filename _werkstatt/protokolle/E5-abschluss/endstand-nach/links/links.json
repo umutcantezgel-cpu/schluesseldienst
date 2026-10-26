@@ -1,0 +1,119 @@
+{
+  "werkzeug": "links-pruefer (Basis links-md.mjs, Z-10)",
+  "zeitpunkt": "2026-10-26T12:36:24.385Z",
+  "basis": "/home/user/schluesseldienst",
+  "dateien": [
+    {
+      "datei": "README.md",
+      "relativeLinks": 6,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/MENSCHEN.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschlusspruefer.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "relativeLinks": 2,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/ENTSCHEIDUNGEN.md",
+      "relativeLinks": 3,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "relativeLinks": 1,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "relativeLinks": 3,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    }
+  ],
+  "geprueftLinks": 15,
+  "davonReferenzDefinitionen": 0,
+  "ankerGeprueft": 0,
+  "ankerNichtMdGeprueftNicht": 0,
+  "tot": [],
+  "pfade": {
+    "fundstellen": 259,
+    "verschiedene": 108,
+    "ok": 259,
+    "fehlend": [],
+    "platzhalterAusgenommen": [
+      {
+        "datei": "docs/BETRIEB.md",
+        "zeile": 66,
+        "pfad": "src/inhalte/fakten/<blatt>.mjs"
+      },
+      {
+        "datei": "docs/BETRIEB.md",
+        "zeile": 102,
+        "pfad": "src/inhalte/ratgeber/<id>.mjs"
+      }
+    ],
+    "symbolHinweise": [
+      {
+        "datei": "_werkstatt/MENSCHEN.md",
+        "zeile": 48,
+        "pfad": "src/konfig/betrieb.mjs",
+        "zusatz": "→ zusagen",
+        "status": "Datei existiert, Symbol im Text gefunden"
+      },
+      {
+        "datei": "_werkstatt/MENSCHEN.md",
+        "zeile": 52,
+        "pfad": "src/konfig/zonen.mjs",
+        "zusatz": "→ leistungenBestaetigt",
+        "status": "Datei existiert, Symbol im Text gefunden"
+      },
+      {
+        "datei": "_werkstatt/MENSCHEN.md",
+        "zeile": 54,
+        "pfad": "src/konfig/betrieb.mjs",
+        "zusatz": "→ zusagen.erfolglos",
+        "status": "Datei existiert, Symbol im Text gefunden"
+      }
+    ]
+  },
+  "hinweise": []
+}

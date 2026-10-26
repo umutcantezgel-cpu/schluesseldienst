@@ -199,6 +199,8 @@ Hinweise des Prüfers, ebenfalls erledigt:
 Am Endstand nachgemessen (`_werkstatt/protokolle/E5-abschluss/endstand-nach/`):
 - Fokus sichtbar an 2.739 (mobil) bzw. 2.670 (desktop) Stopps, 0 ohne Umriss.
 - H2–H4 erfüllt, H5 bis zur Übergabe; H1 und der Anruf im Menü-Blatt brauchen die Telefonnummer (U-6).
+- H1 und Anruf im Menü-Blatt mit Testnummer (Ersatz-Proxy vor 4251, `endstand-nach/ersatz/`): Anruf auf 13 von 13 Ansichten erreichbar, Fokus sichtbar (mobil nach 5, Desktop nach 11 Tab-Schritten); im Menü-Blatt nach 12 Tab-Schritten, Fokus sichtbar, Unterkante bei 831 px im Sichtfeld von 844 px. In der früheren Messung (`pruefer-z07-z09`, Stand vor `72ed87c`) lag sie bei 870 px und damit außerhalb; die Ursache wurde nicht untersucht, am Endstand ist der Anruf im Sichtfeld.
+- Linkprüfung der Übergabe-Dokumente nach den Änderungen vom 26.10. (`endstand-nach/links/links.json`): 13 Dateien, 15 relative Links 0 tot, 259 Pfadangaben in Backticks alle vorhanden (2 Platzhalter-Muster ausgenommen).
 - Token-Stichprobe: 0 unerlaubte Werte in 289 Deklarationen.
 - Bewegungscode 2.349 B gz.
 - Ähnlichkeit der Ortsseiten: Nachbarpaare Median 0,451, Maximum 0,677.
