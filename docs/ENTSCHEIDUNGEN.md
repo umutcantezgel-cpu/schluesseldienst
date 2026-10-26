@@ -1,6 +1,6 @@
 # Entscheidungen
 
-Diese Liste fasst die wichtigsten Entscheidungen zur Website zusammen, jeweils mit Problem, Entscheidung und Grund. Alle Einträge stammen vom 25. Oktober 2026. Die ausführliche Fassung mit Messwerten und Abwägungen steht in `_werkstatt/ENTSCHEIDUNGEN.md`, bis `_werkstatt/` entfernt wird.
+Diese Liste fasst die wichtigsten Entscheidungen zur Website zusammen, jeweils mit Problem, Entscheidung und Grund. Die Einträge stammen vom 25. und 26. Oktober 2026. Die ausführliche Fassung mit Messwerten und Abwägungen steht in `_werkstatt/ENTSCHEIDUNGEN.md`, bis `_werkstatt/` entfernt wird.
 
 ## D-001 · Keine Übernahme fremder Inhalte; Themen und Ortsnamen ja
 
@@ -82,9 +82,17 @@ Diese Liste fasst die wichtigsten Entscheidungen zur Website zusammen, jeweils m
 
 **Problem:** Die Sichtprüfung ergab in allen Ansichten 6,5 bis 7,7 statt mindestens 8 Punkte; die Nachprüfung fand einen Blocker: Auf dem Handy lag der Fokus unter der Rufleiste (WCAG 2.4.11). **Entscheidung:** Der Fokus wird nie verdeckt (Abstand für Rufleiste und Kopfzeile beim Bildlauf), jede Seite trägt genau eine Kopflinie als Leitelement, Überschriften werden nie automatisch getrennt, und Karten erhalten einheitliche Bewegungen. **Grund:** Ein sichtbarer, nie verdeckter Fokus ist eine Anforderung der Barrierefreiheit; die Kopflinie verbindet die Seiten optisch.
 
+## D-E5-02 · Gestaltungsziel nicht erreicht: Ausnahme statt dritter Prüfrunde
+
+**Problem:** Ziel war, dass jede Hauptansicht in der Gestaltungsprüfung mindestens 8 von 10 Punkten erreicht. Zwei Prüfrunden mit frischen Prüfern ergaben 6,5 bis 7,7 und 6,3 bis 7,5 Punkte; im Blindvergleich zogen die Prüfer die neue Website aber in allen 24 Paaren den Seiten der Wettbewerber vor. **Entscheidung:** Das Ziel wird als Ausnahme geführt, nicht als erreicht. Die Befunde der zweiten Runde sind als weitere Arbeitsrunde umgesetzt, aber nicht neu bewertet; die übrigen stehen in [OFFENE-PUNKTE.md](OFFENE-PUNKTE.md), Nr. 36–40. **Grund:** Die Regeln erlauben höchstens zwei Prüfrunden; die Werte schönzurechnen schied aus. Wer den Wert belegt sehen will, beauftragt eine neue Gestaltungsprüfung. Einzelheiten: `_werkstatt/ENTSCHEIDUNGEN.md` (D-E5-02), `_werkstatt/berichte/E5-endpruefung.md`.
+
 ## D-E5-03 · Seitenwechsel ohne Konsolenfehler
 
 **Problem:** Beim Wechsel zwischen Seiten meldete Chromium in etwa jedem sechsten bis achten Fall einen Fehler in der Konsole, weil der Browser die Überblendung (Seitenwechsel-Übergang) verwarf: Er legt beim Beginn des Seiteninhalts fest, ob eine Seite den Übergang wünscht, und die Stildateien waren in diesen Fällen noch nicht geladen. **Entscheidung:** Das Skript der Seite läuft jetzt vor der ersten Darstellung (`blocking="render"`); danach steht die Entscheidung des Browsers richtig fest. **Grund:** Messungen mit 0 Fehlern in 156 Wechseln und unveränderten Lighthouse-Werten. Eine Alternative (ein kleines Skript im Kopf) war im echten Browser rund 0,25 s schneller, verfehlte aber den Lighthouse-Grenzwert auf der Preisseite; die Wahl steht dem Betrieb offen (`docs/OFFENE-PUNKTE.md`). Einzelheiten: `_werkstatt/ENTSCHEIDUNGEN.md` (D-E5-03), `_werkstatt/berichte/E5-abschluss-pruefung.md`.
+
+## D-E5-04 · Startseite lädt langsamer als die erste Messung: Ausnahme
+
+**Problem:** In der Simulation von Lighthouse (Handy, gedrosselt) erscheint der größte Inhalt der Startseite nach rund 2,40 s statt 2,10 s wie bei der ersten eigenen Messung; die Grenze von 2,5 s halten alle Hauptansichten ein, beim Hoster mit gzip liegt die Startseite bei rund 1,67 s. **Entscheidung:** Der Abstand wird als Ausnahme geführt. Druck- und Kontraststile bleiben eigene Dateien, die Stile je Ansicht bleiben getrennt. **Grund:** Gemessen kosten die eigenen Dateien für Druck und erzwungene Farben rund 0,15 s; die übrigen rund 0,15 s entstehen bis zum ersten Inhalt, naheliegend durch die zweite Stildatei je Ansicht (nicht getrennt gemessen). Beides zurückzunehmen würde das Größenbudget für CSS je Seite sprengen oder Druck und Kontrastdarstellung von JavaScript abhängig machen. Der Abstand zur Grenze ist knapp ([OFFENE-PUNKTE.md](OFFENE-PUNKTE.md), Nr. 44). Einzelheiten: `_werkstatt/ENTSCHEIDUNGEN.md` (D-E5-04).
 
 ## Überholte Vorschläge
 

@@ -14,15 +14,15 @@
 
 ## Abschlussbericht
 
-Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4f`, HEAD bei Erstellung `91baf4b`. Seit `72ed87c` hat sich unter `src/`, `bau/`, `test/` und `pipeline/` nichts geändert; die späteren Commits betreffen `_werkstatt/` und `docs/OFFENE-PUNKTE.md`.
+Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4f`, HEAD bei Erstellung `91baf4b`. Seit `72ed87c` hat sich unter `src/`, `bau/`, `test/` und `pipeline/` nichts geändert; die späteren Commits betreffen nur Dokumentation (`_werkstatt/`, `docs/`, `README.md`, `CLAUDE.md`).
 
 ### Ergebnis in Zahlen
 
 - **Seiten:** 5.556 im Messbau, davon 5.252 Ortsseiten. 314 unklare Orte sind nicht veröffentlicht.
-- **Pakete:** Pflichtpakete 66 von 66 erledigt und abgenommen (die Kapazitätszeile in PLAN.md nannte 67, nachgezählt sind es 66), Kür 8 von 8.
+- **Pakete:** Pflichtpakete 66 von 66 erledigt und abgenommen (nachgezählt; PLAN.md nannte zuvor 67), Kür 8 von 8.
 - **Prüfer:** 11 Build-Prüfer ohne Fehler, 72 bekannte Warnungen (Titellänge auf Ortsseiten, D-SEO-04).
 - **Tests:** 331 Tests, 330 bestanden, 0 fehlgeschlagen, 1 als offen markiert (Postleitzahl NL, offene Frage).
-- **Budgets (Endmessung):** CSS je Seite höchstens 13.666 von 14.336 B gzip; größtes JavaScript-Bündel 9.837 von 16.384 B gzip; größte Ortsseite 30.390 von 30.720 B; Bewegungscode 2,3 KB gzip (weiches Budget 12 KB, hartes 60 KB).
+- **Budgets (Endmessung):** CSS je Seite höchstens 13.666 von 14.336 B gzip; größtes JavaScript-Bündel 9.837 von 16.384 B gzip; größte Ortsseite 30.390 von 30.720 B; Bewegungscode 2,3 KB gzip, dazu Übergänge in den Komponenten nach einer Näherung rund 0,85 KB (weiches Budget 12 KB, hartes 60 KB).
 - **Messwerte (Endmessung):** Mobile Ladezeit-Messung auf 12 Hauptansichten, Median aus drei Läufen: Leistung 96 bis 99, Barrierefreiheit und Best Practices 100, SEO 100 außer `/suche/` (66, bewusst nicht indexierbar). LCP-Mediane 1.955 bis 2.409 ms, CLS 0. Startseite komprimiert: Leistung 100, LCP 1.658 ms. INP höchstens 64 ms (Grenze 200 ms).
 
 ### Kriterien Z-01 bis Z-10
@@ -42,18 +42,18 @@ Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4
 
 ### Umgebungsausnahmen U-1 bis U-6
 
-- **U-1 Echte Geräte:** Ersatz ist die Chromium-Emulation mit 390 × 844 Pixeln und grobem Zeigegerät.
+- **U-1 Echte Geräte:** Ersatz ist die Chromium-Emulation mit 390 × 844 Pixeln; Tastatur-, Seitenwechsel- und Lighthouse-Läufe emulieren zusätzlich Touch, smoke, Überlauf und Bildsätze nur die Fenstergröße.
 - **U-2 Firefox und Safari:** Nur Chromium ist installiert. Funktionen mit Rückfall gebaut, geprüft mit Chromium und durch Code-Durchsicht.
-- **U-3 Bildrate mit GPU:** Ersatz ist die Messung mit vierfach gedrosselter CPU. Verworfene Bilder höchstens 2,9 % (Grenze 5 %).
-- **U-4 Live-Header beim Hoster:** Kein Deploy. Die Header des Vorschau-Servers sind identisch zu `_headers`, `.htaccess` und nginx. Die Live-Prüfung `_werkstatt/werkzeuge/live-check.mjs` führt der Betrieb nach dem Deploy aus.
+- **U-3 Bildrate mit GPU:** Ersatz ist die Messung mit vierfach gedrosselter CPU. Verworfene Bilder 0,83 bis 2,94 % (Grenze 5 %).
+- **U-4 Live-Header beim Hoster:** Kein Deploy. Die Header des Vorschau-Servers stammen aus derselben Quelle wie `_headers`, `.htaccess` und nginx (`kopfzeilen()`); nur HSTS lässt der Vorschau-Server bewusst weg, weil er über http läuft. Die Live-Prüfung `_werkstatt/werkzeuge/live-check.mjs` führt der Betrieb nach dem Deploy aus.
 - **U-5 Wirkung in Google:** Keine Veröffentlichung. Ersatz sind Ähnlichkeitsmessung, Linkgraph und ehrliche Zonentexte.
 - **U-6 Konfigurationslücken:** Name, Telefon, Preise, Rechtsdaten und ungeprüfte Fakten fehlen. Die Vorschau zeigt sichtbare Platzhalter; der Anruf wurde nur mit Testnummer in einer lokalen Kopie geprüft; die Release-Sperre ist als Negativtest belegt.
 
 ### Ausnahmen A-1 und A-2
 
-**A-1 · Z-08 Ladezeit.** Unter gleichen Bedingungen gemessen (E2-Commit frisch gebaut, je 5 Läufe in zwei Zeitfenstern) erreicht die Startseite ihren größten Inhalt nach 2.400–2.407 ms statt 2.104–2.109 ms (mit gzip wie beim Hoster 1.667 statt 1.508–1.510 ms); die Grenzen (LCP ≤ 2.500 ms, Leistung ≥ 95, CLS ≤ 0,1) sind auf allen Hauptansichten eingehalten. Rund 150 ms kosten die eigenen Dateien für Druck und erzwungene Farben, rund 150 ms die zweite renderblockierende Stildatei je Ansicht. Beide zurückzunehmen hieße, das CSS-Budget zu sprengen oder Druck und Kontrastdesign von JavaScript abhängig zu machen (Denkprotokoll D-E5-04).
+**A-1 · Z-08 Ladezeit.** Unter gleichen Bedingungen gemessen (E2-Commit frisch gebaut, je 5 Läufe in zwei Zeitfenstern) erreicht die Startseite ihren größten Inhalt nach 2.400–2.407 ms statt 2.104–2.109 ms (mit gzip wie beim Hoster 1.667 statt 1.508–1.510 ms); die Grenzen (LCP ≤ 2.500 ms, Leistung ≥ 95, CLS ≤ 0,1) sind auf allen Hauptansichten eingehalten. Rund 150 ms kosten die eigenen Dateien für Druck und erzwungene Farben (gemessen). Die übrigen rund 150 ms entstehen bis zum ersten Inhalt; naheliegend ist die zweite renderblockierende Stildatei je Ansicht, getrennt gemessen ist das nicht. Beide zurückzunehmen hieße, das CSS-Budget zu sprengen oder Druck und Kontrastdesign von JavaScript abhängig zu machen (Denkprotokoll D-E5-04).
 
-**A-2 · Z-04 Gestaltung.** Der Ansichtswert 8 wurde nach zwei Anläufen nicht erreicht (Anlauf 1: 6,50 bis 7,67, Anlauf 2: 6,33 bis 7,50). Der Blindvergleich ist in beiden Anläufen erfüllt: 24 von 24 Paaren zogen den neuen Stand vor. Ein dritter Anlauf widersprach der Regel von höchstens zwei Anläufen je Tor; die Befunde aus Anlauf 2 wurden als zweite Paketrunde umgesetzt, nicht erneut bewertet, und die Restpunkte sind offen.
+**A-2 · Z-04 Gestaltung.** Der Ansichtswert 8 wurde nach zwei Anläufen nicht erreicht (Anlauf 1: 6,50 bis 7,67, Anlauf 2: 6,33 bis 7,50). Der Blindvergleich ist erfüllt (siehe Gestaltung). Ein dritter Anlauf widersprach der Regel von höchstens zwei Anläufen je Tor; die Befunde aus Anlauf 2 wurden als zweite Paketrunde umgesetzt, nicht erneut bewertet, und die Restpunkte sind offen.
 
 ### Gestaltung
 
@@ -80,7 +80,7 @@ Die Abschluss-Nachprüfung lief in zwei Durchgängen mit Haiku-Prüfern; die Pro
 
 - `_werkstatt/bilder/galerie.html`: Galerie mit 1.372 Bildern in zehn Abschnitten (E2 bis E5, Abschluss, Morgenstand).
 - `_werkstatt/bilder/abschluss/`: 510 Bilder in 78 Varianten (13 Pfade × 3 Gerätegrößen × hell/dunkel); das Verzeichnis liegt in `index.json`.
-- Die Vorher-Bilder der Wettbewerber liegen nicht im Repository, sondern unter `.cache/vorher/bilder/` (97 JPEG, nicht committet). Die Galerie erklärt das selbst. Der Auftrag sah eine Vorher-Nachher-Galerie vor: Sie zeigt den eigenen Stand von E2 bis zum Abschluss. Die Wettbewerber-Vorher-Bilder bleiben nach dem genehmigten Plan außerhalb des Repositorys, weil das öffentliche Repository keine aus Wettbewerberdaten abgeleiteten Bilder tragen soll; ihre Kennzahlen stehen in `_werkstatt/berichte/E0-vorher-kennzahlen.md`.
+- Die Vorher-Nachher-Galerie zeigt den eigenen Stand von E2 bis zum Abschluss. Die Vorher-Bilder der Wettbewerber (97 JPEG unter `.cache/vorher/bilder/`) bleiben nach dem genehmigten Plan außerhalb des öffentlichen Repositorys; die Galerie sagt das, die Kennzahlen stehen in `_werkstatt/berichte/E0-vorher-kennzahlen.md`.
 
 ### Offene Punkte
 

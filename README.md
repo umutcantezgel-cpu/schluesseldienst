@@ -88,6 +88,9 @@ Der Build führt die Prüfer mit `--pruefen` aus; im Release sind Fehler blockie
 - [docs/BETRIEB.md](docs/BETRIEB.md): Was vor dem ersten Release eingetragen werden muss.
 - [docs/OFFENE-PUNKTE.md](docs/OFFENE-PUNKTE.md): Alle offenen Punkte mit Zuständigkeit und Wirkung auf den Release.
 - [docs/HOSTER-CHECKLISTE.md](docs/HOSTER-CHECKLISTE.md): Anforderungen an den Hoster, Domain und E-Mail, Ablauf eines Deploys.
+- [docs/ZUSAMMENFUEHREN.md](docs/ZUSAMMENFUEHREN.md): Arbeitsbranch zusammenführen und zurückrollen, Umgang mit `_werkstatt/`.
+- [docs/ENTSCHEIDUNGEN.md](docs/ENTSCHEIDUNGEN.md): Die wichtigsten Entscheidungen mit Problem und Grund.
+- [docs/ORTE-ABGLEICH.md](docs/ORTE-ABGLEICH.md): Wie die Ortsliste aus GeoNames entsteht und geprüft wird.
 - `_werkstatt/MENSCHEN.md`: Die Fragen an den Betrieb mit Begründung.
 - `_werkstatt/werkzeuge/README.md`: Mess- und Prüfwerkzeuge für Browser und Live-Prüfung.
 
