@@ -1,0 +1,14 @@
+Build messen: 5556 Seiten, 5623 geändert, 0 entfernt, CSS 52869 B, JS 9 Bündel bis 27559 B, 17449 ms
+Platzhalter: 65 in der Ausgabe, 58 in der Konfiguration · ungeprüfte Fakten: 92
+✓ budgets           0 Fehler     0 Warnungen  (3565 ms)
+✓ ehrlichkeit       0 Fehler     0 Warnungen  (6522 ms)
+✓ emoji             0 Fehler     0 Warnungen  (1425 ms)
+✓ fakten            0 Fehler     0 Warnungen  (1594 ms)
+✓ icons             0 Fehler     0 Warnungen  (21 ms)
+✓ jsonld            0 Fehler     0 Warnungen  (232 ms)
+✓ links             0 Fehler     0 Warnungen  (1345 ms)
+✓ plagiat           0 Fehler     0 Warnungen  (5848 ms)
+✓ seo               0 Fehler    72 Warnungen  (396 ms)
+✓ sicherheit        0 Fehler     0 Warnungen  (9973 ms)
+✓ token             0 Fehler     0 Warnungen  (120 ms)
+EXIT=0

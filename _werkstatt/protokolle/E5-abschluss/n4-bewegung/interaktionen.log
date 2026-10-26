@@ -1,0 +1,705 @@
+=== a-faq | reduce | mobil 390x844 | /
+-- a FAQ öffnen  (fehlend: -; Messzeiten ms: 45 / 124 / 204 / 403)
+   chevron: vorher t="none" op=1 disp=block oben=8343.23 rueck=1 | 45ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=366.23 rueck=1 | 124ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=366.23 rueck=1 | 204ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=366.23 rueck=1 | 403ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=366.23 rueck=1
+   antwort: vorher t="none" op=1 disp=block oben=8383.03 rueck=1 | 45ms t="none" op=1 disp=block oben=406.03 rueck=1 | 124ms t="none" op=1 disp=block oben=406.03 rueck=1 | 204ms t="none" op=1 disp=block oben=406.03 rueck=1 | 403ms t="none" op=1 disp=block oben=406.03 rueck=1
+   Animationen/Übergänge bei 45 ms: keine relevanten
+   Anim@45 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 124 ms: keine relevanten
+   Anim@124 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 204 ms: keine relevanten
+   Anim@204 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+=== a-faq | reduce | mobil 390x844 | /preise/
+-- a FAQ öffnen  (fehlend: -; Messzeiten ms: 42 / 123 / 205 / 403)
+   chevron: vorher t="none" op=1 disp=block oben=7373.77 rueck=1 | 42ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=365.77 rueck=1 | 123ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=365.77 rueck=1 | 205ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=365.77 rueck=1 | 403ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=365.77 rueck=1
+   antwort: vorher t="none" op=1 disp=block oben=7429.36 rueck=1 | 42ms t="none" op=1 disp=block oben=421.36 rueck=1 | 123ms t="none" op=1 disp=block oben=421.36 rueck=1 | 205ms t="none" op=1 disp=block oben=421.36 rueck=1 | 403ms t="none" op=1 disp=block oben=421.36 rueck=1
+   Animationen/Übergänge bei 42 ms: keine relevanten
+   Anim@42 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 123 ms: keine relevanten
+   Anim@123 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 205 ms: keine relevanten
+   Anim@205 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+=== b-hauptnav | reduce | desktop 1440x900 | /
+-- b Leistungen aufklappen  (fehlend: -; Messzeiten ms: 43 / 123 / 203 / 403)
+   knopf: vorher t="none" op=1 disp=flex oben=14 rueck=1 | 43ms t="none" op=1 disp=flex oben=14 rueck=1 | 123ms t="none" op=1 disp=flex oben=14 rueck=1 | 203ms t="none" op=1 disp=flex oben=14 rueck=1 | 403ms t="none" op=1 disp=flex oben=14 rueck=1
+   pfeil: vorher t="none" op=1 disp=block oben=26 rueck=1 | 43ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=26 rueck=1 | 123ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=26 rueck=1 | 203ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=26 rueck=1 | 403ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=26 rueck=1
+   panel: vorher t="none" op=0 disp=grid oben=72 rueck=1 | 43ms t="none" op=0.551681 disp=grid oben=72 rueck=1 | 123ms t="none" op=0.981009 disp=grid oben=72 rueck=1 | 203ms t="none" op=1 disp=grid oben=72 rueck=1 | 403ms t="none" op=1 disp=grid oben=72 rueck=1
+   Anim@43: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=33 el=panel transf=false status=running
+   Anim@43 gesamt: 1 (transformiert: 0)
+   Anim@123: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=117 el=panel transf=false status=running
+   Anim@123 gesamt: 1 (transformiert: 0)
+   Animationen/Übergänge bei 203 ms: keine relevanten
+   Anim@203 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+-- b Leistungen zuklappen  (fehlend: -; Messzeiten ms: 43 / 123 / 203 / 404)
+   knopf: vorher t="none" op=1 disp=flex oben=14 rueck=1 | 43ms t="none" op=1 disp=flex oben=14 rueck=1 | 123ms t="none" op=1 disp=flex oben=14 rueck=1 | 203ms t="none" op=1 disp=flex oben=14 rueck=1 | 404ms t="none" op=1 disp=flex oben=14 rueck=1
+   pfeil: vorher t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=26 rueck=1 | 43ms t="none" op=1 disp=block oben=26 rueck=1 | 123ms t="none" op=1 disp=block oben=26 rueck=1 | 203ms t="none" op=1 disp=block oben=26 rueck=1 | 404ms t="none" op=1 disp=block oben=26 rueck=1
+   panel: vorher t="none" op=1 disp=grid oben=72 rueck=1 | 43ms t="none" op=0.345302 disp=grid oben=72 rueck=1 | 123ms t="none" op=0.000262311 disp=grid oben=72 rueck=1 | 203ms t="none" op=0 disp=grid oben=72 rueck=1 | 404ms t="none" op=0 disp=grid oben=72 rueck=1
+   Anim@43: CSSTransition opacity [opacity] dauer=120 verz=0 zeit=33 el=panel transf=false status=running
+   Anim@43: CSSTransition visibility [visibility] dauer=0 verz=120 zeit=33 el=panel transf=false status=running
+   Anim@43 gesamt: 2 (transformiert: 0)
+   Anim@123: CSSTransition opacity [opacity] dauer=120 verz=0 zeit=117 el=panel transf=false status=running
+   Anim@123: CSSTransition visibility [visibility] dauer=0 verz=120 zeit=117 el=panel transf=false status=running
+   Anim@123 gesamt: 2 (transformiert: 0)
+   Animationen/Übergänge bei 203 ms: keine relevanten
+   Anim@203 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 404 ms: keine relevanten
+   Anim@404 gesamt: 0 (transformiert: 0)
+=== c-menue-blatt | reduce | mobil 390x844 | /
+-- c Menü-Blatt öffnen  (fehlend: -; Messzeiten ms: 43 / 123 / 205 / 404)
+   knopf: vorher t="none" op=1 disp=flex oben=777.11 rueck=1 | 43ms t="none" op=1 disp=flex oben=777.11 rueck=1 | 123ms t="none" op=1 disp=flex oben=777.11 rueck=1 | 205ms t="none" op=1 disp=flex oben=777.11 rueck=1 | 404ms t="none" op=1 disp=flex oben=777.11 rueck=1
+   blatt: vorher t="none" op=0 disp=none oben=0 rueck=0 | 43ms t="none" op=0.731881 disp=block oben=126.61 rueck=0.731881 | 123ms t="none" op=0.981009 disp=block oben=126.61 rueck=0.981009 | 205ms t="none" op=1 disp=block oben=126.61 rueck=1 | 404ms t="none" op=1 disp=block oben=126.61 rueck=1
+   Anim@43: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=blatt transf=false status=running
+   Anim@43: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=blatt transf=false status=running
+   Anim@43 gesamt: 2 (transformiert: 0)
+   Anim@123: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=117 el=blatt transf=false status=running
+   Anim@123: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=117 el=blatt transf=false status=running
+   Anim@123 gesamt: 2 (transformiert: 0)
+   Animationen/Übergänge bei 205 ms: keine relevanten
+   Anim@205 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 404 ms: keine relevanten
+   Anim@404 gesamt: 0 (transformiert: 0)
+-- c Menü-Blatt schließen  (fehlend: -; Messzeiten ms: 42 / 122 / 203 / 402)
+   blatt: vorher t="none" op=1 disp=block oben=126.61 rueck=1 | 42ms t="none" op=0.345276 disp=block oben=126.61 rueck=0.345276 | 122ms t="none" op=0.000261677 disp=block oben=126.61 rueck=0.000261677 | 203ms t="none" op=0 disp=none oben=0 rueck=0 | 402ms t="none" op=0 disp=none oben=0 rueck=0
+   Anim@42: CSSTransition display [display] dauer=120 verz=0 zeit=33 el=blatt transf=false status=running
+   Anim@42: CSSTransition opacity [opacity] dauer=120 verz=0 zeit=33 el=blatt transf=false status=running
+   Anim@42: CSSTransition overlay [overlay] dauer=120 verz=0 zeit=33 el=blatt transf=false status=running
+   Anim@42: CSSTransition opacity [opacity] dauer=120 verz=0 zeit=33 el=blatt transf=false status=running
+   Anim@42 gesamt: 4 (transformiert: 0)
+   Anim@122: CSSTransition display [display] dauer=120 verz=0 zeit=117 el=blatt transf=false status=running
+   Anim@122: CSSTransition opacity [opacity] dauer=120 verz=0 zeit=117 el=blatt transf=false status=running
+   Anim@122: CSSTransition overlay [overlay] dauer=120 verz=0 zeit=117 el=blatt transf=false status=running
+   Anim@122: CSSTransition opacity [opacity] dauer=120 verz=0 zeit=117 el=blatt transf=false status=running
+   Anim@122 gesamt: 4 (transformiert: 0)
+   Animationen/Übergänge bei 203 ms: keine relevanten
+   Anim@203 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 402 ms: keine relevanten
+   Anim@402 gesamt: 0 (transformiert: 0)
+=== d-ortspruefung | reduce | mobil 390x844 | /einsatzgebiet/
+-- d Ort tippen (Löhnberg), Vorschlagsliste  (fehlend: -; Messzeiten ms: 44 / 403)
+   eingabe: vorher t="none" op=1 disp=inline-block oben=669.45 rueck=1 | 44ms t="none" op=1 disp=inline-block oben=669.45 rueck=1 | 403ms t="none" op=1 disp=inline-block oben=669.45 rueck=1
+   liste: vorher t="none" op=1 disp=none oben=0 rueck=1 | 44ms t="none" op=1 disp=block oben=726.88 rueck=1 | 403ms t="none" op=1 disp=block oben=726.88 rueck=1
+   ergebnis: vorher t="none" op=1 disp=none oben=0 rueck=1 | 44ms t="none" op=1 disp=none oben=0 rueck=1 | 403ms t="none" op=1 disp=none oben=0 rueck=1
+   Animationen/Übergänge bei 44 ms: keine relevanten
+   Anim@44 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+-- d Vorschlag wählen, Ergebnis  (fehlend: -; Messzeiten ms: 42 / 405)
+   eingabe: vorher t="none" op=1 disp=inline-block oben=669.45 rueck=1 | 42ms t="none" op=1 disp=inline-block oben=650.45 rueck=1 | 405ms t="none" op=1 disp=inline-block oben=650.45 rueck=1
+   liste: vorher t="none" op=1 disp=block oben=726.88 rueck=1 | 42ms t="none" op=1 disp=none oben=0 rueck=1 | 405ms t="none" op=1 disp=none oben=0 rueck=1
+   ergebnis: vorher t="none" op=1 disp=none oben=0 rueck=1 | 42ms t="none" op=1 disp=grid oben=755.88 rueck=1 | 405ms t="none" op=1 disp=grid oben=755.88 rueck=1
+   Animationen/Übergänge bei 42 ms: keine relevanten
+   Anim@42 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 405 ms: keine relevanten
+   Anim@405 gesamt: 0 (transformiert: 0)
+=== e-composer | reduce | mobil 390x844 | /kontakt/
+-- e Anliegen Notfall  (fehlend: betreff; Messzeiten ms: 44 / 405)
+   notfall: vorher t="none" op=1 disp=none oben=0 rueck=1 | 44ms t="none" op=1 disp=grid oben=682.66 rueck=1 | 405ms t="none" op=1 disp=grid oben=682.66 rueck=1
+   mail: vorher t="none" op=1 disp=grid oben=1814.66 rueck=1 | 44ms t="none" op=1 disp=none oben=0 rueck=1 | 405ms t="none" op=1 disp=none oben=0 rueck=1
+   kopf: vorher t="none" op=1 disp=grid oben=1814.66 rueck=1 | 44ms t="none" op=1 disp=grid oben=0 rueck=1 | 405ms t="none" op=1 disp=grid oben=0 rueck=1
+   Animationen/Übergänge bei 44 ms: keine relevanten
+   Anim@44 gesamt: 1 (transformiert: 0)
+   Animationen/Übergänge bei 405 ms: keine relevanten
+   Anim@405 gesamt: 0 (transformiert: 0)
+-- e Anliegen planbar (Mail-Zweig)  (fehlend: -; Messzeiten ms: 43 / 403)
+   notfall: vorher t="none" op=1 disp=grid oben=682.66 rueck=1 | 43ms t="none" op=1 disp=none oben=0 rueck=1 | 403ms t="none" op=1 disp=none oben=0 rueck=1
+   mail: vorher t="none" op=1 disp=none oben=0 rueck=1 | 43ms t="none" op=1 disp=grid oben=682.66 rueck=1 | 403ms t="none" op=1 disp=grid oben=682.66 rueck=1
+   kopf: vorher t="none" op=1 disp=grid oben=0 rueck=1 | 43ms t="none" op=1 disp=grid oben=682.66 rueck=1 | 403ms t="none" op=1 disp=grid oben=682.66 rueck=1
+   betreff: vorher t="none" op=1 disp=block oben=0 rueck=1 | 43ms t="none" op=1 disp=block oben=718.08 rueck=1 | 403ms t="none" op=1 disp=block oben=718.08 rueck=1
+   Animationen/Übergänge bei 43 ms: keine relevanten
+   Anim@43 gesamt: 2 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+=== f-gruppenfilter | reduce | mobil 390x844 | /leistungen/
+-- f Gruppe Einbruchschutz  (fehlend: -; Messzeiten ms: 43 / 402)
+   gruppe: vorher t="none" op=1 disp=block oben=1401.09 rueck=1 | 43ms t="none" op=1 disp=block oben=31.58 rueck=1 | 402ms t="none" op=1 disp=block oben=31.58 rueck=1
+   Animationen/Übergänge bei 43 ms: keine relevanten
+   Anim@43 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 402 ms: keine relevanten
+   Anim@402 gesamt: 0 (transformiert: 0)
+-- f Gruppe Sicherheitstechnik (eingeblendet)  (fehlend: -; Messzeiten ms: 43 / 403)
+   gruppe: vorher t="none" op=1 disp=none oben=0 rueck=1 | 43ms t="none" op=0.551739 disp=block oben=487.58 rueck=1 | 403ms t="none" op=1 disp=block oben=487.58 rueck=1
+   Anim@43: CSSAnimation erscheinen [opacity] dauer=150 verz=0 zeit=33 el=gruppe transf=false status=running
+   Anim@43 gesamt: 1 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+-- f Alle Gruppen (eingeblendet)  (fehlend: -; Messzeiten ms: 44 / 404)
+   gruppe: vorher t="none" op=1 disp=none oben=0 rueck=1 | 44ms t="none" op=0.551739 disp=block oben=487.58 rueck=1 | 404ms t="none" op=1 disp=block oben=487.58 rueck=1
+   Anim@44: CSSAnimation erscheinen [opacity] dauer=150 verz=0 zeit=33 el=gruppe transf=false status=running
+   Anim@44 gesamt: 3 (transformiert: 0)
+   Animationen/Übergänge bei 404 ms: keine relevanten
+   Anim@404 gesamt: 0 (transformiert: 0)
+=== a-faq | no-preference | mobil 390x844 | /
+-- a FAQ öffnen  (fehlend: -; Messzeiten ms: 44 / 125 / 204 / 407)
+   chevron: vorher t="none" op=1 disp=block oben=8343.23 rueck=1 | 44ms t={"winkel_deg":35.9,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=361.48 rueck=1 | 125ms t={"winkel_deg":142.5,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=361.41 rueck=1 | 204ms t={"winkel_deg":171.6,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=364.61 rueck=1 | 407ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=366.23 rueck=1
+   antwort: vorher t="none" op=1 disp=block oben=8383.03 rueck=1 | 44ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.87} op=0.532996 disp=block oben=404.16 rueck=1 | 125ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.26} op=0.934689 disp=block oben=405.77 rueck=1 | 204ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.02} op=0.993756 disp=block oben=406.01 rueck=1 | 407ms t="none" op=1 disp=block oben=406.03 rueck=1
+   Anim@44: CSSTransition transform [transform] dauer=300 verz=0 zeit=33 el=chevron transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=finished
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=finished
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=finished
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=finished
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=finished
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=finished
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=finished
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=finished
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=finished
+   Anim@44: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 zeit=33 el=antwort transf=true status=running
+   Anim@44 gesamt: 18 (transformiert: 18)
+   Anim@125: CSSTransition transform [transform] dauer=300 verz=0 zeit=117 el=chevron transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=finished
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=finished
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=finished
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=finished
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=finished
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=finished
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=finished
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=finished
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=finished
+   Anim@125: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 zeit=117 el=antwort transf=true status=running
+   Anim@125 gesamt: 18 (transformiert: 18)
+   Anim@204: CSSTransition transform [transform] dauer=300 verz=0 zeit=200 el=chevron transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=finished
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=finished
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=finished
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=finished
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=finished
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=finished
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=finished
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=finished
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=finished
+   Anim@204: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 zeit=200 el=antwort transf=true status=running
+   Anim@204 gesamt: 18 (transformiert: 18)
+   Anim@407: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@407: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=finished
+   Anim@407: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@407: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=finished
+   Anim@407: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@407: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=finished
+   Anim@407: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=finished
+   Anim@407: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@407: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=finished
+   Anim@407: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@407: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=finished
+   Anim@407: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=finished
+   Anim@407: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@407: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=finished
+   Anim@407: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=finished
+   Anim@407: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=finished
+   Anim@407 gesamt: 16 (transformiert: 16)
+=== a-faq | no-preference | mobil 390x844 | /preise/
+-- a FAQ öffnen  (fehlend: -; Messzeiten ms: 43 / 123 / 205 / 404)
+   chevron: vorher t="none" op=1 disp=block oben=7373.77 rueck=1 | 43ms t={"winkel_deg":35.9,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=361.01 rueck=1 | 123ms t={"winkel_deg":142.5,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=360.94 rueck=1 | 205ms t={"winkel_deg":171.6,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=364.15 rueck=1 | 404ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=365.77 rueck=1
+   antwort: vorher t="none" op=1 disp=block oben=7429.36 rueck=1 | 43ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.87} op=0.532996 disp=block oben=419.49 rueck=1 | 123ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.26} op=0.93469 disp=block oben=421.1 rueck=1 | 205ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.02} op=0.993756 disp=block oben=421.33 rueck=1 | 404ms t="none" op=1 disp=block oben=421.36 rueck=1
+   Anim@43: CSSTransition transform [transform] dauer=300 verz=0 zeit=33 el=chevron transf=true status=running
+   Anim@43: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 zeit=33 el=antwort transf=true status=running
+   Anim@43 gesamt: 2 (transformiert: 2)
+   Anim@123: CSSTransition transform [transform] dauer=300 verz=0 zeit=117 el=chevron transf=true status=running
+   Anim@123: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 zeit=117 el=antwort transf=true status=running
+   Anim@123 gesamt: 2 (transformiert: 2)
+   Anim@205: CSSTransition transform [transform] dauer=300 verz=0 zeit=200 el=chevron transf=true status=running
+   Anim@205: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 zeit=200 el=antwort transf=true status=running
+   Anim@205 gesamt: 2 (transformiert: 2)
+   Animationen/Übergänge bei 404 ms: keine relevanten
+   Anim@404 gesamt: 0 (transformiert: 0)
+=== b-hauptnav | no-preference | desktop 1440x900 | /
+-- b Leistungen aufklappen  (fehlend: -; Messzeiten ms: 49 / 125 / 204 / 406)
+   knopf: vorher t="none" op=1 disp=flex oben=14 rueck=1 | 49ms t="none" op=1 disp=flex oben=14 rueck=1 | 125ms t="none" op=1 disp=flex oben=14 rueck=1 | 204ms t="none" op=1 disp=flex oben=14 rueck=1 | 406ms t="none" op=1 disp=flex oben=14 rueck=1
+   pfeil: vorher t="none" op=1 disp=block oben=26 rueck=1 | 49ms t={"winkel_deg":73.1,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=23.53 rueck=1 | 125ms t={"winkel_deg":142.5,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=21.98 rueck=1 | 204ms t={"winkel_deg":171.6,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=24.65 rueck=1 | 406ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=26 rueck=1
+   panel: vorher t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-8} op=0 disp=grid oben=64 rueck=1 | 49ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-2.51} op=0.686034 disp=grid oben=69.49 rueck=1 | 125ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.52} op=0.934682 disp=grid oben=71.48 rueck=1 | 204ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.05} op=0.993755 disp=grid oben=71.95 rueck=1 | 406ms t="none" op=1 disp=grid oben=72 rueck=1
+   Anim@49: CSSTransition transform [transform] dauer=300 verz=0 zeit=50 el=pfeil transf=true status=running
+   Anim@49: CSSTransition opacity [opacity] dauer=300 verz=0 zeit=50 el=panel transf=false status=running
+   Anim@49: CSSTransition transform [transform] dauer=300 verz=0 zeit=50 el=panel transf=true status=running
+   Anim@49: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@49: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@49: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@49: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@49: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@49: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@49: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@49: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@49: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@49: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=ol.ablauf::before transf=true status=running
+   Anim@49: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@49: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@49: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@49: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@49: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@49: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@49: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@49 gesamt: 20 (transformiert: 19)
+   Anim@125: CSSTransition transform [transform] dauer=300 verz=0 zeit=117 el=pfeil transf=true status=running
+   Anim@125: CSSTransition opacity [opacity] dauer=300 verz=0 zeit=117 el=panel transf=false status=running
+   Anim@125: CSSTransition transform [transform] dauer=300 verz=0 zeit=117 el=panel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=ol.ablauf::before transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@125 gesamt: 20 (transformiert: 19)
+   Anim@204: CSSTransition transform [transform] dauer=300 verz=0 zeit=200 el=pfeil transf=true status=running
+   Anim@204: CSSTransition opacity [opacity] dauer=300 verz=0 zeit=200 el=panel transf=false status=running
+   Anim@204: CSSTransition transform [transform] dauer=300 verz=0 zeit=200 el=panel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=ol.ablauf::before transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@204 gesamt: 20 (transformiert: 19)
+   Anim@406: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@406: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@406: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@406: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@406: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@406: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@406: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@406: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@406: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@406: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=ol.ablauf::before transf=true status=running
+   Anim@406: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@406: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@406: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@406: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@406: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@406: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@406: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@406 gesamt: 17 (transformiert: 17)
+-- b Leistungen zuklappen  (fehlend: -; Messzeiten ms: 43 / 125 / 207 / 405)
+   knopf: vorher t="none" op=1 disp=flex oben=14 rueck=1 | 43ms t="none" op=1 disp=flex oben=14 rueck=1 | 125ms t="none" op=1 disp=flex oben=14 rueck=1 | 207ms t="none" op=1 disp=flex oben=14 rueck=1 | 405ms t="none" op=1 disp=flex oben=14 rueck=1
+   pfeil: vorher t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=26 rueck=1 | 43ms t={"winkel_deg":124.2,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=22.11 rueck=1 | 125ms t={"winkel_deg":23.6,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=22.83 rueck=1 | 207ms t={"winkel_deg":3.9,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=25.34 rueck=1 | 405ms t="none" op=1 disp=block oben=26 rueck=1
+   panel: vorher t="none" op=1 disp=grid oben=72 rueck=1 | 43ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.09} op=0.989285 disp=grid oben=71.91 rueck=1 | 125ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.16} op=0.855375 disp=grid oben=70.84 rueck=1 | 207ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-3.41} op=0.574294 disp=grid oben=68.59 rueck=1 | 405ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-8} op=0 disp=grid oben=64 rueck=1
+   Anim@43: CSSTransition transform [transform] dauer=240 verz=0 zeit=33 el=pfeil transf=true status=running
+   Anim@43: CSSTransition opacity [opacity] dauer=240 verz=0 zeit=33 el=panel transf=false status=running
+   Anim@43: CSSTransition transform [transform] dauer=240 verz=0 zeit=33 el=panel transf=true status=running
+   Anim@43: CSSTransition visibility [visibility] dauer=0 verz=240 zeit=33 el=panel transf=false status=running
+   Anim@43: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@43: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@43: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@43: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@43: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@43: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@43: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@43: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@43: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@43: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=ol.ablauf::before transf=true status=running
+   Anim@43: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@43: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@43: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@43: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@43: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@43: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@43: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@43 gesamt: 21 (transformiert: 19)
+   Anim@125: CSSTransition transform [transform] dauer=240 verz=0 zeit=117 el=pfeil transf=true status=running
+   Anim@125: CSSTransition opacity [opacity] dauer=240 verz=0 zeit=117 el=panel transf=false status=running
+   Anim@125: CSSTransition transform [transform] dauer=240 verz=0 zeit=117 el=panel transf=true status=running
+   Anim@125: CSSTransition visibility [visibility] dauer=0 verz=240 zeit=117 el=panel transf=false status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=ol.ablauf::before transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@125 gesamt: 21 (transformiert: 19)
+   Anim@207: CSSTransition transform [transform] dauer=240 verz=0 zeit=183 el=pfeil transf=true status=running
+   Anim@207: CSSTransition opacity [opacity] dauer=240 verz=0 zeit=183 el=panel transf=false status=running
+   Anim@207: CSSTransition transform [transform] dauer=240 verz=0 zeit=183 el=panel transf=true status=running
+   Anim@207: CSSTransition visibility [visibility] dauer=0 verz=240 zeit=183 el=panel transf=false status=running
+   Anim@207: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@207: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@207: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@207: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@207: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@207: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@207: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@207: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@207: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@207: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=ol.ablauf::before transf=true status=running
+   Anim@207: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@207: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@207: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@207: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@207: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@207: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@207: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@207 gesamt: 21 (transformiert: 19)
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=ol.ablauf::before transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@405 gesamt: 17 (transformiert: 17)
+=== c-menue-blatt | no-preference | mobil 390x844 | /
+-- c Menü-Blatt öffnen  (fehlend: -; Messzeiten ms: 44 / 125 / 204 / 405)
+   knopf: vorher t="none" op=1 disp=flex oben=777.11 rueck=1 | 44ms t="none" op=1 disp=flex oben=777.11 rueck=1 | 125ms t="none" op=1 disp=flex oben=777.11 rueck=1 | 204ms t="none" op=1 disp=flex oben=777.11 rueck=1 | 405ms t="none" op=1 disp=flex oben=777.11 rueck=1
+   blatt: vorher t="none" op=1 disp=none oben=0 rueck=0 | 44ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":225.25} op=1 disp=block oben=351.86 rueck=0.406307 | 125ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":31.11} op=1 disp=block oben=157.72 rueck=0.839532 | 204ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":2.38} op=1 disp=block oben=128.99 rueck=0.969084 | 405ms t="none" op=1 disp=block oben=126.61 rueck=1
+   Anim@44: CSSTransition transform [transform] dauer=300 verz=0 zeit=50 el=blatt transf=true status=running
+   Anim@44: CSSTransition opacity [opacity] dauer=300 verz=0 zeit=50 el=blatt transf=false status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@44 gesamt: 18 (transformiert: 17)
+   Anim@125: CSSTransition transform [transform] dauer=300 verz=0 zeit=133 el=blatt transf=true status=running
+   Anim@125: CSSTransition opacity [opacity] dauer=300 verz=0 zeit=133 el=blatt transf=false status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@125: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@125: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@125 gesamt: 18 (transformiert: 17)
+   Anim@204: CSSTransition transform [transform] dauer=300 verz=0 zeit=217 el=blatt transf=true status=running
+   Anim@204: CSSTransition opacity [opacity] dauer=300 verz=0 zeit=217 el=blatt transf=false status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@204 gesamt: 18 (transformiert: 17)
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@405 gesamt: 16 (transformiert: 16)
+-- c Menü-Blatt schließen  (fehlend: -; Messzeiten ms: 44 / 126 / 204 / 405)
+   blatt: vorher t="none" op=1 disp=block oben=126.61 rueck=1 | 44ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":17.46} op=1 disp=block oben=144.07 rueck=0.47971 | 126ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":140.22} op=1 disp=block oben=266.82 rueck=0.0912668 | 204ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":388.39} op=1 disp=block oben=515 rueck=0.0102763 | 405ms t="none" op=1 disp=none oben=0 rueck=0
+   Anim@44: CSSTransition display [display] dauer=240 verz=0 zeit=50 el=blatt transf=false status=running
+   Anim@44: CSSTransition overlay [overlay] dauer=240 verz=0 zeit=50 el=blatt transf=false status=running
+   Anim@44: CSSTransition transform [transform] dauer=240 verz=0 zeit=50 el=blatt transf=true status=running
+   Anim@44: CSSTransition opacity [opacity] dauer=240 verz=0 zeit=50 el=blatt transf=false status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@44: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@44: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@44 gesamt: 20 (transformiert: 17)
+   Anim@126: CSSTransition display [display] dauer=240 verz=0 zeit=133 el=blatt transf=false status=running
+   Anim@126: CSSTransition overlay [overlay] dauer=240 verz=0 zeit=133 el=blatt transf=false status=running
+   Anim@126: CSSTransition transform [transform] dauer=240 verz=0 zeit=133 el=blatt transf=true status=running
+   Anim@126: CSSTransition opacity [opacity] dauer=240 verz=0 zeit=133 el=blatt transf=false status=running
+   Anim@126: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@126: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@126: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@126: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@126: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@126: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@126: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@126: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@126: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@126: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@126: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@126: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@126: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@126: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@126: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@126: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@126 gesamt: 20 (transformiert: 17)
+   Anim@204: CSSTransition display [display] dauer=240 verz=0 zeit=200 el=blatt transf=false status=running
+   Anim@204: CSSTransition overlay [overlay] dauer=240 verz=0 zeit=200 el=blatt transf=false status=running
+   Anim@204: CSSTransition transform [transform] dauer=240 verz=0 zeit=200 el=blatt transf=true status=running
+   Anim@204: CSSTransition opacity [opacity] dauer=240 verz=0 zeit=200 el=blatt transf=false status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@204: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@204: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@204 gesamt: 20 (transformiert: 17)
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#triage-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#preis-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#leistungen-titel transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=article.register-gross transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#ablauf-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#gebiet-titel transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=figure.gebiet-figur transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#serioes-titel transf=true status=running
+   Anim@405: CSSAnimation linie-ziehen [transform] dauer=null verz=0 zeit=null el=span.abschnitt-linie transf=true status=running
+   Anim@405: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 zeit=null el=h2#faq-titel transf=true status=running
+   Anim@405 gesamt: 16 (transformiert: 16)
+=== d-ortspruefung | no-preference | mobil 390x844 | /einsatzgebiet/
+-- d Ort tippen (Löhnberg), Vorschlagsliste  (fehlend: -; Messzeiten ms: 44 / 405)
+   eingabe: vorher t="none" op=1 disp=inline-block oben=669.45 rueck=1 | 44ms t="none" op=1 disp=inline-block oben=669.45 rueck=1 | 405ms t="none" op=1 disp=inline-block oben=669.45 rueck=1
+   liste: vorher t="none" op=1 disp=none oben=0 rueck=1 | 44ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":0} op=1 disp=block oben=726.88 rueck=1 | 405ms t="none" op=1 disp=block oben=726.88 rueck=1
+   ergebnis: vorher t="none" op=1 disp=none oben=0 rueck=1 | 44ms t="none" op=1 disp=none oben=0 rueck=1 | 405ms t="none" op=1 disp=none oben=0 rueck=1
+   Anim@44: CSSAnimation m-feedback-ein [opacity,transform] dauer=150 verz=0 zeit=150 el=liste transf=true status=running
+   Anim@44: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@44: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@44: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@44: CSSAnimation m18-karte [opacity,transform] dauer=null verz=0 zeit=null el=g.gk-punkte transf=true status=running
+   Anim@44: CSSAnimation m18-mess [transform] dauer=null verz=0 zeit=null el=path.gk-mess transf=true status=running
+   Anim@44: CSSAnimation m18-sitz [transform] dauer=null verz=0 zeit=null el=circle.gk-sitz-ring transf=true status=running
+   Anim@44: CSSAnimation m18-sitz [transform] dauer=null verz=0 zeit=null el=circle.gk-sitz-punkt transf=true status=running
+   Anim@44 gesamt: 13 (transformiert: 8)
+   Anim@405: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@405: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@405: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@405: CSSAnimation m18-karte [opacity,transform] dauer=null verz=0 zeit=null el=g.gk-punkte transf=true status=running
+   Anim@405: CSSAnimation m18-mess [transform] dauer=null verz=0 zeit=null el=path.gk-mess transf=true status=running
+   Anim@405: CSSAnimation m18-sitz [transform] dauer=null verz=0 zeit=null el=circle.gk-sitz-ring transf=true status=running
+   Anim@405: CSSAnimation m18-sitz [transform] dauer=null verz=0 zeit=null el=circle.gk-sitz-punkt transf=true status=running
+   Anim@405 gesamt: 12 (transformiert: 7)
+-- d Vorschlag wählen, Ergebnis  (fehlend: -; Messzeiten ms: 44 / 404)
+   eingabe: vorher t="none" op=1 disp=inline-block oben=669.45 rueck=1 | 44ms t="none" op=1 disp=inline-block oben=650.45 rueck=1 | 404ms t="none" op=1 disp=inline-block oben=650.45 rueck=1
+   liste: vorher t="none" op=1 disp=block oben=726.88 rueck=1 | 44ms t="none" op=1 disp=none oben=0 rueck=1 | 404ms t="none" op=1 disp=none oben=0 rueck=1
+   ergebnis: vorher t="none" op=1 disp=none oben=0 rueck=1 | 44ms t="none" op=0.892746 disp=grid oben=755.88 rueck=1 | 404ms t="none" op=1 disp=grid oben=755.88 rueck=1
+   Anim@44: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=ergebnis transf=false status=running
+   Anim@44: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@44: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@44: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@44: CSSAnimation m18-karte [opacity,transform] dauer=null verz=0 zeit=null el=g.gk-punkte transf=true status=running
+   Anim@44: CSSAnimation m18-mess [transform] dauer=null verz=0 zeit=null el=path.gk-mess transf=true status=running
+   Anim@44: CSSAnimation m18-sitz [transform] dauer=null verz=0 zeit=null el=circle.gk-sitz-ring transf=true status=running
+   Anim@44: CSSAnimation m18-sitz [transform] dauer=null verz=0 zeit=null el=circle.gk-sitz-punkt transf=true status=running
+   Anim@44 gesamt: 13 (transformiert: 7)
+   Anim@404: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@404: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@404: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 zeit=null el=circle.gk-ring transf=true status=running
+   Anim@404: CSSAnimation m18-karte [opacity,transform] dauer=null verz=0 zeit=null el=g.gk-punkte transf=true status=running
+   Anim@404: CSSAnimation m18-mess [transform] dauer=null verz=0 zeit=null el=path.gk-mess transf=true status=running
+   Anim@404: CSSAnimation m18-sitz [transform] dauer=null verz=0 zeit=null el=circle.gk-sitz-ring transf=true status=running
+   Anim@404: CSSAnimation m18-sitz [transform] dauer=null verz=0 zeit=null el=circle.gk-sitz-punkt transf=true status=running
+   Anim@404 gesamt: 12 (transformiert: 7)
+=== e-composer | no-preference | mobil 390x844 | /kontakt/
+-- e Anliegen Notfall  (fehlend: betreff; Messzeiten ms: 44 / 404)
+   notfall: vorher t="none" op=1 disp=none oben=0 rueck=1 | 44ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.87} op=0.533018 disp=grid oben=680.79 rueck=1 | 404ms t="none" op=1 disp=grid oben=682.66 rueck=1
+   mail: vorher t="none" op=1 disp=grid oben=1814.66 rueck=1 | 44ms t="none" op=1 disp=none oben=0 rueck=1 | 404ms t="none" op=1 disp=none oben=0 rueck=1
+   kopf: vorher t="none" op=1 disp=grid oben=1814.66 rueck=1 | 44ms t="none" op=1 disp=grid oben=0 rueck=1 | 404ms t="none" op=1 disp=grid oben=0 rueck=1
+   Anim@44: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 zeit=33 el=notfall transf=true status=running
+   Anim@44 gesamt: 2 (transformiert: 1)
+   Animationen/Übergänge bei 404 ms: keine relevanten
+   Anim@404 gesamt: 0 (transformiert: 0)
+-- e Anliegen planbar (Mail-Zweig)  (fehlend: -; Messzeiten ms: 44 / 404)
+   notfall: vorher t="none" op=1 disp=grid oben=682.66 rueck=1 | 44ms t="none" op=1 disp=none oben=0 rueck=1 | 404ms t="none" op=1 disp=none oben=0 rueck=1
+   mail: vorher t="none" op=1 disp=none oben=0 rueck=1 | 44ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.26} op=0.68602 disp=grid oben=681.4 rueck=1 | 404ms t="none" op=1 disp=grid oben=682.66 rueck=1
+   kopf: vorher t="none" op=1 disp=grid oben=0 rueck=1 | 44ms t="none" op=1 disp=grid oben=681.4 rueck=1 | 404ms t="none" op=1 disp=grid oben=682.66 rueck=1
+   betreff: vorher t="none" op=0.6 disp=block oben=0 rueck=1 | 44ms t="none" op=0.892749 disp=block oben=716.82 rueck=1 | 404ms t="none" op=1 disp=block oben=718.08 rueck=1
+   Anim@44: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 zeit=50 el=mail transf=true status=running
+   Anim@44: CSSAnimation betreff-neu-a [opacity] dauer=150 verz=0 zeit=50 el=betreff transf=false status=running
+   Anim@44 gesamt: 4 (transformiert: 1)
+   Animationen/Übergänge bei 404 ms: keine relevanten
+   Anim@404 gesamt: 0 (transformiert: 0)
+=== f-gruppenfilter | no-preference | mobil 390x844 | /leistungen/
+-- f Gruppe Einbruchschutz  (fehlend: -; Messzeiten ms: 44 / 403)
+   gruppe: vorher t="none" op=1 disp=block oben=1401.09 rueck=1 | 44ms t="none" op=1 disp=block oben=654.58 rueck=1 | 403ms t="none" op=1 disp=block oben=32.58 rueck=1
+   Animationen/Übergänge bei 44 ms: keine relevanten
+   Anim@44 gesamt: 0 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+-- f Gruppe Sicherheitstechnik (eingeblendet)  (fehlend: -; Messzeiten ms: 42 / 420)
+   gruppe: vorher t="none" op=1 disp=none oben=0 rueck=1 | 42ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-3.74} op=0.533007 disp=block oben=483.84 rueck=1 | 420ms t="none" op=1 disp=block oben=487.58 rueck=1
+   Anim@42: CSSAnimation m05-einblenden [opacity,transform] dauer=300 verz=0 zeit=33 el=gruppe transf=true status=running
+   Anim@42 gesamt: 1 (transformiert: 1)
+   Animationen/Übergänge bei 420 ms: keine relevanten
+   Anim@420 gesamt: 0 (transformiert: 0)
+-- f Alle Gruppen (eingeblendet)  (fehlend: -; Messzeiten ms: 43 / 406)
+   gruppe: vorher t="none" op=1 disp=none oben=0 rueck=1 | 43ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-3.74} op=0.533007 disp=block oben=483.84 rueck=1 | 406ms t="none" op=1 disp=block oben=487.58 rueck=1
+   Anim@43: CSSAnimation m05-einblenden [opacity,transform] dauer=300 verz=0 zeit=33 el=gruppe transf=true status=running
+   Anim@43: CSSAnimation m05-einblenden [opacity,transform] dauer=300 verz=0 zeit=33 el=section#gruppe-einbruchschutz.sektion-dicht.verz-gruppe transf=true status=running
+   Anim@43: CSSAnimation m05-einblenden [opacity,transform] dauer=300 verz=0 zeit=33 el=section#gruppe-einbau-tresore.sektion-dicht.verz-gruppe transf=true status=running
+   Anim@43 gesamt: 3 (transformiert: 3)
+   Animationen/Übergänge bei 406 ms: keine relevanten
+   Anim@406 gesamt: 0 (transformiert: 0)
+=== g-druck | reduce | mobil 390x844 | /preise/ | label.wahl-option
+-- g Rechner-Option (wahl-option)  (fehlend: -; Messzeiten ms: 42 / 403)
+   ziel: vorher t="none" op=1 disp=grid oben=337.7 rueck=1 | 42ms t="none" op=1 disp=grid oben=337.7 rueck=1 | 403ms t="none" op=1 disp=grid oben=337.7 rueck=1
+   Anim@42: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=ziel transf=false status=running
+   Anim@42 gesamt: 1 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+=== g-druck | no-preference | mobil 390x844 | /preise/ | label.wahl-option
+-- g Rechner-Option (wahl-option)  (fehlend: -; Messzeiten ms: 42 / 403)
+   ziel: vorher t="none" op=1 disp=grid oben=337.7 rueck=1 | 42ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 disp=grid oben=338.51 rueck=1 | 403ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 disp=grid oben=338.51 rueck=1
+   Anim@42: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=ziel transf=false status=running
+   Anim@42 gesamt: 1 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+=== g-druck | reduce | mobil 390x844 | /preise/ | a.formel-titel
+-- g Formelzeile (formel-titel)  (fehlend: -; Messzeiten ms: 42 / 403)
+   ziel: vorher t="none" op=1 disp=block oben=630.63 rueck=1 | 42ms t="none" op=1 disp=block oben=630.63 rueck=1 | 403ms t="none" op=1 disp=block oben=630.63 rueck=1
+   Anim@42: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=ziel transf=false status=running
+   Anim@42 gesamt: 1 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+=== g-druck | no-preference | mobil 390x844 | /preise/ | a.formel-titel
+-- g Formelzeile (formel-titel)  (fehlend: -; Messzeiten ms: 43 / 405)
+   ziel: vorher t="none" op=1 disp=block oben=630.63 rueck=1 | 43ms t="none" op=1 disp=block oben=630.63 rueck=1 | 405ms t="none" op=1 disp=block oben=630.63 rueck=1
+   Anim@43: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=ziel transf=false status=running
+   Anim@43: CSSTransition transform [transform] dauer=150 verz=0 zeit=33 el=ziel transf=true status=running
+   Anim@43 gesamt: 2 (transformiert: 1)
+   Animationen/Übergänge bei 405 ms: keine relevanten
+   Anim@405 gesamt: 0 (transformiert: 0)
+=== g-druck | reduce | mobil 390x844 | /notoeffnung/tueroeffnung/ | .rand-liste a
+-- g Listenlink (rand-liste)  (fehlend: -; Messzeiten ms: 43 / 437)
+   ziel: vorher t="none" op=1 disp=flex oben=356.23 rueck=1 | 43ms t="none" op=1 disp=flex oben=356.23 rueck=1 | 437ms t="none" op=1 disp=flex oben=356.23 rueck=1
+   Anim@43: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=ziel transf=false status=running
+   Anim@43 gesamt: 1 (transformiert: 0)
+   Animationen/Übergänge bei 437 ms: keine relevanten
+   Anim@437 gesamt: 0 (transformiert: 0)
+=== g-druck | no-preference | mobil 390x844 | /notoeffnung/tueroeffnung/ | .rand-liste a
+-- g Listenlink (rand-liste)  (fehlend: -; Messzeiten ms: 43 / 403)
+   ziel: vorher t="none" op=1 disp=flex oben=356.23 rueck=1 | 43ms t={"winkel_deg":0,"skalierung":0.989,"x_px":0,"y_px":0} op=1 disp=flex oben=356.48 rueck=1 | 403ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 disp=flex oben=356.67 rueck=1
+   Anim@43: CSSTransition transform [transform] dauer=150 verz=0 zeit=33 el=ziel transf=true status=running
+   Anim@43: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=ziel transf=false status=running
+   Anim@43 gesamt: 2 (transformiert: 1)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+=== g-druck | reduce | mobil 390x844 | /einbruchschutz/ | .gruppe-register a
+-- g Registerlink (gruppe-register)  (fehlend: -; Messzeiten ms: 42 / 403)
+   ziel: vorher t="none" op=1 disp=grid oben=642.77 rueck=1 | 42ms t="none" op=1 disp=grid oben=642.77 rueck=1 | 403ms t="none" op=1 disp=grid oben=642.77 rueck=1
+   Anim@42: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=ziel transf=false status=running
+   Anim@42 gesamt: 1 (transformiert: 0)
+   Animationen/Übergänge bei 403 ms: keine relevanten
+   Anim@403 gesamt: 0 (transformiert: 0)
+=== g-druck | no-preference | mobil 390x844 | /einbruchschutz/ | .gruppe-register a
+-- g Registerlink (gruppe-register)  (fehlend: -; Messzeiten ms: 46 / 404)
+   ziel: vorher t="none" op=1 disp=grid oben=642.77 rueck=1 | 46ms t={"winkel_deg":0,"skalierung":0.989,"x_px":0,"y_px":0} op=1 disp=grid oben=643.01 rueck=1 | 404ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 disp=grid oben=643.21 rueck=1
+   Anim@46: CSSTransition transform [transform] dauer=150 verz=0 zeit=33 el=ziel transf=true status=running
+   Anim@46: CSSTransition opacity [opacity] dauer=150 verz=0 zeit=50 el=ziel transf=false status=running
+   Anim@46 gesamt: 2 (transformiert: 1)
+   Animationen/Übergänge bei 404 ms: keine relevanten
+   Anim@404 gesamt: 0 (transformiert: 0)
+ENDE interaktionen

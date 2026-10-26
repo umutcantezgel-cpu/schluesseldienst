@@ -1,0 +1,3 @@
+bildrate laden http://127.0.0.1:4251/ (Drossel 4x, 124 Bilder): verworfen 3.2 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok

@@ -1,0 +1,4 @@
+axe /: minor 0 · moderate 0 · serious 0 · critical 0
+axe /schlecht.html: minor 0 · moderate 0 · serious 2 · critical 2
+→ /kal-axe.json (Regeln serious/critical: 4)
+AXE_EXIT=1

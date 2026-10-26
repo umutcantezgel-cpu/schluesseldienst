@@ -1,0 +1,13 @@
+no-preference: Tabs bis Menü-Knopf=4 (Knopf sichtbar fokussiert=true, a.rufleiste-menue "Menü")
+  Enter 40 ms: offen=true Fokus=button.menue-blatt-zu "Menü schließen" | 500 ms: offen=true fokusImBlatt=true expanded=true
+  Tab im Blatt: 25 Schritte, ausserhalb=1
+  Escape 30 ms: offen=false Fokus=a.rufleiste-menue "Menü" istKnopf=true | 630 ms: offen=false istKnopf=true expanded=false display=none
+  Kontrolle: offen=true zu=false istKnopf=true
+  Konsole/Seitenfehler: keine
+reduce: Tabs bis Menü-Knopf=4 (Knopf sichtbar fokussiert=true, a.rufleiste-menue "Menü")
+  Enter 40 ms: offen=true Fokus=button.menue-blatt-zu "Menü schließen" | 500 ms: offen=true fokusImBlatt=true expanded=true
+  Tab im Blatt: 25 Schritte, ausserhalb=1
+  Escape 30 ms: offen=false Fokus=a.rufleiste-menue "Menü" istKnopf=true | 630 ms: offen=false istKnopf=true expanded=false display=none
+  Kontrolle: offen=true zu=false istKnopf=true
+  Konsole/Seitenfehler: keine
+ENDE tastatur

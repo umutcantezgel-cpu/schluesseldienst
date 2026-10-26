@@ -1,0 +1,58 @@
+{
+ "geraet": "desktop",
+ "basis": "http://127.0.0.1:4251/",
+ "fokusStopps": 2670,
+ "ohneSichtbarenFokus": 0,
+ "h1": [
+  "/ nein (tel 0)",
+  "/einbruchschutz/ nein (tel 0)",
+  "/notoeffnung/tueroeffnung/ nein (tel 0)",
+  "/preise/ nein (tel 0)",
+  "/einsatzgebiet/ nein (tel 0)",
+  "/einsatzgebiet/hessen/limburg-weilburg/ nein (tel 0)",
+  "/schluesseldienst-loehnberg/ nein (tel 0)",
+  "/ratgeber/rauchmelderpflicht/ nein (tel 0)",
+  "/ueber-uns/ nein (tel 0)",
+  "/kontakt/ nein (tel 0)",
+  "/suche/ nein (tel 0)",
+  "/impressum/ nein (tel 0)",
+  "/gibt-es-nicht/ nein (tel 0)"
+ ],
+ "h2": {
+  "tabSchritte": [
+   5
+  ],
+  "aktivierungen": 1,
+  "zielErreicht": true
+ },
+ "h3": {
+  "tabSchritteBisFeld": 12,
+  "vorschlaege": 1,
+  "ergebnisText": "Löhnberg (Limburg-Weilburg) Rund 3 km nördlich von Weilburg (Luftlinie). Kerngebiet ab Weilburg Zur Seite für Löhnberg"
+ },
+ "h4": {
+  "aktivierungen": 2,
+  "impressumTabSchritte": 50,
+  "impressum": {
+   "pfad": "/impressum/",
+   "platzhalter": 23,
+   "h1": "Impressum"
+  }
+ },
+ "h5": {
+  "tabSchritte": {
+   "ort": 14,
+   "nachricht": 4,
+   "absenden": 1
+  },
+  "eingaben": 2,
+  "aktivierungen": 2,
+  "absendenFokusSichtbar": true,
+  "hinweisNachAbsenden": "Die E-Mail-Adresse ist noch nicht eingetragen – deshalb öffnet sich noch kein E-Mail-Programm.",
+  "nachAbsenden": {
+   "pfad": "/kontakt/",
+   "fokus": "ohne-adresse"
+  }
+ },
+ "menueBlatt": null
+}

@@ -1,0 +1,8 @@
+== no-preference
+  t=0 takt0 hidden=true display=none animName=none anims=[] li=0 op=1 t=none
+  t=199 takt6 hidden=false display=block animName=m-feedback-ein anims=[["CSSAnimation","m-feedback-ein",150,17]] li=1 op=0.533018 t=matrix(1, 0, 0, 1, 0, -1.86793)
+  t=352 takt12 hidden=false display=block animName=m-feedback-ein anims=[] li=1 op=1 t=none
+== reduce
+  t=0 takt0 hidden=true display=none animName=none anims=[] li=0 op=1 t=none
+  t=173 takt5 hidden=false display=block animName=none anims=[] li=1 op=1 t=none
+ENDE probe-m08

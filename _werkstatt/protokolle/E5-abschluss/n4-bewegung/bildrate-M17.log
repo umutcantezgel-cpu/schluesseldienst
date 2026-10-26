@@ -1,0 +1,3 @@
+bildrate scroll http://127.0.0.1:4251/einbruchschutz/ (Drossel 4x, 144 Bilder): verworfen 0.7 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok

@@ -87,7 +87,7 @@ Ratgeber-Artikel: ausgesperrt-was-tun · tuer-zugefallen-oder-abgeschlossen · s
 | K-08 | Kreis-Hub-Intros je Kreis aus Daten (Gemeindezahl, Fläche ohne Erfindung) | Baumeister | H | 751740c, 6310370, ed2597b |
 
 ## Modellanteil und Kapazität
-- Pflicht (Bereiche aufgelöst): 67 Pakete (Haiku 49, Opus 18 inkl. 2 Abnahmen) → Haiku-Anteil 73 %; mit Kür 75 Pakete (Haiku 54).
+- Pflicht (Bereiche aufgelöst): 67 Pakete (Haiku 49, Opus 18 inkl. 2 Abnahmen) – beim Abschluss nachgezählt: 66 Pakete (Haiku 48), die Zahl 67 war ein Zählfehler → Haiku-Anteil 73 %; mit Kür 75 Pakete (Haiku 54).
 - Kapazität: 49 Haiku-Pakete ÷ (4 Plätze × 3 Wellen/Tag) × 1,2 ≈ 4,9 Tage Haiku-Laufzeit; Opus-Pakete laufen dazwischen. Erwartete Laufzeit ≈ 6 Etappen.
 - Regel aus L0: Bereichspakete (…01…03) bekommen vor Wellenstart ein Paketblatt in `_werkstatt/pakete/` mit exakter, disjunkter Dateiliste.
 

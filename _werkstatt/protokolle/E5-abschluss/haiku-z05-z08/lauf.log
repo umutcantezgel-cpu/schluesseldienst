@@ -1,0 +1,105 @@
+start 2026-10-26T06:55:08+00:00
+reduce fertig 2026-10-26T06:57:48+00:00
+bildrate laden http://127.0.0.1:4251/ (Drossel 4x, 117 Bilder): verworfen 3.4 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-16 Lauf 1 exit=0
+bildrate scroll http://127.0.0.1:4251/einbruchschutz/ (Drossel 4x, 290 Bilder): verworfen 0.7 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-17 Lauf 1 exit=0
+bildrate scroll http://127.0.0.1:4251/einsatzgebiet/ (Drossel 4x, 278 Bilder): verworfen 1.8 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-18 Lauf 1 exit=0
+bildrate laden http://127.0.0.1:4251/ueber-uns/ (Drossel 4x, 118 Bilder): verworfen 1.7 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-20 Lauf 1 exit=0
+bildrate laden http://127.0.0.1:4251/gibt-es-nicht/ (Drossel 4x, 121 Bilder): verworfen 2.5 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-21 Lauf 1 exit=0
+bildrate laden http://127.0.0.1:4251/ (Drossel 4x, 115 Bilder): verworfen 2.6 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-16 Lauf 2 exit=0
+bildrate scroll http://127.0.0.1:4251/einbruchschutz/ (Drossel 4x, 289 Bilder): verworfen 1.4 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-17 Lauf 2 exit=0
+bildrate scroll http://127.0.0.1:4251/einsatzgebiet/ (Drossel 4x, 276 Bilder): verworfen 1.4 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-18 Lauf 2 exit=0
+bildrate laden http://127.0.0.1:4251/ueber-uns/ (Drossel 4x, 120 Bilder): verworfen 1.7 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-20 Lauf 2 exit=0
+bildrate laden http://127.0.0.1:4251/gibt-es-nicht/ (Drossel 4x, 122 Bilder): verworfen 1.6 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-21 Lauf 2 exit=0
+bildrate laden http://127.0.0.1:4251/ (Drossel 4x, 118 Bilder): verworfen 2.5 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-16 Lauf 3 exit=0
+bildrate scroll http://127.0.0.1:4251/einbruchschutz/ (Drossel 4x, 290 Bilder): verworfen 1.0 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-17 Lauf 3 exit=0
+bildrate scroll http://127.0.0.1:4251/einsatzgebiet/ (Drossel 4x, 277 Bilder): verworfen 1.1 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-18 Lauf 3 exit=0
+bildrate laden http://127.0.0.1:4251/ueber-uns/ (Drossel 4x, 118 Bilder): verworfen 1.7 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-20 Lauf 3 exit=0
+bildrate laden http://127.0.0.1:4251/gibt-es-nicht/ (Drossel 4x, 122 Bilder): verworfen 1.6 % (Schwelle 5 %), Median-Intervall 16.66 ms
+UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)
+ERGEBNIS: ok
+M-21 Lauf 3 exit=0
+inp http://127.0.0.1:4251/ (Drossel 4x): 6 Aktionen, 9 gemeldet, max 48 ms, p98 48 ms (Schwelle 200 ms)
+ERGEBNIS: ok
+INP v01 Lauf 1 exit=0
+inp http://127.0.0.1:4251/einsatzgebiet/ (Drossel 4x): 4 Aktionen, 5 gemeldet, max 40 ms, p98 40 ms (Schwelle 200 ms)
+ERGEBNIS: ok
+INP e3-einsatzgebiet Lauf 1 exit=0
+inp http://127.0.0.1:4251/einsatzgebiet/bayern/miltenberg/ (Drossel 4x): 2 Aktionen, 2 gemeldet, max 64 ms, p98 64 ms (Schwelle 200 ms)
+ERGEBNIS: ok
+INP e3-hub Lauf 1 exit=0
+inp: Werkzeugfehler: page.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('button.knopf-primaer[type="submit"]')[22m
+
+INP e4-kontakt Lauf 1 exit=2
+inp http://127.0.0.1:4251/preise/ (Drossel 4x): 2 Aktionen, 2 gemeldet, max 48 ms, p98 48 ms (Schwelle 200 ms)
+ERGEBNIS: ok
+INP e4-preise Lauf 1 exit=0
+inp http://127.0.0.1:4251/suche/ (Drossel 4x): 2 Aktionen, 3 gemeldet, max 32 ms, p98 32 ms (Schwelle 200 ms)
+ERGEBNIS: ok
+INP e4-suche Lauf 1 exit=0
+inp http://127.0.0.1:4251/ (Drossel 4x): 6 Aktionen, 9 gemeldet, max 64 ms, p98 64 ms (Schwelle 200 ms)
+ERGEBNIS: ok
+INP v01 Lauf 2 exit=0
+inp http://127.0.0.1:4251/einsatzgebiet/ (Drossel 4x): 4 Aktionen, 6 gemeldet, max 48 ms, p98 48 ms (Schwelle 200 ms)
+ERGEBNIS: ok
+INP e3-einsatzgebiet Lauf 2 exit=0
+inp http://127.0.0.1:4251/einsatzgebiet/bayern/miltenberg/ (Drossel 4x): 2 Aktionen, 2 gemeldet, max 56 ms, p98 56 ms (Schwelle 200 ms)
+ERGEBNIS: ok
+INP e3-hub Lauf 2 exit=0
+inp: Werkzeugfehler: page.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('button.knopf-primaer[type="submit"]')[22m
+
+INP e4-kontakt Lauf 2 exit=2
+inp http://127.0.0.1:4251/preise/ (Drossel 4x): 2 Aktionen, 2 gemeldet, max 56 ms, p98 56 ms (Schwelle 200 ms)
+ERGEBNIS: ok
+INP e4-preise Lauf 2 exit=0
+inp http://127.0.0.1:4251/suche/ (Drossel 4x): 2 Aktionen, 3 gemeldet, max 32 ms, p98 32 ms (Schwelle 200 ms)
+ERGEBNIS: ok
+INP e4-suche Lauf 2 exit=0
+LH 4251 exit=1
+LH 4254 exit=0
+ENDE 2026-10-26T07:05:23+00:00

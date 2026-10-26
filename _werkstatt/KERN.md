@@ -1,4 +1,4 @@
-# KERN · Version 1 (2026-10-25) – Quelle der Wahrheit
+# KERN · Version 4 (2026-10-26) – Quelle der Wahrheit
 Änderungen nur durch den Orchestrator, mit Versionsnummer und Grund (Verlauf am Ende). Jedes Paket nennt die Kern-Version, gegen die es gebaut wurde.
 
 ## Das Projekt in fünf Sätzen
@@ -165,3 +165,6 @@ Nichts läuft automatisch länger als 5 s → kein Pause-Knopf nötig. Nichts bl
 
 ## Verlauf
 - v1 (2026-10-25): Erstfassung aus genehmigtem Plan, Design-Panel und Kritik-Panel.
+- v2 (2026-10-25, E3/E4 und Kür): Szenen-Engine M-17 (`85953fa`); CSS je Ansicht und Budget je Seite in K-011 (`b67121f`); Ortszahl (`863b235`); Druckstile als eigene Datei, D-CSS-02 (`bcfd1d6`); Vorkomprimieren K-05 (`488a0cf`); Glättung der Kür (`ed2597b`). Grund: Umsetzung und Gegenprüfungen der Wellen.
+- v3 (2026-10-25/26, Prüfstufe C und Endprüfung): JS je Seite (D-JS-01) und Kontraststile als eigene Datei (D-CSS-03, `c6ed8e2`); Register mit der Umsetzung abgeglichen (D-BEW-01); gemeinsame Befunde D-E5-01 – Fokus nie verdeckt, Kopflinie M-15, Überschriften-Trennung K-006, Karten M-02/M-03 (`67e42cf`); Ansichtspakete Anlauf 2 (`25918f7`, `2a69d96`) und Runde 3 (`30a71ba`, `1e4a9b2`, `df0cda1`): K-009 A–Z-Leiste, M-13/M-14 am Kopf-Zeitstrahl, M-18–M-21. Grund: Befunde der Prüfstufe C und der Endprüfung.
+- v4 (2026-10-26, Abschluss-Nachprüfung): Register K-007 an die gemessene Umsetzung angeglichen – M-03, M-05, M-06, M-07, M-09, M-12, M-14, M-17, M-18, M-20, M-21 (`e719627`, `b5a1ebd`); K-004 und M-15: Seitenwechsel-Opt-in mit `blocking="render"` am Modul (D-E5-03, `72ed87c`). Grund: Befunde der Abschluss-Nachprüfung.

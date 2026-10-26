@@ -1,0 +1,317 @@
+=== a-faq | reduce | mobil 390x844 | /
+-- a FAQ öffnen  (fehlend: -; Klick t=5796)
+   chevron: vorher t="none" op=1 oben=8343.23 | 43ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=366.23 | 125ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=366.23 | 203ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=366.23 | 403ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=366.23
+   antwort: vorher t="none" op=1 oben=8383.03 | 43ms t="none" op=1 oben=406.03 | 125ms t="none" op=1 oben=406.03 | 203ms t="none" op=1 oben=406.03 | 403ms t="none" op=1 oben=406.03
+   Animationen/Übergänge: keine (transformierend oder mit Element)
+   transformierende Animationen je Punkt: 0/0/0/0
+=== a-faq | reduce | mobil 390x844 | /preise/
+-- a FAQ öffnen  (fehlend: -; Klick t=5792)
+   chevron: vorher t="none" op=1 oben=7373.77 | 44ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=365.77 | 123ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=365.77 | 202ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=365.77 | 404ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=365.77
+   antwort: vorher t="none" op=1 oben=7429.36 | 44ms t="none" op=1 oben=421.36 | 123ms t="none" op=1 oben=421.36 | 202ms t="none" op=1 oben=421.36 | 404ms t="none" op=1 oben=421.36
+   Animationen/Übergänge: keine (transformierend oder mit Element)
+   transformierende Animationen je Punkt: 0/0/0/0
+=== b-hauptnav | reduce | desktop 1440x900 | /
+-- b Leistungen aufklappen  (fehlend: -; Klick t=5730)
+   knopf: vorher t="none" op=1 oben=14 | 42ms t="none" op=1 oben=14 | 124ms t="none" op=1 oben=14 | 203ms t="none" op=1 oben=14 | 404ms t="none" op=1 oben=14
+   pfeil: vorher t="none" op=1 oben=26 | 42ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=26 | 124ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=26 | 203ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=26 | 404ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=26
+   panel: vorher t="none" op=0 oben=72 | 42ms t="none" op=0.55171 oben=72 | 124ms t="none" op=0.981011 oben=72 | 203ms t="none" op=1 oben=72 | 404ms t="none" op=1 oben=72
+   ANIM CSSTransition|div#untermenue-leistungen.hauptnav-panel|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (42/124/203/404 ms): running:33 running:117 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+-- b Leistungen zuklappen  (fehlend: -; Klick t=6159)
+   knopf: vorher t="none" op=1 oben=14 | 42ms t="none" op=1 oben=14 | 124ms t="none" op=1 oben=14 | 203ms t="none" op=1 oben=14 | 405ms t="none" op=1 oben=14
+   pfeil: vorher t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=26 | 42ms t="none" op=1 oben=26 | 124ms t="none" op=1 oben=26 | 203ms t="none" op=1 oben=26 | 405ms t="none" op=1 oben=26
+   panel: vorher t="none" op=1 oben=72 | 42ms t="none" op=0.345289 oben=72 | 124ms t="none" op=0.000262628 oben=72 | 203ms t="none" op=0 oben=72 | 405ms t="none" op=0 oben=72
+   ANIM CSSTransition|div#untermenue-leistungen.hauptnav-panel|opacity|opacity|dauer=120|verz=0 | Zeit je Punkt (42/124/203/405 ms): running:33 running:117 - -
+   ANIM CSSTransition|div#untermenue-leistungen.hauptnav-panel|visibility|visibility|dauer=0|verz=120 | Zeit je Punkt (42/124/203/405 ms): running:33 running:117 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+=== c-menue-blatt | reduce | mobil 390x844 | /
+-- c Menü-Blatt öffnen  (fehlend: -; Klick t=5748)
+   knopf: vorher t="none" op=1 oben=777.11 | 44ms t="none" op=1 oben=777.11 | 123ms t="none" op=1 oben=777.11 | 204ms t="none" op=1 oben=777.11 | 402ms t="none" op=1 oben=777.11
+   blatt: vorher t="none" op=0 oben=0 offen=false | 44ms t="none" op=0.551753 oben=126.61 offen=true | 123ms t="none" op=0.981009 oben=126.61 offen=true | 204ms t="none" op=1 oben=126.61 offen=true | 402ms t="none" op=1 oben=126.61 offen=true
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (44/123/204/402 ms): running:33 running:117 - -
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt::backdrop|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (44/123/204/402 ms): running:33 running:117 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+-- c Menü-Blatt schließen  (fehlend: -; Klick t=6202)
+   blatt: vorher t="none" op=1 oben=126.61 offen=true | 44ms t="none" op=0.182958 oben=126.61 offen=false | 123ms t="none" op=0.000261677 oben=126.61 offen=false | 204ms t="none" op=0 oben=0 offen=false | 403ms t="none" op=0 oben=0 offen=false
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt|display|display|dauer=120|verz=0 | Zeit je Punkt (44/123/204/403 ms): running:50 running:117 - -
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt|opacity|opacity|dauer=120|verz=0 | Zeit je Punkt (44/123/204/403 ms): running:50 running:117 - -
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt|overlay|overlay|dauer=120|verz=0 | Zeit je Punkt (44/123/204/403 ms): running:50 running:117 - -
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt::backdrop|opacity|opacity|dauer=120|verz=0 | Zeit je Punkt (44/123/204/403 ms): running:50 running:117 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+=== d-ortspruefung | reduce | mobil 390x844 | /einsatzgebiet/
+-- d Ort tippen (Löhnberg), Vorschlagsliste  (fehlend: -; Klick t=5954)
+   eingabe: vorher t="none" op=1 oben=669.45 | 43ms t="none" op=1 oben=669.45 | 123ms t="none" op=1 oben=669.45 | 202ms t="none" op=1 oben=669.45 | 403ms t="none" op=1 oben=669.45
+   liste: vorher t="none" op=1 oben=0 | 43ms t="none" op=1 oben=726.88 | 123ms t="none" op=1 oben=726.88 | 202ms t="none" op=1 oben=726.88 | 403ms t="none" op=1 oben=726.88
+   ergebnis: vorher t="none" op=1 oben=0 | 43ms t="none" op=1 oben=0 | 123ms t="none" op=1 oben=0 | 202ms t="none" op=1 oben=0 | 403ms t="none" op=1 oben=0
+   Animationen/Übergänge: keine (transformierend oder mit Element)
+   transformierende Animationen je Punkt: 0/0/0/0
+-- d Vorschlag wählen, Ergebnis  (fehlend: -; Klick t=6389)
+   eingabe: vorher t="none" op=1 oben=669.45 | 43ms t="none" op=1 oben=650.45 | 126ms t="none" op=1 oben=650.45 | 204ms t="none" op=1 oben=650.45 | 404ms t="none" op=1 oben=650.45
+   liste: vorher t="none" op=1 oben=726.88 | 43ms t="none" op=1 oben=0 | 126ms t="none" op=1 oben=0 | 204ms t="none" op=1 oben=0 | 404ms t="none" op=1 oben=0
+   ergebnis: vorher t="none" op=1 oben=0 | 43ms t="none" op=1 oben=755.88 | 126ms t="none" op=1 oben=755.88 | 204ms t="none" op=1 oben=755.88 | 404ms t="none" op=1 oben=755.88
+   Animationen/Übergänge: keine (transformierend oder mit Element)
+   transformierende Animationen je Punkt: 0/0/0/0
+=== e-composer | reduce | mobil 390x844 | /kontakt/
+-- e Anliegen Notfall  (fehlend: betreff; Klick t=5685)
+   notfall: vorher t="none" op=1 oben=0 | 42ms t="none" op=1 oben=682.66 | 124ms t="none" op=1 oben=682.66 | 204ms t="none" op=1 oben=682.66 | 403ms t="none" op=1 oben=682.66
+   mail: vorher t="none" op=1 oben=1814.66 | 42ms t="none" op=1 oben=0 | 124ms t="none" op=1 oben=0 | 204ms t="none" op=1 oben=0 | 403ms t="none" op=1 oben=0
+   kopf: vorher t="none" op=1 oben=1814.66 | 42ms t="none" op=1 oben=0 | 124ms t="none" op=1 oben=0 | 204ms t="none" op=1 oben=0 | 403ms t="none" op=1 oben=0
+   betreff: vorher t=null op=undefined oben=undefined | 42ms t="none" op=1 oben=0 | 124ms t="none" op=1 oben=0 | 204ms t="none" op=1 oben=0 | 403ms t="none" op=1 oben=0
+   Animationen/Übergänge: keine (transformierend oder mit Element)
+   transformierende Animationen je Punkt: 0/0/0/0
+-- e Anliegen planbar (Mail-Zweig)  (fehlend: -; Klick t=6119)
+   notfall: vorher t="none" op=1 oben=682.66 | 43ms t="none" op=1 oben=0 | 124ms t="none" op=1 oben=0 | 204ms t="none" op=1 oben=0 | 404ms t="none" op=1 oben=0
+   mail: vorher t="none" op=1 oben=0 | 43ms t="none" op=1 oben=682.66 | 124ms t="none" op=1 oben=682.66 | 204ms t="none" op=1 oben=682.66 | 404ms t="none" op=1 oben=682.66
+   kopf: vorher t="none" op=1 oben=0 | 43ms t="none" op=1 oben=682.66 | 124ms t="none" op=1 oben=682.66 | 204ms t="none" op=1 oben=682.66 | 404ms t="none" op=1 oben=682.66
+   betreff: vorher t="none" op=1 oben=0 | 43ms t="none" op=1 oben=718.08 | 124ms t="none" op=1 oben=718.08 | 204ms t="none" op=1 oben=718.08 | 404ms t="none" op=1 oben=718.08
+   Animationen/Übergänge: keine (transformierend oder mit Element)
+   transformierende Animationen je Punkt: 0/0/0/0
+=== f-gruppenfilter | reduce | mobil 390x844 | /leistungen/
+-- f Gruppe Einbruchschutz  (fehlend: -; Klick t=5710)
+   gruppe: vorher t="none" op=1 oben=1401.09 | 43ms t="none" op=1 oben=31.58 | 122ms t="none" op=1 oben=31.58 | 202ms t="none" op=1 oben=31.58 | 403ms t="none" op=1 oben=31.58
+   Animationen/Übergänge: keine (transformierend oder mit Element)
+   transformierende Animationen je Punkt: 0/0/0/0
+-- f Gruppe Sicherheitstechnik (eingeblendet)  (fehlend: -; Klick t=6146)
+   gruppe: vorher t="none" op=1 oben=0 | 42ms t="none" op=0.551724 oben=487.58 | 170ms t="none" op=1 oben=487.58 | 203ms t="none" op=1 oben=487.58 | 403ms t="none" op=1 oben=487.58
+   ANIM CSSAnimation|section#gruppe-sicherheitstechnik.sektion.band.verz-gruppe|erscheinen|opacity|dauer=150|verz=0 | Zeit je Punkt (42/170/203/403 ms): running:33 - - -
+   transformierende Animationen je Punkt: 0/0/0/0
+-- f Alle Gruppen (eingeblendet)  (fehlend: -; Klick t=6579)
+   gruppe: vorher t="none" op=1 oben=0 | 42ms t="none" op=0.551724 oben=487.58 | 124ms t="none" op=0.981012 oben=487.58 | 203ms t="none" op=1 oben=487.58 | 405ms t="none" op=1 oben=487.58
+   ANIM CSSAnimation|section#gruppe-notoeffnung.sektion.band.verz-gruppe|erscheinen|opacity|dauer=150|verz=0 | Zeit je Punkt (42/124/203/405 ms): running:33 running:117 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+=== a-faq | no-preference | mobil 390x844 | /
+-- a FAQ öffnen  (fehlend: -; Klick t=5743)
+   chevron: vorher t="none" op=1 oben=8343.23 | 46ms t={"winkel_deg":35.9,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=361.48 | 124ms t={"winkel_deg":142.5,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=361.41 | 206ms t={"winkel_deg":171.6,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=364.61 | 406ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=366.23
+   antwort: vorher t="none" op=1 oben=8383.03 | 46ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.87} op=0.532996 oben=404.16 | 124ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.26} op=0.934689 oben=405.77 | 206ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.02} op=0.993756 oben=406.01 | 406ms t="none" op=1 oben=406.03
+   ANIM CSSTransition|svg.i.i-chevron.faq-chevron|transform|transform|dauer=300|verz=0 | Zeit je Punkt (46/124/206/406 ms): running:33 running:117 running:200 -
+   ANIM CSSAnimation|span.abschnitt-linie|linie-ziehen|transform|dauer=null|verz=0 | Zeit je Punkt (46/124/206/406 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|h2#triage-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (46/124/206/406 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|h2#preis-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (46/124/206/406 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|h2#leistungen-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (46/124/206/406 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|article.register-gross|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (46/124/206/406 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|h2#ablauf-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (46/124/206/406 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|h2#gebiet-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (46/124/206/406 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|figure.gebiet-figur|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (46/124/206/406 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|h2#serioes-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (46/124/206/406 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|h2#faq-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (46/124/206/406 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|div.faq-antwort|m-feedback-ein|opacity,transform|dauer=300|verz=0 | Zeit je Punkt (46/124/206/406 ms): running:33 running:117 running:200 -
+   transformierende Animationen je Punkt: 18/18/18/16
+=== a-faq | no-preference | mobil 390x844 | /preise/
+-- a FAQ öffnen  (fehlend: -; Klick t=5747)
+   chevron: vorher t="none" op=1 oben=7373.77 | 43ms t={"winkel_deg":35.9,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=361.01 | 123ms t={"winkel_deg":142.5,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=360.94 | 203ms t={"winkel_deg":171.6,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=364.15 | 403ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=365.77
+   antwort: vorher t="none" op=1 oben=7429.36 | 43ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.87} op=0.532996 oben=419.49 | 123ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.26} op=0.934689 oben=421.1 | 203ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.02} op=0.993757 oben=421.33 | 403ms t="none" op=1 oben=421.36
+   ANIM CSSTransition|svg.i.i-chevron.faq-chevron|transform|transform|dauer=300|verz=0 | Zeit je Punkt (43/123/203/403 ms): running:33 running:117 running:200 -
+   ANIM CSSAnimation|div.faq-antwort|m-feedback-ein|opacity,transform|dauer=300|verz=0 | Zeit je Punkt (43/123/203/403 ms): running:33 running:117 running:200 -
+   transformierende Animationen je Punkt: 2/2/2/0
+=== b-hauptnav | no-preference | desktop 1440x900 | /
+-- b Leistungen aufklappen  (fehlend: -; Klick t=5754)
+   knopf: vorher t="none" op=1 oben=14 | 43ms t="none" op=1 oben=14 | 124ms t="none" op=1 oben=14 | 204ms t="none" op=1 oben=14 | 403ms t="none" op=1 oben=14
+   pfeil: vorher t="none" op=1 oben=26 | 43ms t={"winkel_deg":35.9,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=22.03 | 124ms t={"winkel_deg":142.5,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=21.98 | 204ms t={"winkel_deg":171.6,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=24.65 | 403ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=26
+   panel: vorher t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-8} op=0 oben=64 | 43ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-3.74} op=0.533018 oben=68.26 | 124ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.52} op=0.934679 oben=71.48 | 204ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.05} op=0.993755 oben=71.95 | 403ms t="none" op=1 oben=72
+   ANIM CSSTransition|svg.i.i-chevron|transform|transform|dauer=300|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:33 running:117 running:200 -
+   ANIM CSSTransition|div#untermenue-leistungen.hauptnav-panel|opacity|opacity|dauer=300|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:33 running:117 running:200 -
+   ANIM CSSTransition|div#untermenue-leistungen.hauptnav-panel|transform|transform|dauer=300|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:33 running:117 running:200 -
+   ANIM CSSAnimation|span.abschnitt-linie|linie-ziehen|transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#triage-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#preis-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#leistungen-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|article.register-gross|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#ablauf-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|ol.ablauf::before|linie-ziehen|transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#gebiet-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|figure.gebiet-figur|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#serioes-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#faq-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/124/204/403 ms): running:null running:null running:null running:null
+   transformierende Animationen je Punkt: 19/19/19/17
+-- b Leistungen zuklappen  (fehlend: -; Klick t=6211)
+   knopf: vorher t="none" op=1 oben=14 | 43ms t="none" op=1 oben=14 | 125ms t="none" op=1 oben=14 | 237ms t="none" op=1 oben=14 | 405ms t="none" op=1 oben=14
+   pfeil: vorher t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=26 | 43ms t={"winkel_deg":124.2,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=22.11 | 125ms t={"winkel_deg":32.9,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=22.17 | 237ms t={"winkel_deg":0.6,"skalierung":1,"x_px":0,"y_px":0} op=1 oben=25.9 | 405ms t="none" op=1 oben=26
+   panel: vorher t="none" op=1 oben=72 | 43ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.09} op=0.989284 oben=71.91 | 125ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.83} op=0.896768 oben=71.17 | 237ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-5.52} op=0.310015 oben=66.48 | 405ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-8} op=0 oben=64
+   ANIM CSSTransition|svg.i.i-chevron|transform|transform|dauer=240|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:33 running:100 running:217 -
+   ANIM CSSTransition|div#untermenue-leistungen.hauptnav-panel|opacity|opacity|dauer=240|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:33 running:100 running:217 -
+   ANIM CSSTransition|div#untermenue-leistungen.hauptnav-panel|transform|transform|dauer=240|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:33 running:100 running:217 -
+   ANIM CSSTransition|div#untermenue-leistungen.hauptnav-panel|visibility|visibility|dauer=0|verz=240 | Zeit je Punkt (43/125/237/405 ms): running:33 running:100 running:217 -
+   ANIM CSSAnimation|span.abschnitt-linie|linie-ziehen|transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#triage-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#preis-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#leistungen-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|article.register-gross|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#ablauf-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|ol.ablauf::before|linie-ziehen|transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#gebiet-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|figure.gebiet-figur|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#serioes-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#faq-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/237/405 ms): running:null running:null running:null running:null
+   transformierende Animationen je Punkt: 19/19/19/17
+=== c-menue-blatt | no-preference | mobil 390x844 | /
+-- c Menü-Blatt öffnen  (fehlend: -; Klick t=5744)
+   knopf: vorher t="none" op=1 oben=777.11 | 49ms t="none" op=1 oben=777.11 | 124ms t="none" op=1 oben=777.11 | 207ms t="none" op=1 oben=777.11 | 405ms t="none" op=1 oben=777.11
+   blatt: vorher t="none" op=1 oben=0 offen=false | 49ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":225.24} op=1 oben=351.85 offen=true | 124ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":46.86} op=1 oben=173.46 offen=true | 207ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":4.48} op=1 oben=131.09 offen=true | 405ms t="none" op=1 oben=126.61 offen=true
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt|transform|transform|dauer=300|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:50 running:117 running:200 -
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt::backdrop|opacity|opacity|dauer=300|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:50 running:117 running:200 -
+   ANIM CSSAnimation|span.abschnitt-linie|linie-ziehen|transform|dauer=null|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#triage-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#preis-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#leistungen-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|article.register-gross|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#ablauf-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#gebiet-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|figure.gebiet-figur|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#serioes-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#faq-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (49/124/207/405 ms): running:null running:null running:null running:null
+   transformierende Animationen je Punkt: 17/17/17/16
+-- c Menü-Blatt schließen  (fehlend: -; Klick t=6191)
+   blatt: vorher t="none" op=1 oben=126.61 offen=true | 43ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":7.69} op=1 oben=134.3 offen=false | 125ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":103.76} op=1 oben=230.37 offen=false | 206ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":388.39} op=1 oben=515 offen=false | 404ms t="none" op=1 oben=0 offen=false
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt|display|display|dauer=240|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:33 running:117 running:200 -
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt|overlay|overlay|dauer=240|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:33 running:117 running:200 -
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt|transform|transform|dauer=240|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:33 running:117 running:200 -
+   ANIM CSSTransition|dialog#menue-blatt.menue-blatt::backdrop|opacity|opacity|dauer=240|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:33 running:117 running:200 -
+   ANIM CSSAnimation|span.abschnitt-linie|linie-ziehen|transform|dauer=null|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#triage-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#preis-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#leistungen-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|article.register-gross|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#ablauf-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#gebiet-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|figure.gebiet-figur|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#serioes-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#faq-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/206/404 ms): running:null running:null running:null running:null
+   transformierende Animationen je Punkt: 17/17/17/16
+=== d-ortspruefung | no-preference | mobil 390x844 | /einsatzgebiet/
+-- d Ort tippen (Löhnberg), Vorschlagsliste  (fehlend: -; Klick t=5845)
+   eingabe: vorher t="none" op=1 oben=669.45 | 44ms t="none" op=1 oben=669.45 | 123ms t="none" op=1 oben=669.45 | 203ms t="none" op=1 oben=669.45 | 404ms t="none" op=1 oben=669.45
+   liste: vorher t="none" op=1 oben=0 | 44ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.17} op=0.956642 oben=726.7 | 123ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":0} op=0.999831 oben=726.87 | 203ms t="none" op=1 oben=726.88 | 404ms t="none" op=1 oben=726.88
+   ergebnis: vorher t="none" op=1 oben=0 | 44ms t="none" op=1 oben=0 | 123ms t="none" op=1 oben=0 | 203ms t="none" op=1 oben=0 | 404ms t="none" op=1 oben=0
+   ANIM CSSAnimation|ul#gebiet-ort-liste.ortspruefung-liste|m-feedback-ein|opacity,transform|dauer=150|verz=0 | Zeit je Punkt (44/123/203/404 ms): running:67 running:133 - -
+   ANIM CSSAnimation|circle.gk-ring|m18-ring|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/123/203/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|g.gk-punkte|m18-karte|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/123/203/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|path.gk-mess|m18-mess|transform|dauer=null|verz=0 | Zeit je Punkt (44/123/203/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|circle.gk-sitz-ring|m18-sitz|transform|dauer=null|verz=0 | Zeit je Punkt (44/123/203/404 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|circle.gk-sitz-punkt|m18-sitz|transform|dauer=null|verz=0 | Zeit je Punkt (44/123/203/404 ms): running:null running:null running:null running:null
+   transformierende Animationen je Punkt: 8/8/7/7
+-- d Vorschlag wählen, Ergebnis  (fehlend: -; Klick t=6310)
+   eingabe: vorher t="none" op=1 oben=669.45 | 43ms t="none" op=1 oben=650.45 | 125ms t="none" op=1 oben=650.45 | 209ms t="none" op=1 oben=650.45 | 403ms t="none" op=1 oben=650.45
+   liste: vorher t="none" op=1 oben=726.88 | 43ms t="none" op=1 oben=0 | 125ms t="none" op=1 oben=0 | 209ms t="none" op=1 oben=0 | 403ms t="none" op=1 oben=0
+   ergebnis: vorher t="none" op=1 oben=0 | 43ms t="none" op=0.82069 oben=755.88 | 125ms t="none" op=0.992404 oben=755.88 | 209ms t="none" op=1 oben=755.88 | 403ms t="none" op=1 oben=755.88
+   ANIM CSSTransition|div.ortspruefung-ergebnis|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (43/125/209/403 ms): running:33 running:117 - -
+   ANIM CSSAnimation|circle.gk-ring|m18-ring|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/209/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|g.gk-punkte|m18-karte|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/125/209/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|path.gk-mess|m18-mess|transform|dauer=null|verz=0 | Zeit je Punkt (43/125/209/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|circle.gk-sitz-ring|m18-sitz|transform|dauer=null|verz=0 | Zeit je Punkt (43/125/209/403 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|circle.gk-sitz-punkt|m18-sitz|transform|dauer=null|verz=0 | Zeit je Punkt (43/125/209/403 ms): running:null running:null running:null running:null
+   transformierende Animationen je Punkt: 7/7/7/7
+=== e-composer | no-preference | mobil 390x844 | /kontakt/
+-- e Anliegen Notfall  (fehlend: betreff; Klick t=5681)
+   notfall: vorher t="none" op=1 oben=0 | 45ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.87} op=0.533007 oben=680.79 | 124ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.26} op=0.934685 oben=682.4 | 203ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.04} op=0.989145 oben=682.61 | 424ms t="none" op=1 oben=682.66
+   mail: vorher t="none" op=1 oben=1814.66 | 45ms t="none" op=1 oben=0 | 124ms t="none" op=1 oben=0 | 203ms t="none" op=1 oben=0 | 424ms t="none" op=1 oben=0
+   kopf: vorher t="none" op=1 oben=1814.66 | 45ms t="none" op=1 oben=0 | 124ms t="none" op=1 oben=0 | 203ms t="none" op=1 oben=0 | 424ms t="none" op=1 oben=0
+   betreff: vorher t=null op=undefined oben=undefined | 45ms t="none" op=0.6 oben=0 | 124ms t="none" op=0.6 oben=0 | 203ms t="none" op=0.6 oben=0 | 424ms t="none" op=0.6 oben=0
+   ANIM CSSAnimation|div.composer-notfall|m-feedback-ein|opacity,transform|dauer=300|verz=0 | Zeit je Punkt (45/124/203/424 ms): running:33 running:117 running:183 -
+   transformierende Animationen je Punkt: 1/1/1/0
+-- e Anliegen planbar (Mail-Zweig)  (fehlend: -; Klick t=6179)
+   notfall: vorher t="none" op=1 oben=682.66 | 42ms t="none" op=1 oben=0 | 123ms t="none" op=1 oben=0 | 203ms t="none" op=1 oben=0 | 404ms t="none" op=1 oben=0
+   mail: vorher t="none" op=1 oben=0 | 42ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.26} op=0.68602 oben=681.4 | 123ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.17} op=0.956637 oben=682.48 | 203ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.02} op=0.993756 oben=682.63 | 404ms t="none" op=1 oben=682.66
+   kopf: vorher t="none" op=1 oben=0 | 42ms t="none" op=1 oben=681.4 | 123ms t="none" op=1 oben=682.48 | 203ms t="none" op=1 oben=682.63 | 404ms t="none" op=1 oben=682.66
+   betreff: vorher t="none" op=0.6 oben=0 | 42ms t="none" op=0.892749 oben=716.82 | 123ms t="none" op=0.998238 oben=717.9 | 203ms t="none" op=1 oben=718.05 | 404ms t="none" op=1 oben=718.08
+   ANIM CSSAnimation|div.composer-mail|m-feedback-ein|opacity,transform|dauer=300|verz=0 | Zeit je Punkt (42/123/203/404 ms): running:50 running:133 running:200 -
+   ANIM CSSAnimation|dd|betreff-neu-a|opacity|dauer=150|verz=0 | Zeit je Punkt (42/123/203/404 ms): running:50 running:133 - -
+   transformierende Animationen je Punkt: 1/1/1/0
+=== f-gruppenfilter | no-preference | mobil 390x844 | /leistungen/
+-- f Gruppe Einbruchschutz  (fehlend: -; Klick t=5700)
+   gruppe: vorher t="none" op=1 oben=1401.09 | 43ms t="none" op=1 oben=654.58 | 123ms t="none" op=1 oben=342.58 | 203ms t="none" op=1 oben=131.58 | 403ms t="none" op=1 oben=32.58
+   Animationen/Übergänge: keine (transformierend oder mit Element)
+   transformierende Animationen je Punkt: 0/0/0/0
+-- f Gruppe Sicherheitstechnik (eingeblendet)  (fehlend: -; Klick t=6171)
+   gruppe: vorher t="none" op=1 oben=0 | 43ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-2.51} op=0.686034 oben=485.07 | 122ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.52} op=0.934685 oben=487.06 | 203ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.05} op=0.993756 oben=487.53 | 403ms t="none" op=1 oben=487.58
+   ANIM CSSAnimation|section#gruppe-sicherheitstechnik.sektion.band.verz-gruppe|m05-einblenden|opacity,transform|dauer=300|verz=0 | Zeit je Punkt (43/122/203/403 ms): running:50 running:117 running:200 -
+   transformierende Animationen je Punkt: 1/1/1/0
+-- f Alle Gruppen (eingeblendet)  (fehlend: -; Klick t=6618)
+   gruppe: vorher t="none" op=1 oben=0 | 42ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-3.74} op=0.532951 oben=483.84 | 125ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.52} op=0.934684 oben=487.06 | 205ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.05} op=0.993755 oben=487.53 | 403ms t="none" op=1 oben=487.58
+   ANIM CSSAnimation|section#gruppe-notoeffnung.sektion.band.verz-gruppe|m05-einblenden|opacity,transform|dauer=300|verz=0 | Zeit je Punkt (42/125/205/403 ms): running:33 running:117 running:200 -
+   ANIM CSSAnimation|section#gruppe-einbruchschutz.sektion-dicht.verz-gruppe|m05-einblenden|opacity,transform|dauer=300|verz=0 | Zeit je Punkt (42/125/205/403 ms): running:33 running:117 running:200 -
+   ANIM CSSAnimation|section#gruppe-einbau-tresore.sektion-dicht.verz-gruppe|m05-einblenden|opacity,transform|dauer=300|verz=0 | Zeit je Punkt (42/125/205/403 ms): running:33 running:117 running:200 -
+   transformierende Animationen je Punkt: 3/3/3/0
+=== g-druck | reduce | mobil 390x844 | /preise/ | label.wahl-option
+-- g Rechner-Option (wahl-option)  (fehlend: -; Klick t=5775)
+   ziel: vorher t="none" op=1 oben=337.7 | 43ms t="none" op=1 oben=337.7 | 123ms t="none" op=1 oben=337.7 | 203ms t="none" op=1 oben=337.7 | 403ms t="none" op=1 oben=337.7
+   ANIM CSSTransition|label.wahl-option::before|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (43/123/203/403 ms): running:50 running:117 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+=== g-druck | no-preference | mobil 390x844 | /preise/ | label.wahl-option
+-- g Rechner-Option (wahl-option)  (fehlend: -; Klick t=5792)
+   ziel: vorher t="none" op=1 oben=337.7 | 43ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=338.51 | 122ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=338.51 | 203ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=338.51 | 402ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=338.51
+   ANIM CSSTransition|label.wahl-option::before|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (43/122/203/402 ms): running:50 running:133 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+=== g-druck | reduce | mobil 390x844 | /preise/ | a.formel-titel
+-- g Formelzeile (formel-titel)  (fehlend: -; Klick t=5821)
+   ziel: vorher t="none" op=1 oben=630.63 | 42ms t="none" op=1 oben=630.63 | 123ms t="none" op=1 oben=630.63 | 203ms t="none" op=1 oben=630.63 | 404ms t="none" op=1 oben=630.63
+   ANIM CSSTransition|a.formel-titel::after|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (42/123/203/404 ms): running:33 running:117 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+=== g-druck | no-preference | mobil 390x844 | /preise/ | a.formel-titel
+-- g Formelzeile (formel-titel)  (fehlend: -; Klick t=5801)
+   ziel: vorher t="none" op=1 oben=630.63 | 42ms t="none" op=1 oben=630.63 | 124ms t="none" op=1 oben=630.63 | 203ms t="none" op=1 oben=630.63 | 404ms t="none" op=1 oben=630.63
+   ANIM CSSTransition|a.formel-titel::after|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (42/124/203/404 ms): running:50 running:133 - -
+   ANIM CSSTransition|a.formel-titel::after|transform|transform|dauer=150|verz=0 | Zeit je Punkt (42/124/203/404 ms): running:33 running:117 - -
+   transformierende Animationen je Punkt: 1/1/0/0
+=== g-druck | reduce | mobil 390x844 | /notoeffnung/tueroeffnung/ | .rand-liste a
+-- g Listenlink (rand-liste)  (fehlend: -; Klick t=5774)
+   ziel: vorher t="none" op=1 oben=356.23 | 43ms t="none" op=1 oben=356.23 | 122ms t="none" op=1 oben=356.23 | 203ms t="none" op=1 oben=356.23 | 403ms t="none" op=1 oben=356.23
+   ANIM CSSTransition|a::before|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (43/122/203/403 ms): running:50 running:133 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+=== g-druck | no-preference | mobil 390x844 | /notoeffnung/tueroeffnung/ | .rand-liste a
+-- g Listenlink (rand-liste)  (fehlend: -; Klick t=5748)
+   ziel: vorher t="none" op=1 oben=356.23 | 43ms t={"winkel_deg":0,"skalierung":0.989,"x_px":0,"y_px":0} op=1 oben=356.48 | 123ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=356.67 | 205ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=356.67 | 409ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=356.67
+   ANIM CSSTransition|a|transform|transform|dauer=150|verz=0 | Zeit je Punkt (43/123/205/409 ms): running:33 running:117 - -
+   ANIM CSSTransition|a::before|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (43/123/205/409 ms): running:50 running:133 - -
+   transformierende Animationen je Punkt: 1/1/0/0
+=== g-druck | reduce | mobil 390x844 | /einbruchschutz/ | .gruppe-register a
+-- g Registerlink (gruppe-register)  (fehlend: -; Klick t=5728)
+   ziel: vorher t="none" op=1 oben=642.77 | 42ms t="none" op=1 oben=642.77 | 123ms t="none" op=1 oben=642.77 | 203ms t="none" op=1 oben=642.77 | 403ms t="none" op=1 oben=642.77
+   ANIM CSSTransition|a::before|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (42/123/203/403 ms): running:50 running:117 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+=== g-druck | no-preference | mobil 390x844 | /einbruchschutz/ | .gruppe-register a
+-- g Registerlink (gruppe-register)  (fehlend: -; Klick t=5739)
+   ziel: vorher t="none" op=1 oben=642.77 | 42ms t={"winkel_deg":0,"skalierung":0.989,"x_px":0,"y_px":0} op=1 oben=643.01 | 123ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=643.2 | 203ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=643.21 | 403ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=643.21
+   ANIM CSSTransition|a|transform|transform|dauer=150|verz=0 | Zeit je Punkt (42/123/203/403 ms): running:33 running:117 - -
+   ANIM CSSTransition|a::before|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (42/123/203/403 ms): running:50 running:133 - -
+   transformierende Animationen je Punkt: 1/1/0/0
+=== g-druck | reduce | mobil 390x844 | / | .knopf-sekundaer
+-- g Knopf (knopf-sekundaer)  (fehlend: -; Klick t=5796)
+   ziel: vorher t="none" op=1 oben=349.27 | 42ms t="none" op=1 oben=349.27 | 123ms t="none" op=1 oben=349.27 | 203ms t="none" op=1 oben=349.27 | 404ms t="none" op=1 oben=349.27
+   ANIM CSSTransition|a.knopf.knopf-sekundaer::before|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (42/123/203/404 ms): running:50 running:133 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+=== g-druck | no-preference | mobil 390x844 | / | .knopf-sekundaer
+-- g Knopf (knopf-sekundaer)  (fehlend: -; Klick t=5812)
+   ziel: vorher t="none" op=1 oben=349.27 | 43ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=349.84 | 127ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=349.84 | 204ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=349.84 | 405ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=349.84
+   ANIM CSSTransition|a.knopf.knopf-sekundaer::before|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (43/127/204/405 ms): running:50 running:133 - -
+   ANIM CSSAnimation|span.abschnitt-linie|linie-ziehen|transform|dauer=null|verz=0 | Zeit je Punkt (43/127/204/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#triage-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/127/204/405 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|h2#preis-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/127/204/405 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|h2#leistungen-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/127/204/405 ms): finished:null finished:null finished:null finished:null
+   ANIM CSSAnimation|article.register-gross|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/127/204/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#ablauf-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/127/204/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#gebiet-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/127/204/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|figure.gebiet-figur|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/127/204/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#serioes-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/127/204/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#faq-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (43/127/204/405 ms): running:null running:null running:null running:null
+   transformierende Animationen je Punkt: 16/16/16/16
+=== g-druck | reduce | mobil 390x844 | / | .rufknopf-leiste
+-- g Rufknopf (rufknopf-leiste)  (fehlend: -; Klick t=5759)
+   ziel: vorher t="none" op=1 oben=777.11 | 42ms t="none" op=1 oben=777.11 | 123ms t="none" op=1 oben=777.11 | 203ms t="none" op=1 oben=777.11 | 405ms t="none" op=1 oben=777.11
+   ANIM CSSTransition|span.rufknopf.rufknopf-leiste::before|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (42/123/203/405 ms): running:33 running:117 - -
+   transformierende Animationen je Punkt: 0/0/0/0
+=== g-druck | no-preference | mobil 390x844 | / | .rufknopf-leiste
+-- g Rufknopf (rufknopf-leiste)  (fehlend: -; Klick t=5791)
+   ziel: vorher t="none" op=1 oben=777.11 | 44ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=777.7 | 124ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=777.7 | 205ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=777.7 | 405ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben=777.7
+   ANIM CSSTransition|span.rufknopf.rufknopf-leiste::before|opacity|opacity|dauer=150|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:50 running:133 - -
+   ANIM CSSAnimation|span.abschnitt-linie|linie-ziehen|transform|dauer=null|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#triage-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#preis-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#leistungen-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|article.register-gross|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#ablauf-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#gebiet-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|figure.gebiet-figur|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#serioes-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:null running:null running:null running:null
+   ANIM CSSAnimation|h2#faq-titel|auftritt|opacity,transform|dauer=null|verz=0 | Zeit je Punkt (44/124/205/405 ms): running:null running:null running:null running:null
+   transformierende Animationen je Punkt: 16/16/16/16
+ENDE interaktionen

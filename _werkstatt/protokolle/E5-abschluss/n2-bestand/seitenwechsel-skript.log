@@ -1,0 +1,9 @@
+skript: 30/30 Sprünge erfolgreich
+pageerror 6 · console.error 30 (davon erwartete 404 30) · zählend 6 · ViewTransition 6
+  pageerror: Transition was aborted because of invalid state. ViewTransition opt-in disabled @ 
+  pageerror: Transition was aborted because of invalid state. ViewTransition opt-in disabled @ 
+  pageerror: Transition was aborted because of invalid state. ViewTransition opt-in disabled @ 
+  pageerror: Transition was aborted because of invalid state. ViewTransition opt-in disabled @ 
+  pageerror: Transition was aborted because of invalid state. ViewTransition opt-in disabled @ 
+  pageerror: Transition was aborted because of invalid state. ViewTransition opt-in disabled @ 
+EXIT=1

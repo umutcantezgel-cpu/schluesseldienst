@@ -19,7 +19,7 @@ Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4
 ### Ergebnis in Zahlen
 
 - **Seiten:** 5.556 im Messbau, davon 5.252 Ortsseiten. 314 unklare Orte sind nicht veröffentlicht.
-- **Pakete:** Pflichtpakete 67 von 67 erledigt und abgenommen, Kür 8 von 8.
+- **Pakete:** Pflichtpakete 66 von 66 erledigt und abgenommen (die Kapazitätszeile in PLAN.md nannte 67, nachgezählt sind es 66), Kür 8 von 8.
 - **Prüfer:** 11 Build-Prüfer ohne Fehler, 72 bekannte Warnungen (Titellänge auf Ortsseiten, D-SEO-04).
 - **Tests:** 331 Tests, 330 bestanden, 0 fehlgeschlagen, 1 als offen markiert (Postleitzahl NL, offene Frage).
 - **Budgets (Endmessung):** CSS je Seite höchstens 13.666 von 14.336 B gzip; größtes JavaScript-Bündel 9.837 von 16.384 B gzip; größte Ortsseite 30.390 von 30.720 B; Bewegungscode 2,3 KB gzip (weiches Budget 12 KB, hartes 60 KB).

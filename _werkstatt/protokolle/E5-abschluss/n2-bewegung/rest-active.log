@@ -1,0 +1,14 @@
+lauf Rechner-Option (.wahl-option) reduce fertig
+lauf Rechner-Option (.wahl-option) no-preference fertig
+lauf Knopf (.knopf) reduce fertig
+lauf Knopf (.knopf) no-preference fertig
+lauf Rufknopf (.rufknopf) reduce fertig
+lauf Rufknopf (.rufknopf) no-preference fertig
+Rechner-Option (.wahl-option) | reduce | aktiv=true | treffer=true | vorher=none | sofort=none | 40=none | 400=none | Animationen400=[]
+Rechner-Option (.wahl-option) | no-preference | aktiv=false | treffer=true | vorher=none | sofort=matrix(0.98, 0, 0, 0.98, 0, 0) | 40=matrix(0.98, 0, 0, 0.98, 0, 0) | 400=matrix(0.98, 0, 0, 0.98, 0, 0) | Animationen400=[]
+Knopf (.knopf) | reduce | aktiv=true | treffer=true | vorher=none | sofort=none | 40=none | 400=none | Animationen400=[]
+Knopf (.knopf) | no-preference | aktiv=false | treffer=true | vorher=none | sofort=matrix(0.98, 0, 0, 0.98, 0, 0) | 40=matrix(0.98, 0, 0, 0.98, 0, 0) | 400=matrix(0.98, 0, 0, 0.98, 0, 0) | Animationen400=[]
+Rufknopf (.rufknopf) | reduce | aktiv=true | treffer=true | vorher=none | sofort=none | 40=none | 400=none | Animationen400=[]
+Rufknopf (.rufknopf) | no-preference | aktiv=false | treffer=true | vorher=none | sofort=matrix(0.98, 0, 0, 0.98, 0, 0) | 40=matrix(0.98, 0, 0, 0.98, 0, 0) | 400=matrix(0.98, 0, 0, 0.98, 0, 0) | Animationen400=[]
+ENDE rest-active
+EXIT=0

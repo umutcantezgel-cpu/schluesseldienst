@@ -30,6 +30,7 @@ Jeder Punkt: Frage · Beleg · meine Standardannahme (gilt bis zu deiner Antwort
 ## 4. Repository
 - Das Repo ist öffentlich (deine Entscheidung). Darin liegen seit dem ersten Commit die Wettbewerber-Scrapes (urheberrechtlich geschützte Texte, Personendaten wie Name/Foto-Link des Richter-Inhabers, zwei fremde Google-API-Schlüssel). Optional: Repo privat stellen und/oder Historie bereinigen (filter-repo + Force-Push) – nur durch dich.
 
+- Zusammenführen in `main` und ein mögliches Zurückrollen entscheidest und veranlasst du; die Schritte stehen in `docs/ZUSAMMENFUEHREN.md` (Pull Request, Revert mit oder ohne `-m 1`, Umgang mit `_werkstatt/`). Der Lauf hat nichts zusammengeführt und nichts veröffentlicht.
 ## 5. Hosting, Domain, Betrieb
 - Hoster wählen: EU-Standort, Auftragsverarbeitungsvertrag (Art. 28 DSGVO), IP-Kürzung, Logs ≤ 14 Tage, eigene HTTP-Header möglich (Apache/nginx/Netlify/Cloudflare Pages). Hoster-Zusätze aus: Cloudflare Rocket Loader, E-Mail-Verschleierung, Web Analytics; Netlify Snippet Injection.
 - Domain: www oder ohne; HSTS-Preload erst nach stabiler HTTPS-Konfiguration; DNSSEC, CAA-Eintrag, Registrar-Lock; 2FA bei Registrar, Hoster, GitHub. Die Basis-URL trägst du in `src/konfig/betrieb.mjs` als `basisUrl` ein (Form `https://host` ohne Pfad; heute Platzhalter `https://Ihre-Domain.de`); ohne sie bricht der Release-Bau ab. · Beleg: `bau/bauen.mjs`; `_werkstatt/berichte/E5-abschluss-pruefung.md`, Abschnitt 1 (Z-02, Negativtest).
@@ -40,7 +41,7 @@ Jeder Punkt: Frage · Beleg · meine Standardannahme (gilt bis zu deiner Antwort
 ## 6. Tests, die die Cloud nicht kann (UMGEBUNGSAUSNAHMEN)
 - Echte Geräte (iPhone/Android), Firefox und Safari (nur Chromium ist installiert), GPU-Bildrate, Wirkung in der Google Search Console, Live-Header beim Hoster.
 - Geschmacksabnahme der Gestaltung durch dich.
-- Konfigurationslücken (U-6 laut ABNAHME: Name, Telefon, Preise, Rechtsdaten und ungeprüfte Fakten; dazu gehören die Punkte aus §1 bis §3, etwa E-Mail und Zonen-Bestätigung). Bis dahin zeigt die Vorschau Platzhalter. Der Release-Bau verweigert laut Code jede offene Konfigurationslücke und jeden ungeprüften Fakt (`bau/bauen.mjs`); der Negativtest der Abschluss-Nachprüfung brach schon an der Basis-URL ab.
+- Konfigurationslücken (U-6 laut ABNAHME: Name, Telefon, Preise, Rechtsdaten und ungeprüfte Fakten; dazu gehören die Punkte aus §1 bis §3, etwa E-Mail und Zonen-Bestätigung). Bis dahin zeigt die Vorschau Platzhalter. Der Release-Bau verweigert jede offene Konfigurationslücke und jeden ungeprüften Fakt: Ohne Basis-URL bricht er sofort ab (Negativtest A), mit eingetragener Basis-URL weist er am Endstand 57 Platzhalter in der Konfiguration und 92 ungeprüfte Fakten ab (Negativtest B, `_werkstatt/berichte/E5-abschluss-pruefung.md` §5).
 - Nach dem Eintragen von Telefonnummer, E-Mail und Preisliste auf einem echten Telefon prüfen: H1 (Anruf mit einem Tipp), H4 (Impressum vollständig), H5 (Mail-Programm öffnet sich) und der Gesamtbetrag im Preisrechner. In der Vorschau war H1 nur mit einer Testnummer in einer lokalen Kopie belegt, der Gesamtbetrag (F05) nur per Unit-Test; H4 und H5 sind nur als Tastaturpfad mit Platzhalterinhalt geprüft. · Beleg: `_werkstatt/berichte/E5-abschluss-pruefung.md`, Abschnitt 1 (Z-02 F05, Z-07 H1, H4, H5).
 
 ## 7. Texte und Fakten zur Freigabe (gesammelt aus den Paketen)

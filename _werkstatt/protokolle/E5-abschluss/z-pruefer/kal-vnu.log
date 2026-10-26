@@ -1,0 +1,4 @@
+vnu: 2 Dateien · 1 Fehler · 1 Warnungen
+  FEHLER _werkstatt/werkzeuge/fixture/schlecht.html:12 An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.
+ERGEBNIS: fehler
+VNU_EXIT=1

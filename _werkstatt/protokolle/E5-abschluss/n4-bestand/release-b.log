@@ -1,0 +1,123 @@
+Build release: 5556 Seiten, 5625 geändert, 0 entfernt, CSS 54594 B, JS 9 Bündel bis 27559 B, 19461 ms
+Platzhalter: 65 in der Ausgabe, 57 in der Konfiguration · ungeprüfte Fakten: 92
+✓ budgets           0 Fehler     0 Warnungen  (2947 ms)
+✓ ehrlichkeit       0 Fehler     0 Warnungen  (6706 ms)
+✓ emoji             0 Fehler     0 Warnungen  (1380 ms)
+✗ fakten           20 Fehler     0 Warnungen  (1745 ms)
+    fakten/verifizieren: /ratgeber/ausgesperrt-was-tun/index.html – Seite /ratgeber/ausgesperrt-was-tun/: 4 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/schluesseldienst-kosten/index.html – Seite /ratgeber/schluesseldienst-kosten/: 5 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/schluessel-verloren/index.html – Seite /ratgeber/schluessel-verloren/: 6 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/schluessel-im-auto/index.html – Seite /ratgeber/schluessel-im-auto/: 2 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/schliesszylinder-wechseln/index.html – Seite /ratgeber/schliesszylinder-wechseln/: 8 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/einbruchschutz-wohnung/index.html – Seite /ratgeber/einbruchschutz-wohnung/: 6 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/einbruchschutz-haus/index.html – Seite /ratgeber/einbruchschutz-haus/: 3 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/haustuer-sicherheitscheck/index.html – Seite /ratgeber/haustuer-sicherheitscheck/: 4 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/nach-einbruch-was-tun/index.html – Seite /ratgeber/nach-einbruch-was-tun/: 5 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/rc-widerstandsklassen/index.html – Seite /ratgeber/rc-widerstandsklassen/: 18 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/foerderung-einbruchschutz/index.html – Seite /ratgeber/foerderung-einbruchschutz/: 16 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/rauchmelderpflicht/index.html – Seite /ratgeber/rauchmelderpflicht/: 10 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/tresor-kaufen-widerstandsgrade/index.html – Seite /ratgeber/tresor-kaufen-widerstandsgrade/: 6 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/waffenschrank-vorschriften/index.html – Seite /ratgeber/waffenschrank-vorschriften/: 8 ungeprüfte Fakt(en) (class="verifizieren")
+    fakten/verifizieren: /ratgeber/alarmanlage-planen/index.html – Seite /ratgeber/alarmanlage-planen/: 5 ungeprüfte Fakt(en) (class="verifizieren")
+    … 5 weitere
+✓ icons             0 Fehler     0 Warnungen  (20 ms)
+✗ jsonld           16 Fehler     0 Warnungen  (209 ms)
+    jsonld/platzhalter: /kontakt/index.html – Platzhaltertext im Wert: "[PLZ]"
+    jsonld/platzhalter: /kontakt/index.html – Platzhaltertext im Wert: "[Straße und Hausnummer]"
+    jsonld/platzhalter: /kontakt/index.html – Platzhaltertext im Wert: "[E-Mail-Adresse]"
+    jsonld/platzhalter: /kontakt/index.html – Platzhaltertext im Wert: "[Firmenname]"
+    jsonld/platzhalter: /kontakt/index.html – Platzhaltertext im Wert: "[Telefon (+49…)]"
+    jsonld/platzhalter: /index.html – Platzhaltertext im Wert: "[PLZ]"
+    jsonld/platzhalter: /index.html – Platzhaltertext im Wert: "[Straße und Hausnummer]"
+    jsonld/platzhalter: /index.html – Platzhaltertext im Wert: "[E-Mail-Adresse]"
+    jsonld/platzhalter: /index.html – Platzhaltertext im Wert: "[Firmenname]"
+    jsonld/platzhalter: /index.html – Platzhaltertext im Wert: "[Telefon (+49…)]"
+    jsonld/platzhalter: /index.html – Platzhaltertext im Wert: "[Firmenname]"
+    jsonld/platzhalter: /ueber-uns/index.html – Platzhaltertext im Wert: "[PLZ]"
+    jsonld/platzhalter: /ueber-uns/index.html – Platzhaltertext im Wert: "[Straße und Hausnummer]"
+    jsonld/platzhalter: /ueber-uns/index.html – Platzhaltertext im Wert: "[E-Mail-Adresse]"
+    jsonld/platzhalter: /ueber-uns/index.html – Platzhaltertext im Wert: "[Firmenname]"
+    … 1 weitere
+✓ links             0 Fehler     0 Warnungen  (1457 ms)
+✓ plagiat           0 Fehler     0 Warnungen  (5593 ms)
+✓ seo               0 Fehler    72 Warnungen  (366 ms)
+✗ sicherheit     5556 Fehler     0 Warnungen  (31288 ms)
+    sicherheit/S10-platzhalter: /ratgeber/ausgesperrt-was-tun/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/tuer-zugefallen-oder-abgeschlossen/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/schluesseldienst-abzocke-erkennen/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/schluesseldienst-kosten/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/schluessel-verloren/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/schluessel-im-auto/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/schliesszylinder-wechseln/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/einbruchschutz-wohnung/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/einbruchschutz-haus/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/haustuer-sicherheitscheck/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/nach-einbruch-was-tun/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/schadensbilder/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/rc-widerstandsklassen/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/foerderung-einbruchschutz/index.html – 9 Platzhalter
+    sicherheit/S10-platzhalter: /ratgeber/rauchmelderpflicht/index.html – 9 Platzhalter
+    … 5541 weitere
+✓ token             0 Fehler     0 Warnungen  (108 ms)
+Release verweigert: 57 Platzhalter in der Konfiguration:
+  betrieb.name (Firmenname)
+  betrieb.rechtsform (Rechtsform)
+  betrieb.inhaber (Inhaber/Vertretungsberechtigte)
+  betrieb.adresse.strasse (Straße und Hausnummer)
+  betrieb.adresse.plz (PLZ)
+  betrieb.telefon.anzeige (Telefonnummer)
+  betrieb.telefon.e164 (Telefon (+49…))
+  betrieb.email (E-Mail-Adresse)
+  betrieb.erreichbarkeit.zeiten (Erreichbarkeitszeiten)
+  betrieb.erreichbarkeit.nachtdienst (Nachtdienst ja/nein)
+  betrieb.impressum.register (Registereintrag oder „kein Registereintrag“)
+  betrieb.impressum.ustId (USt-IdNr. oder W-IdNr.)
+  betrieb.impressum.kammer (Zuständige Kammer)
+  betrieb.impressum.berufsbezeichnung (Berufsbezeichnung und Staat der Verleihung)
+  betrieb.impressum.verantwortlichMStV (Verantwortlich nach § 18 Abs. 2 MStV)
+  betrieb.impressum.vsbg (Erklärung zur Verbraucherstreitbeilegung)
+  betrieb.zusagen.preisVorAuftrag (Zusage bestätigen: Gesamtpreis vor Arbeitsbeginn)
+  betrieb.zusagen.rechnungMitPositionen (Zusage bestätigen: Rechnung mit allen Positionen)
+  betrieb.zusagen.kartenzahlung (Zusage bestätigen: Kartenzahlung vor Ort)
+  betrieb.zusagen.erfolglos (Zusage bestätigen: Was kostet ein Einsatz, wenn die Öffnung nicht gelingt?)
+  preise.ustModus (Umsatzsteuer: Regelbesteuerung oder Kleinunternehmer)
+  preise.zeitfenster[0].zeit (Uhrzeit folgt)
+  preise.zeitfenster[1].zeit (Uhrzeit folgt)
+  preise.zeitfenster[2].zeit (Uhrzeit folgt)
+  preise.zeitfenster[3].zeit (Zeitraum folgt)
+  preise.tagesband (Uhrzeiten der Zeitfenster je Tagesart)
+  preise.positionen[0].preise.werktag (Preis folgt)
+  preise.positionen[0].preise.abend (Preis folgt)
+  preise.positionen[0].preise.nacht (Preis folgt)
+  preise.positionen[0].preise.wochenende (Preis folgt)
+  preise.positionen[1].preise.werktag (Preis folgt)
+  preise.positionen[1].preise.abend (Preis folgt)
+  preise.positionen[1].preise.nacht (Preis folgt)
+  preise.positionen[1].preise.wochenende (Preis folgt)
+  preise.positionen[2].preise.werktag (Preis folgt)
+  preise.positionen[2].preise.abend (Preis folgt)
+  preise.positionen[2].preise.nacht (Preis folgt)
+  preise.positionen[2].preise.wochenende (Preis folgt)
+  preise.positionen[3].preise.werktag (Preis folgt)
+  preise.positionen[3].preise.abend (Preis folgt)
+  preise.positionen[3].preise.nacht (Preis folgt)
+  preise.positionen[3].preise.wochenende (Preis folgt)
+  preise.positionen[4].preise.werktag (Preis folgt)
+  preise.positionen[4].preise.abend (Preis folgt)
+  preise.positionen[4].preise.nacht (Preis folgt)
+  preise.positionen[4].preise.wochenende (Preis folgt)
+  preise.positionen[5].preise.werktag (Preis folgt)
+  preise.positionen[5].preise.abend (Preis folgt)
+  preise.positionen[5].preise.nacht (Preis folgt)
+  preise.positionen[5].preise.wochenende (Preis folgt)
+  preise.anfahrt.B (Anfahrtsaufschlag Zone B)
+  preise.anfahrt.C (Anfahrt Zone C)
+  preise.zahlarten (Zahlarten)
+  zonen.stufen[0].leistungenBestaetigt (Leistungen in Zone A bestätigen)
+  zonen.stufen[1].leistungenBestaetigt (Leistungen in Zone B bestätigen)
+  zonen.stufen[2].leistungenBestaetigt (Leistungen in Zone C bestätigen)
+  zonen.stufen[3].leistungenBestaetigt (Leistungen in Zone D bestätigen)
+Release verweigert: 92 ungeprüfte Fakten: notrufnummern.vorwahl, notrufnummern.feuerwehr-112, notrufnummern.rettungsdienst-112, notrufnummern.leitstelle, recht-35a.anteil, recht-35a.hoechstbetrag, recht-35a.arbeitskosten, recht-35a.zahlung-konto, recht-schluesselverlust-miete.bgh-austausch, recht-schluesselverlust-miete.bgh-schadenseintritt, versicherung-schluessel.vhb-folgekosten, versicherung-schluessel.vhb-schluessel, versicherung-schluessel.vhb-keine-notoeffnung, recht-schluesselverlust-miete.bgh-schadensersatz, norm-zylinder.aktuell, norm-zylinder.klassen, norm-zylinder.empfehlung, norm-zylinder.bohrschutz, norm-zylinder.sk-schutz, norm-zylinder.sk-nachfertigung, norm-zylinder.bs-bz, norm-zylinder.schutzbeschlag, statistik-einbruch.bund-faelle, statistik-einbruch.bund-begriff, statistik-einbruch.hessen-faelle, statistik-einbruch.hessen-versuche, norm-nachruestung.teil1-zweck, norm-nachruestung.griffe, norm-nachruestung.teil2-titel, norm-schutzbeschlag.sicherheit, norm-schutzbeschlag.za-immer, notrufnummern.polizei-110, norm-rc-klassen.tueren-empfehlung, norm-verglasung.n-eingeschraenkt, norm-rc-klassen.empfehlung, norm-rc-klassen.ausgabe, norm-rc-klassen.tueren-klassen, norm-rc-klassen.unter-rc2, norm-rc-klassen.gleiche-bezeichnung, norm-rc-klassen.vornorm, norm-rc-klassen.grundsicherung, norm-rc-klassen.ohne-werkzeug, norm-verglasung.isolierverglasung, norm-verglasung.p4a-nachruestung, norm-verglasung.nur-glas, norm-verglasung.n-verzicht, norm-verglasung.rc1-glas, norm-rc-klassen.sechs-klassen-fenster, foerderung.kredit-159, foerderung.kredit-159-antrag, foerderung.kredit-159-bund, foerderung.kredit-159-hoechstbetrag, foerderung.kredit-159-fachunternehmen, foerderung.kredit-159-vorhabensbeginn, foerderung.kredit-159-fenster, recht-35a.ausschluss-betrieb, recht-rauchmelder.hessen-funktion, recht-rauchmelder.hessen-bussgeld, recht-rauchmelder.hessen-betrieb, norm-rauchmelder.14676-1-zweck, norm-rauchmelder.14676-1-ausgabe, recht-rauchmelder.hessen-wohnungen, recht-rauchmelder.nrw-wohnungen, recht-rauchmelder.nrw-betrieb, norm-datensicherung.1047-1-teil1, norm-wertschutz.1143-1-titel, norm-wertschutz.14450-titel, norm-wertschutz.14450-ausgabe, norm-tresorschloss.ausgabe, norm-tresorschloss.titel, recht-waffen.pflicht-vorkehrungen, recht-waffen.verordnung, recht-waffen.hoeherer-standard, recht-waffen.nachweis-behoerde, recht-waffen.kontrolle-behoerde, norm-alarm.grade-empfehlung, norm-alarm.titel, norm-alarm.grade-anzahl, norm-alarm.grade-1, norm-alarm.grade-normenreihen, weilburg-tunnel.abkuerzung, recht-widerruf-notfall.nr11-ausschluss, recht-widerruf-notfall.nr11-zusatzleistung, recht-widerruf-notfall.nr11-waren, recht-bfsg.stichtag, lizenz-geonames.geonames-lizenz, lizenz-geonames.namensnennung, lizenz-geonames.lizenzverweis, lizenz-geonames.aenderungen, lizenz-geonames.geonames-hinweis, lizenz-schrift.version, lizenz-schrift.erlaubnis
+Build mit 5594 Fehler(n) beendet.
+Release verweigert: Ausgabe nach /home/user/schluesseldienst/.cache/e5-final/n4-bestand/release-b.verweigert verschoben – nicht hochladen.
+EXIT=1

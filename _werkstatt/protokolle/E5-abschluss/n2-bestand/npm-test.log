@@ -1,0 +1,2128 @@
+
+> schluesseldienst-website@0.1.0 test
+> node --test "test/*.test.mjs"
+
+TAP version 13
+# Subtest: Lesarten: „Ortsteil, Gemeinde“ zuerst, umgekehrt mit Abzug
+ok 1 - Lesarten: „Ortsteil, Gemeinde“ zuerst, umgekehrt mit Abzug
+  ---
+  duration_ms: 2.768568
+  type: 'test'
+  ...
+# Subtest: Lesarten: Adam-Slug stadt-stadtteil
+ok 2 - Lesarten: Adam-Slug stadt-stadtteil
+  ---
+  duration_ms: 0.289884
+  type: 'test'
+  ...
+# Subtest: Ortsteil mit passender Gemeinde wird zugeordnet
+ok 3 - Ortsteil mit passender Gemeinde wird zugeordnet
+  ---
+  duration_ms: 1.814571
+  type: 'test'
+  ...
+# Subtest: Gemeinde-Hinweis entscheidet zwischen gleichnamigen Orten
+ok 4 - Gemeinde-Hinweis entscheidet zwischen gleichnamigen Orten
+  ---
+  duration_ms: 3.595971
+  type: 'test'
+  ...
+# Subtest: ADM4 und PPL derselben Siedlung gelten als eins; PPL wird bevorzugt
+ok 5 - ADM4 und PPL derselben Siedlung gelten als eins; PPL wird bevorzugt
+  ---
+  duration_ms: 0.504523
+  type: 'test'
+  ...
+# Subtest: Falsches Land der Quelle: Rückfall bundesweit
+ok 6 - Falsches Land der Quelle: Rückfall bundesweit
+  ---
+  duration_ms: 0.822468
+  type: 'test'
+  ...
+# Subtest: Release ohne Commit-Datum und ohne --datum bricht ab und nennt --datum
+ok 7 - Release ohne Commit-Datum und ohne --datum bricht ab und nennt --datum
+  ---
+  duration_ms: 122.226329
+  type: 'test'
+  ...
+# Subtest: ungültiges --datum bricht vor dem Schreiben ab
+ok 8 - ungültiges --datum bricht vor dem Schreiben ab
+  ---
+  duration_ms: 109.665376
+  type: 'test'
+  ...
+# Subtest: Seite mit geladenem Ansichts-Stil: kein Befund
+ok 9 - Seite mit geladenem Ansichts-Stil: kein Befund
+  ---
+  duration_ms: 24.53981
+  type: 'test'
+  ...
+# Subtest: Klasse nur im Ansichts-Stil, Seite lädt ihn nicht: Fehler budgets/stil-fehlt
+ok 10 - Klasse nur im Ansichts-Stil, Seite lädt ihn nicht: Fehler budgets/stil-fehlt
+  ---
+  duration_ms: 10.755697
+  type: 'test'
+  ...
+# Subtest: Klasse auch im gemeinsamen Bündel: kein Befund, obwohl der Ansichts-Stil fehlt
+ok 11 - Klasse auch im gemeinsamen Bündel: kein Befund, obwohl der Ansichts-Stil fehlt
+  ---
+  duration_ms: 12.02257
+  type: 'test'
+  ...
+# Subtest: CSS je Seite über der Grenze: Fehler budgets/css-seite
+ok 12 - CSS je Seite über der Grenze: Fehler budgets/css-seite
+  ---
+  duration_ms: 100.56358
+  type: 'test'
+  ...
+# Subtest: Druck- und Kontrastregeln im gemeinsamen Bündel verdecken einen fehlenden Ansichts-Stil nicht
+ok 13 - Druck- und Kontrastregeln im gemeinsamen Bündel verdecken einen fehlenden Ansichts-Stil nicht
+  ---
+  duration_ms: 12.600089
+  type: 'test'
+  ...
+# Subtest: ohneSonderMedien: entfernt nur Druck- und forced-colors-Blöcke, verschachtelt
+ok 14 - ohneSonderMedien: entfernt nur Druck- und forced-colors-Blöcke, verschachtelt
+  ---
+  duration_ms: 0.452093
+  type: 'test'
+  ...
+# Subtest: Druckstile (media="print") zählen nicht zur Summe je Seite, haben aber ein eigenes Budget (D-CSS-02)
+ok 15 - Druckstile (media="print") zählen nicht zur Summe je Seite, haben aber ein eigenes Budget (D-CSS-02)
+  ---
+  duration_ms: 39.581797
+  type: 'test'
+  ...
+# Subtest: Stile für erzwungene Farben (media="(forced-colors: active)") zählen wie Druckstile nicht zur Summe; andere media schon
+ok 16 - Stile für erzwungene Farben (media="(forced-colors: active)") zählen wie Druckstile nicht zur Summe; andere media schon
+  ---
+  duration_ms: 42.011184
+  type: 'test'
+  ...
+# Subtest: gut.html und negativ.html erzeugen in keinem Prüfer einen Befund
+ok 17 - gut.html und negativ.html erzeugen in keinem Prüfer einen Befund
+  ---
+  duration_ms: 52.189879
+  type: 'test'
+  ...
+# Subtest: Seite ohne <main> crasht nicht und prüft nur Kopfdaten
+ok 18 - Seite ohne <main> crasht nicht und prüft nur Kopfdaten
+  ---
+  duration_ms: 1.397847
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/minuten: Minutenangaben sind fehler, außer anfahrtText ist gesetzt
+ok 19 - ehrlichkeit/minuten: Minutenangaben sind fehler, außer anfahrtText ist gesetzt
+  ---
+  duration_ms: 5.408949
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/rund-um-die-uhr: 24/7, 24 h, rund um die Uhr, 365 Tage sind fehler
+ok 20 - ehrlichkeit/rund-um-die-uhr: 24/7, 24 h, rund um die Uhr, 365 Tage sind fehler
+  ---
+  duration_ms: 3.468503
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/festpreis: Festpreis ist fehler, solange die Preisliste Platzhalter enthält
+ok 21 - ehrlichkeit/festpreis: Festpreis ist fehler, solange die Preisliste Platzhalter enthält
+  ---
+  duration_ms: 3.507104
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/superlativ: Nr. 1, bester, günstigste, billigste, schnellste, Marktführer sind fehler
+ok 22 - ehrlichkeit/superlativ: Nr. 1, bester, günstigste, billigste, schnellste, Marktführer sind fehler
+  ---
+  duration_ms: 3.562889
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/superlativ: „Nr. 1“ in einer Fundstelle (Satz/Abs./Ziffer davor) ist kein Treffer
+ok 23 - ehrlichkeit/superlativ: „Nr. 1“ in einer Fundstelle (Satz/Abs./Ziffer davor) ist kein Treffer
+  ---
+  duration_ms: 1.023067
+  type: 'test'
+  ...
+# Subtest: Quellenangaben (data-quelle) zitieren fremde Titel und lösen keine Regel aus; derselbe Text ohne Attribut schon
+ok 24 - Quellenangaben (data-quelle) zitieren fremde Titel und lösen keine Regel aus; derselbe Text ohne Attribut schon
+  ---
+  duration_ms: 1.613218
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/garantie: Garantie-Begriffe und 100 % sind fehler; „schadensfrei garantiert“ zählt einmal
+ok 25 - ehrlichkeit/garantie: Garantie-Begriffe und 100 % sind fehler; „schadensfrei garantiert“ zählt einmal
+  ---
+  duration_ms: 4.281674
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/alter-zertifikat: Alter, Qualifikation und Prüfsiegel sind fehler; Qualifikationen befreien
+ok 26 - ehrlichkeit/alter-zertifikat: Alter, Qualifikation und Prüfsiegel sind fehler; Qualifikationen befreien
+  ---
+  duration_ms: 5.185204
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/bewertung: Sterne, Zahlen-Bewertungen, Kundenstimmen und Google-Bewertung sind fehler
+ok 27 - ehrlichkeit/bewertung: Sterne, Zahlen-Bewertungen, Kundenstimmen und Google-Bewertung sind fehler
+  ---
+  duration_ms: 5.047334
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/kostenlos: kostenlos, gratis, umsonst sind nur warnungen
+ok 28 - ehrlichkeit/kostenlos: kostenlos, gratis, umsonst sind nur warnungen
+  ---
+  duration_ms: 5.145554
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/ortspraesenz: Ortsphrasen nur auf Ortsseiten außer Weilburg; Niederlassung und Filiale überall
+ok 29 - ehrlichkeit/ortspraesenz: Ortsphrasen nur auf Ortsseiten außer Weilburg; Niederlassung und Filiale überall
+  ---
+  duration_ms: 11.399462
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/dark-pattern: Zeitdruck- und Verknappungsfloskeln sind fehler
+ok 30 - ehrlichkeit/dark-pattern: Zeitdruck- und Verknappungsfloskeln sind fehler
+  ---
+  duration_ms: 3.931898
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/floskel: Floskeln sind nur warnungen
+ok 31 - ehrlichkeit/floskel: Floskeln sind nur warnungen
+  ---
+  duration_ms: 1.491309
+  type: 'test'
+  ...
+# Subtest: ehrlichkeit/marke: Markennamen sind fehler, freigegebene Marken nicht; „Dom“ und „Basis“ sind kein Treffer
+ok 32 - ehrlichkeit/marke: Markennamen sind fehler, freigegebene Marken nicht; „Dom“ und „Basis“ sind kein Treffer
+  ---
+  duration_ms: 3.087853
+  type: 'test'
+  ...
+# Subtest: Textfelder: JSON-LD-Strings ja, application/json und .platzhalter-Inhalt nein
+ok 33 - Textfelder: JSON-LD-Strings ja, application/json und .platzhalter-Inhalt nein
+  ---
+  duration_ms: 10.786283
+  type: 'test'
+  ...
+# Subtest: Felder in Kopf und Attributen werden geprüft (JSON-LD, og, Meta, Titel, alt)
+ok 34 - Felder in Kopf und Attributen werden geprüft (JSON-LD, og, Meta, Titel, alt)
+  ---
+  duration_ms: 3.106026
+  type: 'test'
+  ...
+# Subtest: fakten: Zahlen, Normen, Paragrafen und Zeitdauern innerhalb eines Belegs sind in Ordnung
+ok 35 - fakten: Zahlen, Normen, Paragrafen und Zeitdauern innerhalb eines Belegs sind in Ordnung
+  ---
+  duration_ms: 4.917091
+  type: 'test'
+  ...
+# Subtest: fakten/ohne-beleg: Paragrafen, Normen, Prozente, Jahre, Zeitdauern, Beträge, RC und EN ohne Beleg sind fehler
+ok 36 - fakten/ohne-beleg: Paragrafen, Normen, Prozente, Jahre, Zeitdauern, Beträge, RC und EN ohne Beleg sind fehler
+  ---
+  duration_ms: 5.11954
+  type: 'test'
+  ...
+# Subtest: fakten/ohne-beleg: DIN 18252 im Fließtext ohne Beleg ist fehler
+ok 37 - fakten/ohne-beleg: DIN 18252 im Fließtext ohne Beleg ist fehler
+  ---
+  duration_ms: 3.268035
+  type: 'test'
+  ...
+# Subtest: fakten/verifizieren: Anzahl der ungeprüften Fakten je Seite, im Vorschau-Modus info, im Release-Modus fehler
+ok 38 - fakten/verifizieren: Anzahl der ungeprüften Fakten je Seite, im Vorschau-Modus info, im Release-Modus fehler
+  ---
+  duration_ms: 9.780227
+  type: 'test'
+  ...
+# Subtest: emoji/zeichen: Emoji in alt-Attributen sind fehler
+ok 39 - emoji/zeichen: Emoji in alt-Attributen sind fehler
+  ---
+  duration_ms: 1.617432
+  type: 'test'
+  ...
+# Subtest: emoji/zeichen: Symbolzeichen im Text und im Fuß zählen; Ausnahmen gelten nur für Pfeile
+ok 40 - emoji/zeichen: Symbolzeichen im Text und im Fuß zählen; Ausnahmen gelten nur für Pfeile
+  ---
+  duration_ms: 3.307978
+  type: 'test'
+  ...
+# Subtest: emoji/zeichen: Pfeile im Textinhalt sind erlaubt
+ok 41 - emoji/zeichen: Pfeile im Textinhalt sind erlaubt
+  ---
+  duration_ms: 0.889538
+  type: 'test'
+  ...
+# Subtest: emoji/zeichen: Pfeile sind in <title> und meta description fehler
+ok 42 - emoji/zeichen: Pfeile sind in <title> und meta description fehler
+  ---
+  duration_ms: 12.536393
+  type: 'test'
+  ...
+# Subtest: Entfernung Weilburg–Wetzlar liegt bei rund 19 km (±2)
+ok 43 - Entfernung Weilburg–Wetzlar liegt bei rund 19 km (±2)
+  ---
+  duration_ms: 1.623628
+  type: 'test'
+  ...
+# Subtest: Richtung Weilburg → Limburg ist südwestlich
+ok 44 - Richtung Weilburg → Limburg ist südwestlich
+  ---
+  duration_ms: 0.352182
+  type: 'test'
+  ...
+# Subtest: Zonenregel an den Grenzen 20, 50 und 100 km
+ok 45 - Zonenregel an den Grenzen 20, 50 und 100 km
+  ---
+  duration_ms: 0.430367
+  type: 'test'
+  ...
+# Subtest: Kreis-Regel: der Sitzkreis gehört auch über 20 km zu Zone A
+ok 46 - Kreis-Regel: der Sitzkreis gehört auch über 20 km zu Zone A
+  ---
+  duration_ms: 0.201932
+  type: 'test'
+  ...
+# Subtest: Niederlande haben immer die Zone NL
+ok 47 - Niederlande haben immer die Zone NL
+  ---
+  duration_ms: 0.170171
+  type: 'test'
+  ...
+# Subtest: Kreis-Schlüssel: kreisfreie Stadt mit gleichem Rest wie ein Landkreis bekommt -stadt
+ok 48 - Kreis-Schlüssel: kreisfreie Stadt mit gleichem Rest wie ein Landkreis bekommt -stadt
+  ---
+  duration_ms: 1.629628
+  type: 'test'
+  ...
+# Subtest: Präfixe werden entfernt; Stadtstaaten nur mit dem Stadtnamen
+ok 49 - Präfixe werden entfernt; Stadtstaaten nur mit dem Stadtnamen
+  ---
+  duration_ms: 0.633798
+  type: 'test'
+  ...
+# Subtest: Nachbarn sind symmetrisch, je Ort höchstens 10 und mindestens 3
+ok 50 - Nachbarn sind symmetrisch, je Ort höchstens 10 und mindestens 3
+  ---
+  duration_ms: 9.304955
+  type: 'test'
+  ...
+# Subtest: Gebietsart: Kreis, kreisfreie Stadt (auch ohne Zusatz), Region, Provinz
+ok 51 - Gebietsart: Kreis, kreisfreie Stadt (auch ohne Zusatz), Region, Provinz
+  ---
+  duration_ms: 1.346484
+  type: 'test'
+  ...
+# Subtest: Überschrift folgt der Gebietsart
+ok 52 - Überschrift folgt der Gebietsart
+  ---
+  duration_ms: 1.549926
+  type: 'test'
+  ...
+# Subtest: ein Ort bzw. gleiche Entfernung: eine Zeile statt zweimal desselben Orts
+ok 53 - ein Ort bzw. gleiche Entfernung: eine Zeile statt zweimal desselben Orts
+  ---
+  duration_ms: 0.483671
+  type: 'test'
+  ...
+# Subtest: Null-Werte entfallen; PLZ ausgeschrieben; NL mit vierstelligen PLZ
+ok 54 - Null-Werte entfallen; PLZ ausgeschrieben; NL mit vierstelligen PLZ
+  ---
+  duration_ms: 0.549885
+  type: 'test'
+  ...
+# Subtest: Lagekarte: Punkte meiden Ort, Weilburg, Linie und Beschriftungen; Schrift bleibt im Bild
+ok 55 - Lagekarte: Punkte meiden Ort, Weilburg, Linie und Beschriftungen; Schrift bleibt im Bild
+  ---
+  duration_ms: 310.298328
+  type: 'test'
+  ...
+# Subtest: Lagekarte: Weilburg samt Name hält Abstand zur Blattkante; die nächsten Nachbarn tragen Namen
+ok 56 - Lagekarte: Weilburg samt Name hält Abstand zur Blattkante; die nächsten Nachbarn tragen Namen
+  ---
+  duration_ms: 303.959586
+  type: 'test'
+  ...
+# Subtest: Lagekarte: Ortsname mit Abstand zur Kante; lange Namen zweizeilig und ganz im Blatt
+ok 57 - Lagekarte: Ortsname mit Abstand zur Kante; lange Namen zweizeilig und ganz im Blatt
+  ---
+  duration_ms: 10.260176
+  type: 'test'
+  ...
+# Subtest: Lagekarte: Namen verteilt (kein Bündel), drei oder vier Namen; passt der Bogen ins Blatt, liegt er ganz darin
+ok 58 - Lagekarte: Namen verteilt (kein Bündel), drei oder vier Namen; passt der Bogen ins Blatt, liegt er ganz darin
+  ---
+  duration_ms: 202.362631
+  type: 'test'
+  ...
+# Subtest: Lagekarte: der Bogen um Weilburg läuft durch keine Beschriftung (außer am Ort) und nicht durch den Maßstab
+ok 59 - Lagekarte: der Bogen um Weilburg läuft durch keine Beschriftung (außer am Ort) und nicht durch den Maßstab
+  ---
+  duration_ms: 417.368247
+  type: 'test'
+  ...
+# Subtest: Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten noch auf Ringen; Führungslinien 0°/45°/90°
+ok 60 - Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten noch auf Ringen; Führungslinien 0°/45°/90°
+  ---
+  duration_ms: 517.379818
+  type: 'test'
+  ...
+# Subtest: Gebietslage: die größten Orte tragen Namen, auch im dichten Raster; kein Hub ohne Namen
+ok 61 - Gebietslage: die größten Orte tragen Namen, auch im dichten Raster; kein Hub ohne Namen
+  ---
+  duration_ms: 2643.823615
+  type: 'test'
+  ...
+# Subtest: Gebietslage fern: Weilburg steht an der Kante, an der die Peilung das Blatt verlässt; Maßstab statt Ringen
+ok 62 - Gebietslage fern: Weilburg steht an der Kante, an der die Peilung das Blatt verlässt; Maßstab statt Ringen
+  ---
+  duration_ms: 17.505218
+  type: 'test'
+  ...
+# Subtest: Gebietslage: nahes Gebiet mit Ring und Zone A, fernes Gebiet mit Peilung statt Ringen
+ok 63 - Gebietslage: nahes Gebiet mit Ring und Zone A, fernes Gebiet mit Peilung statt Ringen
+  ---
+  duration_ms: 42.568827
+  type: 'test'
+  ...
+# Subtest: A–Z: Jeder Link der Buchstabenleiste springt zum Kopf seiner Gruppe, nicht zur Gruppe (Spaltenumbruch)
+ok 64 - A–Z: Jeder Link der Buchstabenleiste springt zum Kopf seiner Gruppe, nicht zur Gruppe (Spaltenumbruch)
+  ---
+  duration_ms: 2871.003305
+  type: 'test'
+  ...
+# Subtest: Ortsseite: „Orte in der Nähe“ hat mindestens sechs Einträge, keiner steht links schon; lange linke Liste 8/4
+ok 65 - Ortsseite: „Orte in der Nähe“ hat mindestens sechs Einträge, keiner steht links schon; lange linke Liste 8/4
+  ---
+  duration_ms: 657.462127
+  type: 'test'
+  ...
+# Subtest: gutes Icon bleibt ohne Befund (Diagonale 45°, Punkt r=.75, Bogen innerhalb der Fläche)
+ok 66 - gutes Icon bleibt ohne Befund (Diagonale 45°, Punkt r=.75, Bogen innerhalb der Fläche)
+  ---
+  duration_ms: 3.690274
+  type: 'test'
+  ...
+# Subtest: datei: zusätzliches Attribut am svg, Name außerhalb des Vertrags, mehrere Zeilen → rot
+ok 67 - datei: zusätzliches Attribut am svg, Name außerhalb des Vertrags, mehrere Zeilen → rot
+  ---
+  duration_ms: 0.771764
+  type: 'test'
+  ...
+# Subtest: element: fremde Elemente, Strich-Attribute und Füllung auf großem Kreis → rot
+ok 68 - element: fremde Elemente, Strich-Attribute und Füllung auf großem Kreis → rot
+  ---
+  duration_ms: 0.504377
+  type: 'test'
+  ...
+# Subtest: bezier: C, S, Q, T und relative Formen → rot
+ok 69 - bezier: C, S, Q, T und relative Formen → rot
+  ---
+  duration_ms: 0.577459
+  type: 'test'
+  ...
+# Subtest: flaeche: Linie und Kreis über 22 → rot; Punkt bei 2 ist erlaubt
+ok 70 - flaeche: Linie und Kreis über 22 → rot; Punkt bei 2 ist erlaubt
+  ---
+  duration_ms: 0.484921
+  type: 'test'
+  ...
+# Subtest: flaeche: Bogenscheitel wird berechnet (M20.5 7a6 6 0 0 1 0 10 meldet außerhalb)
+ok 71 - flaeche: Bogenscheitel wird berechnet (M20.5 7a6 6 0 0 1 0 10 meldet außerhalb)
+  ---
+  duration_ms: 2.218818
+  type: 'test'
+  ...
+# Subtest: winkel: 30°-Linie und 30°-Polylinie → rot; 0°, 45°, 90° bleiben grün
+ok 72 - winkel: 30°-Linie und 30°-Polylinie → rot; 0°, 45°, 90° bleiben grün
+  ---
+  duration_ms: 0.599829
+  type: 'test'
+  ...
+# Subtest: bogen: rx ≠ ry, Radius 3,25 und Kreis-r 1,1 → rot; Radius 2 bleibt grün
+ok 73 - bogen: rx ≠ ry, Radius 3,25 und Kreis-r 1,1 → rot; Radius 2 bleibt grün
+  ---
+  duration_ms: 1.256629
+  type: 'test'
+  ...
+# Subtest: raster: Stützkoordinate 4,1 → Warnung, keine Fehler
+ok 74 - raster: Stützkoordinate 4,1 → Warnung, keine Fehler
+  ---
+  duration_ms: 0.493163
+  type: 'test'
+  ...
+# Subtest: groesse: Datei über 1.024 Byte → Warnung
+ok 75 - groesse: Datei über 1.024 Byte → Warnung
+  ---
+  duration_ms: 1.626131
+  type: 'test'
+  ...
+# Subtest: befehle: kompakte Bogen-Flags (a8 8 0 1116 0) werden einzeln gelesen
+ok 76 - befehle: kompakte Bogen-Flags (a8 8 0 1116 0) werden einzeln gelesen
+  ---
+  duration_ms: 0.250402
+  type: 'test'
+  ...
+# Subtest: vollstaendig: fehlende Vertragsnamen → Sammel-Warnung (vorschau) bzw. Fehler (release)
+ok 77 - vollstaendig: fehlende Vertragsnamen → Sammel-Warnung (vorschau) bzw. Fehler (release)
+  ---
+  duration_ms: 140.926155
+  type: 'test'
+  ...
+# Subtest: alle vorhandenen Dateien werden eingelesen (info zählt jede Datei)
+ok 78 - alle vorhandenen Dateien werden eingelesen (info zählt jede Datei)
+  ---
+  duration_ms: 28.803512
+  type: 'test'
+  ...
+# Subtest: Teilbündel enthält nur die genannten Module und ihre Abhängigkeiten
+ok 79 - Teilbündel enthält nur die genannten Module und ihre Abhängigkeiten
+  ---
+  duration_ms: 38.584874
+  type: 'test'
+  ...
+# Subtest: unbekannte Modulnamen werden übergangen; ohne Module bleibt ein leerer Start
+ok 80 - unbekannte Modulnamen werden übergangen; ohne Module bleibt ein leerer Start
+  ---
+  duration_ms: 3.492745
+  type: 'test'
+  ...
+# Subtest: ohne Angabe bleibt das volle Bündel unverändert
+ok 81 - ohne Angabe bleibt das volle Bündel unverändert
+  ---
+  duration_ms: 12.895916
+  type: 'test'
+  ...
+# Subtest: Inhaltsverzeichnis (V08) kommt nur in Bündel, die es nennen
+ok 82 - Inhaltsverzeichnis (V08) kommt nur in Bündel, die es nennen
+  ---
+  duration_ms: 7.000202
+  type: 'test'
+  ...
+# Subtest: gültige Seite mit Locksmith, Brotkrumen, Preis und FAQ hat keinen Befund
+ok 83 - gültige Seite mit Locksmith, Brotkrumen, Preis und FAQ hat keinen Befund
+  ---
+  duration_ms: 16.694135
+  type: 'test'
+  ...
+# Subtest: aggregateRating und review (Schlüssel und @type) sind Fehler
+ok 84 - aggregateRating und review (Schlüssel und @type) sind Fehler
+  ---
+  duration_ms: 3.165491
+  type: 'test'
+  ...
+# Subtest: Brotkrumen-Lücke (Position 3 statt 2) ist ein Fehler
+ok 85 - Brotkrumen-Lücke (Position 3 statt 2) ist ein Fehler
+  ---
+  duration_ms: 4.044661
+  type: 'test'
+  ...
+# Subtest: Locksmith auf einer Ortsseite ist ein Fehler, auf /kontakt/ nicht
+ok 86 - Locksmith auf einer Ortsseite ist ein Fehler, auf /kontakt/ nicht
+  ---
+  duration_ms: 7.715693
+  type: 'test'
+  ...
+# Subtest: Offer ohne Zahl im price-Feld ist ein Fehler
+ok 87 - Offer ohne Zahl im price-Feld ist ein Fehler
+  ---
+  duration_ms: 1.456593
+  type: 'test'
+  ...
+# Subtest: Platzhaltertext ist im Release ein Fehler und sonst eine Information
+ok 88 - Platzhaltertext ist im Release ein Fehler und sonst eine Information
+  ---
+  duration_ms: 6.337074
+  type: 'test'
+  ...
+# Subtest: JSON-Syntaxfehler ist ein Fehler
+ok 89 - JSON-Syntaxfehler ist ein Fehler
+  ---
+  duration_ms: 1.688915
+  type: 'test'
+  ...
+# Subtest: ohne konfigurierte Stellen entsteht keine Karriere-Seite
+ok 90 - ohne konfigurierte Stellen entsteht keine Karriere-Seite
+  ---
+  duration_ms: 1.661421
+  type: 'test'
+  ...
+# Subtest: mit einer Stelle genau eine Seite /karriere/, deren HTML Titel und Aufgaben enthält
+ok 91 - mit einer Stelle genau eine Seite /karriere/, deren HTML Titel und Aufgaben enthält
+  ---
+  duration_ms: 1.419551
+  type: 'test'
+  ...
+# Subtest: JSON-LD je Stelle: JobPosting ohne Gehalt
+ok 92 - JSON-LD je Stelle: JobPosting ohne Gehalt
+  ---
+  duration_ms: 0.247598
+  type: 'test'
+  ...
+# Subtest: Empfänger: nur eine schlichte Adresse; Parameter, Umbrüche und Listen werden abgelehnt
+ok 93 - Empfänger: nur eine schlichte Adresse; Parameter, Umbrüche und Listen werden abgelehnt
+  ---
+  duration_ms: 1.202966
+  type: 'test'
+  ...
+# Subtest: Betreff ohne Zeilenumbrüche und Steuerzeichen: keine zusätzlichen Kopfzeilen möglich
+ok 94 - Betreff ohne Zeilenumbrüche und Steuerzeichen: keine zusätzlichen Kopfzeilen möglich
+  ---
+  duration_ms: 1.39194
+  type: 'test'
+  ...
+# Subtest: Sonderzeichen in Feldern brechen die Parameter nicht auf (&, =, ?, \#, Umlaute)
+ok 95 - Sonderzeichen in Feldern brechen die Parameter nicht auf (&, =, ?, \#, Umlaute)
+  ---
+  duration_ms: 0.341051
+  type: 'test'
+  ...
+# Subtest: leere freiwillige Felder entfallen; Steuerzeichen und überzählige Leerzeilen werden entfernt
+ok 96 - leere freiwillige Felder entfallen; Steuerzeichen und überzählige Leerzeilen werden entfernt
+  ---
+  duration_ms: 0.322514
+  type: 'test'
+  ...
+# Subtest: kodierte Adresse ≤ 1900 Zeichen; zu lange Nachricht wird gekürzt und gemeldet
+ok 97 - kodierte Adresse ≤ 1900 Zeichen; zu lange Nachricht wird gekürzt und gemeldet
+  ---
+  duration_ms: 1.152883
+  type: 'test'
+  ...
+# Subtest: Pflichtfelder und Mindestlänge in Formularreihenfolge
+ok 98 - Pflichtfelder und Mindestlänge in Formularreihenfolge
+  ---
+  duration_ms: 0.288941
+  type: 'test'
+  ...
+# Subtest: Kontakt: Briefkopf trägt den Betreff der vorausgewählten Option, endet im Bartprofil und ist ohne JavaScript verborgen
+ok 99 - Kontakt: Briefkopf trägt den Betreff der vorausgewählten Option, endet im Bartprofil und ist ohne JavaScript verborgen
+  ---
+  duration_ms: 69.805821
+  type: 'test'
+  ...
+# Subtest: schluessel: Ortsname mit „im“ bleibt als Wort erhalten
+ok 100 - schluessel: Ortsname mit „im“ bleibt als Wort erhalten
+  ---
+  duration_ms: 2.199069
+  type: 'test'
+  ...
+# Subtest: schluessel: Abkürzung „i.“ und ausgeschriebenes „im“ ergeben denselben Schlüssel
+ok 101 - schluessel: Abkürzung „i.“ und ausgeschriebenes „im“ ergeben denselben Schlüssel
+  ---
+  duration_ms: 2.442497
+  type: 'test'
+  ...
+# Subtest: schluessel: Leerzeichen und Bindestrich ergeben denselben Schlüssel
+ok 102 - schluessel: Leerzeichen und Bindestrich ergeben denselben Schlüssel
+  ---
+  duration_ms: 0.229669
+  type: 'test'
+  ...
+# Subtest: schluessel: „v.d.Höhe“ wird zu „vor der hoehe“
+ok 103 - schluessel: „v.d.Höhe“ wird zu „vor der hoehe“
+  ---
+  duration_ms: 0.266726
+  type: 'test'
+  ...
+# Subtest: schluessel: „St.“ wird zu „sankt“
+ok 104 - schluessel: „St.“ wird zu „sankt“
+  ---
+  duration_ms: 0.262798
+  type: 'test'
+  ...
+# Subtest: schluessel: Umlaut mit Trema und Akzente werden entfernt
+ok 105 - schluessel: Umlaut mit Trema und Akzente werden entfernt
+  ---
+  duration_ms: 0.570851
+  type: 'test'
+  ...
+# Subtest: schluessel: Eszett und großes Eszett werden zu ss
+ok 106 - schluessel: Eszett und großes Eszett werden zu ss
+  ---
+  duration_ms: 0.441807
+  type: 'test'
+  ...
+# Subtest: schluessel: Umlaute werden ae, oe, ue
+ok 107 - schluessel: Umlaute werden ae, oe, ue
+  ---
+  duration_ms: 0.132596
+  type: 'test'
+  ...
+# Subtest: kern: Klammerzusatz wird entfernt
+ok 108 - kern: Klammerzusatz wird entfernt
+  ---
+  duration_ms: 0.66366
+  type: 'test'
+  ...
+# Subtest: kern: alles ab Komma wird entfernt
+ok 109 - kern: alles ab Komma wird entfernt
+  ---
+  duration_ms: 0.555776
+  type: 'test'
+  ...
+# Subtest: kern: Zusatz „im …“ wird entfernt
+ok 110 - kern: Zusatz „im …“ wird entfernt
+  ---
+  duration_ms: 0.199523
+  type: 'test'
+  ...
+# Subtest: kern: alles ab Schrägstrich wird entfernt
+ok 111 - kern: alles ab Schrägstrich wird entfernt
+  ---
+  duration_ms: 0.106504
+  type: 'test'
+  ...
+# Subtest: suchVarianten: Umlaut-e und Variante ohne Umlaut-e, dedupliziert
+ok 112 - suchVarianten: Umlaut-e und Variante ohne Umlaut-e, dedupliziert
+  ---
+  duration_ms: 0.235723
+  type: 'test'
+  ...
+# Subtest: suchVarianten: ohne Umlaut nur ein Eintrag
+ok 113 - suchVarianten: ohne Umlaut nur ein Eintrag
+  ---
+  duration_ms: 0.750659
+  type: 'test'
+  ...
+# Subtest: Namenssuche
+    # Subtest: „weilb“ findet Weilburg als ersten Treffer (Zone A)
+    ok 1 - „weilb“ findet Weilburg als ersten Treffer (Zone A)
+      ---
+      duration_ms: 2.956521
+      type: 'test'
+      ...
+    # Subtest: „bad hom“ findet Bad Homburg vor der Höhe als ersten Treffer
+    ok 2 - „bad hom“ findet Bad Homburg vor der Höhe als ersten Treffer
+      ---
+      duration_ms: 1.498674
+      type: 'test'
+      ...
+    # Subtest: Umlaut und ß: gießen, giessen, GIESSEN und Gießen liefern denselben ersten Treffer
+    ok 3 - Umlaut und ß: gießen, giessen, GIESSEN und Gießen liefern denselben ersten Treffer
+      ---
+      duration_ms: 4.683641
+      type: 'test'
+      ...
+    # Subtest: Umlaut ohne Umlaut-Schreibweise: Mücke, Muecke und mucke finden denselben Ort
+    ok 4 - Umlaut ohne Umlaut-Schreibweise: Mücke, Muecke und mucke finden denselben Ort
+      ---
+      duration_ms: 3.729518
+      type: 'test'
+      ...
+    # Subtest: Wortanfang im Inneren: „homburg“ findet Bad Homburg, exakter Name vorn
+    ok 5 - Wortanfang im Inneren: „homburg“ findet Bad Homburg, exakter Name vorn
+      ---
+      duration_ms: 1.405666
+      type: 'test'
+      ...
+    # Subtest: Rangfolge ist nicht fallend: exakt (0) vor Präfix (1) vor Wortanfang (2)
+    ok 6 - Rangfolge ist nicht fallend: exakt (0) vor Präfix (1) vor Wortanfang (2)
+      ---
+      duration_ms: 18.68425
+      type: 'test'
+      ...
+    # Subtest: max begrenzt die Trefferzahl; gesamt zählt alle Treffer
+    ok 7 - max begrenzt die Trefferzahl; gesamt zählt alle Treffer
+      ---
+      duration_ms: 1.302977
+      type: 'test'
+      ...
+    # Subtest: Standard-Maximum ist 8 Treffer
+    ok 8 - Standard-Maximum ist 8 Treffer
+      ---
+      duration_ms: 0.799378
+      type: 'test'
+      ...
+    1..8
+ok 114 - Namenssuche
+  ---
+  duration_ms: 36.505677
+  type: 'suite'
+  ...
+# Subtest: Grenzfälle der Eingabe
+    # Subtest: leere Anfrage „“ liefert keine Treffer
+    ok 1 - leere Anfrage „“ liefert keine Treffer
+      ---
+      duration_ms: 0.314653
+      type: 'test'
+      ...
+    # Subtest: leere Anfrage „···“ liefert keine Treffer
+    ok 2 - leere Anfrage „···“ liefert keine Treffer
+      ---
+      duration_ms: 4.380343
+      type: 'test'
+      ...
+    # Subtest: leere Anfrage „··“ liefert keine Treffer
+    ok 3 - leere Anfrage „··“ liefert keine Treffer
+      ---
+      duration_ms: 0.153012
+      type: 'test'
+      ...
+    # Subtest: ein einzelnes Zeichen liefert keine Treffer (Mindestlänge 2)
+    ok 4 - ein einzelnes Zeichen liefert keine Treffer (Mindestlänge 2)
+      ---
+      duration_ms: 0.101443
+      type: 'test'
+      ...
+    # Subtest: 200 Zeichen ohne Ortsbezug: keine Ausnahme, keine Treffer
+    ok 5 - 200 Zeichen ohne Ortsbezug: keine Ausnahme, keine Treffer
+      ---
+      duration_ms: 0.371791
+      type: 'test'
+      ...
+    # Subtest: 200 Zeichen mit Ortsnamen-Wiederholung: keine Ausnahme
+    ok 6 - 200 Zeichen mit Ortsnamen-Wiederholung: keine Ausnahme
+      ---
+      duration_ms: 0.383971
+      type: 'test'
+      ...
+    # Subtest: <script> wird als Text behandelt und liefert nur Treffer mit „script“
+    ok 7 - <script> wird als Text behandelt und liefert nur Treffer mit „script“
+      ---
+      duration_ms: 0.406242
+      type: 'test'
+      ...
+    # Subtest: Pfadausbruch „../“ und „../../etc/passwd“: keine Treffer, keine Ausnahme
+    ok 8 - Pfadausbruch „../“ und „../../etc/passwd“: keine Treffer, keine Ausnahme
+      ---
+      duration_ms: 0.410242
+      type: 'test'
+      ...
+    # Subtest: Emoji: keine Treffer ohne Ortsbezug, sinnvoller Treffer mit Ortsname
+    ok 9 - Emoji: keine Treffer ohne Ortsbezug, sinnvoller Treffer mit Ortsname
+      ---
+      duration_ms: 0.812344
+      type: 'test'
+      ...
+    # Subtest: Steuerzeichen, NUL und SQL-artige Eingabe: keine Ausnahme
+    ok 10 - Steuerzeichen, NUL und SQL-artige Eingabe: keine Ausnahme
+      ---
+      duration_ms: 3.624337
+      type: 'test'
+      ...
+    1..10
+ok 115 - Grenzfälle der Eingabe
+  ---
+  duration_ms: 11.44208
+  type: 'suite'
+  ...
+# Subtest: PLZ-Suche
+    # Subtest: „35781“ findet Weilburg in Zone A
+    ok 1 - „35781“ findet Weilburg in Zone A
+      ---
+      duration_ms: 13.261765
+      type: 'test'
+      ...
+    # Subtest: unvollständige PLZ „357“: nur PLZ mit diesem Präfix, aufsteigend, Gesamtzahl aus plz.json
+    ok 2 - unvollständige PLZ „357“: nur PLZ mit diesem Präfix, aufsteigend, Gesamtzahl aus plz.json
+      ---
+      duration_ms: 14.880367
+      type: 'test'
+      ...
+    # Subtest: Präfix mit führender Null „0105“ liefert PLZ 0105x mit Null vorn
+    ok 3 - Präfix mit führender Null „0105“ liefert PLZ 0105x mit Null vorn
+      ---
+      duration_ms: 14.682562
+      type: 'test'
+      ...
+    # Subtest: PLZ 01053 ist exakt dekodiert (führende Null bleibt erhalten)
+    ok 4 - PLZ 01053 ist exakt dekodiert (führende Null bleibt erhalten)
+      ---
+      duration_ms: 9.888298
+      type: 'test'
+      ...
+    # Subtest: PLZ ohne Ortsbezug zeigt „PLZ …“ statt eines Ortsnamens
+    ok 5 - PLZ ohne Ortsbezug zeigt „PLZ …“ statt eines Ortsnamens
+      ---
+      duration_ms: 16.344521
+      type: 'test'
+      ...
+    # Subtest: Zu lange PLZ „357810“ und einzelne Ziffer „3“ liefern keine Treffer
+    ok 6 - Zu lange PLZ „357810“ und einzelne Ziffer „3“ liefern keine Treffer
+      ---
+      duration_ms: 0.56667
+      type: 'test'
+      ...
+    # Subtest: jeder Eintrag aus plz.json ist im Dekodat mit gleicher km und Zone enthalten
+    ok 7 - jeder Eintrag aus plz.json ist im Dekodat mit gleicher km und Zone enthalten
+      ---
+      duration_ms: 7.23491
+      type: 'test'
+      ...
+    # Subtest: PLZ mit Ortsbezug zeigt auf den Ort mit gleichem Slug
+    ok 8 - PLZ mit Ortsbezug zeigt auf den Ort mit gleichem Slug
+      ---
+      duration_ms: 2.603424
+      type: 'test'
+      ...
+    1..8
+ok 116 - PLZ-Suche
+  ---
+  duration_ms: 80.045164
+  type: 'suite'
+  ...
+# Subtest: plzDekodieren: Format
+    # Subtest: alle dekodierten PLZ sind 5-stellig, Zone A–D oder NL, Zeile im Index
+    ok 1 - alle dekodierten PLZ sind 5-stellig, Zone A–D oder NL, Zeile im Index
+      ---
+      duration_ms: 12.023231
+      type: 'test'
+      ...
+    # Subtest: Delta-Kodierung: „35781,0A,0;1,3B“ ergibt 35781 und 35782
+    ok 2 - Delta-Kodierung: „35781,0A,0;1,3B“ ergibt 35781 und 35782
+      ---
+      duration_ms: 0.168626
+      type: 'test'
+      ...
+    # Subtest: ungültige Teile werden übersprungen, gültige bleiben erhalten
+    ok 3 - ungültige Teile werden übersprungen, gültige bleiben erhalten
+      ---
+      duration_ms: 0.08495
+      type: 'test'
+      ...
+    # Subtest: NL-PLZ bleibt vierstellig (1431 statt 01431)
+    not ok 4 - NL-PLZ bleibt vierstellig (1431 statt 01431) # TODO Padding auf 5 Stellen macht NL-PLZ zu DE-ähnlichen Codes; NL-PLZ fehlen zudem in plz.json (OFFENE FRAGE)
+      ---
+      duration_ms: 0.637079
+      type: 'test'
+      location: '/home/user/schluesseldienst/test/ortsindex.test.mjs:200:3'
+      failureType: 'testCodeFailure'
+      error: 'erwartet Schlüssel „1431“'
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: true
+      operator: '=='
+      stack: |-
+        TestContext.<anonymous> (file:///home/user/schluesseldienst/test/ortsindex.test.mjs:201:12)
+        Test.runInAsyncScope (node:async_hooks:214:14)
+        Test.run (node:internal/test_runner/test:1047:25)
+        Suite.processPendingSubtests (node:internal/test_runner/test:744:18)
+        Test.postRun (node:internal/test_runner/test:1173:19)
+        Test.run (node:internal/test_runner/test:1101:12)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    1..4
+ok 117 - plzDekodieren: Format
+  ---
+  duration_ms: 13.16237
+  type: 'suite'
+  ...
+# Subtest: slugAbleiten
+    # Subtest: Gemeinde: Slug aus dem Namen
+    ok 1 - Gemeinde: Slug aus dem Namen
+      ---
+      duration_ms: 0.141226
+      type: 'test'
+      ...
+    # Subtest: Ortsteil: Gemeindename wird vorangestellt
+    ok 2 - Ortsteil: Gemeindename wird vorangestellt
+      ---
+      duration_ms: 0.078432
+      type: 'test'
+      ...
+    # Subtest: Ortsteil mit gleichem Namen wie die Gemeinde: keine Doppelung
+    ok 3 - Ortsteil mit gleichem Namen wie die Gemeinde: keine Doppelung
+      ---
+      duration_ms: 0.053188
+      type: 'test'
+      ...
+    # Subtest: Stichprobe: 50 feste Orte (jeder 105. Eintrag in Dateireihenfolge) stimmen mit dem gespeicherten Slug überein
+    ok 4 - Stichprobe: 50 feste Orte (jeder 105. Eintrag in Dateireihenfolge) stimmen mit dem gespeicherten Slug überein
+      ---
+      duration_ms: 0.398669
+      type: 'test'
+      ...
+    # Subtest: alle Abweichungen vom abgeleiteten Slug sind reine Anhänge (gleichnamige Orte), sonst nichts
+    ok 5 - alle Abweichungen vom abgeleiteten Slug sind reine Anhänge (gleichnamige Orte), sonst nichts
+      ---
+      duration_ms: 14.467337
+      type: 'test'
+      ...
+    1..5
+ok 118 - slugAbleiten
+  ---
+  duration_ms: 15.332037
+  type: 'suite'
+  ...
+# Subtest: Browser-Index
+    # Subtest: Name, Zone, km, Richtung und Slug stimmen für jeden Ort mit orte.json überein
+    ok 1 - Name, Zone, km, Richtung und Slug stimmen für jeden Ort mit orte.json überein
+      ---
+      duration_ms: 5.479949
+      type: 'test'
+      ...
+    # Subtest: alle Richtungen aus orte.json stehen in RICHTUNGEN
+    ok 2 - alle Richtungen aus orte.json stehen in RICHTUNGEN
+      ---
+      duration_ms: 0.918284
+      type: 'test'
+      ...
+    1..2
+ok 119 - Browser-Index
+  ---
+  duration_ms: 6.519407
+  type: 'suite'
+  ...
+# Subtest: dekodiere: benannte Entitäten
+ok 120 - dekodiere: benannte Entitäten
+  ---
+  duration_ms: 1.136368
+  type: 'test'
+  ...
+# Subtest: dekodiere: numerische Entitäten dezimal und hexadezimal
+ok 121 - dekodiere: numerische Entitäten dezimal und hexadezimal
+  ---
+  duration_ms: 0.29888
+  type: 'test'
+  ...
+# Subtest: dekodiere: kein doppeltes Dekodieren
+ok 122 - dekodiere: kein doppeltes Dekodieren
+  ---
+  duration_ms: 0.163178
+  type: 'test'
+  ...
+# Subtest: liesStandorte: Land aus Akkordeon, Präfix entfernt, Entitäten dekodiert
+ok 123 - liesStandorte: Land aus Akkordeon, Präfix entfernt, Entitäten dekodiert
+  ---
+  duration_ms: 1.380777
+  type: 'test'
+  ...
+# Subtest: liesStandorte: Länderwechsel setzt das Land neu, NL wird Niederlande
+ok 124 - liesStandorte: Länderwechsel setzt das Land neu, NL wird Niederlande
+  ---
+  duration_ms: 0.677631
+  type: 'test'
+  ...
+# Subtest: liesStandorte: Links vor dem ersten Akkordeon und Fremdlinks werden ignoriert
+ok 125 - liesStandorte: Links vor dem ersten Akkordeon und Fremdlinks werden ignoriert
+  ---
+  duration_ms: 0.303769
+  type: 'test'
+  ...
+# Subtest: liesSitemapR: Richter-URLs aus aneinandergereihtem Markdown, Startseite eingeschlossen
+ok 126 - liesSitemapR: Richter-URLs aus aneinandergereihtem Markdown, Startseite eingeschlossen
+  ---
+  duration_ms: 0.332331
+  type: 'test'
+  ...
+# Subtest: liesSitemapR: <loc>-Einträge und Dubletten
+ok 127 - liesSitemapR: <loc>-Einträge und Dubletten
+  ---
+  duration_ms: 0.108697
+  type: 'test'
+  ...
+# Subtest: liesSitemapA: Region aus Gruppenkommentar, Nicht-Orte ausgeschlossen
+ok 128 - liesSitemapA: Region aus Gruppenkommentar, Nicht-Orte ausgeschlossen
+  ---
+  duration_ms: 0.870154
+  type: 'test'
+  ...
+# Subtest: liesSitemapA: Ort ohne Gruppenkommentar bekommt region null
+ok 129 - liesSitemapA: Ort ohne Gruppenkommentar bekommt region null
+  ---
+  duration_ms: 2.564781
+  type: 'test'
+  ...
+# Subtest: Fall 12 gleiche Wörter in Folge ergeben fehler
+ok 130 - Fall 12 gleiche Wörter in Folge ergeben fehler
+  ---
+  duration_ms: 6.684282
+  type: 'test'
+  ...
+# Subtest: Fall 8 gleiche Wörter in Folge ergeben warnung
+ok 131 - Fall 8 gleiche Wörter in Folge ergeben warnung
+  ---
+  duration_ms: 0.567158
+  type: 'test'
+  ...
+# Subtest: Fall 6 gleiche Wörter ergeben nichts
+ok 132 - Fall 6 gleiche Wörter ergeben nichts
+  ---
+  duration_ms: 1.1222
+  type: 'test'
+  ...
+# Subtest: Ortslisten mit Klasse az-liste oder nachbarorte werden ignoriert
+ok 133 - Ortslisten mit Klasse az-liste oder nachbarorte werden ignoriert
+  ---
+  duration_ms: 1.922677
+  type: 'test'
+  ...
+# Subtest: Normalisierung: Groß/klein, Satzzeichen, Links, Inline-Tags und weiche Trennzeichen
+ok 134 - Normalisierung: Groß/klein, Satzzeichen, Links, Inline-Tags und weiche Trennzeichen
+  ---
+  duration_ms: 1.373591
+  type: 'test'
+  ...
+# Subtest: ohne Fingerabdruck-Datei gibt es einen Befund, keinen Absturz
+ok 135 - ohne Fingerabdruck-Datei gibt es einen Befund, keinen Absturz
+  ---
+  duration_ms: 6.089079
+  type: 'test'
+  ...
+# Subtest: echte-daten
+ok 136 - echte-daten
+  ---
+  duration_ms: 407.534538
+  type: 'test'
+  ...
+# Subtest: gültiges Tagesband ohne Befund; Lücke, Überschneidung, falsches Ende und unbekanntes Fenster werden gemeldet
+ok 137 - gültiges Tagesband ohne Befund; Lücke, Überschneidung, falsches Ende und unbekanntes Fenster werden gemeldet
+  ---
+  duration_ms: 2.226156
+  type: 'test'
+  ...
+# Subtest: Fenster je Uhrzeit, Tagesart und Zeitpunkt in Europe/Berlin
+ok 138 - Fenster je Uhrzeit, Tagesart und Zeitpunkt in Europe/Berlin
+  ---
+  duration_ms: 16.124541
+  type: 'test'
+  ...
+# Subtest: Uhrzeiten als Text, Nacht über Mitternacht zusammengefasst
+ok 139 - Uhrzeiten als Text, Nacht über Mitternacht zusammengefasst
+  ---
+  duration_ms: 0.467268
+  type: 'test'
+  ...
+# Subtest: Gesamtpreis = Leistung im Zeitfenster + Anfahrt der Zone
+ok 140 - Gesamtpreis = Leistung im Zeitfenster + Anfahrt der Zone
+  ---
+  duration_ms: 7.986619
+  type: 'test'
+  ...
+# Subtest: nach Absprache: Notöffnung in Zonen ohne Notdienst, Preis oder Anfahrt null; offen ohne vollständige Liste
+ok 141 - nach Absprache: Notöffnung in Zonen ohne Notdienst, Preis oder Anfahrt null; offen ohne vollständige Liste
+  ---
+  duration_ms: 0.362459
+  type: 'test'
+  ...
+# Subtest: kein Zuschlag je Zahlart: weder Konfiguration noch Rechner kennen ihn
+ok 142 - kein Zuschlag je Zahlart: weder Konfiguration noch Rechner kennen ihn
+  ---
+  duration_ms: 20.837052
+  type: 'test'
+  ...
+# Subtest: Tagesband: offen eine Zeile ohne Titel und Legende als Platzhalter, gefüllt zwei Zeilen mit Legende
+ok 143 - Tagesband: offen eine Zeile ohne Titel und Legende als Platzhalter, gefüllt zwei Zeilen mit Legende
+  ---
+  duration_ms: 3.309653
+  type: 'test'
+  ...
+# Subtest: Rechner: Hinweis „nach Absprache“ nur mit bestätigter Zusage preisVorAuftrag, sonst leer (dann ausgeblendet)
+ok 144 - Rechner: Hinweis „nach Absprache“ nur mit bestätigter Zusage preisVorAuftrag, sonst leer (dann ausgeblendet)
+  ---
+  duration_ms: 34.629777
+  type: 'test'
+  ...
+# Subtest: saubere Seiten: Sicherheit, SEO und Links grün
+ok 145 - saubere Seiten: Sicherheit, SEO und Links grün
+  ---
+  duration_ms: 117.474422
+  type: 'test'
+  ...
+# Subtest: Sicherheit: Inline-Skript, on*-Attribut, style, iframe, javascript:, fremde Ressource, Kommentar → rot
+ok 146 - Sicherheit: Inline-Skript, on*-Attribut, style, iframe, javascript:, fremde Ressource, Kommentar → rot
+  ---
+  duration_ms: 7.674632
+  type: 'test'
+  ...
+# Subtest: Sicherheit: falsches SRI und abweichende Meta-CSP → rot
+ok 147 - Sicherheit: falsches SRI und abweichende Meta-CSP → rot
+  ---
+  duration_ms: 7.074394
+  type: 'test'
+  ...
+# Subtest: SEO: doppelter Titel, zwei H1, Überschriftensprung → rot
+ok 148 - SEO: doppelter Titel, zwei H1, Überschriftensprung → rot
+  ---
+  duration_ms: 3.561353
+  type: 'test'
+  ...
+# Subtest: Links: fehlendes Ziel, fehlender Anker, Waise → rot
+ok 149 - Links: fehlendes Ziel, fehlender Anker, Waise → rot
+  ---
+  duration_ms: 4.19845
+  type: 'test'
+  ...
+# Subtest: S20-navigation: eigene Pfade und mailto: als Literal erlaubt, alles andere nicht
+ok 150 - S20-navigation: eigene Pfade und mailto: als Literal erlaubt, alles andere nicht
+  ---
+  duration_ms: 0.760494
+  type: 'test'
+  ...
+# Subtest: SEO: Titel > 60 bei Ortsseiten nur Warnung, auch im Release; andere Seiten bleiben im Release Fehler (D-SEO-04)
+ok 151 - SEO: Titel > 60 bei Ortsseiten nur Warnung, auch im Release; andere Seiten bleiben im Release Fehler (D-SEO-04)
+  ---
+  duration_ms: 9.925867
+  type: 'test'
+  ...
+# Subtest: S14-variante: .br/.gz nur mit Quelldatei und gleichem Inhalt; andere Archive bleiben verboten
+ok 152 - S14-variante: .br/.gz nur mit Quelldatei und gleichem Inhalt; andere Archive bleiben verboten
+  ---
+  duration_ms: 27.821287
+  type: 'test'
+  ...
+# Subtest: S14-variante prüft alle Varianten auf der Platte, auch solche, die dieser Lauf nicht geschrieben hat (--nur)
+ok 153 - S14-variante prüft alle Varianten auf der Platte, auch solche, die dieser Lauf nicht geschrieben hat (--nur)
+  ---
+  duration_ms: 9.970101
+  type: 'test'
+  ...
+# Subtest: Entwurf: der Freigabe-Platzhalter steht als Hinweis mit Platzhalterfläche im Kopf
+ok 154 - Entwurf: der Freigabe-Platzhalter steht als Hinweis mit Platzhalterfläche im Kopf
+  ---
+  duration_ms: 18.809189
+  type: 'test'
+  ...
+# Subtest: nach der Freigabe (null) kein leerer Hinweis-Kasten
+ok 155 - nach der Freigabe (null) kein leerer Hinweis-Kasten
+  ---
+  duration_ms: 1.313199
+  type: 'test'
+  ...
+# Subtest: nach der Freigabe (leer) kein leerer Hinweis-Kasten
+ok 156 - nach der Freigabe (leer) kein leerer Hinweis-Kasten
+  ---
+  duration_ms: 0.764874
+  type: 'test'
+  ...
+# Subtest: nach der Freigabe (entfernt) kein leerer Hinweis-Kasten
+ok 157 - nach der Freigabe (entfernt) kein leerer Hinweis-Kasten
+  ---
+  duration_ms: 0.671652
+  type: 'test'
+  ...
+# Subtest: Freigabe-Hinweis steht vor der Teilung; ohne ihn beginnt die Teilung mit dem Kopf
+ok 158 - Freigabe-Hinweis steht vor der Teilung; ohne ihn beginnt die Teilung mit dem Kopf
+  ---
+  duration_ms: 2.449475
+  type: 'test'
+  ...
+# Subtest: ein echter Freigabevermerk erscheint ohne Platzhalterfläche
+ok 159 - ein echter Freigabevermerk erscheint ohne Platzhalterfläche
+  ---
+  duration_ms: 1.179715
+  type: 'test'
+  ...
+# Subtest: impressum: offene Rechtsfragen nur als Platzhalter, nie als fester Text
+ok 160 - impressum: offene Rechtsfragen nur als Platzhalter, nie als fester Text
+  ---
+  duration_ms: 0.477786
+  type: 'test'
+  ...
+# Subtest: datenschutz: offene Rechtsfragen nur als Platzhalter, nie als fester Text
+ok 161 - datenschutz: offene Rechtsfragen nur als Platzhalter, nie als fester Text
+  ---
+  duration_ms: 0.203844
+  type: 'test'
+  ...
+# Subtest: widerruf: offene Rechtsfragen nur als Platzhalter, nie als fester Text
+ok 162 - widerruf: offene Rechtsfragen nur als Platzhalter, nie als fester Text
+  ---
+  duration_ms: 0.200037
+  type: 'test'
+  ...
+# Subtest: barrierefreiheit: offene Rechtsfragen nur als Platzhalter, nie als fester Text
+ok 163 - barrierefreiheit: offene Rechtsfragen nur als Platzhalter, nie als fester Text
+  ---
+  duration_ms: 0.181966
+  type: 'test'
+  ...
+# Subtest: quellen-lizenzen: offene Rechtsfragen nur als Platzhalter, nie als fester Text
+ok 164 - quellen-lizenzen: offene Rechtsfragen nur als Platzhalter, nie als fester Text
+  ---
+  duration_ms: 0.071574
+  type: 'test'
+  ...
+# Subtest: Barrierefreiheit: die Geltung des Gesetzes ist ein Platzhalter (sperrt den Release)
+ok 165 - Barrierefreiheit: die Geltung des Gesetzes ist ein Platzhalter (sperrt den Release)
+  ---
+  duration_ms: 0.232285
+  type: 'test'
+  ...
+# Subtest: Abschnitte und Inhaltsverzeichnis tragen dieselben Nummern in derselben Reihenfolge
+ok 166 - Abschnitte und Inhaltsverzeichnis tragen dieselben Nummern in derselben Reihenfolge
+  ---
+  duration_ms: 1.307496
+  type: 'test'
+  ...
+# Subtest: Darstellung: „E-Mail“ bricht nie nach „E-“ um, Wortlaut und Links bleiben unverändert
+ok 167 - Darstellung: „E-Mail“ bricht nie nach „E-“ um, Wortlaut und Links bleiben unverändert
+  ---
+  duration_ms: 1.561717
+  type: 'test'
+  ...
+# Subtest: pruefeWeiterleitungen: gültige Eingabe
+    # Subtest: eine saubere Weiterleitung kommt unverändert zurück
+    ok 1 - eine saubere Weiterleitung kommt unverändert zurück
+      ---
+      duration_ms: 2.09568
+      type: 'test'
+      ...
+    # Subtest: leere Liste ist gültig
+    ok 2 - leere Liste ist gültig
+      ---
+      duration_ms: 0.231391
+      type: 'test'
+      ...
+    1..2
+ok 168 - pruefeWeiterleitungen: gültige Eingabe
+  ---
+  duration_ms: 3.830712
+  type: 'suite'
+  ...
+# Subtest: pruefeWeiterleitungen: unsichere Pfade werden abgewiesen
+    # Subtest: Ziel mit „//“ ohne Punkt
+    ok 1 - Ziel mit „//“ ohne Punkt
+      ---
+      duration_ms: 0.988843
+      type: 'test'
+      ...
+    # Subtest: Ziel mit „//“ und Domain
+    ok 2 - Ziel mit „//“ und Domain
+      ---
+      duration_ms: 0.163222
+      type: 'test'
+      ...
+    # Subtest: Quelle mit „//“
+    ok 3 - Quelle mit „//“
+      ---
+      duration_ms: 0.204609
+      type: 'test'
+      ...
+    # Subtest: Ziel mit Backslash „/\\“
+    ok 4 - Ziel mit Backslash „/\\“
+      ---
+      duration_ms: 0.128684
+      type: 'test'
+      ...
+    # Subtest: Ziel mit kodiertem „%2F%2F“
+    ok 5 - Ziel mit kodiertem „%2F%2F“
+      ---
+      duration_ms: 0.257527
+      type: 'test'
+      ...
+    # Subtest: Ziel mit kodiertem „%5C“
+    ok 6 - Ziel mit kodiertem „%5C“
+      ---
+      duration_ms: 0.389768
+      type: 'test'
+      ...
+    # Subtest: Ziel mit kleingeschriebenem „%2f%2f“
+    ok 7 - Ziel mit kleingeschriebenem „%2f%2f“
+      ---
+      duration_ms: 0.289725
+      type: 'test'
+      ...
+    # Subtest: Ziel mit kleingeschriebenem „%5c“
+    ok 8 - Ziel mit kleingeschriebenem „%5c“
+      ---
+      duration_ms: 0.407594
+      type: 'test'
+      ...
+    # Subtest: Ziel mit Schema „https:“
+    ok 9 - Ziel mit Schema „https:“
+      ---
+      duration_ms: 0.226619
+      type: 'test'
+      ...
+    # Subtest: Ziel mit Schema „javascript:“
+    ok 10 - Ziel mit Schema „javascript:“
+      ---
+      duration_ms: 0.10997
+      type: 'test'
+      ...
+    # Subtest: Quelle mit Großbuchstaben
+    ok 11 - Quelle mit Großbuchstaben
+      ---
+      duration_ms: 1.300218
+      type: 'test'
+      ...
+    # Subtest: Ziel mit Leerzeichen
+    ok 12 - Ziel mit Leerzeichen
+      ---
+      duration_ms: 0.170789
+      type: 'test'
+      ...
+    # Subtest: Ziel mit ".."
+    ok 13 - Ziel mit ".."
+      ---
+      duration_ms: 0.09398
+      type: 'test'
+      ...
+    1..13
+ok 169 - pruefeWeiterleitungen: unsichere Pfade werden abgewiesen
+  ---
+  duration_ms: 5.71985
+  type: 'suite'
+  ...
+# Subtest: pruefeWeiterleitungen: Ziel und Eigenschaften
+    # Subtest: Ziel ohne existierende Route wird abgewiesen
+    ok 1 - Ziel ohne existierende Route wird abgewiesen
+      ---
+      duration_ms: 0.25838
+      type: 'test'
+      ...
+    # Subtest: Weiterleitung auf sich selbst wird abgewiesen
+    ok 2 - Weiterleitung auf sich selbst wird abgewiesen
+      ---
+      duration_ms: 0.148167
+      type: 'test'
+      ...
+    # Subtest: Schleife a→b→a wird abgewiesen
+    ok 3 - Schleife a→b→a wird abgewiesen
+      ---
+      duration_ms: 0.202504
+      type: 'test'
+      ...
+    # Subtest: Kette a→b→c wird abgewiesen
+    ok 4 - Kette a→b→c wird abgewiesen
+      ---
+      duration_ms: 0.140602
+      type: 'test'
+      ...
+    1..4
+ok 170 - pruefeWeiterleitungen: Ziel und Eigenschaften
+  ---
+  duration_ms: 0.941537
+  type: 'suite'
+  ...
+# Subtest: htaccess
+    # Subtest: Weiterleitungsziel trägt den festen Host
+    ok 1 - Weiterleitungsziel trägt den festen Host
+      ---
+      duration_ms: 0.226972
+      type: 'test'
+      ...
+    # Subtest: kanonische Umleitung auf den festen Host, nie auf den Host-Header
+    ok 2 - kanonische Umleitung auf den festen Host, nie auf den Host-Header
+      ---
+      duration_ms: 0.14986
+      type: 'test'
+      ...
+    # Subtest: alle Sicherheits-Header aus kopfzeilen() sind gesetzt
+    ok 3 - alle Sicherheits-Header aus kopfzeilen() sind gesetzt
+      ---
+      duration_ms: 0.361877
+      type: 'test'
+      ...
+    # Subtest: Dotfile-Sperre ist gesetzt
+    ok 4 - Dotfile-Sperre ist gesetzt
+      ---
+      duration_ms: 0.12088
+      type: 'test'
+      ...
+    # Subtest: ungültiger Host wird abgelehnt
+    ok 5 - ungültiger Host wird abgelehnt
+      ---
+      duration_ms: 0.238176
+      type: 'test'
+      ...
+    1..5
+ok 171 - htaccess
+  ---
+  duration_ms: 1.287868
+  type: 'suite'
+  ...
+# Subtest: nginx
+    # Subtest: Weiterleitungsziel trägt den festen Host; keine Variablen $host oder $http_host
+    ok 1 - Weiterleitungsziel trägt den festen Host; keine Variablen $host oder $http_host
+      ---
+      duration_ms: 0.819584
+      type: 'test'
+      ...
+    # Subtest: alle Sicherheits-Header aus kopfzeilen() stehen im Snippet
+    ok 2 - alle Sicherheits-Header aus kopfzeilen() stehen im Snippet
+      ---
+      duration_ms: 0.734343
+      type: 'test'
+      ...
+    # Subtest: TLS-Server bindet das Header-Snippet ein; server_tokens aus
+    ok 3 - TLS-Server bindet das Header-Snippet ein; server_tokens aus
+      ---
+      duration_ms: 0.374401
+      type: 'test'
+      ...
+    # Subtest: Dotfile-Sperre ist gesetzt
+    ok 4 - Dotfile-Sperre ist gesetzt
+      ---
+      duration_ms: 0.139467
+      type: 'test'
+      ...
+    # Subtest: default_server beantwortet HTTP und HTTPS mit 444
+    ok 5 - default_server beantwortet HTTP und HTTPS mit 444
+      ---
+      duration_ms: 0.109795
+      type: 'test'
+      ...
+    # Subtest: ungültiger Host wird abgelehnt
+    ok 6 - ungültiger Host wird abgelehnt
+      ---
+      duration_ms: 0.134173
+      type: 'test'
+      ...
+    1..6
+ok 172 - nginx
+  ---
+  duration_ms: 4.318352
+  type: 'suite'
+  ...
+# Subtest: headersDatei (Netlify/Cloudflare)
+    # Subtest: _headers: Sicherheits-Header gelten für /* und enthalten jeden Header aus kopfzeilen()
+    ok 1 - _headers: Sicherheits-Header gelten für /* und enthalten jeden Header aus kopfzeilen()
+      ---
+      duration_ms: 1.456614
+      type: 'test'
+      ...
+    # Subtest: _headers: Daten-Dateien unveränderlich gecacht und nicht indexierbar
+    ok 2 - _headers: Daten-Dateien unveränderlich gecacht und nicht indexierbar
+      ---
+      duration_ms: 0.482838
+      type: 'test'
+      ...
+    # Subtest: _redirects: 301 mit relativem Ziel
+    ok 3 - _redirects: 301 mit relativem Ziel
+      ---
+      duration_ms: 0.453135
+      type: 'test'
+      ...
+    1..3
+ok 173 - headersDatei (Netlify/Cloudflare)
+  ---
+  duration_ms: 2.728244
+  type: 'suite'
+  ...
+# Subtest: CSP-Gleichheit über alle Ausgaben
+    # Subtest: kopfzeilen() liefert dieselbe CSP wie cspText()
+    ok 1 - kopfzeilen() liefert dieselbe CSP wie cspText()
+      ---
+      duration_ms: 0.286311
+      type: 'test'
+      ...
+    # Subtest: headersDatei, htaccess und nginx tragen exakt dieselbe CSP-Zeichenkette
+    ok 2 - headersDatei, htaccess und nginx tragen exakt dieselbe CSP-Zeichenkette
+      ---
+      duration_ms: 0.881069
+      type: 'test'
+      ...
+    # Subtest: CSP enthält Trusted Types, Rahmen- und Objektsperre und keine unsafe-Quellen
+    ok 3 - CSP enthält Trusted Types, Rahmen- und Objektsperre und keine unsafe-Quellen
+      ---
+      duration_ms: 0.27863
+      type: 'test'
+      ...
+    1..3
+ok 174 - CSP-Gleichheit über alle Ausgaben
+  ---
+  duration_ms: 1.616221
+  type: 'suite'
+  ...
+# Subtest: pfadPruefen (bau/vorschau.mjs)
+    # Subtest: akzeptiert „/“ als „/“
+    ok 1 - akzeptiert „/“ als „/“
+      ---
+      duration_ms: 1.128364
+      type: 'test'
+      ...
+    # Subtest: akzeptiert „/notoeffnung/“ als „/notoeffnung/“
+    ok 2 - akzeptiert „/notoeffnung/“ als „/notoeffnung/“
+      ---
+      duration_ms: 0.103233
+      type: 'test'
+      ...
+    # Subtest: akzeptiert „/daten/orte.abc123.json“ als „/daten/orte.abc123.json“
+    ok 3 - akzeptiert „/daten/orte.abc123.json“ als „/daten/orte.abc123.json“
+      ---
+      duration_ms: 0.121931
+      type: 'test'
+      ...
+    # Subtest: akzeptiert „/notoeffnung/?q=../x“ als „/notoeffnung/“
+    ok 4 - akzeptiert „/notoeffnung/?q=../x“ als „/notoeffnung/“
+      ---
+      duration_ms: 0.092287
+      type: 'test'
+      ...
+    # Subtest: akzeptiert „/notoeffnung/\#../x“ als „/notoeffnung/“
+    ok 5 - akzeptiert „/notoeffnung/\#../x“ als „/notoeffnung/“
+      ---
+      duration_ms: 0.090558
+      type: 'test'
+      ...
+    # Subtest: akzeptiert „/a%20b“ als „/a b“
+    ok 6 - akzeptiert „/a%20b“ als „/a b“
+      ---
+      duration_ms: 0.129336
+      type: 'test'
+      ...
+    # Subtest: lehnt „//evil.example“ ab
+    ok 7 - lehnt „//evil.example“ ab
+      ---
+      duration_ms: 0.307258
+      type: 'test'
+      ...
+    # Subtest: lehnt „/a//b“ ab
+    ok 8 - lehnt „/a//b“ ab
+      ---
+      duration_ms: 0.135699
+      type: 'test'
+      ...
+    # Subtest: lehnt „/\\evil.example“ ab
+    ok 9 - lehnt „/\\evil.example“ ab
+      ---
+      duration_ms: 0.141253
+      type: 'test'
+      ...
+    # Subtest: lehnt „/a\\b“ ab
+    ok 10 - lehnt „/a\\b“ ab
+      ---
+      duration_ms: 0.342904
+      type: 'test'
+      ...
+    # Subtest: lehnt „/a%5Cb“ ab
+    ok 11 - lehnt „/a%5Cb“ ab
+      ---
+      duration_ms: 0.181043
+      type: 'test'
+      ...
+    # Subtest: lehnt „/a%5cb“ ab
+    ok 12 - lehnt „/a%5cb“ ab
+      ---
+      duration_ms: 0.115408
+      type: 'test'
+      ...
+    # Subtest: lehnt „/%2F%2Fevil.example“ ab
+    ok 13 - lehnt „/%2F%2Fevil.example“ ab
+      ---
+      duration_ms: 0.226338
+      type: 'test'
+      ...
+    # Subtest: lehnt „/%2f“ ab
+    ok 14 - lehnt „/%2f“ ab
+      ---
+      duration_ms: 0.148736
+      type: 'test'
+      ...
+    # Subtest: lehnt „/a%2fb“ ab
+    ok 15 - lehnt „/a%2fb“ ab
+      ---
+      duration_ms: 0.08301
+      type: 'test'
+      ...
+    # Subtest: lehnt „/notoeffnung%2Forte.json“ ab
+    ok 16 - lehnt „/notoeffnung%2Forte.json“ ab
+      ---
+      duration_ms: 0.191386
+      type: 'test'
+      ...
+    # Subtest: lehnt „/%00“ ab
+    ok 17 - lehnt „/%00“ ab
+      ---
+      duration_ms: 0.238194
+      type: 'test'
+      ...
+    # Subtest: lehnt „/a%00.html“ ab
+    ok 18 - lehnt „/a%00.html“ ab
+      ---
+      duration_ms: 0.125199
+      type: 'test'
+      ...
+    # Subtest: lehnt „/a\\0b“ ab
+    ok 19 - lehnt „/a\\0b“ ab
+      ---
+      duration_ms: 0.078774
+      type: 'test'
+      ...
+    # Subtest: lehnt „/..“ ab
+    ok 20 - lehnt „/..“ ab
+      ---
+      duration_ms: 0.07249
+      type: 'test'
+      ...
+    # Subtest: lehnt „/a/../b“ ab
+    ok 21 - lehnt „/a/../b“ ab
+      ---
+      duration_ms: 0.068281
+      type: 'test'
+      ...
+    # Subtest: lehnt „/daten/..“ ab
+    ok 22 - lehnt „/daten/..“ ab
+      ---
+      duration_ms: 0.066933
+      type: 'test'
+      ...
+    # Subtest: lehnt „/%2e%2e/geheim“ ab
+    ok 23 - lehnt „/%2e%2e/geheim“ ab
+      ---
+      duration_ms: 4.011763
+      type: 'test'
+      ...
+    # Subtest: lehnt „/%2E%2E/geheim“ ab
+    ok 24 - lehnt „/%2E%2E/geheim“ ab
+      ---
+      duration_ms: 0.115064
+      type: 'test'
+      ...
+    # Subtest: lehnt „/.%2e/geheim“ ab
+    ok 25 - lehnt „/.%2e/geheim“ ab
+      ---
+      duration_ms: 0.114718
+      type: 'test'
+      ...
+    # Subtest: lehnt „/%2e%2e%2fgeheim“ ab
+    ok 26 - lehnt „/%2e%2e%2fgeheim“ ab
+      ---
+      duration_ms: 0.078236
+      type: 'test'
+      ...
+    # Subtest: lehnt „https://evil.example/“ ab
+    ok 27 - lehnt „https://evil.example/“ ab
+      ---
+      duration_ms: 0.069611
+      type: 'test'
+      ...
+    # Subtest: lehnt „evil.example“ ab
+    ok 28 - lehnt „evil.example“ ab
+      ---
+      duration_ms: 0.069441
+      type: 'test'
+      ...
+    # Subtest: lehnt „“ ab
+    ok 29 - lehnt „“ ab
+      ---
+      duration_ms: 0.066111
+      type: 'test'
+      ...
+    1..29
+ok 175 - pfadPruefen (bau/vorschau.mjs)
+  ---
+  duration_ms: 10.025683
+  type: 'suite'
+  ...
+# Subtest: Import von bau/vorschau.mjs startet keinen Server
+ok 176 - Import von bau/vorschau.mjs startet keinen Server
+  ---
+  duration_ms: 83.740426
+  type: 'test'
+  ...
+# Subtest: Routen: eindeutig, gültige Pfade, Eltern existieren
+ok 177 - Routen: eindeutig, gültige Pfade, Eltern existieren
+  ---
+  duration_ms: 2.07676
+  type: 'test'
+  ...
+# Subtest: Navigation zeigt nur registrierte Routen
+ok 178 - Navigation zeigt nur registrierte Routen
+  ---
+  duration_ms: 0.328018
+  type: 'test'
+  ...
+# Subtest: Muster-Routen: geplant nur mit passenden Daten
+ok 179 - Muster-Routen: geplant nur mit passenden Daten
+  ---
+  duration_ms: 0.446734
+  type: 'test'
+  ...
+# Subtest: Themenpässe: jede Inhaltsroute hat einen Pass, jeder Pass eine Route
+ok 180 - Themenpässe: jede Inhaltsroute hat einen Pass, jeder Pass eine Route
+  ---
+  duration_ms: 0.235993
+  type: 'test'
+  ...
+# Subtest: Themenpässe: Suchbegriffe eindeutig und klein geschrieben
+ok 181 - Themenpässe: Suchbegriffe eindeutig und klein geschrieben
+  ---
+  duration_ms: 0.506163
+  type: 'test'
+  ...
+# Subtest: Themenpässe: FAQ-Fragen seitenweit eindeutig (inkl. Startseite)
+ok 182 - Themenpässe: FAQ-Fragen seitenweit eindeutig (inkl. Startseite)
+  ---
+  duration_ms: 1.069726
+  type: 'test'
+  ...
+# Subtest: Themenpässe: Faktenblätter vorhanden und genutzt
+ok 183 - Themenpässe: Faktenblätter vorhanden und genutzt
+  ---
+  duration_ms: 0.470054
+  type: 'test'
+  ...
+# Subtest: Themenpässe: Verweise zeigen auf geplante Seiten, Inhaltsseiten haben ≥ 3 Kontextlinks
+ok 184 - Themenpässe: Verweise zeigen auf geplante Seiten, Inhaltsseiten haben ≥ 3 Kontextlinks
+  ---
+  duration_ms: 0.408661
+  type: 'test'
+  ...
+# Subtest: Quellenabdeckung: jede Kern-URL hat Ziel oder Grund
+ok 185 - Quellenabdeckung: jede Kern-URL hat Ziel oder Grund
+  ---
+  duration_ms: 0.49258
+  type: 'test'
+  ...
+# Subtest: Gemeinde-Slug ist der Name
+ok 186 - Gemeinde-Slug ist der Name
+  ---
+  duration_ms: 2.049931
+  type: 'test'
+  ...
+# Subtest: Ortsteil-Slug: Gemeindekern vorn (Kubach in Weilburg → weilburg-kubach)
+ok 187 - Ortsteil-Slug: Gemeindekern vorn (Kubach in Weilburg → weilburg-kubach)
+  ---
+  duration_ms: 1.203791
+  type: 'test'
+  ...
+# Subtest: Ortsteil-Slug verdoppelt den Gemeindekern nicht (Weilburg-Kubach → weilburg-kubach)
+ok 188 - Ortsteil-Slug verdoppelt den Gemeindekern nicht (Weilburg-Kubach → weilburg-kubach)
+  ---
+  duration_ms: 0.500084
+  type: 'test'
+  ...
+# Subtest: Gültigkeit: Kleinbuchstaben, Ziffern, Bindestrich, höchstens 80 Zeichen
+ok 189 - Gültigkeit: Kleinbuchstaben, Ziffern, Bindestrich, höchstens 80 Zeichen
+  ---
+  duration_ms: 0.406151
+  type: 'test'
+  ...
+# Subtest: Kollision mit Kreis: größte Einwohnerzahl behält den Slug, der andere bekommt -{kreisSlug}
+ok 190 - Kollision mit Kreis: größte Einwohnerzahl behält den Slug, der andere bekommt -{kreisSlug}
+  ---
+  duration_ms: 1.122541
+  type: 'test'
+  ...
+# Subtest: Kollision NL gegen DE: der NL-Ort bekommt -nl
+ok 191 - Kollision NL gegen DE: der NL-Ort bekommt -nl
+  ---
+  duration_ms: 0.382279
+  type: 'test'
+  ...
+# Subtest: Kollision bleibt nach dem Kreis: erste PLZ, dann Ziffern der ID
+ok 192 - Kollision bleibt nach dem Kreis: erste PLZ, dann Ziffern der ID
+  ---
+  duration_ms: 0.747297
+  type: 'test'
+  ...
+# Subtest: Register behält den alten Slug, solange er nicht kollidiert, ohne Weiterleitung
+ok 193 - Register behält den alten Slug, solange er nicht kollidiert, ohne Weiterleitung
+  ---
+  duration_ms: 1.046303
+  type: 'test'
+  ...
+# Subtest: Register bei Kollision: der Ort mit größerer Einwohnerzahl behält den Pfad, keine Weiterleitung auf eine lebende Seite
+ok 194 - Register bei Kollision: der Ort mit größerer Einwohnerzahl behält den Pfad, keine Weiterleitung auf eine lebende Seite
+  ---
+  duration_ms: 0.696414
+  type: 'test'
+  ...
+# Subtest: Register ist anhängend: IDs ohne aktuellen Ort bleiben erhalten
+ok 195 - Register ist anhängend: IDs ohne aktuellen Ort bleiben erhalten
+  ---
+  duration_ms: 0.777195
+  type: 'test'
+  ...
+# Subtest: Treffer im Titel stehen vor Treffern im Text
+ok 196 - Treffer im Titel stehen vor Treffern im Text
+  ---
+  duration_ms: 3.683495
+  type: 'test'
+  ...
+# Subtest: Umlaute und ß: „tur“, „tuer“ und „Tür“ finden dasselbe; „schliess“ findet „Schließ…“
+ok 197 - Umlaute und ß: „tur“, „tuer“ und „Tür“ finden dasselbe; „schliess“ findet „Schließ…“
+  ---
+  duration_ms: 1.026066
+  type: 'test'
+  ...
+# Subtest: alle Wörter müssen vorkommen; kurze Anfragen und Fremdwörter liefern nichts
+ok 198 - alle Wörter müssen vorkommen; kurze Anfragen und Fremdwörter liefern nichts
+  ---
+  duration_ms: 0.434945
+  type: 'test'
+  ...
+# Subtest: mit Umlaut getippt wird streng verglichen: „löhn“ trifft nicht „lohnt“, „lohn“ ohne Umlaut schon
+ok 199 - mit Umlaut getippt wird streng verglichen: „löhn“ trifft nicht „lohnt“, „lohn“ ohne Umlaut schon
+  ---
+  duration_ms: 0.288964
+  type: 'test'
+  ...
+# Subtest: Hervorhebung: ganze Wörter, Umlaute wie bei der Wertung, Satzzeichen bleiben außerhalb
+ok 200 - Hervorhebung: ganze Wörter, Umlaute wie bei der Wertung, Satzzeichen bleiben außerhalb
+  ---
+  duration_ms: 5.568473
+  type: 'test'
+  ...
+# Subtest: Statuszeile: keine Nullmengen, Einzahl und Mehrzahl, gekürzte Listen als „n von m“
+ok 201 - Statuszeile: keine Nullmengen, Einzahl und Mehrzahl, gekürzte Listen als „n von m“
+  ---
+  duration_ms: 0.289099
+  type: 'test'
+  ...
+# Subtest: Kurztext im Seitenindex: nie mitten im Wort; ganzer Satz ohne, Satzteil oder Wort mit Auslassungspunkten
+ok 202 - Kurztext im Seitenindex: nie mitten im Wort; ganzer Satz ohne, Satzteil oder Wort mit Auslassungspunkten
+  ---
+  duration_ms: 1.32826
+  type: 'test'
+  ...
+# Subtest: Seitenindex: eintrag() liefert Titel, Bereich und Kurztext wie die Datei (Hauptthemen der Suchseite)
+ok 203 - Seitenindex: eintrag() liefert Titel, Bereich und Kurztext wie die Datei (Hauptthemen der Suchseite)
+  ---
+  duration_ms: 1.220483
+  type: 'test'
+  ...
+# Subtest: Maßstab: Ringe und Orte linear bis zum Achsende, danach gekappt mit offenem Ende
+ok 204 - Maßstab: Ringe und Orte linear bis zum Achsende, danach gekappt mit offenem Ende
+  ---
+  duration_ms: 4.815414
+  type: 'test'
+  ...
+# Subtest: erlaubte Werte ergeben keine Befunde
+ok 205 - erlaubte Werte ergeben keine Befunde
+  ---
+  duration_ms: 15.384993
+  type: 'test'
+  ...
+# Subtest: verbotene Werte: Regel, Schwere und Zeile je Fund; Kommentare bleiben ohne Befund
+ok 206 - verbotene Werte: Regel, Schwere und Zeile je Fund; Kommentare bleiben ohne Befund
+  ---
+  duration_ms: 2.903522
+  type: 'test'
+  ...
+# Subtest: Quellbaum: token.css und schriften.css sind ausgenommen, Befund trägt Datei:Zeile
+ok 207 - Quellbaum: token.css und schriften.css sind ausgenommen, Befund trägt Datei:Zeile
+  ---
+  duration_ms: 17.021721
+  type: 'test'
+  ...
+# Subtest: Vorlagen: style-Attribut und Hex-Farbe sind Fehler; Kommentare und Code nicht
+ok 208 - Vorlagen: style-Attribut und Hex-Farbe sind Fehler; Kommentare und Code nicht
+  ---
+  duration_ms: 0.581527
+  type: 'test'
+  ...
+# Subtest: Höhen-Breakpoint 40em nur für min-/max-height erlaubt (Szenen, KERN K-006)
+ok 209 - Höhen-Breakpoint 40em nur für min-/max-height erlaubt (Szenen, KERN K-006)
+  ---
+  duration_ms: 0.356494
+  type: 'test'
+  ...
+# Subtest: Komposita brechen nur an den Fugen der Wortliste
+ok 210 - Komposita brechen nur an den Fugen der Wortliste
+  ---
+  duration_ms: 3.73458
+  type: 'test'
+  ...
+# Subtest: Kreisnamen brechen vor „kreis“, kurze Wörter und Eigennamen bleiben ganz
+ok 211 - Kreisnamen brechen vor „kreis“, kurze Wörter und Eigennamen bleiben ganz
+  ---
+  duration_ms: 1.543241
+  type: 'test'
+  ...
+# Subtest: Nur Text zwischen h1–h4, Tags, Attribute und Entitäten bleiben unberührt
+ok 212 - Nur Text zwischen h1–h4, Tags, Attribute und Entitäten bleiben unberührt
+  ---
+  duration_ms: 0.535771
+  type: 'test'
+  ...
+# Subtest: Kartentitel (.weiter-titel) bekommen die Fugen wie Überschriften
+ok 213 - Kartentitel (.weiter-titel) bekommen die Fugen wie Überschriften
+  ---
+  duration_ms: 0.294167
+  type: 'test'
+  ...
+# Subtest: Wortliste: Kleinbuchstaben, mindestens eine Fuge, keine Doppel
+ok 214 - Wortliste: Kleinbuchstaben, mindestens eine Fuge, keine Doppel
+  ---
+  duration_ms: 1.5033
+  type: 'test'
+  ...
+# Subtest: vorkomprimieren
+    # Subtest: Rundreise: entpackt ergibt das Original (.br mit Brotli, .gz mit gzip)
+    ok 1 - Rundreise: entpackt ergibt das Original (.br mit Brotli, .gz mit gzip)
+      ---
+      duration_ms: 42.469414
+      type: 'test'
+      ...
+    # Subtest: Determinismus: gleiche Eingabe → gleiche Bytes; gzip ohne Zeitstempel, Dateiname und plattformabhängige OS-Kennung
+    ok 2 - Determinismus: gleiche Eingabe → gleiche Bytes; gzip ohne Zeitstempel, Dateiname und plattformabhängige OS-Kennung
+      ---
+      duration_ms: 49.138167
+      type: 'test'
+      ...
+    # Subtest: nur Textendungen: Bilder und Schriften bekommen keine Varianten
+    ok 3 - nur Textendungen: Bilder und Schriften bekommen keine Varianten
+      ---
+      duration_ms: 12.377681
+      type: 'test'
+      ...
+    # Subtest: keine größeren Varianten: nicht kleinere Ergebnisse werden verworfen
+    ok 4 - keine größeren Varianten: nicht kleinere Ergebnisse werden verworfen
+      ---
+      duration_ms: 20.942965
+      type: 'test'
+      ...
+    # Subtest: unveränderte Dateien werden nicht neu komprimiert (Varianten bleiben unberührt)
+    ok 5 - unveränderte Dateien werden nicht neu komprimiert (Varianten bleiben unberührt)
+      ---
+      duration_ms: 14.167965
+      type: 'test'
+      ...
+    # Subtest: geänderte Datei: Varianten werden aus dem neuen Inhalt erneuert
+    ok 6 - geänderte Datei: Varianten werden aus dem neuen Inhalt erneuert
+      ---
+      duration_ms: 19.181817
+      type: 'test'
+      ...
+    # Subtest: verwaiste Varianten werden entfernt: gelöschte Quelle und Variante ohne Quelle
+    ok 7 - verwaiste Varianten werden entfernt: gelöschte Quelle und Variante ohne Quelle
+      ---
+      duration_ms: 8.574
+      type: 'test'
+      ...
+    # Subtest: Quelle wird zu nicht kleinerem Inhalt: die alte Variante verschwindet
+    ok 8 - Quelle wird zu nicht kleinerem Inhalt: die alte Variante verschwindet
+      ---
+      duration_ms: 21.78665
+      type: 'test'
+      ...
+    # Subtest: veraltete Quelle im Ordner (nicht Teil dieses Laufs): keine neuen Varianten, alte Varianten verschwinden
+    ok 9 - veraltete Quelle im Ordner (nicht Teil dieses Laufs): keine neuen Varianten, alte Varianten verschwinden
+      ---
+      duration_ms: 11.567309
+      type: 'test'
+      ...
+    # Subtest: Zusammenspiel mit dem Aufräumen: aufraeumen() löscht die Varianten des Laufs nicht
+    ok 10 - Zusammenspiel mit dem Aufräumen: aufraeumen() löscht die Varianten des Laufs nicht
+      ---
+      duration_ms: 6.78022
+      type: 'test'
+      ...
+    # Subtest: ohne Aufräumen (--nur): Varianten vorhandener Quellen bleiben, nur echte Waisen fallen weg
+    ok 11 - ohne Aufräumen (--nur): Varianten vorhandener Quellen bleiben, nur echte Waisen fallen weg
+      ---
+      duration_ms: 19.529899
+      type: 'test'
+      ...
+    # Subtest: Textendungen haben einen Content-Type im Sicherheits-Register (MIME)
+    ok 12 - Textendungen haben einen Content-Type im Sicherheits-Register (MIME)
+      ---
+      duration_ms: 0.191353
+      type: 'test'
+      ...
+    1..12
+ok 215 - vorkomprimieren
+  ---
+  duration_ms: 228.999335
+  type: 'suite'
+  ...
+# Subtest: Hoster-Konfiguration für vorkomprimierte Dateien
+    # Subtest: Apache: Typ der Varianten ist der des Originals (index.html.gz → text/html, nicht Serverstandard x-gzip)
+    ok 1 - Apache: Typ der Varianten ist der des Originals (index.html.gz → text/html, nicht Serverstandard x-gzip)
+      ---
+      duration_ms: 1.228852
+      type: 'test'
+      ...
+    # Subtest: Apache: die Kodierung kommt nur vom Header; der Serverstandard „AddEncoding x-gzip“ ist aufgehoben
+    ok 2 - Apache: die Kodierung kommt nur vom Header; der Serverstandard „AddEncoding x-gzip“ ist aufgehoben
+      ---
+      duration_ms: 0.269969
+      type: 'test'
+      ...
+    # Subtest: Apache: Content-Encoding nur an .br bzw. .gz, Vary: Accept-Encoding immer
+    ok 3 - Apache: Content-Encoding nur an .br bzw. .gz, Vary: Accept-Encoding immer
+      ---
+      duration_ms: 0.11498
+      type: 'test'
+      ...
+    # Subtest: Apache: Cache-Regel für HTML prüft den Content-Type (gilt damit auch für die HTML-Varianten)
+    ok 4 - Apache: Cache-Regel für HTML prüft den Content-Type (gilt damit auch für die HTML-Varianten)
+      ---
+      duration_ms: 0.078022
+      type: 'test'
+      ...
+    # Subtest: Apache: Rewrite nur bei vorhandener Datei und für Textendungen; br vor gzip
+    ok 5 - Apache: Rewrite nur bei vorhandener Datei und für Textendungen; br vor gzip
+      ---
+      duration_ms: 0.14769
+      type: 'test'
+      ...
+    # Subtest: Apache: Accept-Encoding-Bedingung erkennt Listen und Qualitäten, q=0 zählt nicht
+    ok 6 - Apache: Accept-Encoding-Bedingung erkennt Listen und Qualitäten, q=0 zählt nicht
+      ---
+      duration_ms: 0.787938
+      type: 'test'
+      ...
+    # Subtest: Apache: keine Doppelkompression durch mod_deflate oder mod_brotli (am Dateinamen, nicht über E=… der Rewrites)
+    ok 7 - Apache: keine Doppelkompression durch mod_deflate oder mod_brotli (am Dateinamen, nicht über E=… der Rewrites)
+      ---
+      duration_ms: 0.208509
+      type: 'test'
+      ...
+    # Subtest: Apache: Brotli-Antworten ohne Content-Language (Serverstandard „AddLanguage br .br“ aufgehoben)
+    ok 8 - Apache: Brotli-Antworten ohne Content-Language (Serverstandard „AddLanguage br .br“ aufgehoben)
+      ---
+      duration_ms: 0.072514
+      type: 'test'
+      ...
+    # Subtest: Apache: direkt angeforderte .br/.gz → 404 nach dem dekodierten Pfad ohne Query; interne Umwege ausgenommen
+    ok 9 - Apache: direkt angeforderte .br/.gz → 404 nach dem dekodierten Pfad ohne Query; interne Umwege ausgenommen
+      ---
+      duration_ms: 0.186902
+      type: 'test'
+      ...
+    # Subtest: Apache: Cache-Regeln für Assets bleiben unverändert
+    ok 10 - Apache: Cache-Regeln für Assets bleiben unverändert
+      ---
+      duration_ms: 0.077792
+      type: 'test'
+      ...
+    # Subtest: nginx: gzip_static und gzip_vary sind eingeschaltet; brotli_static nur als Hinweis
+    ok 11 - nginx: gzip_static und gzip_vary sind eingeschaltet; brotli_static nur als Hinweis
+      ---
+      duration_ms: 0.395214
+      type: 'test'
+      ...
+    # Subtest: nginx: direkt angeforderte .br/.gz-Dateien werden mit 404 abgewiesen (wie bei Apache)
+    ok 12 - nginx: direkt angeforderte .br/.gz-Dateien werden mit 404 abgewiesen (wie bei Apache)
+      ---
+      duration_ms: 0.09116
+      type: 'test'
+      ...
+    1..12
+ok 216 - Hoster-Konfiguration für vorkomprimierte Dateien
+  ---
+  duration_ms: 4.174814
+  type: 'suite'
+  ...
+# Subtest: Apache: Verzeichnis-Adressen (/pfad/ → index.html) bekommen die Variante ausdrücklich, br vor gzip
+ok 217 - Apache: Verzeichnis-Adressen (/pfad/ → index.html) bekommen die Variante ausdrücklich, br vor gzip
+  ---
+  duration_ms: 0.535309
+  type: 'test'
+  ...
+# Subtest: --vorkomprimieren nur mit --ziel=apache oder nginx: Netlify/Cloudflare brechen vor dem Schreiben ab
+ok 218 - --vorkomprimieren nur mit --ziel=apache oder nginx: Netlify/Cloudflare brechen vor dem Schreiben ab
+  ---
+  duration_ms: 167.755789
+  type: 'test'
+  ...
+# Subtest: ohne --vorkomprimieren: Varianten geänderter Dateien werden gelöscht, unveränderte behalten sie (--nur)
+ok 219 - ohne --vorkomprimieren: Varianten geänderter Dateien werden gelöscht, unveränderte behalten sie (--nur)
+  ---
+  duration_ms: 6.876591
+  type: 'test'
+  ...
+# Subtest: Falscher Schlüssel (404, M-21): jede Feder bleibt im Kanal zwischen Gehäusekante und Scherlinie
+ok 220 - Falscher Schlüssel (404, M-21): jede Feder bleibt im Kanal zwischen Gehäusekante und Scherlinie
+  ---
+  duration_ms: 3.618061
+  type: 'test'
+  ...
+# Subtest: Grundzustand (Hero M-16): Federn 56–88, Stiftpaare ohne Versatz
+ok 221 - Grundzustand (Hero M-16): Federn 56–88, Stiftpaare ohne Versatz
+  ---
+  duration_ms: 0.801556
+  type: 'test'
+  ...
+1..221
+# tests 331
+# suites 16
+# pass 330
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 1
+# duration_ms 8557.190673
+EXIT=0

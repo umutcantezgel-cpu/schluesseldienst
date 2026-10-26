@@ -1,0 +1,303 @@
+=== a-faq | reduce | mobil 390x844 | /
+-- a FAQ öffnen  (fehlend: -)
+   chevron: vorher t="none" op=1 | 40ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 | 400ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben40=366.23 oben400=366.23
+   antwort: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=406.03 oben400=406.03
+   Animationen/Übergänge (40 ms): keine
+   Anim400: 0 (transformiert: 0)
+=== a-faq | reduce | mobil 390x844 | /preise/
+-- a FAQ öffnen  (fehlend: -)
+   chevron: vorher t="none" op=1 | 40ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 | 400ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben40=365.77 oben400=365.77
+   antwort: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=421.36 oben400=421.36
+   Animationen/Übergänge (40 ms): keine
+   Anim400: 0 (transformiert: 0)
+=== b-hauptnav | reduce | desktop 1440x900 | /
+-- b Leistungen aufklappen  (fehlend: -)
+   knopf: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=14 oben400=14
+   pfeil: vorher t="none" op=1 | 40ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 | 400ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben40=26 oben400=26
+   panel: vorher t="none" op=0 | 40ms t="none" op=0.551739 | 400ms t="none" op=1 oben40=72 oben400=72
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=panel transf=false
+   Anim400: 0 (transformiert: 0)
+-- b Leistungen zuklappen  (fehlend: -)
+   knopf: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=14 oben400=14
+   pfeil: vorher t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=26 oben400=26
+   panel: vorher t="none" op=1 | 40ms t="none" op=0.345302 | 400ms t="none" op=0 oben40=72 oben400=72
+   Anim40: CSSTransition opacity [opacity] dauer=120 verz=0 el=panel transf=false
+   Anim40: CSSTransition visibility [visibility] dauer=0 verz=120 el=panel transf=false
+   Anim400: 0 (transformiert: 0)
+=== c-menue-blatt | reduce | mobil 390x844 | /
+-- c Menü-Blatt öffnen  (fehlend: -)
+   knopf: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=777.11 oben400=777.11
+   blatt: vorher t="none" op=1 | 40ms t="none" op=0.731889 | 400ms t="none" op=1 oben40=126.61 oben400=126.61
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=blatt transf=false
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=blatt transf=false
+   Anim400: 0 (transformiert: 0)
+-- c Menü-Blatt schließen  (fehlend: -)
+   blatt: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   Animationen/Übergänge (40 ms): keine
+   Anim400: 0 (transformiert: 0)
+=== d-ortspruefung | reduce | mobil 390x844 | /einsatzgebiet/
+-- d Ort tippen (Löhnberg), Vorschlagsliste  (fehlend: -)
+   eingabe: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=669.45 oben400=669.45
+   liste: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=726.88 oben400=726.88
+   ergebnis: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   Animationen/Übergänge (40 ms): keine
+   Anim400: 0 (transformiert: 0)
+-- d Vorschlag wählen, Ergebnis  (fehlend: -)
+   eingabe: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=650.45 oben400=650.45
+   liste: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   ergebnis: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=755.88 oben400=755.88
+   Animationen/Übergänge (40 ms): keine
+   Anim400: 0 (transformiert: 0)
+=== e-composer | reduce | mobil 390x844 | /kontakt/
+-- e Anliegen Notfall  (fehlend: betreff)
+   notfall: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=682.66 oben400=682.66
+   mail: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   kopf: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   betreff: vorher t=null op=undefined | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   Animationen/Übergänge (40 ms): keine
+   Anim400: 0 (transformiert: 0)
+-- e Anliegen planbar (Mail-Zweig)  (fehlend: -)
+   notfall: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   mail: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=682.66 oben400=682.66
+   kopf: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=682.66 oben400=682.66
+   betreff: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=718.08 oben400=718.08
+   Animationen/Übergänge (40 ms): keine
+   Anim400: 0 (transformiert: 0)
+=== f-gruppenfilter | reduce | mobil 390x844 | /leistungen/
+-- f Gruppe Einbruchschutz  (fehlend: -)
+   gruppe: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=31.58 oben400=31.58
+   Animationen/Übergänge (40 ms): keine
+   Anim400: 0 (transformiert: 0)
+-- f Gruppe Sicherheitstechnik (eingeblendet)  (fehlend: -)
+   gruppe: vorher t="none" op=1 | 40ms t="none" op=0.551724 | 400ms t="none" op=1 oben40=487.58 oben400=487.58
+   Anim40: CSSAnimation erscheinen [opacity] dauer=150 verz=0 el=gruppe transf=false
+   Anim400: 0 (transformiert: 0)
+-- f Alle Gruppen (eingeblendet)  (fehlend: -)
+   gruppe: vorher t="none" op=1 | 40ms t="none" op=0.731864 | 400ms t="none" op=1 oben40=487.58 oben400=487.58
+   Anim40: CSSAnimation erscheinen [opacity] dauer=150 verz=0 el=gruppe transf=false
+   Anim400: 0 (transformiert: 0)
+=== a-faq | no-preference | mobil 390x844 | /
+-- a FAQ öffnen  (fehlend: -)
+   chevron: vorher t="none" op=1 | 40ms t={"winkel_deg":35.9,"skalierung":1,"x_px":0,"y_px":0} op=1 | 400ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben40=361.48 oben400=366.23
+   antwort: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.87} op=0.533007 | 400ms t="none" op=1 oben40=404.16 oben400=406.03
+   Anim40: CSSTransition transform [transform] dauer=300 verz=0 el=chevron transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#triage-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#preis-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#leistungen-titel transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=article.register-gross transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#ablauf-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#gebiet-titel transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=figure.gebiet-figur transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#serioes-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#faq-titel transf=true
+   Anim40: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 el=antwort transf=true
+   Anim400: 16 (transformiert: 16)
+=== a-faq | no-preference | mobil 390x844 | /preise/
+-- a FAQ öffnen  (fehlend: -)
+   chevron: vorher t="none" op=1 | 40ms t={"winkel_deg":35.9,"skalierung":1,"x_px":0,"y_px":0} op=1 | 400ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben40=361.01 oben400=365.77
+   antwort: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.87} op=0.533007 | 400ms t="none" op=1 oben40=419.49 oben400=421.36
+   Anim40: CSSTransition transform [transform] dauer=300 verz=0 el=chevron transf=true
+   Anim40: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 el=antwort transf=true
+   Anim400: 0 (transformiert: 0)
+=== b-hauptnav | no-preference | desktop 1440x900 | /
+-- b Leistungen aufklappen  (fehlend: -)
+   knopf: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=14 oben400=14
+   pfeil: vorher t="none" op=1 | 40ms t={"winkel_deg":35.9,"skalierung":1,"x_px":0,"y_px":0} op=1 | 400ms t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 oben40=22.03 oben400=26
+   panel: vorher t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-8} op=0 | 40ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-3.74} op=0.533018 | 400ms t="none" op=1 oben40=68.26 oben400=72
+   Anim40: CSSTransition transform [transform] dauer=300 verz=0 el=pfeil transf=true
+   Anim40: CSSTransition opacity [opacity] dauer=300 verz=0 el=panel transf=false
+   Anim40: CSSTransition transform [transform] dauer=300 verz=0 el=panel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#triage-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#preis-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#leistungen-titel transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=article.register-gross transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#ablauf-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=ol.ablauf::before transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#gebiet-titel transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=figure.gebiet-figur transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#serioes-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#faq-titel transf=true
+   Anim400: 17 (transformiert: 17)
+-- b Leistungen zuklappen  (fehlend: -)
+   knopf: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=14 oben400=14
+   pfeil: vorher t={"winkel_deg":180,"skalierung":1,"x_px":0,"y_px":0} op=1 | 40ms t={"winkel_deg":144.1,"skalierung":1,"x_px":0,"y_px":0} op=1 | 400ms t="none" op=1 oben40=22.04 oben400=26
+   panel: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-0.09} op=0.989285 | 400ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-8} op=0 oben40=71.91 oben400=64
+   Anim40: CSSTransition transform [transform] dauer=300 verz=0 el=pfeil transf=true
+   Anim40: CSSTransition opacity [opacity] dauer=240 verz=0 el=panel transf=false
+   Anim40: CSSTransition transform [transform] dauer=240 verz=0 el=panel transf=true
+   Anim40: CSSTransition visibility [visibility] dauer=0 verz=240 el=panel transf=false
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#triage-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#preis-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#leistungen-titel transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=article.register-gross transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#ablauf-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=ol.ablauf::before transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#gebiet-titel transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=figure.gebiet-figur transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#serioes-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#faq-titel transf=true
+   Anim400: 17 (transformiert: 17)
+=== c-menue-blatt | no-preference | mobil 390x844 | /
+-- c Menü-Blatt öffnen  (fehlend: -)
+   knopf: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=777.11 oben400=777.11
+   blatt: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":225.25} op=1 | 400ms t="none" op=1 oben40=351.86 oben400=126.61
+   Anim40: CSSTransition transform [transform] dauer=300 verz=0 el=blatt transf=true
+   Anim40: CSSTransition opacity [opacity] dauer=300 verz=0 el=blatt transf=false
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#triage-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#preis-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#leistungen-titel transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=article.register-gross transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#ablauf-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#gebiet-titel transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=figure.gebiet-figur transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#serioes-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#faq-titel transf=true
+   Anim400: 16 (transformiert: 16)
+-- c Menü-Blatt schließen  (fehlend: -)
+   blatt: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#triage-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#preis-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#leistungen-titel transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=article.register-gross transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#ablauf-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#gebiet-titel transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=figure.gebiet-figur transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#serioes-titel transf=true
+   Anim40: CSSAnimation linie-ziehen [transform] dauer=null verz=0 el=span.abschnitt-linie transf=true
+   Anim40: CSSAnimation auftritt [opacity,transform] dauer=null verz=0 el=h2#faq-titel transf=true
+   Anim400: 16 (transformiert: 16)
+=== d-ortspruefung | no-preference | mobil 390x844 | /einsatzgebiet/
+-- d Ort tippen (Löhnberg), Vorschlagsliste  (fehlend: -)
+   eingabe: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=669.45 oben400=669.45
+   liste: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=726.88 oben400=726.88
+   ergebnis: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   Anim40: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 el=circle.gk-ring transf=true
+   Anim40: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 el=circle.gk-ring transf=true
+   Anim40: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 el=circle.gk-ring transf=true
+   Anim40: CSSAnimation m18-karte [opacity,transform] dauer=null verz=0 el=g.gk-punkte transf=true
+   Anim40: CSSAnimation m18-mess [transform] dauer=null verz=0 el=path.gk-mess transf=true
+   Anim40: CSSAnimation m18-sitz [transform] dauer=null verz=0 el=circle.gk-sitz-ring transf=true
+   Anim40: CSSAnimation m18-sitz [transform] dauer=null verz=0 el=circle.gk-sitz-punkt transf=true
+   Anim400: 7 (transformiert: 7)
+-- d Vorschlag wählen, Ergebnis  (fehlend: -)
+   eingabe: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=650.45 oben400=650.45
+   liste: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   ergebnis: vorher t="none" op=1 | 40ms t="none" op=0.82069 | 400ms t="none" op=1 oben40=755.88 oben400=755.88
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=ergebnis transf=false
+   Anim40: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 el=circle.gk-ring transf=true
+   Anim40: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 el=circle.gk-ring transf=true
+   Anim40: CSSAnimation m18-ring [opacity,transform] dauer=null verz=0 el=circle.gk-ring transf=true
+   Anim40: CSSAnimation m18-karte [opacity,transform] dauer=null verz=0 el=g.gk-punkte transf=true
+   Anim40: CSSAnimation m18-mess [transform] dauer=null verz=0 el=path.gk-mess transf=true
+   Anim40: CSSAnimation m18-sitz [transform] dauer=null verz=0 el=circle.gk-sitz-ring transf=true
+   Anim40: CSSAnimation m18-sitz [transform] dauer=null verz=0 el=circle.gk-sitz-punkt transf=true
+   Anim400: 7 (transformiert: 7)
+=== e-composer | no-preference | mobil 390x844 | /kontakt/
+-- e Anliegen Notfall  (fehlend: betreff)
+   notfall: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.87} op=0.532996 | 400ms t="none" op=1 oben40=680.79 oben400=682.66
+   mail: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   kopf: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   betreff: vorher t=null op=undefined | 40ms t="none" op=0.6 | 400ms t="none" op=0.6 oben40=0 oben400=0
+   Anim40: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 el=notfall transf=true
+   Anim400: 0 (transformiert: 0)
+-- e Anliegen planbar (Mail-Zweig)  (fehlend: -)
+   notfall: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=0 oben400=0
+   mail: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-1.26} op=0.686027 | 400ms t="none" op=1 oben40=681.4 oben400=682.66
+   kopf: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=681.4 oben400=682.66
+   betreff: vorher t="none" op=0.6 | 40ms t="none" op=0.892752 | 400ms t="none" op=1 oben40=716.82 oben400=718.08
+   Anim40: CSSAnimation m-feedback-ein [opacity,transform] dauer=300 verz=0 el=mail transf=true
+   Anim40: CSSAnimation betreff-neu-a [opacity] dauer=150 verz=0 el=betreff transf=false
+   Anim400: 0 (transformiert: 0)
+=== f-gruppenfilter | no-preference | mobil 390x844 | /leistungen/
+-- f Gruppe Einbruchschutz  (fehlend: -)
+   gruppe: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=654.58 oben400=32.58
+   Animationen/Übergänge (40 ms): keine
+   Anim400: 0 (transformiert: 0)
+-- f Gruppe Sicherheitstechnik (eingeblendet)  (fehlend: -)
+   gruppe: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-2.51} op=0.686027 | 400ms t="none" op=1 oben40=485.07 oben400=487.58
+   Anim40: CSSAnimation m05-einblenden [opacity,transform] dauer=300 verz=0 el=gruppe transf=true
+   Anim400: 0 (transformiert: 0)
+-- f Alle Gruppen (eingeblendet)  (fehlend: -)
+   gruppe: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":1,"x_px":0,"y_px":-3.74} op=0.532984 | 400ms t="none" op=1 oben40=483.84 oben400=487.58
+   Anim40: CSSAnimation m05-einblenden [opacity,transform] dauer=300 verz=0 el=gruppe transf=true
+   Anim40: CSSAnimation m05-einblenden [opacity,transform] dauer=300 verz=0 el=section#gruppe-einbruchschutz.sektion-dicht.verz-gruppe transf=true
+   Anim40: CSSAnimation m05-einblenden [opacity,transform] dauer=300 verz=0 el=section#gruppe-einbau-tresore.sektion-dicht.verz-gruppe transf=true
+   Anim400: 0 (transformiert: 0)
+=== g-druck | reduce | mobil 390x844 | /preise/ | label.wahl-option
+-- g Rechner-Option (wahl-option)  (fehlend: -)
+   ziel: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=337.7 oben400=337.7
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=ziel transf=false
+   Anim400: 0 (transformiert: 0)
+=== g-druck | no-preference | mobil 390x844 | /preise/ | label.wahl-option
+-- g Rechner-Option (wahl-option)  (fehlend: -)
+   ziel: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 | 400ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben40=338.51 oben400=338.51
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=ziel transf=false
+   Anim400: 0 (transformiert: 0)
+=== g-druck | reduce | mobil 390x844 | /preise/ | a.formel-titel
+-- g Formelzeile (formel-titel)  (fehlend: -)
+   ziel: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=630.63 oben400=630.63
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=ziel transf=false
+   Anim400: 0 (transformiert: 0)
+=== g-druck | no-preference | mobil 390x844 | /preise/ | a.formel-titel
+-- g Formelzeile (formel-titel)  (fehlend: -)
+   ziel: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=630.63 oben400=630.63
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=ziel transf=false
+   Anim40: CSSTransition transform [transform] dauer=150 verz=0 el=ziel transf=true
+   Anim400: 0 (transformiert: 0)
+=== g-druck | reduce | mobil 390x844 | /notoeffnung/tueroeffnung/ | .rand-liste a
+-- g Listenlink (rand-liste)  (fehlend: -)
+   ziel: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=356.23 oben400=356.23
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=ziel transf=false
+   Anim400: 0 (transformiert: 0)
+=== g-druck | no-preference | mobil 390x844 | /notoeffnung/tueroeffnung/ | .rand-liste a
+-- g Listenlink (rand-liste)  (fehlend: -)
+   ziel: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":0.989,"x_px":0,"y_px":0} op=1 | 400ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben40=356.48 oben400=356.67
+   Anim40: CSSTransition transform [transform] dauer=150 verz=0 el=ziel transf=true
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=ziel transf=false
+   Anim400: 0 (transformiert: 0)
+=== g-druck | reduce | mobil 390x844 | /einbruchschutz/ | .gruppe-register a
+-- g Registerlink (gruppe-register)  (fehlend: -)
+   ziel: vorher t="none" op=1 | 40ms t="none" op=1 | 400ms t="none" op=1 oben40=642.77 oben400=642.77
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=ziel transf=false
+   Anim400: 0 (transformiert: 0)
+=== g-druck | no-preference | mobil 390x844 | /einbruchschutz/ | .gruppe-register a
+-- g Registerlink (gruppe-register)  (fehlend: -)
+   ziel: vorher t="none" op=1 | 40ms t={"winkel_deg":0,"skalierung":0.989,"x_px":0,"y_px":0} op=1 | 400ms t={"winkel_deg":0,"skalierung":0.98,"x_px":0,"y_px":0} op=1 oben40=643.01 oben400=643.21
+   Anim40: CSSTransition transform [transform] dauer=150 verz=0 el=ziel transf=true
+   Anim40: CSSTransition opacity [opacity] dauer=150 verz=0 el=ziel transf=false
+   Anim400: 0 (transformiert: 0)
+ENDE interaktionen

@@ -1,4 +1,4 @@
-STATUS · Branch claude/bold-noether-fk2n4f · Etappe 5/6 · Pflicht 67/67 · Kür 8/8 · Kriterien: Z-01, Z-02, Z-03, Z-05, Z-06, Z-09 erfüllt; Z-07 erfüllt mit U-6-Ersatz; Z-08 erfüllt mit AUSNAHME A-1; Z-04 AUSNAHME A-2; Z-10 nach Abschlussbericht · Ausnahmen 2 (A-1, A-2) · Endstand 72ed87c grün (Endmessung durch drei Haiku-Prüfer) · Nächster Schritt: BERICHT.md (Haiku, mit Gegenprüfung) → Z-10 → frischer Opus-Abschlussprüfer → ABSCHLUSS
+STATUS · Branch claude/bold-noether-fk2n4f · Etappe 5/6 · Pflicht 66/66 · Kür 8/8 · Kriterien: Z-01, Z-02, Z-03, Z-05, Z-06, Z-09 erfüllt; Z-07 erfüllt mit U-6-Ersatz; Z-08 erfüllt mit AUSNAHME A-1; Z-04 AUSNAHME A-2; Z-10 nach Abschlussbericht · Ausnahmen 2 (A-1, A-2) · Endstand 72ed87c grün (Endmessung durch drei Haiku-Prüfer) · Nächster Schritt: BERICHT.md (Haiku, mit Gegenprüfung) → Z-10 → frischer Opus-Abschlussprüfer → ABSCHLUSS
 
 # STATUS
 
