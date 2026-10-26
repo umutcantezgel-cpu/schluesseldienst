@@ -1,0 +1,1662 @@
+{
+  "werkzeug": "token-stichprobe (eigene Deklarationsauswertung nach K-004/K-005; Gegenprobe token.mjs pruefeCss, nur gelesen)",
+  "stichprobe": {
+    "protokoll": "/home/user/schluesseldienst/.cache/endstand-nach/token/stichprobe-protokoll.json",
+    "saat": 20261026,
+    "grundgesamtheit": 36,
+    "gezogen": [
+      "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css",
+      "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css",
+      "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css",
+      "/home/user/schluesseldienst/src/assets/css/komponenten/schadensbilder.css",
+      "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css"
+    ]
+  },
+  "gesamt": {
+    "deklarationen": 289,
+    "varVerweise": 171,
+    "varMitFallback": 0,
+    "erlaubteLiterale": 186,
+    "unerlaubteWerte": 0,
+    "grenzfaelle": 5,
+    "tokenJsBefunde": 0,
+    "erlaubteLiteraleNachGrund": {
+      "Prozent": 7,
+      "Zahl in SVG- oder Deckkraft-Eigenschaft": 24,
+      "Schlüsselwort": 96,
+      "em in @container (token.mjs: alle em erlaubt)": 5,
+      "0 ohne Einheit": 23,
+      "Zeichenkette (content, Bereichsnamen)": 8,
+      "Faktor in Rechenausdruck (calc/minmax)": 11,
+      "em-Breakpoint in @media (K-005)": 4,
+      "Spaltenanzahl in repeat()": 1,
+      "1fr (K-004)": 5,
+      "100vh/100vw (token.mjs)": 1,
+      "Faktor in scale()": 1
+    }
+  },
+  "unerlaubteWerte": [],
+  "grenzfaelle": [
+    {
+      "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:31",
+      "eigenschaft": "grid-template-columns",
+      "literal": "7fr",
+      "grund": "Fraktion ungleich 1fr (K-004 nennt nur 1fr)"
+    },
+    {
+      "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:31",
+      "eigenschaft": "grid-template-columns",
+      "literal": "5fr",
+      "grund": "Fraktion ungleich 1fr (K-004 nennt nur 1fr)"
+    },
+    {
+      "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:57",
+      "eigenschaft": "z-index",
+      "literal": "-1",
+      "grund": "z-index-Zahl (kein Token, kein Faktor)"
+    },
+    {
+      "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:69",
+      "eigenschaft": "grid-template-columns",
+      "literal": "8fr",
+      "grund": "Fraktion ungleich 1fr (K-004 nennt nur 1fr)"
+    },
+    {
+      "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:69",
+      "eigenschaft": "grid-template-columns",
+      "literal": "4fr",
+      "grund": "Fraktion ungleich 1fr (K-004 nennt nur 1fr)"
+    }
+  ],
+  "tokenJsBefunde": [],
+  "jeDatei": [
+    {
+      "datei": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css",
+      "bytes": 2026,
+      "deklarationen": 25,
+      "varVerweise": 14,
+      "erlaubteLiterale": 13,
+      "unerlaubteWerte": 0,
+      "grenzfaelle": 0,
+      "tokenJsBefunde": 0,
+      "literale": [
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "max-inline-size",
+          "literal": "100%",
+          "klasse": "erlaubt",
+          "grund": "Prozent"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:7",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "16",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:7",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-linecap",
+          "literal": "butt",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:8",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1.5",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:8",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-linecap",
+          "literal": "butt",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:10",
+          "ort": "deklaration",
+          "eigenschaft": "stroke",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:11",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "4",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:11",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-linecap",
+          "literal": "butt",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:12",
+          "ort": "deklaration",
+          "eigenschaft": "stroke",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:13",
+          "ort": "deklaration",
+          "eigenschaft": "stroke",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:13",
+          "ort": "deklaration",
+          "eigenschaft": "text-transform",
+          "literal": "uppercase",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:17",
+          "ort": "at-regel",
+          "eigenschaft": "@container",
+          "literal": "24em",
+          "klasse": "erlaubt",
+          "grund": "em in @container (token.mjs: alle em erlaubt)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/lahnbogen/lahnbogen.css:27",
+          "ort": "deklaration",
+          "eigenschaft": "animation-play-state",
+          "literal": "paused",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        }
+      ]
+    },
+    {
+      "datei": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css",
+      "bytes": 2191,
+      "deklarationen": 43,
+      "varVerweise": 28,
+      "erlaubteLiterale": 39,
+      "unerlaubteWerte": 0,
+      "grenzfaelle": 0,
+      "tokenJsBefunde": 0,
+      "literale": [
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "list-style",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "padding",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "position",
+          "literal": "relative",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:5",
+          "ort": "deklaration",
+          "eigenschaft": "margin",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:5",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:5",
+          "ort": "deklaration",
+          "eigenschaft": "align-content",
+          "literal": "start",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:5",
+          "ort": "deklaration",
+          "eigenschaft": "position",
+          "literal": "relative",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:9",
+          "ort": "deklaration",
+          "eigenschaft": "content",
+          "literal": "\"\"",
+          "klasse": "erlaubt",
+          "grund": "Zeichenkette (content, Bereichsnamen)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:9",
+          "ort": "deklaration",
+          "eigenschaft": "position",
+          "literal": "absolute",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:9",
+          "ort": "deklaration",
+          "eigenschaft": "inset-inline-start",
+          "literal": "2",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:9",
+          "ort": "deklaration",
+          "eigenschaft": "inset-inline-start",
+          "literal": "2",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:10",
+          "ort": "deklaration",
+          "eigenschaft": "inset-block",
+          "literal": "-1",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:10",
+          "ort": "deklaration",
+          "eigenschaft": "border-inline-start",
+          "literal": "solid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:13",
+          "ort": "deklaration",
+          "eigenschaft": "position",
+          "literal": "absolute",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:13",
+          "ort": "deklaration",
+          "eigenschaft": "inset-inline-start",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:13",
+          "ort": "deklaration",
+          "eigenschaft": "inset-block-start",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:13",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:13",
+          "ort": "deklaration",
+          "eigenschaft": "place-items",
+          "literal": "center",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:14",
+          "ort": "deklaration",
+          "eigenschaft": "border",
+          "literal": "solid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:15",
+          "ort": "deklaration",
+          "eigenschaft": "font-variant-numeric",
+          "literal": "tabular-nums",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:19",
+          "ort": "at-regel",
+          "eigenschaft": "@media",
+          "literal": "64em",
+          "klasse": "erlaubt",
+          "grund": "em-Breakpoint in @media (K-005)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:20",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "4",
+          "klasse": "erlaubt",
+          "grund": "Spaltenanzahl in repeat()"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:20",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:20",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "1fr",
+          "klasse": "erlaubt",
+          "grund": "1fr (K-004)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:21",
+          "ort": "deklaration",
+          "eigenschaft": "content",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:25",
+          "ort": "deklaration",
+          "eigenschaft": "content",
+          "literal": "\"\"",
+          "klasse": "erlaubt",
+          "grund": "Zeichenkette (content, Bereichsnamen)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:25",
+          "ort": "deklaration",
+          "eigenschaft": "position",
+          "literal": "absolute",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:25",
+          "ort": "deklaration",
+          "eigenschaft": "inset-block",
+          "literal": "2",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:25",
+          "ort": "deklaration",
+          "eigenschaft": "inset-block",
+          "literal": "2",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:25",
+          "ort": "deklaration",
+          "eigenschaft": "inset-block",
+          "literal": "auto",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:26",
+          "ort": "deklaration",
+          "eigenschaft": "inset-inline",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:26",
+          "ort": "deklaration",
+          "eigenschaft": "inset-inline",
+          "literal": "100%",
+          "klasse": "erlaubt",
+          "grund": "Prozent"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:26",
+          "ort": "deklaration",
+          "eigenschaft": "inset-inline",
+          "literal": "3",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:26",
+          "ort": "deklaration",
+          "eigenschaft": "inset-inline",
+          "literal": "4",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:26",
+          "ort": "deklaration",
+          "eigenschaft": "inset-inline",
+          "literal": "2",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:27",
+          "ort": "deklaration",
+          "eigenschaft": "transform-origin",
+          "literal": "left",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:27",
+          "ort": "deklaration",
+          "eigenschaft": "transform-origin",
+          "literal": "center",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/start/ablauf.css:29",
+          "ort": "deklaration",
+          "eigenschaft": "padding-inline-start",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        }
+      ]
+    },
+    {
+      "datei": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css",
+      "bytes": 8714,
+      "deklarationen": 151,
+      "varVerweise": 97,
+      "erlaubteLiterale": 92,
+      "unerlaubteWerte": 0,
+      "grenzfaelle": 5,
+      "tokenJsBefunde": 0,
+      "literale": [
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "align-items",
+          "literal": "center",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:6",
+          "ort": "deklaration",
+          "eigenschaft": "text-transform",
+          "literal": "uppercase",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:8",
+          "ort": "deklaration",
+          "eigenschaft": "text-wrap",
+          "literal": "balance",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:8",
+          "ort": "deklaration",
+          "eigenschaft": "hyphens",
+          "literal": "manual",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:10",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "flex",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:10",
+          "ort": "deklaration",
+          "eigenschaft": "flex-wrap",
+          "literal": "wrap",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:10",
+          "ort": "deklaration",
+          "eigenschaft": "align-items",
+          "literal": "center",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:12",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:15",
+          "ort": "deklaration",
+          "eigenschaft": "margin",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:15",
+          "ort": "deklaration",
+          "eigenschaft": "container-type",
+          "literal": "inline-size",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:17",
+          "ort": "deklaration",
+          "eigenschaft": "margin-inline",
+          "literal": "auto",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:18",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "block",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:18",
+          "ort": "deklaration",
+          "eigenschaft": "inline-size",
+          "literal": "100%",
+          "klasse": "erlaubt",
+          "grund": "Prozent"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:18",
+          "ort": "deklaration",
+          "eigenschaft": "block-size",
+          "literal": "auto",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:26",
+          "ort": "at-regel",
+          "eigenschaft": "@container",
+          "literal": "22.5em",
+          "klasse": "erlaubt",
+          "grund": "em in @container (token.mjs: alle em erlaubt)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:27",
+          "ort": "at-regel",
+          "eigenschaft": "@container",
+          "literal": "27em",
+          "klasse": "erlaubt",
+          "grund": "em in @container (token.mjs: alle em erlaubt)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:29",
+          "ort": "at-regel",
+          "eigenschaft": "@media",
+          "literal": "30em",
+          "klasse": "erlaubt",
+          "grund": "em-Breakpoint in @media (K-005)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:31",
+          "ort": "at-regel",
+          "eigenschaft": "@media",
+          "literal": "48em",
+          "klasse": "erlaubt",
+          "grund": "em-Breakpoint in @media (K-005)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:31",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:31",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "7fr",
+          "klasse": "grenzfall",
+          "grund": "Fraktion ungleich 1fr (K-004 nennt nur 1fr)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:31",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:31",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "5fr",
+          "klasse": "grenzfall",
+          "grund": "Fraktion ungleich 1fr (K-004 nennt nur 1fr)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:32",
+          "ort": "deklaration",
+          "eigenschaft": "border-block",
+          "literal": "solid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:33",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:33",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "auto-fit",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:33",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "100%",
+          "klasse": "erlaubt",
+          "grund": "Prozent"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:33",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "1fr",
+          "klasse": "erlaubt",
+          "grund": "1fr (K-004)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:33",
+          "ort": "deklaration",
+          "eigenschaft": "margin",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:34",
+          "ort": "deklaration",
+          "eigenschaft": "padding",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:35",
+          "ort": "deklaration",
+          "eigenschaft": "text-transform",
+          "literal": "uppercase",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:36",
+          "ort": "deklaration",
+          "eigenschaft": "margin",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:37",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:38",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:39",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:41",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:44",
+          "ort": "deklaration",
+          "eigenschaft": "border-inline-start",
+          "literal": "solid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:46",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:46",
+          "ort": "deklaration",
+          "eigenschaft": "align-content",
+          "literal": "start",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:47",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:49",
+          "ort": "deklaration",
+          "eigenschaft": "list-style",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:49",
+          "ort": "deklaration",
+          "eigenschaft": "padding",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:50",
+          "ort": "deklaration",
+          "eigenschaft": "margin",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:50",
+          "ort": "deklaration",
+          "eigenschaft": "border-block-end",
+          "literal": "solid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:53",
+          "ort": "deklaration",
+          "eigenschaft": "position",
+          "literal": "relative",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:53",
+          "ort": "deklaration",
+          "eigenschaft": "isolation",
+          "literal": "isolate",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:53",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "flex",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:53",
+          "ort": "deklaration",
+          "eigenschaft": "align-items",
+          "literal": "center",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:53",
+          "ort": "deklaration",
+          "eigenschaft": "text-decoration",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:56",
+          "ort": "deklaration",
+          "eigenschaft": "hyphens",
+          "literal": "manual",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:57",
+          "ort": "deklaration",
+          "eigenschaft": "content",
+          "literal": "\"\"",
+          "klasse": "erlaubt",
+          "grund": "Zeichenkette (content, Bereichsnamen)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:57",
+          "ort": "deklaration",
+          "eigenschaft": "position",
+          "literal": "absolute",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:57",
+          "ort": "deklaration",
+          "eigenschaft": "inset-block",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:57",
+          "ort": "deklaration",
+          "eigenschaft": "inset-inline",
+          "literal": "-1",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:57",
+          "ort": "deklaration",
+          "eigenschaft": "z-index",
+          "literal": "-1",
+          "klasse": "grenzfall",
+          "grund": "z-index-Zahl (kein Token, kein Faktor)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:57",
+          "ort": "deklaration",
+          "eigenschaft": "background",
+          "literal": "currentColor",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:57",
+          "ort": "deklaration",
+          "eigenschaft": "opacity",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:60",
+          "ort": "deklaration",
+          "eigenschaft": "text-decoration",
+          "literal": "underline",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:62",
+          "ort": "deklaration",
+          "eigenschaft": "container-type",
+          "literal": "inline-size",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:63",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "grid",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:63",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "auto-fill",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:63",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "100%",
+          "klasse": "erlaubt",
+          "grund": "Prozent"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:63",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "1fr",
+          "klasse": "erlaubt",
+          "grund": "1fr (K-004)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:64",
+          "ort": "at-regel",
+          "eigenschaft": "@media",
+          "literal": "64em",
+          "klasse": "erlaubt",
+          "grund": "em-Breakpoint in @media (K-005)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:69",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:69",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "8fr",
+          "klasse": "grenzfall",
+          "grund": "Fraktion ungleich 1fr (K-004 nennt nur 1fr)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:69",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:69",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "4fr",
+          "klasse": "grenzfall",
+          "grund": "Fraktion ungleich 1fr (K-004 nennt nur 1fr)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:69",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-areas",
+          "literal": "\"_________\"",
+          "klasse": "erlaubt",
+          "grund": "Zeichenkette (content, Bereichsnamen)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:69",
+          "ort": "deklaration",
+          "eigenschaft": "align-items",
+          "literal": "start",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:70",
+          "ort": "deklaration",
+          "eigenschaft": "grid-area",
+          "literal": "text",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:73",
+          "ort": "deklaration",
+          "eigenschaft": "grid-area",
+          "literal": "rand",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:73",
+          "ort": "deklaration",
+          "eigenschaft": "position",
+          "literal": "sticky",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:73",
+          "ort": "deklaration",
+          "eigenschaft": "max-block-size",
+          "literal": "100vh",
+          "klasse": "erlaubt",
+          "grund": "100vh/100vw (token.mjs)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:73",
+          "ort": "deklaration",
+          "eigenschaft": "max-block-size",
+          "literal": "2",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:73",
+          "ort": "deklaration",
+          "eigenschaft": "overflow-y",
+          "literal": "auto",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:73",
+          "ort": "deklaration",
+          "eigenschaft": "margin",
+          "literal": "-1",
+          "klasse": "erlaubt",
+          "grund": "Faktor in Rechenausdruck (calc/minmax)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:75",
+          "ort": "deklaration",
+          "eigenschaft": "position",
+          "literal": "static",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:75",
+          "ort": "deklaration",
+          "eigenschaft": "max-block-size",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:75",
+          "ort": "deklaration",
+          "eigenschaft": "overflow",
+          "literal": "visible",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:75",
+          "ort": "deklaration",
+          "eigenschaft": "padding",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:75",
+          "ort": "deklaration",
+          "eigenschaft": "margin",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:76",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-areas",
+          "literal": "\"_________\"",
+          "klasse": "erlaubt",
+          "grund": "Zeichenkette (content, Bereichsnamen)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:76",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-areas",
+          "literal": "\"_________\"",
+          "klasse": "erlaubt",
+          "grund": "Zeichenkette (content, Bereichsnamen)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:77",
+          "ort": "deklaration",
+          "eigenschaft": "grid-area",
+          "literal": "mehr",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:80",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-areas",
+          "literal": "\"_________\"",
+          "klasse": "erlaubt",
+          "grund": "Zeichenkette (content, Bereichsnamen)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:80",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-areas",
+          "literal": "\"_________\"",
+          "klasse": "erlaubt",
+          "grund": "Zeichenkette (content, Bereichsnamen)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:80",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-rows",
+          "literal": "auto",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:80",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-rows",
+          "literal": "1fr",
+          "klasse": "erlaubt",
+          "grund": "1fr (K-004)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:81",
+          "ort": "deklaration",
+          "eigenschaft": "align-self",
+          "literal": "start",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:81",
+          "ort": "deklaration",
+          "eigenschaft": "position",
+          "literal": "sticky",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:82",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:82",
+          "ort": "deklaration",
+          "eigenschaft": "grid-template-columns",
+          "literal": "1fr",
+          "klasse": "erlaubt",
+          "grund": "1fr (K-004)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:83",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "flex",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:89",
+          "ort": "deklaration",
+          "eigenschaft": "transition",
+          "literal": "opacity",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:92",
+          "ort": "deklaration",
+          "eigenschaft": "transition",
+          "literal": "transform",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/ansichten/leistung/leistung.css:93",
+          "ort": "deklaration",
+          "eigenschaft": "transform",
+          "literal": ".98",
+          "klasse": "erlaubt",
+          "grund": "Faktor in scale()"
+        }
+      ]
+    },
+    {
+      "datei": "/home/user/schluesseldienst/src/assets/css/komponenten/schadensbilder.css",
+      "bytes": 326,
+      "deklarationen": 5,
+      "varVerweise": 2,
+      "erlaubteLiterale": 3,
+      "unerlaubteWerte": 0,
+      "grenzfaelle": 0,
+      "tokenJsBefunde": 0,
+      "literale": [
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/schadensbilder.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "fill",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/schadensbilder.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-linecap",
+          "literal": "round",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/schadensbilder.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-linejoin",
+          "literal": "round",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        }
+      ]
+    },
+    {
+      "datei": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css",
+      "bytes": 3874,
+      "deklarationen": 65,
+      "varVerweise": 30,
+      "erlaubteLiterale": 39,
+      "unerlaubteWerte": 0,
+      "grenzfaelle": 0,
+      "tokenJsBefunde": 0,
+      "literale": [
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "block",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "inline-size",
+          "literal": "100%",
+          "klasse": "erlaubt",
+          "grund": "Prozent"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "block-size",
+          "literal": "auto",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "overflow",
+          "literal": "visible",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "fill",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "2",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-linecap",
+          "literal": "round",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:4",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-linejoin",
+          "literal": "round",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:5",
+          "ort": "deklaration",
+          "eigenschaft": "display",
+          "literal": "block",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:5",
+          "ort": "deklaration",
+          "eigenschaft": "inline-size",
+          "literal": "100%",
+          "klasse": "erlaubt",
+          "grund": "Prozent"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:5",
+          "ort": "deklaration",
+          "eigenschaft": "block-size",
+          "literal": "auto",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:8",
+          "ort": "deklaration",
+          "eigenschaft": "stroke",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:9",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1.5",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:10",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1.5",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:11",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1.5",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:11",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-dasharray",
+          "literal": "4",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:11",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-dasharray",
+          "literal": "4",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:12",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1.5",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:13",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "4",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:15",
+          "ort": "deklaration",
+          "eigenschaft": "stroke",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:16",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:16",
+          "ort": "deklaration",
+          "eigenschaft": "opacity",
+          "literal": ".18",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:17",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1.5",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:18",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1.5",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:19",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1.5",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:19",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-dasharray",
+          "literal": "6",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:19",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-dasharray",
+          "literal": "4",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:20",
+          "ort": "deklaration",
+          "eigenschaft": "fill-opacity",
+          "literal": ".14",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:20",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1.5",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:22",
+          "ort": "deklaration",
+          "eigenschaft": "transform-box",
+          "literal": "fill-box",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:22",
+          "ort": "deklaration",
+          "eigenschaft": "transform-origin",
+          "literal": "center",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:23",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "1.5",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:24",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "4",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:25",
+          "ort": "deklaration",
+          "eigenschaft": "stroke-width",
+          "literal": "2",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:26",
+          "ort": "deklaration",
+          "eigenschaft": "opacity",
+          "literal": ".28",
+          "klasse": "erlaubt",
+          "grund": "Zahl in SVG- oder Deckkraft-Eigenschaft"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:31",
+          "ort": "deklaration",
+          "eigenschaft": "stroke",
+          "literal": "none",
+          "klasse": "erlaubt",
+          "grund": "Schlüsselwort"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:35",
+          "ort": "at-regel",
+          "eigenschaft": "@container",
+          "literal": "22.5em",
+          "klasse": "erlaubt",
+          "grund": "em in @container (token.mjs: alle em erlaubt)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:36",
+          "ort": "at-regel",
+          "eigenschaft": "@container",
+          "literal": "27em",
+          "klasse": "erlaubt",
+          "grund": "em in @container (token.mjs: alle em erlaubt)"
+        },
+        {
+          "beleg": "/home/user/schluesseldienst/src/assets/css/komponenten/illustration.css:42",
+          "ort": "deklaration",
+          "eigenschaft": "opacity",
+          "literal": "0",
+          "klasse": "erlaubt",
+          "grund": "0 ohne Einheit"
+        }
+      ]
+    }
+  ]
+}

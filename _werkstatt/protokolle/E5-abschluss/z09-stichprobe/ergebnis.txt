@@ -1,0 +1,29 @@
+=== Schritt 1: Stichprobe (Z-09/Z-02 Prüfstufe C) ===
+Basis: /home/user/schluesseldienst/.cache/e5-final/dist (HEAD des Arbeitsbranchs: 215663c; Endstand laut Auftrag 72ed87c, Vorfahr von HEAD)
+index.html gesamt: 5555; Ortsseiten (Wurzelordner schluesseldienst-*): 5252; übrige Nicht-Ortsseiten roh: 303
+Hauptansichten im Pool ausgeschlossen: 11 (/schluesseldienst-loehnberg/ ist Ortsseite; /gibt-es-nicht/ hat keine index.html)
+Grundgesamtheit N = 292; Stichprobe = max(30, ceil(0,1*292)) = 30 (10,27 %)
+Saat 20261026, mulberry32 + teilweises Fisher-Yates ueber sortierte Pfade
+Ortsseiten: ortsstichprobe.mjs Saat 20261026, Zonen A:4,B:4,C:4,D:4,NL:4 -> 20 Orte, ERGEBNIS ok (0 Abweichungen)
+Liste: /home/user/schluesseldienst/.cache/z09-stichprobe/stichprobe.json
+=== Schritt 2: ueberlauf.mjs hell und dunkel (50 Seiten x 11 Varianten je Schema) ===
+Basis http://127.0.0.1:4251 (unkomprimiert). Varianten: 320/390/768/1440/1920, je erzwungene Farben, zoom200 (640 px).
+hell: 550 Messungen, 50 Seiten, 0 Dokumentüberlauf, alle Status 200. Max (scrollWidth - clientWidth) = 0.
+  /home/user/schluesseldienst/.cache/z09-stichprobe/ueberlauf-hell.json (Teile: ueberlauf-hell-teil1.json, ueberlauf-hell-teil2.json)
+dunkel: 550 Messungen, 50 Seiten, 0 Dokumentüberlauf, alle Status 200. Max (scrollWidth - clientWidth) = 0.
+  Werkzeugkopie mit colorScheme dark: /home/user/schluesseldienst/.cache/z09-stichprobe/ueberlauf-dunkel.mjs
+  /home/user/schluesseldienst/.cache/z09-stichprobe/ueberlauf-dunkel.json (Teile: ueberlauf-dunkel-teil1.json, ueberlauf-dunkel-teil2.json)
+=== Schritt 3: smoke.mjs mobil und desktop, 50 Seiten, Basis http://127.0.0.1:4251 ===
+Messungen: 100 (50 Seiten x 2 Viewports); Befunde gesamt 0 (Werkzeug-Befundliste leer bei allen Messungen).
+Summen aus den Einzelergebnissen: fremde Anfragen 0, Konsolenfehler 0, Konsolenwarnungen 0, CSP-Meldungen 0, Status ungleich 200 0, h1 nicht genau eine 0.
+Ausgabe: /home/user/schluesseldienst/.cache/z09-stichprobe/smoke.json (Teile: smoke-teil1.json, smoke-teil2.json)
+=== Schritt 4: Sichtungsbilder (erster Bildschirm, nur sichtbarer Ausschnitt, JPEG Q70) ===
+50 Seiten x 4 Ansichten = 200 Bilder: mobil 390x844 hell, tablet 768x1024 hell, desktop 1440x900 hell, mobil 390x844 dunkel.
+Ordner: /home/user/schluesseldienst/.cache/z09-stichprobe/bilder/ (Name <pfad-mit-bindestrichen>__<geraet>__<schema>.jpg)
+Index: /home/user/schluesseldienst/.cache/z09-stichprobe/bilder-index.json (Status, dunkelAktiv via matchMedia, fremde Anfragen, Konsolenmeldungen)
+Werkzeug: /home/user/schluesseldienst/.cache/z09-stichprobe/bilder.mjs (eigenes Playwright-Skript, lib.mjs, mitMessSperre)
+=== Abgleich Vorschau und Build ===
+Die 50 Stichprobenpfade auf http://127.0.0.1:4251 liefern Bytes identisch zu .cache/e5-final/dist/<pfad>/index.html: 50 von 50 gleich.
+=== Gesamtergebnis Z-09/Z-02 Prüfstufe C ===
+Stichprobe 50 Seiten (30 übrige Nicht-Ortsseiten + 20 Ortsseiten): Überlauf hell 0/550, dunkel 0/550; smoke 0 fremde Anfragen, 0 Konsolen-/CSP-Fehler bei 100 Messungen; Ortsstichprobe 0 Abweichungen; 200 Sichtungsbilder erzeugt.
+Hinweise: Commit 215663c (HEAD) statt 72ed87c (Vorfahr); Hauptansichten 12 statt 13 aufgelistet (/gibt-es-nicht/ ohne Seite); Ortsstichprobe-Aufruf um --dist/--daten/--aus ergänzt; /ratgeber/schluesseldienst-*-Seiten als Nicht-Ortsseiten gewertet (N=292).

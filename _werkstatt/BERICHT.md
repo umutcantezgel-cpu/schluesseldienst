@@ -37,7 +37,7 @@ Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4
 | Z-06 Grafik | erfüllt | `_werkstatt/protokolle/E5-abschluss/z-pruefer/svg-ids.json` |
 | Z-07 Zugänglichkeit | erfüllt mit U-6-Ersatz | `_werkstatt/protokolle/E5-abschluss/n5-bewegung/`, `pruefer-z07-z09/` |
 | Z-08 Leistung | erfüllt mit AUSNAHME A-1 | `_werkstatt/protokolle/E5-abschluss/n5-leistung/` |
-| Z-09 Darstellung | erfüllt | `_werkstatt/protokolle/E5-abschluss/pruefer-z07-z09/ueberlauf-*.json`, `_werkstatt/bilder/abschluss/index.json` |
+| Z-09 Darstellung | erfüllt | `_werkstatt/protokolle/E5-abschluss/z09-stichprobe/` (Zufallsstichprobe 50 Seiten, Sichtung), `n5-bewegung/ueberlauf.json`, `_werkstatt/bilder/abschluss/index.json` |
 | Z-10 Übergabe | erfüllt – siehe dieser Bericht, docs/, README, MENSCHEN.md | `_werkstatt/BERICHT.md`, `docs/ZUSAMMENFUEHREN.md` |
 
 ### Umgebungsausnahmen U-1 bis U-6
@@ -51,7 +51,7 @@ Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4
 
 ### Ausnahmen A-1 und A-2
 
-**A-1 · Z-08 Ladezeit.** Die Startseite erreicht ihren größten Inhalt im Median nach 2.407 ms statt 2.104 ms im Stand E2 (Median +303 ms; die Neumessung des E2-Commits unter gleichen Bedingungen ergab 2.108 ms); die Grenzen (LCP ≤ 2.500 ms, Leistung ≥ 95, CLS ≤ 0,1) sind eingehalten. Lighthouse rechnet die beiden Stildateien für Druck und erzwungene Farben in den simulierten Ladepfad ein; ohne sie läge die Startseite bei 2.113 ms. Nachladen per Skript wurde bewusst verworfen, weil Druck- und Kontrastdarstellung dann von JavaScript abhingen.
+**A-1 · Z-08 Ladezeit.** Unter gleichen Bedingungen gemessen (E2-Commit frisch gebaut, je 5 Läufe in zwei Zeitfenstern) erreicht die Startseite ihren größten Inhalt nach 2.400–2.407 ms statt 2.104–2.109 ms (mit gzip wie beim Hoster 1.667 statt 1.508–1.510 ms); die Grenzen (LCP ≤ 2.500 ms, Leistung ≥ 95, CLS ≤ 0,1) sind auf allen Hauptansichten eingehalten. Rund 150 ms kosten die eigenen Dateien für Druck und erzwungene Farben, rund 150 ms die zweite renderblockierende Stildatei je Ansicht. Beide zurückzunehmen hieße, das CSS-Budget zu sprengen oder Druck und Kontrastdesign von JavaScript abhängig zu machen (Denkprotokoll D-E5-04).
 
 **A-2 · Z-04 Gestaltung.** Der Ansichtswert 8 wurde nach zwei Anläufen nicht erreicht (Anlauf 1: 6,50 bis 7,67, Anlauf 2: 6,33 bis 7,50). Der Blindvergleich ist in beiden Anläufen erfüllt: 24 von 24 Paaren zogen den neuen Stand vor. Ein dritter Anlauf widersprach der Regel von höchstens zwei Anläufen je Tor; die Befunde aus Anlauf 2 wurden als zweite Paketrunde umgesetzt, nicht erneut bewertet, und die Restpunkte sind offen.
 
@@ -84,7 +84,7 @@ Die Abschluss-Nachprüfung lief in zwei Durchgängen mit Haiku-Prüfern; die Pro
 
 ### Offene Punkte
 
-Die vollständige Liste mit Zuständigkeiten steht in `docs/OFFENE-PUNKTE.md` (Nr. 1 bis 45). Der Build zählt 58 Platzhalter in der Konfiguration, 65 auf den Seiten und 92 ungeprüfte Fakten. Die wichtigsten fünf:
+Die vollständige Liste mit Zuständigkeiten steht in `docs/OFFENE-PUNKTE.md` (Nr. 1 bis 47). Der Build zählt 58 Platzhalter in der Konfiguration, 65 auf den Seiten und 92 ungeprüfte Fakten. Die wichtigsten fünf:
 
 1. **Nr. 1 Betrieb:** Firmenname, Rechtsform, Inhaber, Anschrift, Notruf-Telefon und E-Mail (blockiert den Release).
 2. **Nr. 4 Preise:** Gesamtpreise je Zone, Zuschläge, Umsatzsteuer-Modus, Zahlarten (blockiert den Release).

@@ -176,3 +176,29 @@ Kleine Hinweise der Prüfer, ohne Handlungsbedarf vor dem Abschluss:
 - Werkzeug-Exit 1 bei der gewollten 404 (smoke) und bei /suche/ (SEO, noindex) – inhaltlich kein Befund.
 
 Damit sind alle Befunde der Abschluss-Nachprüfung behoben oder als Umgebungsausnahme bzw. offener Punkt geführt. Die Einstufung je Kriterium steht in `_werkstatt/ABNAHME.md`.
+
+## 6. Nachforderungen des Abschlussprüfers (Durchgang 1) und ihre Erledigung
+
+Urteil des ersten Durchgangs: `_werkstatt/berichte/E5-abschlusspruefer.md`. Nicht bestätigt waren A-1 und Z-09; dazu fehlten die Log-Belege im Repository.
+
+| Nachforderung | Erledigung | Beleg |
+|---|---|---|
+| Log-Belege ins Repository | 93 `.log`-Dateien gezielt mit `git add -f` aufgenommen (`.gitignore` unverändert) | `582ee31` |
+| A-1 Denkprotokoll | D-E5-04 (Ziel, vier Wege, Bewertung, Umkehrprobe, Folgen zweiter Ordnung, frühere Anläufe) | `_werkstatt/ENTSCHEIDUNGEN.md` |
+| A-1 Vergleichs- und Ursachenmessung | E2 `7422b0f` frisch gebaut und Endstand unter gleichen Bedingungen, je 5 Läufe in zwei Zeitfenstern: E2 LCP 2.109/2.104 ms, Endstand 2.400/2.407 ms (+291/+303), gzip 1.510/1.508 gegen 1.667 ms; ohne Druck-/Kontraststile 2.257/2.255 ms; ohne JS-Modul 2.410/2.407 ms (kein Einfluss; Widerspruch zu D-JS-01 geklärt, Nachtrag dort) | `a1-vergleich/*.json` |
+| Z-09 Zufallsstichprobe am Endstand | Saat 20261026: 30 von 292 übrigen Ansichten (10,3 %) und 20 Ortsseiten (Zonen A–D, NL je 4); Überlauf 11 Varianten hell und dunkel: 1.100 Messungen, 0 Überlauf; smoke 100 Läufe, 0 Befunde | `z09-stichprobe/stichprobe.json`, `ueberlauf-hell.json`, `ueberlauf-dunkel.json`, `smoke.json` |
+| Z-09 protokollierte Sichtung | 200 erste Bildschirme (mobil hell, Tablet, Desktop, mobil dunkel) von vier Opus-Sichtprüfern: kein abgeschnittener, überlappender oder unlesbarer Text; kleine Befunde: Kartenlinie berührt Beschriftungen (OFFENE-PUNKTE 46), H1-Umbruch bei „(≈ … km)“ auf dem Tablet (Nr. 47) | `z09-stichprobe/sichtung.md` |
+| MENSCHEN §6 Negativtest | berichtigt (A: Basis-URL; B: 57 Platzhalter, 92 ungeprüfte Fakten) | `_werkstatt/MENSCHEN.md` |
+
+Hinweise des Prüfers, ebenfalls erledigt:
+- KERN Version 4 mit Verlauf; K-004 nennt die vom Token-Prüfer erlaubten Literale (fr-Anteile, `z-index: -1`, em in Container-Queries).
+- Pflichtpakete nachgezählt: 66, nicht 67.
+- Wortlaut Z-03, U-4, A-2 berichtigt.
+- MENSCHEN §4 nennt das Zusammenführen.
+
+Am Endstand nachgemessen (`_werkstatt/protokolle/E5-abschluss/endstand-nach/`):
+- Fokus sichtbar an 2.739 (mobil) bzw. 2.670 (desktop) Stopps, 0 ohne Umriss.
+- H2–H4 erfüllt, H5 bis zur Übergabe; H1 und der Anruf im Menü-Blatt brauchen die Telefonnummer (U-6).
+- Token-Stichprobe: 0 unerlaubte Werte in 289 Deklarationen.
+- Bewegungscode 2.349 B gz.
+- Ähnlichkeit der Ortsseiten: Nachbarpaare Median 0,451, Maximum 0,677.

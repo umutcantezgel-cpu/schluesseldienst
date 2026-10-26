@@ -1,0 +1,63 @@
+@layer bewegung {
+@media (prefers-reduced-motion: no-preference) {
+[data-moment="scherlinie"] .zy-schluessel { animation: m16-schluessel var(--m16-schluessel) var(--ease-ein) backwards; }
+[data-moment="scherlinie"] .zy-stiftpaar { animation: m16-stift var(--m16-stift) var(--ease-einrasten) backwards; }
+[data-moment="scherlinie"] .zy-stiftpaar .zy-feder { animation: m16-feder var(--m16-stift) var(--ease-einrasten) backwards; }
+[data-moment="scherlinie"] .zy-stiftpaar:nth-child(1), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(1) .zy-feder { animation-delay: var(--m16-stift-start); }
+[data-moment="scherlinie"] .zy-stiftpaar:nth-child(2), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(2) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel)); }
+[data-moment="scherlinie"] .zy-stiftpaar:nth-child(3), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(3) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel) * 2); }
+[data-moment="scherlinie"] .zy-stiftpaar:nth-child(4), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(4) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel) * 3); }
+[data-moment="scherlinie"] .zy-stiftpaar:nth-child(5), [data-moment="scherlinie"] .zy-stiftpaar:nth-child(5) .zy-feder { animation-delay: calc(var(--m16-stift-start) + var(--m16-staffel) * 4); }
+[data-moment="scherlinie"] .zy-scherlinie { animation: m16-linie var(--m16-linie) var(--ease-linie) var(--m16-linie-start) backwards; }
+[data-moment="gerader-weg"] .lb-fluss-teil { animation: auftritt var(--dur-auftritt) var(--ease-ein) backwards; }
+[data-moment="gerader-weg"] .lb-tunnel { transform-box: fill-box; transform-origin: left center; animation: m16-linie var(--m16-linie) var(--ease-linie) var(--dur-auftritt) backwards; }
+[data-moment="gerader-weg"] :is(.lb-tor, .lb-text-tunnel) { animation: erscheinen var(--dur-feedback) var(--ease-standard) calc(var(--dur-auftritt) + var(--m16-linie)) backwards; }
+.ort-karte .lk-zug { transform-box: fill-box; transform-origin: left center; animation: m16-linie var(--m19-linie) var(--ease-linie) var(--m19-start) backwards; }
+.ort-karte .lk-km { animation: erscheinen var(--dur-zustand) var(--ease-aus) calc(var(--m19-start) + var(--m19-linie)) backwards; }
+.verz-gruppe[data-zustand="neu"] { animation: m05-einblenden var(--dur-zustand) var(--ease-ein) backwards; }
+.faq-eintrag[open] .faq-antwort { animation: m-feedback-ein var(--dur-zustand) var(--ease-ein) backwards; }
+.ortspruefung-liste:not([hidden]) { animation: m-feedback-ein var(--dur-feedback) var(--ease-ein) backwards; }
+.composer-fehler:not([hidden]), .composer-fehlerliste:not([hidden]) { animation: erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
+[data-moment="falsch"] .zy-stiftpaar { animation: m21-wackeln var(--m21-dauer) var(--ease-standard) var(--m21-start); }
+[data-moment="falsch"] .zy-scherlinie-links { animation: m21-links var(--m21-dauer) var(--ease-standard) var(--m21-start); }
+[data-moment="falsch"] .zy-scherlinie-rechts { animation: m21-rechts var(--m21-dauer) var(--ease-standard) var(--m21-start); }
+@supports (animation-timeline: view()) {
+[data-ansicht="V01"] .sektion .abschnitt-kopf { view-timeline-name: --kopf; }
+[data-ansicht="V01"] .sektion .abschnitt-kopf h2 { animation: auftritt linear both; animation-timeline: --kopf; animation-range: entry 10% entry 80%; }
+[data-ansicht="V01"] .gebiet-figur,
+[data-ansicht="V01"] .register-gross { animation: auftritt linear both; animation-timeline: view(); animation-range: entry 0% entry 30%; }
+[data-ansicht="V01"] .sektion .abschnitt-linie { animation: linie-ziehen linear both; animation-timeline: --kopf; animation-range: entry 0% entry 60%; }
+[data-ansicht="V01"] .ablauf::before { animation: linie-ziehen linear both; animation-timeline: view(); animation-range: entry 20% cover 45%; }
+[data-moment="ringe"] .gk-punkte, [data-moment="ringe"] .gk-ring { transform-box: fill-box; transform-origin: center; }
+[data-moment="ringe"] .gk-punkte { animation: m18-karte linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
+[data-moment="ringe"] .gk-ring { animation: m18-ring linear both; animation-timeline: view(); }
+[data-moment="ringe"] .gk-ring:nth-of-type(1) { animation-range: entry 10% cover 30%; }
+[data-moment="ringe"] .gk-ring:nth-of-type(2) { animation-range: entry 15% cover 38%; }
+[data-moment="ringe"] .gk-ring:nth-of-type(3) { animation-range: entry 20% cover 46%; }
+[data-moment="ringe"] .gk-namen { animation: erscheinen linear both; animation-timeline: view(); animation-range: cover 30% cover 45%; }
+}
+.szene-figur :is([data-ab], [data-setzt], [data-setzt] .zy-feder) { transition: opacity var(--m17-teil) var(--ease-standard), transform var(--m17-teil) var(--ease-standard); }
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation-duration: var(--vt-aus); }
+::view-transition-new(root) { animation-duration: var(--vt-ein); }
+::view-transition-group(scherlinie) { animation-duration: var(--vt-linie); animation-timing-function: var(--ease-standard); }
+}
+@media (prefers-reduced-motion: reduce) {
+.verz-gruppe[data-zustand="neu"] { animation: erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
+}
+@keyframes m16-schluessel { from { transform: translateX(-40%); } }
+@keyframes m16-stift { from { transform: translateY(var(--m16-stift-weg)); } }
+@keyframes m16-feder { from { transform: scaleY(var(--m16-feder)); } }
+@keyframes m16-linie { from { transform: scaleX(0); } }
+@keyframes auftritt { from { opacity: 0; transform: translateY(var(--auftritt-weg)); } }
+@keyframes linie-ziehen { from { transform: scaleX(.2); } }
+@keyframes m18-karte { from { transform: scale(var(--m18-karte-start)); opacity: 0; } }
+@keyframes m18-ring { from { transform: scale(var(--m18-ring-start)); opacity: 0; } }
+@keyframes erscheinen { from { opacity: 0; } }
+@keyframes m-feedback-ein { from { opacity: 0; transform: translateY(calc(-1 * var(--feedback-weg))); } }
+@keyframes m05-einblenden { from { opacity: 0; transform: translateY(calc(-1 * var(--zustand-weg))); } }
+@keyframes m21-wackeln { 17%, 50%, 83% { transform: translateY(calc(-1 * var(--m21-weg))); } 33%, 67% { transform: translateY(var(--m21-weg)); } }
+@keyframes m21-links { 25%, 75% { transform: translateX(calc(-1 * var(--m21-linie))); } }
+@keyframes m21-rechts { 25%, 75% { transform: translateX(var(--m21-linie)); } }
+}
+@keyframes drehen { to { transform: translateY(-50%) rotate(360deg); } }

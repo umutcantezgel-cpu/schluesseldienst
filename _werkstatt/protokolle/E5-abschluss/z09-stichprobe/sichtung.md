@@ -1,0 +1,52 @@
+# Sichtung der Z-09-Stichprobe (Opus, 4 Prüfer × 50 Bilder)
+
+Bilder: `.cache/z09-stichprobe/bilder/` (200 JPEG, erste Bildschirme: mobil hell 390×844, Tablet hell 768×1024, Desktop hell 1440×900, mobil dunkel 390×844; nicht im Repository). Stichprobe: `stichprobe.json`. Urteile und Befunde wörtlich:
+
+## Sichtprüfer 1 – 50 Bilder gesichtet
+
+Urteil: Ich habe alle 50 Bilder angesehen. Nirgends ist Text am Rand, in Kästen oder in Knöpfen abgeschnitten, nichts ragt aus dem Bild, kein Inhalt fehlt sichtbar und nichts ist durch Überlappung unlesbar. Es gibt nur drei kleine Befunde: In den Lagekarten von Niedersachsen und Ammerland liegt die gestrichelte Streckenlinie ohne Abstand an der Weilburg-Beschriftung an, bleibt aber lesbar. Die Stichprobe ist bestanden.
+
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-niedersachsen__desktop__hell.jpg` · Lagekarte: Die gestrichelte Strecke nach Weilburg läuft direkt am 'm' von '136–360 km' vorbei und berührt es. Der Text bleibt lesbar, weil die Linie dort ausgespart ist, liegt aber ohne Abstand an. Dasselbe gilt für die Tablet-Ansicht und für beide Mobil-Ansichten (hell und dunkel).
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-niedersachsen__mobil__hell.jpg` · Lagekarte mobil: Die Distanzangabe '136–360 km' beginnt nur etwa 2 bis 5 px vom linken Kartenrand und endet rechts an der Streckenlinie. Sie ist nicht abgeschnitten, sitzt aber auf beiden Seiten sehr knapp. Das gilt ebenso für die dunkle Mobil-Ansicht.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-niedersachsen-ammerland__desktop__hell.jpg` · Lagekarte: Die senkrechte Strecke nach Weilburg läuft direkt am linken Rand der Beschriftungen 'Weilburg' und '295–311 km' entlang und berührt das 'W' und die '2'. Beides bleibt lesbar, hat aber keinen Abstand. Dasselbe zeigen die Tablet-Ansicht und beide Mobil-Ansichten (hell und dunkel).
+
+## Sichtprüfer 2 – 50 Bilder gesichtet
+
+Urteil: Alle 50 Bilder gesichtet, kein Blocker und nichts Mittleres: kein abgeschnittener Text, nichts ragt aus dem Bild, keine sichtbar fehlenden Inhalte, kein unlesbarer Text. Es gibt nur ein wiederkehrendes kleines Muster in 5 der 13 Seiten (Soest, Bad Dürkheim, Südliche Weinstraße, Worms, Saarpfalz-Kreis als Grenzfall): Dort liegt die gestrichelte Weilburg-Linie in der Lagekarte direkt an der Beschriftung „Weilburg“ bzw. „… km“ an. Alles bleibt lesbar. Die übrigen 8 Seiten (Schaumburg, Bochum, Krefeld, Recklinghausen, Wuppertal, Cochem-Zell, Sankt Wendel, Sachsen-Anhalt) sind ohne Befund.
+
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-nordrhein-westfalen-soest__mobil__hell.jpg` · Lagekarte: Die senkrechte gestrichelte Weilburg-Linie liegt direkt an der rechten Kante von „Weilburg“ (g) und „107–137 km“ (m) an. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-nordrhein-westfalen-soest__tablet__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie berührt das g von „Weilburg“ und das m von „107–137 km“. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-nordrhein-westfalen-soest__desktop__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie berührt das g von „Weilburg“ und das m von „107–137 km“ (in der Vergrößerung geprüft). Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-nordrhein-westfalen-soest__mobil__dunkel.jpg` · Lagekarte: Wie bei mobil/hell berührt die gestrichelte Linie „Weilburg“ und „107–137 km“ am rechten Rand. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-bad-duerkheim__mobil__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie liegt direkt an der linken Kante von „Weilburg“ (W) und „100–125 km“ (1) an. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-bad-duerkheim__tablet__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie berührt das W von „Weilburg“ und die führende 1 von „100–125 km“. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-bad-duerkheim__desktop__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie berührt das W von „Weilburg“ und die führende 1 von „100–125 km“. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-bad-duerkheim__mobil__dunkel.jpg` · Lagekarte: Wie bei mobil/hell berührt die gestrichelte Linie die linke Kante von „Weilburg“ und „100–125 km“. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-suedliche-weinstrasse__mobil__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie liegt an der linken Kante von „Weilburg“ (W) und „131–148 km“ (1) an. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-suedliche-weinstrasse__tablet__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie berührt das W von „Weilburg“ und die 1 von „131–148 km“. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-suedliche-weinstrasse__desktop__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie berührt das W von „Weilburg“ und die 1 von „131–148 km“. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-suedliche-weinstrasse__mobil__dunkel.jpg` · Lagekarte: Wie bei mobil/hell berührt die gestrichelte Linie die linke Kante von „Weilburg“ und „131–148 km“. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-worms__mobil__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie liegt direkt am g von „Weilburg“ und am m von „95 km“ an. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-worms__tablet__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie berührt das g von „Weilburg“ und das m von „95 km“. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-worms__desktop__hell.jpg` · Lagekarte: Die gestrichelte Weilburg-Linie berührt das g von „Weilburg“ und das m von „95 km“. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-rheinland-pfalz-worms__mobil__dunkel.jpg` · Lagekarte: Wie bei mobil/hell berührt die gestrichelte Linie die rechte Kante von „Weilburg“ und „95 km“. Beides bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-saarland-saarpfalz-kreis__mobil__hell.jpg` · Lagekarte, Grenzfall: Die schräge gestrichelte Weilburg-Linie streift unten rechts das m von „141–171 km“ (etwa 1–2 px Abstand). Lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-saarland-saarpfalz-kreis__tablet__hell.jpg` · Lagekarte, Grenzfall: Die schräge gestrichelte Linie verläuft knapp neben dem m von „141–171 km“. Lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-saarland-saarpfalz-kreis__desktop__hell.jpg` · Lagekarte, Grenzfall: Die schräge gestrichelte Linie verläuft knapp neben dem m von „141–171 km“. Lesbar.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-saarland-saarpfalz-kreis__mobil__dunkel.jpg` · Lagekarte, Grenzfall: Wie bei mobil/hell streift die schräge gestrichelte Linie das m von „141–171 km“. Lesbar.
+
+## Sichtprüfer 3 – 50 Bilder gesichtet
+
+Urteil: Alle 50 Bilder sind gesichtet. Es gibt keine Blocker und keine mittleren Befunde. Nirgends ist Text abgeschnitten, nichts ragt aus dem Bild und keine Seite scrollt waagerecht. Gefunden habe ich nur zwei knappe Berührungen zwischen Linie und Beschriftung in den Kartengrafiken und eine wohl gewollte Ausdünnung der Namen in der mobilen Kreiskarte. Alles bleibt lesbar.
+
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-sachsen-anhalt-harz__mobil__hell.jpg` · Lagekarte: Das obere Ende der gestrichelten Strecke berührt das 'm' der Entfernungsangabe '249–255 km'. Die Angabe bleibt lesbar. Dasselbe zeigt das Bild mobil__dunkel.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-sachsen-anhalt-harz__mobil__dunkel.jpg` · Wie in der hellen Fassung: Die gestrichelte Strecke endet am 'm' von '249–255 km' und berührt es leicht. Die Angabe bleibt lesbar.
+- klein · `.cache/z09-stichprobe/bilder/schluesseldienst-huettenberg-grossrechtenbach__tablet__hell.jpg` · Lagekarte: Der gestrichelte Zonenbogen läuft direkt am letzten Buchstaben ('h') der Beschriftung 'Großrechtenbach' vorbei und berührt ihn knapp. Der Name bleibt lesbar. Auf dem Desktop ist der Abstand ähnlich knapp, dort gibt es aber keine Berührung.
+- klein · `.cache/z09-stichprobe/bilder/einsatzgebiet-sachsen-anhalt-harz__mobil__hell.jpg` · Hinweis, wahrscheinlich gewollte Ausdünnung: In der mobilen Kreiskarte tragen nur 2 von 6 Punkten einen Namen. Auf Tablet und Desktop sind es 4, darunter Huy und Falkenstein/Harz. Beim Salzlandkreis ist es genauso (mobil 2 Namen, Tablet und Desktop 5). Nichts ist abgeschnitten, die Punkte stehen nur ohne Namen da.
+
+## Sichtprüfer 4 – 50 Bilder gesichtet
+
+Urteil: Ich habe alle 50 ersten Bildschirme angesehen (12 Orte in mobil hell, Tablet, Desktop und mobil dunkel, Nidderau-Erbstadt nur Desktop und mobil dunkel). Die Lagekarten auf Tablet und Desktop habe ich zusätzlich vergrößert geprüft. Nirgends ist Text abgeschnitten, nirgends überlappen Texte oder Text und Grafik bis zur Unlesbarkeit, nichts ragt aus dem Bild und kein Inhalt fehlt sichtbar. Ortsnamen, Entfernungsangaben und Maßstab in den Karten sind überall frei lesbar. Die Rufleiste unten überdeckt auf Telefon und Tablet nur wie vorgesehen untere Zeilen. Kein Blocker, keine mittleren Befunde. Die beiden kleinen Umbruchsfehler im Tablet-Titel (Noord Deurningen, Stift Quernheim) liegen außerhalb des Prüfrasters.
+
+- klein · `.cache/z09-stichprobe/bilder/schluesseldienst-dinkelland-noord-deurningen__tablet__hell.jpg` · Der H1-Umbruch trennt Zahl und Einheit: 'Weilburg (≈ 229' steht in der vierten Zeile, 'km)' allein in der fünften. Nichts ist abgeschnitten oder überdeckt, alles bleibt lesbar. Das liegt streng genommen außerhalb des Prüfrasters, ist aber sichtbar. Es fehlt ein geschütztes Leerzeichen zwischen Zahl und 'km'.
+- klein · `.cache/z09-stichprobe/bilder/schluesseldienst-kirchlengern-stift-quernheim__tablet__hell.jpg` · Der H1-Umbruch trennt '(≈' von der Zahl: 'aus Weilburg (≈' steht in der vierten Zeile, '197 km)' in der fünften. Nichts ist abgeschnitten, alles bleibt lesbar. Auch das liegt außerhalb des Prüfrasters. Es fehlt ein geschütztes Leerzeichen nach '≈'. Die anderen Tablet-Titel halten '(≈ NNN km)' zusammen.

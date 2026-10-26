@@ -1,0 +1,33 @@
+=== Schritt 1: Tastatur (Z-07), tastatur.mjs, Basis http://127.0.0.1:4251 (Messbuild .cache/e5-final/dist, MD5 index.html identisch) ===
+mobil 390x844: Fokusstopps 2739, davon ohne sichtbaren Umriss 0 (Skript-Kriterium); leere Schritte 44. Datei: /home/user/schluesseldienst/.cache/endstand-nach/tastatur-mobil.json
+desktop 1440x900: Fokusstopps 2670, davon ohne sichtbaren Umriss 0; leere Schritte 33. Datei: /home/user/schluesseldienst/.cache/endstand-nach/tastatur-desktop.json
+h1 (beide Geraete): in 13 Hauptansichten KEIN tel:-Link gefunden (tel=0), Ergebnis "nein". Grund laut DOM: span.rufknopf mit data-zustand="platzhalter" (keine Rufnummer eingetragen). Gleiches Ergebnis im frueheren Lauf (pruefer-z07-z09/tastatur-*-vorschau.json).
+h2: mobil Schritte [4,6], 2 Aktivierungen, Ziel erreicht; desktop Schritt [5], 1 Aktivierung, Ziel erreicht.
+h3: mobil Ortsfeld nach 5 Tabs, 1 Vorschlag, Ergebnistext Loehnberg; desktop nach 12 Tabs, 1 Vorschlag, gleiches Ergebnis.
+h4: mobil 3 Aktivierungen, Impressum nach 44 Tabs; desktop 2 Aktivierungen, Impressum nach 50 Tabs; Impressum-Fokus sichtbar.
+h5: mobil Ort 8 / Nachricht 4 / Absenden 1 Tabs, Absenden-Fokus sichtbar; desktop Ort 14 / Nachricht 4 / Absenden 1; Hinweis nach Absenden: E-Mail-Adresse noch nicht eingetragen.
+menueBlatt (nur mobil): Menue nach 4 Tabs, Blatt offen, Anruf im Blatt NICHT per Tab erreichbar (kein tel:-Link im Blatt, rufknopfAlsLink=false).
+
+=== Schritt 2: Token-Stichprobe (Z-03), Saat 20261026 ===
+Verfahren (Protokoll): /home/user/schluesseldienst/.cache/endstand-nach/token/stichprobe-protokoll.json (random.Random(20261026).sample ueber 36 sortierte CSS-Dateien aus komponenten/ und ansichten/).
+Gezogen: ansichten/lahnbogen/lahnbogen.css, ansichten/start/ablauf.css, ansichten/leistung/leistung.css, komponenten/schadensbilder.css, komponenten/illustration.css.
+Deklarationen: 289 (lahnbogen 25, ablauf 43, leistung 151, schadensbilder 5, illustration 65). var()-Verweise 171, davon mit Fallback 0.
+Erlaubte Literale: 186 (0 ohne Einheit 23; Zahl in SVG/Deckkraft 24; Faktor in calc/minmax 11; scale-Faktor 1; repeat-Anzahl 1; Prozent 7; 1fr 5; 100vh 1; em-Breakpoint @media 4; em @container 5; Schluesselwoerter 96; Zeichenketten 8).
+Unerlaubte Werte: 0 (eigene Auswertung), token.mjs pruefeCss: 0 Befunde in allen fuenf Dateien.
+Grenzfaelle (nicht in beiden Summen): 5 (leistung.css:31 7fr und 5fr; :69 8fr und 4fr; :57 z-index: -1). K-004 nennt nur 1fr.
+Ausgabe: /home/user/schluesseldienst/.cache/endstand-nach/token-stichprobe.json. Auswerter: /home/user/schluesseldienst/.cache/endstand-nach/token/analyse.mjs
+
+=== Schritt 3: Bewegungscode-Groesse am Endstand (gzip -9) ===
+Kopie mit umgestellten Pfaden: /home/user/schluesseldienst/.cache/endstand-nach/groesse/groesse.py (Build .cache/e5-final/dist/assets, genau eine app.*.css = app.ac74135ea0.css; Module nur abspielen.mjs und szene.mjs).
+CSS-Bewegungsanteil: 1313 Byte gz9 (@layer bewegung 1290 gz9 + 1 Keyframes-Block ausserhalb der Layer; roh 6505). Build-CSS gesamt 10687 gz9.
+Module: abspielen.mjs 465 gz9 (780 roh), szene.mjs 571 gz9 (1171 roh); einzeln Summe 1036, verkettet 932.
+Summe Bewegung (CSS-Anteil + abspielen + szene, einzeln): 2349 Byte gz9 = 3,8 % des harten Budgets (60 KiB) bzw. 19,1 % des weichen (12 KiB); Abstand zum weichen Budget 9939 Byte.
+Ausgabe: /home/user/schluesseldienst/.cache/endstand-nach/groesse.json ; Anteil-CSS: /home/user/schluesseldienst/.cache/endstand-nach/groesse-bewegungsanteil.css
+
+=== Schritt 4: Aehnlichkeit der Ortsseiten (U-5), aehnlichkeit.mjs --dist .cache/e5-final/dist --paare 2000 --saat 7 ===
+Ortsseiten 5252; Woerter Median 389; 5-Gramme Median 381 (min 325, max 489).
+Zufallspaare n=2000: Median 0,2863 · 95%-Quantil 0,436 · Maximum 0,538 (ettinghausen-helferskirchen).
+Nachbarpaare: 21059 verschiedene, 2000 gezogen; n=2000: Median 0,4512 · 95%-Quantil 0,5169 · Maximum 0,677 (fiersbach-rettersen).
+Vergleich E3-Stand (.cache/E3-PRUEF-10/aehnlichkeit.json, berichte/E3-orte.md): Zufall Median 0,281 / Q95 0,437 / Max 0,545; Nachbar 23430 verschiedene, Median 0,471 / Q95 0,540 / Max 0,660.
+Keine Schwelle fuer U-5 im Auftrag oder Protokoll gefunden; Bewertung daher offen.
+Ausgabe: /home/user/schluesseldienst/.cache/endstand-nach/aehnlichkeit.json

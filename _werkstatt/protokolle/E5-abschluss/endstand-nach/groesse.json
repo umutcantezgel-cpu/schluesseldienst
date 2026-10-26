@@ -1,0 +1,57 @@
+{
+  "werkzeug": "groesse (Kopie von rest-groesse.py, Prüfer endstand-nach; Module nur abspielen und szene)",
+  "methode": "gzip -9: python gzip.compress(level 9, mtime 0) und CLI gzip -9 -n (Kreuzprüfung)",
+  "module_quelle": {
+    "abspielen": {
+      "datei": "src/assets/js/module/abspielen.mjs",
+      "roh_bytes": 780,
+      "gz9_py": 465,
+      "gz9_cli": 465
+    },
+    "szene": {
+      "datei": "src/assets/js/module/szene.mjs",
+      "roh_bytes": 1171,
+      "gz9_py": 571,
+      "gz9_cli": 571
+    }
+  },
+  "module_summe_beide_einzeln_gz9": 1036,
+  "module_summe_bewegung_abspielen_szene_einzeln_gz9": 1036,
+  "module_verkettet_beide_gz9": 932,
+  "build_css": {
+    "datei": ".cache/e5-final/dist/assets/app.ac74135ea0.css",
+    "roh_bytes": 54594,
+    "gz9_gesamt": 10687,
+    "kommentare_im_build": 0
+  },
+  "build_css_bewegungsanteil": {
+    "layer_bewegung_bloecke": 1,
+    "layer_bewegung_roh": 6431,
+    "layer_bewegung_gz9": 1290,
+    "keyframes_gesamt": 15,
+    "keyframes_innerhalb_layer": 14,
+    "keyframes_ausserhalb_layer": 1,
+    "keyframes_ausserhalb_roh": 72,
+    "anteil_roh": 6505,
+    "anteil_gz9_py": 1313,
+    "anteil_gz9_cli": 1313,
+    "anteil_datei": "/home/user/schluesseldienst/.cache/endstand-nach/groesse-bewegungsanteil.css"
+  },
+  "zusatz_uebergaenge_ausserhalb_layer_naeherung": {
+    "zeilen": 75,
+    "roh": 4734,
+    "gz9_py": 853,
+    "hinweis": "Näherung: Zeilen mit transition/animation/starting-style/view-transition außerhalb der Layer-Blöcke (Build ist zeilenweise)"
+  },
+  "summe": {
+    "css_anteil_gz9": 1313,
+    "bewegung_rein_css_plus_abspielen_plus_szene_einzeln_gz9": 2349,
+    "bewegung_plus_module_einzeln_gz9": 2349,
+    "bewegung_rein_css_plus_abspielen_plus_szene_verkettet_naeherung": null,
+    "budget_weich_gz": 12288,
+    "budget_hart_gz": 61440,
+    "abstand_zu_weich_bewegung_rein": 9939,
+    "anteil_an_hart_prozent": 3.8,
+    "anteil_an_weich_prozent": 19.1
+  }
+}

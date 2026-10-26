@@ -52,4 +52,4 @@ Abschlussregel des Auftrags: Ein frischer Opus-Unteragent bestätigt jedes Häkc
 
 ## Umgang mit den Nachforderungen
 
-(wird nach den Nachmessungen ergänzt)
+Alle fünf Nachforderungen und die Hinweise sind erledigt; Einzelheiten und Belege: `_werkstatt/berichte/E5-abschluss-pruefung.md` §6. Danach folgt Durchgang 2.

@@ -1,0 +1,136 @@
+{
+  "werkzeug": "aehnlichkeit",
+  "dist": "/home/user/schluesseldienst/.cache/e5-final/dist",
+  "saat": 7,
+  "paare_je_gruppe": 2000,
+  "grundgesamtheit": {
+    "ortsseiten": 5252,
+    "woerter_median": 389,
+    "fuenfgramme_median": 381,
+    "fuenfgramme_min": 325,
+    "fuenfgramme_max": 489,
+    "seiten_mit_nachbarliste": 5252
+  },
+  "nachbarpaare": {
+    "verschieden": 21059,
+    "gezogen": 2000
+  },
+  "gruppen": {
+    "zufall": {
+      "n": 2000,
+      "median": 0.2863,
+      "q95": 0.436,
+      "maximum": 0.538,
+      "top10": [
+        {
+          "wert": 0.538,
+          "a": "/schluesseldienst-ettinghausen/",
+          "b": "/schluesseldienst-helferskirchen/"
+        },
+        {
+          "wert": 0.5272,
+          "a": "/schluesseldienst-guckheim/",
+          "b": "/schluesseldienst-haertlingen/"
+        },
+        {
+          "wert": 0.5264,
+          "a": "/schluesseldienst-streithausen/",
+          "b": "/schluesseldienst-unnau/"
+        },
+        {
+          "wert": 0.5097,
+          "a": "/schluesseldienst-lemgo-lueerdissen/",
+          "b": "/schluesseldienst-lemgo-welstorf/"
+        },
+        {
+          "wert": 0.5,
+          "a": "/schluesseldienst-merzig-bietzen/",
+          "b": "/schluesseldienst-merzig/"
+        },
+        {
+          "wert": 0.4895,
+          "a": "/schluesseldienst-menslage/",
+          "b": "/schluesseldienst-ostercappeln/"
+        },
+        {
+          "wert": 0.4855,
+          "a": "/schluesseldienst-lollar/",
+          "b": "/schluesseldienst-pohlheim-hausen/"
+        },
+        {
+          "wert": 0.4817,
+          "a": "/schluesseldienst-bischoffen/",
+          "b": "/schluesseldienst-wetzlar-naunheim/"
+        },
+        {
+          "wert": 0.4797,
+          "a": "/schluesseldienst-berod-bei-wallmerod/",
+          "b": "/schluesseldienst-wied/"
+        },
+        {
+          "wert": 0.4709,
+          "a": "/schluesseldienst-heilberscheid/",
+          "b": "/schluesseldienst-pohlheim/"
+        }
+      ]
+    },
+    "nachbar": {
+      "n": 2000,
+      "median": 0.4512,
+      "q95": 0.5169,
+      "maximum": 0.677,
+      "top10": [
+        {
+          "wert": 0.677,
+          "a": "/schluesseldienst-fiersbach/",
+          "b": "/schluesseldienst-rettersen/"
+        },
+        {
+          "wert": 0.638,
+          "a": "/schluesseldienst-haertlingen/",
+          "b": "/schluesseldienst-maehren/"
+        },
+        {
+          "wert": 0.5988,
+          "a": "/schluesseldienst-freilingen/",
+          "b": "/schluesseldienst-weidenhahn/"
+        },
+        {
+          "wert": 0.5903,
+          "a": "/schluesseldienst-hueblingen/",
+          "b": "/schluesseldienst-westernohe/"
+        },
+        {
+          "wert": 0.5851,
+          "a": "/schluesseldienst-girkenroth/",
+          "b": "/schluesseldienst-willmenrod/"
+        },
+        {
+          "wert": 0.5763,
+          "a": "/schluesseldienst-henschtal/",
+          "b": "/schluesseldienst-nanzdietschweiler/"
+        },
+        {
+          "wert": 0.5705,
+          "a": "/schluesseldienst-emmerthal-emmern/",
+          "b": "/schluesseldienst-emmerthal-hagenohsen/"
+        },
+        {
+          "wert": 0.5701,
+          "a": "/schluesseldienst-netzbach/",
+          "b": "/schluesseldienst-oberneisen/"
+        },
+        {
+          "wert": 0.5656,
+          "a": "/schluesseldienst-emmerzhausen/",
+          "b": "/schluesseldienst-mauden/"
+        },
+        {
+          "wert": 0.5649,
+          "a": "/schluesseldienst-lindenberg/",
+          "b": "/schluesseldienst-meesiger/"
+        }
+      ]
+    }
+  }
+}

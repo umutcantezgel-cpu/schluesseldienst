@@ -1,0 +1,2385 @@
+{
+  "werkzeug": "ortsstichprobe",
+  "dist": ".cache/e5-final/dist",
+  "daten": "src/daten/orte.json",
+  "saat": 20261026,
+  "zonen": [
+    {
+      "zone": "A",
+      "grundgesamtheit": 244,
+      "gezogen": 4
+    },
+    {
+      "zone": "B",
+      "grundgesamtheit": 795,
+      "gezogen": 4
+    },
+    {
+      "zone": "C",
+      "grundgesamtheit": 998,
+      "gezogen": 4
+    },
+    {
+      "zone": "D",
+      "grundgesamtheit": 3168,
+      "gezogen": 4
+    },
+    {
+      "zone": "NL",
+      "grundgesamtheit": 47,
+      "gezogen": 4
+    }
+  ],
+  "orte_gesamt": 20,
+  "auswertung": {
+    "seite-existiert": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "h1-ortsname": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "fakten-gemeinde": {
+      "geprueft": 17,
+      "ok": 17,
+      "abweichend": 0,
+      "entfaellt": 3,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 3,
+          "abweichend": 0,
+          "entfaellt": 1
+        },
+        "C": {
+          "ok": 3,
+          "abweichend": 0,
+          "entfaellt": 1
+        },
+        "D": {
+          "ok": 3,
+          "abweichend": 0,
+          "entfaellt": 1
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "fakten-kreis": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "fakten-land": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "fakten-plz": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "fakten-km-richtung": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "titel-weilburg": {
+      "geprueft": 12,
+      "ok": 12,
+      "abweichend": 0,
+      "entfaellt": 8,
+      "je_zone": {
+        "A": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "B": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "titel-km": {
+      "geprueft": 12,
+      "ok": 12,
+      "abweichend": 0,
+      "entfaellt": 8,
+      "je_zone": {
+        "A": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "B": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "h1-weilburg": {
+      "geprueft": 12,
+      "ok": 12,
+      "abweichend": 0,
+      "entfaellt": 8,
+      "je_zone": {
+        "A": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "B": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "h1-km": {
+      "geprueft": 12,
+      "ok": 12,
+      "abweichend": 0,
+      "entfaellt": 8,
+      "je_zone": {
+        "A": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "B": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "nl-kein-preis": {
+      "geprueft": 4,
+      "ok": 4,
+      "abweichend": 0,
+      "entfaellt": 16,
+      "je_zone": {
+        "A": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "B": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "C": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "D": {
+          "ok": 0,
+          "abweichend": 0,
+          "entfaellt": 4
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "jsonld-lesbar": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "jsonld-kein-localbusiness": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "jsonld-kein-aggregaterating": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "brotkrumen-reihenfolge": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    },
+    "brotkrumen-links-existieren": {
+      "geprueft": 20,
+      "ok": 20,
+      "abweichend": 0,
+      "entfaellt": 0,
+      "je_zone": {
+        "A": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "B": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "C": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "D": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        },
+        "NL": {
+          "ok": 4,
+          "abweichend": 0,
+          "entfaellt": 0
+        }
+      }
+    }
+  },
+  "zusammensetzung": {
+    "A": {
+      "gesamt": 4,
+      "gemeinde": 0,
+      "ortsteil": 4,
+      "stadtstaat_kreis_gleich_land": 0,
+      "ohne_kreis": 0,
+      "ohne_plz": 0
+    },
+    "B": {
+      "gesamt": 4,
+      "gemeinde": 1,
+      "ortsteil": 3,
+      "stadtstaat_kreis_gleich_land": 0,
+      "ohne_kreis": 0,
+      "ohne_plz": 0
+    },
+    "C": {
+      "gesamt": 4,
+      "gemeinde": 1,
+      "ortsteil": 3,
+      "stadtstaat_kreis_gleich_land": 0,
+      "ohne_kreis": 0,
+      "ohne_plz": 0
+    },
+    "D": {
+      "gesamt": 4,
+      "gemeinde": 1,
+      "ortsteil": 3,
+      "stadtstaat_kreis_gleich_land": 0,
+      "ohne_kreis": 0,
+      "ohne_plz": 0
+    },
+    "NL": {
+      "gesamt": 4,
+      "gemeinde": 0,
+      "ortsteil": 4,
+      "stadtstaat_kreis_gleich_land": 0,
+      "ohne_kreis": 0,
+      "ohne_plz": 0
+    }
+  },
+  "abweichungen": [],
+  "orte": [
+    {
+      "zone": "A",
+      "slug": "weilburg-gaudernbach",
+      "pfad": "/schluesseldienst-weilburg-gaudernbach/",
+      "name": "Gaudernbach",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Hessen",
+      "kreis": "Landkreis Limburg-Weilburg",
+      "km": 5,
+      "richtung": "südwestlich",
+      "plz": [
+        "35781"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Gaudernbach (Weilburg)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Weilburg"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Landkreis Limburg-Weilburg"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Hessen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 35781"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 5 km südwestlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "titel-km": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "h1-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "h1-km": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Hessen › Landkreis Limburg-Weilburg › Gaudernbach (Weilburg)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "A",
+      "slug": "dornburg-dorndorf",
+      "pfad": "/schluesseldienst-dornburg-dorndorf/",
+      "name": "Dorndorf",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Hessen",
+      "kreis": "Landkreis Limburg-Weilburg",
+      "km": 19,
+      "richtung": "westlich",
+      "plz": [
+        "65599"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Dorndorf (Dornburg)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Dornburg"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Landkreis Limburg-Weilburg"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Hessen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 65599"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 19 km westlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "titel-km": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "h1-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "h1-km": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Hessen › Landkreis Limburg-Weilburg › Dorndorf (Dornburg)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "A",
+      "slug": "weilmuenster-ernsthausen",
+      "pfad": "/schluesseldienst-weilmuenster-ernsthausen/",
+      "name": "Ernsthausen",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Hessen",
+      "kreis": "Landkreis Limburg-Weilburg",
+      "km": 7,
+      "richtung": "südöstlich",
+      "plz": [
+        "35789"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Ernsthausen (Weilmünster)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Weilmünster"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Landkreis Limburg-Weilburg"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Hessen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 35789"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 7 km südöstlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "titel-km": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "h1-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "h1-km": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Hessen › Landkreis Limburg-Weilburg › Ernsthausen (Weilmünster)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "A",
+      "slug": "graevenwiesbach-hundstadt",
+      "pfad": "/schluesseldienst-graevenwiesbach-hundstadt/",
+      "name": "Hundstadt",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Hessen",
+      "kreis": "Hochtaunuskreis",
+      "km": 19,
+      "richtung": "südöstlich",
+      "plz": [
+        "61279"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Hundstadt (Grävenwiesbach)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Grävenwiesbach"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Hochtaunuskreis"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Hessen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 61279"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 19 km südöstlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "titel-km": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "h1-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "h1-km": {
+          "status": "entfaellt",
+          "detail": "Zone A"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Hessen › Hochtaunuskreis › Hundstadt (Grävenwiesbach)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "B",
+      "slug": "huettenberg-grossrechtenbach",
+      "pfad": "/schluesseldienst-huettenberg-grossrechtenbach/",
+      "name": "Großrechtenbach",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Hessen",
+      "kreis": "Lahn-Dill-Kreis",
+      "km": 22,
+      "richtung": "östlich",
+      "plz": [
+        "35625"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Großrechtenbach (Hüttenberg)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Hüttenberg"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Lahn-Dill-Kreis"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Hessen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 35625"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 22 km östlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "titel-km": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "h1-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "h1-km": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Hessen › Lahn-Dill-Kreis › Großrechtenbach (Hüttenberg)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "B",
+      "slug": "siegbach-oberndorf",
+      "pfad": "/schluesseldienst-siegbach-oberndorf/",
+      "name": "Oberndorf",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Hessen",
+      "kreis": "Lahn-Dill-Kreis",
+      "km": 31,
+      "richtung": "nördlich",
+      "plz": [
+        "35768"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Oberndorf (Siegbach)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Siegbach"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Lahn-Dill-Kreis"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Hessen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 35768"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 31 km nördlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "titel-km": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "h1-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "h1-km": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Hessen › Lahn-Dill-Kreis › Oberndorf (Siegbach)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "B",
+      "slug": "mittenaar",
+      "pfad": "/schluesseldienst-mittenaar/",
+      "name": "Mittenaar",
+      "typ": "gemeinde",
+      "staat": "DE",
+      "land": "Hessen",
+      "kreis": "Lahn-Dill-Kreis",
+      "km": 25,
+      "richtung": "nördlich",
+      "plz": [
+        "35756"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Mittenaar"
+        },
+        "fakten-gemeinde": {
+          "status": "entfaellt",
+          "detail": "Gemeinde-Seite"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Lahn-Dill-Kreis"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Hessen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 35756"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 25 km nördlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "titel-km": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "h1-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "h1-km": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Hessen › Lahn-Dill-Kreis › Mittenaar"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "B",
+      "slug": "nidderau-erbstadt",
+      "pfad": "/schluesseldienst-nidderau-erbstadt/",
+      "name": "Erbstadt",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Hessen",
+      "kreis": "Main-Kinzig-Kreis",
+      "km": 49,
+      "richtung": "südöstlich",
+      "plz": [
+        "61130"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Erbstadt (Nidderau)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Nidderau"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Main-Kinzig-Kreis"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Hessen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 61130"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 49 km südöstlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "titel-km": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "h1-weilburg": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "h1-km": {
+          "status": "entfaellt",
+          "detail": "Zone B"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Hessen › Main-Kinzig-Kreis › Erbstadt (Nidderau)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "C",
+      "slug": "bornheim-hersel",
+      "pfad": "/schluesseldienst-bornheim-hersel/",
+      "name": "Hersel",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Nordrhein-Westfalen",
+      "kreis": "Rhein-Sieg-Kreis",
+      "km": 92,
+      "richtung": "westlich",
+      "plz": [
+        "53332"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Hersel (Bornheim) – aus Weilburg (≈ 92 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Bornheim"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Rhein-Sieg-Kreis"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Nordrhein-Westfalen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 53332"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 92 km westlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Hersel (Bornheim) – aus Weilburg, 92 km"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Hersel (Bornheim) – aus Weilburg, 92 km; erwartet: 92 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Hersel (Bornheim) – aus Weilburg (≈ 92 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Hersel (Bornheim) – aus Weilburg (≈ 92 km); erwartet: 92 km"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Nordrhein-Westfalen › Rhein-Sieg-Kreis › Hersel (Bornheim)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "C",
+      "slug": "reinheim-georgenhausen",
+      "pfad": "/schluesseldienst-reinheim-georgenhausen/",
+      "name": "Georgenhausen",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Hessen",
+      "kreis": "Landkreis Darmstadt-Dieburg",
+      "km": 81,
+      "richtung": "südöstlich",
+      "plz": [
+        "64354"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Georgenhausen (Reinheim) – aus Weilburg (≈ 81 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Reinheim"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Landkreis Darmstadt-Dieburg"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Hessen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 64354"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 81 km südöstlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Georgenhausen (Reinheim), 81 km ab Weilburg"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Georgenhausen (Reinheim), 81 km ab Weilburg; erwartet: 81 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Georgenhausen (Reinheim) – aus Weilburg (≈ 81 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Georgenhausen (Reinheim) – aus Weilburg (≈ 81 km); erwartet: 81 km"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Hessen › Landkreis Darmstadt-Dieburg › Georgenhausen (Reinheim)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "C",
+      "slug": "roesrath-durbusch",
+      "pfad": "/schluesseldienst-roesrath-durbusch/",
+      "name": "Durbusch",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Nordrhein-Westfalen",
+      "kreis": "Rheinisch-Bergischer Kreis",
+      "km": 87,
+      "richtung": "nordwestlich",
+      "plz": [
+        "51503"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Durbusch (Rösrath) – aus Weilburg (≈ 87 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Rösrath"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Rheinisch-Bergischer Kreis"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Nordrhein-Westfalen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 51503"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 87 km nordwestlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Durbusch (Rösrath) – aus Weilburg, 87 km"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Durbusch (Rösrath) – aus Weilburg, 87 km; erwartet: 87 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Durbusch (Rösrath) – aus Weilburg (≈ 87 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Durbusch (Rösrath) – aus Weilburg (≈ 87 km); erwartet: 87 km"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Nordrhein-Westfalen › Rheinisch-Bergischer Kreis › Durbusch (Rösrath)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "C",
+      "slug": "sommerkahl",
+      "pfad": "/schluesseldienst-sommerkahl/",
+      "name": "Sommerkahl",
+      "typ": "gemeinde",
+      "staat": "DE",
+      "land": "Bayern",
+      "kreis": "Landkreis Aschaffenburg",
+      "km": 84,
+      "richtung": "südöstlich",
+      "plz": [
+        "63825"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Sommerkahl – aus Weilburg (≈ 84 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "entfaellt",
+          "detail": "Gemeinde-Seite"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Landkreis Aschaffenburg"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Bayern"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 63825"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 84 km südöstlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst für Sommerkahl – aus Weilburg (≈ 84 km)"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst für Sommerkahl – aus Weilburg (≈ 84 km); erwartet: 84 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Sommerkahl – aus Weilburg (≈ 84 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Sommerkahl – aus Weilburg (≈ 84 km); erwartet: 84 km"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Bayern › Landkreis Aschaffenburg › Sommerkahl"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "D",
+      "slug": "schwaebisch-gmuend",
+      "pfad": "/schluesseldienst-schwaebisch-gmuend/",
+      "name": "Schwäbisch Gmünd",
+      "typ": "gemeinde",
+      "staat": "DE",
+      "land": "Baden-Württemberg",
+      "kreis": "Ostalbkreis",
+      "km": 218,
+      "richtung": "südöstlich",
+      "plz": [
+        "73525",
+        "73527",
+        "73529"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Schwäbisch Gmünd – aus Weilburg (≈ 218 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "entfaellt",
+          "detail": "Gemeinde-Seite"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Ostalbkreis"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Baden-Württemberg"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 73525, 73527, 73529"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 218 km südöstlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Schwäbisch Gmünd – aus Weilburg, 218 km"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Schwäbisch Gmünd – aus Weilburg, 218 km; erwartet: 218 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Schwäbisch Gmünd – aus Weilburg (≈ 218 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Schwäbisch Gmünd – aus Weilburg (≈ 218 km); erwartet: 218 km"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Baden-Württemberg › Ostalbkreis › Schwäbisch Gmünd"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "D",
+      "slug": "rimbach-zotzenbach",
+      "pfad": "/schluesseldienst-rimbach-zotzenbach/",
+      "name": "Zotzenbach",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Hessen",
+      "kreis": "Landkreis Bergstraße",
+      "km": 104,
+      "richtung": "südlich",
+      "plz": [
+        "64668"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Zotzenbach (Rimbach) – aus Weilburg (≈ 104 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Rimbach"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Landkreis Bergstraße"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Hessen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 64668"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 104 km südlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Zotzenbach (Rimbach) – aus Weilburg, 104 km"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Zotzenbach (Rimbach) – aus Weilburg, 104 km; erwartet: 104 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Zotzenbach (Rimbach) – aus Weilburg (≈ 104 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Zotzenbach (Rimbach) – aus Weilburg (≈ 104 km); erwartet: 104 km"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Hessen › Landkreis Bergstraße › Zotzenbach (Rimbach)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "D",
+      "slug": "ganderkesee-bergedorf",
+      "pfad": "/schluesseldienst-ganderkesee-bergedorf/",
+      "name": "Bergedorf",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Niedersachsen",
+      "kreis": "Landkreis Oldenburg",
+      "km": 283,
+      "richtung": "nördlich",
+      "plz": [
+        "27777"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Bergedorf (Ganderkesee) – aus Weilburg (≈ 283 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Ganderkesee"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Landkreis Oldenburg"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Niedersachsen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 27777"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 283 km nördlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Bergedorf (Ganderkesee), 283 km ab Weilburg"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Bergedorf (Ganderkesee), 283 km ab Weilburg; erwartet: 283 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Bergedorf (Ganderkesee) – aus Weilburg (≈ 283 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Bergedorf (Ganderkesee) – aus Weilburg (≈ 283 km); erwartet: 283 km"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Niedersachsen › Landkreis Oldenburg › Bergedorf (Ganderkesee)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "D",
+      "slug": "kirchlengern-stift-quernheim",
+      "pfad": "/schluesseldienst-kirchlengern-stift-quernheim/",
+      "name": "Stift Quernheim",
+      "typ": "ortsteil",
+      "staat": "DE",
+      "land": "Nordrhein-Westfalen",
+      "kreis": "Kreis Herford",
+      "km": 197,
+      "richtung": "nördlich",
+      "plz": [
+        "32278"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Stift Quernheim (Kirchlengern) – aus Weilburg (≈ 197 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Kirchlengern"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Kreis Herford"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Nordrhein-Westfalen"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 32278"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 197 km nördlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Stift Quernheim – aus Weilburg, 197 km"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Stift Quernheim – aus Weilburg, 197 km; erwartet: 197 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Stift Quernheim (Kirchlengern) – aus Weilburg (≈ 197 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Stift Quernheim (Kirchlengern) – aus Weilburg (≈ 197 km); erwartet: 197 km"
+        },
+        "nl-kein-preis": {
+          "status": "entfaellt",
+          "detail": "Staat DE"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Nordrhein-Westfalen › Kreis Herford › Stift Quernheim (Kirchlengern)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "NL",
+      "slug": "hof-van-twente-goor",
+      "pfad": "/schluesseldienst-hof-van-twente-goor/",
+      "name": "Goor",
+      "typ": "ortsteil",
+      "staat": "NL",
+      "land": "Niederlande",
+      "kreis": "Overijssel",
+      "km": 227,
+      "richtung": "nordwestlich",
+      "plz": [
+        "7471",
+        "7472"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Goor (Hof van Twente) – aus Weilburg (≈ 227 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Hof van Twente"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Overijssel"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Niederlande"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 7471, 7472"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 227 km nordwestlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst für Goor (NL) – aus Weilburg (≈ 227 km)"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst für Goor (NL) – aus Weilburg (≈ 227 km); erwartet: 227 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Goor (Hof van Twente) – aus Weilburg (≈ 227 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Goor (Hof van Twente) – aus Weilburg (≈ 227 km); erwartet: 227 km"
+        },
+        "nl-kein-preis": {
+          "status": "ok",
+          "detail": "class=\"preis\": 0×"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Niederlande › Overijssel › Goor (Hof van Twente)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "NL",
+      "slug": "dinkelland-weerselo",
+      "pfad": "/schluesseldienst-dinkelland-weerselo/",
+      "name": "Weerselo",
+      "typ": "ortsteil",
+      "staat": "NL",
+      "land": "Niederlande",
+      "kreis": "Overijssel",
+      "km": 229,
+      "richtung": "nordwestlich",
+      "plz": [
+        "7595"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Weerselo (Dinkelland) – aus Weilburg (≈ 229 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Dinkelland"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Overijssel"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Niederlande"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 7595"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 229 km nordwestlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst für Weerselo (NL) – aus Weilburg (≈ 229 km)"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst für Weerselo (NL) – aus Weilburg (≈ 229 km); erwartet: 229 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Weerselo (Dinkelland) – aus Weilburg (≈ 229 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Weerselo (Dinkelland) – aus Weilburg (≈ 229 km); erwartet: 229 km"
+        },
+        "nl-kein-preis": {
+          "status": "ok",
+          "detail": "class=\"preis\": 0×"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Niederlande › Overijssel › Weerselo (Dinkelland)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "NL",
+      "slug": "dinkelland-denekamp",
+      "pfad": "/schluesseldienst-dinkelland-denekamp/",
+      "name": "Denekamp",
+      "typ": "ortsteil",
+      "staat": "NL",
+      "land": "Niederlande",
+      "kreis": "Overijssel",
+      "km": 228,
+      "richtung": "nördlich",
+      "plz": [
+        "7591"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Denekamp (Dinkelland) – aus Weilburg (≈ 228 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Dinkelland"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Overijssel"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Niederlande"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 7591"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 228 km nördlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst für Denekamp (NL) – aus Weilburg (≈ 228 km)"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst für Denekamp (NL) – aus Weilburg (≈ 228 km); erwartet: 228 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Denekamp (Dinkelland) – aus Weilburg (≈ 228 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Denekamp (Dinkelland) – aus Weilburg (≈ 228 km); erwartet: 228 km"
+        },
+        "nl-kein-preis": {
+          "status": "ok",
+          "detail": "class=\"preis\": 0×"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Niederlande › Overijssel › Denekamp (Dinkelland)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    },
+    {
+      "zone": "NL",
+      "slug": "dinkelland-noord-deurningen",
+      "pfad": "/schluesseldienst-dinkelland-noord-deurningen/",
+      "name": "Noord Deurningen",
+      "typ": "ortsteil",
+      "staat": "NL",
+      "land": "Niederlande",
+      "kreis": "Overijssel",
+      "km": 229,
+      "richtung": "nördlich",
+      "plz": [
+        "7591"
+      ],
+      "status": "ok",
+      "abweichungen": [],
+      "pruefungen": {
+        "seite-existiert": {
+          "status": "ok",
+          "detail": ""
+        },
+        "h1-ortsname": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Noord Deurningen (Dinkelland) – aus Weilburg (≈ 229 km)"
+        },
+        "fakten-gemeinde": {
+          "status": "ok",
+          "detail": "erwartet: Ortsteil von Dinkelland"
+        },
+        "fakten-kreis": {
+          "status": "ok",
+          "detail": "erwartet: Overijssel"
+        },
+        "fakten-land": {
+          "status": "ok",
+          "detail": "erwartet: Niederlande"
+        },
+        "fakten-plz": {
+          "status": "ok",
+          "detail": "erwartet: PLZ 7591"
+        },
+        "fakten-km-richtung": {
+          "status": "ok",
+          "detail": "erwartet: 229 km nördlich von Weilburg"
+        },
+        "titel-weilburg": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Noord Deurningen (NL) – aus Weilburg, 229 km"
+        },
+        "titel-km": {
+          "status": "ok",
+          "detail": "Titel: Schlüsseldienst Noord Deurningen (NL) – aus Weilburg, 229 km; erwartet: 229 km"
+        },
+        "h1-weilburg": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Noord Deurningen (Dinkelland) – aus Weilburg (≈ 229 km)"
+        },
+        "h1-km": {
+          "status": "ok",
+          "detail": "H1: Schlüssel&shy;dienst für Noord Deurningen (Dinkelland) – aus Weilburg (≈ 229 km); erwartet: 229 km"
+        },
+        "nl-kein-preis": {
+          "status": "ok",
+          "detail": "class=\"preis\": 0×"
+        },
+        "jsonld-lesbar": {
+          "status": "ok",
+          "detail": "2 Block/Blöcke"
+        },
+        "jsonld-kein-localbusiness": {
+          "status": "ok",
+          "detail": ""
+        },
+        "jsonld-kein-aggregaterating": {
+          "status": "ok",
+          "detail": ""
+        },
+        "brotkrumen-reihenfolge": {
+          "status": "ok",
+          "detail": "Start › Einsatzgebiet › Niederlande › Overijssel › Noord Deurningen (Dinkelland)"
+        },
+        "brotkrumen-links-existieren": {
+          "status": "ok",
+          "detail": "5 Links"
+        }
+      }
+    }
+  ]
+}
