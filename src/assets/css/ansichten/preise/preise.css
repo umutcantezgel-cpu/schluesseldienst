@@ -1,6 +1,6 @@
 /* V04 Preise: Kopf 7/5 mit der Preisformel als schriftlicher Addition (der Summenstrich ist die Scherlinie), Tagesband
-   mit Legende, Anfahrt 7/5 mit Ortsprüfung, Rechner als Karte (Fragen in drei Spalten, darunter das Ergebnis wie eine
-   Rechnung), drei Regel-Blöcke. Zustände über Attribute (data-jetzt, data-status, data-zustand, data-takt).
+   mit Legende, Anfahrt 7/5 mit Ortsprüfung, Rechner als Karte (ab 64em zwei mal zwei: drei Fragen und das Ergebnis wie
+   eine Rechnung), drei Regel-Blöcke. Zustände über Attribute (data-jetzt, data-status, data-zustand, data-takt).
    Kupfer nur für Summenstrich, Rechenzeichen, Zonenbuchstaben und „jetzt“; Karten tragen neutrale Kanten (P1). */
 @layer komponenten {
   .preise-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
@@ -48,7 +48,7 @@
   .tb-strich-klein { stroke: var(--c-linie-ui); stroke-width: var(--linie-haar); }
   /* Ohne Uhrzeiten ist der Balken ein Platzhalter in derselben Sprache wie .platzhalter (Kupfer-hell geschraffiert,
      gestrichelte Kupferkante) – keine graue Fläche, die wie Daten aussieht */
-  .tb-offen { stroke: var(--c-kupfer); stroke-width: var(--linie-ui); stroke-dasharray: 3 3; }
+  .tb-offen { stroke: var(--c-kupfer); stroke-width: var(--linie-haar); stroke-dasharray: 3 3; }
   .tb-schraffur { fill: var(--c-kupfer-hell); }
   .tb-teil { stroke: var(--c-flaeche); stroke-width: var(--linie-scher); }
   .tb-werktag { fill: var(--c-lahn-hell); }
@@ -115,11 +115,12 @@
   /* Auswahlkarten nebeneinander, sobald zwei in die Breite passen (Tablet); in den Desktop-Spalten einspaltig */
   .rechner .wahl-optionen { grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-min)), 1fr)); }
   .rechner-zonen-link { font-size: var(--fs--1); }
-  .rechner-ergebnis { display: grid; gap: var(--sp-2xs); align-content: start; padding: var(--sp-m); border-radius: var(--r-m); background: var(--c-papier); border-block-start: var(--linie-ui) solid var(--c-linie-ui); }
+  /* Die Oberkante ist eine gerade Kante wie bei einem Beleg: oben eckig, damit die Linie nicht an runden Ecken ausläuft */
+  .rechner-ergebnis { display: grid; gap: var(--sp-2xs); align-content: start; padding: var(--sp-m); border-radius: 0 0 var(--r-m) var(--r-m); background: var(--c-papier); border-block-start: var(--linie-ui) solid var(--c-linie-ui); }
   /* Unter 64em steht die Rechnung als Fuß der Karte bis an ihre Kanten: kein doppelter Innenrand, mobil gut 50 px
      mehr Zeilenbreite für Posten und Betrag */
   @media (width < 64em) {
-    .rechner-ergebnis { margin: 0 calc(-1 * var(--sp-m)) calc(-1 * var(--sp-m)); border-start-start-radius: 0; border-start-end-radius: 0; }
+    .rechner-ergebnis { margin: 0 calc(-1 * var(--sp-m)) calc(-1 * var(--sp-m)); }
   }
   .rechner-ergebnis-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
   /* Rechnung in der Sprache der Formel im Kopf: Posten mit Punktlinie zum Betrag, „+“ auf der Haarlinie vor der

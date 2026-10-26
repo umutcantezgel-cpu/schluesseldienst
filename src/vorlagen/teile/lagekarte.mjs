@@ -233,30 +233,30 @@ export function lagekarte({ ort, sitz, nachbarn = [], umgebung = [], praefix = '
   const imBild = (x, y) => x >= 8 && x <= B - 8 && y >= 8 && y <= H - 8;
   const punktFrei = (x, y) => imBild(x, y) && Math.hypot(x - ox, y - oy) >= 16 && !(mitLinie && (Math.hypot(x - sx, y - sy) < 12 || bel.abstandStrecke(x, y) < 6))
     && bel.frei({ x1: x - 4, y1: y - 4, x2: x + 4, y2: y + 4 }) && !gesetzt.some(([gx, gy]) => Math.hypot(gx - x, gy - y) < 10);
-  const punktSetzen = (x, y) => { gesetzt.push([x, y]); bel.kiste({ x1: x - 3, y1: y - 3, x2: x + 3, y2: y + 3 }); };
-  // Die Nachbarn sind die Liste „Orte in der Nähe“: alle als Punkt, die nächsten zwei oder drei mit Namen, damit Karte
-  // und Liste einander zeigen
+  // Jeder Punkt trägt seinen Namen: Findet der Name keinen Platz, entfällt der Punkt mit ihm (stumme Punkte lasen
+  // sich als halb fertige Karte und nahmen den benannten Platz weg)
+  const namenSvg = [];
+  const benannt = (o, [x, y]) => {
+    if (o.name.length > 24 || !punktFrei(x, y)) return false;
+    bel.kiste({ x1: x - 3, y1: y - 3, x2: x + 3, y2: y + 3 });
+    const c = setzen(bel, umPunkt(x, y, o.name, SCHRIFT.s, 0.58, 7));
+    if (!c) { bel.loesen(); return false; }
+    gesetzt.push([x, y]); namenSvg.push(text('lk-name', c, o.name));
+    return true;
+  };
+  // Zuerst die Liste „Orte in der Nähe“ (nächste zuerst, bis zu drei), damit Karte und Liste einander zeigen
   const nah = nachbarn.filter((o) => o.slug !== sitz.slug).map((o) => ({ o, xy: p(o) }))
     .sort((a, c) => Math.hypot(a.xy[0] - ox, a.xy[1] - oy) - Math.hypot(c.xy[0] - ox, c.xy[1] - oy));
-  const mitPunkt = nah.filter(({ xy: [x, y] }) => punktFrei(x, y) && (punktSetzen(x, y), true));
-  const namenSvg = [];
-  const benennen = (o, [x, y]) => {
-    const c = o.name.length <= 24 && setzen(bel, umPunkt(x, y, o.name, SCHRIFT.s, 0.58, 7));
-    if (c) namenSvg.push(text('lk-name', c, o.name));
-    return Boolean(c);
-  };
-  for (const { o, xy } of mitPunkt) if (namenSvg.length < 3) benennen(o, xy);
-  // Dazu höchstens zwei größere Orte im Ausschnitt zur Orientierung, nur mit Namen (keine stummen Füllpunkte)
+  for (const { o, xy } of nah) if (namenSvg.length < 3) benannt(o, xy);
+  // Dazu höchstens zwei größere Orte im Ausschnitt zur Orientierung (zusammen höchstens vier Namen)
   let orientierung = 0; let gesehen = 0;
   for (const o of nachGroesse(umgebung)) {
     if (orientierung >= 2 || namenSvg.length >= 4 || gesehen >= 24) break;
-    if (o.slug === ort.slug || o.slug === sitz.slug || nah.some((n) => n.o.slug === o.slug) || o.name.length > 24) continue;
-    const [x, y] = p(o);
-    if (!imBild(x, y)) continue;
+    if (o.slug === ort.slug || o.slug === sitz.slug || nah.some((n) => n.o.slug === o.slug)) continue;
+    const xy = p(o);
+    if (!imBild(...xy)) continue;
     gesehen++;
-    if (!punktFrei(x, y)) continue;
-    bel.kiste({ x1: x - 3, y1: y - 3, x2: x + 3, y2: y + 3 });
-    if (benennen(o, [x, y])) { gesetzt.push([x, y]); orientierung++; } else bel.loesen();
+    if (benannt(o, xy)) orientierung++;
   }
   const mass = massstab(bel, jeKm, B, H, gesetzt);
   const winkel = r((Math.atan2(oy - sy, ox - sx) * 1800) / Math.PI) / 10;

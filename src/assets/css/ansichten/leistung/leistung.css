@@ -48,7 +48,11 @@
   .rand-text { font-size: var(--fs--1); color: var(--c-tinte-2); }
   .rand-liste { list-style: none; padding: 0; }
   .rand-liste li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
-  .rand-liste a { display: flex; align-items: center; gap: var(--sp-xs); min-block-size: var(--ziel-min); color: var(--c-tinte); text-decoration: none; }
+  /* Zeile als Bedienelement (K-009): Überlagerung .10 über die ganze Zeile (M-02), gedrückt .18 und scale .98 (M-03) */
+  .rand-liste a { position: relative; isolation: isolate; display: flex; align-items: center; gap: var(--sp-xs); min-block-size: var(--ziel-min); color: var(--c-tinte); text-decoration: none; }
+  .rand-liste a::before { content: ""; position: absolute; inset-block: 0; inset-inline: calc(-1 * var(--sp-2xs)); z-index: -1; border-radius: var(--r-s); background: currentColor; opacity: 0; }
+  .rand-liste a:hover::before { opacity: var(--deck-hover); }
+  .rand-liste a:active::before { opacity: var(--deck-aktiv); }
   .rand-liste a:hover span { text-decoration: underline; }
   .rand-icon { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-lahn-text); }
   .leistung-rand .preis-tabelle-huelle { container-type: inline-size; }
@@ -71,5 +75,15 @@
     .leistung-teilung-lang .leistung-mehr { align-self: start; position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
     .leistung-teilung-lang .leistung-mehr .rand-liste { grid-template-columns: minmax(0, 1fr); }
     .leistung-handlung-ruf { display: flex; }
+  }
+}
+/* Rückmeldung bleibt auch in der Arbeitsansicht (P6): M-02 blendet in feedback, M-03 staucht nur ohne reduzierte
+   Bewegung (dann bleibt die Überlagerung allein) */
+@layer bewegung {
+  .rand-liste a::before { transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .rand-liste a:hover::before { transition-duration: var(--dur-feedback); }
+  @media (prefers-reduced-motion: no-preference) {
+    .rand-liste a { transition: transform var(--dur-feedback) var(--ease-standard); }
+    .rand-liste a:active { transform: scale(.98); }
   }
 }

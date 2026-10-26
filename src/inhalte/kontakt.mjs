@@ -19,6 +19,8 @@ export default {
     titel: 'Ihre Anfrage',
     einleitung: 'Füllen Sie aus, was Sie wissen. Mit „E-Mail vorbereiten“ öffnet sich Ihr E-Mail-Programm – gesendet wird erst, wenn Sie dort auf Senden tippen.',
     anliegenTitel: 'Worum geht es?',
+    // Briefkopf der Vorlage (nur mit JavaScript): Empfänger und Betreff, wie die vorbereitete E-Mail sie trägt
+    kopf: { an: 'An', betreff: 'Betreff' },
     anliegen: [
       { wert: 'notfall', titel: 'Notfall jetzt', text: 'ausgesperrt, Einbruch, Schlüssel abgebrochen', betreff: 'Notfall' },
       { wert: 'planbar', titel: 'Planbare Arbeit', text: 'Schloss, Einbruchschutz, Tresor, Technik', betreff: 'Anfrage planbare Arbeit' },

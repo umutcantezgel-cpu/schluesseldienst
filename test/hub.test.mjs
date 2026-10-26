@@ -86,6 +86,8 @@ test('Lagekarte: Punkte meiden Ort, Weilburg, Linie und Beschriftungen; Schrift 
       for (const q of kisten) assert.ok(!(x > q.x1 + 2 && x < q.x2 - 2 && y > q.y1 + 2 && y < q.y2 - 2), `${o.slug}: Punkt ${x},${y} unter Schrift`);
     }
     for (const t of k.texte) assert.ok(t.x >= 0 && t.x <= k.b && t.y > 0 && t.y <= k.h, `${o.slug}: ${t.inhalt} außerhalb`);
+    // Keine stummen Punkte: jeder Punkt trägt einen Namen
+    assert.equal(k.punkte.length, k.texte.filter((t) => t.klasse === 'lk-name').length, `${o.slug}: Punkt ohne Namen`);
     if (o.km > 0) {
       assert.match(k.s, new RegExp(`class="lk-km"[^>]*>${o.km} km<`), `${o.slug}: Entfernung fehlt`);
       // Bogen läuft durch den Ort: Radius = Linienlänge

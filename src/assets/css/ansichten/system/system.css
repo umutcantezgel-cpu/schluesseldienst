@@ -98,6 +98,8 @@
   .fehler-wege { grid-area: wege; }
   .fehler-figur { grid-area: figur; margin: 0; display: grid; gap: var(--sp-xs); }
   .fehler-figur .zylinder { inline-size: 100%; max-inline-size: var(--figur-schmal); }
+  /* Bruchenden der Scherlinie (zylinder.mjs, falsch): Punkte in Kupfer, Strich wie die Linie */
+  .fehler-figur .zy-scherlinie-ende { fill: var(--c-kupfer); }
   .fehler-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); text-wrap: pretty; }
   /* Ortssuche und Anruf auf Papier mit Haarlinie: als Band ging die Fläche nahtlos in den gleichfarbigen Fuß über.
      Zum Kopf unterscheidet der Abschnitt sich in Layout (Formular statt Teilung mit Figur) und Dichte (K-006). */
@@ -123,6 +125,10 @@
     .fehler-unten > .ortspruefung { grid-row: span 3; grid-template-rows: subgrid; }
     .fehler-ruf { display: block; grid-column: 2; grid-row: 3; align-self: start; }
   }
+}
+
+@media (forced-colors: active) {
+  .fehler-figur .zy-scherlinie-ende { fill: Highlight; }
 }
 
 /* M-12 Rückmeldung (Suche): neue Trefferliste blendet von .6 auf; zwei gleiche Keyframes, damit jeder Wechsel neu startet */

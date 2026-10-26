@@ -77,8 +77,9 @@ ${schluessel ? `<g class="zy-schluessel">
 </g>` : ''}
 ${falsch
     // Lücke zwischen zwei Kanälen (Kanal 2 endet bei x 194, Kanal 3 beginnt bei 238), im Raster 8: Läge sie in einem
-    // Kanal, füllte der Stift sie, und die Linie läse sich als durchgehend.
-    ? `<path class="zy-scherlinie zy-scherlinie-links" d="M72 ${SCHER_Y}H${LUECKE[0]}"/><path class="zy-scherlinie zy-scherlinie-rechts" d="M${LUECKE[1]} ${SCHER_Y}H432"/>`
+    // Kanal, füllte der Stift sie, und die Linie läse sich als durchgehend. Jede Hälfte endet in einem Punkt (wie die
+    // Scherlinie im Fuß, Ø 8) und trägt dessen Klasse, damit M-21 Punkt und Linie gemeinsam bewegt.
+    ? ['links', 'rechts'].map((seite, i) => `<path class="zy-scherlinie zy-scherlinie-${seite}" d="${i ? `M${LUECKE[1]} ${SCHER_Y}H432` : `M72 ${SCHER_Y}H${LUECKE[0]}`}"/><circle class="zy-scherlinie zy-scherlinie-ende zy-scherlinie-${seite}" cx="${LUECKE[i]}" cy="${SCHER_Y}" r="2.5"/>`).join('')
     : `<path class="zy-scherlinie" d="M72 ${SCHER_Y}H432"${linieAb ? ` data-ab="${linieAb}"` : ''}/>`}
 </svg>`);
 }

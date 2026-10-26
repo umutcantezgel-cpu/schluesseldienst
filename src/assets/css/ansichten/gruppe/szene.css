@@ -77,7 +77,10 @@
     .szene-liste li[data-aktiv] .szene-liste-nr { color: var(--c-kupfer); }
   }
   @media (prefers-reduced-motion: no-preference) and (min-height: 40em) and (min-width: 48em) {
-    [data-szene="laeuft"] .szene-teilung { grid-template-areas: "kopf kopf" "buehne schritte"; }
+    /* Die Figur steht schon neben dem Szenenkopf: Sie beginnt mit dem Band (auf dem Tablet im ersten Bildschirm,
+       auf dem Desktop an seinem Rand) statt erst unter Titel und Einleitung; Kopf und Schritte teilen die
+       Lesespalte, die Kupferlinie des Kopfs steht über der Schiene der Schritte */
+    [data-szene="laeuft"] .szene-teilung { grid-template-areas: "buehne kopf" "buehne schritte"; }
     /* Die Fuge der Einzelbilder gilt hier nicht: Schritte stehen allein in ihrer Spalte */
     [data-szene="laeuft"] .szene-schritte { grid-template-columns: none; grid-area: schritte; }
     [data-szene="laeuft"] .szene-schritt { grid-template-columns: none; grid-template-rows: none; grid-column: auto; }
@@ -94,8 +97,8 @@
     [data-szene="laeuft"] .szene-figur { inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-xl)); }
   }
 }
-/* M-17: Die Linie des Schritts (und ihres Eintrags in der Stückliste) zieht sich in Lesrichtung mit dem Figurenwechsel (gleiche Dauer und Kurve wie die
-   Figurteile in bewegung.css); unter reduzierter Bewegung springt sie */
+/* M-17: Die Linie des Schritts (und ihres Eintrags in der Stückliste) zieht sich in Lesrichtung mit dem
+   Figurenwechsel (gleiche Dauer und Kurve wie die Figurteile in bewegung.css); unter reduzierter Bewegung springt sie */
 @layer bewegung {
   @media (prefers-reduced-motion: no-preference) {
     :is(.szene-schritt, .szene-liste li)::before { transition: transform var(--m17-teil) var(--ease-standard); }

@@ -37,7 +37,7 @@ export default {
     ergebnis: 'Gesamtpreis',
     ohneJs: 'Der Rechner braucht JavaScript. Alle Preise stehen in der Preisliste oben.',
     offen: 'Berechnung erst mit Preisliste möglich.',
-    absprache: 'Dieser Preis wird nach Absprache vereinbart – fragen Sie uns vorher.',
+    absprache: 'Dieser Preis wird nach Absprache vereinbart – fragen Sie uns vorher.',
     hinweis: 'Gesamtpreis mit Anfahrt. Material nur nach Absprache, mit Preis vorher.',
   },
   material: {

@@ -46,11 +46,13 @@
     .gk-raster[data-nur="breit"] { display: inline; }
     .gk-raster[data-nur="schmal"] { display: none; }
   }
-  /* Legende links ausgerichtet in zwei Spalten unter der Karte (P4: nichts zentriert Umbrochenes) */
+  /* Legende links ausgerichtet unter der Karte (P4: nichts zentriert Umbrochenes). Schmal eine Spalte, ab 30em zwei
+     Spalten in Inhaltsbreite: In zwei gleichen Spalten brachen „nach / Absprache“ und „Luftlinie“ einzeln um. */
   .gk-legende {
-    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2xs) var(--sp-m);
+    display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-2xs) var(--sp-m);
     max-inline-size: var(--hero-figur-max); margin: var(--sp-s) auto 0; font-size: var(--fs--1); line-height: var(--lh-dicht); color: var(--c-tinte-2);
   }
+  @media (min-width: 30em) { .gk-legende { grid-template-columns: repeat(2, minmax(0, max-content)); } }
   .gk-legende > span { display: flex; align-items: center; gap: var(--sp-2xs); }
   .gk-marke { flex: none; inline-size: var(--sp-xs); block-size: var(--sp-xs); border-radius: var(--r-rund); background: var(--c-tinte-3); }
   .gk-marke-a { background: var(--c-lahn); }

@@ -45,7 +45,7 @@ function abWeilburg(sk) {
     ? html`über <span data-daten="">${String(stufen[i - 1].bisKm)}</span>&nbsp;km`
     : html`bis <span data-daten="">${String(s.bisKm)}</span>&nbsp;km${s.auchKreis ? html` und der ganze ${sitzKreis}` : ''}`);
   return html`<h3 class="ueber-unter" id="ab-titel">${a.titel}</h3>
-<ol class="ueber-ab">${stufen.map((s, i) => html`<li class="ueber-ab-zone">
+<ol class="ueber-ab" aria-labelledby="ab-titel">${stufen.map((s, i) => html`<li class="ueber-ab-zone">
 <span class="ueber-ab-kennung"><span class="ueber-ab-id">${s.id}</span> ${s.titel}</span>
 <span class="ueber-ab-weg" aria-hidden="true">${i === 0 ? html`<span class="ueber-ab-sitz"></span>` : ''}</span>
 <span class="ueber-ab-km">${radius(s, i)}</span>
@@ -57,6 +57,8 @@ function abWeilburg(sk) {
 // Jeder Satz über eine Angabe steht nur, wenn die Angabe gesetzt ist (Gründung, Qualifikationen, Team, Stellen).
 // Die Leistungsgruppen sind einzeilige Registereinträge (K-009: Karten bewusst nicht uniform) – die großen Kacheln
 // stehen schon auf Start- und Ortsseite; hier zählt, wo der Betrieb sitzt und wie weit sein Weg reicht.
+// Die Angaben zum Betrieb (Sitz, Gründung) stehen links unter der Überschrift, Messleiste und Register rechts: So
+// beginnt das Maß auf Höhe der Abschnittsmarke, und die linke Spalte ist kein leerer Rand.
 function wer(sk) {
   const { betrieb: b, leistungen: l } = sk.konfig;
   const { sitz } = b;
@@ -64,13 +66,15 @@ function wer(sk) {
   const team = liste(b.team);
   return html`<section class="sektion" aria-labelledby="wer-titel">
 <div class="raster"><div class="ueber-teilung">
+<div class="ueber-wer-kopf">
 ${abschnittKopf({ id: 'wer-titel', titel: inhalt.wer.titel })}
-<div class="fliesstext ueber-wer">
 <p class="ueber-sitz">${b.name} hat seinen Sitz in ${sitz.gemeinde} (${sitz.kreis}, ${sitz.land}).</p>
+${b.gruendungsjahr ? html`<p class="ueber-sitz">Der Betrieb wurde <span data-daten="">${String(b.gruendungsjahr)}</span> gegründet.</p>` : ''}
+</div>
+<div class="fliesstext ueber-wer">
 ${abWeilburg(sk)}
 <h3 class="ueber-unter" id="gruppen-titel">${inhalt.wer.gruppenTitel}</h3>
-<ul class="ueber-gruppen">${l.GRUPPEN.map((g) => html`<li><a href="${g.pfad}"><span class="ueber-gruppe-nr">${g.nr}</span><span class="ueber-gruppe-titel">${g.titel}</span><span class="ueber-gruppe-zahl">${zahlWort(g.leistungen.length)}</span>${sk.icon('pfeil-rechts', { klasse: 'ueber-gruppe-pfeil' })}</a></li>`)}</ul>
-${b.gruendungsjahr ? html`<p>Der Betrieb wurde <span data-daten="">${String(b.gruendungsjahr)}</span> gegründet.</p>` : ''}
+<ul class="ueber-gruppen" aria-labelledby="gruppen-titel">${l.GRUPPEN.map((g) => html`<li><a href="${g.pfad}"><span class="ueber-gruppe-nr">${g.nr}</span><span class="ueber-gruppe-titel">${g.titel}</span><span class="ueber-gruppe-zahl">${zahlWort(g.leistungen.length)}</span>${sk.icon('pfeil-rechts', { klasse: 'ueber-gruppe-pfeil' })}</a></li>`)}</ul>
 ${qualifikationen.length ? html`<h3 class="ueber-unter">Qualifikationen</h3><ul class="ueber-liste">${qualifikationen.map((q) => html`<li>${q}</li>`)}</ul>` : ''}
 ${team.length ? html`<h3 class="ueber-unter">Team</h3><ul class="ueber-liste">${team.map((m) => html`<li>${eintrag(m)}</li>`)}</ul>` : ''}
 ${liste(b.stellen).length ? html`<p>Offene Stellen stehen auf der <a href="/karriere/">Karriereseite</a>.</p>` : ''}

@@ -68,6 +68,9 @@ export function gebietskarte(sk, {
   const zelle = zelleKm * masstab;
   const rad = punkt / 2;
   const luft = (s) => 0.15 * s; // Abstand der Schrift zu Punkten und zueinander, mit ihr wachsend (≈ 2 px)
+  // Abstand des Namens zu seinem eigenen Punkt: ein Viertel der größeren Schrift. Mit der Luft allein (≈ 2 px) klebte
+  // das „W“ von Wetzlar und Wiesbaden am Punkt.
+  const versatz = rad + 0.25 * schrift.name[0];
 
   // Rasterpunkte (I-10): alle Orte auf Zellen; je Zelle die engste Zone
   const RANG = { A: 0, B: 1, C: 2, D: 3 };
@@ -121,9 +124,10 @@ export function gebietskarte(sk, {
         && !belegt[g].some((b) => ueberlappt(k, b.k, Math.max(l, b.luft)))
         && ![...anker.keys()].some((key) => istAnker(key, g) && abstandKiste(zellen.get(key).x, zellen.get(key).y, k) < rad + l));
       if (!frei) continue;
-      // Ringe darf eine Schrift kreuzen (der Halo unterbricht sie), lieber aber nicht
-      const kreuzt = kisten.some(([, k]) => ringe.some((km) => kreuztRing(k, r, r, km * masstab)));
-      const wert = kosten(kisten) + vorzug + (kreuzt ? 12 : 0);
+      // Ringe darf eine Schrift kreuzen (der Halo unterbricht sie), lieber aber nicht – auch nicht streifen: Geprüft
+      // wird die Kiste samt Luft, und eine Kreuzung wiegt so viel wie acht ausgesparte Punkte im Kerngebiet
+      const kreuzt = kisten.some(([, k, l]) => ringe.some((km) => kreuztRing({ x1: k.x1 - l, y1: k.y1 - l, x2: k.x2 + l, y2: k.y2 + l }, r, r, km * masstab)));
+      const wert = kosten(kisten) + vorzug + (kreuzt ? 32 : 0);
       if (!beste || wert < beste.wert) beste = { x, y, seite, kisten, wert };
     }
     return beste;
@@ -149,7 +153,7 @@ export function gebietskarte(sk, {
       const z = zellen.get(key);
       if (!z || anker.has(key) || inSchneise(z) || gs.some((g) => verdeckt(z, g))) continue;
       const name = kurzname(o.name);
-      const wahl = stelle(name, 'text', z.x, z.y, rad + luft(schrift.name[0]), gs);
+      const wahl = stelle(name, 'text', z.x, z.y, versatz, gs);
       if (!wahl) continue;
       setzen(wahl);
       anker.set(key, gs);

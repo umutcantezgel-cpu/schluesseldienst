@@ -2,8 +2,9 @@
 // E-Mail-Felder. Fehlerübersicht mit Fokus, Feldfehler über aria-invalid/aria-describedby; der Knopf ist nie
 // deaktiviert. Ohne JS sendet das Formular nativ (method=get, nur subject und body). Ohne Empfänger (Platzhalter in der
 // Vorschau) ist der Composer eine Gruppe ohne <form>: Absenden über den Knopf, statt des Mail-Programms erscheint der
-// Grund. Nur DOM-sichere APIs.
-import { mailtoUrl, pruefen } from '../logik/mailto.mjs';
+// Grund. Der Briefkopf der Vorlage zeigt Empfänger und Betreff so, wie die E-Mail sie trägt; der Betreff folgt Anliegen
+// und Ort. Nur DOM-sichere APIs.
+import { mailtoUrl, pruefen, zeile } from '../logik/mailto.mjs';
 
 export function composer(form) {
   const an = form.getAttribute('data-an');
@@ -17,6 +18,14 @@ export function composer(form) {
   for (const el of form.querySelectorAll('[data-nur-js]')) el.hidden = false;
 
   const anliegen = () => form.querySelector('input[name="anliegen"]:checked');
+  const ortFeld = form.querySelector('#k-ort');
+  const betreffZeile = form.querySelector('[data-rolle="betreff"]');
+  // Derselbe Betreff für Briefkopf und E-Mail: Anliegen, dahinter der Ort, sobald einer eingetragen ist
+  const betreff = () => {
+    const ort = zeile(ortFeld?.value ?? '');
+    return `${anliegen()?.getAttribute('data-betreff') || 'Anfrage'}${ort ? ` – ${ort}` : ''}`;
+  };
+  const kopfZeigen = () => { if (betreffZeile) betreffZeile.textContent = betreff(); };
   const umschalten = () => {
     const a = anliegen();
     const istNotfall = a?.value === 'notfall';
@@ -24,8 +33,10 @@ export function composer(form) {
     if (mailteil) mailteil.hidden = istNotfall;
   };
   // data-wechsel erst nach einer Wahl: Nur dann blendet der neue Teil ein (CSS), beim Laden steht alles sofort
-  form.addEventListener('change', (e) => { if (e.target.name === 'anliegen') { form.setAttribute('data-wechsel', ''); umschalten(); } });
+  form.addEventListener('change', (e) => { if (e.target.name === 'anliegen') { form.setAttribute('data-wechsel', ''); umschalten(); kopfZeigen(); } });
+  if (ortFeld) ortFeld.addEventListener('input', kopfZeigen);
   umschalten();
+  kopfZeigen();
 
   const feldZeigen = (id, text) => {
     const feld = form.querySelector(`#${id}`);
@@ -66,10 +77,9 @@ export function composer(form) {
     }
     uebersicht.hidden = true;
     const felder = [...form.querySelectorAll('[data-feld]')].map((el) => ({ titel: el.getAttribute('data-feld'), wert: el.value }));
-    const betreff = `${a?.getAttribute('data-betreff') || 'Anfrage'}${werte['k-ort'] ? ` – ${werte['k-ort']}` : ''}`;
     let ergebnis;
     try {
-      ergebnis = mailtoUrl({ an, betreff, felder, nachricht: form.querySelector('#k-nachricht')?.value });
+      ergebnis = mailtoUrl({ an, betreff: betreff(), felder, nachricht: form.querySelector('#k-nachricht')?.value });
     } catch {
       // Empfänger noch nicht konfiguriert (Vorschau): nichts öffnen, aber den Grund nennen
       if (ohneAdresse) { ohneAdresse.hidden = false; ohneAdresse.focus(); }

@@ -1,5 +1,6 @@
 // V08 Ratgeber-Übersicht: Artikel nach Lage geordnet (Notfall, Vorbeugen, Technik, Recht und Kosten).
-// Nur gebaute Artikel erscheinen; jede Kategorie hat einen Anker für die Rücksprünge aus den Artikeln.
+// Nur gebaute Artikel erscheinen; jede Kategorie hat einen Anker für die Rücksprünge aus den Artikeln. Die Sprung-
+// leiste nennt je Kategorie die Zahl der gebauten Artikel (gezählt, nicht behauptet).
 import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
@@ -53,7 +54,7 @@ export async function seiten(k) {
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <h1 id="ratgeber-titel">${INHALT.h1}</h1>
 <p class="gruppe-einleitung">${text(INHALT.einleitung)}</p>
-${artikel.length ? html`<nav class="ratgeber-sprung" aria-label="Kategorien"><ul>${Object.entries(KATEGORIEN).filter(([id]) => artikel.some((a) => a.inhalt.kategorie === id)).map(([id, kat]) => html`<li><a href="#${id}">${kat.titel}</a></li>`)}</ul></nav>` : ''}
+${artikel.length ? html`<nav class="ratgeber-sprung" aria-label="Kategorien"><ul>${Object.entries(KATEGORIEN).map(([id, kat]) => [id, kat, artikel.filter((a) => a.inhalt.kategorie === id).length]).filter(([, , n]) => n).map(([id, kat, n]) => html`<li><a href="#${id}">${kat.titel} <span class="ratgeber-sprung-zahl">${String(n)}<span class="unsichtbar"> Artikel</span></span></a></li>`)}</ul></nav>` : ''}
 </div></section>
 ${Object.entries(KATEGORIEN).map(([id, kat], i) => {
     const liste = artikel.filter((a) => a.inhalt.kategorie === id);

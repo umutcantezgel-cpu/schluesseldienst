@@ -25,9 +25,6 @@
   /* großer Rufknopf in der schmalen Karte: weniger Innenabstand, damit er bei 320 px in die Karte passt */
   .kontakt-weg .rufknopf-gross { padding-inline: var(--sp-s); }
 
-  /* Messraster (K-008: 1-px-Punkte im Abstand 8, leise) unter der Vorlage: Das Band wird zur Werkbank, auf der die
-     Vorlage als weißes Blatt liegt – das einzige Muster der Seite, nur auf Papier-2 */
-  .kontakt-werkbank { background-image: radial-gradient(circle at center, var(--c-linie) calc(var(--linie-haar) / 2), transparent calc(var(--linie-haar) / 2)); background-size: var(--sp-2xs) var(--sp-2xs); }
   .kontakt-composer-teilung { display: grid; gap: var(--sp-l); }
   .composer { display: grid; gap: var(--sp-m); padding: var(--sp-f-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-2); }
   .composer-anliegen { margin: 0; padding: 0; border: 0; min-inline-size: 0; }
@@ -36,6 +33,14 @@
   /* Notfall-Panel: Papier-2 mit Kupferbalken wie der Notfall-Weg im Kopf; Kupfer-hell bleibt den Platzhaltern */
   .composer-notfall { display: grid; gap: var(--sp-s); justify-items: start; padding: var(--sp-m); border-radius: var(--r-s); background: var(--c-papier-2); border-inline-start: var(--sp-3xs) solid var(--c-kupfer); }
   .composer-mail { display: grid; gap: var(--sp-m); }
+  /* Briefkopf (nur mit JS): An und Betreff wie in der vorbereiteten E-Mail, als Register wie die Angaben im Impressum
+     (Versalmarke links, Wert rechts). Die Tintenlinie darunter ist der Tabellenkopf der Suche: Hier beginnt die E-Mail,
+     die Felder darunter sind ihr Text. Der Betreff folgt Anliegen und Ort (Modul composer). */
+  .composer-kopf { display: grid; gap: var(--sp-2xs); margin: 0; padding-block-end: var(--sp-s); border-block-end: var(--linie-ui) solid var(--c-tinte); }
+  .composer-kopf[hidden] { display: none; }
+  .composer-kopf > div { display: grid; grid-template-columns: var(--sp-3xl) minmax(0, 1fr); gap: var(--sp-s); align-items: baseline; }
+  .composer-kopf dt { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
+  .composer-kopf dd { margin: 0; font-weight: var(--fw-ui); overflow-wrap: anywhere; }
   .composer-felder { display: grid; gap: var(--sp-m); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); }
   /* ohne JS sind alle Zusatzfelder verborgen: die leere Gruppe soll keine zweite Lücke erzeugen */
   .composer-felder:not(:has(> :not([hidden]))) { display: none; }
@@ -70,7 +75,7 @@
   .composer-handlung { display: grid; gap: var(--sp-xs); justify-items: start; }
   .composer-direkt { font-size: var(--fs--1); color: var(--c-tinte-3); }
   /* Platzhalter wie „[E-Mail-Adresse]“ nie am Bindestrich in zwei Kästen teilen; „E-Mail“ nie nach „E-“ umbrechen */
-  .composer-direkt .platzhalter, .kontakt-anschrift .platzhalter, .kein-umbruch { white-space: nowrap; }
+  .composer-direkt .platzhalter, .composer-kopf .platzhalter, .kontakt-anschrift .platzhalter, .kein-umbruch { white-space: nowrap; }
 
   .kontakt-teilung { display: grid; gap: var(--sp-xl); }
   .kontakt-anschrift { font-style: normal; line-height: var(--lh-text); margin-block: var(--sp-s); }
@@ -86,6 +91,7 @@
        auf der Höhe der Kopflinie: eine Linie über beide Spalten statt zweier Marken auf verschiedenen Höhen. Der
        planbare Weg darunter als Zeile über die ganze Breite (Icon · Titel und Text · Handlung): Er ist der Übergang zur
        Vorlage im nächsten Abschnitt. Die Hülle .kontakt-wege tritt dafür zurück (display: contents, ein div ohne Rolle). */
+    .kontakt-kopf { padding-block-end: var(--sp-2xl); }
     .kontakt-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-areas: "text notfall" "planbar planbar"; gap: var(--sp-l) var(--sp-xl); align-items: start; }
     .kontakt-kopftext { grid-area: text; }
     .kontakt-kopf h1 { font-size: var(--fs-5); }

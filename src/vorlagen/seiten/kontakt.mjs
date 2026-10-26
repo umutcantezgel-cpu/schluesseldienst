@@ -18,6 +18,9 @@ import { zusammen } from './recht.mjs';
 
 const TAGE = [['mo', 'Montag'], ['di', 'Dienstag'], ['mi', 'Mittwoch'], ['do', 'Donnerstag'], ['fr', 'Freitag'], ['sa', 'Samstag'], ['so', 'Sonntag']];
 
+// Vorausgewählte Option (Planbare Arbeit); Radio und Briefkopf der Vorlage beginnen damit
+const VORWAHL = 1;
+
 const REGELN = [
   { id: 'k-ort', titel: 'Ort oder Postleitzahl', pflicht: true },
   { id: 'k-nachricht', titel: 'Ihre Nachricht', pflicht: true, min: 10 },
@@ -72,13 +75,17 @@ function composer(sk) {
   const offen = istPlatzhalter(email);
   const f = c.felder;
   const felder = html`<fieldset class="composer-anliegen"><legend>${c.anliegenTitel}</legend>
-<div class="composer-optionen">${c.anliegen.map((a, i) => html`<label class="wahl-option"><input type="radio" name="anliegen" value="${a.wert}" data-betreff="${a.betreff}"${i === 1 ? html` checked` : ''}><span class="wahl-option-text"><span class="wahl-option-titel">${a.titel}</span>${a.text ? html`<span class="wahl-option-zusatz">${a.text}</span>` : ''}</span></label>`)}</div>
+<div class="composer-optionen">${c.anliegen.map((a, i) => html`<label class="wahl-option"><input type="radio" name="anliegen" value="${a.wert}" data-betreff="${a.betreff}"${i === VORWAHL ? html` checked` : ''}><span class="wahl-option-text"><span class="wahl-option-titel">${a.titel}</span>${a.text ? html`<span class="wahl-option-zusatz">${a.text}</span>` : ''}</span></label>`)}</div>
 </fieldset>
 <div class="composer-notfall" data-rolle="notfall" hidden>
 <p>${zusammen(c.notfallText)}</p>
 ${rufknopf(sk, { variante: 'gross' })}
 </div>
 <div class="composer-mail" data-rolle="mail">
+<dl class="composer-kopf" data-nur-js="" hidden>
+<div><dt>${c.kopf.an}</dt><dd>${email}</dd></div>
+<div><dt>${c.kopf.betreff}</dt><dd data-rolle="betreff">${c.anliegen[VORWAHL].betreff}</dd></div>
+</dl>
 <div class="composer-fehlerliste" data-rolle="fehler" tabindex="-1" role="alert" hidden>
 <p class="composer-fehler-titel">${c.fehlerTitel}</p>
 <ul></ul>
@@ -146,7 +153,7 @@ export function seiten(k) {
       betriebLd({ ...k }), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, '/kontakt/', inhalt.faq),
     ],
     inhalt: (sk) => html`${kopf(sk)}
-<section class="sektion band kontakt-werkbank" aria-labelledby="anfrage-titel">
+<section class="sektion band" aria-labelledby="anfrage-titel">
 <div class="raster"><div class="kontakt-composer-teilung">
 ${abschnittKopf({ id: 'anfrage-titel', titel: inhalt.composer.titel, einleitung: zusammen(inhalt.composer.einleitung) })}
 ${composer(sk)}

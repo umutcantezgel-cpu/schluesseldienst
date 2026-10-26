@@ -1,6 +1,6 @@
 /* V09 Betrieb: Über uns (Erzählansicht) und Karriere (Arbeitsansicht). Kopf mit Leitidee und Lahnbogen (7/5),
-   Teilung „Wer wir sind“ mit Gruppenkacheln, drei Werte, dunkles Schlussband mit Rufknopf, Stellen als Karten.
-   Werte nur über Tokens. */
+   Teilung „Wer wir sind“ (Sitz links; Messleiste „Ab Weilburg“ und Gruppenregister rechts), drei Werte, dunkles
+   Schlussband mit Rufknopf, Stellen als Karten. Werte nur über Tokens. */
 @layer komponenten {
   .betrieb-kopf { padding-block: var(--sp-f-m) var(--sp-m); }
   .betrieb-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; }
@@ -11,9 +11,14 @@
 
   .ueber-teilung { display: grid; gap: var(--sp-l); }
   .ueber-teilung .abschnitt-kopf { margin-block-end: 0; }
+  /* Linke Spalte: Überschrift und die Angaben zum Betrieb in der Größe einer Einleitung */
+  .ueber-wer-kopf { display: grid; gap: var(--sp-s); align-content: start; }
+  .ueber-sitz { font-size: var(--fs-1); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); text-wrap: pretty; }
   /* Sätze halten das Textmaß (p), Messleiste und Register nutzen die ganze Spalte bis zur Rasterkante */
   .ueber-wer { gap: var(--sp-s); max-inline-size: none; }
   .ueber-wer .ueber-unter { margin-block-start: var(--sp-l); }
+  /* Die erste Zwischenüberschrift steht auf der Höhe der Abschnittsmarke links */
+  .ueber-wer > .ueber-unter:first-child { margin-block-start: 0; }
 
   /* Messleiste „Ab Weilburg“: mobil senkrecht (Schiene links, Strich an jeder Zonengrenze), ab 48em waagerecht mit
      einer Spalte je Zone. Der Kupferpunkt am Anfang ist Weilburg – wie auf jeder Karte der Website. */

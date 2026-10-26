@@ -42,8 +42,8 @@ export function gruppenLd(sk, g, inhalt) {
   };
 }
 
-// Kopf 7/5: Das Register rechts zeigt nur Icon und Name (zweispaltig ab 30em) und schließt damit neben dem Text in
-// einer Bildschirmhöhe; der Kurzsatz je Leistung bleibt für Screenreader im Linknamen. Die Notöffnung ruft im Kopf
+// Kopf 7/5: Das Register rechts zeigt nur Icon und Name (zweispaltig) und schließt damit neben dem Text in einer
+// Bildschirmhöhe; der Kurzsatz je Leistung bleibt für Screenreader im Linknamen. Die Notöffnung ruft im Kopf
 // erst ab 64em an – darunter trägt die Rufleiste den Anruf (wie V01), statt zweimal im ersten Bildschirm.
 function kopf(sk, g, inh) {
   return html`<section class="gruppe-kopf" aria-labelledby="gruppe-titel">

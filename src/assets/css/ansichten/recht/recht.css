@@ -46,7 +46,8 @@
   /* Verzeichnis: Marke wie Kopflinie und Kicker (kurze Kupferlinie, Versalien) statt einer zweiten, langen Linie;
      Einträge als Register mit Haarlinien, je Zeile mindestens 44 px Trefferhöhe (K-009) */
   .recht-rand { grid-area: rand; align-self: start; display: grid; gap: var(--sp-s); }
-  .recht-rand-titel { display: grid; gap: var(--sp-xs); font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
+  /* Zeilenhöhe wie der Kicker (sonst steht „Inhalt“ ab 64em 4 px über der Grundlinie von „Betrieb und Recht“) */
+  .recht-rand-titel { display: grid; gap: var(--sp-xs); font-size: var(--fs--1); line-height: var(--lh-text); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
   .recht-rand-titel::before { content: ""; inline-size: var(--sp-xl); block-size: var(--linie-scher); background: var(--c-kupfer); }
   .recht-toc { list-style: none; padding: 0; margin: 0; display: grid; font-size: var(--fs--1); border-block-start: var(--linie-haar) solid var(--c-linie); }
   .recht-toc li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }

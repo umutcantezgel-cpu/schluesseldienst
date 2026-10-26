@@ -6,7 +6,7 @@ export default {
   kicker: 'Leistungsgruppe',
   h1: 'Einbruchschutz für Tür und Fenster',
   einleitung: 'Eine Tür hält nur so lange wie ihr schwächster Teil. Wir zeigen, wo ein Angriff ansetzt und welche Sicherung dort zuerst hilft. Kein Schloss hält jedem Angriff stand, aber jede Schicht macht den Versuch aufwendiger.',
-  registerTitel: 'Welche Sicherung wozu',
+  registerTitel: 'Die Sicherungen im Einzelnen',
   szene: {
     titel: 'Schicht für Schicht zur sicheren Tür',
     einleitung: 'Die Schichten greifen ineinander. Jede Schicht sichert eine bestimmte Stelle der Tür.',

@@ -10,15 +10,25 @@
   .gruppe-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
   .gruppe-register { border-block-start: var(--linie-scher) solid var(--c-kupfer); padding-block-start: var(--sp-s); }
   .gruppe-register-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-2xs); }
-  /* Register als Stückliste: Icon und Name je Zeile, Haarlinie darunter; zweispaltig, sobald zwei Namen nebeneinander
-     passen. Der Kurzsatz steht nur im Linknamen (unsichtbar), sonst liefe der Kopf über anderthalb Bildschirme. */
-  .gruppe-register ul { list-style: none; padding: 0; display: grid; column-gap: var(--sp-l); }
+  /* Register als Stückliste: Icon und Name je Zeile, Haarlinie darunter, immer zweispaltig. Der Kurzsatz steht nur
+     im Linknamen (unsichtbar), sonst liefe der Kopf über anderthalb Bildschirme. Auf dem Telefon kleiner gesetzt
+     (UI-Icon, fs--1), damit zwei Namen nebeneinander passen: neun Zeilen à 48 px wären fast ein Bildschirm. */
+  .gruppe-register ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-s); }
   .gruppe-register li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
-  .gruppe-register a { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: var(--sp-xs); min-block-size: var(--ziel-touch); padding-block: var(--sp-2xs); color: var(--c-tinte); text-decoration: none; }
+  /* Zeile als Bedienelement (K-009): Überlagerung .10 über die ganze Zeile (M-02), gedrückt .18 und scale .98 (M-03) */
+  .gruppe-register a { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: var(--sp-2xs); min-block-size: var(--ziel-touch); padding-block: var(--sp-2xs); color: var(--c-tinte); text-decoration: none; }
+  .gruppe-register a::before { content: ""; position: absolute; inset-block: 0; inset-inline: calc(-1 * var(--sp-2xs)); z-index: -1; border-radius: var(--r-s); background: currentColor; opacity: 0; }
+  .gruppe-register a:hover::before { opacity: var(--deck-hover); }
+  .gruppe-register a:active::before { opacity: var(--deck-aktiv); }
   .gruppe-register a:hover .gruppe-register-name { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
-  .gruppe-register-icon { inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); }
-  .gruppe-register-name { font-weight: var(--fw-titel); line-height: var(--lh-titel); }
-  @media (min-width: 30em) { .gruppe-register ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .gruppe-register-icon { inline-size: var(--icon-ui); block-size: var(--icon-ui); color: var(--c-lahn-text); }
+  .gruppe-register-name { font-size: var(--fs--1); font-weight: var(--fw-titel); line-height: var(--lh-titel); }
+  @media (min-width: 30em) {
+    .gruppe-register ul { column-gap: var(--sp-l); }
+    .gruppe-register a { column-gap: var(--sp-xs); }
+    .gruppe-register-icon { inline-size: var(--icon-leistung); block-size: var(--icon-leistung); }
+    .gruppe-register-name { font-size: var(--fs-0); }
+  }
   .nachweis { display: grid; gap: 0; margin: 0; }
   .nachweis-eintrag { display: grid; gap: var(--sp-3xs); padding-block: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie); }
   .nachweis dt { font-weight: var(--fw-titel); }
@@ -50,5 +60,15 @@
     .gruppe-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
     .gruppe-kopf h1 { font-size: var(--fs-5); }
     .gruppe-handlung-ruf { display: flex; }
+  }
+}
+/* M-02/M-03 an den Registerzeilen: Überlagerung blendet in feedback, gedrückt staucht die Zeile nur ohne
+   reduzierte Bewegung (dann bleibt die Überlagerung allein) */
+@layer bewegung {
+  .gruppe-register a::before { transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .gruppe-register a:hover::before { transition-duration: var(--dur-feedback); }
+  @media (prefers-reduced-motion: no-preference) {
+    .gruppe-register a { transition: transform var(--dur-feedback) var(--ease-standard); }
+    .gruppe-register a:active { transform: scale(.98); }
   }
 }

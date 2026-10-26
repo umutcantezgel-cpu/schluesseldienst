@@ -4,8 +4,10 @@
   .ratgeber-kopf h1 { font-size: var(--fs-5); }
   .ratgeber-sprung ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-xs); }
   .ratgeber-sprung li { margin: 0; }
-  .ratgeber-sprung a { display: inline-flex; align-items: center; min-block-size: var(--ziel-min); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); color: var(--c-tinte); text-decoration: none; }
+  .ratgeber-sprung a { display: inline-flex; align-items: baseline; gap: var(--sp-xs); min-block-size: var(--ziel-min); padding-block: var(--sp-2xs); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); color: var(--c-tinte); text-decoration: none; }
   .ratgeber-sprung a:hover { border-color: var(--c-kupfer); }
+  /* Zahl der Artikel je Kategorie: leise, mit Tabellenziffern hinter einer Haarlinie – sie sortiert, sie wirbt nicht */
+  .ratgeber-sprung-zahl { padding-inline-start: var(--sp-xs); border-inline-start: var(--linie-haar) solid var(--c-linie); font-size: var(--fs--1); color: var(--c-tinte-3); font-variant-numeric: tabular-nums; }
   .ratgeber-liste { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-breit)), 1fr)); gap: var(--sp-s); }
   .ratgeber-liste li { margin: 0; display: grid; }
   /* Dichte Kachel (K-009) mit Bildzeichen statt Kupferkante: Kupfer bleibt Kopflinie und Abschnittsmarke (P1) */
