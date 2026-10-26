@@ -1,5 +1,6 @@
 // Rufleiste (mobil, fest unten, nie versteckt): Menü + Anruf. Das Menü ist ohne JS ein Sprung
-// zur Fußnavigation; mit JS öffnet es ein <dialog> als Blatt von unten (M-06).
+// zur Fußnavigation; mit JS öffnet es ein <dialog> als Blatt von unten (M-06). Das modale Blatt liegt über der
+// Rufleiste – deshalb trägt es unten seinen eigenen Anruf (K-006: der Anruf ist nie mehr als ein Tipp entfernt).
 import { html } from '../../../bau/lib/html.mjs';
 import { HAUPT } from '../../konfig/navigation.mjs';
 import { icon } from './icons.mjs';
@@ -21,5 +22,6 @@ ${HAUPT.map((p) => html`<li><a href="${p.pfad}">${p.titel}</a>${p.untermenue ? h
 <li><a href="/suche/">Suche</a></li>
 </ul>
 </nav>
+<div class="menue-blatt-ruf">${rufknopf(sk, { variante: 'leiste' })}</div>
 </dialog>`;
 }

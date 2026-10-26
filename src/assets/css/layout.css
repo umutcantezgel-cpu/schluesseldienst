@@ -60,10 +60,16 @@
   .fuss li + li { margin-top: 0; }
   .fuss a { color: var(--c-tinte); display: inline-flex; align-items: center; min-block-size: var(--ziel-min); text-decoration: none; }
   .fuss a:hover { text-decoration: underline; }
-  /* Mobil stehen die Länder zweispaltig, damit der Fuß kein eigener Bildschirm wird */
-  .fuss-gebiet ul { columns: 2; column-gap: var(--sp-l); }
-  .fuss-gebiet li { break-inside: avoid; }
-  @media (min-width: 48em) { .fuss-gebiet ul { columns: auto; } }
+  /* Länder zweispaltig als Raster (Zeilen fluchten, auch wenn ein Name umbricht); die Übersicht steht über beiden.
+     Tablet: eine Spalte in der schmalen Fußspalte. Ab 64em: fünf gleiche Spuren, die Länderliste belegt zwei –
+     so bestimmt sie nicht mehr allein die Höhe des Fußes. */
+  .fuss-gebiet ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-l); }
+  .fuss-gebiet li:first-child { grid-column: 1 / -1; }
+  @media (48em <= width < 64em) { .fuss-gebiet ul { grid-template-columns: minmax(0, 1fr); } }
+  @media (min-width: 64em) {
+    .fuss-innen { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .fuss-gebiet { grid-column: span 2; }
+  }
   .fuss address { line-height: var(--lh-text); margin-block-start: var(--sp-xs); }
   .fuss address a { min-block-size: 0; display: inline; text-decoration: underline; }
   .fuss-linie { display: flex; align-items: center; gap: var(--sp-xs); padding: var(--sp-s) var(--rand) var(--sp-l); max-inline-size: calc(var(--inhalt-max) + 2 * var(--spalte-breit) + 2 * var(--rand)); margin-inline: auto; font-size: var(--fs--1); color: var(--c-tinte-3); }

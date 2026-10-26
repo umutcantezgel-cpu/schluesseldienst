@@ -80,5 +80,7 @@
     .lb-wasser, .gk-zone-c, .gk-zone-d, .lk-nachbarn { stroke: GrayText; }
     .gk-name, .gk-ring-text, .gk-sitz-name, .lk-ort-text, .lk-sitz-text, .lk-km, .lk-name, .lk-mass-text { paint-order: stroke; stroke: Canvas; }
     .lk-sitz-ring { stroke: Highlight; }
+    .wahl-option input { appearance: auto; }
+    .wahl-option input::before { content: none; }
   }
 }

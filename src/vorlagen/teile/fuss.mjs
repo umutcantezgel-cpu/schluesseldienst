@@ -15,8 +15,8 @@ export function fuss(sk) {
   return html`<footer class="fuss" id="seitennavigation">
 <div class="fuss-innen">
 <section class="fuss-kontakt" aria-labelledby="fuss-kontakt-titel">
-${wortmarke(sk)}
 <h2 class="fuss-titel" id="fuss-kontakt-titel">Kontakt</h2>
+${wortmarke(sk)}
 <address>
 <span>${b.adresse.strasse}</span><br>
 <span>${b.adresse.plz} ${b.adresse.ort}</span><br>

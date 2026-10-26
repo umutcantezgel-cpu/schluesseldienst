@@ -15,6 +15,12 @@
   .menue-blatt-liste ul { list-style: none; padding: 0 0 var(--sp-xs) var(--sp-s); }
   .menue-blatt-liste ul a { font-weight: var(--fw-text); }
   .menue-blatt-liste ul li + li { margin-top: 0; }
+  /* Anruf am Blattende, klebt am unteren Rand des Blatts (die Rufleiste liegt bei offenem Menü darunter) */
+  .menue-blatt-ruf {
+    position: sticky; inset-block-end: 0; display: flex; margin-block-start: var(--sp-s); padding-block: var(--sp-xs);
+    background: var(--c-flaeche); border-block-start: var(--linie-haar) solid var(--c-linie-ui);
+  }
+  .menue-blatt-ruf .rufknopf { flex: 1; }
   @media (prefers-reduced-motion: no-preference) {
     .menue-blatt[open] { transition: transform var(--dur-zustand) var(--ease-ein), display var(--dur-zustand) allow-discrete, overlay var(--dur-zustand) allow-discrete; }
     @starting-style { .menue-blatt[open] { transform: translateY(100%); } }

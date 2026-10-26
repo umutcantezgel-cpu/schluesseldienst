@@ -21,8 +21,9 @@
   .hauptnav-panel { display: none; }
   .js .hauptnav-panel {
     display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-l);
-    position: absolute; inset-block-start: 100%; inset-inline-start: var(--rand); z-index: var(--z-popover);
-    inline-size: min(var(--nav-panel-breit), 100% - 2 * var(--rand)); padding: var(--sp-l); background: var(--c-flaeche); border-radius: var(--r-l); box-shadow: var(--sh-3);
+    /* Linke Kante auf der Inhaltslinie des Seitenrasters (wie Brotkrumen und Kopflinie), schmal mindestens am Rand */
+    position: absolute; inset-block-start: 100%; inset-inline-start: max(var(--rand), (100% - var(--inhalt-max)) / 2); z-index: var(--z-popover);
+    inline-size: min(var(--nav-panel-breit), 100% - max(var(--rand), (100% - var(--inhalt-max)) / 2) - var(--rand)); padding: var(--sp-l); background: var(--c-flaeche); border-radius: var(--r-l); box-shadow: var(--sh-3);
     border-block-start: var(--linie-scher) solid var(--c-kupfer);
     visibility: hidden; opacity: 0; transform: translateY(calc(-1 * var(--sp-2xs)));
     transition: opacity var(--dur-zustand-aus) var(--ease-aus), transform var(--dur-zustand-aus) var(--ease-aus), visibility var(--dur-null) linear var(--dur-zustand-aus);

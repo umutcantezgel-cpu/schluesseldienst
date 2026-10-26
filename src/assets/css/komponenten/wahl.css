@@ -12,7 +12,16 @@
   .wahl-option:has(input:focus-visible) { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: var(--linie-fokus); }
   /* Ein Fokusring: die Karte trägt ihn (:has), das Radio selbst nicht */
   .wahl-option input:focus-visible { outline: none; }
-  .wahl-option input { margin: 0; margin-block-start: var(--sp-3xs); inline-size: var(--sp-s); block-size: var(--sp-s); accent-color: var(--c-lahn); }
+  /* Eigenes Radio im Formsystem (Strich 1.5, Lahn für gewählt) statt der Browser-Glyphe – dunkel sonst eine graue
+     Scheibe, die deaktiviert wirkt. Erzwungene Farben: wieder das System-Radio (hilfen.css). */
+  .wahl-option input {
+    appearance: none; display: grid; place-content: center; flex: none; margin: 0; margin-block-start: var(--sp-3xs);
+    inline-size: var(--sp-s); block-size: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund);
+    background: var(--c-flaeche); cursor: pointer;
+  }
+  .wahl-option input::before { content: ""; inline-size: calc(var(--sp-s) / 2); block-size: calc(var(--sp-s) / 2); border-radius: var(--r-rund); background: var(--c-lahn); transform: scale(0); }
+  .wahl-option input:checked { border-color: var(--c-lahn); }
+  .wahl-option input:checked::before { transform: none; }
   .wahl-option-text { display: grid; }
   .wahl-option-titel { font-weight: var(--fw-ui); }
   .wahl-option-zusatz { font-size: var(--fs--1); color: var(--c-tinte-3); }
