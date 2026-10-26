@@ -1,6 +1,6 @@
 # BERICHT
 
-## Morgenbericht · 26. Oktober 2026, 07:00 Uhr
+## Morgenbericht · 26. Oktober 2026 (Stand 06:06 Uhr)
 - **Fertig:** Die Website steht komplett: 5.556 Seiten, darunter 5.252 Ortsseiten, 27 Leistungsseiten, 19 Ratgeber und alle Rechtsseiten als Entwurf. Bilder vom Stand der letzten Prüfung: `_werkstatt/bilder/morgen-2026-10-26/` (Startseite hell auf Desktop und Handy, Preise, Ortsseite Löhnberg, Karte des Einsatzgebiets, Über uns).
 - **Prüfungen:** 320 automatische Tests und alle elf Prüfprogramme sind grün. Barrierefreiheit ohne Fehler, kein Layout läuft über, Ladezeiten im Ziel. Der Tastaturfokus verschwindet nie mehr hinter der Anrufleiste.
 - **Vergleich mit den beiden Vorbildern:** Zwei unabhängige Prüfer haben jeweils zwölf anonymisierte Bildpaare verglichen. Alle 24 Urteile fielen für die neue Seite aus, fast alle „sehr klar“.
