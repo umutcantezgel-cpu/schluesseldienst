@@ -28,7 +28,7 @@ Vier Haiku-Agenten parallel: Prüfer Z-02/03/06/10 mit Kalibrierung, Prüfer Z-0
 | Z-07 H4 seriösen Betrieb erkennen | Pfad erfüllt, Inhalt U-6 | Über uns → Impressum per Tastatur; Inhalt 23 bzw. 11 Platzhalter (U-6) | (ergebnis.h4) |
 | Z-07 H5 Anfrage per E-Mail | Pfad erfüllt, Übergabe U-6 | Ort, Nachricht, Absenden per Tastatur; ohne Empfängeradresse erscheint der Hinweis, Fokus geht dorthin | (ergebnis.h5) |
 | Z-09 Überlauf | erfüllt | 38 Seiten (13 Hauptansichten, 5 übrige, 20 Ortsseiten aus A–D und NL) × 11 Varianten (320/390/768/1440/1920, forced-colors, 200 % Zoom) × hell/dunkel = 836 Messungen, 0 Überlauf; Kontrolle erkennt `schlecht.html` 11/11 | `pruefer-z07-z09/ueberlauf-hell.json`, `pruefer-z07-z09/ueberlauf-dunkel.json`, `pruefer-z07-z09/ueberlauf-kontrolle.json`, `pruefer-z07-z09/stichprobe-orte.json` |
-| Z-09 Sichtung erster Bildschirm | erfüllt mit Hinweis | 30 Bilder (5 Seiten × 3 Geräte × hell/dunkel): kein abgeschnittener oder überlappender Text; mobil liegt die feste Rufleiste über unteren Zeilen des ersten Bildschirms (gewollt, P2; beim Scrollen frei, Fokus nie verdeckt) | `.cache/e5-abschluss/pruefer-z07-z09/bildsatz/` (1.340 Ausschnitte, nicht im Repo) |
+| Z-09 Sichtung erster Bildschirm | erfüllt mit Hinweis | 30 Bilder (5 Seiten × 3 Geräte × hell/dunkel): kein abgeschnittener oder überlappender Text; mobil liegt die feste Rufleiste über unteren Zeilen des ersten Bildschirms (gewollt nach KERN K-003, P5; beim Scrollen frei, Fokus nie verdeckt) | `.cache/e5-abschluss/pruefer-z07-z09/bildsatz/` (1.340 Ausschnitte, nicht im Repo) |
 | Z-05 Bildrate große Momente | erfüllt (U-3) | M-16 3,42 %, M-17 1,38 %, M-18 1,80 %, M-20 1,69 %, M-21 2,48 % (max. aus je 3 Läufen, 4× Drosselung) | `haiku-z05-z08/bildrate-m*-*.json` |
 | Z-05 reduzierte Bewegung Laden/Scrollen | erfüllt | 13/13: 0 Transform-Animationen, alle Inhalte sichtbar; Kontrolle no-preference findet Transforms | `haiku-z05-z08/reduce.json` |
 | Z-05 reduzierte Bewegung Interaktionen | **nicht erfüllt** | FAQ-Chevron und Navigationspfeil drehen 300 ms; Panel 300/240 ms statt 150; Menü-Blatt ohne Deckkraftblende; Ortsprüfungs-Ergebnis blendet | `haiku-z05-z08/reduce.json` |
@@ -50,7 +50,7 @@ Vier Haiku-Agenten parallel: Prüfer Z-02/03/06/10 mit Kalibrierung, Prüfer Z-0
 
 Nicht geändert, mit Begründung:
 - **Anruf und Rechnerbetrag in der Vorschau (F01, F05, H1, H4, H5):** Konfigurationslücken (U-6), kein Codefehler; der Release-Bau sperrt sie (Negativtest), der Ersatz mit Testnummer ist erfüllt.
-- **Rufleiste über den unteren Zeilen des ersten Bildschirms (mobil):** gewollt (K-002/P2 „Daumen zuerst“, nie versteckt); Fokus nie verdeckt, Inhalt beim Scrollen frei.
+- **Rufleiste über den unteren Zeilen des ersten Bildschirms (mobil):** gewollt (KERN K-003, Prinzip 5 „Daumen zuerst, Nacht mitgedacht“; Rufleiste nie versteckt); Fokus nie verdeckt, Inhalt beim Scrollen frei.
 - **Sitemap- und robots-Adressen 127.0.0.1:4173 im Messbau:** erwartbar für `--messen`; im Release gilt `betrieb.basisUrl`.
 - **Kreislinien der Lagekarte am Kartenrahmen angeschnitten (fernere Orte, z. B. Flonheim, Detmold-Berlebeck, Tilligte):** Der gestrichelte Ring um Weilburg reicht dort über den Kartenausschnitt hinaus; kein Text betroffen, kein Überlauf. Gestaltungspunkt ohne Fehlerwirkung, eingetragen in `docs/OFFENE-PUNKTE.md` (Lagekarte: Ausschnitt so wählen, dass der Ring ganz sichtbar bleibt, oder bewusst als Anschnitt gestalten).
 - **Weiches Bewegungsbudget 12 KB:** siehe Nachprüfung 2, Punkt Bewegungscode.

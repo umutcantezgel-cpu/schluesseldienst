@@ -32,7 +32,7 @@ Jeder Punkt: Frage · Beleg · meine Standardannahme (gilt bis zu deiner Antwort
 
 ## 5. Hosting, Domain, Betrieb
 - Hoster wählen: EU-Standort, Auftragsverarbeitungsvertrag (Art. 28 DSGVO), IP-Kürzung, Logs ≤ 14 Tage, eigene HTTP-Header möglich (Apache/nginx/Netlify/Cloudflare Pages). Hoster-Zusätze aus: Cloudflare Rocket Loader, E-Mail-Verschleierung, Web Analytics; Netlify Snippet Injection.
-- Domain: www oder ohne; HSTS-Preload erst nach stabiler HTTPS-Konfiguration; DNSSEC, CAA-Eintrag, Registrar-Lock; 2FA bei Registrar, Hoster, GitHub.
+- Domain: www oder ohne; HSTS-Preload erst nach stabiler HTTPS-Konfiguration; DNSSEC, CAA-Eintrag, Registrar-Lock; 2FA bei Registrar, Hoster, GitHub. Die Basis-URL trägst du in `src/konfig/betrieb.mjs` als `basisUrl` ein (Form `https://host` ohne Pfad; heute Platzhalter `https://Ihre-Domain.de`); ohne sie bricht der Release-Bau ab. · Beleg: `bau/bauen.mjs`; `_werkstatt/berichte/E5-abschluss-pruefung.md`, Abschnitt 1 (Z-02, Negativtest).
 - E-Mail: SPF, DKIM, DMARC `p=reject` (Schutz vor gefälschten Notdienst-Mails); überwachtes Postfach für `/.well-known/security.txt`; Erinnerung vor deren Ablaufdatum.
 - KI-Crawler sperren ja/nein (robots.txt) · Annahme: nicht gesperrt.
 - Nach dem Deploy einmal `node werkzeuge/live-check.mjs https://deine-domain` ausführen (prüft Header, MIME, 404, Weiterleitungen).
@@ -40,6 +40,8 @@ Jeder Punkt: Frage · Beleg · meine Standardannahme (gilt bis zu deiner Antwort
 ## 6. Tests, die die Cloud nicht kann (UMGEBUNGSAUSNAHMEN)
 - Echte Geräte (iPhone/Android), Firefox und Safari (nur Chromium ist installiert), GPU-Bildrate, Wirkung in der Google Search Console, Live-Header beim Hoster.
 - Geschmacksabnahme der Gestaltung durch dich.
+- Konfigurationslücken (U-6 laut ABNAHME: Name, Telefon, Preise, Rechtsdaten und ungeprüfte Fakten; dazu gehören die Punkte aus §1 bis §3, etwa E-Mail und Zonen-Bestätigung). Bis dahin zeigt die Vorschau Platzhalter. Der Release-Bau verweigert laut Code jede offene Konfigurationslücke und jeden ungeprüften Fakt (`bau/bauen.mjs`); der Negativtest der Abschluss-Nachprüfung brach schon an der Basis-URL ab.
+- Nach dem Eintragen von Telefonnummer, E-Mail und Preisliste auf einem echten Telefon prüfen: H1 (Anruf mit einem Tipp), H4 (Impressum vollständig), H5 (Mail-Programm öffnet sich) und der Gesamtbetrag im Preisrechner. In der Vorschau war H1 nur mit einer Testnummer in einer lokalen Kopie belegt, der Gesamtbetrag (F05) nur per Unit-Test; H4 und H5 sind nur als Tastaturpfad mit Platzhalterinhalt geprüft. · Beleg: `_werkstatt/berichte/E5-abschluss-pruefung.md`, Abschnitt 1 (Z-02 F05, Z-07 H1, H4, H5).
 
 ## 7. Texte und Fakten zur Freigabe (gesammelt aus den Paketen)
 - **Ablauf-Formulierungen ohne konfigurierte Zusage**: „Den Preis besprechen wir nach der Besichtigung.“ (Gruppen Einbruchschutz, Einbau & Tresore), „Den Ersatzteilpreis nennen wir Ihnen vorher.“ (Garagenöffnung), „vorab besprochen“ (Notöffnung). Bitte bestätigen oder streichen; die harten Zusagen (Gesamtpreis vor Arbeitsbeginn, Rechnung mit Positionen, Kartenzahlung) laufen über `src/konfig/betrieb.mjs → zusagen` und sind bis zur Bestätigung markierte Platzhalter.

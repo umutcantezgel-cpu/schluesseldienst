@@ -4,7 +4,7 @@ Diese Tabelle fasst die offenen Punkte aus `_werkstatt/MENSCHEN.md` (§1 bis §7
 
 **Blockiert Release „ja“** heißt: Der Build verweigert die Ausgabe, solange der Punkt offen ist, oder der Punkt ist in `MENSCHEN.md` mit **[RELEASE]** markiert. „nein“ heißt: Der Build verweigert nicht; die Website bleibt aber ohne diesen Punkt unvollständig.
 
-**Stand des Builds, mit dem dieses Dokument geprüft wurde:** 5.556 Seiten im Vorschau-Modus; 58 Platzhalter in der Konfiguration; 64 Platzhalter auf den Seiten; 92 ungeprüfte Fakten; 72 Titel über 60 Zeichen. Diese Zahlen ändern sich mit jedem Build; `npm run bauen` und `npm run pruefen` zeigen sie aktuell.
+**Stand des Builds, mit dem dieses Dokument geprüft wurde:** 5.556 Seiten im Vorschau-Modus; 58 Platzhalter in der Konfiguration; 65 Platzhalter auf den Seiten (Messbau `e719627`); 92 ungeprüfte Fakten; 72 Titel über 60 Zeichen. Diese Zahlen ändern sich mit jedem Build; `npm run bauen` und `npm run pruefen` zeigen sie aktuell.
 
 **Wer entscheidet:** Betrieb (Inhaber oder Vertretungsberechtigte), Jurist, Fachmann (Fachangaben und Normen), Hoster, Projektleitung.
 
@@ -37,12 +37,12 @@ Diese Tabelle fasst die offenen Punkte aus `_werkstatt/MENSCHEN.md` (§1 bis §7
 | 23 | Hub-Seiten | Die Daten ordnen „Eutergrund“ und „Stegskopf“ keinem Kreis zu; sie stehen unter „Weitere Orte“ | Betrieb | nein | MENSCHEN §7 |
 | 24 | Repository | Das Repository ist öffentlich. Die Historie enthält Dateien mit fremden Inhalten und Personendaten; Einzelheiten stehen in MENSCHEN §4. Optionen: Repository privat stellen und oder die Historie bereinigen | Betrieb | nein | MENSCHEN §4 |
 | 25 | Hosting | Hoster wählen: EU-Standort, Auftragsverarbeitung, IP-Kürzung, Logs höchstens 14 Tage, eigene Header. Hoster-Zusätze abschalten | Betrieb, Hoster | nein; Voraussetzung für den Livegang | MENSCHEN §5 |
-| 26 | Domain und DNS | Schreibweise mit oder ohne `www`. HSTS-Preload erst nach stabiler HTTPS-Konfiguration. DNSSEC, CAA, Registrar-Sperre, Zwei-Faktor-Anmeldung | Betrieb, Hoster | nein | MENSCHEN §5 |
+| 26 | Domain und DNS | Schreibweise mit oder ohne `www`. HSTS-Preload erst nach stabiler HTTPS-Konfiguration. DNSSEC, CAA, Registrar-Sperre, Zwei-Faktor-Anmeldung. Die Basis-URL (`basisUrl` in `src/konfig/betrieb.mjs`, Form `https://host` ohne Pfad) ist Pflicht: ohne sie bricht der Release-Bau ab (`bau/bauen.mjs`) | Betrieb, Hoster | ja (Basis-URL), sonst nein | MENSCHEN §5 |
 | 27 | E-Mail | SPF, DKIM und DMARC mit `p=reject`. Überwachtes Postfach für `security.txt` und Erinnerung vor deren Ablauf | Betrieb | nein | MENSCHEN §5 |
 | 28 | Crawler | KI-Crawler sperren, ja oder nein (robots.txt). Annahme: nicht gesperrt | Betrieb | nein | MENSCHEN §5 |
 | 29 | Prüfung außerhalb der Cloud | Echte Geräte (iPhone, Android), Firefox und Safari, GPU-Bildrate, Wirkung in der Search Console, Live-Header beim Hoster | Fachmann, Betrieb | nein | MENSCHEN §6 |
 | 30 | Gestaltung | Geschmacksabnahme durch den Betrieb | Betrieb | nein | MENSCHEN §6 |
-| 31 | Sichtabnahme Startseite | Die Sichtabnahme der Startseite wurde nach zwei Anläufen nicht erreicht (6,8 und 7,5). Die Kategorien unter 8 sind als Pakete der Etappe 3 eingeplant; der Nachweis soll über Prüfstufe C und den E5-Review laufen | Projektleitung, Betrieb | ungeklärt, PLAN.md nennt keine Wirkung auf den Release | PLAN.md |
+| 31 | Sichtabnahme Startseite | E2-Tor (V01): Die Sichtabnahme der Startseite wurde nach zwei Anläufen nicht erreicht (6,8 und 7,5). Die Kategorien unter 8 sind als Pakete der Etappe 3 eingeplant; der Nachweis soll über Prüfstufe C und den E5-Review laufen. Stand 2026-10-26: Der E5-Review ist abgeschlossen. Z-04 steht als AUSNAHME A-2 in ABNAHME.md, siehe Nr. 40. | Projektleitung, Betrieb | ungeklärt, PLAN.md nennt keine Wirkung auf den Release | PLAN.md |
 
 ## Beim Prüfen gefunden
 
@@ -54,3 +54,19 @@ Diese Punkte stehen nicht in den genannten Quellen. Sie entstanden bei der Dokum
 | 33 | Ortszahl | `src/daten/orte.json` enthält 5.252 Orte, `orte-unklar.json` 314 Einträge. Die Projektvorgaben (KERN) nennen rund 6.000 Ortsseiten, die Entscheidung D-004 rund 5.800. | Projektleitung | nein | `src/daten/` |
 | 34 | Lizenz | Im Repository liegt keine Lizenzdatei. Die Lizenz für Code und Texte ist nicht festgelegt. | Betrieb, Jurist | nein | Repository |
 | 35 | Historie als Quelle | `npm test` (Plagiatstest), `npm run orte` und `pipeline/fingerabdruck.mjs` lesen Dateien aus einem festen Commit der Historie. Eine Bereinigung der Historie (Nr. 24) würde sie brechen. | Projektleitung (Anpassung der Tests), Betrieb | nein | Prüfung der Skripte |
+
+## Aus Endprüfung und Abschluss-Nachprüfung (2026-10-26)
+
+Diese Punkte stammen aus der Endprüfung (Anlauf 1 und 2, Runde 3) und aus der Abschluss-Nachprüfung. Die Quelle steht je Zeile.
+
+| Nr. | Bereich | Was fehlt | Wer entscheidet | Blockiert Release | Quelle |
+|---|---|---|---|---|---|
+| 36 | Startseite (V01), Ortsprüfung und Zylinder | Das Ergebnis der Ortsprüfung liegt auf dem Desktop unter der Falz. Der Zylinder auf dem Tablet ist groß. Komposition und Details sind ausgeschöpft. | Projektleitung, Betrieb | nein | `_werkstatt/berichte/E5-endpruefung.md`, Runde 3 „Restpunkte“ |
+| 37 | Leistungsgruppe (V02), Wissen-Block | Der Wissen-Block ist typografisch noch generisch. | Projektleitung, Betrieb | nein | `_werkstatt/berichte/E5-endpruefung.md`, Runde 3 „Restpunkte“ |
+| 38 | Ortsseite (V07), Bewegung M-19 | Mobil läuft M-19 ab, bevor die Karte im Bild ist. Dafür ist eine Änderung am Register nötig. | Projektleitung, Betrieb | nein | `_werkstatt/berichte/E5-endpruefung.md`, Runde 3 „Restpunkte“ |
+| 39 | Ortsseiten, Budget | Die größte Ortsseite hat 30.372 von 30.720 B. Das Budget ist knapp. | Projektleitung | nein | `_werkstatt/berichte/E5-endpruefung.md`, Runde 3 „Restpunkte“ |
+| 40 | Gestaltung, Z-04 (AUSNAHME A-2) | Der Ansichtswert ≥ 8 ist nach zwei Anläufen nicht erreicht. Anlauf 1: 6,50 bis 7,67. Anlauf 2: 6,33 bis 7,50. Der Blindvergleich ist in beiden Anläufen erfüllt (24 von 24 Paaren). Eine neue Gestaltungsrunde nur auf Auftrag des Menschen. Laut D-E5-02 hängt an der Website nichts von der Ausnahme ab. | Projektleitung, Betrieb | nein | ABNAHME.md (A-2); ENTSCHEIDUNGEN.md (D-E5-02) |
+| 41 | Lagekarte, Kreislinien | Die Kreislinien bei ferneren Orten (z. B. Flonheim, Detmold-Berlebeck, Tilligte) sind am Kartenrahmen angeschnitten. Der gestrichelte Ring um Weilburg reicht über den Ausschnitt. Kein Text betroffen, kein Überlauf. Offen: Ausschnitt so wählen, dass der Ring ganz sichtbar bleibt, oder den Anschnitt bewusst gestalten. | Projektleitung, Betrieb | nein | `_werkstatt/berichte/E5-abschluss-pruefung.md`, Abschnitt 2 „Nicht geändert, mit Begründung“ |
+| 42 | Rufleiste (mobil) | Die feste Rufleiste liegt mobil über den unteren Zeilen des ersten Bildschirms. Das ist gewollt (KERN K-003, Prinzip 5 „Daumen zuerst, Nacht mitgedacht“). Der Fokus wird nie verdeckt, der Inhalt ist beim Scrollen frei. Hinweis für die Geschmacksabnahme (Nr. 30). | Projektleitung, Betrieb | nein | `_werkstatt/berichte/E5-abschluss-pruefung.md`, Abschnitt 2 „Nicht geändert, mit Begründung“ |
+| 43 | Dokumentation, Funktion F03 | `_werkstatt/LAGEBILD.md` nennt die PLZ-Prüfung „Bedienen Sie meinen Ort?“. Die Seiten zeigen „Kommen Sie zu mir?“ (V01, `src/inhalte/start.mjs`) und „Ihren Ort prüfen“ (V05, `src/inhalte/einsatzgebiet.mjs`). Die Funktion ist erfüllt. Offen ist, welcher Wortlaut gilt; dazu gibt es keine Entscheidung in `_werkstatt/*.md` oder `docs/`. KERN K-010 nennt „Ort prüfen“ als Knopfwort, `src/inhalte/preise.mjs` nutzt ebenfalls „Ihren Ort prüfen“. | Projektleitung | nein | `_werkstatt/LAGEBILD.md` Zeile 30; Befund der Abschluss-Nachprüfung 1 (`_werkstatt/protokolle/E5-abschluss/nachpruefung-1-ergebnisse.txt` Zeile 142) |
+| 44 | Startseite und Preise, LCP-Reserve | LCP-Median (Lighthouse, mobil): Startseite 2.404 ms, Preise 2.410 ms. Schwelle 2.500 ms. Der Abstand ist knapp. Vorschlag der Prüfung: bei der nächsten Messung fünf Läufe nehmen und die Einzelwerte beobachten. | Projektleitung | nein | `_werkstatt/berichte/E5-endpruefung.md`, Anlauf 2, Befund „LCP-Reserve“; ABNAHME.md (A-1) |
