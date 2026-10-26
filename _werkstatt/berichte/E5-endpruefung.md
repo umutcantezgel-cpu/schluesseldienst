@@ -79,3 +79,66 @@ Vorbereitung: `_werkstatt/werkzeuge/blindpaar.mjs` (Saat 2026, 3 Ausschnitte je 
 - Mono-Ersatzschrift: verworfen mit Messung (pixelgleich in allen Stärken, 16 Ladevorgänge ohne Verschiebung).
 ### Ansichtspakete
 Je Ansichtsgruppe ein Paket mit eigenen Dateien (siehe STATUS); Ergebnis und zweite Sichtabnahme folgen unten.
+
+## Anlauf 2 · Ergebnis (2026-10-26, Commit `2a69d96`, Vorschau 4241/4244)
+Frische Prüfer (vier Opus für die Sichtabnahme, einer für den Blindvergleich), Bildsatz und Blindpaare von einem Haiku-Dokumentar (Saat 4711, Schlüssel getrennt), Nachprüfung durch Haiku. Die Rubrik folgt jetzt wörtlich AUFTRAG Abschnitt 9 („5 sauber, aber vorhersehbar · 7 eigenständig, einzelne generische Stellen · 8 unverwechselbar und präzise, Bewegung mit Sinn · 9 man zeigt es anderen“). Anlauf 1 nutzte eine mildere Skala („8 = sehr gut, kleine Mängel“). Die Werte beider Anläufe sind deshalb nur eingeschränkt vergleichbar.
+
+### Sichtabnahme
+| Ansicht | Pfad | Typo | Komp. | Farbe/Bild | Bewegung | Grafik | Details | Wert |
+|---|---|---|---|---|---|---|---|---|
+| V01 Startseite | `/` | 8 | 7 | 8 | 8 | 7 | 7 | 7,50 |
+| V02 Leistungsgruppe Einbruchschutz | `/einbruchschutz/` | 7 | 7 | 7 | 8 | 7 | 7 | 7,17 |
+| V03 Leistungsdetail Türöffnung | `/notoeffnung/tueroeffnung/` | 8 | 7 | 8 | 7 | 8 | 7 | 7,50 |
+| V04 Preise | `/preise/` | 7 | 7 | 7 | 7 | 7 | 6 | 6,83 |
+| V05 Einsatzgebiet | `/einsatzgebiet/` | 7 | 7 | 7 | 7 | 7 | 6 | 6,83 |
+| V06 Orts-Hub | `/einsatzgebiet/hessen/limburg-weilburg/` | 7 | 7 | 7 | 7 | 7 | 6 | 6,83 |
+| V07 Ortsseite | `/schluesseldienst-loehnberg/` | 7 | 7 | 7 | 7 | 7 | 7 | 7,00 |
+| V08 Ratgeber | `/ratgeber/rauchmelderpflicht/` | 8 | 7 | 7 | 7 | 8 | 7 | 7,33 |
+| V09 Über uns | `/ueber-uns/` | 7 | 6 | 7 | 7 | 6 | 7 | 6,67 |
+| V10 Kontakt | `/kontakt/` | 7 | 7 | 7 | 7 | 6 | 7 | 6,83 |
+| V11 Suche | `/suche/` | 7 | 6 | 6 | 7 | 5 | 7 | 6,33 |
+| V12 Recht (Impressum) | `/impressum/` | 8 | 7 | 7 | 7 | 7 | 6 | 7,00 |
+| V12 404 | `/gibt-es-nicht/` | 8 | 7 | 7 | 6 | 7 | 7 | 7,00 |
+
+**Z-04 nach dem zweiten und letzten Anlauf nicht erreicht:** keine Ansicht ≥ 8 (6,33–7,50), sieben Ansichten mit einer Kategorie unter 7. Eingetragen als AUSNAHME A-2 (ABNAHME.md, Denkprotokoll D-E5-02). Alle Befunde mit Beleg und Vorschlag: Workflow-Ergebnis `e5-endpruefung-2`; die Befunde werden als zweite Paketrunde je Ansicht und Kategorie umgesetzt, soweit die Regel „höchstens zwei je Hauptansicht und Kategorie“ es zulässt.
+
+### Blindvergleich
+| Bogen | Paar | Gerät | Neu war | Bevorzugt | Deutlichkeit | Ergebnis |
+|---|---|---|---|---|---|---|
+| paar-01-mobil | V01-R | mobil | A | A | sehr klar | neu vorgezogen |
+| paar-02-desktop | V01-R | desktop | B | B | sehr klar | neu vorgezogen |
+| paar-03-mobil | V01-A | mobil | B | B | sehr klar | neu vorgezogen |
+| paar-04-desktop | V01-A | desktop | A | A | sehr klar | neu vorgezogen |
+| paar-05-mobil | V03-A | mobil | A | A | sehr klar | neu vorgezogen |
+| paar-06-desktop | V03-A | desktop | B | B | sehr klar | neu vorgezogen |
+| paar-07-mobil | V04-A | mobil | A | A | sehr klar | neu vorgezogen |
+| paar-08-desktop | V04-A | desktop | B | B | klar | neu vorgezogen |
+| paar-09-mobil | V07-R | mobil | A | A | sehr klar | neu vorgezogen |
+| paar-10-desktop | V07-R | desktop | B | B | sehr klar | neu vorgezogen |
+| paar-11-mobil | V07-A | mobil | B | B | sehr klar | neu vorgezogen |
+| paar-12-desktop | V07-A | desktop | B | B | sehr klar | neu vorgezogen |
+
+**12 von 12 Paaren:** neuer Stand vorgezogen (11 „sehr klar“, 1 „klar“); mit Anlauf 1 zusammen 24 von 24.
+
+### Nachprüfung (Haiku, Werkzeuge)
+- ✓ **1 smoke.mjs, 13 Pfade x mobil/desktop (26 Messungen), mit Modulprüfung (module-skript.mjs)** – 0 fremde Anfragen, 0 CSP-Verstöße (Konsole und Ereignis), 0 JS-Seitenfehler. Auf allen 13 Seiten sind alle [data-modul] mit data-modul-aktiv markiert und das Seitenbündel ist geladen. Einzige Befunde: /gibt-es-nicht/ (Status 404, Unterressource 404, Konsolenmeldung 404), das ist die gewollte 404-Seite.
+- ✓ **2a axe.mjs hell, 13 Pfade** – serious 0, critical 0; alle Impact-Stufen 0. Status 12x 200, 1x 404 (/gibt-es-nicht/).
+- ✓ **2a axe.mjs dunkel, 13 Pfade** – serious 0, critical 0; alle Impact-Stufen 0. Status 12x 200, 1x 404.
+- ✓ **2b ueberlauf.mjs: 320/390/768/1440/1920 px, erzwungene Farben, 200 % Zoom (640 CSS-px), 13 Pfade** – 143 Messungen (13 x 11 Varianten), 0 mit Dokumentüberlauf, größte Überbreite 0 px.
+- ✓ **3a lighthouse.mjs mobil, 3 Läufe (Median), 12 Pfade unkomprimiert auf 4241 (ohne 404)** – Perf Median 96–99 (alle >= 95; /preise/ 96). A11y 100 und BP 100 auf allen 12. CLS Median 0,000 auf allen 12 (größte Einzelspanne 0,014 auf /). LCP Median 1809–2410 ms (alle <= 2500). SEO 100 außer /suche/ mit 66 (seo/is-crawlable, D-SEO-03, erwartet). Das Werkzeug meldet als einzige Verfehlung /suche/ SEO.
+- ✓ **3b Lighthouse /gibt-es-nicht/ (404) auf 4241, 3 Läufe (lh404.mjs, ignoreStatusCode)** – Median Perf 99, A11y 100, BP 96, SEO 58, LCP 1963 ms, CLS 0. Mängel: best-practices/errors-in-console, seo/is-crawlable, seo/http-status-code. Die 404-Seite ist nach Vorgabe von den 100er-Schwellen ausgenommen.
+- ✓ **3c Startseite auf 4244 (gzip), lighthouse.mjs mobil, 3 Läufe** – Median Perf 99, A11y 100, BP 100, SEO 100, LCP 1664 ms (Einzel 1665/1664/1659), CLS Median 0 (Einzel 0,014/0/0). Keine Verfehlung.
+- ✓ **4a Fokus nie ganz verdeckt, mobil 390x844, vorwärts, 6 Pfade (Vorlage verdeckt.mjs, Basis 4241, erweitert um Punktprobe 7x7 über elementFromPoint)** – 0 ganz verdeckte Fokusziele in beiden Metriken (Rufleiste-Anteil und Punktprobe). Ziele je Seite (ohne Rufleiste): / 65, /preise/ 57, /kontakt/ 52, Hub Limburg-Weilburg 218, /schluesseldienst-loehnberg/ 62, /ratgeber/rauchmelderpflicht/ 48. 1 teilweise verdeckt: textarea#k-nachricht auf /kontakt/ (43 % der Punkte). 0 Ziele außerhalb des Sichtfensters.
+- ✓ **4b Fokus nie ganz verdeckt, Desktop 1440x900, Umschalt+Tab rückwärts, / und /einsatzgebiet/hessen/limburg-weilburg/ (klebender Kopf, klebende A–Z-Leiste)** – 0 ganz verdeckt. / : 83 Ziele, klebender header.kopf (0–73 px), scroll-padding-top 88 px. Hub: 217 Ziele, header.kopf und nav.az-leiste klebend, scroll-padding-top 148 px. Teilweise 0, außerhalb 0.
+- ✓ **4c Positivkontrolle des Fokuswerkzeugs (Testseite mit fester Leiste ohne Scroll-Abstand, Port 4299, danach beendet)** – Werkzeug erkennt die Verdeckung: Ziel 5 unter der Leiste mit 49 von 49 Punkten verdeckt, Rufleiste-Anteil 1 ganz verdeckt. Damit ist die Null in 4a/4b belastbar.
+- ✓ **5 INP (inp.mjs, Drossel 4x, Schwelle 200 ms) auf /preise/ und /einsatzgebiet/** – /preise/: max 72 ms (2 Interaktionen gemeldet, Aktionen Zone B und Zylinder). /einsatzgebiet/: max 32 ms (5 gemeldet, Ort-Suche klicken, tippen, Pfeil, Enter). Beide ok.
+- ✓ **6a npm test** – 320 Tests, 319 bestanden, 0 fehlgeschlagen, 1 todo, Exit 0.
+- ✓ **6b node bau/bauen.mjs --messen --pruefen --aus=.cache/e5-review2/nachpruefung/dist** – Exit 0. 5556 Seiten, CSS 51627 B, JS 9 Bündel bis 26668 B. Alle 11 Prüfer 0 Fehler. 72 Warnungen, alle seo/titel-laenge-ort (bekannt). Platzhalter 65 in der Ausgabe, 58 in der Konfiguration, ungeprüfte Fakten 92 (wie Anlauf 1).
+- ✓ **6c Negativtest node bau/bauen.mjs --release --aus=.../release** – Scheitert mit 'Release: betrieb.basisUrl ist ein Platzhalter.' (Exit 2). Es entstand kein release-Ordner.
+- ✓ **Vorbedingung: Vorschau 4241/4244 entspricht meinem Messbuild** – 4241 und 4244 liefern .cache/e5-review2/dist (HEAD fa1593a, Arbeitsbaum sauber). Dessen mtime 00:13:58 blieb während des ganzen Laufs unverändert. CSS-Hash app.d5d1d601fa.css und JS-Hash app.144faf48dd.js sind in meinem frischen Messbuild identisch zum Ausgelieferten. Die Messungen gelten also dem Commit fa1593a.
+- ✓ **Repo-Schonung: keine Datei im Repo geändert, keine git-Befehle mit Wirkung, keine Messung ohne mitMessSperre** – git status ist leer, Branch claude/bold-noether-fk2n4f, HEAD fa1593a. Alle Browserläufe liefen über mitMessSperre (Mess-Sperre danach nicht mehr vorhanden). Beide Vorschau-Server laufen weiter.
+
+#### Befunde der Nachprüfung
+- [klein] Fokusziel /kontakt/ mobil nur teilweise verdeckt: textarea#k-nachricht.composer-eingabe (Rechteck 34,645 bis 356,835) liegt zu 43 % unter der Rufleiste. Nach WCAG 2.4.11 (AA) zulässig, weil nicht ganz verdeckt; WCAG 2.4.12 (AAA) würde es beanstanden. · Vorschlag: Keine Änderung für AA nötig. Falls AAA angestrebt wird: Scroll-Verhalten des großen Textfelds prüfen (Ziel vollständig über die Rufleiste bringen).
+- [klein] LCP-Reserve auf den Hauptansichten knapp, Startseite und Preise: Median / 2404 ms (Einzel 2404/2254/2404), /preise/ 2410 ms (Einzel 2407/2410/2415). Beide unter der Schwelle 2500 ms, aber nur rund 85 bis 95 ms Abstand. Anlauf 1 hatte / 2258 ms und /preise/ 2408 ms. Gleichzeitig ist Perf /preise/ auf 96 gesunken (Anlauf 1: 97). · Vorschlag: Keine Verfehlung. Bei der nächsten Messung auf / und /preise/ fünf Läufe nehmen und Einzelwerte beobachten; falls der Trend bleibt, Ursache des Startseiten-LCP (Element und Ladeweg) im Lighthouse-Audit ansehen.
+- [klein] 404-Seite: Best Practices 96 durch best-practices/errors-in-console (Meldung des korrekten Status 404). Der Befund ist unverändert seit Anlauf 1. D-SEO-03 nimmt die 404-Seite nur für SEO aus, nicht für BP. · Vorschlag: D-SEO-03 um BP ergänzen oder als bewusste Ausnahme festhalten; die Konsolenmeldung gehört zum korrekten 404-Status.
