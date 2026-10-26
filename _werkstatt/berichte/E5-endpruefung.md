@@ -142,3 +142,34 @@ Frische Prüfer (vier Opus für die Sichtabnahme, einer für den Blindvergleich)
 - [klein] Fokusziel /kontakt/ mobil nur teilweise verdeckt: textarea#k-nachricht.composer-eingabe (Rechteck 34,645 bis 356,835) liegt zu 43 % unter der Rufleiste. Nach WCAG 2.4.11 (AA) zulässig, weil nicht ganz verdeckt; WCAG 2.4.12 (AAA) würde es beanstanden. · Vorschlag: Keine Änderung für AA nötig. Falls AAA angestrebt wird: Scroll-Verhalten des großen Textfelds prüfen (Ziel vollständig über die Rufleiste bringen).
 - [klein] LCP-Reserve auf den Hauptansichten knapp, Startseite und Preise: Median / 2404 ms (Einzel 2404/2254/2404), /preise/ 2410 ms (Einzel 2407/2410/2415). Beide unter der Schwelle 2500 ms, aber nur rund 85 bis 95 ms Abstand. Anlauf 1 hatte / 2258 ms und /preise/ 2408 ms. Gleichzeitig ist Perf /preise/ auf 96 gesunken (Anlauf 1: 97). · Vorschlag: Keine Verfehlung. Bei der nächsten Messung auf / und /preise/ fünf Läufe nehmen und Einzelwerte beobachten; falls der Trend bleibt, Ursache des Startseiten-LCP (Element und Ladeweg) im Lighthouse-Audit ansehen.
 - [klein] 404-Seite: Best Practices 96 durch best-practices/errors-in-console (Meldung des korrekten Status 404). Der Befund ist unverändert seit Anlauf 1. D-SEO-03 nimmt die 404-Seite nur für SEO aus, nicht für BP. · Vorschlag: D-SEO-03 um BP ergänzen oder als bewusste Ausnahme festhalten; die Konsolenmeldung gehört zum korrekten 404-Status.
+
+## Runde 3 · Zweite Paketrunde aus den Befunden von Anlauf 2 (2026-10-26)
+Keine formale Bewertung mehr (L3: zwei Anläufe je Tor; Z-04 bleibt AUSNAHME A-2). Umgesetzt wurde je Ansicht und Kategorie das zweite und letzte erlaubte Paket. Für V01 waren Komposition und Details schon ausgeschöpft, deshalb dort nur die Grafik der Rasterkarte. Ablauf je Paket: Umsetzer, unabhängige Gegenprüfung und bei Bedarf Nachbesserung. Der erste Lauf brach in der Nacht am Sitzungslimit ab; der Teilstand ist als ZWISCHENSTAND `c548620` gesichert, der zweite Lauf hat darauf aufgebaut.
+- Gemeinsam (Orchestrator, `215d8f2`):
+  - Anruf im Menü-Blatt (das modale Blatt lag über der Rufleiste)
+  - Fuß in fünf Spuren, Länderliste als fluchtendes Raster
+  - Leistungen-Panel auf der Inhaltslinie
+  - eigene Radios statt der Browser-Glyphe
+  - Weiterlesen-Karten mit Subgrid (`df0cda1`)
+- **V05 und Rasterkarte (`17e1a7c`):**
+  - Punkte unter der Schrift ausgespart, Ringmaße an einer Kupfer-Messlinie
+  - M-18 erzählt die Leitidee (Sitz rastet ein, Linie misst, Maße erscheinen)
+  - Gegenprüfung: ok
+- **V08 und V09 (`17e1a7c`):**
+  - Ratgeber: Quellen beim Text, Inhaltsverzeichnis im Kontrastdesign sichtbar, Touch-Ziele ≥ 48 px
+  - Über uns: eigene Erzählung zum Sitz mit Messleiste der Zonen
+  - Gegenprüfung: Nachbesserung
+- **V04 und V10–V12 (`2c6e7d2`, Teile in den ZWISCHENSTÄNDEN):**
+  - Leeres Tagesband in der Platzhaltersprache (190 statt 470 px), Rechner 2 × 2 mit Rechnung im Stil der Formel
+  - Kontakt- und Suchkopf dichter, Ortstreffer der Suche mit Maßstab
+  - Rechts-Sprungziele mit sichtbarer Marke
+  - 404-Figur mobil vor den Wegen, M-21 in Bildschirm-Pixeln
+- **V02, V03, V06, V07 (`df0cda1`):**
+  - Szene mobil mit Stückliste, Register zweispaltig, ein Rufknopf mobil auf Notöffnungsseiten, „Mehr aus …“ in der Randspalte
+  - Gebietslage mit Namen über und unter den Punkten, A–Z-Leiste mit gleichen Zellen und Sprungziel am Gruppenkopf, Lagekarte gestreut
+- **Restpunkte (offen, an den Menschen):**
+  - V01: Ortsprüfungs-Ergebnis auf dem Desktop unter der Falz; Zylinder auf dem Tablet groß (Komposition und Details ausgeschöpft)
+  - V02: Wissen-Block typografisch noch generisch
+  - V07: M-19 läuft mobil ab, bevor die Karte im Bild ist (Registeränderung nötig)
+  - Größte Ortsseite 30.372 von 30.720 B (Budget knapp)
+  - Kleinere Punkte stehen in den Gegenprüfungen

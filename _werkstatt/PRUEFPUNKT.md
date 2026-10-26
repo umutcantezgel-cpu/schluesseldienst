@@ -1,7 +1,7 @@
 # PRÜFPUNKT
-- Letzter grüner Commit: `2a69d96` (alle sechs Ansichtspakete von Anlauf 2 abgenommen)
-- Etappe: E5 · Endprüfung abgeschlossen (zwei Anläufe, Bericht `_werkstatt/berichte/E5-endpruefung.md`): Z-04 = AUSNAHME A-2 · zweite Paketrunde aus den Befunden von Anlauf 2: erster Lauf am Sitzungslimit abgebrochen (ZWISCHENSTAND c548620), neu gestartet (Skript Scratchpad `e5-runde3.js` mit Hinweis auf den Vorlauf, drei Workflows, Builds `.cache/a3-<paket>/`), Befunde im Scratchpad `sicht-befunde-2.txt`
-- Laufend: Workflow `e5-endpruefung-2` (Skript im Scratchpad `e5-endpruefung-2.js`): Bildsatz `.cache/e5-review2/bilder`, Blindpaare `.cache/e5-review2/blind/bilder`, Schlüssel `.cache/e5-review2/blind-schluessel.json` (nie den Prüfern zeigen), Nachprüfung `.cache/e5-review2/nachpruefung/`
-- Vorschau: 4241 (Messbuild `.cache/e5-review2/dist`, unkomprimiert), 4244 (gzip); PIDs `.cache/e5-review2/pid1`, `pid2`
-- Nächster exakter Schritt: Paketrunde 3 abnehmen und committen → Bericht ergänzen (Runde 3) → Abschluss-Bildsatz nach `_werkstatt/bilder/E5-abschluss/` → E5-DOK-02 Teil 2 (BERICHT.md, Galerie) → ABNAHME Z-01…Z-10 mit Belegen → frischer Opus-Abschlussprüfer (prüft Belege, keine Tests) → CLAUDE.md-Block entfernen → ABSCHLUSS
+- Letzter grüner Commit: `df0cda1` (Runde 3 vollständig abgenommen)
+- Etappe: E5 · Endprüfung abgeschlossen (Z-04 = AUSNAHME A-2) · Runde 3 fertig (Bericht `_werkstatt/berichte/E5-endpruefung.md`, Abschnitt Runde 3)
+- Laufend: Workflow `e5-abschluss-pruefung` (Skript Scratchpad `e5-abschluss-pruefung.js`): drei Haiku-Prüfer (Z-02/03/06/10 mit Kalibrierung E2-PRUEF-07, Z-07/09, Z-05/08) und Abschluss-Bildsatz → `_werkstatt/bilder/abschluss/` + Galerie neu; Ausgaben `.cache/e5-abschluss/`
+- Vorschau: 4251 (Messbuild `.cache/e5-abschluss/dist`, unkomprimiert), 4254 (gzip); PIDs `.cache/e5-abschluss/pid1`, `pid2`
+- Nächster exakter Schritt: Ergebnis auswerten → Bericht `_werkstatt/berichte/E5-abschluss-pruefung.md` → E5-DOK-02 Teil 2 (BERICHT.md Abschlussbericht, docs/OFFENE-PUNKTE.md mit den Restpunkten aus Runde 3) → ABNAHME Z-01…Z-10 mit Belegen (E2-PRUEF-07 über Kalibrierung + E2-PRUEF-08) → PLAN-Zellen E2-PRUEF-07/E5-PRUEF-14/E5-DOK-02 → frischer Opus-Abschlussprüfer → CLAUDE.md-Block entfernen → ABSCHLUSS
 - Tests: `npm test`
