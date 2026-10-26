@@ -25,7 +25,16 @@ export function composer(form) {
     const ort = zeile(ortFeld?.value ?? '');
     return `${anliegen()?.getAttribute('data-betreff') || 'Anfrage'}${ort ? ` – ${ort}` : ''}`;
   };
-  const kopfZeigen = () => { if (betreffZeile) betreffZeile.textContent = betreff(); };
+  // M-12 nach einer Wahl des Anliegens: Der neue Betreff blendet kurz von .6 auf (zwei gleiche Keyframes, der Wechsel
+  // des Attributs startet sie neu). Beim Tippen des Orts nicht: Dort ist der wachsende Text selbst die Rückmeldung.
+  let stand = 'a';
+  const kopfZeigen = (rueckmeldung = false) => {
+    if (!betreffZeile) return;
+    const neu = betreff();
+    if (neu === betreffZeile.textContent) return;
+    betreffZeile.textContent = neu;
+    if (rueckmeldung) { stand = stand === 'a' ? 'b' : 'a'; betreffZeile.setAttribute('data-stand', stand); }
+  };
   const umschalten = () => {
     const a = anliegen();
     const istNotfall = a?.value === 'notfall';
@@ -33,8 +42,8 @@ export function composer(form) {
     if (mailteil) mailteil.hidden = istNotfall;
   };
   // data-wechsel erst nach einer Wahl: Nur dann blendet der neue Teil ein (CSS), beim Laden steht alles sofort
-  form.addEventListener('change', (e) => { if (e.target.name === 'anliegen') { form.setAttribute('data-wechsel', ''); umschalten(); kopfZeigen(); } });
-  if (ortFeld) ortFeld.addEventListener('input', kopfZeigen);
+  form.addEventListener('change', (e) => { if (e.target.name === 'anliegen') { form.setAttribute('data-wechsel', ''); umschalten(); kopfZeigen(true); } });
+  if (ortFeld) ortFeld.addEventListener('input', () => kopfZeigen());
   umschalten();
   kopfZeigen();
 

@@ -15,7 +15,7 @@
   .suche { grid-area: suche; display: grid; gap: var(--sp-xs); max-inline-size: var(--karte-gross); }
   .suche-feld { display: grid; gap: var(--sp-2xs); }
   /* Einleitung als Hinweis unter dem Feld (aria-describedby): klein, damit Feld und Treffer im ersten Bildschirm stehen */
-  .suche-hinweis { font-size: var(--fs--1); line-height: var(--lh-text); color: var(--c-tinte-2); max-inline-size: var(--mass); text-wrap: pretty; }
+  .suche-hinweis { font-size: var(--fs--1); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); text-wrap: pretty; }
   .suche-label { font-weight: var(--fw-ui); }
   .suche-eingabe-huelle { position: relative; }
   .suche-icon { position: absolute; inset-inline-start: var(--sp-s); inset-block-start: 50%; translate: 0 -50%; inline-size: var(--icon-ui); block-size: var(--icon-ui); color: var(--c-tinte-3); pointer-events: none; }
@@ -96,6 +96,9 @@
     .suche-treffer { grid-template-columns: var(--legende-min) minmax(0, 1fr); }
     .suche-km { grid-template-columns: minmax(0, 1fr); row-gap: var(--sp-2xs); }
     .suche-mass { inline-size: calc(100% - var(--sp-m)); }
+    /* Legende unter den Wegen (bis 64em volle Breite): Achse und Erklärung nebeneinander statt einer halbleeren Zeile */
+    .suche-legende { grid-template-columns: var(--karte-breit) minmax(0, 1fr); column-gap: var(--sp-xl); align-items: center; }
+    .suche-legende > .suche-block-titel { grid-column: 1 / -1; }
   }
   @media (min-width: 64em) {
     /* Die Randspalte reicht über Kopf und Feld: keine leere Kopfzeile rechts, der Ausweg steht im ersten Bildschirm */
@@ -105,6 +108,7 @@
     .suche-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
     /* Kupfermarke auf der Höhe der Kopflinie, Versalien auf der Grundlinie des Kickers (Abstand wie .kopf-linie) */
     .suche-wege-block .suche-block-titel { gap: var(--sp-s); }
+    .suche-legende { grid-template-columns: minmax(0, 1fr); }
     .suche-wege { grid-template-columns: minmax(0, 1fr); }
   }
 
@@ -148,6 +152,8 @@
 @media (forced-colors: active) {
   .fehler-figur .zy-scherlinie-ende, .suche-mass-ursprung { fill: Highlight; }
   .suche-mass-wert { stroke: Highlight; }
+  /* Kupfermarken der Registerköpfe sind Hintergründe: als Akzent in Highlight, wie die Kopflinie */
+  .suche-block-titel::before { background: Highlight; }
 }
 
 /* M-12 Rückmeldung (Suche): neue Trefferliste blendet von .6 auf; zwei gleiche Keyframes, damit jeder Wechsel neu startet */

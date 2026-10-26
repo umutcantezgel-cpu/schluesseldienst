@@ -53,8 +53,12 @@
   .recht-rand-titel::before { content: ""; inline-size: var(--sp-xl); block-size: var(--linie-scher); background: var(--c-kupfer); }
   .recht-toc { list-style: none; padding: 0; margin: 0; display: grid; font-size: var(--fs--1); border-block-start: var(--linie-haar) solid var(--c-linie); }
   .recht-toc li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
-  .recht-toc a { display: grid; grid-template-columns: var(--sp-l) minmax(0, 1fr); align-items: center; min-block-size: var(--ziel-min); color: var(--c-tinte-2); text-decoration: none; overflow-wrap: anywhere; }
+  .recht-toc a { position: relative; isolation: isolate; display: grid; grid-template-columns: var(--sp-l) minmax(0, 1fr); align-items: center; min-block-size: var(--ziel-min); color: var(--c-tinte-2); text-decoration: none; overflow-wrap: anywhere; }
   .recht-toc a:hover { color: var(--c-tinte); }
+  /* M-02/M-03 wie die Registerzeilen der Suche: Überlagerung in currentColor über die ganze Zeile plus Überstand */
+  .recht-toc a::before { content: ""; position: absolute; inset-block: 0; inset-inline: calc(-1 * var(--sp-xs)); z-index: -1; border-radius: var(--r-m); background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .recht-toc a:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
+  .recht-toc a:active::before { opacity: var(--deck-aktiv); }
   .recht-toc a:hover .recht-toc-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
   .recht-toc-nr { color: var(--c-kupfer); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); font-variant-numeric: tabular-nums; }
   /* Abschnitt, in dem man liest (Modul inhalt): Titel in Tinte und kräftiger, die Linie darunter wird zur Kupferlinie
@@ -77,4 +81,9 @@
     /* Marke auf der Höhe der Kopflinie, „Inhalt“ auf der Grundlinie des Kickers (Abstand wie .kopf-linie) */
     .recht-rand-titel { gap: var(--sp-s); }
   }
+}
+
+/* Erzwungene Farben: Die Kupfermarke des Verzeichnisses ist ein Hintergrund – als Akzent in Highlight, wie die Kopflinie */
+@media (forced-colors: active) {
+  .recht-rand-titel::before { background: Highlight; }
 }

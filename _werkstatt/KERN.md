@@ -122,7 +122,7 @@ Technik: nur `transform`/`opacity`; CSS `@layer bewegung`; Startzustände nur in
 | M-18 | **Großer Moment Einsatzgebiet: „Ringe um Weilburg“** | view() | Rasterkarte scale .42→1, Ringe scale .6→1 + Deckkraft, Staffel über gestaffelte view()-Bereiche; Namen blenden mit ihren Punkten ein; auf V05 am Zeitstrahl der ganzen Karte: Kupferpunkt Weilburg rastet ein (scale 0→1, einrasten), dann zieht die Kupfer-Messlinie vom Sitz zum äußeren Ring (scaleY), die Ringmaße erscheinen, sobald die Linie sie erreicht | statisches Endbild |
 | M-19 | Zusammenhang | Ortsseite geladen (Lagekarte, K-04) | Linie auf Peilung gedreht (SVG-`transform`-Attribut); gezogen wird ihre Maske (`.lk-zug` im clipPath) scaleX 0→1 480 linie, damit das Strichmuster nicht staucht; km-Beschriftung blendet ein | sofort |
 | M-20 | **Großer Moment Über uns: „Der gerade Weg“** | Laden (Figur im Seitenkopf, wie M-16), gesamt ≤ 1.400 ms | Fluss im Bogen (Auftritt 640), dann Tunnel-Linie scaleX über den Bogen (480, linie); Tor und Beschriftung „Schiffstunnel“ blenden ein (150) | statisch |
-| M-21 | Charakter | 404 | Stifte wackeln 3× (Y ±3px, gesamt 600ms), Linienhälften X ±4px | statischer gebrochener Zustand |
+| M-21 | Charakter | 404 | Stifte wackeln 3× (Y ±3 px am Bildschirm, gesamt 600 ms; der Weg in SVG-Einheiten wird durch den Figurmaßstab geteilt, Rückfall ohne Containermaß auf feste Einheiten), Linienhälften X ±4 px | statischer gebrochener Zustand mit sichtbarer Lücke |
 Nichts läuft automatisch länger als 5 s → kein Pause-Knopf nötig. Nichts blinkt.
 
 ## K-008 SVG-Formsystem „Linie & Bogen“

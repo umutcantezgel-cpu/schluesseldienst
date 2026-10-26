@@ -115,16 +115,24 @@
 }
 
 /* Zustandswechsel im Composer (Register M-07: Deckkraft und −4 px, Dauer zustand): nur nach einer Wahl des Anliegens,
-   nie beim Laden; der Hinweis ohne Adresse blendet wie die Fehlerübersicht (M-09) nur über die Deckkraft ein */
+   nie beim Laden; der Hinweis ohne Adresse blendet wie die Fehlerübersicht (M-09) nur über die Deckkraft ein, der neue
+   Betreff wie ein Ergebnis (M-12) */
 @layer bewegung {
   @media (prefers-reduced-motion: no-preference) {
     .composer[data-wechsel] :is(.composer-notfall, .composer-mail):not([hidden]) { animation: m-feedback-ein var(--dur-zustand) var(--ease-ein) backwards; }
     /* M-09: derselbe reine Deckkraft-Keyframe wie Feldfehler und Fehlerübersicht in bewegung.css */
     .composer-ohne-adresse:not([hidden]) { animation: erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
+    /* M-12: Der Betreff im Briefkopf ist das Ergebnis der Wahl – er blendet nach einem Wechsel von .6 auf */
+    .composer-kopf [data-stand="a"] { animation: betreff-neu-a var(--dur-feedback) var(--ease-standard) backwards; }
+    .composer-kopf [data-stand="b"] { animation: betreff-neu-b var(--dur-feedback) var(--ease-standard) backwards; }
   }
+  @keyframes betreff-neu-a { from { opacity: .6; } }
+  @keyframes betreff-neu-b { from { opacity: .6; } }
 }
 
-/* Erzwungene Farben: Die Linie des Bartprofils ist als Hintergrund gezeichnet und bekäme sonst die Fläche Canvas */
+/* Erzwungene Farben: Die Linie des Bartprofils ist als Hintergrund gezeichnet und bekäme sonst die Fläche Canvas;
+   der Bart selbst wie alle Grafiken: Strich in Textfarbe, Fläche Canvas */
 @media (forced-colors: active) {
   .composer-bart::before { background: CanvasText; }
+  .composer-bart path { stroke: CanvasText; fill: Canvas; }
 }
