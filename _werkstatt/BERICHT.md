@@ -84,7 +84,7 @@ Die Abschluss-Nachprüfung lief in zwei Durchgängen mit Haiku-Prüfern; die Pro
 
 ### Offene Punkte
 
-Die vollständige Liste mit Zuständigkeiten steht in `docs/OFFENE-PUNKTE.md` (Nr. 1 bis 47). Der Build zählt 58 Platzhalter in der Konfiguration, 65 auf den Seiten und 92 ungeprüfte Fakten. Die wichtigsten fünf:
+Die vollständige Liste mit Zuständigkeiten steht in `docs/OFFENE-PUNKTE.md` (Nr. 1 bis 48). Der Build zählt 58 Platzhalter in der Konfiguration, 65 auf den Seiten und 92 ungeprüfte Fakten. Die wichtigsten fünf:
 
 1. **Nr. 1 Betrieb:** Firmenname, Rechtsform, Inhaber, Anschrift, Notruf-Telefon und E-Mail (blockiert den Release).
 2. **Nr. 4 Preise:** Gesamtpreise je Zone, Zuschläge, Umsatzsteuer-Modus, Zahlarten (blockiert den Release).
