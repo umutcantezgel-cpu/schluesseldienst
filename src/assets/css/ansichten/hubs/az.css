@@ -16,14 +16,10 @@
   .hub-figur .gk-sitz-ring { fill: var(--c-flaeche); }
   /* Die Legende steht unter einer Haarlinie: Ringe und Peilung enden sichtbar an der Kante der Karte */
   .hub-figur .gk-legende { margin: 0; padding: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie); }
-  /* Unter „Weilburg“ spart die Figur Raster und Ringe aus (lagekarte.mjs); mobil steht der Name eine Stufe größer,
-     deshalb je Größe eigene Punkte und Platten */
-  .hub-figur .gl-platte { fill: var(--c-flaeche); }
+  /* Unter „Weilburg“ spart die Figur Rasterpunkte aus (lagekarte.mjs); mobil steht der Name eine Stufe größer und
+     überdeckt mehr Punkte – die nur dort verdeckten zeigt ein eigener Pfad erst ab 48em */
   .hub-figur .gl-nur-breit { display: none; }
-  @media (min-width: 48em) {
-    .hub-figur .gl-nur-breit { display: inline; }
-    .hub-figur .gl-nur-schmal { display: none; }
-  }
+  @media (min-width: 48em) { .hub-figur .gl-nur-breit { display: inline; } }
   /* Führungslinie vom Punkt zum Namen, wenn der Name erst am Rand des Rasters Platz fand; Nebennamen entfallen mobil
      samt Linie (wie .gk-name[data-rang="2"] in gebiet.css) */
   .hub-figur .gl-fuehrung { fill: none; stroke: var(--c-tinte-3); stroke-width: var(--linie-haar); }

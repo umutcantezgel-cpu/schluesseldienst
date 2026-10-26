@@ -57,12 +57,4 @@
     .leistung-teilung-preis { grid-template-areas: "text rand" "mehr rand"; row-gap: var(--sp-xl); }
     .leistung-teilung-preis .leistung-mehr { grid-area: mehr; max-inline-size: var(--mass); }
   }
-  /* Kartentitel sind Überschriften ohne h-Element: keine automatische Trennung (K-006), nur an den Fugen der
-     Wortliste (die Vorlage setzt sie); gehört eigentlich in seitenteile.css (dort für alle Ansichten). „pretty“
-     statt „balance“: balance nutzt die Fuge auch, wenn das Wort passt („Schlüssel-/dienst“ bei 1440 px) */
-  .weiter-titel { hyphens: manual; text-wrap: pretty; }
-  /* Tablet: Bei drei Karten nebeneinander bliebe dem Titel neben dem Pfeil nur rund 140 px – zu schmal für lange
-     Komposita. Der Pfeil rückt zur Beschreibung, der Titel nutzt die ganze Kartenbreite */
-  @media (min-width: 48em) { .weiter a { grid-template-areas: "titel titel" "text pfeil"; } }
-  @media (min-width: 64em) { .weiter a { grid-template-areas: "titel pfeil" "text pfeil"; } }
 }

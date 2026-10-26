@@ -3,7 +3,8 @@
 // Orte der Umgebung als Punkte (die größten beschriftet) und ein Maßstab. Hub: die Orte des Gebiets als Raster nach
 // Zonen wie die Einsatzgebietskarte, Weilburg, Zonenringe und die größten Orte.
 // Äquirektangulär um die Mitte des Ausschnitts, auf die Figur skaliert. Beschriftungen, Punkte und Maßstab weichen
-// einander aus (Kisten und Strecken), statt sich zu überdecken; Positionen nur über SVG-Attribute (CSP).
+// einander, der Peilung, dem Bogen und den Zonenringen aus (Kisten, Strecken, Ringe), statt sich zu überdecken;
+// Positionen nur über SVG-Attribute (CSP).
 import { roh } from '../../../bau/lib/html.mjs';
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (z) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[z]);
@@ -129,7 +130,7 @@ function nachGroesse(orte) {
   return SORTIERT.get(orte);
 }
 
-// Ort- und Weilburg-Beschriftung: Kandidaten um die Marke (Ort zuerst auf der von der Linie abgewandten Seite)
+// Ortsbeschriftung: Kandidaten um die Marke, zuerst auf der von der Linie abgewandten Seite
 const ortKandidaten = (ox, oy, name, oben) => umPunkt(ox, oy, name, SCHRIFT.l, 0.64, 16, oben ? ['oben', 'rechts', 'links', 'unten'] : ['unten', 'rechts', 'links', 'oben']);
 
 /**
@@ -241,13 +242,36 @@ ${sitzL ? text('lk-sitz-text', sitzL, 'Weilburg') : ''}${text('lk-ort-text', ort
 
 
 /**
+ * Zonenring als Kreis; läuft er durch die Kiste (Weilburg-Beschriftung, 3 Einheiten Luft), setzt er dort aus: Bögen
+ * über die freien Winkel in Grad-Schritten, damit der Name ohne Platte oder Maske frei steht.
+ */
+function ring(cx, cy, rr, kiste) {
+  const frei = Array.from({ length: 360 }, (_, g) => {
+    const [x, y] = [cx + rr * Math.cos((g * Math.PI) / 180), cy + rr * Math.sin((g * Math.PI) / 180)];
+    return !kiste || !(x > kiste.x1 - 3 && x < kiste.x2 + 3 && y > kiste.y1 - 3 && y < kiste.y2 + 3);
+  });
+  if (frei.every(Boolean)) return `<circle class="gk-ring" cx="${cx}" cy="${cy}" r="${rr}"/>`;
+  // Läufe freier Winkel, beginnend nach einem belegten Grad (so wird kein Lauf über 0° zerschnitten)
+  const start = frei.findIndex((f, g) => f && !frei[(g + 359) % 360]);
+  const pkt = (g) => `${r(cx + rr * Math.cos((g * Math.PI) / 180))} ${r(cy + rr * Math.sin((g * Math.PI) / 180))}`;
+  const boegen = []; let von = null;
+  for (let i = 0; i <= 360; i++) {
+    const g = start + i;
+    if (i < 360 && frei[g % 360]) { if (von === null) von = g; continue; }
+    if (von !== null) { boegen.push(`M${pkt(von)}A${rr} ${rr} 0 ${g - 1 - von > 180 ? 1 : 0} 1 ${pkt(g - 1)}`); von = null; }
+  }
+  return `<path class="gk-ring" d="${boegen.join('')}"/>`;
+}
+
+/**
  * Gebietslage eines Hubs: alle Orte des Gebiets als Raster (Zellen à 6 Einheiten, je Zelle die engste Zone, ein Pfad
  * je Zone – wie I-10), Weilburg mit den Zonenringen im Ausschnitt und die größten Orte. Liegt das Gebiet so fern, dass
  * es neben Weilburg zum Fleck schrumpfte, zeigt der Ausschnitt nur das Gebiet; eine Peilung läuft zur Blattkante in
  * Richtung Weilburg und trägt die Entfernung. Klassen der Einsatzgebietskarte (gk-…) und der Lagekarte (lk-…), damit
  * Farben, Dunkelmodus und erzwungene Farben gleich bleiben. Liefert SVG, gezeigte Zonen und Ringe.
- * Rasterpunkte und Ringe gehören zur Belegung: Schrift steht nur auf freier Fläche. Einzig „Weilburg“ muss stehen;
- * findet der Name keine freie Stelle, spart das Raster unter ihm aus – wie schon um die Sitzmarke.
+ * Rasterpunkte und Ringe gehören zur Belegung: Schrift steht nur auf freier Fläche, Namen im dichten Raster am Rand
+ * mit Führungslinie. Einzig „Weilburg“ muss stehen; findet der Name keine freie Stelle, spart das Raster unter ihm aus
+ * – wie schon um die Sitzmarke – und ein kreuzender Ring setzt dort aus.
  */
 export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl', titel, namenMax = 4 }) {
   const B = 360; const H = 240; const ZELLE = 6;
@@ -291,7 +315,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
   const schrift = []; // Kisten der Beschriftungen und der Sitzmarke: Führungslinien der Namen kreuzen sie nicht
   const bel = belegung(B, H);
   // Schriftgrößen der Kisten: mobil (gebiet.css) ist die Schrift eine Stufe größer – geschätzt wird mit der größeren
-  let sitzSvg; let ringe = []; let ringText = '';
+  let sitzSvg; let ringe = []; let ringText = ''; let luecke = null;
   if (!fern) {
     // die Sitzmarke bleibt frei
     for (const k of [...zellen.keys()]) { const [x, y] = mitte(k); if (Math.hypot(x - sx, y - sy) < 12) zellen.delete(k); }
@@ -317,10 +341,9 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
       if (!breit.has(k)) nurBreit.set(k, zellen.get(k));
       zellen.delete(k);
     }
-    // Kreuzt ein Ring den Namen (kleiner Ring, breiter Name), unterbricht ihn eine Platte in Blattfarbe – je Größe eine
-    const platte = (k, klasse) => `<rect class="gl-platte ${klasse}" x="${r(k.x1)}" y="${r(k.y1)}" width="${r(k.x2 - k.x1)}" height="${r(k.y2 - k.y1)}"/>`;
-    const platten = bel.aufRing(sitzL.kiste) ? platte(sitzL.kiste, 'gl-nur-schmal') + platte(kisteBreit, 'gl-nur-breit') : '';
-    sitzSvg = `${platten}<circle class="gk-sitz-ring" cx="${sx}" cy="${sy}" r="10"/><circle class="gk-sitz-punkt" cx="${sx}" cy="${sy}" r="6"/>${text('gk-sitz-name', sitzL, 'Weilburg')}`;
+    // Kreuzt ein Ring den Namen (kleiner Ring, breiter Name), setzt der Ring dort aus (ringSvg)
+    luecke = sitzL.kiste;
+    sitzSvg = `<circle class="gk-sitz-ring" cx="${sx}" cy="${sy}" r="10"/><circle class="gk-sitz-punkt" cx="${sx}" cy="${sy}" r="6"/>${text('gk-sitz-name', sitzL, 'Weilburg')}`;
   }
   for (const k of zellen.keys()) { const [x, y] = mitte(k); bel.kiste({ x1: x - 3, y1: y - 3, x2: x + 3, y2: y + 3 }); }
   if (!fern) {
@@ -423,7 +446,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
   }
   // Ferne Gebiete haben keine Zonenringe als Maß: ein Maßstab wie auf der Lagekarte, wo eine Ecke frei ist
   const mass = fern ? massstab(bel, jeKm, B, H, [...zellen.keys()].map(mitte)) : '';
-  const ringSvg = ringe.map(({ rr }) => `<circle class="gk-ring" cx="${sx}" cy="${sy}" r="${r(rr)}"/>`).join('');
+  const ringSvg = ringe.map(({ rr }) => ring(sx, sy, r(rr), luecke)).join('');
   const svg = roh(`<svg class="gebietslage" viewBox="0 0 ${B} ${H}" role="img" aria-labelledby="${praefix}-titel">
 <title id="${praefix}-titel">${esc(titel)}</title>
 <g class="gk-ringe">${ringSvg}</g><g class="gk-punkte">${raster}</g>

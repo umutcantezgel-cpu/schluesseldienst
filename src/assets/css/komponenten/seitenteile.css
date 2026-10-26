@@ -17,7 +17,9 @@
   .weiter a:active { transform: scale(.98); }
   .weiter a:active::before { opacity: var(--deck-aktiv); }
   .weiter a:hover .weiter-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
-  .weiter-titel { grid-area: titel; font-weight: var(--fw-titel); line-height: var(--lh-titel); text-wrap: balance; }
+  /* Kartentitel wirken als Überschrift: Trennung nur an Fugen der Wortliste (der Bau setzt sie, K-006). „pretty“ statt
+     „balance“: balance nutzt die Fuge auch, wenn das Wort passt („Schlüssel-/dienst“ bei 1440 px) */
+  .weiter-titel { grid-area: titel; font-weight: var(--fw-titel); line-height: var(--lh-titel); text-wrap: pretty; hyphens: manual; }
   .weiter-text { grid-area: text; font-size: var(--fs--1); color: var(--c-tinte-3); }
   /* Pfeil auf der Titelzeile: in gleich hohen Karten überall auf gleicher Höhe */
   .weiter-pfeil { grid-area: pfeil; align-self: start; inline-size: var(--icon-ui); block-size: var(--icon-ui); color: var(--c-kupfer); }
@@ -30,6 +32,8 @@
     /* Vier Karten stehen 2 × 2 statt 3 + 1 */
     .weiter:has(> li:nth-child(4):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
+  /* Tablet: Bei drei Karten bliebe dem Titel neben dem Pfeil nur rund 140 px; der Pfeil rückt zur Beschreibung */
+  @media (48em <= width < 64em) { .weiter a { grid-template-areas: "titel titel" "text pfeil"; } }
   @media (prefers-reduced-motion: reduce) { .weiter a:active { transform: none; } }
   @media (min-width: 64em) {
     .gruppe-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; }

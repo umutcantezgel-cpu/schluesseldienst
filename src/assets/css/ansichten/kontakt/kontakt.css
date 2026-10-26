@@ -82,6 +82,6 @@
   @media (prefers-reduced-motion: no-preference) {
     .composer[data-wechsel] :is(.composer-notfall, .composer-mail):not([hidden]) { animation: m-feedback-ein var(--dur-zustand) var(--ease-ein) backwards; }
     /* M-09: derselbe reine Deckkraft-Keyframe wie Feldfehler und Fehlerübersicht in bewegung.css */
-    .composer-ohne-adresse:not([hidden]) { animation: m20-erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
+    .composer-ohne-adresse:not([hidden]) { animation: erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
   }
 }

@@ -18,7 +18,7 @@ export const TRENNSTELLEN = [
   'schließ|seite', 'schließ|plan', 'schließ|kraft', 'gleich|schließend', 'tür|schl', 'tür|sicherung', 'zusatz|schl',
   'kasten|zusatz', 'zusatz|sicherung', 'schutz|beschl', 'schutz|funktion', 'einsteck|schloss', 'zentral|schloss',
   'schloss|arten', 'fenster|sicherung', 'keller|fenster', 'terrassen|tür', 'wohnungs|tür', 'mehr|fach|verriegelung',
-  'pilz|kopf|verriegelung', 'zylinder|abdeckung', 'kern|zieh|schutz', 'gleit|schiene', 'schwach|stelle',
+  'pilz|kopf|verriegelung', 'sicherheits|check', 'zylinder|abdeckung', 'kern|zieh|schutz', 'gleit|schiene', 'schwach|stelle',
   'familien|haus', 'reihen|folge', 'sicherungs|karte',
   // Sicherheitstechnik
   'sicherheits|technik', 'sicherheits|gefühl', 'alarm|anlage', 'anlagen|arten', 'video|überwachung', 'nebel|system',

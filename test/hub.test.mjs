@@ -134,7 +134,10 @@ test('Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten n
     const s = String(gebietslage({ orte: ORTE.filter(filter), sitz: SITZ, titel: 'Test' }).svg);
     const punkte = [...s.matchAll(/<path class="gk-raster ([^"]*)" d="([^"]+)"/g)]
       .flatMap(([, klasse, d]) => [...d.matchAll(/M(-?\d+) (-?\d+)/g)].map(([, x, y]) => ({ x: +x, y: +y, nurBreit: klasse.includes('gl-nur-breit') })));
-    const ringe = [...s.matchAll(/class="gk-ring" cx="(-?\d+)" cy="(-?\d+)" r="(\d+)"/g)].map((m) => [+m[1], +m[2], +m[3]]);
+    // Ringe als Kreis oder – mit Lücke für „Weilburg“ – als Bögen um die Sitzmarke
+    const [, scx, scy] = /class="gk-sitz-punkt" cx="(-?\d+)" cy="(-?\d+)"/.exec(s);
+    const ringe = [...s.matchAll(/class="gk-ring" (?:cx="-?\d+" cy="-?\d+" r="(\d+)"|d="M[^A]+A(\d+) )/g)].map((m) => [+scx, +scy, +(m[1] || m[2])]);
+    const boegen = [...s.matchAll(/<path class="gk-ring" d="([^"]+)"/g)].map((m) => m[1]);
     const texte = [...s.matchAll(/<text class="(gk-[\w-]+)"([^>]*?) x="(-?\d+)" y="(-?\d+)"(?: text-anchor="(\w+)")?>([^<]*)</g)]
       .map(([, klasse, zusatz, x, y, anker = 'start', inhalt]) => ({ klasse, rang2: zusatz.includes('data-rang="2"'), x: +x, y: +y, anker, inhalt }));
     assert.ok(texte.some((t) => t.klasse === 'gk-name'), `${name}: kein Ortsname`);
@@ -144,13 +147,17 @@ test('Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten n
         const k = kiste(t, groesse[t.klasse], t.klasse === 'gk-sitz-name' ? 0.58 : 0.55);
         const darunter = punkte.filter((q) => (lage === 'breit' || !q.nurBreit) && q.x > k.x1 && q.x < k.x2 && q.y > k.y1 && q.y < k.y2);
         assert.equal(darunter.length, 0, `${name}: „${t.inhalt}“ (${lage}) auf ${darunter.length} Rasterpunkten`);
-        // Weilburg darf einen kleinen Ring kreuzen, dann unterbricht ihn eine Platte in Blattfarbe
+        // Weilburg darf auf einem kleinen Ring stehen; der Ring setzt dort aus (geprüft unten)
         if (t.klasse === 'gk-sitz-name') continue;
         for (const rg of ringe) assert.ok(!kreuzt(k, rg), `${name}: Ring durch „${t.inhalt}“ (${lage})`);
       }
     }
+    // Ausgesetzte Ringe: kein Bogenpunkt liegt in der Kiste von „Weilburg“
     const sitzText = texte.find((t) => t.klasse === 'gk-sitz-name');
-    if (ringe.some((rg) => kreuzt(kiste(sitzText, 24, 0.58), rg))) assert.match(s, /<rect class="gl-platte gl-nur-schmal"/, `${name}: Ring durch „Weilburg“ ohne Platte`);
+    const sk = kiste(sitzText, 24, 0.58);
+    for (const d of boegen) {
+      for (const [, x, y] of d.matchAll(/(?:M|1 )(-?\d+) (-?\d+)/g)) assert.ok(!(+x > sk.x1 && +x < sk.x2 && +y > sk.y1 && +y < sk.y2), `${name}: Ring endet in „Weilburg“`);
+    }
     // Führungslinien kreuzen keine Schrift
     for (const [, x1, y1, x2, y2] of s.matchAll(/class="gl-fuehrung"[^>]*d="M(-?\d+) (-?\d+)L(-?\d+) (-?\d+)"/g)) {
       for (const t of texte) {

@@ -72,6 +72,10 @@
 
     /* Ortsseite: Lagekarte klein, Leistungen als Liste mit Haarlinie */
     .ort-karte { max-inline-size: var(--karte-min); padding: 0; }
+    /* Orts-Hub: Kopf untereinander, Gebietslage klein, Buchstabenleiste und Rücksprünge sind im Druck ohne Nutzen */
+    .hub-kopf-teilung { display: block; }
+    .hub-figur { max-inline-size: var(--karte-min); }
+    .az-leiste, .az-hoch { display: none; }
     .ort-leistungen a { padding: var(--sp-xs) 0; border-block-start: var(--linie-haar) solid var(--c-linie-ui); text-decoration: none; }
 
     /* Erzählszenen der Leistungsgruppen: Schritte ohne Bildschirm-Mindesthöhe, ohne „aktiv“-Zustand aus dem JS,

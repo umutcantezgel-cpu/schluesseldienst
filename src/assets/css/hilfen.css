@@ -10,7 +10,7 @@
     /* Flächen, die nur über Hintergrund oder Schatten abgesetzt sind: innere 1px-Kante in Textfarbe */
     :where(.weiter a, .kontakt-weg, .composer, .composer-notfall, .rechner, .rechner-ergebnis, .tagesband, .zone,
       .register article, .register-gross, .preise-pruefung, .gebiet-pruefung, .ortspruefung-ergebnis, .ortspruefung-liste, .ueber-gruppen a,
-      .leistung-figur, .artikel-figur, .artikel-wichtig, .ratgeber-liste a, .ort-karte, .ort-leistungen a,
+      .leistung-figur, .artikel-figur, .artikel-wichtig, .ratgeber-liste a, .ort-karte, .hub-figur, .ort-leistungen a,
       .szene-figur, .szene-einzelbild, .hinweis, .preis-tabelle, .sprunglink, .menue-blatt,
       .hauptnav-panel) {
       outline: var(--linie-haar) solid CanvasText;
@@ -78,6 +78,7 @@
     [data-zustand="3"] [data-bei="3"], [data-zustand="4"] [data-bei="4"], [data-zustand="5"] [data-bei="5"] { stroke: Highlight; }
     .tb-teil { stroke: Canvas; }
     .lb-wasser, .gk-zone-c, .gk-zone-d, .lk-nachbarn { stroke: GrayText; }
-    .gk-name, .gk-ring-text, .gk-sitz-name, .lk-ort-text, .lk-sitz-text, .lk-km { paint-order: stroke; stroke: Canvas; }
+    .gk-name, .gk-ring-text, .gk-sitz-name, .lk-ort-text, .lk-sitz-text, .lk-km, .lk-name, .lk-mass-text { paint-order: stroke; stroke: Canvas; }
+    .lk-sitz-ring { stroke: Highlight; }
   }
 }

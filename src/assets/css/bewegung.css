@@ -19,12 +19,12 @@
        wäre im Kopf schon abgelaufen, bevor jemand scrollt) */
     [data-moment="gerader-weg"] .lb-fluss-teil { animation: auftritt var(--dur-auftritt) var(--ease-ein) backwards; }
     [data-moment="gerader-weg"] .lb-tunnel { transform-box: fill-box; transform-origin: left center; animation: m16-linie var(--m16-linie) var(--ease-linie) var(--dur-auftritt) backwards; }
-    [data-moment="gerader-weg"] :is(.lb-tor, .lb-text-tunnel) { animation: m20-erscheinen var(--dur-feedback) var(--ease-standard) calc(var(--dur-auftritt) + var(--m16-linie)) backwards; }
+    [data-moment="gerader-weg"] :is(.lb-tor, .lb-text-tunnel) { animation: erscheinen var(--dur-feedback) var(--ease-standard) calc(var(--dur-auftritt) + var(--m16-linie)) backwards; }
 
     /* M-19 Zusammenhang (Ortsseite): Die Peilungslinie zieht sich von Weilburg zum Ort, dann erscheint die Entfernung.
        Gezogen wird die Maske der Linie (clipPath), nicht die Linie selbst – sonst stauchte scaleX das Strichmuster. */
     .ort-karte .lk-zug { transform-box: fill-box; transform-origin: left center; animation: m16-linie var(--m19-linie) var(--ease-linie) var(--m19-start) backwards; }
-    .ort-karte .lk-km { animation: m20-erscheinen var(--dur-zustand) var(--ease-aus) calc(var(--m19-start) + var(--m19-linie)) backwards; }
+    .ort-karte .lk-km { animation: erscheinen var(--dur-zustand) var(--ease-aus) calc(var(--m19-start) + var(--m19-linie)) backwards; }
 
     /* M-05 Zustand (Gruppenfilter /leistungen/): nur eingeblendete Gruppen nach einem Wechsel gleiten von −8 px; Basis = Endzustand */
     .verz-gruppe[data-zustand="neu"] { animation: m05-einblenden var(--dur-zustand) var(--ease-ein) backwards; }
@@ -33,7 +33,7 @@
     .faq-eintrag[open] .faq-antwort { animation: m-feedback-ein var(--dur-zustand) var(--ease-ein) backwards; }
     /* M-08 Combobox-Liste und M-09 Feldfehler/Fehlerübersicht: Rückmeldung beim Erscheinen, kein Schütteln */
     .ortspruefung-liste:not([hidden]) { animation: m-feedback-ein var(--dur-feedback) var(--ease-ein) backwards; }
-    .composer-fehler:not([hidden]), .composer-fehlerliste:not([hidden]) { animation: m20-erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
+    .composer-fehler:not([hidden]), .composer-fehlerliste:not([hidden]) { animation: erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
 
     /* M-21 Charakter (404): Der falsche Schlüssel rüttelt – Stifte wackeln, die Linienhälften finden nicht zusammen */
     [data-moment="falsch"] .zy-stiftpaar { animation: m21-wackeln var(--m21-dauer) var(--ease-standard) var(--m21-start); }
@@ -58,7 +58,7 @@
       [data-moment="ringe"] .gk-ring:nth-of-type(2) { animation-range: entry 15% cover 38%; }
       [data-moment="ringe"] .gk-ring:nth-of-type(3) { animation-range: entry 20% cover 46%; }
       /* Die Namen erscheinen erst, wenn ihre Punkte stehen – sie schweben nicht über leerer Fläche */
-      [data-moment="ringe"] .gk-namen { animation: m20-erscheinen linear both; animation-timeline: view(); animation-range: cover 30% cover 45%; }
+      [data-moment="ringe"] .gk-namen { animation: erscheinen linear both; animation-timeline: view(); animation-range: cover 30% cover 45%; }
     }
 
     /* M-17 Szene: Teile wechseln mit dem Schritt (nur transform/opacity; Farbe des aktiven Teils springt) */
@@ -73,7 +73,7 @@
 
   /* M-05 bei reduzierter Bewegung: nur Deckkraft, Dauer feedback (Register K-007) */
   @media (prefers-reduced-motion: reduce) {
-    .verz-gruppe[data-zustand="neu"] { animation: m20-erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
+    .verz-gruppe[data-zustand="neu"] { animation: erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
   }
   @keyframes m16-schluessel { from { transform: translateX(-40%); } }
   @keyframes m16-stift { from { transform: translateY(var(--m16-stift-weg)); } }
@@ -83,7 +83,7 @@
   @keyframes linie-ziehen { from { transform: scaleX(.2); } }
   @keyframes m18-karte { from { transform: scale(var(--m18-karte-start)); opacity: 0; } }
   @keyframes m18-ring { from { transform: scale(var(--m18-ring-start)); opacity: 0; } }
-  @keyframes m20-erscheinen { from { opacity: 0; } }
+  @keyframes erscheinen { from { opacity: 0; } }
   @keyframes m-feedback-ein { from { opacity: 0; transform: translateY(calc(-1 * var(--feedback-weg))); } }
   @keyframes m05-einblenden { from { opacity: 0; transform: translateY(calc(-1 * var(--zustand-weg))); } }
   @keyframes m21-wackeln { 17%, 50%, 83% { transform: translateY(calc(-1 * var(--m21-weg))); } 33%, 67% { transform: translateY(var(--m21-weg)); } }

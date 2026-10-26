@@ -1,7 +1,8 @@
 // Weiche Trennstellen in Überschriften (KERN K-006): Überschriften trennen nie automatisch (basis.css hyphens: manual),
 // lange Komposita nur an ihren Fugen aus der Wortliste src/inhalte/trennstellen.mjs. Dazu kommt eine Regel für
-// Kreisnamen („Westerwald|kreis“). Bearbeitet wird nur Text zwischen den Tags von h1–h4 – nie Attribute, Titel,
-// JSON-LD oder Fließtext. Die Prüfer lesen &shy; als leeres Zeichen (ehrlichkeit/plagiat: ENTITAETEN.shy).
+// Kreisnamen („Westerwald|kreis“). Bearbeitet wird nur Text zwischen den Tags von h1–h4 und der Kartentitel
+// (.weiter-titel, sie wirken als Überschrift) – nie Attribute, Titel, JSON-LD oder Fließtext. Die Prüfer lesen &shy;
+// als leeres Zeichen (ehrlichkeit/plagiat: ENTITAETEN.shy).
 import { TRENNSTELLEN } from '../../src/inhalte/trennstellen.mjs';
 
 const SHY = '&shy;';
@@ -42,8 +43,11 @@ export function textTrennen(text) {
   });
 }
 
-/** Wendet die Wortliste auf den Text aller h1–h4 einer Seite an. */
+const innenTrennen = (innen) => innen.split(/(<[^>]*>)/).map((t) => (t.startsWith('<') ? t : textTrennen(t))).join('');
+
+/** Wendet die Wortliste auf den Text aller h1–h4 und Kartentitel einer Seite an. */
 export function ueberschriftenTrennen(seite) {
-  return seite.replace(/(<(h[1-4])\b[^>]*>)([\s\S]*?)(<\/\2>)/g, (_, auf, _tag, innen, zu) =>
-    auf + innen.split(/(<[^>]*>)/).map((t) => (t.startsWith('<') ? t : textTrennen(t))).join('') + zu);
+  return seite
+    .replace(/(<(h[1-4])\b[^>]*>)([\s\S]*?)(<\/\2>)/g, (_, auf, _tag, innen, zu) => auf + innenTrennen(innen) + zu)
+    .replace(/(<span class="weiter-titel">)([^<]*)(<\/span>)/g, (_, auf, innen, zu) => auf + innenTrennen(innen) + zu);
 }

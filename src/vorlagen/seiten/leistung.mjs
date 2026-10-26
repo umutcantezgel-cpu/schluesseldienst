@@ -5,8 +5,7 @@
 import { access } from 'node:fs/promises';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { html, roh, escape } from '../../../bau/lib/html.mjs';
-import { textTrennen } from '../../../bau/lib/trennen.mjs';
+import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import { GRUPPEN } from '../../konfig/leistungen.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
@@ -132,14 +131,11 @@ ${faq(sk, liste)}
 </section>`;
 }
 
-// Kartentitel wirken als Überschrift und trennen deshalb nur an den Fugen der Wortliste (K-006), wie h1–h4 im Bau
-const kartenTitel = (t) => roh(textTrennen(escape(t)));
-
 function weiter(sk, liste) {
   return html`<section class="sektion sektion-dicht" aria-labelledby="weiter-titel">
 <div class="raster">
 ${abschnittKopf({ id: 'weiter-titel', titel: 'Weiterlesen' })}
-<ul class="weiter">${liste.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${kartenTitel(w.titel)}</span><span class="weiter-text">${w.text}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
+<ul class="weiter">${liste.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${w.titel}</span><span class="weiter-text">${w.text}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
 </div>
 </section>`;
 }

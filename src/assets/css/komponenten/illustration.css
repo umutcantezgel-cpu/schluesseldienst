@@ -29,6 +29,11 @@
   /* Aktiver Teil: Fläche flach wie alle Flächen, den Zustand trägt allein der Kupferstrich (Kupfer-hell bleibt Platzhaltern) */
   .ill-akzent-flaeche { fill: var(--c-papier-2); stroke: var(--c-kupfer); stroke-width: var(--linie-scher); }
   .ill-text { fill: var(--c-tinte-2); stroke: none; font-family: var(--ff-mono); font-size: var(--svg-text-m); }
+  /* Falle/Riegel steht in Karten mit Container (V03 Leistung, Ratgeber): Nutzereinheiten schrumpfen mit der Karte,
+     gerendert bleibt die Beschriftung ≥ fs--1 */
+  .ill-falle-riegel .ill-text { font-size: var(--svg-text-gross); }
+  @container (min-width: 22.5em) { .ill-falle-riegel .ill-text { font-size: var(--svg-text-l); } }
+  @container (min-width: 27em) { .ill-falle-riegel .ill-text { font-size: var(--svg-text-m); } }
 
   /* Schrittzustände (M-17): Grundregel = Endzustand; data-zustand blendet spätere Teile aus und färbt den aktiven */
   [data-zustand="1"] :is([data-ab="2"], [data-ab="3"], [data-ab="4"], [data-ab="5"]),

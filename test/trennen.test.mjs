@@ -23,6 +23,12 @@ test('Nur Text zwischen h1–h4, Tags, Attribute und Entitäten bleiben unberüh
     '<h2 id="a" title="Schlüsseldienst"><span class="x">Schlüssel&shy;dienst</span> &amp; Einbruch&shy;schutz</h2><p>Schlüsseldienst</p>');
 });
 
+test('Kartentitel (.weiter-titel) bekommen die Fugen wie Überschriften', () => {
+  assert.equal(ueberschriftenTrennen('<span class="weiter-titel">Seriösen Schlüsseldienst erkennen</span>'),
+    '<span class="weiter-titel">Seriösen Schlüssel&shy;dienst erkennen</span>');
+  assert.equal(ueberschriftenTrennen('<span class="weiter-text">Schlüsseldienst</span>'), '<span class="weiter-text">Schlüsseldienst</span>');
+});
+
 test('Wortliste: Kleinbuchstaben, mindestens eine Fuge, keine Doppel', () => {
   const gesehen = new Set();
   for (const e of TRENNSTELLEN) {
