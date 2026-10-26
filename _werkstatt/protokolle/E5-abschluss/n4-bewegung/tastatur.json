@@ -1,0 +1,146 @@
+{
+  "werkzeug": "n4-tastatur",
+  "basis": "http://127.0.0.1:4251",
+  "geraet": "mobil 390x844",
+  "zeitpunkt": "2026-10-26T10:04:10.255Z",
+  "schritte": [],
+  "status": 200,
+  "tab_anzahl_bis_knopf": 4,
+  "tab_folge_letzte": [
+    {
+      "n": 1,
+      "tag": "a.sprunglink",
+      "aria_controls": null,
+      "text": "Zum Inhalt springen",
+      "im_viewport": true,
+      "oben": 16,
+      "unten": 67
+    },
+    {
+      "n": 2,
+      "tag": "a.wortmarke",
+      "aria_controls": null,
+      "text": "[Firmenname] – zur Startseite",
+      "im_viewport": true,
+      "oben": 6,
+      "unten": 50
+    },
+    {
+      "n": 3,
+      "tag": "a.kopf-suche",
+      "aria_controls": null,
+      "text": "Suche",
+      "im_viewport": true,
+      "oben": 6,
+      "unten": 50
+    },
+    {
+      "n": 4,
+      "tag": "a.rufleiste-menue",
+      "aria_controls": "menue-blatt",
+      "text": "Menü",
+      "im_viewport": true,
+      "oben": 777,
+      "unten": 836
+    }
+  ],
+  "knopf_fokus": {
+    "n": 4,
+    "tag": "a.rufleiste-menue",
+    "aria_controls": "menue-blatt",
+    "text": "Menü",
+    "im_viewport": true,
+    "oben": 777,
+    "unten": 836
+  },
+  "vor_enter": {
+    "dialog_open": false,
+    "display": "none",
+    "opacity": "1",
+    "knopf_aria_expanded": "false",
+    "hash": "",
+    "fokus_im_blatt": false
+  },
+  "nach_enter_40ms": {
+    "dialog_open": true,
+    "display": "block",
+    "opacity": "1",
+    "knopf_aria_expanded": "true",
+    "hash": "",
+    "fokus_im_blatt": true
+  },
+  "nach_enter_500ms": {
+    "dialog_open": true,
+    "display": "block",
+    "opacity": "1",
+    "knopf_aria_expanded": "true",
+    "hash": "",
+    "fokus_im_blatt": true
+  },
+  "fokus_nach_enter": {
+    "tag": "button.menue-blatt-zu",
+    "aria_controls": null,
+    "text": "Menü schließen",
+    "im_viewport": true,
+    "oben": 139,
+    "unten": 187
+  },
+  "nach_escape_40ms": {
+    "dialog_open": false,
+    "display": "block",
+    "opacity": "1",
+    "knopf_aria_expanded": "false",
+    "hash": "",
+    "fokus_im_blatt": false
+  },
+  "fokus_nach_escape_40ms": {
+    "tag": "a.rufleiste-menue",
+    "aria_controls": "menue-blatt",
+    "text": "Menü",
+    "im_viewport": true,
+    "oben": 777,
+    "unten": 836
+  },
+  "nach_escape_600ms": {
+    "dialog_open": false,
+    "display": "none",
+    "opacity": "1",
+    "knopf_aria_expanded": "false",
+    "hash": "",
+    "fokus_im_blatt": false
+  },
+  "fokus_nach_escape": {
+    "tag": "a.rufleiste-menue",
+    "aria_controls": "menue-blatt",
+    "text": "Menü",
+    "im_viewport": true,
+    "oben": 777,
+    "unten": 836
+  },
+  "fokus_ist_knopf": true,
+  "zweiter_lauf_nach_enter": {
+    "dialog_open": true,
+    "display": "block",
+    "opacity": "1",
+    "knopf_aria_expanded": "true",
+    "hash": "",
+    "fokus_im_blatt": true
+  },
+  "zweiter_lauf_nach_escape": {
+    "dialog_open": false,
+    "display": "none",
+    "opacity": "1",
+    "knopf_aria_expanded": "false",
+    "hash": "",
+    "fokus_im_blatt": false
+  },
+  "zweiter_lauf_fokus": {
+    "tag": "a.rufleiste-menue",
+    "aria_controls": "menue-blatt",
+    "text": "Menü",
+    "im_viewport": true,
+    "oben": 777,
+    "unten": 836
+  },
+  "externe_blockiert": 0
+}

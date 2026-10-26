@@ -1,0 +1,172 @@
+{
+  "werkzeug": "axe",
+  "basis": "http://127.0.0.1:4251/",
+  "schema": "dark",
+  "regeln": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa"
+  ],
+  "zeitpunkt": "2026-10-26T10:10:58.949Z",
+  "befunde": 0,
+  "ergebnisse": [
+    {
+      "pfad": "/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/einbruchschutz/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/notoeffnung/tueroeffnung/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/preise/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/einsatzgebiet/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/schluesseldienst-loehnberg/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/ratgeber/rauchmelderpflicht/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/ueber-uns/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/kontakt/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/suche/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/impressum/",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    },
+    {
+      "pfad": "/gibt-es-nicht/",
+      "status": 404,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    }
+  ]
+}

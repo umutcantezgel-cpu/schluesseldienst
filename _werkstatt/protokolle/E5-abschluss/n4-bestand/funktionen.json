@@ -1,0 +1,297 @@
+{
+  "werkzeug": "funktionen",
+  "basis": "http://127.0.0.1:4251",
+  "zeitpunkt": "2026-10-26T09:58:28.255Z",
+  "ergebnisse": [
+    {
+      "id": "F01",
+      "titel": "Anruf mit einem Tipp von jeder Seite",
+      "wie": "Alle 13 Hauptansichten: mobil 390×844 Rufleiste (.rufleiste) sichtbar und fixiert; desktop 1440×900 Kopf-Rufknopf (.rufknopf-kopf) sichtbar. Gezählt: tel:-Links. Die Nummer ist im Vorschau-Build Platzhalter (ABNAHME U-6), daher wird der Knopf als Span ohne tel:-Link erzeugt (istPlatzhalter in src/vorlagen/teile/rufknopf.mjs).",
+      "ergebnis": "teilweise",
+      "messung": [
+        "mobil Rufleiste fixiert/sichtbar: 13/13",
+        "desktop Kopf-Rufknopf sichtbar: 13/13",
+        "tel:-Links auf allen Ansichten zusammen: 0 (Vorschau: Nummer Platzhalter, Anruf nicht verlinkt; Release verweigert Platzhalter)"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 2
+    },
+    {
+      "id": "F02",
+      "titel": "Orts-/PLZ-Suche mit Sprung zur Ortsseite",
+      "wie": "Auf „/“ (V01, Prüfmodus): „Löhnberg“ tippen, Vorschlagsliste, Pfeil ab, Enter; Ergebnis mit Link „Zur Seite für …“ auf /schluesseldienst-loehnberg/. PLZ „35781“ liefert Vorschläge. Auf der Fehlerseite /gibt-es-nicht/ (V12, Navigationsmodus): „Löhnberg“ wählen, Enter, Adresse wird /schluesseldienst-loehnberg/.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "V01 „Löhnberg“: 1 Vorschläge",
+        "V01 Ergebnis-Link: /schluesseldienst-loehnberg/",
+        "V01 PLZ „35781“: Vorschläge sichtbar=true",
+        "404 (Navigationsmodus) „Löhnberg“ → /schluesseldienst-loehnberg/ (Sprung=true)"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 1
+    },
+    {
+      "id": "F03",
+      "titel": "PLZ-/Ortsprüfung mit ehrlichem Zonen-Ergebnis",
+      "wie": "Prüfmodus auf V01 und V05: „Löhnberg“ wählen → Zonentext aus data-zonen, Entfernung in km; „Hamburg“ (überregional) → Zone mit „nach Absprache“/„Überregional“ statt Lockpreis. Wortlaut der Überschrift als Beleg festgehalten.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "/ Überschrift: „Kommen Sie zu mir?“",
+        "/ „Löhnberg“: Zone „Kerngebiet ab Weilburg“ · „Rund 3 km nördlich von Weilburg (Luftlinie).“",
+        "/ „Berlin“: Zone „Überregional – nach Absprache“ · „Rund 176 km nordöstlich von Weilburg (Luftlinie).“",
+        "/ Hinweis „Hamburg“ (nicht im Index): Status „Kein Ort gefunden. Prüfen Sie die Schreibweise oder nutzen Sie die Übersicht aller Orte.“",
+        "/einsatzgebiet/ Überschrift: „Ihren Ort prüfen“",
+        "/einsatzgebiet/ „Löhnberg“: Zone „Kerngebiet ab Weilburg“ · „Rund 3 km nördlich von Weilburg (Luftlinie).“",
+        "/einsatzgebiet/ „Berlin“: Zone „Überregional – nach Absprache“ · „Rund 176 km nordöstlich von Weilburg (Luftlinie).“",
+        "/einsatzgebiet/ Hinweis „Hamburg“ (nicht im Index): Status „Kein Ort gefunden. Prüfen Sie die Schreibweise oder nutzen Sie die Übersicht aller Orte.“"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F04",
+      "titel": "Preistabelle mit Zeitfenstern und Zuschlägen",
+      "wie": "/preise/: Tabelle #preisliste mit den vier Zeitfenstern (Werktags tagsüber, Werktags abends, Nachts, Wochenende und Feiertag) und mindestens vier Leistungszeilen; Anfahrtstabelle (Zuschläge je Zone, .anfahrt-tabelle) sichtbar. Platzhalterzellen werden gezählt.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "Tabelle sichtbar=true; Zeitfenster gefunden 4/4; Tabellenzeilen 7; Anfahrtstabelle sichtbar=true; Platzhalterzellen 28"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F05",
+      "titel": "Preisrechner (Leistung × Zeitpunkt × Zone)",
+      "wie": "/preise/ (Abschnitt „Preisrechner“): Ausgabe .rechner-summe lesen, Zone D wählen, Lage „Garage“ wählen; die Ausgabe muss sich nach jeder Wahl ändern. In der Vorschau ist die Summe ohne gepflegte Preisliste ein Satz statt eines Betrags (preisrechner.mjs); die Rechenlogik ist in test/preise.test.mjs geprüft.",
+      "ergebnis": "teilweise",
+      "messung": [
+        "Start Posten: „Tür zugefallen (nicht abgeschlossen) Werktags tagsüber [Preis folgt] Anfahrt Zone A · Kerngebiet enthalten“ · Summe „Berechnung erst mit Preisliste möglich.“",
+        "Lage Garage Posten: „Garagentor öffnen Werktags tagsüber [Preis folgt] Anfahrt Zone A · Kerngebiet enthalten“",
+        "Zone D Posten: „“ · Summe „Dieser Preis wird nach Absprache vereinbart – fragen Sie uns vorher.“",
+        "Posten ändern sich nach Lage=true, nach Zone=true",
+        "Gesamtbetrag im Vorschau-Build nicht sichtbar (Preisliste offen, U-6); Rechenlogik Gesamtpreis = Zeitfenster + Anfahrt geprüft in test/preise.test.mjs (npm test, 330 bestanden)"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F06",
+      "titel": "Häufige Fragen je Seite (aufklappbar, ohne JS nutzbar)",
+      "wie": "Auf „/“: mindestens drei details.faq-eintrag; mit JS öffnet und schließt ein Klick auf die erste Frage. Ohne JS (javaScriptEnabled=false) öffnet ein Klick auf die erste Frage ebenfalls.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "mit JS: Anzahl 6; nach 1. Klick open=true, nach 2. Klick open=false",
+        "ohne JS: open vorher=false, nach Klick=true"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F07",
+      "titel": "Ablauf in Schritten",
+      "wie": "/ (V01): .ablauf mit mindestens drei Schritten, Nummern in Folge. /notoeffnung/ und /einbruchschutz/ (V02): Szenen-Schritte (.szene-schritt) mindestens drei je Seite.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "V01 Schritte 4: 1 2 3 4 (Folge true)",
+        "/notoeffnung/ Szenen-Schritte: 4",
+        "/einbruchschutz/ Szenen-Schritte: 5"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F08",
+      "titel": "Leistungsregister mit Gruppenfilter",
+      "wie": "/leistungen/: Gruppenfilter als Knöpfe (aria-pressed). Klick auf „Einbruch…“ → genau eine Gruppe sichtbar, Anker #gruppe-einbruchschutz; Klick auf „Alle“ → alle vier Gruppen sichtbar.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "Knöpfe 5; sichtbare Gruppen am Start 4; nach Einbruch-Filter 1 (Anker „#gruppe-einbruchschutz“); nach „Alle“ 4"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F09",
+      "titel": "A–Z-Ortsverzeichnis je Land/Kreis",
+      "wie": "/einsatzgebiet/hessen/limburg-weilburg/ (V06): mindestens acht Sprunglinks in .az-buchstaben, alle Ziele vorhanden, Klick setzt den Anker. /einsatzgebiet/ (V05): mindestens fünf Links in die Verzeichnisse.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "V06 Sprunglinks 10; Ziele vorhanden 10/10; Klick auf ersten Buchstaben setzt Anker=true",
+        "V05 Links in Verzeichnisse: 33"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F10",
+      "titel": "Ortsseite mit Faktenblock, Nachbarorten, Lagekarte",
+      "wie": "/schluesseldienst-loehnberg/ (V07): .ort-fakten sichtbar; Abschnitt „Orte in der Nähe von …“ mit mindestens sechs Links auf Ortsseiten; .lagekarte als SVG mit role=img und aufgelöstem Namen (aria-labelledby).",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "Fakten sichtbar=true",
+        "Nachbarn: „Ortsteile von Löhnberg“ mit 9 Links",
+        "Lagekarte: role=img, Name „Lage von Löhnberg: rund 3 km nördlich von Weilburg, dazu Orte der Umgebung“"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F11",
+      "titel": "Kontakt: Anruf, E-Mail, E-Mail-Composer (ohne Server)",
+      "wie": "/kontakt/: (a) leer absenden → Fehlerübersicht mit Links; (b) „Notfall“ zeigt das Ruf-Panel statt der E-Mail-Felder; (c) „planbar“, Ort und Nachricht ausfüllen → Betreff zeigt den Ort, Absenden zeigt den Grund „ohne Adresse“ (Vorschau), keine Navigation.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "(a) leer absenden: Fehlerübersicht sichtbar=true, Punkte 2",
+        "(b) Notfall: Ruf-Panel sichtbar=true, E-Mail-Felder verborgen=true",
+        "(c) Betreff nach Eingabe des Ortes: „Anfrage planbare Arbeit – Weilburg“",
+        "(c) Absenden: Grund „ohne Adresse“ sichtbar=true, keine Navigation=true"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F12",
+      "titel": "Seitensuche (statischer Index)",
+      "wie": "/suche/: „Tresor“ → Treffer mit Hervorhebung (mark); „Löhnberg“ → Ortstreffer im Ergebnis; Direktaufruf /suche/?q=Tresor zeigt die Treffer ohne Eingabe.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "„Tresor“: Treffer 13, Hervorhebungen 17",
+        "„Löhnberg“: Ergebnis enthält Ort=true",
+        "/suche/?q=Tresor direkt: Treffer 13"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F13",
+      "titel": "Ratgeber-Artikel mit Inhaltsverzeichnis",
+      "wie": "/ratgeber/rauchmelderpflicht/ (V08): nav[data-modul=inhalt] mit mindestens drei Links, alle Ziele vorhanden; Klick auf den ersten Eintrag setzt den Anker und zeigt das Ziel im Sichtfeld.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "Inhalt-Links 5; Ziele vorhanden 5/5; Anker nach Klick „#teil-1“; Ziel im Sichtfeld=true"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F14",
+      "titel": "Seriösen Schlüsseldienst erkennen (Verbraucherhinweis)",
+      "wie": "V01 („/“): Abschnitt „Seriösen Schlüsseldienst erkennen“; V07 (/schluesseldienst-loehnberg/): derselbe Hinweis; V08: Übersicht /ratgeber/ verlinkt den Artikel /ratgeber/schluesseldienst-abzocke-erkennen/, dessen Überschrift geprüft wird.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "V01 Überschrift: „Seriösen Schlüsseldienst erkennen“",
+        "V07 Hinweis im Text: true",
+        "V08 Übersicht verlinkt den Abzocke-Artikel: 1 Link(s)",
+        "V08 Artikel-Überschrift: „Schlüsseldienst-Abzocke erkennen“"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F15",
+      "titel": "Hell/Dunkel nach Systemeinstellung",
+      "wie": "Alle 13 Hauptansichten mit prefers-color-scheme light und dark: Hintergrund des body muss sich unterscheiden, im Dunkelmodus color-scheme dark.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "Ansichten geprüft 13, Abweichungen: keine",
+        "Beispiel /: hell rgb(244, 242, 237), dunkel rgb(14, 22, 27)"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 2
+    },
+    {
+      "id": "F16",
+      "titel": "Reduzierte Bewegung nach Systemeinstellung",
+      "wie": "Alle 13 Hauptansichten: laufende CSS-Animationen nach 1,2 s ohne Bewegungswunsch (no-preference) und mit reduce. Erfüllt, wenn bei reduce keine Animation läuft und ohne Wunsch mindestens eine läuft, wo es Bewegung gibt.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "/: ohne Wunsch 17 laufend, reduce 0 laufend",
+        "/einbruchschutz/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "/notoeffnung/tueroeffnung/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "/preise/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "/einsatzgebiet/: ohne Wunsch 12 laufend, reduce 0 laufend",
+        "/einsatzgebiet/hessen/limburg-weilburg/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "/schluesseldienst-loehnberg/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "/ratgeber/rauchmelderpflicht/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "/ueber-uns/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "/kontakt/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "/suche/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "/impressum/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "/gibt-es-nicht/: ohne Wunsch 0 laufend, reduce 0 laufend",
+        "Ansichten mit Bewegung ohne Wunsch: 2/13"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 2
+    },
+    {
+      "id": "F17",
+      "titel": "HTML-Sitemap und XML-Sitemaps",
+      "wie": "/sitemap/ (HTTP 200, Links); /sitemap.xml (Sitemap-Index mit Verweisen); /sitemaps/leistungen.xml (urlset); /robots.txt nennt die Sitemap. Gezählt: Verweise im Index, die nicht auf den Prüfursprung zeigen.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "/sitemap/ HTTP 200, Links 385",
+        "/sitemap.xml HTTP 200, Verweise 19, davon nicht auf http://127.0.0.1:4251: 19",
+        "/sitemaps/leistungen.xml HTTP 200, URLs 28",
+        "/robots.txt HTTP 200, Sitemap-Zeile=true"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    },
+    {
+      "id": "F18",
+      "titel": "Fehlerseite mit Suche",
+      "wie": "/gibt-es-nicht/ (gewollte 404): HTTP 404; Ortssuche auf der Fehlerseite liefert Vorschläge; Link zur Seitensuche /suche/ vorhanden. Die Konsolenmeldung zum 404 wird als gewollt getrennt gezählt.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "HTTP 404",
+        "Suchfeld sichtbar=true, Vorschläge zu „Weilburg“=true",
+        "Link /suche/: 4"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 1
+    },
+    {
+      "id": "F19",
+      "titel": "Rechtstexte von jeder Seite erreichbar",
+      "wie": "Alle 13 Hauptansichten (desktop): Fußzeile mit sichtbarem Link auf /impressum/ und /datenschutz/. Stichprobe: von /preise/ über den Fußlink zu /impressum/.",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "Ansichten mit beiden Fußlinks: 13/13; Klick von /preise/ → /impressum/"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 1
+    },
+    {
+      "id": "F20",
+      "titel": "Druckansicht für Preise und Ratgeber",
+      "wie": "/preise/ und /ratgeber/rauchmelderpflicht/ im Druck-Medium: Navigation und Rufleiste ausgeblendet, Preisliste sichtbar; als A4-PDF erzeugt, Seitenzahl aus dem PDF (Dateien druck_*.pdf im Prüfordner).",
+      "ergebnis": "erfüllt",
+      "messung": [
+        "/preise/: .rufleiste sichtbar=false, .hauptnav sichtbar=false, Preisliste sichtbar=true, PDF-Seiten 6, Datei /home/user/schluesseldienst/.cache/e5-final/n4-bestand/druck_preise.pdf",
+        "/ratgeber/rauchmelderpflicht/: .rufleiste sichtbar=false, .hauptnav sichtbar=false, Preisliste sichtbar=true, PDF-Seiten 8, Datei /home/user/schluesseldienst/.cache/e5-final/n4-bestand/druck_ratgeber_rauchmelderpflicht.pdf"
+      ],
+      "fremdeAnfragen": 0,
+      "konsoleFehler": [],
+      "gewolltes404Konsole": 0
+    }
+  ]
+}

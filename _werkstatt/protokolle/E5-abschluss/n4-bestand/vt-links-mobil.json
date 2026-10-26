@@ -1,0 +1,2283 @@
+{
+  "werkzeug": "vt-probe",
+  "basis": "http://127.0.0.1:4251",
+  "teil": "links",
+  "geraet": "mobil",
+  "frueh": false,
+  "zeitpunkt": "2026-10-26T09:55:36.210Z",
+  "wechsel": 48,
+  "erfolgreich": 48,
+  "zaehlend": 0,
+  "pageerror": 0,
+  "viewTransitionMeldungen": 0,
+  "diagnose": {
+    "pageswapMitVt": 48,
+    "pagerevealMitVt": 48,
+    "pagerevealMitVtModulSchonGelaufen": 10,
+    "unhandledrejection": [],
+    "abgefangen": []
+  },
+  "zaehlendeEreignisse": [],
+  "ketten": [
+    {
+      "kette": 1,
+      "wege": [
+        {
+          "schritt": 1,
+          "von": "/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 827,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 106,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 3
+            }
+          ]
+        },
+        {
+          "schritt": 2,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1523,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 60,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 3,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1533,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 60,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 4,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1494,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 75,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 5,
+          "von": "/kontakt/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/kontakt/",
+              "t": 1531,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 57,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 6,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1477,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 59,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 7,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1517,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 106,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 8,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1532,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 77,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 9,
+          "von": "/kontakt/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/kontakt/",
+              "t": 1519,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 76,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 3
+            }
+          ]
+        },
+        {
+          "schritt": 10,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1496,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 59,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 3
+            }
+          ]
+        },
+        {
+          "schritt": 11,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1552,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 72,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 12,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1558,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 159,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 13,
+          "von": "/kontakt/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/kontakt/",
+              "t": 1596,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 56,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 14,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1465,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 62,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 15,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1520,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 90,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 16,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1527,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 79,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 17,
+          "von": "/kontakt/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/kontakt/",
+              "t": 1512,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 84,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 18,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1490,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 73,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 19,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1572,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 103,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 20,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1530,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 102,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 21,
+          "von": "/kontakt/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/kontakt/",
+              "t": 1502,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 75,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 22,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1511,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 76,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 23,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1545,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 103,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 24,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1512,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 77,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        }
+      ],
+      "ereignisse": [],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 81,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/",
+          "t": 98,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/",
+          "t": 827,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 106,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 3
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1523,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 60,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/",
+          "t": 1533,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 60,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1494,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 75,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 1531,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 57,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1477,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 59,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1517,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 106,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1532,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 77,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 1519,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 76,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 3
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1496,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 59,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 3
+        },
+        {
+          "pfad": "/",
+          "t": 1552,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 72,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1558,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 159,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 1596,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 56,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1465,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 62,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/",
+          "t": 1520,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 90,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1527,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 79,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 1512,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 84,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1490,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 73,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1572,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 103,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1530,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 102,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 1502,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 75,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1511,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 76,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/",
+          "t": 1545,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 103,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1512,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 77,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        }
+      ]
+    },
+    {
+      "kette": 2,
+      "wege": [
+        {
+          "schritt": 1,
+          "von": "/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 769,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 103,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 2,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1504,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 70,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 3,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1558,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 95,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 4,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1532,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 72,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 5,
+          "von": "/kontakt/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/kontakt/",
+              "t": 1494,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 90,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 6,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1517,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 56,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 7,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1536,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 87,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 8,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1543,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 92,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 3
+            }
+          ]
+        },
+        {
+          "schritt": 9,
+          "von": "/kontakt/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/kontakt/",
+              "t": 1508,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 60,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 10,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1482,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 58,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 11,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1534,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 73,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 12,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1524,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 109,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 13,
+          "von": "/kontakt/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/kontakt/",
+              "t": 1529,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 60,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 14,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1482,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 89,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 15,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1518,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 73,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 16,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1521,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 75,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 17,
+          "von": "/kontakt/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/kontakt/",
+              "t": 1495,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 59,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 18,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1479,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 89,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 19,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1530,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 89,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 20,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1495,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 74,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 21,
+          "von": "/kontakt/",
+          "nach": "/suche/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/kontakt/",
+              "t": 1499,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/suche/",
+              "t": 57,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "loading",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 22,
+          "von": "/suche/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/suche/",
+              "t": 1480,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 60,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        },
+        {
+          "schritt": 23,
+          "von": "/",
+          "nach": "/einsatzgebiet/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1515,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 93,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 3
+            }
+          ]
+        },
+        {
+          "schritt": 24,
+          "von": "/einsatzgebiet/",
+          "nach": "/kontakt/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einsatzgebiet/",
+              "t": 1556,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/kontakt/",
+              "t": 99,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            }
+          ]
+        }
+      ],
+      "ereignisse": [],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 53,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/",
+          "t": 82,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "loading",
+          "js": false,
+          "stile": 3
+        },
+        {
+          "pfad": "/",
+          "t": 769,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 103,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1504,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 70,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1558,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 95,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1532,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 72,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 1494,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 90,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1517,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 56,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/",
+          "t": 1536,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 87,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1543,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 92,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 3
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 1508,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 60,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1482,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 58,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/",
+          "t": 1534,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 73,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1524,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 109,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 1529,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 60,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1482,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 89,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1518,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 73,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1521,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 75,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 1495,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 59,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1479,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 89,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1530,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 89,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1495,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 74,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 1499,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/suche/",
+          "t": 57,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "loading",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/suche/",
+          "t": 1480,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 60,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/",
+          "t": 1515,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 93,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 3
+        },
+        {
+          "pfad": "/einsatzgebiet/",
+          "t": 1556,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/kontakt/",
+          "t": 99,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "werkzeug": "n4-tabellenkontrolle",
+  "pfad": "/preise/",
+  "breite": 640,
+  "status": 200,
+  "gefunden": true,
+  "tabelle_links": 24,
+  "tabelle_rechts": 649,
+  "tabelle_breite": 625,
+  "dokument_scrollBreite": 640,
+  "dokument_klientBreite": 640,
+  "naechster_scrollbehaelter": {
+    "el": "div.preis-tabelle-huelle",
+    "overflowX": "auto",
+    "scrollBreite": 625,
+    "klientBreite": 592
+  },
+  "vorfahren": [
+    {
+      "el": "div.preis-tabelle-huelle",
+      "overflowX": "auto",
+      "scrollBreite": 625,
+      "klientBreite": 592
+    },
+    {
+      "el": "div.preise-liste",
+      "overflowX": "visible",
+      "scrollBreite": 592,
+      "klientBreite": 592
+    },
+    {
+      "el": "div.raster",
+      "overflowX": "visible",
+      "scrollBreite": 640,
+      "klientBreite": 640
+    },
+    {
+      "el": "section.sektion.band",
+      "overflowX": "visible",
+      "scrollBreite": 640,
+      "klientBreite": 640
+    },
+    {
+      "el": "main#inhalt",
+      "overflowX": "visible",
+      "scrollBreite": 640,
+      "klientBreite": 640
+    },
+    {
+      "el": "body.seite-preise",
+      "overflowX": "visible",
+      "scrollBreite": 640,
+      "klientBreite": 640
+    }
+  ]
+}

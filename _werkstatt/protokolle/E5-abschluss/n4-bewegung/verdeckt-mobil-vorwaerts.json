@@ -1,0 +1,112 @@
+{
+  "werkzeug": "verdeckt",
+  "basis": "http://127.0.0.1:4251/",
+  "zeitpunkt": "2026-10-26T10:11:56.838Z",
+  "viewport": "mobil",
+  "richtung": "vorwaerts",
+  "ganzVerdeckt": 0,
+  "ergebnisse": [
+    {
+      "pfad": "/",
+      "viewport": "mobil",
+      "breite": 390,
+      "richtung": "vorwaerts",
+      "status": 200,
+      "externeBlockiert": 0,
+      "zustandVorher": {
+        "scrollPaddingTop": "auto",
+        "scrollPaddingBottom": "88px",
+        "rufleiste": {
+          "oben": 768,
+          "unten": 844,
+          "hoehe": 76
+        },
+        "klebend": [
+          {
+            "el": "div.rufleiste",
+            "position": "fixed",
+            "oben": 768,
+            "unten": 844,
+            "hoehe": 76
+          },
+          {
+            "el": "div.menue-blatt-kopf",
+            "position": "sticky",
+            "oben": 0,
+            "unten": 0,
+            "hoehe": 0
+          },
+          {
+            "el": "div.menue-blatt-ruf",
+            "position": "sticky",
+            "oben": 0,
+            "unten": 0,
+            "hoehe": 0
+          }
+        ]
+      },
+      "schritte": 66,
+      "fokuszieleAusser": 65,
+      "fokuszieleInLeiste": 1,
+      "ganzVerdecktRufleiste": 0,
+      "teilweiseRufleiste": 0,
+      "ganzVerdecktPunktprobe": 0,
+      "teilweisePunktprobe": 0,
+      "ausserhalbSicht": 0,
+      "verdeckendeElemente": {},
+      "beispiele": [],
+      "beispieleTeilweise": []
+    },
+    {
+      "pfad": "/kontakt/",
+      "viewport": "mobil",
+      "breite": 390,
+      "richtung": "vorwaerts",
+      "status": 200,
+      "externeBlockiert": 0,
+      "zustandVorher": {
+        "scrollPaddingTop": "auto",
+        "scrollPaddingBottom": "88px",
+        "rufleiste": {
+          "oben": 768,
+          "unten": 844,
+          "hoehe": 76
+        },
+        "klebend": [
+          {
+            "el": "div.rufleiste",
+            "position": "fixed",
+            "oben": 768,
+            "unten": 844,
+            "hoehe": 76
+          },
+          {
+            "el": "div.menue-blatt-kopf",
+            "position": "sticky",
+            "oben": 0,
+            "unten": 0,
+            "hoehe": 0
+          },
+          {
+            "el": "div.menue-blatt-ruf",
+            "position": "sticky",
+            "oben": 0,
+            "unten": 0,
+            "hoehe": 0
+          }
+        ]
+      },
+      "schritte": 53,
+      "fokuszieleAusser": 52,
+      "fokuszieleInLeiste": 1,
+      "ganzVerdecktRufleiste": 0,
+      "teilweiseRufleiste": 0,
+      "ganzVerdecktPunktprobe": 0,
+      "teilweisePunktprobe": 0,
+      "ausserhalbSicht": 0,
+      "verdeckendeElemente": {},
+      "beispiele": [],
+      "beispieleTeilweise": []
+    }
+  ]
+}

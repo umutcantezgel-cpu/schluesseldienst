@@ -1,0 +1,93 @@
+{
+  "werkzeug": "lighthouse",
+  "zeitpunkt": "2026-10-26T09:49:33.191Z",
+  "basis": "http://127.0.0.1:4251",
+  "formfaktor": "mobile",
+  "laeufe": 3,
+  "schwellen": {
+    "min-perf": 95,
+    "min-a11y": 100,
+    "min-bp": 100,
+    "max-lcp": 2500,
+    "max-cls": 0.1
+  },
+  "seiten": [
+    {
+      "pfad": "/suche/",
+      "url": "http://127.0.0.1:4251/suche/",
+      "median": {
+        "perf": 98,
+        "a11y": 100,
+        "bp": 100,
+        "seo": 66,
+        "lcp": 2103.2505,
+        "cls": 0.04825158992588922,
+        "tbt": 0,
+        "fcp": 1653.2505,
+        "si": 1653.2505,
+        "bytes": 165847
+      },
+      "spanne": {
+        "perf": 0,
+        "a11y": 0,
+        "bp": 0,
+        "seo": 0,
+        "lcp": 2.2700000000004366,
+        "cls": 0.04825158992588922,
+        "tbt": 0,
+        "fcp": 2.269999999999982,
+        "si": 2.269999999999982,
+        "bytes": 0
+      },
+      "einzel": [
+        {
+          "perf": 98,
+          "a11y": 100,
+          "bp": 100,
+          "seo": 66,
+          "lcp": 2103.2505,
+          "cls": 0.04825158992588922,
+          "tbt": 0,
+          "fcp": 1653.2505,
+          "si": 1653.2505,
+          "bytes": 165847,
+          "mangel": [
+            "seo/is-crawlable"
+          ]
+        },
+        {
+          "perf": 98,
+          "a11y": 100,
+          "bp": 100,
+          "seo": 66,
+          "lcp": 2103.1728,
+          "cls": 0,
+          "tbt": 0,
+          "fcp": 1653.1728,
+          "si": 1653.1728,
+          "bytes": 165847,
+          "mangel": [
+            "seo/is-crawlable"
+          ]
+        },
+        {
+          "perf": 98,
+          "a11y": 100,
+          "bp": 100,
+          "seo": 66,
+          "lcp": 2105.4428000000003,
+          "cls": 0.04825158992588922,
+          "tbt": 0,
+          "fcp": 1655.4428,
+          "si": 1655.4428,
+          "bytes": 165847,
+          "mangel": [
+            "seo/is-crawlable"
+          ]
+        }
+      ]
+    }
+  ],
+  "verfehlt": [],
+  "ergebnis": "ok"
+}
