@@ -1,0 +1,105 @@
+{
+  "zeitstempel": "2026-10-26T12:58:07.473Z",
+  "werkzeug": "herkunft.mjs (Node v22.22.0)",
+  "commit": {
+    "voll": "7422b0f775e4970a93529a97cb1d85076c07033e",
+    "commitDatum": "2026-10-25T13:17:00+00:00",
+    "betreff": "E2-OPUS-07 + E2-PRUEF-08: Register (Routen, Themenpässe, Faktenblätter, Quellenabdeckung), Prüfstufe B V01, A11y-Korrekturen"
+  },
+  "schritt1": {
+    "befehl": "git -C /home/user/schluesseldienst archive 7422b0f bau src package.json | tar -x -C /home/user/schluesseldienst/.cache/a1-vergleich/herkunft/archiv",
+    "ohneIgnorierung": {
+      "dateienA": 129,
+      "dateienB": 130,
+      "gleich": 129,
+      "nurInA": [],
+      "nurInB": [
+        ".cache/bau-bericht.json"
+      ],
+      "abweichend": [],
+      "modusAbweichend": [],
+      "ignoriertVorhanden": []
+    },
+    "ignoriert": [
+      ".cache/bau-bericht.json"
+    ],
+    "mitIgnorierung": {
+      "dateienA": 129,
+      "dateienB": 129,
+      "gleich": 129,
+      "nurInA": [],
+      "nurInB": [],
+      "abweichend": [],
+      "modusAbweichend": [],
+      "ignoriertVorhanden": [
+        ".cache/bau-bericht.json"
+      ]
+    },
+    "gleich": true
+  },
+  "schritt2": {
+    "befehl": "node bau/bauen.mjs --messen --aus=/home/user/schluesseldienst/.cache/a1-vergleich/herkunft/dist --datum=2026-10-25",
+    "cwd": "/home/user/schluesseldienst/.cache/a1-vergleich/herkunft/archiv",
+    "exitCode": 0,
+    "nodeVersion": "v22.22.0",
+    "logGleich": true,
+    "logArchiv": "Hinweis: 2 interne Links auf geplante, noch nicht gebaute Seiten\nBuild messen: 2 Seiten, 16 geändert, 0 entfernt, CSS 44601 B, JS 16615 B, N ms\nPlatzhalter: 24 in der Ausgabe, 56 in der Konfiguration · ungeprüfte Fakten: 0",
+    "logReferenz": "Hinweis: 2 interne Links auf geplante, noch nicht gebaute Seiten\nBuild messen: 2 Seiten, 16 geändert, 0 entfernt, CSS 44601 B, JS 16615 B, N ms\nPlatzhalter: 24 in der Ausgabe, 56 in der Konfiguration · ungeprüfte Fakten: 0",
+    "berichtAbweichendeSchluessel": [],
+    "berichtArchiv": {
+      "modus": "messen",
+      "basisUrl": "http://127.0.0.1:4173",
+      "datum": "2026-10-25T00:00:00Z",
+      "seiten": 2,
+      "dateien": {
+        "geschrieben": 16,
+        "geaendert": 16,
+        "unveraendert": 0
+      },
+      "entfernt": 0,
+      "css": 44601,
+      "js": 16615,
+      "platzhalterAusgabe": 24,
+      "platzhalterKonfig": 56,
+      "faktenUngeprueft": 0
+    },
+    "distVergleich": {
+      "dateienA": 16,
+      "dateienB": 16,
+      "gleich": 16,
+      "nurInA": [],
+      "nurInB": [],
+      "abweichend": [],
+      "modusAbweichend": [],
+      "ignoriertVorhanden": []
+    },
+    "gleich": true
+  },
+  "datumsprobe": {
+    "befehl": "node bau/bauen.mjs --messen --aus=/home/user/schluesseldienst/.cache/a1-vergleich/herkunft/dist-ohne-datum",
+    "exitCode": 0,
+    "datumImBericht": "2026-10-26T12:56:36+00:00",
+    "distVergleich": {
+      "dateienA": 16,
+      "dateienB": 16,
+      "gleich": 13,
+      "nurInA": [],
+      "nurInB": [],
+      "abweichend": [
+        ".well-known/security.txt",
+        "sitemap.xml",
+        "sitemaps/seiten.xml"
+      ],
+      "modusAbweichend": [],
+      "ignoriertVorhanden": []
+    }
+  },
+  "ergebnis": "identisch: Archiv-Quelle und Messbau stimmen mit e2-quelle bzw. e2-dist überein",
+  "abweichungen": [],
+  "anmerkungen": [
+    "Ignoriert in Schritt 1 (nur vom Bau erzeugt, bau/bauen.mjs Zeilen 233-234): .cache/bau-bericht.json",
+    "Der Build-Ordner e2-quelle/.cache enthält nur diese Datei; sie ist aus dem Bau und kein Quelltext.",
+    "Datum: Referenz-Bericht (e2-quelle/.cache/bau-bericht.json) nennt datum=2026-10-25T00:00:00Z; der Nachbau mit --datum=2026-10-25 nennt datum=2026-10-25T00:00:00Z. Ohne --datum (Probelauf) nennt er datum=2026-10-26T12:56:36+00:00; gegenüber e2-dist abweichende Dateien: 3, nur in Probe: 0, nur in e2-dist: 0.",
+    "Die Vergleiche wurden in beide Richtungen (nur in A, nur in B, abweichend) per SHA-256 durchgeführt; Dateirechte werden zusätzlich ausgewiesen."
+  ]
+}
