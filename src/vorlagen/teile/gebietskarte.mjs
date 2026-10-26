@@ -174,7 +174,7 @@ export function gebietskarte(sk, {
 
   const text = (klasse, x, y, seite, inhalt, zusatz = '') => `<text class="${klasse}"${zusatz} x="${Math.round(x)}" y="${Math.round(y)}" dominant-baseline="middle"${seite === 'links' ? ' text-anchor="end"' : ''}>${esc(inhalt)}</text>`;
   const namenSvg = namen.map((n) => text('gk-name', n.x, n.y, n.seite, n.name, n.rang === 2 ? ' data-rang="2"' : '')).join('');
-  const massSvg = ringMasse.map(({ km, y }) => `<text class="gk-ring-text" x="${spalte}" y="${y}">${km}&#160;km</text>`).join('');
+  const massSvg = ringMasse.map(({ km, y }) => `<text class="gk-ring-text" x="${spalte}" y="${y}">${km}&nbsp;km</text>`).join('');
   const ringSvg = ringe.map((km) => `<circle class="gk-ring" cx="${r}" cy="${r}" r="${km * masstab}"/>`).join('');
   return roh(`<svg class="gebietskarte${klasse ? ' ' + klasse : ''}" viewBox="0 0 ${2 * r} ${2 * r}" role="img" aria-labelledby="${praefix}-titel">
 <title id="${praefix}-titel">${esc(titel || `Orte im Umkreis von ${radiusKm} km um Weilburg; Ringe bei ${ringe.slice(0, -1).join(', ')}${ringe.length > 1 ? ' und ' : ''}${ringe.at(-1)} km Luftlinie.`)}</title>

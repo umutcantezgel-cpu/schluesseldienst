@@ -76,17 +76,18 @@
 
   /* Buchstabenleiste: bricht um statt seitlich zu scrollen (kein Buchstabe liegt verborgen). Alle 26 Buchstaben in
      gleich breiten Zellen eines Rasters, Links wie leere Buchstaben – sonst sprang der Rhythmus zwischen 48 und 24 px.
-     Die Spaltenzahl teilt 26 möglichst gleich: unter 30em so viele Zellen à 44 px (Touch 48 px, K-009), wie passen,
-     ab 30em 9 · 9 · 8, ab 48em 13 · 13, ab 80em mit Maus eine Zeile. Leere Buchstaben bleiben leichter Text. */
+     Die Spaltenzahl teilt 26 möglichst gleich: unter 30em sieben Spalten (7 · 7 · 7 · 5 statt 8 · 8 · 8 · 2), wo
+     Zellen à 44 px (Touch 48 px, K-009) das nicht zulassen, so viele, wie passen; ab 30em 9 · 9 · 8, ab 48em 13 · 13,
+     ab 80em mit Maus eine Zeile. Leere Buchstaben bleiben leichter Text. */
   .az-leiste { background: var(--c-papier); border-block-end: var(--linie-haar) solid var(--c-linie); padding-block: var(--sp-2xs); }
-  .az-buchstaben { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--ziel-min), 1fr)); }
+  .az-buchstaben { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(max(var(--ziel-min), 14%), 1fr)); }
   .az-buchstaben li { margin: 0; display: grid; }
   .az-buchstaben a, .az-leer { display: flex; align-items: center; justify-content: center; min-block-size: var(--ziel-min); }
   .az-buchstaben a { position: relative; isolation: isolate; border-radius: var(--r-s); color: var(--c-lahn-text); font-weight: var(--fw-titel); text-decoration: underline; text-decoration-thickness: var(--linie-haar); text-underline-offset: var(--unterstrich-abstand); }
   .az-buchstaben a:hover { text-decoration-thickness: var(--linie-scher); }
   .az-leer { color: var(--c-tinte-3); font-weight: var(--fw-text); }
   @media (pointer: coarse) {
-    .az-buchstaben { grid-template-columns: repeat(auto-fill, minmax(var(--ziel-touch), 1fr)); }
+    .az-buchstaben { grid-template-columns: repeat(auto-fill, minmax(max(var(--ziel-touch), 14%), 1fr)); }
     .az-buchstaben a, .az-leer { min-block-size: var(--ziel-touch); }
   }
   @media (min-width: 30em) { .az-buchstaben { grid-template-columns: repeat(9, minmax(0, 1fr)); } }

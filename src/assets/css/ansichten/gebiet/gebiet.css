@@ -32,8 +32,10 @@
      stehen rechts daneben in Mono wie die Peilung der Lagekarte. Unter jeder Schrift spart der Generator die Punkte
      aus; Punkte, die nur unter der größeren schmalen Schrift liegen, zeigt ein eigener Pfad erst ab 48em. Der stärkere
      Halo unterbricht nur noch Ringe, die ein Name kreuzt. */
-  .gk-mess { fill: none; stroke: var(--c-kupfer); stroke-width: var(--linie-scher); vector-effect: non-scaling-stroke; }
-  .gebietskarte .gk-ring-text { font-family: var(--ff-mono); fill: var(--c-kupfer); text-anchor: start; }
+  /* Linie und Maße sind ein Messwerkzeug: Die Gruppe trägt das Kupfer, beide Teile nehmen es auf */
+  .gk-mass { color: var(--c-kupfer); }
+  .gk-mess { fill: none; stroke: currentColor; stroke-width: var(--linie-scher); vector-effect: non-scaling-stroke; }
+  .gebietskarte .gk-ring-text { font-family: var(--ff-mono); fill: currentColor; text-anchor: start; }
   .gebietskarte :is(.gk-name, .gk-ring-text, .gk-sitz-name) { stroke-width: calc(var(--svg-halo) * 1.5); }
   .gk-raster[data-nur="breit"] { display: none; }
   @media (min-width: 48em) {
