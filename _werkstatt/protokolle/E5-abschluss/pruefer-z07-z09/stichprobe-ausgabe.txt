@@ -1,0 +1,223 @@
+Zonen-Zaehlung: {"NL":47,"B":795,"D":3168,"C":998,"A":244}
+[
+ {
+  "zone": "A",
+  "id": "gn:2817217",
+  "name": "Villmar",
+  "slug": "villmar",
+  "typ": "gemeinde",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-villmar/",
+  "existiert": true
+ },
+ {
+  "zone": "A",
+  "id": "gn:2860614",
+  "name": "Obergladbach",
+  "slug": "villmar-obergladbach",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-villmar-obergladbach/",
+  "existiert": true
+ },
+ {
+  "zone": "A",
+  "id": "gn:2883830",
+  "name": "Kröffelbach",
+  "slug": "waldsolms-kroeffelbach",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-waldsolms-kroeffelbach/",
+  "existiert": true
+ },
+ {
+  "zone": "A",
+  "id": "gn:2926300",
+  "name": "Fleisbach",
+  "slug": "sinn-fleisbach",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-sinn-fleisbach/",
+  "existiert": true
+ },
+ {
+  "zone": "A",
+  "id": "gn:2954063",
+  "name": "Aulenhausen",
+  "slug": "weilmuenster-aulenhausen",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-weilmuenster-aulenhausen/",
+  "existiert": true
+ },
+ {
+  "zone": "B",
+  "id": "gn:2828118",
+  "name": "Steinfischbach",
+  "slug": "waldems-steinfischbach",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-waldems-steinfischbach/",
+  "existiert": true
+ },
+ {
+  "zone": "B",
+  "id": "gn:2863636",
+  "name": "Niederauroff",
+  "slug": "idstein-niederauroff",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-idstein-niederauroff/",
+  "existiert": true
+ },
+ {
+  "zone": "B",
+  "id": "gn:2903019",
+  "name": "Höchst",
+  "slug": "frankfurt-hoechst",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-frankfurt-hoechst/",
+  "existiert": true
+ },
+ {
+  "zone": "B",
+  "id": "gn:2930508",
+  "name": "Emmerichenhain",
+  "slug": "rennerod-emmerichenhain",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Rheinland-Pfalz",
+  "pfad": "/schluesseldienst-rennerod-emmerichenhain/",
+  "existiert": true
+ },
+ {
+  "zone": "B",
+  "id": "gn:2955014",
+  "name": "Assenheim",
+  "slug": "niddatal-assenheim",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-niddatal-assenheim/",
+  "existiert": true
+ },
+ {
+  "zone": "C",
+  "id": "gn:2832777",
+  "name": "Sickenhofen",
+  "slug": "babenhausen-sickenhofen",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-babenhausen-sickenhofen/",
+  "existiert": true
+ },
+ {
+  "zone": "C",
+  "id": "gn:2886006",
+  "name": "Köngernheim",
+  "slug": "koengernheim",
+  "typ": "gemeinde",
+  "staat": "DE",
+  "land": "Rheinland-Pfalz",
+  "pfad": "/schluesseldienst-koengernheim/",
+  "existiert": true
+ },
+ {
+  "zone": "C",
+  "id": "gn:2926135",
+  "name": "Flonheim",
+  "slug": "flonheim",
+  "typ": "gemeinde",
+  "staat": "DE",
+  "land": "Rheinland-Pfalz",
+  "pfad": "/schluesseldienst-flonheim/",
+  "existiert": true
+ },
+ {
+  "zone": "C",
+  "id": "gn:2954976",
+  "name": "Astheim",
+  "slug": "trebur-astheim",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Hessen",
+  "pfad": "/schluesseldienst-trebur-astheim/",
+  "existiert": true
+ },
+ {
+  "zone": "D",
+  "id": "gn:2834275",
+  "name": "Schweringen",
+  "slug": "schweringen",
+  "typ": "gemeinde",
+  "staat": "DE",
+  "land": "Niedersachsen",
+  "pfad": "/schluesseldienst-schweringen/",
+  "existiert": true
+ },
+ {
+  "zone": "D",
+  "id": "gn:2904916",
+  "name": "Heyen",
+  "slug": "niederkruechten-heyen",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Nordrhein-Westfalen",
+  "pfad": "/schluesseldienst-niederkruechten-heyen/",
+  "existiert": true
+ },
+ {
+  "zone": "D",
+  "id": "gn:2950168",
+  "name": "Berlebeck",
+  "slug": "detmold-berlebeck",
+  "typ": "ortsteil",
+  "staat": "DE",
+  "land": "Nordrhein-Westfalen",
+  "pfad": "/schluesseldienst-detmold-berlebeck/",
+  "existiert": true
+ },
+ {
+  "zone": "NL",
+  "id": "gn:2746297",
+  "name": "Tilligte",
+  "slug": "dinkelland-tilligte",
+  "typ": "ortsteil",
+  "staat": "NL",
+  "land": "Niederlande",
+  "pfad": "/schluesseldienst-dinkelland-tilligte/",
+  "existiert": true
+ },
+ {
+  "zone": "NL",
+  "id": "gn:2754700",
+  "name": "Heemse",
+  "slug": "hardenberg-heemse",
+  "typ": "ortsteil",
+  "staat": "NL",
+  "land": "Niederlande",
+  "pfad": "/schluesseldienst-hardenberg-heemse/",
+  "existiert": true
+ },
+ {
+  "zone": "NL",
+  "id": "gn:2758595",
+  "name": "Bornerbroek",
+  "slug": "almelo-bornerbroek",
+  "typ": "ortsteil",
+  "staat": "NL",
+  "land": "Niederlande",
+  "pfad": "/schluesseldienst-almelo-bornerbroek/",
+  "existiert": true
+ }
+]

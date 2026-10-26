@@ -1,0 +1,93 @@
+{
+  "werkzeug": "token-stichprobe",
+  "zeitpunkt": "2026-10-26T06:46:57.122Z",
+  "dateien": [
+    {
+      "datei": "src/assets/css/ansichten/start/ablauf.css",
+      "befunde": 0,
+      "auszug": []
+    },
+    {
+      "datei": "src/assets/css/komponenten/illustration.css",
+      "befunde": 2,
+      "auszug": [
+        {
+          "zeile": 35,
+          "wert": "22.5em",
+          "art": "Maßeinheit"
+        },
+        {
+          "zeile": 36,
+          "wert": "27em",
+          "art": "Maßeinheit"
+        }
+      ]
+    },
+    {
+      "datei": "src/assets/css/ansichten/preise/preise.css",
+      "befunde": 10,
+      "auszug": [
+        {
+          "zeile": 77,
+          "wert": "1px",
+          "art": "Maßeinheit"
+        },
+        {
+          "zeile": 104,
+          "wert": "30em",
+          "art": "Maßeinheit"
+        },
+        {
+          "zeile": 181,
+          "wert": "17em",
+          "art": "Maßeinheit"
+        },
+        {
+          "zeile": 182,
+          "wert": "19em",
+          "art": "Maßeinheit"
+        },
+        {
+          "zeile": 186,
+          "wert": "44em",
+          "art": "Maßeinheit"
+        },
+        {
+          "zeile": 187,
+          "wert": "24em",
+          "art": "Maßeinheit"
+        },
+        {
+          "zeile": 188,
+          "wert": "36em",
+          "art": "Maßeinheit"
+        },
+        {
+          "zeile": 189,
+          "wert": "46em",
+          "art": "Maßeinheit"
+        },
+        {
+          "zeile": 190,
+          "wert": "56em",
+          "art": "Maßeinheit"
+        },
+        {
+          "zeile": 193,
+          "wert": "30em",
+          "art": "Maßeinheit"
+        }
+      ]
+    },
+    {
+      "datei": "src/assets/css/ansichten/verzeichnis/verzeichnis.css",
+      "befunde": 0,
+      "auszug": []
+    },
+    {
+      "datei": "src/assets/css/komponenten/menue-blatt.css",
+      "befunde": 0,
+      "auszug": []
+    }
+  ]
+}

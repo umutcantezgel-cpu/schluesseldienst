@@ -1,0 +1,351 @@
+{
+  "werkzeug": "ueberlauf",
+  "basis": "http://127.0.0.1:4299/",
+  "zeitpunkt": "2026-10-26T06:46:44.203Z",
+  "varianten": [
+    "320",
+    "390",
+    "768",
+    "1440",
+    "1920",
+    "320-erzwungen",
+    "390-erzwungen",
+    "768-erzwungen",
+    "1440-erzwungen",
+    "1920-erzwungen",
+    "zoom200"
+  ],
+  "befunde": 11,
+  "ergebnisse": [
+    {
+      "pfad": "/schlecht.html",
+      "variante": "320",
+      "breite": 320,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 320,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/schlecht.html",
+      "variante": "390",
+      "breite": 390,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 390,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/schlecht.html",
+      "variante": "768",
+      "breite": 768,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 768,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/schlecht.html",
+      "variante": "1440",
+      "breite": 1440,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 1440,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/schlecht.html",
+      "variante": "1920",
+      "breite": 1920,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 1920,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/schlecht.html",
+      "variante": "320-erzwungen",
+      "breite": 320,
+      "erzwungeneFarben": true,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 320,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/schlecht.html",
+      "variante": "390-erzwungen",
+      "breite": 390,
+      "erzwungeneFarben": true,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 390,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/schlecht.html",
+      "variante": "768-erzwungen",
+      "breite": 768,
+      "erzwungeneFarben": true,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 768,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/schlecht.html",
+      "variante": "1440-erzwungen",
+      "breite": 1440,
+      "erzwungeneFarben": true,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 1440,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/schlecht.html",
+      "variante": "1920-erzwungen",
+      "breite": 1920,
+      "erzwungeneFarben": true,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 1920,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/schlecht.html",
+      "variante": "zoom200",
+      "breite": 640,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 2008,
+      "klientBreite": 640,
+      "anzahlElemente": 1,
+      "elemente": [
+        {
+          "selektor": "body > div:nth-of-type(2)",
+          "rechts": 2008,
+          "breite": 2000
+        }
+      ],
+      "ueberlauf": true
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "320",
+      "breite": 320,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 320,
+      "klientBreite": 320,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "390",
+      "breite": 390,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 390,
+      "klientBreite": 390,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "768",
+      "breite": 768,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 768,
+      "klientBreite": 768,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "1440",
+      "breite": 1440,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 1440,
+      "klientBreite": 1440,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "1920",
+      "breite": 1920,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 1920,
+      "klientBreite": 1920,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "320-erzwungen",
+      "breite": 320,
+      "erzwungeneFarben": true,
+      "status": 200,
+      "scrollBreite": 320,
+      "klientBreite": 320,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "390-erzwungen",
+      "breite": 390,
+      "erzwungeneFarben": true,
+      "status": 200,
+      "scrollBreite": 390,
+      "klientBreite": 390,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "768-erzwungen",
+      "breite": 768,
+      "erzwungeneFarben": true,
+      "status": 200,
+      "scrollBreite": 768,
+      "klientBreite": 768,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "1440-erzwungen",
+      "breite": 1440,
+      "erzwungeneFarben": true,
+      "status": 200,
+      "scrollBreite": 1440,
+      "klientBreite": 1440,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "1920-erzwungen",
+      "breite": 1920,
+      "erzwungeneFarben": true,
+      "status": 200,
+      "scrollBreite": 1920,
+      "klientBreite": 1920,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    },
+    {
+      "pfad": "/index.html",
+      "variante": "zoom200",
+      "breite": 640,
+      "erzwungeneFarben": false,
+      "status": 200,
+      "scrollBreite": 640,
+      "klientBreite": 640,
+      "anzahlElemente": 0,
+      "elemente": [],
+      "ueberlauf": false
+    }
+  ]
+}

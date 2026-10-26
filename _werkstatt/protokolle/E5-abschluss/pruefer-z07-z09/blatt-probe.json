@@ -1,0 +1,47 @@
+{
+ "vorDerTastatur": {
+  "scrollHoehe": 768,
+  "sichtbareHoehe": 717,
+  "scrollTop": 0,
+  "innerHeight": 844,
+  "dialogRect": {
+   "x": 0,
+   "y": 351.87200927734375,
+   "width": 390,
+   "height": 717.3906860351562,
+   "top": 351.87200927734375,
+   "right": 390,
+   "bottom": 1069.2626953125,
+   "left": 0
+  }
+ },
+ "anrufSchritte": 12,
+ "nachDerTastatur": {
+  "fokusRect": {
+   "x": 17.75,
+   "y": 772.216796875,
+   "width": 354.5,
+   "height": 58.890625,
+   "top": 772.216796875,
+   "right": 372.25,
+   "bottom": 831.107421875,
+   "left": 17.75
+  },
+  "unterKante": -12.892578125,
+  "scrollTop": 0,
+  "scrollHoehe": 768,
+  "sichtbareHoehe": 717,
+  "dialogRect": {
+   "x": 0,
+   "y": 157.71682739257812,
+   "width": 390,
+   "height": 717.390625,
+   "top": 157.71682739257812,
+   "right": 390,
+   "bottom": 875.1074523925781,
+   "left": 0
+  },
+  "ueberlaufDesDialogs": "auto",
+  "bodyScrollY": 0
+ }
+}

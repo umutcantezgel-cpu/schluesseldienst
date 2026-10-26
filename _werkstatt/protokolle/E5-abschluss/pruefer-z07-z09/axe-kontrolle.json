@@ -1,0 +1,82 @@
+{
+  "werkzeug": "axe",
+  "basis": "http://127.0.0.1:4299/",
+  "schema": "light",
+  "regeln": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa"
+  ],
+  "zeitpunkt": "2026-10-26T06:27:33.537Z",
+  "befunde": 4,
+  "ergebnisse": [
+    {
+      "pfad": "/schlecht.html",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 2,
+        "critical": 2
+      },
+      "ernstUndKritisch": [
+        {
+          "id": "button-name",
+          "impact": "critical",
+          "help": "Buttons must have discernible text",
+          "hilfeUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axeAPI",
+          "knoten": 1,
+          "ziele": [
+            "button"
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "hilfeUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "knoten": 2,
+          "ziele": [
+            "span",
+            "p"
+          ]
+        },
+        {
+          "id": "html-has-lang",
+          "impact": "serious",
+          "help": "<html> element must have a lang attribute",
+          "hilfeUrl": "https://dequeuniversity.com/rules/axe/4.14/html-has-lang?application=axeAPI",
+          "knoten": 1,
+          "ziele": [
+            "html"
+          ]
+        },
+        {
+          "id": "image-alt",
+          "impact": "critical",
+          "help": "Images must have alternative text",
+          "hilfeUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axeAPI",
+          "knoten": 1,
+          "ziele": [
+            "img"
+          ]
+        }
+      ]
+    },
+    {
+      "pfad": "/index.html",
+      "status": 200,
+      "anzahlJeImpact": {
+        "unbekannt": 0,
+        "minor": 0,
+        "moderate": 0,
+        "serious": 0,
+        "critical": 0
+      },
+      "ernstUndKritisch": []
+    }
+  ]
+}

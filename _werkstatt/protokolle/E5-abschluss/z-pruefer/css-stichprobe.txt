@@ -1,0 +1,5 @@
+src/assets/css/ansichten/start/ablauf.css
+src/assets/css/komponenten/illustration.css
+src/assets/css/ansichten/preise/preise.css
+src/assets/css/ansichten/verzeichnis/verzeichnis.css
+src/assets/css/komponenten/menue-blatt.css

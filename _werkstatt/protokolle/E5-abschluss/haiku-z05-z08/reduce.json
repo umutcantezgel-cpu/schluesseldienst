@@ -1,0 +1,1693 @@
+{
+  "werkzeug": "haiku-z05-reduce",
+  "zeitpunkt": "2026-10-26T06:54:31.026Z",
+  "basis": "http://127.0.0.1:4251",
+  "geraet": "390x844 (Interaktion Hauptnav 1440x900)",
+  "seiten": [
+    {
+      "pfad": "/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 195,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 195,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/einbruchschutz/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 140,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 140,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/notoeffnung/tueroeffnung/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 132,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 132,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/preise/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 227,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 227,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/einsatzgebiet/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 190,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 190,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 470,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 470,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/schluesseldienst-loehnberg/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 138,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 138,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/ratgeber/rauchmelderpflicht/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 123,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 123,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/ueber-uns/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 125,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 125,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/kontakt/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 122,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 122,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/suche/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 88,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 88,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/impressum/",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 120,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 120,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/gibt-es-nicht/",
+      "status": 404,
+      "reduziert_aktiv": true,
+      "nach_laden": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 66,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "nach_scrollen": {
+        "animationen": [],
+        "transformiert": [],
+        "sichtbar": {
+          "geprueft": 66,
+          "anzahl_probleme": 0,
+          "probleme": []
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    }
+  ],
+  "kontrolle": [
+    {
+      "pfad": "/",
+      "status": 200,
+      "reduziert_aktiv": false,
+      "frueh_300ms": {
+        "animationen": [
+          {
+            "art": "CSSAnimation",
+            "name": "m16-stift",
+            "uebergang": null,
+            "ziel": "g.zy-stiftpaar",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 380,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-feder",
+            "uebergang": null,
+            "ziel": "path.zy-feder",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 380,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-stift",
+            "uebergang": null,
+            "ziel": "g.zy-stiftpaar",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 450,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-feder",
+            "uebergang": null,
+            "ziel": "path.zy-feder",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 450,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-stift",
+            "uebergang": null,
+            "ziel": "g.zy-stiftpaar",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 520,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-feder",
+            "uebergang": null,
+            "ziel": "path.zy-feder",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 520,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-stift",
+            "uebergang": null,
+            "ziel": "g.zy-stiftpaar",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 590.0000000000001,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-feder",
+            "uebergang": null,
+            "ziel": "path.zy-feder",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 590.0000000000001,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-stift",
+            "uebergang": null,
+            "ziel": "g.zy-stiftpaar",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 660,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-feder",
+            "uebergang": null,
+            "ziel": "path.zy-feder",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 660,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-schluessel",
+            "uebergang": null,
+            "ziel": "g.zy-schluessel",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 420,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-linie",
+            "uebergang": null,
+            "ziel": "path.zy-scherlinie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 480,
+            "verzoegerung_ms": 900,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#triage-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#preis-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#leistungen-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "article.register-gross",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#ablauf-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#gebiet-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "figure.gebiet-figur",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#serioes-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#faq-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          }
+        ],
+        "transformiert": [
+          {
+            "art": "CSSAnimation",
+            "name": "m16-stift",
+            "uebergang": null,
+            "ziel": "g.zy-stiftpaar",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 380,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-feder",
+            "uebergang": null,
+            "ziel": "path.zy-feder",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 380,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-stift",
+            "uebergang": null,
+            "ziel": "g.zy-stiftpaar",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 450,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-feder",
+            "uebergang": null,
+            "ziel": "path.zy-feder",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 450,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-stift",
+            "uebergang": null,
+            "ziel": "g.zy-stiftpaar",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 520,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-feder",
+            "uebergang": null,
+            "ziel": "path.zy-feder",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 520,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-stift",
+            "uebergang": null,
+            "ziel": "g.zy-stiftpaar",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 590.0000000000001,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-feder",
+            "uebergang": null,
+            "ziel": "path.zy-feder",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 590.0000000000001,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-stift",
+            "uebergang": null,
+            "ziel": "g.zy-stiftpaar",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 660,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-feder",
+            "uebergang": null,
+            "ziel": "path.zy-feder",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 360,
+            "verzoegerung_ms": 660,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-schluessel",
+            "uebergang": null,
+            "ziel": "g.zy-schluessel",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 420,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-linie",
+            "uebergang": null,
+            "ziel": "path.zy-scherlinie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 480,
+            "verzoegerung_ms": 900,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#triage-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#preis-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#leistungen-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "article.register-gross",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#ablauf-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#gebiet-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "figure.gebiet-figur",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#serioes-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "linie-ziehen",
+            "uebergang": null,
+            "ziel": "span.abschnitt-linie",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "h2#faq-titel",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          }
+        ],
+        "sichtbar": {
+          "geprueft": 195,
+          "anzahl_probleme": 27,
+          "probleme": [
+            {
+              "ziel": "h2",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Was jetzt hilft"
+            },
+            {
+              "ziel": "h2",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Preis vor Arbeit"
+            },
+            {
+              "ziel": "h2",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Leistungen"
+            },
+            {
+              "ziel": "p.register-nr",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "01"
+            },
+            {
+              "ziel": "a.gestreckt",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Not­öffnung"
+            },
+            {
+              "ziel": "p",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Tür, Auto, Garage oder Tresor zu – wir öffnen möglichst ohne"
+            },
+            {
+              "ziel": "span",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Türöffnung"
+            },
+            {
+              "ziel": "span",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Autoöffnung"
+            },
+            {
+              "ziel": "span",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Garagenöffnung"
+            },
+            {
+              "ziel": "span",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Tresoröffnung"
+            },
+            {
+              "ziel": "span",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Einbruchschaden"
+            },
+            {
+              "ziel": "h2",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "So läuft eine Tür­öffnung ab"
+            },
+            {
+              "ziel": "h2",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Einsatz­gebiet ab Weilburg"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "20 km"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "50 km"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Frankfurt"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Wiesbaden"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Koblenz"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Siegen"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Gießen"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Weilburg"
+            },
+            {
+              "ziel": "span",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Zone A – Kerngebiet"
+            },
+            {
+              "ziel": "span",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Zone B – Umland"
+            },
+            {
+              "ziel": "span",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Zone C – nach Absprache"
+            },
+            {
+              "ziel": "span",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Ringe bei 20 und 50 km Luftlinie"
+            },
+            {
+              "ziel": "h2",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Seriösen Schlüssel­dienst erkennen"
+            },
+            {
+              "ziel": "h2",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Häufige Fragen"
+            }
+          ]
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/ueber-uns/",
+      "status": 200,
+      "reduziert_aktiv": false,
+      "frueh_300ms": {
+        "animationen": [
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "g.lb-fluss-teil.lb-buehne",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": 640,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-linie",
+            "uebergang": null,
+            "ziel": "path.lb-tunnel",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 480,
+            "verzoegerung_ms": 640,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "erscheinen",
+            "uebergang": null,
+            "ziel": "rect.lb-tor",
+            "eigenschaften": [
+              "opacity"
+            ],
+            "dauer_ms": 150,
+            "verzoegerung_ms": 1120,
+            "transformiert": false
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "erscheinen",
+            "uebergang": null,
+            "ziel": "rect.lb-tor",
+            "eigenschaften": [
+              "opacity"
+            ],
+            "dauer_ms": 150,
+            "verzoegerung_ms": 1120,
+            "transformiert": false
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "erscheinen",
+            "uebergang": null,
+            "ziel": "text.lb-text.lb-text-tunnel",
+            "eigenschaften": [
+              "opacity"
+            ],
+            "dauer_ms": 150,
+            "verzoegerung_ms": 1120,
+            "transformiert": false
+          }
+        ],
+        "transformiert": [
+          {
+            "art": "CSSAnimation",
+            "name": "auftritt",
+            "uebergang": null,
+            "ziel": "g.lb-fluss-teil.lb-buehne",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": 640,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m16-linie",
+            "uebergang": null,
+            "ziel": "path.lb-tunnel",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": 480,
+            "verzoegerung_ms": 640,
+            "transformiert": true
+          }
+        ],
+        "sichtbar": {
+          "geprueft": 125,
+          "anzahl_probleme": 3,
+          "probleme": [
+            {
+              "ziel": "text",
+              "deckkraft": 0.981,
+              "sichtbar": true,
+              "text": "Weilburg"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0.981,
+              "sichtbar": true,
+              "text": "Lahn"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Schiffstunnel"
+            }
+          ]
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    },
+    {
+      "pfad": "/einsatzgebiet/",
+      "status": 200,
+      "reduziert_aktiv": false,
+      "frueh_300ms": {
+        "animationen": [
+          {
+            "art": "CSSAnimation",
+            "name": "m18-ring",
+            "uebergang": null,
+            "ziel": "circle.gk-ring",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-ring",
+            "uebergang": null,
+            "ziel": "circle.gk-ring",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-ring",
+            "uebergang": null,
+            "ziel": "circle.gk-ring",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-karte",
+            "uebergang": null,
+            "ziel": "g.gk-punkte",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-mess",
+            "uebergang": null,
+            "ziel": "path.gk-mess",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "erscheinen",
+            "uebergang": null,
+            "ziel": "text.gk-ring-text",
+            "eigenschaften": [
+              "opacity"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": false
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "erscheinen",
+            "uebergang": null,
+            "ziel": "text.gk-ring-text",
+            "eigenschaften": [
+              "opacity"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": false
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "erscheinen",
+            "uebergang": null,
+            "ziel": "text.gk-ring-text",
+            "eigenschaften": [
+              "opacity"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": false
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "erscheinen",
+            "uebergang": null,
+            "ziel": "g.gk-namen",
+            "eigenschaften": [
+              "opacity"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": false
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-sitz",
+            "uebergang": null,
+            "ziel": "circle.gk-sitz-ring",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-sitz",
+            "uebergang": null,
+            "ziel": "circle.gk-sitz-punkt",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "erscheinen",
+            "uebergang": null,
+            "ziel": "text.gk-sitz-name",
+            "eigenschaften": [
+              "opacity"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": false
+          }
+        ],
+        "transformiert": [
+          {
+            "art": "CSSAnimation",
+            "name": "m18-ring",
+            "uebergang": null,
+            "ziel": "circle.gk-ring",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-ring",
+            "uebergang": null,
+            "ziel": "circle.gk-ring",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-ring",
+            "uebergang": null,
+            "ziel": "circle.gk-ring",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-karte",
+            "uebergang": null,
+            "ziel": "g.gk-punkte",
+            "eigenschaften": [
+              "opacity",
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-mess",
+            "uebergang": null,
+            "ziel": "path.gk-mess",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-sitz",
+            "uebergang": null,
+            "ziel": "circle.gk-sitz-ring",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          },
+          {
+            "art": "CSSAnimation",
+            "name": "m18-sitz",
+            "uebergang": null,
+            "ziel": "circle.gk-sitz-punkt",
+            "eigenschaften": [
+              "transform"
+            ],
+            "dauer_ms": null,
+            "verzoegerung_ms": 0,
+            "transformiert": true
+          }
+        ],
+        "sichtbar": {
+          "geprueft": 190,
+          "anzahl_probleme": 10,
+          "probleme": [
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "20 km"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "50 km"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "100 km"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Frankfurt"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Bonn"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Wiesbaden"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Mainz"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Darmstadt"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Offenbach"
+            },
+            {
+              "ziel": "text",
+              "deckkraft": 0,
+              "sichtbar": true,
+              "text": "Weilburg"
+            }
+          ]
+        }
+      },
+      "blockierte_externe_anfragen": 0
+    }
+  ],
+  "interaktionen": [
+    {
+      "name": "FAQ öffnen (mobil, reduziert)",
+      "nach_40ms": [
+        {
+          "art": "CSSTransition",
+          "name": null,
+          "uebergang": "transform",
+          "ziel": "svg.i.i-chevron.faq-chevron",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 300,
+          "verzoegerung_ms": 0,
+          "transformiert": true
+        }
+      ],
+      "nach_640ms": []
+    },
+    {
+      "name": "Ortssuche tippen (mobil, reduziert)",
+      "nach_40ms": [],
+      "nach_940ms": [],
+      "sichtbar_nach": {
+        "geprueft": 214,
+        "anzahl_probleme": 0,
+        "probleme": []
+      }
+    },
+    {
+      "name": "Hauptnavigation öffnen (1440, reduziert)",
+      "nach_40ms": [
+        {
+          "art": "CSSTransition",
+          "name": null,
+          "uebergang": "transform",
+          "ziel": "svg.i.i-chevron",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 300,
+          "verzoegerung_ms": 0,
+          "transformiert": true
+        },
+        {
+          "art": "CSSTransition",
+          "name": null,
+          "uebergang": "opacity",
+          "ziel": "div#untermenue-leistungen.hauptnav-panel",
+          "eigenschaften": [
+            "opacity"
+          ],
+          "dauer_ms": 300,
+          "verzoegerung_ms": 0,
+          "transformiert": false
+        }
+      ],
+      "nach_640ms": [],
+      "sichtbar_nach": {
+        "geprueft": 258,
+        "anzahl_probleme": 0,
+        "probleme": []
+      }
+    }
+  ]
+}

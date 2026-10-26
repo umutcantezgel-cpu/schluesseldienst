@@ -1,0 +1,22 @@
+{
+  "werkzeug": "bildrate",
+  "zeitpunkt": "2026-10-26T06:58:49.555Z",
+  "url": "http://127.0.0.1:4251/einsatzgebiet/",
+  "ausloeser": "scroll",
+  "drossel": 4,
+  "dauer_ms": 4000,
+  "viewport": "390x844",
+  "bilder": 277,
+  "verworfen": 3,
+  "verworfen_prozent": 1.08,
+  "median_intervall_ms": 16.66,
+  "grenze_intervall_ms": 25.05,
+  "long_animation_frames": {
+    "anzahl": 1,
+    "dauer_summe_ms": 217.0349999992177
+  },
+  "schwelle_max_verworfen": 5,
+  "blockierte_externe_anfragen": 0,
+  "umgebungsausnahme": "UMGEBUNGSAUSNAHME: headless ohne GPU; Ersatzmessung über CPU-Drosselung (keine GPU-Bildrate)",
+  "ergebnis": "ok"
+}

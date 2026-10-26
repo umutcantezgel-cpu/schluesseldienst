@@ -1,0 +1,247 @@
+[
+ {
+  "pfad": "/",
+  "gefunden": true,
+  "info": {
+   "tag": "A",
+   "text": "Not­öffnung",
+   "fokusSichtbar": true,
+   "outlineStyle": "none",
+   "outlineWidth": "3px",
+   "outlineColor": "rgb(19, 32, 42)",
+   "outlineOffset": "3px",
+   "rect": {
+    "x": 49.75,
+    "y": 722.35498046875,
+    "width": 141.328125,
+    "height": 34,
+    "top": 722.35498046875,
+    "right": 191.078125,
+    "bottom": 756.35498046875,
+    "left": 49.75
+   }
+  },
+  "regeln": [
+   {
+    "selektor": ":focus-visible",
+    "quelle": "user-agent",
+    "schicht": "",
+    "eigenschaften": [
+     "outline-color: -webkit-focus-ring-color",
+     "outline-style: auto",
+     "outline-width: 1px"
+    ]
+   },
+   {
+    "selektor": "a:-webkit-any-link:focus-visible",
+    "quelle": "user-agent",
+    "schicht": "",
+    "eigenschaften": [
+     "outline-offset: 1px"
+    ]
+   },
+   {
+    "selektor": ":focus",
+    "quelle": "regular",
+    "schicht": "basis",
+    "eigenschaften": [
+     "outline: none",
+     "outline-color: initial",
+     "outline-style: none",
+     "outline-width: initial"
+    ]
+   },
+   {
+    "selektor": ":focus-visible",
+    "quelle": "regular",
+    "schicht": "basis",
+    "eigenschaften": [
+     "outline: var(--linie-fokus) solid var(--c-fokus)",
+     "outline-offset: var(--linie-fokus)",
+     "outline-color: ",
+     "outline-style: ",
+     "outline-width: ",
+     "outline-offset: var(--linie-fokus)"
+    ]
+   },
+   {
+    "selektor": ".register .gestreckt:focus-visible",
+    "quelle": "regular",
+    "schicht": "komponenten",
+    "eigenschaften": [
+     "outline: none",
+     "outline-color: initial",
+     "outline-style: none",
+     "outline-width: initial"
+    ]
+   }
+  ],
+  "bild": "start-fuss-notoeffnung.png"
+ },
+ {
+  "pfad": "/preise/",
+  "gefunden": true,
+  "info": {
+   "tag": "INPUT",
+   "text": "tuer-zugefallen",
+   "fokusSichtbar": true,
+   "outlineStyle": "none",
+   "outlineWidth": "3px",
+   "outlineColor": "rgb(19, 32, 42)",
+   "outlineOffset": "3px",
+   "rect": {
+    "x": 58.75,
+    "y": 369.703125,
+    "width": 16,
+    "height": 16,
+    "top": 369.703125,
+    "right": 74.75,
+    "bottom": 385.703125,
+    "left": 58.75
+   }
+  },
+  "regeln": [
+   {
+    "selektor": ":focus-visible",
+    "quelle": "user-agent",
+    "schicht": "",
+    "eigenschaften": [
+     "outline-color: -webkit-focus-ring-color",
+     "outline-style: auto",
+     "outline-width: 1px"
+    ]
+   },
+   {
+    "selektor": "input:focus-visible, textarea:focus-visible, select:focus-visible",
+    "quelle": "user-agent",
+    "schicht": "",
+    "eigenschaften": [
+     "outline-offset: 0px"
+    ]
+   },
+   {
+    "selektor": "input[type=\"checkbox\" i]:focus-visible, input[type=\"radio\" i]:focus-visible",
+    "quelle": "user-agent",
+    "schicht": "",
+    "eigenschaften": [
+     "outline-offset: 2px"
+    ]
+   },
+   {
+    "selektor": ":focus",
+    "quelle": "regular",
+    "schicht": "basis",
+    "eigenschaften": [
+     "outline: none",
+     "outline-color: initial",
+     "outline-style: none",
+     "outline-width: initial"
+    ]
+   },
+   {
+    "selektor": ":focus-visible",
+    "quelle": "regular",
+    "schicht": "basis",
+    "eigenschaften": [
+     "outline: var(--linie-fokus) solid var(--c-fokus)",
+     "outline-offset: var(--linie-fokus)",
+     "outline-color: ",
+     "outline-style: ",
+     "outline-width: ",
+     "outline-offset: var(--linie-fokus)"
+    ]
+   },
+   {
+    "selektor": ".wahl-option input:focus-visible",
+    "quelle": "regular",
+    "schicht": "komponenten",
+    "eigenschaften": [
+     "outline: none",
+     "outline-color: initial",
+     "outline-style: none",
+     "outline-width: initial"
+    ]
+   }
+  ],
+  "bild": "preise-radio.png"
+ },
+ {
+  "pfad": "/suche/",
+  "gefunden": true,
+  "info": {
+   "tag": "A",
+   "text": "Türöffnung in Weilburg: zugefallen oder ",
+   "fokusSichtbar": true,
+   "outlineStyle": "none",
+   "outlineWidth": "3px",
+   "outlineColor": "rgb(19, 32, 42)",
+   "outlineOffset": "3px",
+   "rect": {
+    "x": 17.75,
+    "y": 534.140625,
+    "width": 354.5,
+    "height": 39.40625,
+    "top": 534.140625,
+    "right": 372.25,
+    "bottom": 573.546875,
+    "left": 17.75
+   }
+  },
+  "regeln": [
+   {
+    "selektor": ":focus-visible",
+    "quelle": "user-agent",
+    "schicht": "",
+    "eigenschaften": [
+     "outline-color: -webkit-focus-ring-color",
+     "outline-style: auto",
+     "outline-width: 1px"
+    ]
+   },
+   {
+    "selektor": "a:-webkit-any-link:focus-visible",
+    "quelle": "user-agent",
+    "schicht": "",
+    "eigenschaften": [
+     "outline-offset: 1px"
+    ]
+   },
+   {
+    "selektor": ":focus",
+    "quelle": "regular",
+    "schicht": "basis",
+    "eigenschaften": [
+     "outline: none",
+     "outline-color: initial",
+     "outline-style: none",
+     "outline-width: initial"
+    ]
+   },
+   {
+    "selektor": ":focus-visible",
+    "quelle": "regular",
+    "schicht": "basis",
+    "eigenschaften": [
+     "outline: var(--linie-fokus) solid var(--c-fokus)",
+     "outline-offset: var(--linie-fokus)",
+     "outline-color: ",
+     "outline-style: ",
+     "outline-width: ",
+     "outline-offset: var(--linie-fokus)"
+    ]
+   },
+   {
+    "selektor": ".suche-link:focus-visible",
+    "quelle": "regular",
+    "schicht": "komponenten",
+    "eigenschaften": [
+     "outline: none",
+     "outline-color: initial",
+     "outline-style: none",
+     "outline-width: initial"
+    ]
+   }
+  ],
+  "bild": "suche-link.png"
+ }
+]

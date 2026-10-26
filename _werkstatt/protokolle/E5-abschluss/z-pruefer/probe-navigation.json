@@ -1,0 +1,44 @@
+{
+ "gibt-es-nicht → Link /suche/": [
+  {
+   "ziel": "/suche/",
+   "fehler": 0
+  },
+  {
+   "ziel": "/suche/",
+   "fehler": 0
+  },
+  {
+   "ziel": "/suche/",
+   "fehler": 0
+  }
+ ],
+ "/ → Fußlink /impressum/": [
+  {
+   "ziel": "/impressum/",
+   "fehler": 0
+  },
+  {
+   "ziel": "/impressum/",
+   "fehler": 0
+  },
+  {
+   "ziel": "/impressum/",
+   "fehler": 0
+  }
+ ],
+ "gibt-es-nicht → Ortssuche (Skript-Sprung)": [
+  {
+   "ziel": "/schluesseldienst-loehnberg/",
+   "fehler": 0
+  },
+  {
+   "ziel": "/schluesseldienst-loehnberg/",
+   "fehler": 0
+  },
+  {
+   "ziel": "/schluesseldienst-loehnberg/",
+   "fehler": 0
+  }
+ ]
+}

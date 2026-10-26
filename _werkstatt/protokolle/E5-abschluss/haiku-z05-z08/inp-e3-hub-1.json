@@ -1,0 +1,38 @@
+{
+  "werkzeug": "inp",
+  "zeitpunkt": "2026-10-26T06:59:04.949Z",
+  "url": "http://127.0.0.1:4251/einsatzgebiet/bayern/miltenberg/",
+  "drossel": 4,
+  "viewport": "390x844",
+  "aktionen": 2,
+  "interaktionen_gemeldet": 2,
+  "max_ms": 64,
+  "p98_ms": 64,
+  "schwelle_max_ms": 200,
+  "blockierte_externe_anfragen": 0,
+  "interaktionen": [
+    {
+      "nr": 1,
+      "typ": "klick",
+      "selektor": ".az-buchstaben a[href=\"#buchstabe-w\"]",
+      "ereignisse": 33,
+      "latenzen_ms": [
+        64
+      ],
+      "latenz_max_ms": 64,
+      "hinweis": null
+    },
+    {
+      "nr": 2,
+      "typ": "taste",
+      "selektor": null,
+      "ereignisse": 2,
+      "latenzen_ms": [
+        24
+      ],
+      "latenz_max_ms": 24,
+      "hinweis": null
+    }
+  ],
+  "ergebnis": "ok"
+}

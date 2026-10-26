@@ -1,0 +1,218 @@
+
+######## 
+
+## Z-07 axe hell (13 Hauptansichten) | erfüllt
+axe-core, 1440×900, Regeln wcag2a/aa/21a/21aa/22aa: 0 serious/critical, auch 0 minor/moderate auf 13 von 13 Seiten. color-contrast ist Teil von axe; K-005-Einzelwerte wurden nicht separat gemessen. Werkzeugkontrolle: Fixture schlecht.html liefert 2 serious + 2 critical, das Werkzeug arbeitet.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/axe-hell.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/axe-kontrolle.json
+
+## Z-07 axe dunkel (13 Hauptansichten) | erfüllt
+gleiche Regeln und Auflösung, colorScheme dark: 0 serious/critical, 0 minor/moderate auf 13 von 13 Seiten.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/axe-dunkel.json
+
+## Z-07 Fokus sichtbar an allen Tab-Stopps | erfüllt
+Vorschau 4251: mobil 390×844 mit isMobile/hasTouch (Ersatz für U-1) 2739 Fokusstopps, desktop 1440×900 2670 Fokusstopps; jeweils 0 ohne sichtbaren Umriss. Umriss am Element selbst: 2691 bzw. 2624; sonst am Kartenrahmen (article:focus-within, 12 bzw. 12), an der Auswahlkachel (label.wahl-option, 14 bzw. 14) oder am ::after der Suchkarte (22 bzw. 20). Die Quelle je Stopp ist per computed style geprüft; die CDP-Regelprüfung der Stichproben steht in fokus-probe.json. Ersatzläufe 185 bzw. 252 Stopps, 0 ohne Umriss. Sichtprobe: Radio-Auswahl und Suchkarte zeigen den Kupfer-Umriss (preise-radio.png, suche-link.png). Kartenrahmen-Ring nicht gesondert im Bild bestätigt.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-vorschau.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-desktop-vorschau.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-ersatz.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-desktop-ersatz.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/fokus-probe.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/preise-radio.png; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/suche-link.png; Skript /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur.mjs
+
+## Z-07 H1 anrufen per Tastatur (Tab bis Anruf, Tastatur-Entsprechung zu ≤ 1 Tipp) | nicht erfüllt
+Vorschau (Stand 4251): 0 tel:-Links auf allen 13 Hauptansichten, mobil und desktop. Der Anrufknopf ist ein span ohne Ziel, weil die Telefonnummer nicht konfiguriert ist (U-6); Anruf per Tab nicht erreichbar. Ersatzmessung über eine lokale Kopie mit Testnummer (Proxy 4298, nicht veröffentlicht): Anruf nach 5 Tab-Schritten mobil und 11 desktop, Fokus sichtbar, auf allen 13 Seiten gleich. Eine Tastatur-Entsprechung zu „≤ 1 Tipp“ ist nicht definiert; gemessen sind Tab-Schritte ab Seitenanfang.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-vorschau.json (ergebnis.h1); /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-desktop-vorschau.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-ersatz.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-desktop-ersatz.json
+
+## Z-07 H2 Preis vor dem Anruf (≤ 2 Klicks) | erfüllt
+mobil: Menü und Preise im Blatt, 2 Aktivierungen (4 + 6 Tab-Schritte); desktop: Preise in der Hauptnavigation, 1 Aktivierung (5 Tab-Schritte). Ziel /preise/ erreicht, dort zwei beschriftete Tabellen (Gesamtpreise Zone A; Anfahrt je Zone). Die Tabellen beginnen nicht im ersten Bildschirm. Ob der Preis verstanden wird, ist mit dem Werkzeug nicht messbar.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-vorschau.json (ergebnis.h2); /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-desktop-vorschau.json (ergebnis.h2)
+
+## Z-07 H3 Ort prüfen (≤ 2 Eingaben) | erfüllt
+Ortsfeld per Tab erreicht (5 Schritte mobil, 12 desktop). Eingabe „Löhnberg“ plus Auswahl (Pfeil ab, Enter) = 2 Eingaben; 1 Vorschlag; Ergebnis: „Löhnberg (Limburg-Weilburg) … Kerngebiet ab Weilburg“, Fokus sichtbar.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-vorschau.json (ergebnis.h3); /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-desktop-vorschau.json (ergebnis.h3)
+
+## Z-07 H4 seriösen Betrieb erkennen (Tastatur) | teilweise
+Pfad per Tastatur erfüllt: Menü, Über uns, Impressum (mobil 3 Aktivierungen, desktop 2), Impressum-Link mit sichtbarem Fokus erreichbar. Inhalt im Vorschau-Stand unvollständig: 11 Platzhalter auf /ueber-uns/, 23 auf /impressum/ (Name, Adresse, Telefon, Rechtsdaten; U-6). Der Ort Weilburg steht auf /ueber-uns/ im Text.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-vorschau.json (ergebnis.h4); /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-desktop-vorschau.json (ergebnis.h4)
+
+## Z-07 H5 Anfrage per E-Mail vorbereiten (Tastatur) | teilweise
+Per Tastatur: Ort (8 Tab-Schritte mobil, 14 desktop ab Seitenanfang), Nachricht (+4), Absenden (+1, Enter); 2 Pflichtfelder. Nach dem Absenden erscheint „Die E-Mail-Adresse ist noch nicht eingetragen – deshalb öffnet sich noch kein E-Mail-Programm.“, der Fokus geht dorthin. Die Übergabe an das Mailprogramm ist nicht prüfbar, weil der Empfänger fehlt (U-6).
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-vorschau.json (ergebnis.h5); /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-desktop-vorschau.json (ergebnis.h5)
+
+## Z-07 Menü-Blatt: Anruf im Blatt erreichbar (mobil) | nicht erfüllt
+Vorschau: Blatt öffnet per Tastatur nach 4 Tab-Schritten; der Anruf im Blatt ist kein Link (Platzhalter, U-6), per Tab nicht erreichbar. Ersatzmessung (Kopie mit Testnummer): Anruf nach 12 Tab-Schritten erreichbar, Fokusumriss sichtbar, nach dem Fokus vollständig im Sichtfeld (Rechteck y 772–831 bei 844 px Höhe).
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-vorschau.json (ergebnis.menueBlatt); /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-ersatz.json (ergebnis.menueBlatt); /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/blatt-probe.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/blatt-anruf-ersatz.png
+
+## Z-07 Fokus nie ganz verdeckt (verdeckt.mjs, Vorlage mit Basis 4251) | erfüllt
+mobil vorwärts auf /, /preise/, /kontakt/, /einsatzgebiet/hessen/limburg-weilburg/, /schluesseldienst-loehnberg/: Vorschau 461 Schritte, Ersatz 471 Schritte, jeweils 0 ganz und 0 teilweise verdeckt (7×7-Punktprobe und Rufleisten-Anteil). Desktop rückwärts auf / und /einsatzgebiet/hessen/ (Hub): 156 Schritte, 0 und 0.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/verdeckt-mobil-vorwaerts-vorschau.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/verdeckt-mobil-vorwaerts-ersatz.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/verdeckt-desktop-rueckwaerts-vorschau.json; Skript /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/verdeckt.mjs
+
+## Z-09 Überlauf hell (38 Seiten × 11 Varianten) | erfüllt
+418 Messungen, 0 mit Dokumentüberlauf. Varianten: 320/390/768/1440/1920 px, je mit erzwungenen Farben, 200 % Zoom (640 CSS-px). Größter Wert scrollBreite − klientBreite = 0. Status 200 außer /gibt-es-nicht/ (404, gewollt). Werkzeugkontrolle: schlecht.html (2000 px breit) 11 von 11 Varianten erkannt, gut.html 0.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/ueberlauf-hell.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/ueberlauf-kontrolle.json
+
+## Z-09 Überlauf dunkel (38 Seiten × 11 Varianten) | erfüllt
+418 Messungen, 0 mit Dokumentüberlauf. Werkzeugkopie mit colorScheme dark; gegenüber dem Original nur Farbschema und Lib-Pfad geändert.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/ueberlauf-dunkel.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/ueberlauf-dunkel.mjs
+
+## Z-09 Stichprobenumfang (38 Seiten) | erfüllt
+13 Hauptansichten; 5 übrige: /einbruchschutz/schliesszylinder/ (Leistungsdetail), /ratgeber/ausgesperrt-was-tun/, /einsatzgebiet/hessen/ (Hub-Land), /leistungen/, /sitemap/; 20 Ortsseiten (Zone A 5, B 5, C 4, D 3, NL 3), je Zone gleichmäßig über die id-sortierte Liste. Gebaut wurde aus /home/user/schluesseldienst/.cache/e5-abschluss/dist, weil .cache/e5-abschluss/a/dist nicht existiert; die Vorschau 4251 liefert genau diesen Stand.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/stichprobe-orte.json; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/pfade-alle.txt
+
+## Z-09 Bildsatz (3 Geräte × hell/dunkel, 38 Seiten) | erfüllt
+228 Seiten-Kombinationen (38 × 3 × 2), 1340 JPEG-Ausschnitte (Q70, bis 12 je Kombination), Index mit allen Dateien.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/bildsatz/index.json
+
+## Z-09 Sichtung erster Bildschirm (5 Stichprobenseiten × 3 Geräte × hell/dunkel = 30 Bilder) | teilweise
+Gesichtet: Ortsseiten Villmar-Obergladbach (A), Flonheim (C), Detmold-Berlebeck (D), Tilligte/Dinkelland (NL) und Leistungsdetail Schließzylinder. Kein abgeschnittener Text im Textfluss, kein Textüberlappen in Tablet 768 und Desktop 1440. Mobil (390×844, hell und dunkel) überdeckt die klebende Rufleiste untere Zeilen: Flonheim (Kartenbeschriftung „Siegen“), Detmold („Preise ansehen“ halb), Schließzylinder (Bildunterschrift Zeilen 2–3). Text geht nicht verloren, beim Scrollen ist er frei. Kreislinien der Karten sind an Kartenrahmen beschnitten (Grafik, z. B. Flonheim tablet/desktop, Detmold tablet/desktop, Tilligte desktop).
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/bildsatz/schluesseldienst-flonheim__mobil__light__01.jpg; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/bildsatz/schluesseldienst-flonheim__mobil__dark__01.jpg; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/bildsatz/schluesseldienst-detmold-berlebeck__mobil__light__01.jpg; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/bildsatz/schluesseldienst-detmold-berlebeck__mobil__dark__01.jpg; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/bildsatz/einbruchschutz-schliesszylinder__mobil__light__01.jpg; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/bildsatz/einbruchschutz-schliesszylinder__mobil__dark__01.jpg; weitere Erste-Bildschirm-Bilder im Ordner bildsatz/ (Muster …__01.jpg)
+
+- mittel | Anruf fehlt in der Vorschau: Die Telefonnummer ist nicht konfiguriert. Deshalb hat der Anrufknopf (Leiste, Kopf, Menü-Blatt, Seiten) kein tel:-Ziel, und H1 sowie der Anruf im Menü-Blatt sind per Tastatur in der Vorschau nicht erreichbar. Ursache ist die Konfigurationslücke U-6, kein Codefehler: rufknopf.mjs erzeugt den tel-Link nur bei gültiger Nummer. Für die Abnahme braucht es die Nummer oder eine U-6-Ersatzprüfung für H1. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-vorschau.json; /home/user/schluesseldienst/src/vorlagen/teile/rufknopf.mjs (Zeilen 12–13)
+
+- klein | Die klebende Rufleiste überdeckt auf dem Telefon im ersten Bildschirm untere Textzeilen von drei Stichprobenseiten (Flonheim, Detmold, Schließzylinder), hell und dunkel. Kein Text geht verloren, beim Scrollen ist alles frei, und der Fokus wird nie ganz verdeckt. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/bildsatz/schluesseldienst-flonheim__mobil__light__01.jpg; /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/verdeckt-mobil-vorwaerts-vorschau.json
+
+- klein | Platzhalter auf Vertrauensseiten: /impressum/ 23 und /ueber-uns/ 11 Platzhalter für Name, Adresse, Telefon und Rechtsdaten (U-6). Deshalb ist H4 nur als Tastaturpfad bestätigt, nicht inhaltlich. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-vorschau.json (ergebnis.h4)
+
+- klein | Außerhalb Z-07/Z-09: Alle 20 Sitemap-Dateien des Vorschau-Builds (sitemap.xml und sitemaps/*.xml) verweisen mit absoluten URLs auf http://127.0.0.1:4173, nicht auf den ausgelieferten Port 4251 (seiten.xml: 10 Treffer für 4173, 0 für 4251). Für Z-10 bzw. die Build-Basis prüfen. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/dist/sitemap.xml; /home/user/schluesseldienst/.cache/e5-abschluss/dist/sitemaps/seiten.xml
+
+- klein | Die Preistabellen auf /preise/ beginnen nicht im ersten Bildschirm (mobil und desktop). Der Preis ist in 1–2 Klicks erreicht, das Verständnis braucht aber Scrollen. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-mobil-vorschau.json (ergebnis.h2.seite.tabellen); /home/user/schluesseldienst/.cache/e5-abschluss/pruefer-z07-z09/tastatur-desktop-vorschau.json
+
+######## 
+
+## Z-02 · node --test | erfüllt
+npm test: 331 Tests, 330 bestanden, 0 fehlgeschlagen, 1 todo, Exit 0
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/npm-test.log
+
+## Z-02 · Messbau mit Prüfern (--messen --pruefen) | erfüllt
+Exit 0, 5556 Seiten. Alle elf Prüfer 0 Fehler. 72 Warnungen, alle seo/titel-laenge-ort. Sonst keine Warnungen.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/bau-messen-pruefen.log; /home/user/schluesseldienst/.cache/e5-abschluss/a/dist.pruefbefunde.json
+
+## Z-02 · Negativtest --release | erfüllt
+Abbruch mit Exit 2 an Platzhalter: 'Release: betrieb.basisUrl ist ein Platzhalter.'
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/bau-release-negativ.log
+
+## Z-02 · smoke über alle 13 Hauptansichten, mobil und desktop | erfüllt
+Vorschau 4251: 26 Läufe, 0 fremde Anfragen, 0 CSP-Verstöße. Befunde nur an /gibt-es-nicht/ (gewolltes 404: Hauptdokument 404, Unterressource 404, Konsolenmeldung 404), je 3 je Viewport. Vorschau 4254 (gzip): 26 Läufe, gleiches Bild.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/smoke-4251.json; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/smoke-4254.json
+
+## Z-02 · Funktionsliste F01–F20 im Browser | teilweise
+18 erfüllt, 2 teilweise, 0 nicht erfüllt. Teilweise: F01 Anruf (Knopf auf allen Ansichten sichtbar, mobil fixiert; im Vorschau-Build kein tel:-Link, da Nummer Platzhalter). F05 Preisrechner (Posten und Anfahrt reagieren auf Lage und Zone, Gesamtbetrag im Vorschau-Build nicht sichtbar, Rechenlogik per test/preise.test.mjs belegt). Wie geprüft und Ergebnis je Funktion stehen im Beleg.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/funktionen.json; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/funktionen.mjs; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/funktionen.log; Druck-PDFs druck_preise.pdf und druck_ratgeber_rauchmelderpflicht.pdf im selben Ordner
+
+## Z-02 · 0 Konsolen-/CSP-Fehler (ohne gewolltes 404) und 0 externe Requests | nicht erfüllt
+Externe Requests: 0 in allen Läufen. CSP-Verstöße: 0. Konsolenfehler im Funktionsdurchgang: 1, Seitenfehler 'Transition was aborted because of invalid state. ViewTransition opt-in disabled' bei F02 (404 → Ortsseite per Skript-Sprung). Wiederholung: betroffen 5 von 19 Skript-Sprüngen; Link-Navigation 0 von 12. Das Ziel wird jedes Mal erreicht. Die Schwelle 0 ist damit intermittierend verfehlt.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/funktionen.json (F02); /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/probe-f02-wiederholung.json; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/probe-navigation.json
+
+## Z-03 · Token-Prüfer im Build | erfüllt
+token: 0 Fehler, 0 Warnungen (Geltungsbereich src/assets/css/** und src/vorlagen)
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/a/dist.pruefbefunde.json (Prüfer token, Befunde leer); /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/bau-messen-pruefen.log
+
+## Z-03 · Stichprobe: 5 zufällige Komponenten- und Ansichts-CSS-Dateien | erfüllt
+Ziehung per shuf mit fester Saat 20261026 aus 36 Dateien: ansichten/start/ablauf.css, komponenten/illustration.css, ansichten/preise/preise.css, ansichten/verzeichnis/verzeichnis.css, komponenten/menue-blatt.css. Unerlaubte Werte außerhalb var(--…): 0. Erlaubt und belegt: 1px-Ring in preise.css Zeile 77 (Prüfer erlaubt 0px, 1px, -1px); @container-Breakpoints in em (illustration.css Zeilen 35–36, preise.css mehrere Zeilen).
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/css-kandidaten.txt; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/css-stichprobe.txt; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/token-stichprobe.json; /home/user/schluesseldienst/bau/pruefen/token.mjs (Regel 0px/1px/-1px)
+
+## Z-06 · Icon-Geometrie-Linter im Build | erfüllt
+icons: 0 Fehler, 0 Warnungen, 56 Icons geprüft
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/a/dist.pruefbefunde.json (Prüfer icons); /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/bau-messen-pruefen.log
+
+## Z-06 · SVG zugänglich und keine doppelten IDs je Ansicht | erfüllt
+Live-DOM, 1440×900, 13 Hauptansichten: 292 SVG, alle aria-hidden='true' oder role='img' mit Namen (aria-label, aria-labelledby oder title). 0 doppelte IDs je Seite. 0 fehlende use-Ziele. Optimierung der Dateien über den Icon-Linter (Größenregel) geprüft, nicht gesondert gemessen.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/svg-ids.json; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/svg-ids.mjs
+
+## E2-PRUEF-07 Kalibrierung (Werkzeuge erkennen Fehler) | erfüllt
+Eigener Fixture-Server 127.0.0.1:4297, nach dem Lauf beendet. smoke: gut (/) 0 Befunde mobil und desktop; schlecht.html je Ansicht 6 Befunde (fremde Anfrage, 404 auf fehlt.png, 3 CSP-Verstöße, keine h1). axe: gut 0 serious/critical; schlecht 2 critical (button-name, image-alt) und 2 serious (color-contrast x2, html-has-lang). vnu: gut index.html 0 Fehler, 0 Warnungen; schlecht.html 1 Fehler (img ohne alt), 1 Warnung (lang). Build-Prüfer schlagen an Negativtests an: test/token.test.mjs, test/icons.test.mjs, test/pruefer-kern.test.mjs, test/ehrlichkeit.test.mjs (negativ.html und test/fixtures/ehrlichkeit/), test/budgets.test.mjs.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/kal-smoke.json; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/kal-axe.json; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/kal-vnu.json; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/fixture-server.log
+
+## Z-10 · Vorhandensein der Übergabedateien | erfüllt
+Alle vorhanden: _werkstatt/BERICHT.md, _werkstatt/KERN.md, _werkstatt/MENSCHEN.md, README.md, docs/BETRIEB.md, docs/OFFENE-PUNKTE.md, docs/HOSTER-CHECKLISTE.md, docs/ENTSCHEIDUNGEN.md, docs/ORTE-ABGLEICH.md, docs/ZUSAMMENFUEHREN.md
+Beleg: /home/user/schluesseldienst/_werkstatt/BERICHT.md; /home/user/schluesseldienst/docs/ (sechs Dateien); /home/user/schluesseldienst/README.md
+
+## Z-10 · Anleitung Zusammenführen und Zurückrollen inkl. Hinweis zu _werkstatt | erfüllt
+docs/ZUSAMMENFUEHREN.md: Abschnitt 3 Zurückrollen (Revert; -m 1 bei Merge-Commit, ohne -m 1 bei Squash), Abschnitt 4 'Was mit _werkstatt/ geschieht' (Entfernen mit Folgen oder Behalten).
+Beleg: /home/user/schluesseldienst/docs/ZUSAMMENFUEHREN.md
+
+## Z-10 · tote relative Links in den Übergabe-Markdowns | erfüllt
+15 relative Markdown-Links in 10 Dateien geprüft (Datei und Anker): 0 tot. Pfade in Code-Spans sind keine Links und wurden nicht gezählt.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/links-md.json; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/links-md.mjs
+
+## Z-10 · Vollständigkeit und Aktualität des Berichts | teilweise
+_werkstatt/BERICHT.md ist ein Morgenbericht mit Stand 06:06, Satz 'Läuft gerade', Schritte 'Danach' offen und 320 automatische Tests (aktuell 330 bestanden). Vor der Übergabe aktualisieren.
+Beleg: /home/user/schluesseldienst/_werkstatt/BERICHT.md
+
+- mittel | Konsolen-Null verfehlt (intermittierend): Beim Sprung per Skript von der 404-Seite zur Ortsseite (Ortssuche, Navigationsmodus) erscheint ein Seitenfehler 'Transition was aborted because of invalid state. ViewTransition opt-in disabled'. Betroffen 5 von 19 Skript-Sprüngen, Link-Navigation 0 von 12. Das Ziel wird jedes Mal erreicht. Vermutliche Ursache: die native Seitenübergangs-Animation (@view-transition navigation auto) beim skriptgesteuerten location.assign; nicht abschließend geklärt, ein Entwickler sollte die Ursache prüfen. | Beleg: /home/user/schluesseldienst/src/assets/js/module/ortssuche.mjs (Zeile 111, window.location.assign); /home/user/schluesseldienst/src/assets/css/bewegung.css (Zeile 68, @view-transition); /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/probe-f02-wiederholung.json; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/probe-navigation.json
+
+- klein | F01 Anruf: Im Vorschau-Build ist der Rufknopf ein Span ohne tel:-Link, weil die Nummer ein Platzhalter ist (U-6). Der Anruf mit einem Tipp ist erst mit echter Nummer prüfbar; die Release-Prüfung muss das abdecken. | Beleg: /home/user/schluesseldienst/src/vorlagen/teile/rufknopf.mjs (Zeile 12, Platzhalter-Span); /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/funktionen.json (F01)
+
+- klein | F05 Preisrechner: Im Vorschau-Build steht statt eines Betrags 'Berechnung erst mit Preisliste möglich.' bzw. 'nach Absprache'. Die Rechenlogik (Gesamtpreis = Zeitfenster + Anfahrt) ist nur per Unit-Test belegt, nicht im Browser. | Beleg: /home/user/schluesseldienst/test/preise.test.mjs (Zeilen 58–66); /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/funktionen.json (F05)
+
+- klein | F03 Wortlaut: Die Überschrift der PLZ-Prüfung auf V01 lautet 'Kommen Sie zu mir?', auf V05 'Ihren Ort prüfen'. Das Lagebild nennt die Funktion 'Bedienen Sie meinen Ort?'. In _werkstatt/*.md und docs/ fand sich keine Entscheidung zum Wortlaut. Funktion selbst erfüllt. | Beleg: /home/user/schluesseldienst/_werkstatt/LAGEBILD.md (Zeile 30); /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/funktionen.json (F03)
+
+- klein | Z-10: _werkstatt/BERICHT.md ist veraltet (Stand 06:06, 'Läuft gerade', 320 statt 330 bestandene Tests, Abschlussschritte offen). Vor der Übergabe aktualisieren. | Beleg: /home/user/schluesseldienst/_werkstatt/BERICHT.md
+
+- klein | Hinweis Messbau-Adressen: robots.txt und alle 19 Sitemap-Einträge im Messbau zeigen auf 127.0.0.1:4173 (Standardport des Messbaus), nicht auf den Vorschauport 4251. Erwartbar für --messen, im Release gilt basisUrl. Kein Befund für Z-02. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/dist/robots.txt; /home/user/schluesseldienst/.cache/e5-abschluss/dist/sitemap.xml; /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/funktionen.json (F17)
+
+- klein | Hinweis Index: Hamburg hat keine Ortsseite im Ortsindex (kein Vorschlag). Die Suche meldet ehrlich 'Kein Ort gefunden'. Kein Befund, nur zur Einordnung der Prüfauswahl (Berlin als Überregional-Beispiel). | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/funktionen.json (F03)
+
+- klein | Hinweis Arbeitsumgebung: Eigene Kalibrierungsausgaben landeten durch einen Fehler in meinem Aufruf kurz im Wurzelverzeichnis / und wurden in meinen Prüfordner verschoben, das Repo blieb unberührt. Die Dateien PRUEFPUNKT.md, STATUS.md und berichte/E5-endpruefung.md wurden zwischen 06:24 und 06:30 von anderer Stelle geändert, nicht von meinen Läufen. | Beleg: /home/user/schluesseldienst/_werkstatt/PRUEFPUNKT.md; /home/user/schluesseldienst/_werkstatt/STATUS.md; /home/user/schluesseldienst/_werkstatt/berichte/E5-endpruefung.md
+
+######## TEXT 
+Bildsatz E5-PRUEF-14 ist fertig.
+
+- **Bilder:** 510 Ausschnitte aus 78 Seitenkombinationen (13 Pfade × 3 Geräte × 2 Schemata). Quelle: `/home/user/schluesseldienst/.cache/e5-abschluss/bilder`.
+- **Ziel:** `/home/user/schluesseldienst/_werkstatt/bilder/abschluss/` (neu angelegt) mit 510 JPG und `index.json`, insgesamt 511 Dateien. Ein Byte-Vergleich mit der Quelle zeigt keine Abweichung.
+- **Ordnergröße:** 30M (`du -sh`).
+- **Gekürzte Seiten laut index.json** (`gekuerzt: true`, Obergrenze 12 Ausschnitte, nur mobil, hell und dunkel):
+  - `/` (Gesamthöhe 10541 px)
+  - `/preise/` (10249 px)
+  - `/einsatzgebiet/hessen/limburg-weilburg/` (12471 px)
+  - Alle übrigen Seiten sind nicht gekürzt.
+- **Hinweis:** `/gibt-es-nicht/` liefert in allen 6 Kombinationen HTTP 404. Das ist für die Fehlerseite erwartet, die Bilder sind aber im Satz enthalten.
+- **Galerie-Lauf:** `galerie.mjs` mit Exit 0. Ergebnis: 10 Abschnitte, 1372 Bilder, davon 510 im Abschnitt `abschluss`. Geschrieben wurden `/home/user/schluesseldienst/_werkstatt/bilder/galerie.html` (366281 Byte) und `/home/user/schluesseldienst/_werkstatt/bilder/galerie.css` (1704 Byte).
+
+Im Repo wurden nur der neue Ordner `_werkstatt/bilder/abschluss/` und die beiden Galerie-Dateien geschrieben. Es gab keine git-Befehle.
+
+######## 
+
+## Z-05 Register K-007 (Zuordnung je Animation) | teilweise
+Alle Animationen und Übergänge aus src/assets/css/bewegung.css, den @layer-bewegung-Blöcken der Ansichts-CSS (az, leistung, kontakt, ratgeber, lahnbogen, einsatzgebiet, gruppe, szene, preise, system) und den Komponenten (wahl, rufknopf, schaltflaeche, seitenteile, faq, hauptnav, menue-blatt, ortssuche) sind gelesen und Registerzeilen M-01 bis M-21 zugeordnet. Keine Animation ist ganz ohne Zuordnung. Neun Zuordnungen sind unvollständig (Auslöser oder Dauer weichen vom Register ab, siehe Befunde). Die Zuordnung ist damit nicht vollständig im Sinne von 'jede Animation im Register'.
+Beleg: /home/user/schluesseldienst/src/assets/css/bewegung.css; /home/user/schluesseldienst/src/assets/css/komponenten/faq.css:11-12; /home/user/schluesseldienst/src/assets/css/komponenten/hauptnav.css:19,29,31,42; /home/user/schluesseldienst/src/assets/css/komponenten/menue-blatt.css:24-28; /home/user/schluesseldienst/_werkstatt/KERN.md (K-007)
+
+## Z-05 reduzierte Bewegung (13 Hauptansichten, 390x844, reduce) | teilweise
+document.getAnimations() nach dem Laden (5,5 s) und nach ganzem Scrollen (weitere 5,5 s) auf allen 13 Hauptansichten inklusive /gibt-es-nicht/ (404): 0 Animationen mit Transform-Änderung, 0 sichtbare Textelemente mit Deckkraft unter 1 oder visibility-Fehler (je Seite 66 bis 470 geprüfte Elemente). Kontrolle mit no-preference findet Transform-Animationen (/ 28, /ueber-uns/ 2, /einsatzgebiet/ 7), die Methode erkennt also Transforms. Interaktionen unter reduce auf / (mobil und 1440 px): FAQ-Chevron dreht per transform-Übergang 300 ms (M-07 verlangt sofort) und der Hauptnav-Aufklapper-Pfeil dreht per transform-Übergang 300 ms (M-05 verlangt nur Deckkraft). Damit ist die Regel 'keine transform-Animation bei reduzierter Bewegung' auf diesen Interaktionen verletzt. Nicht gemessen: Composer, Verzeichnis-Filter, Menü-Blatt, Ortssuche-Ergebnis-Fade.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/reduce.json; /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/reduce.log; /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/reduce.mjs
+
+## Z-05 Bildrate große Momente mobil, 4x Drosselung (Ersatzmessung U-3) | erfüllt
+bildrate.mjs, je Moment 3 Läufe, 390x844, Schwelle 5 % verworfen: M-16 / laden max 3,42 %; M-17 /einbruchschutz/ scroll max 1,38 %; M-18 /einsatzgebiet/ scroll max 1,80 %; M-20 /ueber-uns/ laden max 1,69 %; M-21 /gibt-es-nicht/ laden max 2,48 %. Median-Intervall 16,66 ms bei allen 15 Läufen. Umgebungsausnahme U-3 (headless ohne GPU) ist in jedem Protokoll ausgewiesen.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/bildrate-m16-1.json bis bildrate-m21-3.json (15 Dateien, Muster bildrate-m*-*.json); /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/lauf.log
+
+## Z-08 Absolutschwellen (Lighthouse mobil, INP, Bewegungscode gz) | erfüllt
+Lighthouse mobil, 3 Läufe, Median, 12 Hauptansichten auf 4251 (ohne 404): Perf 96 bis 99 (min 96 bei /preise/), A11y 100 und BP 100 überall, SEO 100 außer /suche/ mit 66 (D-SEO-03, ausgenommen), LCP-Mediane 1954 bis 2412 ms (höchster Einzellauf 2414 ms), CLS 0,000 bis 0,048. Startseite auf 4254 (gzip): Perf 99, LCP 1666 ms, CLS 0,014, A11y/BP/SEO 100. INP (inp.mjs, 4x Drosselung, 2 Läufe je Aktionsdatei): Maximum 64 ms, p98 bis 64 ms (Schwelle 200 ms). Bewegungscode gz (gzip -9): Build-Bewegungsanteil (@layer bewegung plus @keyframes, dedupliziert) 2 179 B; Module als Bundle-Obergrenze abspielen 5 948 B, szene 2 336 B, tagesband 9 531 B; Summe motion-nahe Teile 19 994 B; Obergrenze mit allen Bewegungs-CSS-Bundles 49 356 B. Alle unter 60 000 B.
+Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/lighthouse-4251.json und lighthouse-4254.json (plus .log); /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/inp-*.json; /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/groesse.json; /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/groesse.py
+
+## Z-08 Vergleich mit E2-Baseline (V01 ist die einzige E2-Messung) | teilweise
+E2-Baseline (E2-PRUEF-08, Port 4173, 3 Läufe, Median): Perf 98, LCP 2 104,1 ms (Spanne 2,2 ms), CLS 0, A11y 96. Jetzt auf / (3 Läufe, Median): Perf 97, LCP 2 404 ms (Einzelläufe 2 253, 2 408, 2 404; Spanne 155 ms), CLS 0,014, A11y 100. Die LCP-Differenz von 300 ms liegt über der E2-Spanne und ist daher nur durch AUSNAHME A-1 gedeckt. A-1 beziffert +150 ms, das entspricht dem unteren Gipfel (2 253 ms). Andere Hauptansichten haben keinen E2-Wert, der Vergleich ist dort nicht prüfbar.
+Beleg: /home/user/schluesseldienst/.cache/e2/lighthouse.json; /home/user/schluesseldienst/_werkstatt/berichte/E2-pruefstufe-b.md (Z-08-Zeile); /home/user/schluesseldienst/_werkstatt/ABNAHME.md (A-1); /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/lighthouse-4251.json
+
+- mittel | Reduzierte Bewegung verletzt die Regel 'keine transform-Animation': FAQ-Chevron dreht per transform-Übergang 300 ms unter prefers-reduced-motion: reduce. M-07 verlangt 'sofort'. Ursache: faq.css:11-12 hat den Übergang ohne reduce-Ausnahme. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/reduce.json (Interaktion 'FAQ öffnen', nach_40ms); /home/user/schluesseldienst/src/assets/css/komponenten/faq.css:11-12
+
+- mittel | Reduzierte Bewegung verletzt die Regel 'nur Deckkraft': Hauptnav-Aufklapper-Pfeil dreht per transform 300 ms unter reduce. M-05 verlangt Deckkraft und feedback. Ursache: hauptnav.css:19 ohne reduce-Ausnahme. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/reduce.json (Interaktion 'Hauptnavigation öffnen', nach_40ms); /home/user/schluesseldienst/src/assets/css/komponenten/hauptnav.css:19
+
+- mittel | Z-08 E2-Vergleich V01: Median-LCP 2 404 ms gegen E2 2 104 ms (Spanne 2,2 ms). Die Differenz liegt außerhalb der Spanne und ist nur über A-1 gedeckt. A-1 nennt +150 ms, die Mediane ergeben +300 ms. Die Zahlen in A-1 sollten vom Orchestrator gegen die Rohdaten geprüft werden. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/lighthouse-4251.json (Seite '/'); /home/user/schluesseldienst/.cache/e2/lighthouse.json; /home/user/schluesseldienst/_werkstatt/ABNAHME.md (A-1)
+
+- klein | Hauptnav-Panel: Deckkraft-Übergang unter reduce mit 300 ms (Ausgang 240 ms) statt feedback 150 ms wie in M-05. Der Übergang ist messbar. | Beleg: /home/user/schluesseldienst/src/assets/css/komponenten/hauptnav.css:29,31; /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/reduce.json (Interaktion Hauptnav, opacity 300 ms)
+
+- klein | Ortssuche-Ergebnis: Deckkraft-Übergang feedback (150 ms) gilt auch unter reduce. M-12 verlangt 'sofort'. Aus dem CSS abgeleitet, nicht gemessen; der Tippen-Test löste keinen Ergebnis-Fade aus. | Beleg: /home/user/schluesseldienst/src/assets/css/komponenten/ortssuche.css:11; /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/reduce.json (Interaktion 'Ortssuche tippen')
+
+- klein | Zuordnung ohne passende Registerzeile: Composer-Zustände (Notfall/Mail-Wechsel, Hinweis ohne Adresse, Betreff-Wechsel) nennen den Auslöser 'Anliegen-Wahl', der in M-07/M-09/M-12 nicht vorkommt. Suche-Ergebnis-Fade (M-12) betrifft die Suche, M-12 nennt nur Rechner/PLZ-Prüfung. | Beleg: /home/user/schluesseldienst/src/assets/css/ansichten/kontakt/kontakt.css:120-130; /home/user/schluesseldienst/src/assets/css/ansichten/system/system.css:160-163; /home/user/schluesseldienst/_werkstatt/KERN.md (K-007 M-07, M-09, M-12)
+
+- klein | Ratgeber-Inhaltsschiene: Kupferstrich zieht per scale im Zustandswechsel (aria-current). Es gibt keine K-007-Zeile dafür, die Zuordnung ist nur über die Analogie zu M-14 möglich. | Beleg: /home/user/schluesseldienst/src/assets/css/ansichten/ratgeber/ratgeber.css:124-128
+
+- klein | Szene: Linie des Schritts und ihr Eintrag in der Stückliste ziehen per transform. M-17 nennt in der Registerbeschreibung nur die Figur. | Beleg: /home/user/schluesseldienst/src/assets/css/ansichten/gruppe/szene.css:102-107
+
+- klein | M-21: gegenläufige Stifte (nth-child(even)) und die Umrechnung über sin/cos von atan2 sind Varianten. Das Register beschreibt nur 'Stifte wackeln'. | Beleg: /home/user/schluesseldienst/src/assets/css/ansichten/system/system.css:166-175
+
+- klein | M-18: Rasterkarte blendet zusätzlich Deckkraft ein (Register: nur Scale). Der Kupferring am Sitz skaliert ebenfalls, das Register nennt nur den Punkt. | Beleg: /home/user/schluesseldienst/src/assets/css/bewegung.css:55; /home/user/schluesseldienst/src/assets/css/ansichten/einsatzgebiet/einsatzgebiet.css:8
+
+- klein | M-03 :active scale(.98) auf Knopf, Wahl, Rufknopf, Weiter-Link und weiteren Elementen hat keinen Übergang. Die Wirkung ist sofort, das Register verlangt die Dauer feedback. Keine Animation, nur Abweichung vom Register. | Beleg: /home/user/schluesseldienst/src/assets/css/komponenten/schaltflaeche.css:10; /home/user/schluesseldienst/src/assets/css/komponenten/wahl.css:9; /home/user/schluesseldienst/src/assets/css/komponenten/rufknopf.css:10; /home/user/schluesseldienst/src/assets/css/komponenten/seitenteile.css:17
+
+- klein | M-06 Menü-Blatt: Register verlangt unter reduce eine Deckkraft von 150 ms. Die Datei hat keine reduce-Regel, das Blatt und sein Hintergrund erscheinen sofort. Das ist weniger Bewegung, das Register ist aber nicht erfüllt. | Beleg: /home/user/schluesseldienst/src/assets/css/komponenten/menue-blatt.css:24-28
+
+- klein | Hinweis zum K-007-Budget: Der Bewegungscode liegt bei höchstens 20,0 KB gz (CSS-Anteil 2,2 KB, Modul-Bundles als Obergrenze 17,8 KB). Das Budget von 12 KB ist damit überschritten, die Hartgrenze von 60 KB ist eingehalten. Die Module-Bundles enthalten auch Nicht-Bewegungscode. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/groesse.json; /home/user/schluesseldienst/_werkstatt/KERN.md (K-007 Budget)
+
+- klein | Aktionsdatei passt nicht zum Markup: _werkstatt/werkzeuge/aktionen/e4-kontakt.json sucht button.knopf-primaer[type=submit], der Absendeknopf ist type=button mit data-rolle=absenden. inp.mjs bricht mit exit 2 ab (Click-Timeout, 2 Läufe). Ersatzlauf mit data-rolle=absenden: max 56 ms, 2 Läufe. Repo-Datei ist unverändert. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/lauf.log; /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/e4-kontakt-angepasst.json; /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/inp-e4-kontakt-angepasst-1.json
+
+- klein | Hinweis zur Streuung: Einzelläufe von Lighthouse streuen bei LCP bis 167 ms (bimodal, z. B. /notoeffnung/tueroeffnung/: 2109/2276/2110 ms). Die Mediane liegen alle unter 2500 ms, das ist nur ein Hinweis auf die Messstabilität. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/haiku-z05-z08/lighthouse-4251.json

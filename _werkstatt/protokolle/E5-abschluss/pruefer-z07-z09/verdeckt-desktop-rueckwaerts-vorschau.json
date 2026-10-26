@@ -1,0 +1,119 @@
+{
+  "werkzeug": "verdeckt",
+  "basis": "http://127.0.0.1:4251/",
+  "zeitpunkt": "2026-10-26T06:42:38.458Z",
+  "viewport": "desktop",
+  "richtung": "rueckwaerts",
+  "ganzVerdeckt": 0,
+  "ergebnisse": [
+    {
+      "pfad": "/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "richtung": "rueckwaerts",
+      "status": 200,
+      "externeBlockiert": 0,
+      "zustandVorher": {
+        "scrollPaddingTop": "88px",
+        "scrollPaddingBottom": "0px",
+        "rufleiste": {
+          "oben": 0,
+          "unten": 0,
+          "hoehe": 0
+        },
+        "klebend": [
+          {
+            "el": "header.kopf",
+            "position": "sticky",
+            "oben": 0,
+            "unten": 73,
+            "hoehe": 73
+          },
+          {
+            "el": "div.menue-blatt-kopf",
+            "position": "sticky",
+            "oben": 0,
+            "unten": 0,
+            "hoehe": 0
+          },
+          {
+            "el": "div.menue-blatt-ruf",
+            "position": "sticky",
+            "oben": 0,
+            "unten": 0,
+            "hoehe": 0
+          },
+          {
+            "el": "figure.serioes-figur",
+            "position": "sticky",
+            "oben": 5281,
+            "unten": 5626,
+            "hoehe": 346
+          }
+        ]
+      },
+      "schritte": 83,
+      "fokuszieleAusser": 83,
+      "fokuszieleInLeiste": 0,
+      "ganzVerdecktRufleiste": 0,
+      "teilweiseRufleiste": 0,
+      "ganzVerdecktPunktprobe": 0,
+      "teilweisePunktprobe": 0,
+      "ausserhalbSicht": 0,
+      "verdeckendeElemente": {},
+      "beispiele": [],
+      "beispieleTeilweise": []
+    },
+    {
+      "pfad": "/einsatzgebiet/hessen/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "richtung": "rueckwaerts",
+      "status": 200,
+      "externeBlockiert": 0,
+      "zustandVorher": {
+        "scrollPaddingTop": "88px",
+        "scrollPaddingBottom": "0px",
+        "rufleiste": {
+          "oben": 0,
+          "unten": 0,
+          "hoehe": 0
+        },
+        "klebend": [
+          {
+            "el": "header.kopf",
+            "position": "sticky",
+            "oben": 0,
+            "unten": 73,
+            "hoehe": 73
+          },
+          {
+            "el": "div.menue-blatt-kopf",
+            "position": "sticky",
+            "oben": 0,
+            "unten": 0,
+            "hoehe": 0
+          },
+          {
+            "el": "div.menue-blatt-ruf",
+            "position": "sticky",
+            "oben": 0,
+            "unten": 0,
+            "hoehe": 0
+          }
+        ]
+      },
+      "schritte": 73,
+      "fokuszieleAusser": 73,
+      "fokuszieleInLeiste": 0,
+      "ganzVerdecktRufleiste": 0,
+      "teilweiseRufleiste": 0,
+      "ganzVerdecktPunktprobe": 0,
+      "teilweisePunktprobe": 0,
+      "ausserhalbSicht": 0,
+      "verdeckendeElemente": {},
+      "beispiele": [],
+      "beispieleTeilweise": []
+    }
+  ]
+}

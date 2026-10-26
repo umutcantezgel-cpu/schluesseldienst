@@ -1,0 +1,136 @@
+{
+  "werkzeug": "smoke",
+  "basis": "http://127.0.0.1:4297/",
+  "zeitpunkt": "2026-10-26T06:48:13.679Z",
+  "befundeGesamt": 12,
+  "ergebnisse": [
+    {
+      "pfad": "/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Prüf-Fixture gut",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Prüf-Fixture gut",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/schlecht.html",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [
+        "https://fonts.googleapis.com/css2?family=Roboto"
+      ],
+      "unterressourcen": [
+        "404 http://127.0.0.1:4297/fehlt.png"
+      ],
+      "konsole": {
+        "fehler": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "absichtlicher Konsolenfehler"
+        ],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [
+          "Loading the stylesheet 'https://fonts.googleapis.com/css2?family=Roboto' violates the following Content Security Policy directive: \"style-src 'self'\". Note that 'style-src-elem' was not explicitly set, so 'style-src' is used as a fallback. The action has been blocked.",
+          "Applying inline style violates the following Content Security Policy directive 'style-src 'self''. Either the 'unsafe-inline' keyword, a hash ('sha256-8f935d27GvUutRyY9yWScUMiFUk4WTdZURISiYfPOeQ='), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The action has been blocked.",
+          "Executing inline script violates the following Content Security Policy directive 'script-src 'self''. Either the 'unsafe-inline' keyword, a hash ('sha256-ZpSfcbTWEsKcKBp1mXHP1b30M6i803h0i1QW+IQaTl4='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."
+        ],
+        "ereignis": [
+          "style-src-elem https://fonts.googleapis.com/css2?family=Roboto",
+          "style-src-attr inline",
+          "script-src-elem inline"
+        ]
+      },
+      "titel": "Prüf-Fixture schlecht",
+      "h1Anzahl": 0,
+      "skript": [],
+      "befunde": [
+        "1 fremde Anfragen",
+        "Unterressource: 404 http://127.0.0.1:4297/fehlt.png",
+        "Konsolenfehler: Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Konsolenfehler: absichtlicher Konsolenfehler",
+        "CSP-Verstöße: Konsole 3, Ereignis 3",
+        "0 h1-Elemente statt genau einem"
+      ]
+    },
+    {
+      "pfad": "/schlecht.html",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [
+        "https://fonts.googleapis.com/css2?family=Roboto"
+      ],
+      "unterressourcen": [
+        "404 http://127.0.0.1:4297/fehlt.png"
+      ],
+      "konsole": {
+        "fehler": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "absichtlicher Konsolenfehler"
+        ],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [
+          "Loading the stylesheet 'https://fonts.googleapis.com/css2?family=Roboto' violates the following Content Security Policy directive: \"style-src 'self'\". Note that 'style-src-elem' was not explicitly set, so 'style-src' is used as a fallback. The action has been blocked.",
+          "Applying inline style violates the following Content Security Policy directive 'style-src 'self''. Either the 'unsafe-inline' keyword, a hash ('sha256-8f935d27GvUutRyY9yWScUMiFUk4WTdZURISiYfPOeQ='), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The action has been blocked.",
+          "Executing inline script violates the following Content Security Policy directive 'script-src 'self''. Either the 'unsafe-inline' keyword, a hash ('sha256-ZpSfcbTWEsKcKBp1mXHP1b30M6i803h0i1QW+IQaTl4='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."
+        ],
+        "ereignis": [
+          "style-src-elem https://fonts.googleapis.com/css2?family=Roboto",
+          "style-src-attr inline",
+          "script-src-elem inline"
+        ]
+      },
+      "titel": "Prüf-Fixture schlecht",
+      "h1Anzahl": 0,
+      "skript": [],
+      "befunde": [
+        "1 fremde Anfragen",
+        "Unterressource: 404 http://127.0.0.1:4297/fehlt.png",
+        "Konsolenfehler: Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Konsolenfehler: absichtlicher Konsolenfehler",
+        "CSP-Verstöße: Konsole 3, Ereignis 3",
+        "0 h1-Elemente statt genau einem"
+      ]
+    }
+  ]
+}

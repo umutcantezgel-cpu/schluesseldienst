@@ -1,0 +1,35 @@
+{
+  "werkzeug": "vnu",
+  "zeitpunkt": "2026-10-26T06:48:17.363Z",
+  "quelle": "_werkstatt/werkzeuge/fixture/index.html,_werkstatt/werkzeuge/fixture/schlecht.html",
+  "stichprobe": null,
+  "dateien": [
+    {
+      "datei": "_werkstatt/werkzeuge/fixture/index.html",
+      "fehler": 0,
+      "warnungen": 0,
+      "meldungen": []
+    },
+    {
+      "datei": "_werkstatt/werkzeuge/fixture/schlecht.html",
+      "fehler": 1,
+      "warnungen": 1,
+      "meldungen": [
+        {
+          "typ": "fehler",
+          "zeile": 12,
+          "nachricht": "An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images."
+        },
+        {
+          "typ": "warnung",
+          "zeile": 2,
+          "nachricht": "Consider adding a “lang” attribute to the “html” start tag to declare the language of this document."
+        }
+      ]
+    }
+  ],
+  "allgemein": [],
+  "fehler_gesamt": 1,
+  "warnungen_gesamt": 1,
+  "ergebnis": "fehler"
+}

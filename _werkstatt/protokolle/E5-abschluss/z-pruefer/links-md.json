@@ -1,0 +1,48 @@
+{
+  "werkzeug": "links-md",
+  "zeitpunkt": "2026-10-26T06:48:58.687Z",
+  "dateien": [
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "links": 0
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "links": 0
+    },
+    {
+      "datei": "_werkstatt/MENSCHEN.md",
+      "links": 0
+    },
+    {
+      "datei": "README.md",
+      "links": 6
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "links": 2
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "links": 0
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "links": 1
+    },
+    {
+      "datei": "docs/ENTSCHEIDUNGEN.md",
+      "links": 3
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "links": 3
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "links": 0
+    }
+  ],
+  "tot": [],
+  "geprueft": 15
+}

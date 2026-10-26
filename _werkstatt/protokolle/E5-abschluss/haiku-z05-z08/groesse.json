@@ -1,0 +1,157 @@
+{
+  "build_css_mit_bewegung": {
+    "app.0c354064ac.css": {
+      "roh": 52869,
+      "gz": 10564,
+      "layer_bewegung_gz": 1290,
+      "keyframes_gz": 356
+    },
+    "betrieb-lahnbogen.a313d754bb.css": {
+      "roh": 10352,
+      "gz": 2211,
+      "layer_bewegung_gz": 176,
+      "keyframes_gz": 20
+    },
+    "gebiet-einsatzgebiet.a3fc2545f2.css": {
+      "roh": 9730,
+      "gz": 2310,
+      "layer_bewegung_gz": 407,
+      "keyframes_gz": 82
+    },
+    "gebiet-hubs.2afcd94194.css": {
+      "roh": 13060,
+      "gz": 2672,
+      "layer_bewegung_gz": 147,
+      "keyframes_gz": 20
+    },
+    "kontakt.8599ec047c.css": {
+      "roh": 8609,
+      "gz": 1983,
+      "layer_bewegung_gz": 276,
+      "keyframes_gz": 75
+    },
+    "leistung.5de1e844d2.css": {
+      "roh": 5904,
+      "gz": 1537,
+      "layer_bewegung_gz": 192,
+      "keyframes_gz": 20
+    },
+    "preise.96cc74ba33.css": {
+      "roh": 14077,
+      "gz": 2927,
+      "layer_bewegung_gz": 284,
+      "keyframes_gz": 67
+    },
+    "ratgeber.0a1bfb4eea.css": {
+      "roh": 9656,
+      "gz": 2158,
+      "layer_bewegung_gz": 163,
+      "keyframes_gz": 20
+    },
+    "register-gruppe.763a2c2915.css": {
+      "roh": 14479,
+      "gz": 2728,
+      "layer_bewegung_gz": 240,
+      "keyframes_gz": 20
+    },
+    "system.2704cfd564.css": {
+      "roh": 11009,
+      "gz": 2451,
+      "layer_bewegung_gz": 469,
+      "keyframes_gz": 245
+    }
+  },
+  "build_css_summe_gz_obergrenze": 31541,
+  "build_bewegungsanteil_dedupliziert": {
+    "roh": 15282,
+    "gz": 2179,
+    "bloecke": 39
+  },
+  "quelle_bewegung_css": {
+    "src/assets/css/bewegung.css": {
+      "roh": 8883,
+      "gz": 2524,
+      "layer_bewegung_gz": 2376
+    },
+    "src/assets/css/ansichten/hubs/az.css": {
+      "roh": 14032,
+      "gz": 4244,
+      "layer_bewegung_gz": 264
+    },
+    "src/assets/css/ansichten/leistung/leistung.css": {
+      "roh": 8714,
+      "gz": 2956,
+      "layer_bewegung_gz": 196
+    },
+    "src/assets/css/ansichten/kontakt/kontakt.css": {
+      "roh": 12523,
+      "gz": 3904,
+      "layer_bewegung_gz": 422
+    },
+    "src/assets/css/ansichten/ratgeber/ratgeber.css": {
+      "roh": 13389,
+      "gz": 3948,
+      "layer_bewegung_gz": 166
+    },
+    "src/assets/css/ansichten/lahnbogen/lahnbogen.css": {
+      "roh": 2026,
+      "gz": 1044,
+      "layer_bewegung_gz": 182
+    },
+    "src/assets/css/ansichten/einsatzgebiet/einsatzgebiet.css": {
+      "roh": 9049,
+      "gz": 3067,
+      "layer_bewegung_gz": 411
+    },
+    "src/assets/css/ansichten/gruppe/gruppe.css": {
+      "roh": 7841,
+      "gz": 2662,
+      "layer_bewegung_gz": 200
+    },
+    "src/assets/css/ansichten/gruppe/szene.css": {
+      "roh": 10254,
+      "gz": 2985,
+      "layer_bewegung_gz": 157
+    },
+    "src/assets/css/ansichten/preise/preise.css": {
+      "roh": 21987,
+      "gz": 6450,
+      "layer_bewegung_gz": 563
+    },
+    "src/assets/css/ansichten/system/system.css": {
+      "roh": 16832,
+      "gz": 5127,
+      "layer_bewegung_gz": 899
+    }
+  },
+  "quelle_summe_gz_layer_bewegung_plus_bewegung_css": 5836,
+  "module": {
+    "abspielen": {
+      "bundles": {
+        "app.144faf48dd.js": {
+          "roh": 16669,
+          "gz": 5948
+        }
+      },
+      "obergrenze_gz": 5948
+    },
+    "szene": {
+      "bundles": {
+        "app.21cbef282e.js": {
+          "roh": 5923,
+          "gz": 2336
+        }
+      },
+      "obergrenze_gz": 2336
+    },
+    "tagesband": {
+      "bundles": {
+        "app.ab8e44fd02.js": {
+          "roh": 27559,
+          "gz": 9531
+        }
+      },
+      "obergrenze_gz": 9531
+    }
+  }
+}

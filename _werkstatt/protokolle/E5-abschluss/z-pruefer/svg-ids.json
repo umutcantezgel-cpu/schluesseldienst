@@ -1,0 +1,124 @@
+{
+  "werkzeug": "svg-ids",
+  "basis": "http://127.0.0.1:4251",
+  "zeitpunkt": "2026-10-26T06:46:38.239Z",
+  "ergebnis": [
+    {
+      "pfad": "/",
+      "svg": 44,
+      "ok": 44,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 44
+    },
+    {
+      "pfad": "/einbruchschutz/",
+      "svg": 32,
+      "ok": 32,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 40
+    },
+    {
+      "pfad": "/notoeffnung/tueroeffnung/",
+      "svg": 23,
+      "ok": 23,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 31
+    },
+    {
+      "pfad": "/preise/",
+      "svg": 28,
+      "ok": 28,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 38
+    },
+    {
+      "pfad": "/einsatzgebiet/",
+      "svg": 17,
+      "ok": 17,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 26
+    },
+    {
+      "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+      "svg": 13,
+      "ok": 13,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 41
+    },
+    {
+      "pfad": "/schluesseldienst-loehnberg/",
+      "svg": 22,
+      "ok": 22,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 27
+    },
+    {
+      "pfad": "/ratgeber/rauchmelderpflicht/",
+      "svg": 21,
+      "ok": 21,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 28
+    },
+    {
+      "pfad": "/ueber-uns/",
+      "svg": 21,
+      "ok": 21,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 22
+    },
+    {
+      "pfad": "/kontakt/",
+      "svg": 24,
+      "ok": 24,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 40
+    },
+    {
+      "pfad": "/suche/",
+      "svg": 16,
+      "ok": 16,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 23
+    },
+    {
+      "pfad": "/impressum/",
+      "svg": 14,
+      "ok": 14,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 30
+    },
+    {
+      "pfad": "/gibt-es-nicht/",
+      "svg": 17,
+      "ok": 17,
+      "fehlend": [],
+      "doppelt": [],
+      "fehlendeZiele": [],
+      "ids": 21
+    }
+  ]
+}
