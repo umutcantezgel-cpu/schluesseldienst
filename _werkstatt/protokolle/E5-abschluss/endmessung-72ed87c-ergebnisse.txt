@@ -1,0 +1,264 @@
+
+## Gesamturteil: alle absoluten Schwellen (Perf, A11y, BP, SEO, LCP, CLS, INP) auf dem Messbuild | teilweise
+Alle absoluten Schwellen erfüllt (Lighthouse mobil, 12 Hauptansichten je Median aus 3 Läufen, INP 6 Aktionsdateien × 2 Läufe). Eine Abweichung: die relative Z-08-Regel gegenüber E2 für / ist nicht erfüllt, durch A-1 gedeckt (siehe unten). Messung 2026-10-26, ca. 10:55 bis 11:08 UTC. Vorschau-Server 4251 und 4254 laufen weiter, Sperrdatei .cache/mess.lock ist nicht übrig, im Repo wurde nichts geändert; alle Ausgaben liegen im Ordner n5-leistung.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-b.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-c.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-d.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-gzip.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e3-einsatzgebiet-l1.json
+
+## Lighthouse mobil Performance >= 95 je Hauptansicht (12 Ansichten ohne /gibt-es-nicht/, Median aus 3 Läufen) | erfüllt
+Mediane 96 bis 99; niedrigster Median /preise/ 96 (Einzel 96/96/96). Weitere: / 97, /einbruchschutz/ 97, /notoeffnung/tueroeffnung/ 98, /einsatzgebiet/ 98, /einsatzgebiet/hessen/limburg-weilburg/ 98, /schluesseldienst-loehnberg/ 98, /ueber-uns/ 98, /ratgeber/rauchmelderpflicht/ 99, /kontakt/ 99, /suche/ 99, /impressum/ 99. Einzelläufe der 12 Ansichten 96 bis 99.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-b.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-c.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-d.json
+
+## Lighthouse mobil Accessibility = 100 je Hauptansicht | erfüllt
+Median 100 auf allen 12 Hauptansichten, alle Einzelläufe 100 (inklusive gzip-Vorschau /).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-b.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-c.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-d.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-gzip.json
+
+## Lighthouse mobil Best-Practices = 100 je Hauptansicht | erfüllt
+Median 100 auf allen 12 Hauptansichten, alle Einzelläufe 100 (inklusive gzip-Vorschau /).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-b.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-c.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-d.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-gzip.json
+
+## Lighthouse mobil SEO = 100 je Hauptansicht (außer /suche/, noindex nach D-SEO-03) | erfüllt
+11 Ansichten SEO 100 (Median und alle Einzelläufe). /suche/ 66 in 3 von 3 Läufen, nur Audit seo/is-crawlable, wegen des beabsichtigten noindex; für /suche/ gilt die Ausnahme.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-d.json; /home/user/schluesseldienst/.cache/e5-final/dist/suche/index.html
+
+## Lighthouse mobil LCP <= 2500 ms je Hauptansicht (Median und Einzelläufe) | erfüllt
+Mediane 1955 bis 2409 ms; höchste: /einbruchschutz/ 2409, / 2407, /preise/ 2405. Höchster Einzellauf 2413 ms (/preise/ Lauf 2). Abstand zur Grenze etwa 87 ms.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-b.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-c.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-d.json
+
+## Lighthouse mobil CLS <= 0,1 je Hauptansicht | erfüllt
+CLS 0,000 in allen Medianen und Einzelläufen der 12 Hauptansichten und der gzip-Vorschau.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-b.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-c.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-d.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-gzip.json
+
+## Vergleich / mit E2-Baseline (LCP 2104 ms, Perf 98; relative Z-08-Regel: höchstens E2-Spanne) | nicht erfüllt
+/ Median LCP 2407 ms (+303 ms gegenüber 2104 ms), Einzelläufe 2256/2407/2407 ms; Perf 97 gegenüber 98. E2-Spanne LCP 2,2 ms (Einzel 2103,9/2104,1/2106,1 ms), Spanne Perf 0. Gedeckt durch Ausnahme A-1 (dort LCP +150 bis +300 ms, Perf -1).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json; /home/user/schluesseldienst/.cache/e2/lighthouse.json; /home/user/schluesseldienst/_werkstatt/ABNAHME.md (Ausnahme A-1)
+
+## Lighthouse gzip-Vorschau (Port 4254) /: Perf, LCP, CLS | erfüllt
+Perf 100 (Einzel 100/100/100), LCP-Median 1658 ms (Einzel 1657/1658/1662), FCP 1358 ms, CLS 0,000, übertragene Bytes 103477 (unkomprimiert 217293). Passt zu A-1 (gzip 100 · 1.657 ms).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-gzip.json; /home/user/schluesseldienst/_werkstatt/ABNAHME.md (Ausnahme A-1)
+
+## INP-Näherung <= 200 ms, 6 Aktionsdateien je 2 Läufe, 4x Drosselung, 390x844 | erfüllt
+Maximum 64 ms (e3-hub Lauf 1; e4-preise Lauf 2). Max/p98 je Lauf: e3-einsatzgebiet 32/40, e3-hub 64/56, e4-kontakt 56/48, e4-preise 48/64, e4-suche 24/24, v01-inp 56/56 ms. Jede Aktion mit Meldung, 0 blockierte externe Anfragen.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e3-einsatzgebiet-l1.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e3-einsatzgebiet-l2.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e3-hub-l1.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e3-hub-l2.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e4-kontakt-l1.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e4-kontakt-l2.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e4-preise-l1.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e4-preise-l2.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e4-suche-l1.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-e4-suche-l2.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-v01-inp-l1.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/inp-v01-inp-l2.json
+
+## Beobachtete Ladezeiten (zeit-probe, 7 Läufe, Einordnung ohne Schwelle) | erfüllt
+/ FCP-Median 1351 ms, LCP-Median 1351 ms; /preise/ FCP-Median 1456 ms, LCP-Median 1456 ms. RTT 150 ms, 1,6 Mbit/s, CPU 4x, kalter Cache, Viewport 412x823. LCP = FCP ist durch Diagnose belegt (Textelement beim ersten Paint).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/zeiten.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lcp-diagnose.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lcp-diagnose.mjs
+
+## Größen (nur Angabe): größtes JS-Bündel und app-CSS, gzip -9 | erfüllt
+Größtes JS: app.6da1a22a6e.js, 28196 B roh, 9841 B gzip -9. CSS app.ac74135ea0.css: 54594 B roh, 10634 B gzip -9.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/dist/assets/app.6da1a22a6e.js; /home/user/schluesseldienst/.cache/e5-final/dist/assets/app.ac74135ea0.css
+
+- mittel | Relative Z-08-Regel gegenüber E2 für / nicht erfüllt: Median LCP 2407 ms gegenüber E2 2104 ms (+303 ms), Perf 97 gegenüber 98. Die E2-Spanne ist nur 2,2 ms, die Regel erlaubt also höchstens diese Abweichung. Gedeckt durch A-1, das +150 bis +300 ms nennt; hier liegt der Wert 3 ms über dem dort genannten oberen Gipfel. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json; /home/user/schluesseldienst/.cache/e2/lighthouse.json; /home/user/schluesseldienst/_werkstatt/ABNAHME.md (Ausnahme A-1)
+
+- mittel | LCP-Abstand zur Grenze 2500 ms ist klein und zweigipflig: Mediane /einbruchschutz/ 2409 ms, / 2407 ms, /preise/ 2405 ms; Einzelläufe dieser drei Ansichten 2255 bis 2413 ms. Abstand zur Grenze etwa 87 ms. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-b.json
+
+- klein | /suche/ SEO 66 in 3 von 3 Läufen, nur Audit seo/is-crawlable, Ursache das beabsichtigte noindex. lh-d.json meldet deshalb VERFEHLT und Exit 1. Erwartet nach D-SEO-03, kein Fehler der Seite; das Werkzeug kennt keine Ausnahme je Pfad. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-d.json; /home/user/schluesseldienst/.cache/e5-final/dist/suche/index.html (meta robots noindex, follow)
+
+- klein | zeit-probe-Werte sind nicht mit den Lighthouse-Schwellen vergleichbar. LCP = FCP in allen 14 Läufen ist kein Messfehler: Die Diagnose zeigt nur einen LCP-Eintrag, ein Textelement (SPAN, Fläche 31064 px²) beim ersten Paint. Die Probe liegt bei / mit FCP 1351 ms unter Lighthouse (FCP 1807 ms, LCP 2407 ms), weil sie beobachtete CDP-Drosselung statt Lighthouse-Simulation nutzt und anders skaliert (Viewport 412x823, DPR 1,75). Welches Element Lighthouse als LCP wertet, ist nicht erfasst. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/zeiten.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lcp-diagnose.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json
+
+- klein | Kompression wirkt stark auf LCP: / ohne gzip LCP 2407 ms und 217293 übertragene Bytes, mit gzip (Port 4254) LCP 1658 ms und 103477 Bytes. Die gzip-Vorschau entspricht dem Hoster; A-1 nennt beide Werte. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-a.json; /home/user/schluesseldienst/.cache/e5-final/n5-leistung/lh-gzip.json; /home/user/schluesseldienst/_werkstatt/ABNAHME.md (Ausnahme A-1)
+
+## 1. npm test (Tests, bestanden, fehlgeschlagen, todo) | erfüllt
+331 Tests in 16 Suiten: 330 bestanden, 0 fehlgeschlagen, 0 abgebrochen, 0 übersprungen, 1 todo. Exit 0, Dauer 8,15 s. Das todo ist „NL-PLZ bleibt vierstellig“ (1431 statt 01431, als OFFENE FRAGE markiert).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/npm-test.log
+
+## 2. Release-Negativtest A: node bau/bauen.mjs --release --aus=…/release-a (Exit ungleich 0) | erfüllt
+Exit 2. Meldung: „Release: betrieb.basisUrl ist ein Platzhalter.“ Der Abbruch erfolgt vor der --ziel-Prüfung. Der Ausgabeordner release-a entstand nicht, es gab nichts zu löschen.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/release-a.log
+
+## 3. Release-Negativtest B (basisUrl https://example.org nur in der Kopie; Erwartung: Platzhalter und ungeprüfte Fakten) | erfüllt
+Exit 1. Beide Meldungen erscheinen: „Release verweigert: 57 Platzhalter in der Konfiguration“ und „Release verweigert: 92 ungeprüfte Fakten“. Build: 5556 Seiten, 65 Platzhalter in der Ausgabe. Prüfer: 11, Fehler 5592 (sicherheit 5556 als S10-Platzhalter, fakten 20, jsonld 16), Warnungen 72 (seo). Schlusszeile „Build mit 5594 Fehler(n) beendet“ (5592 plus 2 Verweigerungen). Die Ausgabe wurde nach release-b.verweigert verschoben. Danach wurden release-probe, release-b und release-b.verweigert gelöscht; die Protokolle bleiben.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/release-b.log; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/release-b.pruefbefunde.json; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/release-b.bau-bericht.json
+
+## 4. smoke.mjs, 13 Hauptansichten mobil und desktop, http://127.0.0.1:4251: 0 fremde Anfragen, 0 Konsolen- und CSP-Fehler außer der gewollten 404 | erfüllt
+26 Läufe. Fremde Anfragen 0, CSP-Verstöße 0, Konsolenwarnungen 0, Konsolenfehler 2. Beide sind die gewollte 404 auf /gibt-es-nicht/. 24 von 26 Läufen ohne Befund. Der Werkzeug-Exit 1 kommt nur von den drei Befunden je Gerät auf /gibt-es-nicht/ (HTTP 404, 404-Unterressource, gewollte Konsolenmeldung).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/smoke-4251.json; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/smoke-4251.log
+
+## 5. smoke.mjs wie Punkt 4, http://127.0.0.1:4254 (gzip) | erfüllt
+26 Läufe. Fremde Anfragen 0, CSP-Verstöße 0, Konsolenwarnungen 0, Konsolenfehler 2 (gewollte 404 auf /gibt-es-nicht/). 24 von 26 ohne Befund, dieselben Befunde wie auf 4251.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/smoke-4254.json; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/smoke-4254.log
+
+## 6. Seitenwechsel, Skript, Desktop (vt-probe --teil skript --geraet desktop) | erfüllt
+wechsel 30, erfolgreich 30, zaehlend 0, viewTransitionMeldungen 0, diagnose.pagerevealMitVt 30, diagnose.pagerevealMitVtModulSchonGelaufen 30. Zusätzlich pageerror 0, unhandledrejection 0, abgefangen 0. Exit 0. Roh 30 Konsolenmeldungen, alle die gewollte 404 auf /gibt-es-nicht/ (vom Werkzeug ausgefiltert).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/vt-skript-desktop.json
+
+## 7. Seitenwechsel, Links, Desktop (vt-probe --teil links --geraet desktop) | erfüllt
+wechsel 48, erfolgreich 48, zaehlend 0, viewTransitionMeldungen 0, diagnose.pagerevealMitVt 48, diagnose.pagerevealMitVtModulSchonGelaufen 48. pageerror 0, unhandledrejection 0, abgefangen 0. Exit 0. Keine Konsolenmeldungen.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/vt-links-desktop.json
+
+## 8. Seitenwechsel, Skript, Mobil (vt-probe --teil skript --geraet mobil) | erfüllt
+wechsel 30, erfolgreich 30, zaehlend 0, viewTransitionMeldungen 0, diagnose.pagerevealMitVt 30, diagnose.pagerevealMitVtModulSchonGelaufen 30. pageerror 0, unhandledrejection 0, abgefangen 0. Exit 0. Roh 30 Konsolenmeldungen, alle die gewollte 404 auf /gibt-es-nicht/ (ausgefiltert).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/vt-skript-mobil.json
+
+## 9. Seitenwechsel, Links, Mobil (vt-probe --teil links --geraet mobil) | erfüllt
+wechsel 48, erfolgreich 48, zaehlend 0, viewTransitionMeldungen 0, diagnose.pagerevealMitVt 48, diagnose.pagerevealMitVtModulSchonGelaufen 48. pageerror 0, unhandledrejection 0, abgefangen 0. Exit 0. Keine Konsolenmeldungen.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/vt-links-mobil.json
+
+## 10. Seitenwechsel gesamt (Schwelle 0 zählende Fehler) | erfüllt
+156 Wechsel, 156 erfolgreich, 0 zählende Fehler, 0 ViewTransition-Meldungen, 0 pageerror. Alle vier Läufe Exit 0.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/vt-skript-desktop.json; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/vt-links-desktop.json; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/vt-skript-mobil.json; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/vt-links-mobil.json
+
+## 11. Funktionsliste F01 bis F20 gegen 127.0.0.1:4251 (Gesamt) | teilweise
+18 erfüllt, 2 teilweise (F01, F05), 0 nicht erfüllt. Exit 1 nur wegen F01 und F05. Fremde Anfragen gesamt 0, Konsolenfehler gesamt 0, gewollte 404-Meldungen 9. Gegenüber der Referenz 0 Abweichungen bei den Ergebnissen; Abweichungen in den Messungen siehe F02 und F20.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.log
+
+## 12. F01 Anruf mit einem Tipp von jeder Seite | teilweise
+Rufleiste mobil sichtbar und fixiert 13/13; Kopf-Rufknopf desktop sichtbar 13/13; tel:-Links 0, weil die Nummer Platzhalter ist (U-6). Konsole 0, fremd 0, gewollte 404 2. Messung identisch mit der Referenz.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 13. F02 Orts-/PLZ-Suche mit Sprung zur Ortsseite | erfüllt
+V01 „Löhnberg“: 1 Vorschlag, Ergebnis-Link /schluesseldienst-loehnberg/. PLZ 35781 liefert Vorschläge. 404-Navigation springt zu /schluesseldienst-loehnberg/. Fremd 0, Konsole 0 (Referenz: 1 Seitenfehler, siehe Befund 2), gewollte 404 1.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 14. F03 PLZ-/Ortsprüfung mit ehrlichem Zonen-Ergebnis | erfüllt
+V01 und V05: Löhnberg zeigt Zone „Kerngebiet ab Weilburg“; Berlin zeigt „Überregional – nach Absprache“ (rund 176 km); Hamburg meldet „Kein Ort gefunden“. Konsole 0, fremd 0.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 15. F04 Preistabelle mit Zeitfenstern und Zuschlägen | erfüllt
+#preisliste sichtbar, 4/4 Zeitfenster, 7 Tabellenzeilen, Anfahrtstabelle sichtbar. 28 Platzhalterzellen (U-6, erwartet).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 16. F05 Preisrechner (Leistung × Zeitpunkt × Zone) | teilweise
+Posten ändern sich nach Lage und nach Zone (true, true). Gesamtbetrag nicht sichtbar, Summe „Berechnung erst mit Preisliste möglich.“ (U-6). Zone D: Posten-Liste leer, Summe „Dieser Preis wird nach Absprache vereinbart“. Messung identisch mit der Referenz.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 17. F06 Häufige Fragen (mit und ohne JS) | erfüllt
+Mit JS: 6 Einträge, erster Klick öffnet, zweiter schließt. Ohne JS: Klick öffnet.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 18. F07 Ablauf in Schritten | erfüllt
+V01: 4 Schritte in Folge (1 bis 4). /notoeffnung/: 4 Szenen-Schritte. /einbruchschutz/: 5 Szenen-Schritte.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 19. F08 Leistungsregister mit Gruppenfilter | erfüllt
+5 Filterknöpfe. Filter „Einbruch“ zeigt 1 Gruppe mit Anker #gruppe-einbruchschutz. „Alle“ zeigt 4 Gruppen.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 20. F09 A–Z-Ortsverzeichnis je Land/Kreis | erfüllt
+/einsatzgebiet/hessen/limburg-weilburg/: 10 Sprunglinks, 10/10 Ziele vorhanden, Klick setzt den Anker. /einsatzgebiet/: 33 Verzeichnislinks.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 21. F10 Ortsseite mit Faktenblock, Nachbarorten, Lagekarte | erfüllt
+Faktenblock sichtbar. Abschnitt „Ortsteile von Löhnberg“ mit 9 Links. Lagekarte role=img mit aufgelöstem Namen.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 22. F11 Kontakt: Anruf, E-Mail, Composer ohne Server | erfüllt
+(a) Leer absenden: Fehlerübersicht mit 2 Punkten. (b) Notfall: Ruf-Panel sichtbar, E-Mail-Felder verborgen. (c) Betreff „Anfrage planbare Arbeit – Weilburg“, Absenden zeigt „ohne Adresse“, keine Navigation.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 23. F12 Seitensuche (statischer Index) | erfüllt
+„Tresor“: 13 Treffer, 17 Hervorhebungen. „Löhnberg“: Ortstreffer im Ergebnis. /suche/?q=Tresor direkt: 13 Treffer.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 24. F13 Ratgeber-Artikel mit Inhaltsverzeichnis | erfüllt
+5 Inhalt-Links, 5/5 Ziele vorhanden. Klick setzt Anker #teil-1, Ziel im Sichtfeld.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 25. F14 Verbraucherhinweis „Seriösen Schlüsseldienst erkennen“ | erfüllt
+V01-Überschrift vorhanden. V07 Hinweis im Text. V08 verlinkt den Artikel mit der Überschrift „Schlüsseldienst-Abzocke erkennen“.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 26. F15 Hell/Dunkel nach Systemeinstellung | erfüllt
+13 Ansichten ohne Abweichung. Beispiel /: hell rgb(244, 242, 237), dunkel rgb(14, 22, 27). Gewollte 404 2.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 27. F16 Reduzierte Bewegung nach Systemeinstellung | erfüllt
+Ohne Wunsch laufen Animationen auf 2 von 13 Ansichten (/ mit 17, /einsatzgebiet/ mit 12). Mit reduce laufen auf allen 13 Ansichten 0 Animationen, Medienabfrage true.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 28. F17 HTML-Sitemap und XML-Sitemaps | erfüllt
+/sitemap/ HTTP 200 mit 385 Links. /sitemap.xml HTTP 200 mit 19 Verweisen. /sitemaps/leistungen.xml HTTP 200 mit 28 URLs. /robots.txt HTTP 200 mit Sitemap-Zeile. Alle 19 Verweise zeigen auf http://127.0.0.1:4173 und nicht auf den Prüfursprung 4251 (siehe Befund 3).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 29. F18 Fehlerseite mit Suche | erfüllt
+/gibt-es-nicht/ HTTP 404. Suchfeld sichtbar, Vorschläge zu „Weilburg“. 4 Links auf /suche/. Gewollte 404-Meldung 1, getrennt gezählt.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 30. F19 Rechtstexte von jeder Seite erreichbar | erfüllt
+13/13 Ansichten mit sichtbaren Links auf Impressum und Datenschutz. Klick von /preise/ führt zu /impressum/.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 31. F20 Druckansicht für Preise und Ratgeber | erfüllt
+Im Druck sind Rufleiste und Hauptnavigation ausgeblendet, die Preisliste ist sichtbar. PDF: /preise/ 6 Seiten, /ratgeber/rauchmelderpflicht/ 8 Seiten. Messung bis auf den Ordnerpfad identisch mit der Referenz.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/druck_preise.pdf; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/druck_ratgeber_rauchmelderpflicht.pdf; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json
+
+## 32. Hygiene: keine Repo-Änderung durch diesen Prüfer, Sperre frei, Server aktiv | erfüllt
+Dieser Prüfer hat keine Datei im Repo geändert; alle Ausgaben liegen im eigenen Ordner oder in .cache. Die Sperre mess.lock fehlt nach dem letzten Lauf. Die Server 127.0.0.1:4251 und 127.0.0.1:4254 antworten mit HTTP 200. Eine fremde Repo-Änderung wurde festgestellt (siehe Befund 6).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand; /home/user/schluesseldienst/docs/OFFENE-PUNKTE.md
+
+- mittel | Vollprüfung durch Platzhalter (U-6) blockiert: F01 nur teilweise (0 tel:-Links auf allen 13 Ansichten), F04 mit 28 Platzhalterzellen, F05 ohne sichtbaren Gesamtbetrag. Der Release-Lauf verweigert das korrekt (Negativtest B). Bis U-6 geklärt ist, bleiben diese drei Funktionen offen. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json (F01, F04, F05); /home/user/schluesseldienst/.cache/e5-final/n5-bestand/release-b.log
+
+- klein | Der Referenzlauf hatte in F02 einen Seitenfehler auf /gibt-es-nicht/: „Transition was aborted because of invalid state. ViewTransition opt-in disabled“. Im neuen Lauf trat er nicht auf (F02 Konsole 0). Im Skript-Lauf gab es 60 Navigationen von /gibt-es-nicht/ zu /schluesseldienst-loehnberg/ (30 desktop, 30 mobil) ohne pageerror und ohne ViewTransition-Meldung. Das Ausbleiben ist gut belegt, aber ein einzelner Lauf beweist keine Dauerfreiheit. | Beleg: /home/user/schluesseldienst/.cache/e5-abschluss/z-pruefer/funktionen.json (F02 konsoleFehler); /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json (F02); /home/user/schluesseldienst/.cache/e5-final/n5-bestand/vt-skript-desktop.json; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/vt-skript-mobil.json
+
+- klein | Messbuild-Ursprung: 5578 Dateien in .cache/e5-final/dist enthalten 127.0.0.1:4173, zum Beispiel das canonical in dist/index.html. Keine Datei enthält 127.0.0.1:4251 oder 4254. Der Messbau nutzt ohne --port den Standard 4173, ausgeliefert wird aber über 4251 und 4254. Folge: F17 zählt 19 von 19 Sitemap-Verweisen außerhalb des Prüfursprungs. Canonical- und Sitemap-Messungen gegen 4251 und 4254 sind dadurch verfälscht. Für den Release gilt das nicht, weil dort die echte basisUrl eingesetzt wird. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json (F17); /home/user/schluesseldienst/.cache/e5-final/dist/index.html (canonical); /home/user/schluesseldienst/bau/bauen.mjs (Standard-Port 4173)
+
+- klein | Fremde Änderung im Repo: docs/OFFENE-PUNKTE.md trägt den Zeitstempel 2026-10-26 10:53:50.815 UTC, 0,3 s nach dem Ende von npm test (10:53:50.527). Ich habe die Datei nicht bearbeitet. Die Tests schreiben nach Prüfung nicht nach docs/ (keine Treffer in test/). Die Ursache liegt außerhalb meiner Befehle. Für die Regel, dass Prüfer keine Repo-Dateien ändern, ist das relevant. | Beleg: /home/user/schluesseldienst/docs/OFFENE-PUNKTE.md
+
+- klein | Negativtest A prüft nur die basisUrl-Sperre und bricht vor der --ziel-Prüfung ab. Platzhalter und ungeprüfte Fakten deckt erst Test B ab. Exit ist 2 statt 1, weil die Sperre als Ausnahme wirft. Die Vorgabe „Exit ungleich 0“ ist erfüllt. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/release-a.log
+
+- klein | smoke.mjs endet mit Exit 1, sobald die gewollte 404-Seite als Befund zählt. Das gilt für beide Server. Inhaltlich gibt es keine Abweichung, aber eine Automatisierung würde den Lauf als Fehlschlag werten. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/smoke-4251.log; /home/user/schluesseldienst/.cache/e5-final/n5-bestand/smoke-4254.log
+
+- klein | F05 Zone D: Die Posten-Liste bleibt leer (Text „“), während die Summe „nach Absprache“ meldet. Ob das gewollt ist, lässt die Messung nicht erkennen. Die Referenz zeigt dasselbe Bild. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/funktionen.json (F05)
+
+- klein | npm test hat 1 todo: „NL-PLZ bleibt vierstellig“ (OFFENE FRAGE). Das ist kein Fehlschlag, bleibt aber offen. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bestand/npm-test.log (Zeile 881)
+
+## 1a FAQ öffnen (mobil, / und /preise/), reduce und no-preference | erfüllt
+reduce: Chevron dreht ohne Übergang (0 → 180°), Antwort ohne Animation, transformierende Animationen 0 bei 43/123/203/403 ms. no-preference: Chevron 300 ms, Antwort m-feedback-ein 300 ms (Y −1,9 px bei 46 ms).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/interaktionen.json (Läufe a-faq, reduce und no-preference)
+
+## 1b Hauptnavigation Leistungen auf- und zuklappen (Desktop 1440x900) | erfüllt
+reduce: Panel nur Deckkraft, 150 ms öffnen, 120 ms schließen, kein transform; Pfeil ohne Übergang (sofort). no-preference: Pfeil 300 ms öffnen und 240 ms schließen (Vorgängerbefund 300 ms beim Schließen ist behoben); Panel Deckkraft und transform (Y −8 px) 300 ms öffnen, 240 ms schließen.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/interaktionen.json (Läufe b-hauptnav)
+
+## 1c Menü-Blatt öffnen und schließen (M-06, mobil 390x844), Blatt und Hintergrund | erfüllt
+no-preference öffnen: transform 300 ms, Y 225 px bei 49 ms, 47 px bei 124 ms, 4,5 px bei 207 ms, 0 am Ende; Hintergrund Deckkraft 300 ms. no-preference schließen: transform, display, overlay und Hintergrund 240 ms; das Blatt bleibt während des Ausgangs sichtbar (oben 134 px bei 43 ms, 230 px bei 125 ms, 515 px bei 206 ms, display none bis 404 ms). reduce öffnen: Deckkraft 150 ms ohne transform (0,55 bei 44 ms, 1 bei 204 ms); reduce schließen: Deckkraft, display, overlay 120 ms ohne transform (0,18 bei 44 ms, 0 bei 204 ms). Vorgängerbefund (Schließen ohne Übergang) ist behoben. Messpunkte nach Ist-Zeit: 43 bis 49, 123 bis 125, 203 bis 209, 403 bis 424 ms.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/interaktionen.json (Läufe c-menue-blatt, Schritt Schließen)
+
+## 1d Ortsprüfung im Prüfmodus (/einsatzgebiet/, mobil): Vorschlagsliste und Ergebnis | erfüllt
+reduce: Eingabe, Liste und Ergebnis ohne Animation (0 transform). no-preference: Liste m-feedback-ein 150 ms (Deckkraft, Y −0,2 px bei 44 ms, Animation nun erfasst); Ergebnis Deckkraft 150 ms.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/interaktionen.json (Läufe d-ortspruefung)
+
+## 1e Composer (/kontakt/, mobil): Anliegen Notfall und planbar | erfüllt
+reduce: Wechsel ohne Animation, Betreff sofort (Deckkraft 1). no-preference: Hinweisblock m-feedback-ein 300 ms; Mail-Zweig m-feedback-ein 300 ms; Betreff betreff-neu-a Deckkraft 0,6 → 1 in 150 ms (feedback).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/interaktionen.json (Läufe e-composer)
+
+## 1f Gruppenfilter (/leistungen/, mobil) | erfüllt
+reduce: eingeblendete Gruppe nur Deckkraft, 150 ms, kein transform; erste Gruppe ohne Animation. no-preference: m05-einblenden 300 ms, Deckkraft und Y −8 px (Y −3,7 px bei 42 ms, 0 am Ende).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/interaktionen.json (Läufe f-gruppenfilter)
+
+## 1g Drücken (M-03, mobil): Knopf, Rufknopf, Wahl, Listen-, Register- und Formelzeilen | erfüllt
+no-preference: .knopf-sekundaer, .rufknopf-leiste und label.wahl-option skalieren sofort auf 0,98 (bei 43 ms, kein Übergang des Elements). .rand-liste a und .gruppe-register a mit transform-Übergang 150 ms (feedback); a.formel-titel über ::after transform 150 ms (feedback). reduce: in allen acht Fällen kein transform; nur Überlagerung (Deckkraft 150 ms). Der Vorgängerbefund zu Listen- und Registerlinks entspricht jetzt dem Register M-03 (Zeilen über feedback) und ist kein Befund mehr.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/interaktionen.json (Läufe g-druck)
+
+## 1 Kontrolle: no-preference zeigt Bewegung in allen Interaktionen (Messung ist empfindlich) | erfüllt
+In jeder Interaktion a bis g zeigt no-preference Übergänge oder Animationen mit Werten über 0; reduce zeigt in allen Fällen keine transformierenden Animationen.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/interaktionen.json
+
+## 2 Menü-Blatt nur per Tastatur (mobil 390x844): Tab zum Menü-Knopf, Enter öffnet, Escape schließt, Fokus zurück auf Menü-Knopf (no-preference und reduce) | erfüllt
+Tab erreicht a.rufleiste-menue nach 4 Tabs (Sprunglink, Wortmarke, Suche, Menü), :focus-visible true. Enter: Blatt offen, aria-expanded true, Fokus auf „Menü schließen“ (40 ms und 500 ms). Escape: nach 30 ms Blatt zu, Fokus auf a.rufleiste-menue; nach 630 ms display none, aria-expanded false. Zweiter Durchlauf identisch. Konsole- und Seitenfehler: keine. Beide Modi gleich.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/tastatur.json und tastatur.log (Script tastatur.mjs im selben Ordner)
+
+## 3 Laden und Scrollen unter reduce auf allen 13 Hauptansichten (mobil und desktop, 26 Läufe): 0 transform-Animationen, alle Inhalte sichtbar | erfüllt
+Transformierende Animationen nach Laden 0 und nach Scrollen 0 (26 von 26); Animationen insgesamt nach Scrollen 0; sichtbare Textelemente mit Deckkraft unter 1 oder unsichtbar: 0 (66 bis 470 geprüfte Textelemente je Seite); reduce-Emulation aktiv in allen Läufen; externe Anfragen 0. Status 200, /gibt-es-nicht/ 404 (gewollt). Kontrolle no-preference: / mobil 28 transformierende Animationen nach Laden und nach Scrollen, /ueber-uns/ mobil 2 (nach Scrollen 5 Animationen insgesamt).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/laden-mobil.json, laden-desktop.json, laden-kontrolle.json (je .log)
+
+## 4 axe-core WCAG 2.0/2.1/2.2 A und AA, helles Schema, 13 Hauptansichten | erfüllt
+serious 0, critical 0 auf allen 13 Seiten; auch minor 0 und moderate 0. Status 200 auf 12 Seiten, /gibt-es-nicht/ 404 (gewollt).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/axe-hell.json und axe-hell.log
+
+## 4 axe-core WCAG 2.0/2.1/2.2 A und AA, dunkles Schema, 13 Hauptansichten | erfüllt
+serious 0, critical 0 auf allen 13 Seiten; auch minor 0 und moderate 0. Schema-Kontrolle: prefers-color-scheme dark = true, Seitenhintergrund rgb(14, 22, 27) gegenüber hell rgb(244, 242, 237).
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/axe-dunkel.json, axe-dunkel.log, schemapruefung.json
+
+## 5 Fokus nie ganz verdeckt, mobil vorwärts auf / , /preise/, /kontakt/, /einsatzgebiet/hessen/limburg-weilburg/, /schluesseldienst-loehnberg/ | erfüllt
+Ganz verdeckt 0, teilweise verdeckt 0 (Rufleiste fest unten, 768 bis 844 px, und Punktprobe 7 mal 7). Fokusstopps je Seite: / 66, /preise/ 61, /kontakt/ 53, /einsatzgebiet/hessen/limburg-weilburg/ 220, /schluesseldienst-loehnberg/ 61; außerhalb der Sicht 0.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/verdeckt-mobil-vorwaerts.json und verdeckt-mobil-vorwaerts.log (Script verdeckt.mjs im selben Ordner)
+
+## 6 Dokumentüberlauf über 13 Hauptansichten in allen Varianten (5 Breiten, 5 erzwungene Farben, 200 % Zoom) | erfüllt
+143 Messungen (13 Seiten mal 11 Varianten), 0 mit Dokumentüberlauf; größter Überhang scrollWidth minus clientWidth 0 px.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/ueberlauf.json und ueberlauf.log
+
+## 7 Bildrate mobil, 4 mal CPU-Drosselung, je ein Lauf: M-16 /, M-17 /einbruchschutz/ (Scrollen), M-18 /einsatzgebiet/ (Scrollen), M-20 /ueber-uns/, M-21 /gibt-es-nicht/; Schwelle höchstens 5 % verworfene Bilder | erfüllt
+M-16 /: 1,7 % verworfen (119 Bilder). M-17 /einbruchschutz/: 1,4 % (142). M-18 /einsatzgebiet/: 2,9 % (136). M-20 /ueber-uns/: 1,7 % (120). M-21 /gibt-es-nicht/: 0,8 % (120). Median-Intervall jeweils 16,66 ms. Scroll-Auslöser geprüft: Seiten bewegten sich um 2000 px (scrollY 0 zu 2000). Umgebungsausnahme: headless ohne GPU, Ersatzmessung über CPU-Drosselung, keine GPU-Bildrate.
+Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/bildrate-m16-start.json, bildrate-m17-einbruchschutz-scroll.json, bildrate-m18-einsatzgebiet-scroll.json, bildrate-m20-ueber-uns.json, bildrate-m21-gibt-es-nicht.json, scrollpruefung.json
+
+- klein | Das offene Menü-Blatt hält den Tab-Fokus nicht im Blatt. Nach dem letzten Eintrag („Suche“) geht der Fokus kurz auf body, dann auf das dialog-Element selbst, dann auf „Menü schließen“. Es gibt keine Fokus-Schleife im Blatt; das ist natives <dialog>-Verhalten. Escape schließt und der Fokus kehrt auf den Menü-Knopf zurück, der Pflichtablauf ist erfüllt. | Beleg: /home/user/schluesseldienst/.cache/e5-final/n5-bewegung/tastatur.json (ergebnisse[].tab_im_blatt.folge_alle, Schritte 11 bis 13 in beiden Modi)

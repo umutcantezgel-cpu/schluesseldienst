@@ -1,0 +1,326 @@
+{
+  "werkzeug": "n5-tastatur",
+  "basis": "http://127.0.0.1:4251",
+  "stand": "72ed87c",
+  "zeitpunkt": "2026-10-26T11:17:34.979Z",
+  "ergebnisse": [
+    {
+      "modus": "no-preference",
+      "geraet": "mobil 390x844",
+      "pfad": "/",
+      "start": {
+        "fokus": "body.seite-start \"Zum Inhalt springen [Firmennam\"",
+        "fokusImBlatt": false,
+        "fokusIstMenueKnopf": false,
+        "menueKnopfFokusSichtbar": false,
+        "blattOffen": false,
+        "blattDisplay": "none",
+        "menueKnopfAriaExpanded": "false",
+        "menueKnopfAriaHaspopup": "dialog",
+        "menueKnopfHref": "#seitennavigation",
+        "menueKnopfVorhanden": true
+      },
+      "tab_bis_menue_knopf": 4,
+      "tab_folge_letzte_5": [
+        "a.sprunglink \"Zum Inhalt springen\"",
+        "a.wortmarke \"[Firmenname] – zur Startseite\"",
+        "a.kopf-suche \"Suche\"",
+        "a.rufleiste-menue \"Menü\""
+      ],
+      "beim_knopf": {
+        "fokus": "a.rufleiste-menue \"Menü\"",
+        "fokusImBlatt": false,
+        "fokusIstMenueKnopf": true,
+        "menueKnopfFokusSichtbar": true,
+        "blattOffen": false,
+        "blattDisplay": "none",
+        "menueKnopfAriaExpanded": "false",
+        "menueKnopfAriaHaspopup": "dialog",
+        "menueKnopfHref": "#seitennavigation",
+        "menueKnopfVorhanden": true
+      },
+      "enter": {
+        "nach_40ms": {
+          "fokus": "button.menue-blatt-zu \"Menü schließen\"",
+          "fokusImBlatt": true,
+          "fokusIstMenueKnopf": false,
+          "menueKnopfFokusSichtbar": false,
+          "blattOffen": true,
+          "blattDisplay": "block",
+          "menueKnopfAriaExpanded": "true",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        },
+        "nach_500ms": {
+          "fokus": "button.menue-blatt-zu \"Menü schließen\"",
+          "fokusImBlatt": true,
+          "fokusIstMenueKnopf": false,
+          "menueKnopfFokusSichtbar": false,
+          "blattOffen": true,
+          "blattDisplay": "block",
+          "menueKnopfAriaExpanded": "true",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        }
+      },
+      "tab_im_blatt": {
+        "schritte": 25,
+        "ausserhalb_des_blatts": 1,
+        "folge_alle": [
+          "a \"Leistungen\"",
+          "a \"Notöffnung\"",
+          "a \"Einbruchschutz\"",
+          "a \"Sicherheitstechnik\"",
+          "a \"Einbau & Tresore\"",
+          "a \"Preise\"",
+          "a \"Einsatzgebiet\"",
+          "a \"Ratgeber\"",
+          "a \"Über uns\"",
+          "a \"Kontakt\"",
+          "a \"Suche\"",
+          "body.seite-start \"Zum Inhalt springen [Firmennam\"",
+          "dialog#menue-blatt.menue-blatt \"Menü Menü schließen Leistungen\"",
+          "button.menue-blatt-zu \"Menü schließen\"",
+          "a \"Leistungen\"",
+          "a \"Notöffnung\"",
+          "a \"Einbruchschutz\"",
+          "a \"Sicherheitstechnik\"",
+          "a \"Einbau & Tresore\"",
+          "a \"Preise\"",
+          "a \"Einsatzgebiet\"",
+          "a \"Ratgeber\"",
+          "a \"Über uns\"",
+          "a \"Kontakt\"",
+          "a \"Suche\""
+        ],
+        "vor_escape": {
+          "fokus": "a \"Suche\"",
+          "fokusImBlatt": true,
+          "fokusIstMenueKnopf": false,
+          "menueKnopfFokusSichtbar": false,
+          "blattOffen": true,
+          "blattDisplay": "block",
+          "menueKnopfAriaExpanded": "true",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        }
+      },
+      "escape": {
+        "nach_30ms": {
+          "fokus": "a.rufleiste-menue \"Menü\"",
+          "fokusImBlatt": false,
+          "fokusIstMenueKnopf": true,
+          "menueKnopfFokusSichtbar": true,
+          "blattOffen": false,
+          "blattDisplay": "block",
+          "menueKnopfAriaExpanded": "false",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        },
+        "nach_630ms": {
+          "fokus": "a.rufleiste-menue \"Menü\"",
+          "fokusImBlatt": false,
+          "fokusIstMenueKnopf": true,
+          "menueKnopfFokusSichtbar": true,
+          "blattOffen": false,
+          "blattDisplay": "none",
+          "menueKnopfAriaExpanded": "false",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        }
+      },
+      "kontrolle_zweiter_durchlauf": {
+        "offen": {
+          "fokus": "button.menue-blatt-zu \"Menü schließen\"",
+          "fokusImBlatt": true,
+          "fokusIstMenueKnopf": false,
+          "menueKnopfFokusSichtbar": false,
+          "blattOffen": true,
+          "blattDisplay": "block",
+          "menueKnopfAriaExpanded": "true",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        },
+        "zu": {
+          "fokus": "a.rufleiste-menue \"Menü\"",
+          "fokusImBlatt": false,
+          "fokusIstMenueKnopf": true,
+          "menueKnopfFokusSichtbar": true,
+          "blattOffen": false,
+          "blattDisplay": "none",
+          "menueKnopfAriaExpanded": "false",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        }
+      },
+      "externe_blockiert": 0,
+      "konsole_und_seitenfehler": []
+    },
+    {
+      "modus": "reduce",
+      "geraet": "mobil 390x844",
+      "pfad": "/",
+      "start": {
+        "fokus": "body.seite-start \"Zum Inhalt springen [Firmennam\"",
+        "fokusImBlatt": false,
+        "fokusIstMenueKnopf": false,
+        "menueKnopfFokusSichtbar": false,
+        "blattOffen": false,
+        "blattDisplay": "none",
+        "menueKnopfAriaExpanded": "false",
+        "menueKnopfAriaHaspopup": "dialog",
+        "menueKnopfHref": "#seitennavigation",
+        "menueKnopfVorhanden": true
+      },
+      "tab_bis_menue_knopf": 4,
+      "tab_folge_letzte_5": [
+        "a.sprunglink \"Zum Inhalt springen\"",
+        "a.wortmarke \"[Firmenname] – zur Startseite\"",
+        "a.kopf-suche \"Suche\"",
+        "a.rufleiste-menue \"Menü\""
+      ],
+      "beim_knopf": {
+        "fokus": "a.rufleiste-menue \"Menü\"",
+        "fokusImBlatt": false,
+        "fokusIstMenueKnopf": true,
+        "menueKnopfFokusSichtbar": true,
+        "blattOffen": false,
+        "blattDisplay": "none",
+        "menueKnopfAriaExpanded": "false",
+        "menueKnopfAriaHaspopup": "dialog",
+        "menueKnopfHref": "#seitennavigation",
+        "menueKnopfVorhanden": true
+      },
+      "enter": {
+        "nach_40ms": {
+          "fokus": "button.menue-blatt-zu \"Menü schließen\"",
+          "fokusImBlatt": true,
+          "fokusIstMenueKnopf": false,
+          "menueKnopfFokusSichtbar": false,
+          "blattOffen": true,
+          "blattDisplay": "block",
+          "menueKnopfAriaExpanded": "true",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        },
+        "nach_500ms": {
+          "fokus": "button.menue-blatt-zu \"Menü schließen\"",
+          "fokusImBlatt": true,
+          "fokusIstMenueKnopf": false,
+          "menueKnopfFokusSichtbar": false,
+          "blattOffen": true,
+          "blattDisplay": "block",
+          "menueKnopfAriaExpanded": "true",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        }
+      },
+      "tab_im_blatt": {
+        "schritte": 25,
+        "ausserhalb_des_blatts": 1,
+        "folge_alle": [
+          "a \"Leistungen\"",
+          "a \"Notöffnung\"",
+          "a \"Einbruchschutz\"",
+          "a \"Sicherheitstechnik\"",
+          "a \"Einbau & Tresore\"",
+          "a \"Preise\"",
+          "a \"Einsatzgebiet\"",
+          "a \"Ratgeber\"",
+          "a \"Über uns\"",
+          "a \"Kontakt\"",
+          "a \"Suche\"",
+          "body.seite-start \"Zum Inhalt springen [Firmennam\"",
+          "dialog#menue-blatt.menue-blatt \"Menü Menü schließen Leistungen\"",
+          "button.menue-blatt-zu \"Menü schließen\"",
+          "a \"Leistungen\"",
+          "a \"Notöffnung\"",
+          "a \"Einbruchschutz\"",
+          "a \"Sicherheitstechnik\"",
+          "a \"Einbau & Tresore\"",
+          "a \"Preise\"",
+          "a \"Einsatzgebiet\"",
+          "a \"Ratgeber\"",
+          "a \"Über uns\"",
+          "a \"Kontakt\"",
+          "a \"Suche\""
+        ],
+        "vor_escape": {
+          "fokus": "a \"Suche\"",
+          "fokusImBlatt": true,
+          "fokusIstMenueKnopf": false,
+          "menueKnopfFokusSichtbar": false,
+          "blattOffen": true,
+          "blattDisplay": "block",
+          "menueKnopfAriaExpanded": "true",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        }
+      },
+      "escape": {
+        "nach_30ms": {
+          "fokus": "a.rufleiste-menue \"Menü\"",
+          "fokusImBlatt": false,
+          "fokusIstMenueKnopf": true,
+          "menueKnopfFokusSichtbar": true,
+          "blattOffen": false,
+          "blattDisplay": "block",
+          "menueKnopfAriaExpanded": "false",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        },
+        "nach_630ms": {
+          "fokus": "a.rufleiste-menue \"Menü\"",
+          "fokusImBlatt": false,
+          "fokusIstMenueKnopf": true,
+          "menueKnopfFokusSichtbar": true,
+          "blattOffen": false,
+          "blattDisplay": "none",
+          "menueKnopfAriaExpanded": "false",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        }
+      },
+      "kontrolle_zweiter_durchlauf": {
+        "offen": {
+          "fokus": "button.menue-blatt-zu \"Menü schließen\"",
+          "fokusImBlatt": true,
+          "fokusIstMenueKnopf": false,
+          "menueKnopfFokusSichtbar": false,
+          "blattOffen": true,
+          "blattDisplay": "block",
+          "menueKnopfAriaExpanded": "true",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        },
+        "zu": {
+          "fokus": "a.rufleiste-menue \"Menü\"",
+          "fokusImBlatt": false,
+          "fokusIstMenueKnopf": true,
+          "menueKnopfFokusSichtbar": true,
+          "blattOffen": false,
+          "blattDisplay": "none",
+          "menueKnopfAriaExpanded": "false",
+          "menueKnopfAriaHaspopup": "dialog",
+          "menueKnopfHref": "#seitennavigation",
+          "menueKnopfVorhanden": true
+        }
+      },
+      "externe_blockiert": 0,
+      "konsole_und_seitenfehler": []
+    }
+  ]
+}

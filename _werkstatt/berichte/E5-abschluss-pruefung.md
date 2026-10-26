@@ -140,6 +140,39 @@ Seitenwechsel mit `blocking="render"` (X10): 0 von 156, jedes Aufdecken nach dem
 
 Offen gesagt: Lighthouse modelliert `blocking="render"` an Modulen nicht. Im echten Browser ist diese Lösung 20–90 ms langsamer als ohne Fix, das Kopf-Skript dagegen rund 250 ms schneller. Die Wahl zwischen beiden steht dem Menschen offen (`docs/OFFENE-PUNKTE.md`).
 
-## 5. Endmessung (Endstand, Modul mit `blocking="render"`)
+## 5. Endmessung (Endstand `72ed87c`, Modul mit `blocking="render"`, Workflow `e5-endmessung-72ed87c`)
 
-(wird nach dem Lauf ergänzt)
+Bau: `node bau/bauen.mjs --messen --pruefen --aus=.cache/e5-final/dist`
+- Exit 0, 5.556 Seiten, 11 Prüfer mit 0 Fehlern, 72 bekannte Warnungen (`bau-72ed87c.log`).
+- CSS je Seite höchstens 13.666 von 14.336 B gz, größtes JS-Bündel 9.837 von 16.384 B gz.
+- Größte Ortsseite 30.390 von 30.720 B.
+
+Drei Haiku-Prüfer haben gemessen, mit der Vorschau auf 4251 (unkomprimiert) und 4254 (gzip). Belege unter `_werkstatt/protokolle/E5-abschluss/n5-bestand/`, `n5-leistung/`, `n5-bewegung/`, Zusammenfassung in `endmessung-72ed87c-ergebnisse.txt`.
+
+| Prüfung | Ergebnis | Messung | Beleg |
+|---|---|---|---|
+| `npm test` | erfüllt | 331 Tests, 330 bestanden, 0 fehlgeschlagen, 1 todo (NL-PLZ, offene Frage) | `n5-bestand/npm-test.log` |
+| Release-Negativtest A | erfüllt | Exit 2: „betrieb.basisUrl ist ein Platzhalter“ | `n5-bestand/release-a.log` |
+| Release-Negativtest B (Basis-URL nur in einer Kopie eingetragen) | erfüllt | Exit 1: „Release verweigert: 57 Platzhalter in der Konfiguration“, „92 ungeprüfte Fakten“; Ausgabe nach `.verweigert` verschoben | `n5-bestand/release-b.log` |
+| smoke 4251 und 4254, 13 Hauptansichten mobil + desktop | erfüllt | je 26 Läufe: 0 fremde Anfragen, 0 CSP-Verstöße, Konsolenmeldungen nur die gewollte 404 | `n5-bestand/smoke-4251.json`, `smoke-4254.json` |
+| **Seitenwechsel ohne Konsolenfehler** | **erfüllt** | 156 von 156 Wechseln (Skript und Links, Desktop und mobil): 0 Fehler, jedes Aufdecken mit Übergang und nach dem Modul | `n5-bestand/vt-*.json` |
+| Funktionsliste F01–F20 | erfüllt mit U-6 | 18 erfüllt, F01 und F05 teilweise (Telefonnummer und Preisliste sind Platzhalter); 0 Konsolenfehler, 0 fremde Anfragen | `n5-bestand/funktionen.json` |
+| Lighthouse mobil, 12 Hauptansichten | erfüllt | Perf 96–99, A11y 100, BP 100, SEO 100 (außer /suche/ 66, noindex nach D-SEO-03), LCP-Mediane 1.955–2.409 ms (höchster Einzellauf 2.413 ms), CLS 0 | `n5-leistung/lh-a.json` bis `lh-d.json` |
+| Lighthouse gzip / | erfüllt | Perf 100, LCP 1.658 ms, CLS 0 | `n5-leistung/lh-gzip.json` |
+| / gegenüber E2 | über A-1 | LCP 2.407 ms (Einzel 2.256 / 2.407 / 2.407), Perf 97; E2 2.104 ms, Perf 98 | `n5-leistung/lh-a.json` |
+| INP, 6 Aktionsdateien × 2 | erfüllt | max. 64 ms | `n5-leistung/inp-*.json` |
+| Beobachtete Ladezeit (Einordnung) | – | FCP / 1.351 ms, /preise/ 1.456 ms (gedrosselt, kalter Cache) | `n5-leistung/zeiten.json` |
+| Bewegung, Interaktionen a–g | erfüllt | unter reduce kein transform; Dauern nach K-007 (Menü-Blatt 300/240 ms, reduziert 150/120 ms Deckkraft; Pfeil 300/240 ms; Drücken sofort bzw. Zeilen über feedback); Kontrolle no-preference zeigt Bewegung | `n5-bewegung/interaktionen.json` |
+| Bewegung, Laden und Scrollen unter reduce | erfüllt | 26 Läufe: 0 transform-Animationen, 0 unsichtbare Inhalte | `n5-bewegung/laden-*.json` |
+| Bildrate (U-3) | erfüllt | M-16 1,7 %, M-17 1,4 %, M-18 2,9 %, M-20 1,7 %, M-21 0,8 % verworfen | `n5-bewegung/bildrate-*.json` |
+| Menü-Blatt per Tastatur | erfüllt | Enter öffnet, Fokus auf „Menü schließen“; Escape schließt, Fokus zurück auf den Menü-Knopf | `n5-bewegung/tastatur.json` |
+| axe hell und dunkel | erfüllt | 13/13 Seiten 0 Befunde aller Stufen | `n5-bewegung/axe-hell.json`, `axe-dunkel.json` |
+| Fokus nie ganz verdeckt | erfüllt | 5 Seiten mobil, 461 Fokusstopps: 0 ganz, 0 teilweise verdeckt | `n5-bewegung/verdeckt-mobil-vorwaerts.json` |
+| Überlauf | erfüllt | 143 Messungen (13 Seiten × 11 Varianten), 0 Überlauf | `n5-bewegung/ueberlauf.json` |
+
+Kleine Hinweise der Prüfer, ohne Handlungsbedarf vor dem Abschluss:
+- Das offene Menü-Blatt hält den Tab-Fokus nicht in einer Schleife; das ist natives `<dialog>`-Verhalten, der Hintergrund bleibt inert.
+- F05 zeigt in Zone D eine leere Postenliste neben „nach Absprache“, wie in der Referenz.
+- Werkzeug-Exit 1 bei der gewollten 404 (smoke) und bei /suche/ (SEO, noindex) – inhaltlich kein Befund.
+
+Damit sind alle Befunde der Abschluss-Nachprüfung behoben oder als Umgebungsausnahme bzw. offener Punkt geführt. Die Einstufung je Kriterium steht in `_werkstatt/ABNAHME.md`.

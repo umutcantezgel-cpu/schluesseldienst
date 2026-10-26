@@ -1,0 +1,31 @@
+{
+  "werkzeug": "n5-scrollpruefung",
+  "basis": "http://127.0.0.1:4251",
+  "zeitpunkt": "2026-10-26T11:26:01.533Z",
+  "ergebnisse": [
+    {
+      "pfad": "/einbruchschutz/",
+      "vorher": {
+        "y": 0,
+        "hoehe": 8521,
+        "fenster": 844
+      },
+      "nachher": {
+        "y": 2000
+      },
+      "bewegt": true
+    },
+    {
+      "pfad": "/einsatzgebiet/",
+      "vorher": {
+        "y": 0,
+        "hoehe": 6865,
+        "fenster": 844
+      },
+      "nachher": {
+        "y": 2000
+      },
+      "bewegt": true
+    }
+  ]
+}

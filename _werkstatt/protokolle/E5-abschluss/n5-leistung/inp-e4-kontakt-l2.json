@@ -1,0 +1,43 @@
+{
+  "werkzeug": "inp",
+  "zeitpunkt": "2026-10-26T11:02:43.725Z",
+  "url": "http://127.0.0.1:4251/kontakt/",
+  "drossel": 4,
+  "viewport": "390x844",
+  "aktionen": 2,
+  "interaktionen_gemeldet": 7,
+  "max_ms": 48,
+  "p98_ms": 48,
+  "schwelle_max_ms": 200,
+  "blockierte_externe_anfragen": 0,
+  "interaktionen": [
+    {
+      "nr": 1,
+      "typ": "klick",
+      "selektor": "button.knopf-primaer[data-rolle=\"absenden\"]",
+      "ereignisse": 27,
+      "latenzen_ms": [
+        48
+      ],
+      "latenz_max_ms": 48,
+      "hinweis": null
+    },
+    {
+      "nr": 2,
+      "typ": "tippen",
+      "selektor": "#k-ort",
+      "ereignisse": 26,
+      "latenzen_ms": [
+        24,
+        16,
+        16,
+        16,
+        24,
+        24
+      ],
+      "latenz_max_ms": 24,
+      "hinweis": null
+    }
+  ],
+  "ergebnis": "ok"
+}

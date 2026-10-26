@@ -1,0 +1,28 @@
+[
+  {
+    "fcp": 1373.5,
+    "alle": [
+      {
+        "t": 1373.5,
+        "groesse": 31064,
+        "tag": "SPAN",
+        "id": "",
+        "klasse": "h1-zeile",
+        "url": null
+      }
+    ]
+  },
+  {
+    "fcp": 1401.195000000298,
+    "alle": [
+      {
+        "t": 1401.195000000298,
+        "groesse": 31064,
+        "tag": "SPAN",
+        "id": "",
+        "klasse": "h1-zeile",
+        "url": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "werkzeug": "inp",
+  "zeitpunkt": "2026-10-26T11:04:09.437Z",
+  "url": "http://127.0.0.1:4251/preise/",
+  "drossel": 4,
+  "viewport": "390x844",
+  "aktionen": 2,
+  "interaktionen_gemeldet": 2,
+  "max_ms": 64,
+  "p98_ms": 64,
+  "schwelle_max_ms": 200,
+  "blockierte_externe_anfragen": 0,
+  "interaktionen": [
+    {
+      "nr": 1,
+      "typ": "klick",
+      "selektor": "label.wahl-option:has(input[name=\"zone\"][value=\"B\"])",
+      "ereignisse": 20,
+      "latenzen_ms": [
+        56
+      ],
+      "latenz_max_ms": 56,
+      "hinweis": null
+    },
+    {
+      "nr": 2,
+      "typ": "klick",
+      "selektor": "label.wahl-option:has(input[name=\"position\"][value=\"zylinder\"])",
+      "ereignisse": 20,
+      "latenzen_ms": [
+        64
+      ],
+      "latenz_max_ms": 64,
+      "hinweis": null
+    }
+  ],
+  "ergebnis": "ok"
+}

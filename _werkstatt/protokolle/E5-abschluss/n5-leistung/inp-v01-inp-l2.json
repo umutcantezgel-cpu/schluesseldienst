@@ -1,0 +1,83 @@
+{
+  "werkzeug": "inp",
+  "zeitpunkt": "2026-10-26T11:04:20.714Z",
+  "url": "http://127.0.0.1:4251/",
+  "drossel": 4,
+  "viewport": "390x844",
+  "aktionen": 6,
+  "interaktionen_gemeldet": 8,
+  "max_ms": 56,
+  "p98_ms": 56,
+  "schwelle_max_ms": 200,
+  "blockierte_externe_anfragen": 0,
+  "interaktionen": [
+    {
+      "nr": 1,
+      "typ": "klick",
+      "selektor": "#hero-ort-eingabe",
+      "ereignisse": 0,
+      "latenzen_ms": [],
+      "latenz_max_ms": null,
+      "hinweis": "keine Event-Timing-Meldung (Dauer unter 16 ms)"
+    },
+    {
+      "nr": 2,
+      "typ": "tippen",
+      "selektor": "#hero-ort-eingabe",
+      "ereignisse": 20,
+      "latenzen_ms": [
+        32,
+        32,
+        16,
+        32
+      ],
+      "latenz_max_ms": 32,
+      "hinweis": null
+    },
+    {
+      "nr": 3,
+      "typ": "taste",
+      "selektor": null,
+      "ereignisse": 2,
+      "latenzen_ms": [
+        32
+      ],
+      "latenz_max_ms": 32,
+      "hinweis": null
+    },
+    {
+      "nr": 4,
+      "typ": "taste",
+      "selektor": null,
+      "ereignisse": 3,
+      "latenzen_ms": [
+        48
+      ],
+      "latenz_max_ms": 48,
+      "hinweis": null
+    },
+    {
+      "nr": 5,
+      "typ": "klick",
+      "selektor": ".faq-frage >> nth=0",
+      "ereignisse": 24,
+      "latenzen_ms": [
+        56
+      ],
+      "latenz_max_ms": 56,
+      "hinweis": null
+    },
+    {
+      "nr": 6,
+      "typ": "klick",
+      "selektor": ".faq-frage >> nth=1",
+      "ereignisse": 17,
+      "latenzen_ms": [
+        40
+      ],
+      "latenz_max_ms": 40,
+      "hinweis": null
+    }
+  ],
+  "ergebnis": "ok"
+}

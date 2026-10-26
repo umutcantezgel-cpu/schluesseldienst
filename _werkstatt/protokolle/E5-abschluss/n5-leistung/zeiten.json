@@ -1,0 +1,82 @@
+{
+  "werkzeug": "zeit-probe",
+  "zeitpunkt": "2026-10-26T11:06:23.640Z",
+  "drosselung": "RTT 150 ms, 1,6 Mbit/s, CPU 4×, kalter Cache",
+  "laeufe": 7,
+  "daten": [
+    {
+      "variante": "endstand",
+      "basis": "http://127.0.0.1:4251",
+      "pfad": "/",
+      "fcpMedian": 1351,
+      "lcpMedian": 1351,
+      "einzel": [
+        {
+          "fcp": 1420,
+          "lcp": 1420
+        },
+        {
+          "fcp": 1358,
+          "lcp": 1358
+        },
+        {
+          "fcp": 1347,
+          "lcp": 1347
+        },
+        {
+          "fcp": 1313,
+          "lcp": 1313
+        },
+        {
+          "fcp": 1351,
+          "lcp": 1351
+        },
+        {
+          "fcp": 1346,
+          "lcp": 1346
+        },
+        {
+          "fcp": 1355,
+          "lcp": 1355
+        }
+      ]
+    },
+    {
+      "variante": "endstand",
+      "basis": "http://127.0.0.1:4251",
+      "pfad": "/preise/",
+      "fcpMedian": 1456,
+      "lcpMedian": 1456,
+      "einzel": [
+        {
+          "fcp": 1409,
+          "lcp": 1409
+        },
+        {
+          "fcp": 1454,
+          "lcp": 1454
+        },
+        {
+          "fcp": 1454,
+          "lcp": 1454
+        },
+        {
+          "fcp": 1497,
+          "lcp": 1497
+        },
+        {
+          "fcp": 1473,
+          "lcp": 1473
+        },
+        {
+          "fcp": 1472,
+          "lcp": 1472
+        },
+        {
+          "fcp": 1456,
+          "lcp": 1456
+        }
+      ]
+    }
+  ]
+}

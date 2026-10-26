@@ -1,0 +1,21 @@
+{
+  "werkzeug": "n5-schemapruefung",
+  "basis": "http://127.0.0.1:4251",
+  "zeitpunkt": "2026-10-26T11:26:28.911Z",
+  "ergebnisse": [
+    {
+      "schema": "light",
+      "prefersDark": false,
+      "bodyHintergrund": "rgb(244, 242, 237)",
+      "bodyFarbe": "rgb(19, 32, 42)",
+      "datenTheme": null
+    },
+    {
+      "schema": "dark",
+      "prefersDark": true,
+      "bodyHintergrund": "rgb(14, 22, 27)",
+      "bodyFarbe": "rgb(237, 234, 227)",
+      "datenTheme": null
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "modus": "release",
+  "basisUrl": "https://example.org",
+  "datum": "2026-10-26T00:00:00Z",
+  "seiten": 5556,
+  "dateien": {
+    "geschrieben": 5624,
+    "geaendert": 5624,
+    "unveraendert": 0
+  },
+  "entfernt": 0,
+  "css": 54594,
+  "js": 28196,
+  "jsBuendel": [
+    {
+      "module": "aufklapper,erreichbarkeit,menue,ortssuche,preisrechner,tagesband",
+      "bytes": 28196
+    },
+    {
+      "module": "aufklapper,erreichbarkeit,menue,suche",
+      "bytes": 23036
+    },
+    {
+      "module": "abspielen,aufklapper,erreichbarkeit,menue,ortssuche",
+      "bytes": 17306
+    },
+    {
+      "module": "aufklapper,erreichbarkeit,menue,ortssuche",
+      "bytes": 16496
+    },
+    {
+      "module": "aufklapper,composer,erreichbarkeit,menue",
+      "bytes": 13740
+    },
+    {
+      "module": "aufklapper,erreichbarkeit,gruppenfilter,menue",
+      "bytes": 10688
+    },
+    {
+      "module": "aufklapper,erreichbarkeit,inhalt,menue",
+      "bytes": 6756
+    },
+    {
+      "module": "aufklapper,erreichbarkeit,menue,szene",
+      "bytes": 6560
+    },
+    {
+      "module": "aufklapper,erreichbarkeit,menue",
+      "bytes": 5367
+    }
+  ],
+  "platzhalterAusgabe": 65,
+  "platzhalterKonfig": 57,
+  "faktenUngeprueft": 92,
+  "ms": 20693,
+  "pruefung": {
+    "fehler": 5592,
+    "warnungen": 72,
+    "je": [
+      {
+        "name": "budgets",
+        "fehler": 0,
+        "warnungen": 0
+      },
+      {
+        "name": "ehrlichkeit",
+        "fehler": 0,
+        "warnungen": 0
+      },
+      {
+        "name": "emoji",
+        "fehler": 0,
+        "warnungen": 0
+      },
+      {
+        "name": "fakten",
+        "fehler": 20,
+        "warnungen": 0
+      },
+      {
+        "name": "icons",
+        "fehler": 0,
+        "warnungen": 0
+      },
+      {
+        "name": "jsonld",
+        "fehler": 16,
+        "warnungen": 0
+      },
+      {
+        "name": "links",
+        "fehler": 0,
+        "warnungen": 0
+      },
+      {
+        "name": "plagiat",
+        "fehler": 0,
+        "warnungen": 0
+      },
+      {
+        "name": "seo",
+        "fehler": 0,
+        "warnungen": 72
+      },
+      {
+        "name": "sicherheit",
+        "fehler": 5556,
+        "warnungen": 0
+      },
+      {
+        "name": "token",
+        "fehler": 0,
+        "warnungen": 0
+      }
+    ]
+  }
+}

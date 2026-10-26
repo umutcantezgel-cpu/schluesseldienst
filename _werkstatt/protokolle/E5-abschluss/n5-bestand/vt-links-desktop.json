@@ -1,0 +1,2283 @@
+{
+  "werkzeug": "vt-probe",
+  "basis": "http://127.0.0.1:4251",
+  "teil": "links",
+  "geraet": "desktop",
+  "frueh": false,
+  "zeitpunkt": "2026-10-26T11:02:28.882Z",
+  "wechsel": 48,
+  "erfolgreich": 48,
+  "zaehlend": 0,
+  "pageerror": 0,
+  "viewTransitionMeldungen": 0,
+  "diagnose": {
+    "pageswapMitVt": 48,
+    "pagerevealMitVt": 48,
+    "pagerevealMitVtModulSchonGelaufen": 48,
+    "unhandledrejection": [],
+    "abgefangen": []
+  },
+  "zaehlendeEreignisse": [],
+  "ketten": [
+    {
+      "kette": 1,
+      "wege": [
+        {
+          "schritt": 1,
+          "von": "/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 800,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 113,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 2,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1538,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 90,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 3,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1535,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 94,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 4,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1498,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 108,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 5,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1550,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 110,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 6,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1533,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 92,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 7,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1547,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 98,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 8,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1526,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 96,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 9,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1538,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 124,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 10,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1545,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 96,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 11,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1538,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 86,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 12,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1517,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 112,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 13,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1550,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 160,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 14,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1603,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 119,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 15,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1567,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 114,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 16,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1561,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 87,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 17,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1542,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 118,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 18,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1547,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 114,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 19,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1548,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 98,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 20,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1548,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 111,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 21,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1575,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 109,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 22,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1556,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 90,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 23,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1549,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 107,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 24,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1528,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 86,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        }
+      ],
+      "ereignisse": [],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 66,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/",
+          "t": 137,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 800,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 113,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1538,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 90,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1535,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 94,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1498,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 108,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1550,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 110,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1533,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 92,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1547,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 98,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1526,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 96,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1538,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 124,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1545,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 96,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1538,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 86,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1517,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 112,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1550,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 160,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1603,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 119,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1567,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 114,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1561,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 87,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1542,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 118,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1547,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 114,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1548,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 98,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1548,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 111,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1575,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 109,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1556,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 90,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1549,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 107,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1528,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 86,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "kette": 2,
+      "wege": [
+        {
+          "schritt": 1,
+          "von": "/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 820,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 131,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 2,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1546,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 95,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 3,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1550,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 89,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 4,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1542,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 109,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 5,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1555,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 106,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 6,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1523,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 97,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 7,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1551,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 106,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 8,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1529,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 86,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 9,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1520,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 121,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 10,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1526,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 94,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 11,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1531,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 106,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 12,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1514,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 95,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 13,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1539,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 111,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 14,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1515,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 84,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 15,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1513,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 98,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 16,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1494,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 78,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 17,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1500,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 114,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 18,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1527,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 103,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 19,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1540,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 91,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 20,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1519,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 102,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 21,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1537,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 115,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 22,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1547,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 106,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 23,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1564,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 99,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 24,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1531,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 107,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        }
+      ],
+      "ereignisse": [],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 58,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/",
+          "t": 146,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 820,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 131,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1546,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 95,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1550,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 89,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1542,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 109,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1555,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 106,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1523,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 97,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1551,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 106,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1529,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 86,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1520,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 121,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1526,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 94,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1531,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 106,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1514,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 95,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1539,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 111,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1515,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 84,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1513,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 98,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1494,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 78,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1500,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 114,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1527,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 103,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1540,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 91,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1519,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 102,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1537,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 115,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1547,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 106,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1564,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 99,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1531,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 107,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    }
+  ]
+}
