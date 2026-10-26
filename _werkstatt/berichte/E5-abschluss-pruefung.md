@@ -207,19 +207,35 @@ Am Endstand nachgemessen (`_werkstatt/protokolle/E5-abschluss/endstand-nach/`):
 
 ## 7. Hinweise des Abschlussprüfers (Durchgang 2) und ihre Berichtigung
 
-Urteil des zweiten Durchgangs: `_werkstatt/berichte/E5-abschlusspruefer.md` (alle 18 Zeilen bestätigt, 11 davon mit Hinweis, keine Nachforderung). Die Hinweise betreffen Wortlaut und Randgenauigkeit; sie sind ohne neue Messung an der Website berichtigt. Neu gemessen (Haiku) wurde nur die Zahl zu Weg (a) in D-E5-04, die vorher kein Protokoll hatte.
+Urteil des zweiten Durchgangs: `_werkstatt/berichte/E5-abschlusspruefer.md` (alle 18 Zeilen bestätigt, 11 davon mit Hinweis, keine Nachforderung). Die Hinweise betreffen Wortlaut und Randgenauigkeit; sie sind ohne neue Messung an der Website berichtigt. Neu erhoben (Haiku) wurden nur Belege ohne Eingriff in die Website: die Zahl zu Weg (a) in D-E5-04 (`a1-vergleich/weg-a/weg-a.json`), die Herkunft des E2-Vergleichsbaus (`a1-vergleich/herkunft/herkunft.json`), der Bewegungscode je Seite einschließlich der Ansichts-Stile (`endstand-nach/bewegung-ansichten/`) und die Linkprüfung am Schlussstand (`endstand-nach/links-schluss/`); dazu die Prozessliste der Vorschau-Server (`a1-vergleich/server-prozesse.txt`).
 
 | Zeile | Hinweis | Berichtigung |
 |---|---|---|
 | Z-02 | `bau-72ed87c.log` nennt weder Exit-Code noch Commit; `E5-pruefstufe-c.md` gilt für `8db2c56` | ABNAHME nennt beides ausdrücklich (Exit 0 und Commit in §5; Prüfstufe C als abgelöster Stand) |
 | Z-03 | Status beschrieb nur die frühere Stichprobe | Status nennt jetzt auch die Endstand-Stichprobe: 171 Token-Verweise, 186 erlaubte Literale, 0 unerlaubte Werte, 5 Grenzfälle nach K-004 |
-| Z-05, Z-08 | „≤ 2,9 %“ (Höchstwert 2,94 %); 2,3 KB ohne Übergänge außerhalb `@layer bewegung` | 0,83–2,94 %; Übergänge außerhalb der Ebene nach Näherung rund 0,85 KB gz ergänzt (ABNAHME, BERICHT) |
-| Z-07 | „nie verdeckt“ am Endstand nur mobil vorwärts gemessen; frühere Ersatzmessung des Menü-Blatts außerhalb des Sichtfelds | Status nennt Umfang (5 Seiten, 461 Stopps) und den früheren Stand des Desktop-Rückwärtslaufs; Menü-Blatt: am Endstand im Sichtfeld, früher 811–870 px, Ursache nicht untersucht |
+| Z-05, Z-08 | „≤ 2,9 %“ (Höchstwert 2,94 %); 2,3 KB ohne Übergänge außerhalb `@layer bewegung` | 0,83–2,94 %; Umfang der 2,3 KB benannt (gemeinsames `app.css` und Module), Übergangs-Näherung 0,85 KB; nach der Gegenprüfung neu gemessen: je Seite einschließlich Ansichts-Stile höchstens 1.990 B gz (`/einbruchschutz/`), mit Näherung 2.636 B, obere Schätzung 3.093 B |
+| Z-07 | „nie verdeckt“ am Endstand nur mobil vorwärts gemessen; frühere Ersatzmessung des Menü-Blatts außerhalb des Sichtfelds | Status nennt Umfang (5 Seiten, 461 Stopps) und den Desktop-Rückwärtslauf vom Stand `4898dec` mit Beleg; Menü-Blatt am Endstand ganz im Sichtfeld (772–831 px), früher ragte es 26 px unter den Rand (811–870 px), während `blatt-probe.json` desselben Durchgangs 772–831 px maß; Ursache nicht untersucht. Gleicher Wortlaut „nie verdeckt“ auch in A-2 und OFFENE-PUNKTE 42 berichtigt |
 | Z-09 | Hauptansichten dunkel nur am layoutgleichen Stand `4898dec`; Sichtung nur erste Bildschirme; Wortlaut „unlesbarer“ | Status nennt beides; Wortlaut nach der Schwelle: kein abgeschnittener Text, kein Text über Text, Kartenlinie berührt lesbare Beschriftungen (OFFENE-PUNKTE 46) |
 | Z-10 | BERICHT U-4 „identisch“; BERICHT A-1 nannte die nicht getrennt gemessene Ursache als Tatsache; README ohne Verweis auf `docs/ZUSAMMENFUEHREN.md`; `docs/ENTSCHEIDUNGEN.md` ohne D-E5-02/D-E5-04 | BERICHT U-4 und A-1 berichtigt; README verweist auf ZUSAMMENFUEHREN, ENTSCHEIDUNGEN und ORTE-ABGLEICH; `docs/ENTSCHEIDUNGEN.md` um D-E5-02 und D-E5-04 ergänzt (Datum im Kopf: 25. und 26. Oktober) |
 | A-1 | „gleicher Vorschau-Server“, obwohl E2 auf 4281 lief; Herkunft des E2-Baus nur indirekt; 2.384 B gz in Weg (a) ohne Protokoll | gleiches Vorschau-Programm mit Ports je Variante; Herkunft belegt (Haiku): Quelle des E2-Baus in allen 129 Dateien sha256-gleich mit `git archive 7422b0f bau src package.json`, Nachbau mit `node bau/bauen.mjs --messen --datum=2026-10-25` in allen 16 Dateien byte-gleich mit dem gemessenen Bau (`a1-vergleich/herkunft/herkunft.json`; ohne `--datum` weichen 3 Dateien mit Datum ab); Weg (a) gemessen: `app.css` +1.806 B gz, größte Seite 15.472 B, 274 Seiten über 14.336 B (`a1-vergleich/weg-a/weg-a.json`, Methode wie `budgets.mjs`, Gegenprobe mit dessen `pruefe()`) |
 | A-2 | Werte gelten für `2a69d96`; PLAN „Offene Punkte“ beschrieb Runde 3 im Futur | Stand in A-2 genannt; PLAN im Perfekt mit den Runde-3-Commits |
-| U-1 | „grobes Zeigegerät“ gilt nur für einen Teil der Messungen | ABNAHME und BERICHT trennen: Touch-Emulation bei Tastatur, Seitenwechsel und Lighthouse; smoke, Überlauf und Bildsätze nur Fenstergröße |
+| U-1 | „grobes Zeigegerät“ gilt nur für einen Teil der Messungen | ABNAHME und BERICHT nennen die Läufe mit Touch-Emulation einzeln (Fokus- und Tastaturprotokolle in `pruefer-z07-z09/` und `endstand-nach/`, `vt-probe.mjs`, Lighthouse); alle übrigen, auch `n5-bewegung/verdeckt.mjs` und `tastatur.mjs`, nur Fenstergröße |
 | U-2 | Code-Durchsicht ohne eigenes Protokoll | ABNAHME nennt die Fundstellen (`token.css`, `bewegung.css`, `einsatzgebiet.css`) |
 | U-4 | BERICHT „identisch“ | wie Z-10 |
+
+### Gegenprüfung der Berichtigungen
+
+Zwei frische Opus-Gegenprüfer (Abdeckung, Genauigkeit) haben die Berichtigungen `1c394c5` und `76b5dd0` gegen die Belege geprüft. Bestätigt: Z-03-Zahlen, Bildrate, Z-07-Stopps, Z-09-Stand, Ports und Herkunft in A-1, Weg (a), README-Links, docs/ENTSCHEIDUNGEN. Befunde und Erledigung (`e8a8acf` und Abschluss-Commit):
+- mittel · U-1 verallgemeinerte erneut → Läufe mit und ohne Touch einzeln genannt (ABNAHME, BERICHT, oben).
+- mittel · Bewegungscode zählte nur das gemeinsame `app.css` → Umfang benannt und je Seite mit Ansichts-Stilen nachgemessen (Haiku, `endstand-nach/bewegung-ansichten/`).
+- klein · Linkprüfung lag vor den Berichtigungen → am Schlussstand wiederholt (`endstand-nach/links-schluss/`).
+- klein · Z-07 Menü-Blatt „außerhalb“ überzeichnet, Desktop-Beleg fehlte; A-2 und OFFENE-PUNKTE 42 noch „nie verdeckt“ → berichtigt.
+- klein · Z-03 Grundgesamtheit 36 = nur `komponenten/` und `ansichten/` → benannt.
+- klein · Z-09 Ortsseite Hüttenberg-Großrechtenbach (Zonenbogen) fehlte → ergänzt.
+- klein · A-1 Fassung des Vorschau-Programms nicht belegt → Prozessliste `a1-vergleich/server-prozesse.txt`: alle Server mit der Endstand-Fassung `bau/vorschau.mjs`.
+- klein · D-E5-04 „beim Hoster“ → „mit gzip wie beim Hoster, lokal gemessen“ (beide ENTSCHEIDUNGEN).
+- klein · Z-08 Beleg für 0,85 KB fehlte → `endstand-nach/groesse.json` ergänzt.
+- klein · §7 „nur“ eine Neuerhebung → Einleitung nennt alle.
+- klein · BERICHT: „nur Dokumentation“ → „Dokumentation und Messbelege“; Kriterientabelle Z-03/Z-07/Z-09 mit Endstand-Belegen; Restpunkte Nr. 36–39, Nr. 40 = A-2.
+- klein · §1 Z-03 „0 Werte außerhalb `var(--…)`“ und `E5-pruefstufe-c.md` „Header identisch“ → datierte Nachträge, Haiku-Berichte sonst unverändert.
 

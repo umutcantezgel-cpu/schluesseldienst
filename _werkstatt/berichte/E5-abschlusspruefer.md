@@ -95,3 +95,7 @@ Alle fünf Nachforderungen und die Hinweise sind erledigt; Einzelheiten und Bele
 **Nachforderungen:** keine.
 
 **Gesamturteil:** Abschlussreif: Alle 18 Zeilen sind gegen ihre Belege bestätigt (7 ohne, 11 mit Hinweis), A-1 und Z-09 tragen nach den nachgelieferten Belegen, und es fehlt kein Beleg; die Hinweise betreffen nur Wortlaut und Randgenauigkeit (vor allem BERICHT.md zu U-4 und A-1 und den fehlenden README-Verweis auf docs/ZUSAMMENFUEHREN.md) und lassen sich ohne neue Messung berichtigen.
+
+## Umgang mit den Hinweisen (Durchgang 2)
+
+Durchgang 2 forderte nichts nach. Die Hinweise zu Wortlaut und Randgenauigkeit sind berichtigt, von zwei frischen Opus-Gegenprüfern nachgeprüft und deren Befunde ebenfalls eingearbeitet; Zuordnung und Belege: `_werkstatt/berichte/E5-abschluss-pruefung.md` §7. An der Website (`src/`, `bau/`, `test/`, `pipeline/`) hat sich seit dem Endstand `72ed87c` nichts geändert.

@@ -14,7 +14,7 @@
 
 ## Abschlussbericht
 
-Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4f`, HEAD bei Erstellung `91baf4b`. Seit `72ed87c` hat sich unter `src/`, `bau/`, `test/` und `pipeline/` nichts geändert; die späteren Commits betreffen nur Dokumentation und Messbelege (`_werkstatt/`, `docs/`, `README.md`, `CLAUDE.md`).
+Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4f`. Seit `72ed87c` hat sich unter `src/`, `bau/`, `test/` und `pipeline/` nichts geändert; die späteren Commits betreffen nur Dokumentation und Messbelege (`_werkstatt/`, `docs/`, `README.md`, `CLAUDE.md`).
 
 ### Ergebnis in Zahlen
 
@@ -22,7 +22,7 @@ Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4
 - **Pakete:** Pflichtpakete 66 von 66 erledigt und abgenommen (nachgezählt; PLAN.md nannte zuvor 67), Kür 8 von 8.
 - **Prüfer:** 11 Build-Prüfer ohne Fehler, 72 bekannte Warnungen (Titellänge auf Ortsseiten, D-SEO-04).
 - **Tests:** 331 Tests, 330 bestanden, 0 fehlgeschlagen, 1 als offen markiert (Postleitzahl NL, offene Frage).
-- **Budgets (Endmessung):** CSS je Seite höchstens 13.666 von 14.336 B gzip; größtes JavaScript-Bündel 9.837 von 16.384 B gzip; größte Ortsseite 30.390 von 30.720 B; Bewegungscode 2,3 KB gzip, dazu Übergänge in den Komponenten nach einer Näherung rund 0,85 KB (weiches Budget 12 KB, hartes 60 KB).
+- **Budgets (Endmessung):** CSS je Seite höchstens 13.666 von 14.336 B gzip; größtes JavaScript-Bündel 9.837 von 16.384 B gzip; größte Ortsseite 30.390 von 30.720 B; Bewegungscode je Seite einschließlich Ansichts-Stilen höchstens 2,0 KB gzip, mit Übergängen nach einer Näherung 2,6 KB (weiches Budget 12 KB, hartes 60 KB).
 - **Messwerte (Endmessung):** Mobile Ladezeit-Messung auf 12 Hauptansichten, Median aus drei Läufen: Leistung 96 bis 99, Barrierefreiheit und Best Practices 100, SEO 100 außer `/suche/` (66, bewusst nicht indexierbar). LCP-Mediane 1.955 bis 2.409 ms, CLS 0. Startseite komprimiert: Leistung 100, LCP 1.658 ms. INP höchstens 64 ms (Grenze 200 ms).
 
 ### Kriterien Z-01 bis Z-10
