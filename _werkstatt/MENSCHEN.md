@@ -35,7 +35,7 @@ Jeder Punkt: Frage · Beleg · meine Standardannahme (gilt bis zu deiner Antwort
 - Domain: www oder ohne; HSTS-Preload erst nach stabiler HTTPS-Konfiguration; DNSSEC, CAA-Eintrag, Registrar-Lock; 2FA bei Registrar, Hoster, GitHub. Die Basis-URL trägst du in `src/konfig/betrieb.mjs` als `basisUrl` ein (Form `https://host` ohne Pfad; heute Platzhalter `https://Ihre-Domain.de`); ohne sie bricht der Release-Bau ab. · Beleg: `bau/bauen.mjs`; `_werkstatt/berichte/E5-abschluss-pruefung.md`, Abschnitt 1 (Z-02, Negativtest).
 - E-Mail: SPF, DKIM, DMARC `p=reject` (Schutz vor gefälschten Notdienst-Mails); überwachtes Postfach für `/.well-known/security.txt`; Erinnerung vor deren Ablaufdatum.
 - KI-Crawler sperren ja/nein (robots.txt) · Annahme: nicht gesperrt.
-- Nach dem Deploy einmal `node werkzeuge/live-check.mjs https://deine-domain` ausführen (prüft Header, MIME, 404, Weiterleitungen).
+- Nach dem Deploy einmal `node _werkstatt/werkzeuge/live-check.mjs https://deine-domain` ausführen (prüft Header, MIME, 404, Weiterleitungen).
 
 ## 6. Tests, die die Cloud nicht kann (UMGEBUNGSAUSNAHMEN)
 - Echte Geräte (iPhone/Android), Firefox und Safari (nur Chromium ist installiert), GPU-Bildrate, Wirkung in der Google Search Console, Live-Header beim Hoster.
