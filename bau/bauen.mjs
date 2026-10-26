@@ -2,6 +2,7 @@
 // Generator: erzeugt die statische Website in dist/ (oder --aus=…).
 // Modi: --vorschau (Standard, noindex) · --messen (indexierbar, lokaler Origin) · --release (strikt).
 // Weitere Schalter: --pruefen · --aus=<ordner> · --port=<n> · --datum=JJJJ-MM-TT · --ziel=apache|nginx|netlify|cloudflare
+//                   --basis=https://host (nur Vorschau: Test-Deploy, mit --ziel=netlify|cloudflare|vercel; bleibt noindex)
 //                   --stichprobe=<n> (nur n Ortsseiten) · --nur=<pfadpräfix> · --vorkomprimieren (.br/.gz zu Textdateien)
 import { parseArgs } from 'node:util';
 import { execFileSync } from 'node:child_process';
@@ -16,7 +17,7 @@ import { ueberschriftenTrennen } from './lib/trennen.mjs';
 import { platzhalterIn, istPlatzhalter } from './lib/platzhalter.mjs';
 import { setzeRoutenPruefer, fehlendeLinksHolen } from './lib/inhalt.mjs';
 import { sitemaps, robots, securityTxt, manifest } from './lib/dateien.mjs';
-import { headersDatei, htaccess, nginx, pruefeWeiterleitungen } from './lib/hosting.mjs';
+import { headersDatei, htaccess, nginx, pruefeWeiterleitungen, weiterleitungenLesen, vercelText } from './lib/hosting.mjs';
 import { pruefeAlles, auswerten, RELEASE_STRENG } from './pruefen/index.mjs';
 import { iconsLaden, icon as iconRoh } from '../src/vorlagen/teile/icons.mjs';
 import { datenIndizes, seitenIndexSchreiben } from './lib/datenindex.mjs';
@@ -29,7 +30,7 @@ const WURZEL = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: arg } = parseArgs({
   options: {
     vorschau: { type: 'boolean' }, messen: { type: 'boolean' }, release: { type: 'boolean' }, pruefen: { type: 'boolean' },
-    aus: { type: 'string' }, port: { type: 'string' }, datum: { type: 'string' }, ziel: { type: 'string' },
+    aus: { type: 'string' }, port: { type: 'string' }, datum: { type: 'string' }, ziel: { type: 'string' }, basis: { type: 'string' },
     stichprobe: { type: 'string' }, nur: { type: 'string' }, still: { type: 'boolean' }, vorkomprimieren: { type: 'boolean' },
   },
 });
@@ -97,11 +98,24 @@ async function main() {
   // Vorkomprimierte Varianten nutzen nur Apache und nginx; Netlify und Cloudflare komprimieren selbst und würden
   // die Dateien sonst als öffentliche Zusatzdateien ausliefern.
   if (arg.vorkomprimieren && arg.ziel && !['apache', 'nginx'].includes(arg.ziel)) throw new Error(`--vorkomprimieren nur mit --ziel=apache oder nginx (nicht ${arg.ziel}).`);
+  // Test-Deploy: Vorschau (noindex, Platzhalter sichtbar) mit Hoster-Dateien und eigener Adresse statt 127.0.0.1.
+  // Vercel liest vercel.json vor dem Bau aus dem Wurzelverzeichnis; der Bau prüft nur, dass sie zur Quelle passt.
+  if (arg.basis !== undefined) {
+    if (modus !== 'vorschau') throw new Error('--basis nur für die Vorschau (der Release nutzt betrieb.basisUrl).');
+    if (!/^https:\/\/[a-z0-9.-]+$/.test(arg.basis)) throw new Error(`--basis=${arg.basis} muss https://host ohne Pfad sein.`);
+  }
+  if (modus === 'vorschau' && arg.ziel) {
+    if (!['netlify', 'cloudflare', 'vercel'].includes(arg.ziel)) throw new Error(`Vorschau: --ziel=netlify|cloudflare|vercel (nicht ${arg.ziel}; Apache und nginx nur mit --release).`);
+    if (arg.ziel === 'vercel') {
+      const ist = await readFile(join(WURZEL, 'vercel.json'), 'utf8').catch(() => '');
+      if (ist !== vercelText(await weiterleitungenLesen(WURZEL))) throw new Error('vercel.json passt nicht zu src/konfig/sicherheit.mjs und den Weiterleitungen – mit „npm run hoster“ neu erzeugen.');
+    }
+  }
   const datum = commitDatum();
   const tag = datum.slice(0, 10);
   const konfig = await konfigLaden();
   const port = Number(arg.port || 4173);
-  let basisUrl = `http://127.0.0.1:${port}`;
+  let basisUrl = arg.basis ?? `http://127.0.0.1:${port}`;
   if (modus === 'release') {
     if (istPlatzhalter(konfig.betrieb.basisUrl)) throw new Error('Release: betrieb.basisUrl ist ein Platzhalter.');
     if (!/^https:\/\/[a-z0-9.-]+$/.test(konfig.betrieb.basisUrl)) throw new Error('Release: basisUrl muss https://host ohne Pfad sein.');
@@ -263,10 +277,12 @@ async function main() {
   const markenName = istPlatzhalter(konfig.betrieb.name) ? 'Schlüsseldienst Weilburg' : konfig.betrieb.name;
   await schreiber.schreibe('/site.webmanifest', manifest({ name: markenName, kurz: markenName.slice(0, 12), farbe: konfig.seo.themeColor.hell, hintergrund: konfig.seo.themeColor.hell, icon: favPfad }));
 
-  // Hoster-Konfiguration (nur Release mit Ziel)
-  let weiterleitungen = [];
-  try { weiterleitungen = JSON.parse(await readFile(join(WURZEL, 'src/daten/weiterleitungen.json'), 'utf8')); } catch { /* keine */ }
+  // Hoster-Konfiguration: Release mit Ziel; Vorschau mit Ziel als Test-Deploy (dann zusätzlich X-Robots-Tag: noindex)
+  const weiterleitungen = await weiterleitungenLesen(WURZEL);
   pruefeWeiterleitungen(weiterleitungen, (p) => routen.has(p));
+  if (modus === 'vorschau' && (arg.ziel === 'netlify' || arg.ziel === 'cloudflare')) {
+    for (const [n, t] of Object.entries(headersDatei(weiterleitungen, { noindex: true }))) if (t) await schreiber.schreibe('/' + n, t);
+  }
   if (modus === 'release') {
     const host = new URL(basisUrl).host;
     if (arg.ziel === 'apache') await schreiber.schreibe('/.htaccess', htaccess(host, weiterleitungen));

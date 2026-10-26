@@ -32,7 +32,8 @@ Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML
 | `--messen` | Indexierbar, Basis-Adresse lokal (`http://127.0.0.1:<port>`), für die Messwerkzeuge in `_werkstatt/`. |
 | `--release` | Strikt. Basis-Adresse aus `betrieb.basisUrl`; `--ziel` ist Pflicht. |
 | `--vorkomprimieren` | Legt zu jeder Textdatei `.br` und `.gz` an (nur wenn kleiner) und entfernt verwaiste Varianten. Nur ohne `--ziel` oder mit `--ziel=apache\|nginx`; Netlify und Cloudflare komprimieren selbst. Der Prüfer `sicherheit` (S14) verlangt zu jeder Variante die Quelldatei mit gleichem Inhalt. Dauer: beim ersten Lauf etwa 1 bis 1,5 Minuten zusätzlich, danach wenige Sekunden. |
-| `--ziel=apache\|nginx\|netlify\|cloudflare` | Nur mit `--release`. Apache: `.htaccess` in der Ausgabe. Netlify und Cloudflare: `_headers` und `_redirects`. nginx: Snippet in `release/nginx/`, außerhalb der Ausgabe. |
+| `--ziel=apache\|nginx\|netlify\|cloudflare` | Im Release: Apache `.htaccess` in der Ausgabe; Netlify und Cloudflare `_headers` und `_redirects`; nginx ein Snippet in `release/nginx/`, außerhalb der Ausgabe. In der Vorschau nur `netlify`, `cloudflare` oder `vercel` (Test-Deploy, siehe unten); `_headers` trägt dann zusätzlich `X-Robots-Tag: noindex`. |
+| `--basis=https://host` | Nur Vorschau: Adresse für Canonicals, Sitemap und `security.txt` statt `http://127.0.0.1:<port>`, etwa die Test-Domain beim Hoster. Die Seiten bleiben `noindex`. |
 | `--aus=<ordner>` | Ausgabeordner statt `dist/`, relativ zum Repository. Die Berichte liegen daneben, zum Beispiel `<ordner>.bau-bericht.json`. |
 | `--nur=<pfadpräfix>` | Nur Seiten mit diesem Pfadanfang (plus 404). Räumt die Ausgabe nicht auf. |
 | `--stichprobe=<n>` | Nur n Ortsseiten, zum Entwickeln. Verweise auf fehlende Orte sind dann erwartbar. |
@@ -42,6 +43,14 @@ Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML
 | `--still` | Nur Fehler und Hinweise auf der Konsole. |
 
 Vorschau-Server: `node bau/vorschau.mjs [--aus <ordner>] [--port <n>] [--komprimieren]` – mit `--komprimieren` liefert er Textdateien gzip-komprimiert aus, wie ein Hoster mit Kompression (Messungen unter Produktionsbedingungen).
+
+## Test-Deploy (Netlify, Vercel)
+
+Bis die Angaben in [docs/BETRIEB.md](docs/BETRIEB.md) vollständig sind, gibt es keinen Release. Für eine Test-Domain lässt sich aber die Vorschau ausliefern: Platzhalter sichtbar, nicht indexierbar (meta robots `noindex`, `robots.txt` mit `Disallow: /`, Header `X-Robots-Tag: noindex`) und mit allen Sicherheits-Headern aus `src/konfig/sicherheit.mjs`.
+
+- **Netlify:** Repository importieren. Die Einstellungen stehen in `netlify.toml`: Bau `node bau/bauen.mjs --ziel=netlify --basis=$URL`, ausgeliefert wird `dist/`. Die Header schreibt der Bau nach `dist/_headers`.
+- **Vercel:** Repository importieren (Framework „Other“). Die Einstellungen stehen in `vercel.json`: Bau mit `--ziel=vercel` und der Projektadresse, ausgeliefert wird `dist/`, Header und Weiterleitungen stehen in der Datei selbst. `vercel.json` wird mit `npm run hoster` aus `src/konfig/sicherheit.mjs` erzeugt; passt sie nicht mehr, bricht der Bau ab. `.vercelignore` hält Rohdaten und `_werkstatt/` aus dem Bau heraus.
+- Bei beiden Hostern eingeschleuste Skripte abschalten (Netlify Snippet Injection und Drawer, Vercel Toolbar); die strenge CSP blockiert sie sonst mit Konsolenfehlern. Einzelheiten und der Weg zum Release: [docs/HOSTER-CHECKLISTE.md](docs/HOSTER-CHECKLISTE.md), Abschnitt 4.
 
 ## Verzeichnisaufbau
 

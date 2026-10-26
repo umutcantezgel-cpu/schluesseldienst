@@ -1,0 +1,9 @@
+# Test-Deploy auf Netlify: Vorschau-Bau (noindex, Platzhalter sichtbar) mit allen Sicherheits-Headern in dist/_headers.
+# Netlify setzt URL auf die Hauptadresse der Site (Canonicals und Sitemap zeigen dorthin); ausgeliefert wird nur dist/.
+# Vor einem echten Release: docs/HOSTER-CHECKLISTE.md.
+[build]
+  command = "node bau/bauen.mjs --ziel=netlify --basis=$URL"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

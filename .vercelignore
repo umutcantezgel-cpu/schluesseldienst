@@ -1,0 +1,5 @@
+# Für den Vercel-Bau nicht nötig: Wettbewerber-Rohdaten, Werkstatt-Belege, Caches. Ausgeliefert wird ohnehin nur dist/.
+/Richter Schl*sseldienst/
+/Schl*sseldienst Adam/
+/_werkstatt/
+/.cache/

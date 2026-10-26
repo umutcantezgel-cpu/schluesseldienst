@@ -301,11 +301,11 @@ test('Apache: Verzeichnis-Adressen (/pfad/ → index.html) bekommen die Variante
   assert.deepEqual(['', 'pfad/', 'a/b/', 'pfad', 'a/index.html'].map((p) => muster.test(p)), [true, true, true, false, false]);
 });
 
-test('--vorkomprimieren nur mit --ziel=apache oder nginx: Netlify/Cloudflare brechen vor dem Schreiben ab', async () => {
+test('--vorkomprimieren nur mit --ziel=apache oder nginx: Netlify/Cloudflare/Vercel brechen vor dem Schreiben ab', async () => {
   const { spawnSync } = await import('node:child_process');
   const { fileURLToPath } = await import('node:url');
   const bauen = fileURLToPath(new URL('../bau/bauen.mjs', import.meta.url));
-  for (const ziel of ['netlify', 'cloudflare']) {
+  for (const ziel of ['netlify', 'cloudflare', 'vercel']) {
     const tmp = await mkdtemp(join(tmpdir(), 'vork-ziel-'));
     const aus = join(tmp, 'aus');
     const r = spawnSync(process.execPath, [bauen, '--messen', '--vorkomprimieren', `--ziel=${ziel}`, `--aus=${aus}`], { encoding: 'utf8', timeout: 60000 });

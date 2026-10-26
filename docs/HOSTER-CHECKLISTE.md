@@ -44,3 +44,13 @@ Voraussetzung ist, dass [BETRIEB.md](BETRIEB.md) vollständig ist und der Releas
 5. **Nur live prüfbar.** Die Header beim Hoster lassen sich nur nach dem Deploy prüfen. Bei einer http-Adresse, etwa einem lokalen Vorschau-Server, überspringt das Werkzeug die HSTS-Prüfung und die Umleitung auf https; das ist erwartet.
 
 Nach dem Deploy halten Sie das Datum des Builds und das Ergebnis der Live-Prüfung fest.
+
+## 4. Test-Deploy der Vorschau (Netlify, Vercel)
+
+Solange der Release an Platzhaltern scheitert, kann die Vorschau auf einer Test-Domain laufen. Sie ist nicht indexierbar: meta robots `noindex`, `robots.txt` mit `Disallow: /` und der Header `X-Robots-Tag: noindex`. Platzhalter und Rechtstext-Entwürfe sind sichtbar; die Test-Domain deshalb nicht bewerben oder verlinken.
+
+- [ ] **Netlify:** Repository importieren; `netlify.toml` setzt Bau-Befehl (`--ziel=netlify --basis=$URL`), Ausgabe `dist/` und Node 22. Unter Site configuration „Snippet injection“ leer lassen und den „Netlify Drawer“ für Deploy Previews abschalten.
+- [ ] **Vercel:** Repository importieren, Framework „Other“; `vercel.json` setzt Bau-Befehl (`--ziel=vercel`, Adresse aus `VERCEL_PROJECT_PRODUCTION_URL`), Ausgabe `dist/`, Header, `trailingSlash` und Weiterleitungen mit 301. Die Vercel Toolbar abschalten. Ohne `.git` im Vercel-Bau nutzt die Vorschau das Ersatzdatum 2026-01-01 (Hinweis im Bau-Log).
+- [ ] Nach dem ersten Deploy die Live-Prüfung aus Abschnitt 3 gegen die Test-Adresse laufen lassen. Erwartete Abweichungen: HTML mit dem Cache-Standard des Hosters statt `no-cache`; bei Vercel leitet http mit 308 statt 301 auf https; die Hoster können eigene HSTS-Header ergänzen.
+- [ ] **Vor dem Release auf einer echten Domain:** `X-Robots-Tag: noindex` steht in der Netlify-Vorschau nur im Bau, in `vercel.json` dauerhaft. Für Netlify genügt der Release-Bau (`npm run release -- --ziel=netlify`, Bau-Befehl in `netlify.toml` anpassen). Für Vercel gibt es noch keine Release-Fassung von `vercel.json` (ohne noindex, Bau mit `--release`, Datum ohne `.git` über `--datum`); siehe `docs/OFFENE-PUNKTE.md` Nr. 49.
+

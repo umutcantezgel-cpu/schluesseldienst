@@ -4,7 +4,7 @@ import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
-import { pruefeWeiterleitungen, headersDatei, htaccess, nginx } from '../bau/lib/hosting.mjs';
+import { pruefeWeiterleitungen, headersDatei, htaccess, nginx, vercelVorschau } from '../bau/lib/hosting.mjs';
 import { kopfzeilen, cspText } from '../src/konfig/sicherheit.mjs';
 
 const HOST = 'schluessel.test';
@@ -154,11 +154,12 @@ describe('CSP-Gleichheit über alle Ausgaben', () => {
     assert.equal(kopfzeilen()['Content-Security-Policy'], csp);
   });
 
-  test('headersDatei, htaccess und nginx tragen exakt dieselbe CSP-Zeichenkette', () => {
+  test('headersDatei, htaccess, nginx und vercel.json tragen exakt dieselbe CSP-Zeichenkette', () => {
     const gefunden = {
       headersDatei: headersDatei()._headers.match(/^  Content-Security-Policy: (.*)$/m)?.[1],
       htaccess: htaccess(HOST).match(/^  Header always set Content-Security-Policy "(.*)"$/m)?.[1],
       nginx: nginx(HOST)['sicherheit-header.conf'].match(/^add_header Content-Security-Policy "(.*)" always;$/m)?.[1],
+      vercel: vercelVorschau().headers[0].headers.find((h) => h.key === 'Content-Security-Policy')?.value,
     };
     for (const [quelle, wert] of Object.entries(gefunden)) assert.equal(wert, csp, quelle);
   });

@@ -1,5 +1,7 @@
 // Erzeugt Hoster-Konfigurationen aus src/konfig/sicherheit.mjs (eine Quelle, gleiche Header überall).
 // Weiterleitungen: nur geprüfte Pfade, Ziele mit fest eingetragenem Host (Schutz vor offenen Weiterleitungen).
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { kopfzeilen, CACHE, MIME, SICHERER_PFAD } from '../../src/konfig/sicherheit.mjs';
 import { TEXT_ENDUNGEN } from './vorkomprimieren.mjs';
 
@@ -24,16 +26,46 @@ export function pruefeWeiterleitungen(liste, existiert) {
   return liste;
 }
 
+/** Weiterleitungen aus src/daten/weiterleitungen.json (fehlt die Datei, gibt es keine). */
+export async function weiterleitungenLesen(wurzel) {
+  try { return JSON.parse(await readFile(join(wurzel, 'src/daten/weiterleitungen.json'), 'utf8')); } catch { return []; }
+}
+
 const apacheWert = (v) => v.replace(/"/g, '\\"');
 
-export function headersDatei(weiterleitungen = []) {
-  const k = kopfzeilen();
+// noindex: Test-Deploy der Vorschau (zusätzlich zu meta robots und robots.txt), nie im Release.
+export function headersDatei(weiterleitungen = [], { noindex = false } = {}) {
+  const k = { ...kopfzeilen(), ...(noindex ? { 'X-Robots-Tag': 'noindex' } : {}) };
   const zeilen = ['/*', ...Object.entries(k).map(([n, v]) => `  ${n}: ${v}`)];
   for (const c of CACHE.filter((c) => c.muster !== '/*')) {
     zeilen.push(c.muster, `  Cache-Control: ${c.wert}`, ...Object.entries(c.extra || {}).map(([n, v]) => `  ${n}: ${v}`));
   }
   return { '_headers': zeilen.join('\n') + '\n', '_redirects': weiterleitungen.map((w) => `${w.von} ${w.nach} 301`).join('\n') + (weiterleitungen.length ? '\n' : '') };
 }
+
+// Vercel (Test-Deploy der Vorschau): vercel.json liegt im Wurzelverzeichnis, weil Vercel sie vor dem Bau liest;
+// erzeugt mit „npm run hoster“, der Bau mit --ziel=vercel prüft, dass sie zur Quelle passt. Gleiche Header und
+// Cache-Regeln wie _headers (HTML behält den Hoster-Standard), Weiterleitungen mit 301 statt Vercels 308.
+export const VERCEL_BAU = 'node bau/bauen.mjs --ziel=vercel --basis=https://${VERCEL_PROJECT_PRODUCTION_URL:-$VERCEL_URL}';
+
+export function vercelVorschau(weiterleitungen = []) {
+  const paare = (o) => Object.entries(o).map(([key, value]) => ({ key, value }));
+  return {
+    $schema: 'https://openapi.vercel.sh/vercel.json',
+    framework: null,
+    buildCommand: VERCEL_BAU,
+    outputDirectory: 'dist',
+    trailingSlash: true,
+    cleanUrls: false,
+    headers: [
+      { source: '/(.*)', headers: paare({ ...kopfzeilen(), 'X-Robots-Tag': 'noindex' }) },
+      ...CACHE.filter((c) => c.muster !== '/*').map((c) => ({ source: c.muster.replace(/\*/g, '(.*)'), headers: paare({ 'Cache-Control': c.wert, ...(c.extra || {}) }) })),
+    ],
+    redirects: weiterleitungen.map((w) => ({ source: w.von, destination: w.nach, statusCode: 301 })),
+  };
+}
+
+export const vercelText = (weiterleitungen = []) => JSON.stringify(vercelVorschau(weiterleitungen), null, 2) + '\n';
 
 export function htaccess(host, weiterleitungen = []) {
   if (!/^[a-z0-9.-]+$/.test(host)) throw new Error(`Host ungültig: ${host}`);
