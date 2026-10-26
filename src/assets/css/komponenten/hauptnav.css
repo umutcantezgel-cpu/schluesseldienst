@@ -16,8 +16,8 @@
     background: none; border: 0; border-radius: var(--r-m); color: var(--c-tinte);
   }
   .hauptnav-aufklapper:hover { background: var(--c-papier-2); }
-  .hauptnav-aufklapper .i { inline-size: var(--icon-text); block-size: var(--icon-text); transition: transform var(--dur-zustand) var(--ease-standard); }
-  .hauptnav-aufklapper[aria-expanded="true"] .i { transform: rotate(180deg); }
+  .hauptnav-aufklapper .i { inline-size: var(--icon-text); block-size: var(--icon-text); transition: transform var(--dur-zustand-aus) var(--ease-standard); }
+  .hauptnav-aufklapper[aria-expanded="true"] .i { transform: rotate(180deg); transition-duration: var(--dur-zustand); }
   .hauptnav-panel { display: none; }
   .js .hauptnav-panel {
     display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sp-l);
