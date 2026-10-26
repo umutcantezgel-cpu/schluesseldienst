@@ -46,6 +46,7 @@ export function headersDatei(weiterleitungen = [], { noindex = false } = {}) {
 // Vercel (Test-Deploy der Vorschau): vercel.json liegt im Wurzelverzeichnis, weil Vercel sie vor dem Bau liest;
 // erzeugt mit „npm run hoster“, der Bau mit --ziel=vercel prüft, dass sie zur Quelle passt. Gleiche Header und
 // Cache-Regeln wie _headers (HTML behält den Hoster-Standard), Weiterleitungen mit 301 statt Vercels 308.
+// Vercel wertet trailingSlash vor den redirects aus; die Quelle steht deshalb mit „/“ am Ende (sonst 308, dann 404).
 export const VERCEL_BAU = 'node bau/bauen.mjs --ziel=vercel --basis=https://${VERCEL_PROJECT_PRODUCTION_URL:-$VERCEL_URL}';
 
 export function vercelVorschau(weiterleitungen = []) {
@@ -61,7 +62,7 @@ export function vercelVorschau(weiterleitungen = []) {
       { source: '/(.*)', headers: paare({ ...kopfzeilen(), 'X-Robots-Tag': 'noindex' }) },
       ...CACHE.filter((c) => c.muster !== '/*').map((c) => ({ source: c.muster.replace(/\*/g, '(.*)'), headers: paare({ 'Cache-Control': c.wert, ...(c.extra || {}) }) })),
     ],
-    redirects: weiterleitungen.map((w) => ({ source: w.von, destination: w.nach, statusCode: 301 })),
+    redirects: weiterleitungen.map((w) => ({ source: w.von.endsWith('/') ? w.von : `${w.von}/`, destination: w.nach, statusCode: 301 })),
   };
 }
 

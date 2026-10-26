@@ -1,5 +1,5 @@
 // Einzige Quelle für CSP, Sicherheits-Header, Cache-Regeln und MIME-Typen.
-// Daraus entstehen _headers (Netlify/Cloudflare), .htaccess (Apache), nginx-Snippet und der Vorschau-Server.
+// Daraus entstehen _headers (Netlify/Cloudflare), .htaccess (Apache), nginx-Snippet, vercel.json (Test-Deploy) und der Vorschau-Server.
 
 export const CSP = {
   'default-src': ["'none'"],

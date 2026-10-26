@@ -31,8 +31,8 @@ Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML
 | (keiner) oder `--vorschau` | Vorschau mit `noindex`. Ohne Schalter ist das der Standard. |
 | `--messen` | Indexierbar, Basis-Adresse lokal (`http://127.0.0.1:<port>`), für die Messwerkzeuge in `_werkstatt/`. |
 | `--release` | Strikt. Basis-Adresse aus `betrieb.basisUrl`; `--ziel` ist Pflicht. |
-| `--vorkomprimieren` | Legt zu jeder Textdatei `.br` und `.gz` an (nur wenn kleiner) und entfernt verwaiste Varianten. Nur ohne `--ziel` oder mit `--ziel=apache\|nginx`; Netlify und Cloudflare komprimieren selbst. Der Prüfer `sicherheit` (S14) verlangt zu jeder Variante die Quelldatei mit gleichem Inhalt. Dauer: beim ersten Lauf etwa 1 bis 1,5 Minuten zusätzlich, danach wenige Sekunden. |
-| `--ziel=apache\|nginx\|netlify\|cloudflare` | Im Release: Apache `.htaccess` in der Ausgabe; Netlify und Cloudflare `_headers` und `_redirects`; nginx ein Snippet in `release/nginx/`, außerhalb der Ausgabe. In der Vorschau nur `netlify`, `cloudflare` oder `vercel` (Test-Deploy, siehe unten); `_headers` trägt dann zusätzlich `X-Robots-Tag: noindex`. |
+| `--vorkomprimieren` | Legt zu jeder Textdatei `.br` und `.gz` an (nur wenn kleiner) und entfernt verwaiste Varianten. Nur ohne `--ziel` oder, im Release und Messbau, mit `--ziel=apache\|nginx`; Netlify und Cloudflare komprimieren selbst. Der Prüfer `sicherheit` (S14) verlangt zu jeder Variante die Quelldatei mit gleichem Inhalt. Dauer: beim ersten Lauf etwa 1 bis 1,5 Minuten zusätzlich, danach wenige Sekunden. |
+| `--ziel=apache\|nginx\|netlify\|cloudflare\|vercel` | Im Release (ohne `vercel`): Apache `.htaccess` in der Ausgabe; Netlify und Cloudflare `_headers` und `_redirects`; nginx ein Snippet in `release/nginx/`, außerhalb der Ausgabe. In der Vorschau nur `netlify`, `cloudflare` oder `vercel` (Test-Deploy, siehe unten); `_headers` trägt dann zusätzlich `X-Robots-Tag: noindex`. |
 | `--basis=https://host` | Nur Vorschau: Adresse für Canonicals, Sitemap und `security.txt` statt `http://127.0.0.1:<port>`, etwa die Test-Domain beim Hoster. Die Seiten bleiben `noindex`. |
 | `--aus=<ordner>` | Ausgabeordner statt `dist/`, relativ zum Repository. Die Berichte liegen daneben, zum Beispiel `<ordner>.bau-bericht.json`. |
 | `--nur=<pfadpräfix>` | Nur Seiten mit diesem Pfadanfang (plus 404). Räumt die Ausgabe nicht auf. |
@@ -88,7 +88,7 @@ Der Build führt die Prüfer mit `--pruefen` aus; im Release sind Fehler blockie
 
 1. **Content-Security-Policy mit Trusted Types.** Ressourcen dürfen nur von der eigenen Domain kommen. `trusted-types 'none'` erlaubt keine eigenen Policies. Quelle: `src/konfig/sicherheit.mjs`.
 2. **Keine Drittanbieter, keine Cookies.** Skripte, Schriften, Bilder und Verbindungen kommen nur von der eigenen Domain. Der Quellcode setzt keine Cookies und nutzt keinen Browser-Speicher.
-3. **Sicherheits-Kopfzeilen aus einer Quelle.** `kopfzeilen()` in `src/konfig/sicherheit.mjs` liefert alle Header. Daraus entstehen `_headers`, `.htaccess`, das nginx-Snippet und der Vorschau-Server. Der Hoster muss die Header ausliefern; siehe [docs/HOSTER-CHECKLISTE.md](docs/HOSTER-CHECKLISTE.md).
+3. **Sicherheits-Kopfzeilen aus einer Quelle.** `kopfzeilen()` in `src/konfig/sicherheit.mjs` liefert alle Header. Daraus entstehen `_headers`, `.htaccess`, das nginx-Snippet, `vercel.json` (Test-Deploy) und der Vorschau-Server. Der Hoster muss die Header ausliefern; siehe [docs/HOSTER-CHECKLISTE.md](docs/HOSTER-CHECKLISTE.md).
 4. **Weiterleitungen nur geprüft.** Quelle und Ziel sind feste interne Pfade, das Ziel muss existieren, Ketten und Schleifen sind verboten (`bau/lib/hosting.mjs`).
 5. **Kontakt per `mailto:`.** Es gibt kein Formular-Backend. Die Kontaktseite erzeugt eine E-Mail. Die Richtlinie erlaubt für Formulare nur `mailto:`.
 

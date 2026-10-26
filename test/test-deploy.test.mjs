@@ -51,14 +51,15 @@ describe('vercel.json (Test-Deploy der Vorschau)', () => {
     assert.deepEqual(daten.headers, [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }, { key: 'X-Robots-Tag', value: 'noindex' }]);
   });
 
-  test('Bau nur dist/, Vorschau mit eigener Adresse; Weiterleitungen mit 301', () => {
+  test('Bau nur dist/, Vorschau mit eigener Adresse; Weiterleitungen mit 301, Quelle mit „/“ (trailingSlash greift vorher)', () => {
     const v = vercelVorschau([ok]);
     assert.equal(v.outputDirectory, 'dist');
     assert.equal(v.framework, null);
     assert.equal(v.trailingSlash, true);
     assert.match(v.buildCommand, /^node bau\/bauen\.mjs --ziel=vercel --basis=https:\/\//);
     assert.doesNotMatch(v.buildCommand, /--release|--messen/);
-    assert.deepEqual(v.redirects, [{ source: '/alt-seite', destination: '/notoeffnung/', statusCode: 301 }]);
+    assert.deepEqual(v.redirects, [{ source: '/alt-seite/', destination: '/notoeffnung/', statusCode: 301 }]);
+    assert.equal(vercelVorschau([{ von: '/alt/', nach: '/' }]).redirects[0].source, '/alt/');
   });
 
   test('das committete vercel.json ist aktuell (sonst: npm run hoster)', async () => {
@@ -71,6 +72,9 @@ describe('vercel.json (Test-Deploy der Vorschau)', () => {
     assert.match(toml, /^\s*command = "node bau\/bauen\.mjs --ziel=netlify --basis=\$URL"$/m);
     assert.match(toml, /^\s*publish = "dist"$/m);
     assert.doesNotMatch(toml, /--release|--messen/);
+    // Netlifys Geheimnis-Scan: nur die Rohdaten-Ordner ausgenommen, nicht die eigenen Quellen
+    const omit = toml.match(/^\s*SECRETS_SCAN_OMIT_PATHS = "(.*)"$/m)?.[1].split(',');
+    assert.deepEqual(omit, ['Richter Schlüsseldienst/', 'Schlüsseldienst Adam/']);
   });
 });
 

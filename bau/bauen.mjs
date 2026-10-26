@@ -105,7 +105,7 @@ async function main() {
     if (!/^https:\/\/[a-z0-9.-]+$/.test(arg.basis)) throw new Error(`--basis=${arg.basis} muss https://host ohne Pfad sein.`);
   }
   if (modus === 'vorschau' && arg.ziel) {
-    if (!['netlify', 'cloudflare', 'vercel'].includes(arg.ziel)) throw new Error(`Vorschau: --ziel=netlify|cloudflare|vercel (nicht ${arg.ziel}; Apache und nginx nur mit --release).`);
+    if (!['netlify', 'cloudflare', 'vercel'].includes(arg.ziel)) throw new Error(`Vorschau: --ziel=netlify|cloudflare|vercel (nicht ${arg.ziel}; Apache und nginx nur mit --release oder --messen).`);
     if (arg.ziel === 'vercel') {
       const ist = await readFile(join(WURZEL, 'vercel.json'), 'utf8').catch(() => '');
       if (ist !== vercelText(await weiterleitungenLesen(WURZEL))) throw new Error('vercel.json passt nicht zu src/konfig/sicherheit.mjs und den Weiterleitungen – mit „npm run hoster“ neu erzeugen.');

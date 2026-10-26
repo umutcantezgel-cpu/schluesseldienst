@@ -7,3 +7,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Netlifys Geheimnis-Scan durchsucht den ganzen Checkout; die Wettbewerber-Rohdaten enthalten einen fremden,
+  # öffentlichen Google-Schlüssel und würden den Deploy abbrechen. Ausgeliefert werden sie nie (nur dist/), und
+  # der Prüfer sicherheit sucht in dist/ selbst nach Schlüsselmustern.
+  SECRETS_SCAN_OMIT_PATHS = "Richter Schlüsseldienst/,Schlüsseldienst Adam/"
