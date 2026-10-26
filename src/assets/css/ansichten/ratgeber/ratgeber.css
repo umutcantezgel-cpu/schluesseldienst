@@ -15,7 +15,7 @@
   /* Dichte Kachel (K-009) mit Bildzeichen statt Kupferkante: Kupfer bleibt Kopflinie und Abschnittsmarke (P1) */
   .ratgeber-liste a { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon titel" "icon kurz"; align-content: start; column-gap: var(--sp-s); row-gap: var(--sp-2xs); padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); color: var(--c-tinte); text-decoration: none; }
   /* M-02 Überlagerung .10 und M-03 Drücken wie die Weiterlesen-Karten */
-  .ratgeber-liste a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .ratgeber-liste a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--c-lahn); /* Lahn statt Tinte: helle Karten wirken sonst grau wie deaktiviert */ opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
   .ratgeber-liste a:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
   .ratgeber-liste a:active { transform: scale(.98); }
   .ratgeber-liste a:active::before { opacity: var(--deck-aktiv); }

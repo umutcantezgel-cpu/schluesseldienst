@@ -474,8 +474,9 @@ function namensStelle(bel, [x, y], inhalt, groesse, { raster, schrift, linien, r
  * Richtung Weilburg und trägt die Entfernung. Klassen der Einsatzgebietskarte (gk-…) und der Lagekarte (lk-…), damit
  * Farben, Dunkelmodus und erzwungene Farben gleich bleiben. Liefert SVG, gezeigte Zonen und Ringe.
  * Rasterpunkte und Ringe gehören zur Belegung: Schrift steht nur auf freier Fläche, Namen im dichten Raster am Rand
- * mit Führungslinie. Einzig „Weilburg“ muss stehen; findet der Name keine freie Stelle, spart das Raster unter ihm aus
- * – wie schon um die Sitzmarke – und ein kreuzender Ring setzt dort aus.
+ * mit Führungslinie (namensStelle); unter der Linie spart das Raster aus. „Weilburg“ muss stehen; findet der Name
+ * keine freie Stelle, spart das Raster unter ihm aus – wie schon um die Sitzmarke. Kreuzt ein Ring „Weilburg“ oder
+ * einen der zwei Hauptnamen, setzt er dort aus.
  */
 export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl', titel, namenMax = 4 }) {
   const B = 360; const H = 240; const ZELLE = 6;

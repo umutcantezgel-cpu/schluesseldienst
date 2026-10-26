@@ -43,7 +43,7 @@
   .ueber-gruppen li:last-child { border-block-end: var(--linie-haar) solid var(--c-linie); }
   .ueber-gruppen a { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: baseline; align-content: center; gap: var(--sp-s); min-block-size: var(--ziel-min); padding-block: var(--sp-2xs); color: var(--c-tinte); text-decoration: none; }
   /* M-02 Überlagerung .10 und M-03 Drücken wie die Weiterlesen-Karten; die Fläche ragt in den Abstand, nicht in die Linie */
-  .ueber-gruppen a::before { content: ""; position: absolute; inset-block: var(--linie-haar) 0; inset-inline: calc(-1 * var(--sp-2xs)); z-index: -1; border-radius: var(--r-s); background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .ueber-gruppen a::before { content: ""; position: absolute; inset-block: var(--linie-haar) 0; inset-inline: calc(-1 * var(--sp-2xs)); z-index: -1; border-radius: var(--r-s); background: var(--c-lahn); opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
   .ueber-gruppen a:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
   .ueber-gruppen a:active { transform: scale(.98); }
   .ueber-gruppen a:active::before { opacity: var(--deck-aktiv); }
