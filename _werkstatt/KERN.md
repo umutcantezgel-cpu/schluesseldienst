@@ -107,7 +107,7 @@ Technik: nur `transform`/`opacity`; CSS `@layer bewegung`; Startzustände nur in
 | M-03 | Rückmeldung | `:active` (Knopf, Rufknopf, Wahl, Karten- und Listenlinks) | scale .98, sofort ohne Übergang: der Druck folgt dem Finger (Abschluss-Nachprüfung) | nur Überlagerung |
 | M-04 | Orientierung | Rufleisten-Status | keine Animation (bewusst, P2) | – |
 | M-05 | Zustand | Navigations-Panel (Aufklapper-Pfeil dreht mit); Gruppenfilter /leistungen/ (nach einem Wechsel eingeblendete Gruppen) | Deckkraft + Y −8px, zustand / zustand-aus | Deckkraft, feedback |
-| M-06 | Zustand | Menü-Blatt (`@starting-style`) | Y 100%→0, zustand (300ms) ein / 240ms aus; Hintergrund Deckkraft | Deckkraft 150ms |
+| M-06 | Zustand | Menü-Blatt (`@starting-style`; Ausgang über `display`/`overlay` mit `allow-discrete`) | Y 100%→0, zustand (300ms) ein / 240ms aus; Hintergrund Deckkraft | Deckkraft 150ms ein / 120ms aus |
 | M-07 | Zustand | FAQ öffnen; Anliegen-Wahl im Composer (Notfall- und Mail-Zweig, nur nach einer Wahl, nie beim Laden) | Inhalt Deckkraft + Y −4px, zustand; Chevron dreht | sofort (auch der Chevron) |
 | M-08 | Rückmeldung | Combobox-Liste | Deckkraft + Y −4px, feedback | sofort |
 | M-09 | Rückmeldung | Feldfehler / Fehlerübersicht; Composer-Hinweis „ohne Adresse“ | Deckkraft, feedback; kein Schütteln | sofort |

@@ -21,17 +21,23 @@
     background: var(--c-flaeche); border-block-start: var(--linie-haar) solid var(--c-linie-ui);
   }
   .menue-blatt-ruf .rufknopf { flex: 1; }
+  /* M-06: Auftritt und Ausgang; der Ausgang hält das Blatt mit display/overlay (allow-discrete) bis zum Ende in der
+     obersten Ebene, sonst verschwände es beim Schließen sofort */
   @media (prefers-reduced-motion: no-preference) {
-    .menue-blatt[open] { transition: transform var(--dur-zustand) var(--ease-ein), display var(--dur-zustand) allow-discrete, overlay var(--dur-zustand) allow-discrete; }
+    .menue-blatt { transform: translateY(100%); transition: transform var(--dur-zustand-aus) var(--ease-aus), display var(--dur-zustand-aus) allow-discrete, overlay var(--dur-zustand-aus) allow-discrete; }
+    .menue-blatt[open] { transform: none; transition: transform var(--dur-zustand) var(--ease-ein), display var(--dur-zustand) allow-discrete, overlay var(--dur-zustand) allow-discrete; }
     @starting-style { .menue-blatt[open] { transform: translateY(100%); } }
-    .menue-blatt[open]::backdrop { transition: opacity var(--dur-zustand) var(--ease-standard); }
+    .menue-blatt::backdrop { opacity: 0; transition: opacity var(--dur-zustand-aus) var(--ease-standard), display var(--dur-zustand-aus) allow-discrete, overlay var(--dur-zustand-aus) allow-discrete; }
+    .menue-blatt[open]::backdrop { opacity: 1; transition: opacity var(--dur-zustand) var(--ease-standard); }
     @starting-style { .menue-blatt[open]::backdrop { opacity: 0; } }
   }
-  /* M-06 bei reduzierter Bewegung: das Blatt blendet nur ein (Deckkraft, Rückmeldungsdauer) */
+  /* M-06 bei reduzierter Bewegung: das Blatt blendet nur ein und aus (Deckkraft, Rückmeldungsdauer) */
   @media (prefers-reduced-motion: reduce) {
-    .menue-blatt[open] { transition: opacity var(--dur-feedback) var(--ease-standard), display var(--dur-feedback) allow-discrete, overlay var(--dur-feedback) allow-discrete; }
+    .menue-blatt { opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard), display var(--dur-feedback-aus) allow-discrete, overlay var(--dur-feedback-aus) allow-discrete; }
+    .menue-blatt[open] { opacity: 1; transition: opacity var(--dur-feedback) var(--ease-standard), display var(--dur-feedback) allow-discrete, overlay var(--dur-feedback) allow-discrete; }
     @starting-style { .menue-blatt[open] { opacity: 0; } }
-    .menue-blatt[open]::backdrop { transition: opacity var(--dur-feedback) var(--ease-standard); }
+    .menue-blatt::backdrop { opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard), display var(--dur-feedback-aus) allow-discrete, overlay var(--dur-feedback-aus) allow-discrete; }
+    .menue-blatt[open]::backdrop { opacity: 1; transition: opacity var(--dur-feedback) var(--ease-standard); }
     @starting-style { .menue-blatt[open]::backdrop { opacity: 0; } }
   }
 }

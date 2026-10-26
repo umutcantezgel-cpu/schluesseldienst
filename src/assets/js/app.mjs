@@ -25,14 +25,5 @@ function starten() {
   }
 }
 
-// M-15: Überspringt der Browser einen Seitenwechsel-Übergang (etwa wenn die Navigation per Skript während eines
-// laufenden Übergangs startet), lehnt er dessen Promises ab. Das ist kein Fehler der Seite und gehört nicht in die Konsole.
-function uebergangStill(e) {
-  const vt = e.viewTransition;
-  if (vt) for (const p of [vt.ready, vt.finished, vt.updateCallbackDone]) p?.catch(() => {});
-}
-addEventListener('pageswap', uebergangStill);
-addEventListener('pagereveal', uebergangStill);
-
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', starten, { once: true });
 else starten();

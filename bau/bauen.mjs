@@ -158,12 +158,19 @@ async function main() {
   const favPfad = `/assets/favicon.${hash10(favBuf)}.svg`;
   await schreiber.schreibe(favPfad, favBuf);
   const schriftVorladen = [...karte.entries()].find(([q]) => /atkinson-next-latin-wght/.test(q))?.[1] || null;
+  // Kopf-Skript (klassisch, nach den Stil-Links): hält den Parser bis zu den Stylesheets an, damit der Seitenwechsel-Opt-in
+  // beim Einfügen von <body> feststeht (D-E5-03). Kommentare fallen weg, die Datei bleibt ein paar hundert Byte klein.
+  const kopfText = (await readFile(join(WURZEL, 'src/assets/js/kopf.js'), 'utf8')).replace(/^\s*\/\/.*\n/gm, '');
+  const kopfBuf = Buffer.from(kopfText, 'utf8');
+  const kopfPfad = `/assets/kopf.${hash10(kopfBuf)}.js`;
+  await schreiber.schreibe(kopfPfad, kopfBuf);
   const assets = {
     css: { pfad: cssPfad, sri: sri(cssBuf), bytes: cssBuf.length },
     ansichten,
     sonderstile,
     js: JS_MARKE, // nach dem Rendern: größtes Bündel; alle Bündel in jsBuendel
     favicon: favPfad,
+    kopf: { pfad: kopfPfad, sri: sri(kopfBuf) },
     schriftVorladen,
     pfad(quelle, { optional = false } = {}) {
       if (karte.has(quelle)) return karte.get(quelle);
