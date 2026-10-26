@@ -1,0 +1,63 @@
+{
+  "werkzeug": "n2-groesse-rest",
+  "methode": "gzip -9: python gzip.compress(level 9, mtime 0) und CLI gzip -9 -n (Kreuzprüfung)",
+  "module_quelle": {
+    "abspielen": {
+      "datei": "src/assets/js/module/abspielen.mjs",
+      "roh_bytes": 780,
+      "gz9_py": 465,
+      "gz9_cli": 465
+    },
+    "szene": {
+      "datei": "src/assets/js/module/szene.mjs",
+      "roh_bytes": 1171,
+      "gz9_py": 571,
+      "gz9_cli": 571
+    },
+    "tagesband": {
+      "datei": "src/assets/js/module/tagesband.mjs",
+      "roh_bytes": 2834,
+      "gz9_py": 1310,
+      "gz9_cli": 1310
+    }
+  },
+  "module_summe_alle_drei_einzeln_gz9": 2346,
+  "module_summe_bewegung_abspielen_szene_einzeln_gz9": 1036,
+  "module_verkettet_alle_drei_gz9": 2033,
+  "build_css": {
+    "datei": ".cache/e5-abschluss/dist/assets/app.b4d5c9c199.css",
+    "roh_bytes": 53704,
+    "gz9_gesamt": 10637,
+    "kommentare_im_build": 0
+  },
+  "build_css_bewegungsanteil": {
+    "layer_bewegung_bloecke": 1,
+    "layer_bewegung_roh": 6431,
+    "layer_bewegung_gz9": 1290,
+    "keyframes_gesamt": 15,
+    "keyframes_innerhalb_layer": 14,
+    "keyframes_ausserhalb_layer": 1,
+    "keyframes_ausserhalb_roh": 72,
+    "anteil_roh": 6505,
+    "anteil_gz9_py": 1313,
+    "anteil_gz9_cli": 1313,
+    "anteil_datei": "/home/user/schluesseldienst/.cache/e5-abschluss/n2-bewegung/rest-css-bewegungsanteil.css"
+  },
+  "zusatz_uebergaenge_ausserhalb_layer_naeherung": {
+    "zeilen": 70,
+    "roh": 3767,
+    "gz9_py": 782,
+    "hinweis": "Näherung: Zeilen mit transition/animation/starting-style/view-transition außerhalb der Layer-Blöcke (Build ist zeilenweise)"
+  },
+  "summe": {
+    "css_anteil_gz9": 1313,
+    "bewegung_rein_css_plus_abspielen_plus_szene_einzeln_gz9": 2349,
+    "bewegung_plus_tagesband_einzeln_gz9_obergrenze": 3659,
+    "bewegung_rein_css_plus_abspielen_plus_szene_verkettet_naeherung": null,
+    "budget_weich_gz": 12288,
+    "budget_hart_gz": 61440,
+    "abstand_zu_weich_bewegung_rein": 9939,
+    "anteil_an_hart_prozent": 3.8,
+    "anteil_an_weich_prozent": 19.1
+  }
+}

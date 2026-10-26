@@ -1,0 +1,468 @@
+{
+  "werkzeug": "n2-bestand-seitenwechsel",
+  "teil": "skript",
+  "basis": "http://127.0.0.1:4251",
+  "zeitpunkt": "2026-10-26T07:27:03.180Z",
+  "ereignisseGesamt": 36,
+  "pageerror": 6,
+  "consoleError": 30,
+  "erwarteterNotfound404": 30,
+  "zaehlendGesamt": 6,
+  "viewTransitionMeldungen": 6,
+  "zaehlend": [
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    }
+  ],
+  "laeufe": [
+    {
+      "lauf": 1,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 2,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 3,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 4,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 5,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 6,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 7,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 8,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 9,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ]
+    },
+    {
+      "lauf": 10,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 11,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 12,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ]
+    },
+    {
+      "lauf": 13,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 14,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 15,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ]
+    },
+    {
+      "lauf": 16,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 17,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 18,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ]
+    },
+    {
+      "lauf": 19,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 20,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 21,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 22,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 23,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ]
+    },
+    {
+      "lauf": 24,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 25,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 26,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 27,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 28,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    },
+    {
+      "lauf": 29,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ]
+    },
+    {
+      "lauf": 30,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ]
+    }
+  ],
+  "erfolgreich": 30,
+  "laufAnzahl": 30
+}

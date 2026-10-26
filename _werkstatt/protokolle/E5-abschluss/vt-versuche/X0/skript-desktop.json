@@ -1,0 +1,1649 @@
+{
+  "werkzeug": "vt-probe",
+  "basis": "http://127.0.0.1:4251",
+  "teil": "skript",
+  "geraet": "desktop",
+  "frueh": false,
+  "zeitpunkt": "2026-10-26T08:42:55.386Z",
+  "wechsel": 30,
+  "erfolgreich": 30,
+  "zaehlend": 4,
+  "pageerror": 4,
+  "viewTransitionMeldungen": 4,
+  "diagnose": {
+    "pageswapMitVt": 30,
+    "pagerevealMitVt": 26,
+    "pagerevealMitVtModulSchonGelaufen": 26,
+    "unhandledrejection": [
+      {
+        "pfad": "/schluesseldienst-loehnberg/",
+        "t": 123,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": true,
+        "stile": 4
+      },
+      {
+        "pfad": "/schluesseldienst-loehnberg/",
+        "t": 176,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": false,
+        "stile": 4
+      },
+      {
+        "pfad": "/schluesseldienst-loehnberg/",
+        "t": 147,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": true,
+        "stile": 4
+      },
+      {
+        "pfad": "/schluesseldienst-loehnberg/",
+        "t": 133,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": true,
+        "stile": 4
+      }
+    ],
+    "abgefangen": []
+  },
+  "zaehlendeEreignisse": [
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    }
+  ],
+  "laeufe": [
+    {
+      "lauf": 1,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 377,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 440,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 1513,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 337,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 2,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 76,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 107,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 941,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 103,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 3,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 91,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 125,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 867,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 84,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 123,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 4,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 58,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 119,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 913,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 96,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 5,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 75,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 91,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 887,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 152,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 6,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 48,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 107,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 966,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 101,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 7,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 61,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 77,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 955,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 127,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 8,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 58,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 107,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 878,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 109,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 9,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 52,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 97,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 971,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 103,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 10,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 560,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 1493,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 140,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 176,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 11,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 62,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 81,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 925,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 116,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 12,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 73,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 130,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 910,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 104,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 13,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 64,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 97,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 885,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 108,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 14,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 59,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 112,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 943,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 100,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 15,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 62,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 89,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 889,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 119,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 16,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 71,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 81,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 876,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 95,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 17,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 64,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 114,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 945,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 124,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 18,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 60,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 108,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 936,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 113,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 19,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 89,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 93,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 896,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 106,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 20,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 61,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 119,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 848,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 110,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 21,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 77,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 89,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 870,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 108,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 22,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 55,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 89,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 919,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 115,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 23,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 76,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 119,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 892,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 121,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 147,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 24,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 61,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 115,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 937,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 111,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 25,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 75,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 114,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 978,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 152,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 26,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 63,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 83,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 927,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 123,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 27,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 63,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 118,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 1043,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 166,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 28,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 194,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 968,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 123,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 29,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 82,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 136,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 902,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 98,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 133,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "lauf": 30,
+      "ziel": "/schluesseldienst-loehnberg/",
+      "erfolg": true,
+      "aktion": null,
+      "ereignisse": [
+        {
+          "art": "console.error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "ort": "http://127.0.0.1:4251/gibt-es-nicht/"
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 74,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 83,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/gibt-es-nicht/",
+          "t": 996,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/schluesseldienst-loehnberg/",
+          "t": 134,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    }
+  ]
+}

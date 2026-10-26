@@ -1,0 +1,570 @@
+{
+  "werkzeug": "smoke",
+  "basis": "http://127.0.0.1:4254/",
+  "zeitpunkt": "2026-10-26T07:23:01.070Z",
+  "befundeGesamt": 6,
+  "ergebnisse": [
+    {
+      "pfad": "/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Schlüsseldienst Weilburg: Türöffnung, Schlösser, Sicherheit",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Schlüsseldienst Weilburg: Türöffnung, Schlösser, Sicherheit",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/einbruchschutz/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Einbruchschutz Weilburg: Tür, Fenster, Zylinder",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/einbruchschutz/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Einbruchschutz Weilburg: Tür, Fenster, Zylinder",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/notoeffnung/tueroeffnung/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Türöffnung in Weilburg: zugefallen oder abgeschlossen",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/notoeffnung/tueroeffnung/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Türöffnung in Weilburg: zugefallen oder abgeschlossen",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/preise/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Schlüsseldienst Preise: Gesamtpreise ab Weilburg",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/preise/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Schlüsseldienst Preise: Gesamtpreise ab Weilburg",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/einsatzgebiet/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Einsatzgebiet: Schlüsseldienst ab Weilburg nach Zonen",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/einsatzgebiet/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Einsatzgebiet: Schlüsseldienst ab Weilburg nach Zonen",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Schlüsseldienst Landkreis Limburg-Weilburg: Orte A–Z",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Schlüsseldienst Landkreis Limburg-Weilburg: Orte A–Z",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/schluesseldienst-loehnberg/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Schlüsseldienst Löhnberg: Türöffnung, Schlösser, Sicherheit",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/schluesseldienst-loehnberg/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Schlüsseldienst Löhnberg: Türöffnung, Schlösser, Sicherheit",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/ratgeber/rauchmelderpflicht/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Rauchmelderpflicht: wer, wo und was in Hessen gilt",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/ratgeber/rauchmelderpflicht/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Rauchmelderpflicht: wer, wo und was in Hessen gilt",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/ueber-uns/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Über uns: Schlüsseldienst in Weilburg",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/ueber-uns/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Über uns: Schlüsseldienst in Weilburg",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/kontakt/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Kontakt: Schlüsseldienst in Weilburg erreichen",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/kontakt/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Kontakt: Schlüsseldienst in Weilburg erreichen",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/suche/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Suche: Leistungen, Ratgeber und Orte",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/suche/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Suche: Leistungen, Ratgeber und Orte",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/impressum/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Impressum",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/impressum/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 200,
+      "fremdeAnfragen": [],
+      "unterressourcen": [],
+      "konsole": {
+        "fehler": [],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Impressum",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": []
+    },
+    {
+      "pfad": "/gibt-es-nicht/",
+      "viewport": "mobil",
+      "breite": 390,
+      "hoehe": 844,
+      "status": 404,
+      "fremdeAnfragen": [],
+      "unterressourcen": [
+        "404 http://127.0.0.1:4254/gibt-es-nicht/"
+      ],
+      "konsole": {
+        "fehler": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        ],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Seite nicht gefunden",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": [
+        "Hauptdokument Status 404",
+        "Unterressource: 404 http://127.0.0.1:4254/gibt-es-nicht/",
+        "Konsolenfehler: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    },
+    {
+      "pfad": "/gibt-es-nicht/",
+      "viewport": "desktop",
+      "breite": 1440,
+      "hoehe": 900,
+      "status": 404,
+      "fremdeAnfragen": [],
+      "unterressourcen": [
+        "404 http://127.0.0.1:4254/gibt-es-nicht/"
+      ],
+      "konsole": {
+        "fehler": [
+          "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        ],
+        "warnungen": []
+      },
+      "csp": {
+        "konsole": [],
+        "ereignis": []
+      },
+      "titel": "Seite nicht gefunden",
+      "h1Anzahl": 1,
+      "skript": [],
+      "befunde": [
+        "Hauptdokument Status 404",
+        "Unterressource: 404 http://127.0.0.1:4254/gibt-es-nicht/",
+        "Konsolenfehler: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ]
+    }
+  ]
+}

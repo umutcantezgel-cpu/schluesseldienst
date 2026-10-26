@@ -1,0 +1,41 @@
+{
+  "werkzeug": "n2-bestand-seitenwechsel",
+  "teil": "skript",
+  "basis": "http://127.0.0.1:4251",
+  "zeitpunkt": "2026-10-26T07:25:27.679Z",
+  "ereignisseGesamt": 35,
+  "pageerror": 5,
+  "consoleError": 30,
+  "erwarteterNotfound404": 30,
+  "zaehlendGesamt": 5,
+  "viewTransitionMeldungen": 5,
+  "zaehlend": [
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    }
+  ],
+  "laeufe": 30,
+  "erfolgreich": 30
+}

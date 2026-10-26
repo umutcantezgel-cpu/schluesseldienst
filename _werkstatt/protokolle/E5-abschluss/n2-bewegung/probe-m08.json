@@ -1,0 +1,944 @@
+{
+  "werkzeug": "n2-probe-m08",
+  "zeitpunkt": "2026-10-26T07:34:06.649Z",
+  "laeufe": [
+    {
+      "modus": "no-preference",
+      "proben": [
+        {
+          "probe": "takt0",
+          "t_ms": 0,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt1",
+          "t_ms": 33,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt2",
+          "t_ms": 60,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt3",
+          "t_ms": 116,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt4",
+          "t_ms": 142,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt5",
+          "t_ms": 167,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt6",
+          "t_ms": 199,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "0.533018",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.86793)",
+          "li_anzahl": 1,
+          "animationen": [
+            {
+              "art": "CSSAnimation",
+              "name": "m-feedback-ein",
+              "eigenschaft": null,
+              "dauer": 150,
+              "zeit_ms": 17
+            }
+          ]
+        },
+        {
+          "probe": "takt7",
+          "t_ms": 225,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "0.90287",
+          "transform": "matrix(1, 0, 0, 1, 0, -0.388519)",
+          "li_anzahl": 1,
+          "animationen": [
+            {
+              "art": "CSSAnimation",
+              "name": "m-feedback-ein",
+              "eigenschaft": null,
+              "dauer": 150,
+              "zeit_ms": 50
+            }
+          ]
+        },
+        {
+          "probe": "takt8",
+          "t_ms": 250,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "0.95664",
+          "transform": "matrix(1, 0, 0, 1, 0, -0.173439)",
+          "li_anzahl": 1,
+          "animationen": [
+            {
+              "art": "CSSAnimation",
+              "name": "m-feedback-ein",
+              "eigenschaft": null,
+              "dauer": 150,
+              "zeit_ms": 67
+            }
+          ]
+        },
+        {
+          "probe": "takt9",
+          "t_ms": 276,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "0.993757",
+          "transform": "matrix(1, 0, 0, 1, 0, -0.0249739)",
+          "li_anzahl": 1,
+          "animationen": [
+            {
+              "art": "CSSAnimation",
+              "name": "m-feedback-ein",
+              "eigenschaft": null,
+              "dauer": 150,
+              "zeit_ms": 100
+            }
+          ]
+        },
+        {
+          "probe": "takt10",
+          "t_ms": 301,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "0.998431",
+          "transform": "matrix(1, 0, 0, 1, 0, -0.00627538)",
+          "li_anzahl": 1,
+          "animationen": [
+            {
+              "art": "CSSAnimation",
+              "name": "m-feedback-ein",
+              "eigenschaft": null,
+              "dauer": 150,
+              "zeit_ms": 117
+            }
+          ]
+        },
+        {
+          "probe": "takt11",
+          "t_ms": 327,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "matrix(1, 0, 0, 1, 0, -8.88178e-15)",
+          "li_anzahl": 1,
+          "animationen": [
+            {
+              "art": "CSSAnimation",
+              "name": "m-feedback-ein",
+              "eigenschaft": null,
+              "dauer": 150,
+              "zeit_ms": 150
+            }
+          ]
+        },
+        {
+          "probe": "takt12",
+          "t_ms": 352,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt13",
+          "t_ms": 377,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt14",
+          "t_ms": 402,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt15",
+          "t_ms": 428,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt16",
+          "t_ms": 453,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt17",
+          "t_ms": 478,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt18",
+          "t_ms": 504,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt19",
+          "t_ms": 529,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt20",
+          "t_ms": 554,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt21",
+          "t_ms": 580,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt22",
+          "t_ms": 605,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt23",
+          "t_ms": 630,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt24",
+          "t_ms": 655,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt25",
+          "t_ms": 681,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt26",
+          "t_ms": 706,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt27",
+          "t_ms": 731,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt28",
+          "t_ms": 757,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt29",
+          "t_ms": 782,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt30",
+          "t_ms": 811,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt31",
+          "t_ms": 836,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt32",
+          "t_ms": 862,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt33",
+          "t_ms": 887,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt34",
+          "t_ms": 912,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt35",
+          "t_ms": 938,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt36",
+          "t_ms": 963,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt37",
+          "t_ms": 988,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt38",
+          "t_ms": 1013,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt39",
+          "t_ms": 1039,
+          "hidden": false,
+          "display": "block",
+          "animationName": "m-feedback-ein",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        }
+      ]
+    },
+    {
+      "modus": "reduce",
+      "proben": [
+        {
+          "probe": "takt0",
+          "t_ms": 0,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt1",
+          "t_ms": 27,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt2",
+          "t_ms": 97,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt3",
+          "t_ms": 122,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt4",
+          "t_ms": 147,
+          "hidden": true,
+          "display": "none",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 0,
+          "animationen": []
+        },
+        {
+          "probe": "takt5",
+          "t_ms": 173,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt6",
+          "t_ms": 198,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt7",
+          "t_ms": 223,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt8",
+          "t_ms": 249,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt9",
+          "t_ms": 274,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt10",
+          "t_ms": 299,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt11",
+          "t_ms": 325,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt12",
+          "t_ms": 350,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt13",
+          "t_ms": 375,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt14",
+          "t_ms": 401,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt15",
+          "t_ms": 426,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt16",
+          "t_ms": 451,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt17",
+          "t_ms": 477,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt18",
+          "t_ms": 502,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt19",
+          "t_ms": 527,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt20",
+          "t_ms": 552,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt21",
+          "t_ms": 578,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt22",
+          "t_ms": 603,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt23",
+          "t_ms": 629,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt24",
+          "t_ms": 654,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt25",
+          "t_ms": 679,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt26",
+          "t_ms": 705,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt27",
+          "t_ms": 730,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt28",
+          "t_ms": 755,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt29",
+          "t_ms": 781,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt30",
+          "t_ms": 806,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt31",
+          "t_ms": 831,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt32",
+          "t_ms": 856,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt33",
+          "t_ms": 882,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt34",
+          "t_ms": 907,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt35",
+          "t_ms": 932,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt36",
+          "t_ms": 957,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt37",
+          "t_ms": 983,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt38",
+          "t_ms": 1008,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        },
+        {
+          "probe": "takt39",
+          "t_ms": 1033,
+          "hidden": false,
+          "display": "block",
+          "animationName": "none",
+          "opacity": "1",
+          "transform": "none",
+          "li_anzahl": 1,
+          "animationen": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,544 @@
+{
+  "werkzeug": "n2-bestand-seitenwechsel",
+  "teil": "links",
+  "basis": "http://127.0.0.1:4251",
+  "zeitpunkt": "2026-10-26T07:28:24.839Z",
+  "ereignisseGesamt": 8,
+  "pageerror": 8,
+  "consoleError": 0,
+  "erwarteterNotfound404": 0,
+  "zaehlendGesamt": 8,
+  "viewTransitionMeldungen": 8,
+  "zaehlend": [
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    }
+  ],
+  "ketten": [
+    {
+      "kette": 1,
+      "wege": [
+        {
+          "schritt": 1,
+          "von": "/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ]
+        },
+        {
+          "schritt": 2,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 3,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 4,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 5,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 6,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 7,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 8,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ]
+        },
+        {
+          "schritt": 9,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 10,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 11,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ]
+        },
+        {
+          "schritt": 12,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 13,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ]
+        },
+        {
+          "schritt": 14,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 15,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ]
+        },
+        {
+          "schritt": 16,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 17,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 18,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 19,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ]
+        },
+        {
+          "schritt": 20,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 21,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 22,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 23,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 24,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        }
+      ],
+      "ereignisse": [
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ]
+    },
+    {
+      "kette": 2,
+      "wege": [
+        {
+          "schritt": 1,
+          "von": "/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 2,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 3,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 4,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 5,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ]
+        },
+        {
+          "schritt": 6,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 7,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 8,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 9,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 10,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 11,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 12,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 13,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ]
+        },
+        {
+          "schritt": 14,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 15,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 16,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 17,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 18,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 19,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 20,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 21,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 22,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 23,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        },
+        {
+          "schritt": 24,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": []
+        }
+      ],
+      "ereignisse": [
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ]
+    }
+  ],
+  "navigationen": 48,
+  "navigationenErfolgreich": 48
+}

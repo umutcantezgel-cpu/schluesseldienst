@@ -1,0 +1,2760 @@
+{
+  "werkzeug": "vt-probe",
+  "basis": "http://127.0.0.1:4251",
+  "teil": "links",
+  "geraet": "desktop",
+  "frueh": true,
+  "zeitpunkt": "2026-10-26T08:46:57.861Z",
+  "wechsel": 48,
+  "erfolgreich": 48,
+  "zaehlend": 11,
+  "pageerror": 11,
+  "viewTransitionMeldungen": 11,
+  "diagnose": {
+    "pageswapMitVt": 48,
+    "pagerevealMitVt": 37,
+    "pagerevealMitVtModulSchonGelaufen": 37,
+    "unhandledrejection": [
+      {
+        "pfad": "/notoeffnung/tueroeffnung/",
+        "t": 143,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": false,
+        "stile": 4
+      },
+      {
+        "pfad": "/",
+        "t": 106,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": false,
+        "stile": 4
+      },
+      {
+        "pfad": "/preise/",
+        "t": 107,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": true,
+        "stile": 4
+      },
+      {
+        "pfad": "/notoeffnung/tueroeffnung/",
+        "t": 144,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": true,
+        "stile": 4
+      },
+      {
+        "pfad": "/",
+        "t": 122,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": true,
+        "stile": 4
+      },
+      {
+        "pfad": "/notoeffnung/tueroeffnung/",
+        "t": 145,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": true,
+        "stile": 4
+      },
+      {
+        "pfad": "/einbruchschutz/",
+        "t": 116,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": true,
+        "stile": 4
+      },
+      {
+        "pfad": "/einbruchschutz/",
+        "t": 120,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": false,
+        "stile": 4
+      },
+      {
+        "pfad": "/notoeffnung/tueroeffnung/",
+        "t": 127,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": true,
+        "stile": 4
+      },
+      {
+        "pfad": "/notoeffnung/tueroeffnung/",
+        "t": 133,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": true,
+        "stile": 4
+      },
+      {
+        "pfad": "/einbruchschutz/",
+        "t": 111,
+        "ev": "unhandledrejection",
+        "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+        "bereit": "interactive",
+        "js": false,
+        "stile": 4
+      }
+    ],
+    "abgefangen": []
+  },
+  "zaehlendeEreignisse": [
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    },
+    {
+      "art": "pageerror",
+      "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+      "ort": ""
+    }
+  ],
+  "ketten": [
+    {
+      "kette": 1,
+      "wege": [
+        {
+          "schritt": 1,
+          "von": "/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 863,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 145,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 2,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1544,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 95,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 3,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1562,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 109,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 4,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1542,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 105,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 5,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1546,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 148,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 6,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1567,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 136,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 7,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1584,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 91,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 8,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1543,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 81,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 9,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1497,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 118,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 143,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 10,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1565,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 79,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 106,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 11,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1575,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 103,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 12,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1521,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 109,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 13,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1537,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 143,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 14,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1581,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 103,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 15,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1549,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 96,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 16,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1536,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 76,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 107,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 17,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1563,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 114,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 144,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 18,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1595,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 88,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 122,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 19,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1582,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 91,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 20,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1533,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 101,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 21,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1565,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 120,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 145,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 22,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1581,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 92,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 23,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1539,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 93,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 116,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 24,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1537,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 108,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        }
+      ],
+      "ereignisse": [
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 91,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/",
+          "t": 131,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 863,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 145,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1544,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 95,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1562,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 109,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1542,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 105,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1546,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 148,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1567,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 136,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1584,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 91,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1543,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 81,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1497,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 118,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 143,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1565,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 79,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 106,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1575,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 103,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1521,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 109,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1537,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 143,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1581,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 103,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1549,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 96,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1536,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 76,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 107,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1563,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 114,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 144,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1595,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 88,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 122,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1582,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 91,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1533,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 101,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1565,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 120,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 145,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1581,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 92,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1539,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 93,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 116,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1537,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 108,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    },
+    {
+      "kette": 2,
+      "wege": [
+        {
+          "schritt": 1,
+          "von": "/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 854,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 133,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 2,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1558,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 91,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 3,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1537,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 95,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 120,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 4,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1561,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 110,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 5,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1549,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 107,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 6,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1544,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 102,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 7,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1553,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 94,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 8,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1527,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 86,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 9,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1508,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 107,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 10,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1542,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 93,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 11,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1528,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 98,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 12,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1576,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 111,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 13,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1577,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 110,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 14,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1512,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 86,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 15,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1521,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 94,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 16,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1528,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 107,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 17,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1537,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 108,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 127,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 18,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1579,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 135,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 19,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1598,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 125,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 20,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1570,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 121,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 21,
+          "von": "/preise/",
+          "nach": "/notoeffnung/tueroeffnung/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/preise/",
+              "t": 1605,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 113,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            },
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 133,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 22,
+          "von": "/notoeffnung/tueroeffnung/",
+          "nach": "/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/notoeffnung/tueroeffnung/",
+              "t": 1550,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/",
+              "t": 108,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 23,
+          "von": "/",
+          "nach": "/einbruchschutz/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [
+            {
+              "art": "pageerror",
+              "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "ort": ""
+            }
+          ],
+          "diag": [
+            {
+              "pfad": "/",
+              "t": 1567,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 91,
+              "ev": "pagereveal",
+              "vt": false,
+              "bereit": "interactive",
+              "js": false,
+              "stile": 2
+            },
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 111,
+              "ev": "unhandledrejection",
+              "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+              "bereit": "interactive",
+              "js": false,
+              "stile": 4
+            }
+          ]
+        },
+        {
+          "schritt": 24,
+          "von": "/einbruchschutz/",
+          "nach": "/preise/",
+          "erfolg": true,
+          "aktion": null,
+          "ereignisse": [],
+          "diag": [
+            {
+              "pfad": "/einbruchschutz/",
+              "t": 1543,
+              "ev": "pageswap",
+              "vt": true,
+              "bereit": "complete",
+              "js": true,
+              "stile": 4
+            },
+            {
+              "pfad": "/preise/",
+              "t": 120,
+              "ev": "pagereveal",
+              "vt": true,
+              "bereit": "interactive",
+              "js": true,
+              "stile": 4
+            }
+          ]
+        }
+      ],
+      "ereignisse": [
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        },
+        {
+          "art": "pageerror",
+          "text": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "ort": ""
+        }
+      ],
+      "diag": [
+        {
+          "pfad": "blank",
+          "t": 83,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "complete",
+          "js": false,
+          "stile": 0
+        },
+        {
+          "pfad": "/",
+          "t": 101,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/",
+          "t": 854,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 133,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1558,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 91,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1537,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 95,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 120,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1561,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 110,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1549,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 107,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1544,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 102,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1553,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 94,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1527,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 86,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1508,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 107,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1542,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 93,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1528,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 98,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1576,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 111,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1577,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 110,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1512,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 86,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1521,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 94,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1528,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 107,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1537,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 108,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 127,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1579,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 135,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1598,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 125,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1570,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 121,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 1605,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 113,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 133,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/notoeffnung/tueroeffnung/",
+          "t": 1550,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 108,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/",
+          "t": 1567,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 91,
+          "ev": "pagereveal",
+          "vt": false,
+          "bereit": "interactive",
+          "js": false,
+          "stile": 2
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 111,
+          "ev": "unhandledrejection",
+          "grund": "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
+          "bereit": "interactive",
+          "js": false,
+          "stile": 4
+        },
+        {
+          "pfad": "/einbruchschutz/",
+          "t": 1543,
+          "ev": "pageswap",
+          "vt": true,
+          "bereit": "complete",
+          "js": true,
+          "stile": 4
+        },
+        {
+          "pfad": "/preise/",
+          "t": 120,
+          "ev": "pagereveal",
+          "vt": true,
+          "bereit": "interactive",
+          "js": true,
+          "stile": 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,950 @@
+{
+  "werkzeug": "n2-bewegung",
+  "modus": "laden",
+  "zeitpunkt": "2026-10-26T07:34:51.663Z",
+  "basis": "http://127.0.0.1:4251",
+  "laden": [
+    {
+      "geraet": "mobil",
+      "pfad": "/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 195,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/einbruchschutz/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 140,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/notoeffnung/tueroeffnung/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 132,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/preise/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 227,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/einsatzgebiet/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 190,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 470,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/schluesseldienst-loehnberg/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 138,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/ratgeber/rauchmelderpflicht/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 123,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/ueber-uns/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 125,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/kontakt/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 122,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/suche/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 88,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/impressum/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 120,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/gibt-es-nicht/",
+      "modus": "reduce",
+      "status": 404,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 66,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 231,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/einbruchschutz/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 146,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/notoeffnung/tueroeffnung/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 141,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/preise/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 233,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/einsatzgebiet/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 200,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/einsatzgebiet/hessen/limburg-weilburg/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 470,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/schluesseldienst-loehnberg/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 147,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/ratgeber/rauchmelderpflicht/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 130,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/ueber-uns/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 131,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/kontakt/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 128,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/suche/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 94,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/impressum/",
+      "modus": "reduce",
+      "status": 200,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 126,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "desktop",
+      "pfad": "/gibt-es-nicht/",
+      "modus": "reduce",
+      "status": 404,
+      "reduziert_aktiv": true,
+      "transformierend_nach_laden": 0,
+      "transformierend_nach_scrollen": 0,
+      "transformierende_liste_nach_scrollen": [],
+      "anzahl_animationen_nach_scrollen": 0,
+      "sichtbar_nach_laden": 0,
+      "sichtbar_nach_scrollen": 0,
+      "sichtbar_probleme": [],
+      "geprueft_textelemente": 73,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/",
+      "modus": "no-preference (Kontrolle)",
+      "status": 200,
+      "reduziert_aktiv": false,
+      "transformierend_nach_laden": 28,
+      "transformierend_nach_scrollen": 28,
+      "transformierende_liste_nach_scrollen": [
+        {
+          "art": "CSSAnimation",
+          "element": "g.zy-stiftpaar",
+          "uebergang": null,
+          "animation": "m16-stift",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 360
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "path.zy-feder",
+          "uebergang": null,
+          "animation": "m16-feder",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 360
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "g.zy-stiftpaar",
+          "uebergang": null,
+          "animation": "m16-stift",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 360
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "path.zy-feder",
+          "uebergang": null,
+          "animation": "m16-feder",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 360
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "g.zy-stiftpaar",
+          "uebergang": null,
+          "animation": "m16-stift",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 360
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "path.zy-feder",
+          "uebergang": null,
+          "animation": "m16-feder",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 360
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "g.zy-stiftpaar",
+          "uebergang": null,
+          "animation": "m16-stift",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 360
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "path.zy-feder",
+          "uebergang": null,
+          "animation": "m16-feder",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 360
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "g.zy-stiftpaar",
+          "uebergang": null,
+          "animation": "m16-stift",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 360
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "path.zy-feder",
+          "uebergang": null,
+          "animation": "m16-feder",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 360
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "g.zy-schluessel",
+          "uebergang": null,
+          "animation": "m16-schluessel",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 420
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "path.zy-scherlinie",
+          "uebergang": null,
+          "animation": "m16-linie",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 480
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "span.abschnitt-linie",
+          "uebergang": null,
+          "animation": "linie-ziehen",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "h2#triage-titel",
+          "uebergang": null,
+          "animation": "auftritt",
+          "eigenschaften": [
+            "opacity",
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "span.abschnitt-linie",
+          "uebergang": null,
+          "animation": "linie-ziehen",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "h2#preis-titel",
+          "uebergang": null,
+          "animation": "auftritt",
+          "eigenschaften": [
+            "opacity",
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "span.abschnitt-linie",
+          "uebergang": null,
+          "animation": "linie-ziehen",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "h2#leistungen-titel",
+          "uebergang": null,
+          "animation": "auftritt",
+          "eigenschaften": [
+            "opacity",
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "article.register-gross",
+          "uebergang": null,
+          "animation": "auftritt",
+          "eigenschaften": [
+            "opacity",
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "span.abschnitt-linie",
+          "uebergang": null,
+          "animation": "linie-ziehen",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "h2#ablauf-titel",
+          "uebergang": null,
+          "animation": "auftritt",
+          "eigenschaften": [
+            "opacity",
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "span.abschnitt-linie",
+          "uebergang": null,
+          "animation": "linie-ziehen",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "h2#gebiet-titel",
+          "uebergang": null,
+          "animation": "auftritt",
+          "eigenschaften": [
+            "opacity",
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "figure.gebiet-figur",
+          "uebergang": null,
+          "animation": "auftritt",
+          "eigenschaften": [
+            "opacity",
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "span.abschnitt-linie",
+          "uebergang": null,
+          "animation": "linie-ziehen",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "h2#serioes-titel",
+          "uebergang": null,
+          "animation": "auftritt",
+          "eigenschaften": [
+            "opacity",
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "span.abschnitt-linie",
+          "uebergang": null,
+          "animation": "linie-ziehen",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": null
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "h2#faq-titel",
+          "uebergang": null,
+          "animation": "auftritt",
+          "eigenschaften": [
+            "opacity",
+            "transform"
+          ],
+          "dauer_ms": null
+        }
+      ],
+      "anzahl_animationen_nach_scrollen": 28,
+      "sichtbar_nach_laden": 27,
+      "sichtbar_nach_scrollen": 27,
+      "sichtbar_probleme": [
+        {
+          "ziel": "h2",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Was jetzt hilft"
+        },
+        {
+          "ziel": "h2",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Preis vor Arbeit"
+        },
+        {
+          "ziel": "h2",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Leistungen"
+        },
+        {
+          "ziel": "p",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "01"
+        },
+        {
+          "ziel": "a",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Not­öffnung"
+        },
+        {
+          "ziel": "p",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Tür, Auto, Garage oder Tresor zu – wir öffnen möglichst ohne"
+        },
+        {
+          "ziel": "span",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Türöffnung"
+        },
+        {
+          "ziel": "span",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Autoöffnung"
+        },
+        {
+          "ziel": "span",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Garagenöffnung"
+        },
+        {
+          "ziel": "span",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Tresoröffnung"
+        },
+        {
+          "ziel": "span",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Einbruchschaden"
+        },
+        {
+          "ziel": "h2",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "So läuft eine Tür­öffnung ab"
+        },
+        {
+          "ziel": "h2",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Einsatz­gebiet ab Weilburg"
+        },
+        {
+          "ziel": "text",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "20 km"
+        },
+        {
+          "ziel": "text",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "50 km"
+        },
+        {
+          "ziel": "text",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Frankfurt"
+        },
+        {
+          "ziel": "text",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Wiesbaden"
+        },
+        {
+          "ziel": "text",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Koblenz"
+        },
+        {
+          "ziel": "text",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Siegen"
+        },
+        {
+          "ziel": "text",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Gießen"
+        },
+        {
+          "ziel": "text",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Weilburg"
+        },
+        {
+          "ziel": "span",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Zone A – Kerngebiet"
+        },
+        {
+          "ziel": "span",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Zone B – Umland"
+        },
+        {
+          "ziel": "span",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Zone C – nach Absprache"
+        },
+        {
+          "ziel": "span",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Ringe bei 20 und 50 km Luftlinie"
+        },
+        {
+          "ziel": "h2",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Seriösen Schlüssel­dienst erkennen"
+        },
+        {
+          "ziel": "h2",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Häufige Fragen"
+        }
+      ],
+      "geprueft_textelemente": 195,
+      "externe_blockiert": 0
+    },
+    {
+      "geraet": "mobil",
+      "pfad": "/ueber-uns/",
+      "modus": "no-preference (Kontrolle)",
+      "status": 200,
+      "reduziert_aktiv": false,
+      "transformierend_nach_laden": 2,
+      "transformierend_nach_scrollen": 2,
+      "transformierende_liste_nach_scrollen": [
+        {
+          "art": "CSSAnimation",
+          "element": "g.lb-fluss-teil.lb-buehne",
+          "uebergang": null,
+          "animation": "auftritt",
+          "eigenschaften": [
+            "opacity",
+            "transform"
+          ],
+          "dauer_ms": 640
+        },
+        {
+          "art": "CSSAnimation",
+          "element": "path.lb-tunnel",
+          "uebergang": null,
+          "animation": "m16-linie",
+          "eigenschaften": [
+            "transform"
+          ],
+          "dauer_ms": 480
+        }
+      ],
+      "anzahl_animationen_nach_scrollen": 5,
+      "sichtbar_nach_laden": 3,
+      "sichtbar_nach_scrollen": 3,
+      "sichtbar_probleme": [
+        {
+          "ziel": "text",
+          "deckkraft": 0.981,
+          "sichtbar": true,
+          "text": "Weilburg"
+        },
+        {
+          "ziel": "text",
+          "deckkraft": 0.981,
+          "sichtbar": true,
+          "text": "Lahn"
+        },
+        {
+          "ziel": "text",
+          "deckkraft": 0,
+          "sichtbar": true,
+          "text": "Schiffstunnel"
+        }
+      ],
+      "geprueft_textelemente": 125,
+      "externe_blockiert": 0
+    }
+  ]
+}

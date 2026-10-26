@@ -1,0 +1,2 @@
+- skript/desktop: wechsel 30, erfolgreich 30, zaehlend 0, viewTransitionMeldungen 0, pagerevealMitVt 30, pagerevealMitVtModulSchonGelaufen 30, unhandledrejection 0 (Datei /home/user/schluesseldienst/.cache/vt-exp/X9-messung/skript-desktop.json)
+- links/desktop: wechsel 48, erfolgreich 48, zaehlend 0, viewTransitionMeldungen 0, pagerevealMitVt 48, pagerevealMitVtModulSchonGelaufen 48, unhandledrejection 0 (Datei /home/user/schluesseldienst/.cache/vt-exp/X9-messung/links-desktop.json)

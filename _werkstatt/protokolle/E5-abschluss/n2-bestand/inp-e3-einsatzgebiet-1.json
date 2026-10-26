@@ -1,0 +1,62 @@
+{
+  "werkzeug": "inp",
+  "zeitpunkt": "2026-10-26T07:32:53.775Z",
+  "url": "http://127.0.0.1:4251/einsatzgebiet/",
+  "drossel": 4,
+  "viewport": "390x844",
+  "aktionen": 4,
+  "interaktionen_gemeldet": 6,
+  "max_ms": 40,
+  "p98_ms": 40,
+  "schwelle_max_ms": 200,
+  "blockierte_externe_anfragen": 0,
+  "interaktionen": [
+    {
+      "nr": 1,
+      "typ": "klick",
+      "selektor": "#gebiet-ort-eingabe",
+      "ereignisse": 20,
+      "latenzen_ms": [
+        40
+      ],
+      "latenz_max_ms": 40,
+      "hinweis": null
+    },
+    {
+      "nr": 2,
+      "typ": "tippen",
+      "selektor": "#gebiet-ort-eingabe",
+      "ereignisse": 13,
+      "latenzen_ms": [
+        16,
+        16,
+        24
+      ],
+      "latenz_max_ms": 24,
+      "hinweis": null
+    },
+    {
+      "nr": 3,
+      "typ": "taste",
+      "selektor": null,
+      "ereignisse": 2,
+      "latenzen_ms": [
+        24
+      ],
+      "latenz_max_ms": 24,
+      "hinweis": null
+    },
+    {
+      "nr": 4,
+      "typ": "taste",
+      "selektor": null,
+      "ereignisse": 3,
+      "latenzen_ms": [
+        40
+      ],
+      "latenz_max_ms": 40,
+      "hinweis": null
+    }
+  ],
+  "ergebnis": "ok"
+}
