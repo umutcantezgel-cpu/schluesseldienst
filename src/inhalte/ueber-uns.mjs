@@ -12,10 +12,11 @@ export default {
   h1: 'Der Schlüsseldienst in Weilburg',
   wer: {
     titel: 'Wer wir sind',
-    // Messleiste der Zonen: Radien und Notöffnung aus zonen.mjs, die Wörter wie auf /einsatzgebiet/
+    // Messleiste der Zonen: Radien und Notöffnung aus zonen.mjs, die Anfahrt aus inhalte/einsatzgebiet.mjs. Allein in
+    // der Leiste braucht „Notöffnung“ ein Wort davor, sonst liest sich die Zeile wie eine Überschrift
     ab: {
       titel: 'Ab Weilburg',
-      notoeffnung: { ja: 'Notöffnung', 'nach-absprache': 'Notöffnung nur nach Absprache' },
+      notoeffnung: { ja: 'Mit Notöffnung', 'nach-absprache': 'Notöffnung nur nach Absprache' },
       link: { text: 'Zonen und alle Orte', pfad: '/einsatzgebiet/' },
     },
     gruppenTitel: 'Unsere Leistungen',
@@ -34,10 +35,13 @@ export default {
     text: 'Bei jedem Schloss suchen wir den geraden Weg: die eine Linie, auf der es ohne Gewalt aufgeht.',
     bild: 'Stilisiert, ohne Maßstab: die Lahnschleife bei Weilburg.',
   },
+  // Zwei Wege, je eine Lage und ihre Handlung (die beiden Sätze des früheren Absatzes)
   ruf: {
     titel: 'Wie Sie uns erreichen',
-    text: 'Geht eine Tür nicht mehr auf, rufen Sie an. Alles, was warten kann, schreiben Sie uns über die Kontaktseite.',
-    link: { text: 'Zur Kontaktseite', pfad: '/kontakt/' },
+    wege: [
+      { lage: 'Geht eine Tür nicht mehr auf, rufen Sie an.', anruf: true },
+      { lage: 'Alles, was warten kann, schreiben Sie uns.', link: { text: 'Zur Kontaktseite', pfad: '/kontakt/' } },
+    ],
   },
   weiter: [
     { pfad: '/kontakt/', titel: 'Kontakt', text: 'Anruf im Notfall, E-Mail für alles Planbare.' },

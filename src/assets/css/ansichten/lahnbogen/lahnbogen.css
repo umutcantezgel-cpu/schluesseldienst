@@ -6,7 +6,8 @@
      Bildrand gerade, wie ein Kartenausschnitt. */
   .lb-wasser { stroke: var(--c-lahn-hell); stroke-width: 16; stroke-linecap: butt; }
   .lb-ufer { stroke: var(--c-lahn); stroke-width: 1.5; stroke-linecap: butt; }
-  .lb-berg { fill: var(--c-papier-2); stroke: none; }
+  /* Dunkel läge Papier 2 fast auf dem Grund (#131E24 auf #0E161B): dort trägt der Sporn die Fläche der Felder */
+  .lb-berg { fill: light-dark(var(--c-papier-2), var(--c-flaeche)); stroke: none; }
   .lb-tunnel { stroke: var(--c-kupfer); stroke-width: 4; stroke-linecap: butt; }
   .lb-tor { fill: var(--c-kupfer); stroke: none; }
   .lb-text { fill: var(--c-tinte); stroke: none; font-family: var(--ff-text); font-size: var(--svg-text-s); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; }

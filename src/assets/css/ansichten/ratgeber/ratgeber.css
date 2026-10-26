@@ -4,7 +4,9 @@
   .ratgeber-kopf h1 { font-size: var(--fs-5); }
   .ratgeber-sprung ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-xs); }
   .ratgeber-sprung li { margin: 0; }
-  .ratgeber-sprung a { display: inline-flex; align-items: baseline; gap: var(--sp-xs); min-block-size: var(--ziel-min); padding-block: var(--sp-2xs); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); color: var(--c-tinte); text-decoration: none; }
+  /* Raster statt Flex: Titel und Zahl bleiben auf einer Grundlinie, und die Zeile steht mittig, wenn Touch die Pille auf
+     48 px streckt (align-content wirkt nur im Raster) */
+  .ratgeber-sprung a { display: inline-grid; grid-auto-flow: column; align-items: baseline; align-content: center; column-gap: var(--sp-xs); min-block-size: var(--ziel-min); padding-block: var(--sp-2xs); padding-inline: var(--sp-s); border: var(--linie-ui) solid var(--c-linie-ui); border-radius: var(--r-rund); color: var(--c-tinte); text-decoration: none; }
   .ratgeber-sprung a:hover { border-color: var(--c-kupfer); }
   /* Zahl der Artikel je Kategorie: leise, mit Tabellenziffern hinter einer Haarlinie – sie sortiert, sie wirbt nicht */
   .ratgeber-sprung-zahl { padding-inline-start: var(--sp-xs); border-inline-start: var(--linie-haar) solid var(--c-linie); font-size: var(--fs--1); color: var(--c-tinte-3); font-variant-numeric: tabular-nums; }
@@ -36,7 +38,7 @@
   .artikel-figur > svg { margin-inline: auto; }
   .artikel-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); text-wrap: pretty; }
   /* Öffnungen zeigen das Blatt, auf dem die Figur liegt – nicht das Papier dahinter */
-  .artikel-figur .ill-oeffnung { fill: var(--c-flaeche); }
+  .artikel-figur .ill-oeffnung, .artikel-abbildung .ill-oeffnung { fill: var(--c-flaeche); }
   /* Variante Rauchmelder: Raumnamen als Planbeschriftung, nicht als technische Kennung */
   .gr-raum { font-family: var(--ff-text); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; font-size: var(--svg-text-s); }
   @container (max-width: 22em) { .gr-raum { font-size: var(--svg-text-l); } }
@@ -59,6 +61,12 @@
   .artikel-liste, .artikel-schritte { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
   .artikel-schritte li::marker { color: var(--c-kupfer); font-weight: var(--fw-titel); }
   .hinweis-warnung { border-color: var(--c-warnung); background: var(--c-warnung-hell); }
+  /* Abschnittsfigur: derselbe Plan wie im Kopf, kleiner und auf demselben Blatt; die Pfeile tragen Lahn wie die
+     Pflichträume, weil sie dieselbe Aussage stützen (Kupfer bleibt Scherlinie und aktiver Zustand) */
+  .artikel-abbildung { margin: var(--sp-2xs) 0; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); display: grid; gap: var(--sp-s); }
+  .artikel-abbildung-plan { container-type: inline-size; inline-size: 100%; max-inline-size: var(--karte-breit); }
+  .artikel-abbildung figcaption { font-size: var(--fs--1); line-height: var(--lh-dicht); color: var(--c-tinte-3); text-wrap: pretty; }
+  .gr-weg { stroke: var(--c-lahn); }
 
   /* Inhaltsverzeichnis als Schiene: jeder Eintrag ein Stück Linie, der gelesene Abschnitt trägt Kupfer (aktiver Zustand) */
   .artikel-rand { align-self: start; display: grid; gap: var(--sp-xs); max-inline-size: var(--mass); }
@@ -77,13 +85,14 @@
   /* Quellen: kein Textabschnitt, darum ohne Nummer; die Schiene läuft durch */
   .artikel-toc .artikel-toc-quellen { counter-increment: none; }
   .artikel-toc-quellen a::before { content: ""; }
-  @media (pointer: coarse) { .artikel-toc a { min-block-size: var(--ziel-touch); } }
+  @media (pointer: coarse) { .artikel-toc a, .ratgeber-sprung a { min-block-size: var(--ziel-touch); } }
   /* Quellen schließen den Text ab, den sie belegen: Haarlinie statt Abschnittsmarke, Titel eine Stufe unter den Abschnitten */
   .artikel-quellen-teil { display: grid; gap: var(--sp-xs); max-inline-size: var(--mass); margin-block-start: var(--sp-s); padding-block-start: var(--sp-m); border-block-start: var(--linie-haar) solid var(--c-linie-ui); scroll-margin-block-start: var(--sp-m); }
   .artikel-quellen-titel { font-size: var(--fs-1); }
   .artikel-quellen { list-style: none; padding: 0; display: grid; gap: var(--sp-2xs); font-size: var(--fs--1); color: var(--c-tinte-2); }
   .artikel-quellen li { margin: 0; padding-block-end: var(--sp-2xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
   .artikel-quelle-host { color: var(--c-tinte-3); }
+  .artikel-quelle-kennung { white-space: nowrap; }
   @media (min-width: 48em) {
     .artikel-kurz { font-size: var(--fs-1); line-height: var(--lh-dicht); }
     /* Tablet: Das Blatt nimmt die ganze Spalte, die Bildunterschrift steht als Legende neben der Figur auf ihrer
@@ -95,6 +104,8 @@
     .artikel-wichtig { grid-column: 1; grid-row: 1; }
     .artikel-rand { grid-column: 2; grid-row: 1; }
     .artikel-text { grid-column: 1 / -1; }
+    /* Abschnittsfigur als Randabbildung: Plan links, die Unterschrift als Legende auf seiner Grundlinie */
+    .artikel-abbildung { grid-template-columns: minmax(0, var(--karte-breit)) minmax(var(--legende-min), 1fr); column-gap: var(--sp-l); align-items: end; }
   }
   @media (min-width: 64em) {
     /* Oben bündig: Das Blatt schließt eine Stufe unter der Kopflinie an (wie die Lagekarte der Ortsseite), statt mittig
@@ -115,4 +126,10 @@
     .artikel-toc a::after { transition: transform var(--dur-zustand-aus) var(--ease-aus); }
     .artikel-toc a[aria-current]::after { transition: transform var(--dur-zustand) var(--ease-linie); }
   }
+}
+
+/* Kontrastdesign: Der Kupferstrich des aktiven Eintrags liegt über der Highlight-Kante aus hilfen.css und bekäme sonst
+   die Fläche Canvas – er trägt dort selbst Highlight (wie system.css), die Kante bleibt Rückfall */
+@media (forced-colors: active) {
+  .artikel-toc a::after { background: Highlight; }
 }

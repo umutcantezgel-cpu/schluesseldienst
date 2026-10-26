@@ -37,6 +37,7 @@ const FIGUREN = {
   'tuer-schichten': (p) => tuerSchichten({ praefix: p }),
   grundriss: (p) => grundriss({ praefix: p }),
   rauchmelder: (p) => grundriss({ praefix: p, variante: 'rauchmelder' }),
+  rettungsweg: (p) => grundriss({ praefix: p, variante: 'rettungsweg' }),
   stufen: (p) => widerstandsStufen({ praefix: p }),
   rechnung: () => rechnungIllustration(),
   'fenster-schichten': (p) => fensterSchichten({ praefix: p }),
@@ -46,6 +47,9 @@ const FIGUREN = {
 };
 
 const anker = (i) => `teil-${i + 1}`;
+// Normbezeichnungen und Ausgaben („DIN 14676-1:2025-05“) brechen weder am Bindestrich zwischen zwei Ziffern noch
+// zwischen Kürzel und Nummer; der Titel selbst bleibt wörtlich, nur die Kennung steht in einer Spanne ohne Umbruch
+const kennungenZusammen = (titel) => titel.split(/((?:\p{Lu}{2,}\s)?\S*\d-\d\S*)/u).map((teil, i) => (i % 2 ? html`<span class="artikel-quelle-kennung">${teil}</span>` : teil));
 const datum = (iso) => new Intl.DateTimeFormat('de-DE', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${iso}T00:00:00Z`));
 
 export async function artikelLaden(wurzel) {
@@ -98,10 +102,14 @@ function artikelLd(k, a, inh) {
   };
 }
 
+// Eine Abschnittsfigur steht dort, wo der Text sie braucht: klein, als Plan auf einem Blatt, die Unterschrift als
+// Legende daneben (ab 48em). Sie ist statisch – Arbeitsansicht (P6).
 function abschnitt(a, i) {
+  const figur = a.figur && FIGUREN[a.figur] ? html`<figure class="artikel-abbildung"><div class="artikel-abbildung-plan">${FIGUREN[a.figur](`${anker(i)}-fig`)}</div>${a.figurText ? html`<figcaption>${a.figurText}</figcaption>` : ''}</figure>` : '';
   return html`<section class="artikel-teil" aria-labelledby="${anker(i)}">
 <h2 id="${anker(i)}">${text(a.titel)}</h2>
 ${a.absaetze.map((p) => html`<p>${text(p)}</p>`)}
+${figur}
 ${a.liste ? html`<ul class="artikel-liste">${a.liste.map((x) => html`<li>${text(x)}</li>`)}</ul>` : ''}
 ${a.schritte ? html`<ol class="artikel-schritte">${a.schritte.map((x) => html`<li>${text(x)}</li>`)}</ol>` : ''}
 ${a.hinweis ? html`<p class="hinweis${a.hinweis.art === 'warnung' ? ' hinweis-warnung' : ''}">${text(a.hinweis.text)}</p>` : ''}
@@ -141,7 +149,7 @@ export async function seiten(k) {
 ${inh.abschnitte.map((x, i) => abschnitt(x, i))}
 ${quellen.length ? html`<section class="artikel-quellen-teil" aria-labelledby="quellen-titel">
 <h2 class="artikel-quellen-titel" id="quellen-titel">Quellen</h2>
-<ul class="artikel-quellen">${quellen.map((q) => html`<li data-daten="" data-quelle="">${q.titel}${q.host ? html` <span class="artikel-quelle-host">(${q.host})</span>` : ''}</li>`)}</ul>
+<ul class="artikel-quellen">${quellen.map((q) => html`<li data-daten="" data-quelle="">${kennungenZusammen(q.titel)}${q.host ? html` <span class="artikel-quelle-host">(${q.host})</span>` : ''}</li>`)}</ul>
 </section>` : ''}
 </div>
 </div></div></div>

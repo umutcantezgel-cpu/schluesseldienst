@@ -74,20 +74,21 @@
 /* M-18 „Ringe um Weilburg“, Teil der Kupferlinie (nur diese Ansicht), in drei Schlägen: Punkte und Ringe wachsen aus
    Weilburg (bewegung.css); sobald die Mitte im Bild ist, rastet der Kupferpunkt ein; dann zieht die Linie vom Sitz bis
    zum äußeren Ring, und jedes Maß erscheint, wenn sie es erreicht. Alle hängen am Zeitstrahl der ganzen Karte und
-   enden bei cover 50 % – dann steht die Karte auf jeder Bildschirmgröße etwa mittig. (Am Zeitstrahl der Maßgruppe
-   endete die Linie mobil erst, als die Karte schon über die Mitte hinaus war; „100 km“ fehlte im Blick.) Die Anteile
-   der Maße folgen den Ringen 20/50/100 aus zonen.mjs. Unter reduce und ohne view() steht das Endbild. */
+   enden bei cover 42–44 % (gemessen ohne Rufleiste und Kopf, die view() über scroll-padding abzieht) – dann steht die
+   Karte mobil ganz über der Rufleiste und am Desktop bis auf ihren Fuß im Bild. (Am Zeitstrahl
+   der Maßgruppe endete die Linie mobil erst, als die Karte schon über die Mitte hinaus war; „100 km“ fehlte im Blick.)
+   Die Anteile der Maße folgen den Ringen 20/50/100 aus zonen.mjs. Unter reduce und ohne view() steht das Endbild. */
 @layer bewegung {
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
       [data-moment="ringe"] .gebietskarte { view-timeline-name: --gk-karte; }
-      [data-moment="ringe"] :is(.gk-sitz-ring, .gk-sitz-punkt) { transform-box: fill-box; transform-origin: center; animation: m18-sitz var(--ease-einrasten) both; animation-timeline: --gk-karte; animation-range: cover 22% cover 30%; }
-      [data-moment="ringe"] .gk-sitz-name { animation: erscheinen linear both; animation-timeline: --gk-karte; animation-range: cover 24% cover 30%; }
-      [data-moment="ringe"] .gk-mess { transform-box: fill-box; transform-origin: bottom; animation: m18-mess linear both; animation-timeline: --gk-karte; animation-range: cover 30% cover 50%; }
+      [data-moment="ringe"] :is(.gk-sitz-ring, .gk-sitz-punkt) { transform-box: fill-box; transform-origin: center; animation: m18-sitz var(--ease-einrasten) both; animation-timeline: --gk-karte; animation-range: cover 22% cover 27%; }
+      [data-moment="ringe"] .gk-sitz-name { animation: erscheinen linear both; animation-timeline: --gk-karte; animation-range: cover 23% cover 27%; }
+      [data-moment="ringe"] .gk-mess { transform-box: fill-box; transform-origin: bottom; animation: m18-mess linear both; animation-timeline: --gk-karte; animation-range: cover 27% cover 42%; }
       [data-moment="ringe"] .gk-ring-text { animation: erscheinen linear both; animation-timeline: --gk-karte; }
-      [data-moment="ringe"] .gk-ring-text:nth-of-type(1) { animation-range: cover 33% cover 36%; }
-      [data-moment="ringe"] .gk-ring-text:nth-of-type(2) { animation-range: cover 39% cover 42%; }
-      [data-moment="ringe"] .gk-ring-text:nth-of-type(3) { animation-range: cover 48% cover 51%; }
+      [data-moment="ringe"] .gk-ring-text:nth-of-type(1) { animation-range: cover 29% cover 32%; }
+      [data-moment="ringe"] .gk-ring-text:nth-of-type(2) { animation-range: cover 34% cover 37%; }
+      [data-moment="ringe"] .gk-ring-text:nth-of-type(3) { animation-range: cover 41% cover 44%; }
     }
   }
   @keyframes m18-sitz { from { transform: scale(0); } }

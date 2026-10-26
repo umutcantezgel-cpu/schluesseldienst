@@ -45,6 +45,9 @@ export default {
         [rr.fakten['hessen-wohnungen']],
         'Wohnzimmer und Küche nennt diese Aufzählung nicht. Ob dort Melder sinnvoll sind, ist eine andere Frage.',
       ],
+      // Dieselbe Wohnung wie im Kopf, hier mit dem Weg hinaus: Das Bild erklärt den schwierigsten Teil der Aufzählung
+      figur: 'rettungsweg',
+      figurText: 'Dieselbe Wohnung: Aus jedem Raum führt der Rettungsweg über den Flur zur Wohnungstür.',
       hinweis: { art: 'info', text: 'Die Aufzählung gilt für Wohnungen. Andere Nutzungen haben eigene Regeln, die dieser Artikel nicht behandelt.' },
     },
     {

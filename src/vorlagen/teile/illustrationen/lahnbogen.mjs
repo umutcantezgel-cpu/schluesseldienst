@@ -32,10 +32,11 @@ function lauf(v) {
 }
 
 // Bergsporn: innerhalb des inneren Ufers, vom linken Hals um die Schleife zum rechten Hals
+const HALS = { links: MITTE.x - VERSATZ.x + r + W, rechts: MITTE.x + VERSATZ.x - r - W };
 function sporn() {
   const rb = r + W; const Rs = R - W;
   const a = uebergang(1, Rs); const b = uebergang(-1, Rs);
-  const hl = MITTE.x - VERSATZ.x + rb; const hr = MITTE.x + VERSATZ.x - rb;
+  const hl = HALS.links; const hr = HALS.rechts;
   return `M${hl} ${HALS_Y}A${rb} ${rb} 0 0 0 ${zahl(a.x)} ${zahl(a.y)}A${Rs} ${Rs} 0 1 1 ${zahl(b.x)} ${zahl(b.y)}A${rb} ${rb} 0 0 0 ${hr} ${HALS_Y}Z`;
 }
 
@@ -44,12 +45,15 @@ const TUNNEL = { x1: MITTE.x - VERSATZ.x + r, x2: MITTE.x + VERSATZ.x - r, y: HA
 const tor = (x) => `<rect class="lb-tor" x="${x - 2}" y="${HALS_Y - W}" width="4" height="${2 * W}" rx="1"/>`;
 
 // Die Bühne (Fluss, Bergsporn, Stadt) ist eine Gruppe: M-20 lässt sie als Ganzes auftreten, dann zieht der Tunnel.
-// „Weilburg“ steht in der Mitte der Schleife, „Lahn“ über dem Abfluss, „Schiffstunnel“ unter dem Hals.
+// Der Hals ist schon auf der Bühne gestrichelt markiert: Der Sporn endet dort nicht als abgeschnittene Fläche, und die
+// Kupferlinie zieht danach genau über diese Strichellinie – gesucht, dann gefunden. „Weilburg“ steht in der Mitte der
+// Schleife, „Lahn“ über dem Abfluss, „Schiffstunnel“ unter dem Hals.
 export function lahnbogen({ klasse = '' } = {}) {
   const { x1, x2, y } = TUNNEL;
   return roh(`<svg class="ill ill-lahnbogen ${klasse}" viewBox="32 24 384 280" aria-hidden="true" focusable="false">
 <g class="lb-fluss-teil lb-buehne">
 <path class="lb-berg" d="${sporn()}"/>
+<path class="ill-gestrichelt lb-hals" d="M${HALS.links} ${HALS_Y}H${HALS.rechts}"/>
 <path class="lb-wasser" d="${lauf(0)}"/>
 <path class="lb-ufer" d="${lauf(-W)}"/><path class="lb-ufer" d="${lauf(W)}"/>
 <text class="lb-text" x="${MITTE.x}" y="${MITTE.y + 8}" text-anchor="middle">Weilburg</text>

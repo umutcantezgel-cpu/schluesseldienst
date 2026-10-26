@@ -1,11 +1,12 @@
 // V09 Über uns (Erzählansicht). Abschnittsfolge nach Themenpass /ueber-uns/:
 // Kopf mit der Leitidee „Der gerade Weg“ (Leitsatz, Lahnbogen I-11 mit Fakt und M-20 als Blickfang des ersten
 // Bildschirms) · Wer wir sind (Sitz, Messleiste „Ab Weilburg“, Leistungsgruppen; jede fehlende Angabe entfällt) ·
-// Wofür wir stehen (Band) · Wie Sie uns erreichen (dunkles Band) · Weiterlesen. Locksmith-JSON-LD nur hier (Start,
-// Über uns, Kontakt); keine Personen, keine Bewertungen.
+// Wofür wir stehen (Band) · Wie Sie uns erreichen (dunkles Band: zwei Wege, je eine Kupferlinie von der Lage zur
+// Handlung) · Weiterlesen. Locksmith-JSON-LD nur hier (Start, Über uns, Kontakt); keine Personen, keine Bewertungen.
 import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import inhalt from '../../inhalte/ueber-uns.mjs';
+import gebiet from '../../inhalte/einsatzgebiet.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
 import { brotkrumenLd } from '../teile/brotkrumen.mjs';
 import { rufknopf } from '../teile/rufknopf.mjs';
@@ -37,7 +38,8 @@ function kopf() {
 
 // „Ab Weilburg“ (P7 Ort mit Maß): Die Zonen aus zonen.mjs als Messleiste – ein Punkt für den Sitz, dann je Zone
 // ein Stück Weg mit Strich an der Grenze; D bleibt offen. Mobil steht die Leiste senkrecht wie die Inhaltsschiene im
-// Ratgeber. Radien und Notöffnung kommen aus der Konfiguration, die Wörter wie auf /einsatzgebiet/.
+// Ratgeber. Radien und Notöffnung kommen aus der Konfiguration; die Anfahrt je Zone mit denselben Wörtern wie auf
+// /einsatzgebiet/ (dort gepflegt, hier nur gelesen) – so trägt die Leiste Maß und Preisregel (P3, P7).
 function abWeilburg(sk) {
   const a = inhalt.wer.ab;
   const { stufen, sitzKreis } = sk.konfig.zonen;
@@ -50,6 +52,7 @@ function abWeilburg(sk) {
 <span class="ueber-ab-weg" aria-hidden="true">${i === 0 ? html`<span class="ueber-ab-sitz"></span>` : ''}</span>
 <span class="ueber-ab-km">${radius(s, i)}</span>
 <span class="ueber-ab-not">${a.notoeffnung[s.notoeffnung]}</span>
+<span class="ueber-ab-anfahrt">${gebiet.zonen.anfahrt[s.id]}</span>
 </li>`)}</ol>
 <p class="ueber-ab-mehr"><a href="${a.link.pfad}">${a.link.text}${sk.icon('pfeil-rechts')}</a></p>`;
 }
@@ -93,16 +96,20 @@ ${abschnittKopf({ id: 'werte-titel', titel: w.titel })}
 </section>`;
 }
 
+// Zwei Wege statt eines Absatzes neben zwei Knöpfen: Jede Lage führt auf gerader Kupferlinie zu ihrer Handlung
+// (P1, K-001 „der gerade Weg“). Die Linien sind reine Zeichnung; vorgelesen wird Lage, dann Handlung.
 function ruf(sk) {
   const r = inhalt.ruf;
+  const handlung = (w) => (w.anruf ? rufknopf(sk, { variante: 'gross' }) : html`<a class="knopf knopf-sekundaer" href="${w.link.pfad}">${w.link.text}${sk.icon('pfeil-rechts')}</a>`);
   return html`<section class="sektion band-dunkel" aria-labelledby="ruf-titel">
-<div class="raster"><div class="ueber-ruf">
-${abschnittKopf({ id: 'ruf-titel', titel: r.titel, einleitung: r.text })}
-<div class="ueber-ruf-handlung">
-${rufknopf(sk, { variante: 'gross' })}
-<p><a class="knopf knopf-sekundaer" href="${r.link.pfad}">${r.link.text}${sk.icon('pfeil-rechts')}</a></p>
+<div class="raster">
+${abschnittKopf({ id: 'ruf-titel', titel: r.titel })}
+<ul class="ueber-wege">${r.wege.map((w) => html`<li class="ueber-weg">
+<p class="ueber-weg-lage">${w.lage}</p>
+<span class="scherlinie ueber-weg-linie" aria-hidden="true"></span>
+<div class="ueber-weg-handlung">${handlung(w)}</div>
+</li>`)}</ul>
 </div>
-</div></div>
 </section>`;
 }
 
