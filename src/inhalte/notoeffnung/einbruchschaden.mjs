@@ -15,6 +15,7 @@ export default {
   abschnitte: [
     {
       titel: 'Erst Polizei, dann wir',
+      hinweis: 'warnung',
       absaetze: [
         'Nach einem Einbruch steht die Anzeige bei der Polizei an erster Stelle. Ist noch jemand im Haus oder ist Gefahr im Spiel, gilt der Notruf zuerst.',
         'Sprechen Sie uns am Telefon ab, ob die Polizei noch vor Ort ist. Spuren an Tür und Schloss können für die Ermittlung wichtig sein, deshalb klären wir den Ablauf mit Ihnen.',

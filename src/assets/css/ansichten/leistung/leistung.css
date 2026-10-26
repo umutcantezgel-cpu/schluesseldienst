@@ -8,12 +8,16 @@
   .leistung-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
   .leistung-kurz { font-size: var(--fs-1); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block: var(--sp-s) var(--sp-m); }
   .leistung-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
+  /* Notöffnung: Unter 64em ruft die Rufleiste an (P5); ein zweiter gleicher Rufknopf im ersten Bildschirm wäre Lärm */
+  .leistung-handlung-ruf { display: none; }
   /* Container: Die Beschriftung der Figur richtet sich nach der Breite, in der die Figur tatsächlich steht. Die
      Schriftgröße der Figur ist fs--1 – daran messen sich auch die em der Container-Stufen unten */
   .leistung-figur { margin: 0; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); container-type: inline-size; font-size: var(--fs--1); }
   /* Hochformatige Figuren (Tür, Fenster) füllten sonst die Spalte und streckten den Kopf über eine Bildschirmhöhe */
   .leistung-figur .ill { max-block-size: var(--karte-breit); margin-inline: auto; }
   .leistung-figur .zylinder { display: block; inline-size: 100%; block-size: auto; }
+  /* Öffnungen im Grundriss zeigen die Karte, auf der die Figur steht */
+  .leistung-figur .ill-oeffnung { fill: var(--c-flaeche); }
   .leistung-figur figcaption { color: var(--c-tinte-3); margin-block-start: var(--sp-s); max-inline-size: var(--mass); }
   /* Beschriftung der Figur (Falle/Riegel, viewBox 400 breit) skaliert mit der Figur: gerendert = Größe × Breite / 400.
      Die Stufen liegen so, dass das nie unter fs--1 fällt: 18 ab 22,5 fs--1 Breite, 16 ab 27 fs--1; schmaler 24
@@ -23,6 +27,8 @@
   @container (min-width: 27em) { .leistung-figur .ill-text { font-size: var(--svg-text-m); } }
   /* Ab 30em steht der Kopf noch einspaltig: Die Figur bleibt in Figurgröße statt die volle Zeile zu füllen */
   @media (min-width: 30em) { .leistung-figur { max-inline-size: var(--hero-figur-max); } }
+  /* Ab 48em steht die Figur neben dem Text (7/5): Einspaltig blieb rechts neben der Figurkarte ein leerer Streifen */
+  @media (min-width: 48em) { .leistung-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); } }
   .leistung-blick { border-block: var(--linie-haar) solid var(--c-linie); background: var(--c-papier-2); }
   .blick { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); margin: 0; }
   .blick-eintrag { padding: var(--sp-s) var(--sp-m) var(--sp-s) 0; }
@@ -33,6 +39,10 @@
   .leistung-abschnitt { display: grid; gap: var(--sp-xs); max-inline-size: var(--mass); }
   .leistung-abschnitt h2 { font-size: var(--fs-2); }
   .leistung-liste { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
+  /* Hinweis-Abschnitt (K-009: info mit 4-px-Randbalken in Lahn, warnung in Warnfarbe), in voller Textgröße: der
+     ruhige Halt im Text – statisch wie die ganze Arbeitsansicht */
+  .leistung-hinweis { padding: var(--sp-m); border-inline-start: var(--sp-3xs) solid var(--c-lahn); background: var(--c-lahn-hell); border-radius: var(--r-s); }
+  .leistung-hinweis-warnung { border-color: var(--c-warnung); background: var(--c-warnung-hell); }
   .leistung-rand { display: grid; gap: var(--sp-l); align-content: start; }
   .rand-block { display: grid; gap: var(--sp-xs); }
   .rand-text { font-size: var(--fs--1); color: var(--c-tinte-2); }
@@ -45,7 +55,6 @@
   .leistung-mehr .rand-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-min)), 1fr)); column-gap: var(--sp-l); }
   @media (min-width: 64em) {
     .leistung-kopf { padding-block-start: var(--sp-sektion); }
-    .leistung-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
     .leistung-kopf h1 { font-size: var(--fs-5); }
     .leistung-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); grid-template-areas: "text rand"; align-items: start; }
     .leistung-text { grid-area: text; }
@@ -56,5 +65,11 @@
     .leistung-rand-lang { position: static; max-block-size: none; overflow: visible; padding: 0; margin: 0; }
     .leistung-teilung-preis { grid-template-areas: "text rand" "mehr rand"; row-gap: var(--sp-xl); }
     .leistung-teilung-preis .leistung-mehr { grid-area: mehr; max-inline-size: var(--mass); }
+    /* Langer Preisauszug: „Mehr aus …“ rückt in die Randspalte unter die Preise und klebt dort, solange der Text
+       läuft (die zweite Zeile nimmt den Rest der Texthöhe auf); einspaltig, weil die Randspalte schmal ist */
+    .leistung-teilung-lang { grid-template-areas: "text rand" "text mehr"; grid-template-rows: auto 1fr; }
+    .leistung-teilung-lang .leistung-mehr { align-self: start; position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+    .leistung-teilung-lang .leistung-mehr .rand-liste { grid-template-columns: minmax(0, 1fr); }
+    .leistung-handlung-ruf { display: flex; }
   }
 }

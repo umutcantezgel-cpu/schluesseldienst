@@ -2,8 +2,9 @@
 // Ein SVG ohne viewBox: x in Prozent der Breite, y in px. So bleiben Schrift und Striche auf jeder Breite gleich groß –
 // die früheren skalierten Fassungen ließen die Beschriftung auf dem Tablet auf etwa 10 px schrumpfen.
 // Positionen nur über SVG-Attribute (K-008). Die Legende als <dl> trägt die Aussage; das SVG ist dekorativ.
-// Ohne konfigurierte Uhrzeiten: schraffierte Zeilen und eine Legende ohne Farbfelder statt erfundener Grenzen; die Marke
-// „jetzt“ zeigt trotzdem Tagesart und Uhrzeit (setzt das Modul tagesband).
+// Ohne konfigurierte Uhrzeiten keine erfundenen Grenzen: eine einzige Zeile ohne Titel als Platzhalter (Kupfer-Schraffur
+// wie .platzhalter) und keine Legende – die Fenster samt „[Uhrzeit folgt]“ nennt die Preistabelle direkt darunter.
+// Die Marke „jetzt“ zeigt trotzdem die Uhrzeit (setzt das Modul tagesband).
 import { html } from '../../../bau/lib/html.mjs';
 import { istPlatzhalter } from '../../../bau/lib/platzhalter.mjs';
 import { bandPruefen, minutenVon, TAGESARTEN } from '../../assets/js/logik/preise.mjs';
@@ -14,15 +15,17 @@ import { fensterZeit } from './preisauszug.mjs';
 // mindestens 8 px zum Titel, mindestens 4 px zum Balken. Beide Zeilen haben dieselbe Spur, mit oder ohne Marke.
 // Der Abstand zwischen den Zeilen ist deutlich größer als der zwischen Titel und Balken, sonst gehörte der zweite
 // Titel optisch zur Skala darüber.
-const TITEL_Y = 14;
-const MARKE_Y = 40;
-const MARKE_TEXT_Y = MARKE_Y + 5;
-const BALKEN_Y = 56;
-const BALKEN_H = 36;
-const SKALA_Y = BALKEN_Y + BALKEN_H;
-const ZAHL_Y = SKALA_Y + 22;
-const VERSATZ = { werktags: 0, wochenende: ZAHL_Y + 60 };
-const H = VERSATZ.wochenende + ZAHL_Y + 6;
+// Offen (ohne Uhrzeiten) entfällt der Titel, die Marke rückt nach oben, der Balken ist flacher: Er trägt keine Namen.
+function masse(offen) {
+  const titelY = 14;
+  const markeY = offen ? 14 : 40;
+  const balkenY = markeY + 16;
+  const balkenH = offen ? 24 : 36;
+  const skalaY = balkenY + balkenH;
+  const zahlY = skalaY + 22;
+  const versatz = offen ? { werktags: 0, wochenende: 0 } : { werktags: 0, wochenende: zahlY + 60 };
+  return { titelY, markeY, markeTextY: markeY + 5, balkenY, balkenH, skalaY, zahlY, versatz, h: versatz.wochenende + zahlY + 6 };
+}
 const TITEL = { werktags: 'Montag bis Freitag', wochenende: 'Samstag, Sonntag und Feiertag' };
 
 // Name im Balken nur, wenn er auch auf der kleinsten Breite des Bereichs hineinpasst. Die Bereiche sind die
@@ -38,26 +41,27 @@ const legendenZeit = (zeit) => (typeof zeit === 'string'
   : zeit);
 const anteilVon = (hhmm) => minutenVon(hhmm) / (24 * 60);
 
-function skala() {
+function skala(m) {
   const stunden = Array.from({ length: 25 }, (_, h) => h);
-  return html`<g class="tb-skala">${stunden.map((h) => html`<line class="${h % 6 ? 'tb-strich-klein' : 'tb-strich'}" x1="${pz((h / 24) * 100)}" x2="${pz((h / 24) * 100)}" y1="${SKALA_Y}" y2="${SKALA_Y + (h % 6 ? 3 : 6)}"/>`)}${[0, 6, 12, 18, 24].map((h) => {
+  return html`<g class="tb-skala">${stunden.map((h) => html`<line class="${h % 6 ? 'tb-strich-klein' : 'tb-strich'}" x1="${pz((h / 24) * 100)}" x2="${pz((h / 24) * 100)}" y1="${m.skalaY}" y2="${m.skalaY + (h % 6 ? 3 : 6)}"/>`)}${[0, 6, 12, 18, 24].map((h) => {
     const anker = h === 0 ? 'start' : h === 24 ? 'end' : 'middle';
     const hh = String(h).padStart(2, '0');
-    return html`<text class="tb-uhr" x="${pz((h / 24) * 100)}" y="${ZAHL_Y}" text-anchor="${anker}"><tspan class="tb-kurz">${hh}</tspan><tspan class="tb-lang">${hh}:00</tspan></text>`;
+    return html`<text class="tb-uhr" x="${pz((h / 24) * 100)}" y="${m.zahlY}" text-anchor="${anker}"><tspan class="tb-kurz">${hh}</tspan><tspan class="tb-lang">${hh}:00</tspan></text>`;
   })}</g>`;
 }
 
-function zeile({ art, band, offen, titel, praefix }) {
-  const kopf = html`<text class="tb-zeile-titel" y="${TITEL_Y}">${TITEL[art]}</text>`;
+function zeile({ art, band, offen, titel, praefix, m }) {
+  const kopf = offen ? '' : html`<text class="tb-zeile-titel" y="${m.titelY}">${TITEL[art]}</text>`;
+  // Platzhalter: Fläche und gestrichelte Kante wie .platzhalter (basis.css), Radius r-s
   const balken = offen
-    ? html`<rect class="tb-offen" x="0" y="${BALKEN_Y}" width="100%" height="${BALKEN_H}" rx="2" fill="url(#${praefix}-schraffur)"/>`
+    ? html`<rect class="tb-offen" x="0" y="${m.balkenY}" width="100%" height="${m.balkenH}" rx="2" fill="url(#${praefix}-schraffur)"/>`
     : html`<g class="tb-teile">${band[art].map(([id, von, bis]) => {
       const x0 = anteilVon(von);
       const breite = anteilVon(bis) - x0;
       const ab = nameAb(titel.get(id), breite);
-      return html`<rect class="tb-teil tb-${id}" data-fenster="${id}" x="${pz(x0 * 100)}" y="${BALKEN_Y}" width="${pz(breite * 100)}" height="${BALKEN_H}"/>${ab ? html`<text class="tb-name tb-name-ab-${ab}" x="${pz(x0 * 100)}" dx="10" y="${BALKEN_Y + 23}">${titel.get(id)}</text>` : ''}`;
+      return html`<rect class="tb-teil tb-${id}" data-fenster="${id}" x="${pz(x0 * 100)}" y="${m.balkenY}" width="${pz(breite * 100)}" height="${m.balkenH}"/>${ab ? html`<text class="tb-name tb-name-ab-${ab}" x="${pz(x0 * 100)}" dx="10" y="${m.balkenY + 23}">${titel.get(id)}</text>` : ''}`;
     })}</g>`;
-  return html`<g class="tb-zeile" data-art="${art}" transform="translate(0 ${VERSATZ[art]})">${kopf}${balken}${skala()}</g>`;
+  return html`<g class="tb-zeile" data-art="${art}" transform="translate(0 ${m.versatz[art]})">${kopf}${balken}${skala(m)}</g>`;
 }
 
 export function tagesband(sk, { praefix = 'tb', jetztText = 'jetzt', hinweis = '' } = {}) {
@@ -70,12 +74,15 @@ export function tagesband(sk, { praefix = 'tb', jetztText = 'jetzt', hinweis = '
     const fehler = bandPruefen(band, fenster.map((f) => f.id));
     if (fehler.length) throw new Error(`preise.tagesband ungültig: ${fehler.join('; ')}`);
   }
-  const daten = JSON.stringify({ band: offen ? null : band, zeilen: VERSATZ });
+  const m = masse(offen);
+  const daten = JSON.stringify({ band: offen ? null : band, zeilen: m.versatz });
   // Die Marke steht anfangs bei 0 % und ist verborgen, bis das Modul Zeile, Lage und Uhrzeit gesetzt hat.
-  const marke = html`<g class="tb-jetzt" data-rolle="marke"><line x1="0" x2="0" y1="${MARKE_Y}" y2="${SKALA_Y + 6}"/><circle cx="0" cy="${MARKE_Y}" r="4"/><text class="tb-jetzt-text" x="0" dx="8" y="${MARKE_TEXT_Y}">${jetztText} <tspan class="tb-jetzt-zeit"></tspan></text></g>`;
+  const marke = html`<g class="tb-jetzt" data-rolle="marke"><line x1="0" x2="0" y1="${m.markeY}" y2="${m.skalaY + 6}"/><circle cx="0" cy="${m.markeY}" r="4"/><text class="tb-jetzt-text" x="0" dx="8" y="${m.markeTextY}">${jetztText} <tspan class="tb-jetzt-zeit"></tspan></text></g>`;
+  // Schraffur im Maß von .platzhalter: Streifen 4 breit im Abstand 8, steigend wie --winkel-schraffur
+  const muster = html`<defs><pattern id="${praefix}-schraffur" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect class="tb-schraffur" width="4" height="8"/></pattern></defs>`;
   return html`<figure class="tagesband" data-modul="tagesband" data-band="${daten}"${offen ? html` data-zustand="offen"` : ''}>
-<svg class="tagesband-svg" width="100%" height="${H}" aria-hidden="true" focusable="false">${offen ? html`<defs><pattern id="${praefix}-schraffur" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path class="tb-schraffur" d="M0 0V6"/></pattern></defs>` : ''}${TAGESARTEN.map((art) => zeile({ art, band, offen, titel, praefix }))}${marke}</svg>
-<dl class="tagesband-legende">${fenster.map((f) => html`<div class="tb-eintrag tb-eintrag-${f.id}" data-fenster="${f.id}"><dt>${f.titel}</dt><dd>${legendenZeit(fensterZeit(preise, f))}</dd></div>`)}</dl>
+<svg class="tagesband-svg" width="100%" height="${m.h}" aria-hidden="true" focusable="false">${offen ? muster : ''}${(offen ? TAGESARTEN.slice(0, 1) : TAGESARTEN).map((art) => zeile({ art, band, offen, titel, praefix, m }))}${marke}</svg>
+${offen ? '' : html`<dl class="tagesband-legende">${fenster.map((f) => html`<div class="tb-eintrag tb-eintrag-${f.id}" data-fenster="${f.id}"><dt>${f.titel}</dt><dd>${legendenZeit(fensterZeit(preise, f))}</dd></div>`)}</dl>`}
 ${hinweis ? html`<figcaption class="tb-hinweis">${hinweis}</figcaption>` : ''}
 </figure>`;
 }

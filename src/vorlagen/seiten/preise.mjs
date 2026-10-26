@@ -33,7 +33,7 @@ function rechnerDaten(sk) {
     titel: {
       positionen: Object.fromEntries(preise.positionen.map((p) => [p.id, p.titel])),
       fenster: Object.fromEntries(preise.zeitfenster.map((z) => [z.id, z.titel])),
-      zonen: Object.fromEntries(zonen.stufen.map((s) => [s.id, `Zone ${s.id}`])),
+      zonen: Object.fromEntries(zonen.stufen.map((s) => [s.id, `Zone ${s.id} · ${s.titel}`])),
     },
     texte: { offen: inhalt.rechner.offen, absprache: inhalt.rechner.absprache },
   };
@@ -58,7 +58,7 @@ function kopf(sk) {
 </div>
 <div class="preise-formel">
 <h2 class="rand-titel" id="formel-titel">${f.titel}</h2>
-<ol class="formel">${f.teile.map((t, i) => html`<li class="formel-teil${i === f.teile.length - 1 ? ' formel-summe' : ''}">${sk.icon(t.icon, { klasse: 'formel-icon' })}<span class="formel-titel">${t.titel}</span><span class="formel-text">${t.text}</span></li>`)}</ol>
+<ol class="formel">${f.teile.map((t, i) => html`<li class="formel-teil${i === f.teile.length - 1 ? ' formel-summe' : ''}">${sk.icon(t.icon, { klasse: 'formel-icon' })}<a class="formel-titel" href="${t.ziel}">${t.titel}</a><span class="formel-text">${t.text}</span></li>`)}</ol>
 <p class="formel-material">${text(f.material)}</p>
 <p class="formel-ust">${ustSatz(sk)}</p>
 </div>
@@ -102,7 +102,7 @@ ${stufen.map((s, i) => html`<tr><th scope="row"><span class="zone-kurz">${s.id}<
 </tbody>
 </table>
 </div>
-<div class="preise-pruefung">${ortspruefung(sk, { id: 'preise-ort', titel: a.pruefTitel, hinweis: a.pruefHinweis })}</div>
+<div class="preise-pruefung" id="ort-pruefen">${ortspruefung(sk, { id: 'preise-ort', titel: a.pruefTitel, hinweis: a.pruefHinweis })}</div>
 </div></div>
 </section>`;
 }
@@ -125,7 +125,7 @@ ${abschnittKopf({ id: 'rechner-titel', titel: r.titel, einleitung: r.einleitung 
 </fieldset>
 <fieldset class="rechner-feld"><legend>${r.fragen.zone}</legend>
 <div class="wahl-optionen">${zonen.stufen.map((s, i) => option('zone', s.id, `Zone ${s.id} · ${s.titel}`, '', i === 0))}</div>
-<p class="rechner-zonen-link"><a href="#anfahrt-titel">Zone Ihres Orts prüfen</a></p>
+<p class="rechner-zonen-link"><a href="#ort-pruefen">Zone Ihres Orts prüfen</a></p>
 </fieldset>
 <div class="rechner-ergebnis">
 <p class="rechner-ergebnis-titel">${r.ergebnis}</p>

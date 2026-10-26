@@ -1,7 +1,9 @@
 // V08 Ratgeber-Artikel (Arbeitsansicht, Teilung 8/4). Abschnittsfolge:
-// Kopf (Kategorie, H1, Kurzantwort, Stand) · „Das Wichtigste“ · Inhaltsverzeichnis · Text · Häufige Fragen ·
-// Quellen (nur die der verwendeten Fakten, ohne Links) · Weiterlesen. Das Verzeichnis steht im Quelltext vor dem Text,
-// damit es mobil vor dem ersten Abschnitt liegt; ab 64em klebt es in der Randspalte (Modul inhalt markiert den Abschnitt).
+// Kopf (Kategorie, H1, Kurzantwort, Stand) · „Das Wichtigste“ · Inhaltsverzeichnis · Text mit Quellen (nur die der
+// verwendeten Fakten, ohne Links) · Häufige Fragen (Band) · Weiterlesen. Die Quellen schließen den Text ab, den sie
+// belegen (P3), statt als eigener Abschnitt zwischen den Bändern zu stehen. Das Verzeichnis steht im Quelltext vor dem
+// Text, damit es mobil vor dem ersten Abschnitt liegt; ab 48em steht es neben „Das Wichtigste“, ab 64em klebt es in
+// der Randspalte (Modul inhalt markiert den Abschnitt).
 // Inhalte: src/inhalte/ratgeber/<id>.mjs (nur Artikel mit Inhaltsmodul werden gebaut; Reihenfolge aus RATGEBER).
 import { access } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -133,10 +135,14 @@ export async function seiten(k) {
 </aside>
 <nav class="artikel-rand" aria-labelledby="inhalt-titel" data-modul="inhalt">
 <h2 class="rand-titel" id="inhalt-titel">Inhalt</h2>
-<ol class="artikel-toc">${inh.abschnitte.map((x, i) => html`<li><a href="#${anker(i)}">${x.titel}</a></li>`)}</ol>
+<ol class="artikel-toc">${inh.abschnitte.map((x, i) => html`<li><a href="#${anker(i)}">${x.titel}</a></li>`)}${quellen.length ? html`<li class="artikel-toc-quellen"><a href="#quellen-titel">Quellen</a></li>` : ''}</ol>
 </nav>
 <div class="artikel-text">
 ${inh.abschnitte.map((x, i) => abschnitt(x, i))}
+${quellen.length ? html`<section class="artikel-quellen-teil" aria-labelledby="quellen-titel">
+<h2 class="artikel-quellen-titel" id="quellen-titel">Quellen</h2>
+<ul class="artikel-quellen">${quellen.map((q) => html`<li data-daten="" data-quelle="">${q.titel}${q.host ? html` <span class="artikel-quelle-host">(${q.host})</span>` : ''}</li>`)}</ul>
+</section>` : ''}
 </div>
 </div></div></div>
 </article>
@@ -144,10 +150,6 @@ ${inh.abschnitte.map((x, i) => abschnitt(x, i))}
 ${abschnittKopf({ id: 'faq-titel', titel: 'Häufige Fragen' })}
 ${faq(sk, inh.faq)}
 </div></div></section>
-${quellen.length ? html`<section class="sektion sektion-dicht" aria-labelledby="quellen-titel"><div class="raster"><div class="faq-teilung">
-${abschnittKopf({ id: 'quellen-titel', titel: 'Quellen' })}
-<ul class="artikel-quellen">${quellen.map((q) => html`<li data-daten="" data-quelle="">${q.titel}${q.host ? html` <span class="artikel-quelle-host">(${q.host})</span>` : ''}</li>`)}</ul>
-</div></div></section>` : ''}
 <section class="sektion sektion-dicht" aria-labelledby="weiter-titel">
 <div class="raster">
 ${abschnittKopf({ id: 'weiter-titel', titel: 'Weiterlesen' })}

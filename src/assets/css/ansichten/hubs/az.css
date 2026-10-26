@@ -66,30 +66,39 @@
   .az-zeile a { display: inline-flex; align-items: center; min-block-size: var(--ziel-min); min-inline-size: 0; overflow-wrap: anywhere; color: var(--c-tinte); text-decoration-color: var(--c-linie-ui); }
   .az-zeile a:hover { text-decoration-thickness: var(--linie-scher); text-decoration-color: currentColor; }
 
-  /* M-02/M-03 an Kreiszeilen und Buchstaben: Überlagerung in currentColor, gedrückt scale .98 (unter reduce nur Überlagerung) */
-  .hub-zeile::before, .az-buchstaben a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: var(--r-s); background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  /* M-02/M-03 an Kreiszeilen und Buchstaben: Überlagerung in Lahn (in Tinte wirkte die Fläche grau, wie deaktiviert),
+     gedrückt scale .98 (unter reduce nur Überlagerung) */
+  .hub-zeile::before, .az-buchstaben a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: var(--r-s); background: var(--c-lahn); opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
   .hub-zeile:hover::before, .az-buchstaben a:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
   .hub-zeile:active::before, .az-buchstaben a:active::before { opacity: var(--deck-aktiv); }
   .az-buchstaben a:active { transform: scale(.98); }
   @media (prefers-reduced-motion: reduce) { .az-buchstaben a:active { transform: none; } }
 
-  /* Buchstabenleiste: bricht um statt seitlich zu scrollen (kein Buchstabe liegt verborgen); Ziele ≥ 44 px,
-     auf Touch 48 px (K-009). Leere Buchstaben bleiben Text, schmal und leicht. */
+  /* Buchstabenleiste: bricht um statt seitlich zu scrollen (kein Buchstabe liegt verborgen). Alle 26 Buchstaben in
+     gleich breiten Zellen eines Rasters, Links wie leere Buchstaben – sonst sprang der Rhythmus zwischen 48 und 24 px.
+     Die Spaltenzahl teilt 26 möglichst gleich: unter 30em so viele Zellen à 44 px (Touch 48 px, K-009), wie passen,
+     ab 30em 9 · 9 · 8, ab 48em 13 · 13, ab 80em mit Maus eine Zeile. Leere Buchstaben bleiben leichter Text. */
   .az-leiste { background: var(--c-papier); border-block-end: var(--linie-haar) solid var(--c-linie); padding-block: var(--sp-2xs); }
-  .az-buchstaben { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; }
-  .az-buchstaben li { margin: 0; flex: none; }
-  .az-buchstaben a, .az-leer { display: inline-flex; align-items: center; justify-content: center; min-block-size: var(--ziel-min); }
-  .az-buchstaben a { position: relative; isolation: isolate; min-inline-size: var(--ziel-min); border-radius: var(--r-s); color: var(--c-lahn-text); font-weight: var(--fw-titel); text-decoration: underline; text-decoration-thickness: var(--linie-haar); text-underline-offset: var(--unterstrich-abstand); }
+  .az-buchstaben { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--ziel-min), 1fr)); }
+  .az-buchstaben li { margin: 0; display: grid; }
+  .az-buchstaben a, .az-leer { display: flex; align-items: center; justify-content: center; min-block-size: var(--ziel-min); }
+  .az-buchstaben a { position: relative; isolation: isolate; border-radius: var(--r-s); color: var(--c-lahn-text); font-weight: var(--fw-titel); text-decoration: underline; text-decoration-thickness: var(--linie-haar); text-underline-offset: var(--unterstrich-abstand); }
   .az-buchstaben a:hover { text-decoration-thickness: var(--linie-scher); }
-  .az-leer { min-inline-size: var(--sp-m); color: var(--c-tinte-3); font-weight: var(--fw-text); }
+  .az-leer { color: var(--c-tinte-3); font-weight: var(--fw-text); }
   @media (pointer: coarse) {
-    .az-buchstaben a { min-inline-size: var(--ziel-touch); min-block-size: var(--ziel-touch); }
-    .az-leer { min-block-size: var(--ziel-touch); }
+    .az-buchstaben { grid-template-columns: repeat(auto-fill, minmax(var(--ziel-touch), 1fr)); }
+    .az-buchstaben a, .az-leer { min-block-size: var(--ziel-touch); }
   }
+  @media (min-width: 30em) { .az-buchstaben { grid-template-columns: repeat(9, minmax(0, 1fr)); } }
+  @media (min-width: 48em) { .az-buchstaben { grid-template-columns: repeat(13, minmax(0, 1fr)); } }
+  @media (min-width: 80em) and (pointer: fine) { .az-buchstaben { grid-template-columns: repeat(26, minmax(0, 1fr)); } }
 
   .az-verzeichnis { columns: var(--spalte-az); column-gap: var(--sp-l); margin-block-start: var(--sp-s); }
   .az-gruppe { scroll-margin-block-start: var(--sp-s); }
-  .az-kopf { display: flex; justify-content: space-between; align-items: center; margin-block: var(--sp-m) var(--sp-2xs); break-after: avoid; }
+  .az-kopf { display: flex; justify-content: space-between; align-items: center; margin-block: var(--sp-m) var(--sp-2xs); break-after: avoid; border-block-end: var(--linie-scher) solid transparent; }
+  /* Sprungziel: Nach einem Klick in der Leiste trägt der Kopf der Gruppe die Kupferlinie – man sieht, wo man gelandet
+     ist (Rückmeldung wie M-01, sofort, ohne Animation; die Linie ist vorher unsichtbar da, nichts verschiebt sich) */
+  .az-gruppe:target .az-kopf { border-block-end-color: var(--c-kupfer); }
   .az-buchstabe { margin: 0; font-size: var(--fs-1); color: var(--c-lahn-text); }
   .az-hoch { display: inline-flex; align-items: center; justify-content: center; min-block-size: var(--ziel-min); min-inline-size: var(--ziel-min); font-size: var(--fs--1); font-weight: var(--fw-ui); text-decoration-color: var(--c-linie-ui); }
   @media (pointer: coarse) { .az-hoch { min-block-size: var(--ziel-touch); min-inline-size: var(--ziel-touch); } }
@@ -108,10 +117,13 @@
     .az-hoch { display: none; }
     .hub-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); align-items: start; }
     .hub-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; }
-    /* Die Leiste klebt unter dem Kopf; Sprung- und Fokusziele landen darunter (WCAG 2.4.11). Bis 80em kann sie
-       zweizeilig stehen, darüber passen 26 Ziele à 44 px in eine Zeile. */
+    /* Die Leiste klebt unter dem Kopf; Sprung- und Fokusziele landen darunter (WCAG 2.4.11). Bis 80em (und auf
+       Touch) steht sie zweizeilig, darüber passen 26 Ziele à 44 px in eine Zeile. */
     .az-leiste { position: sticky; inset-block-start: var(--kopf-hoehe-desktop); z-index: var(--z-szene); }
     html:has(.az-leiste) { scroll-padding-block-start: calc(var(--kopf-hoehe-desktop) + 2 * var(--ziel-min) + 2 * var(--sp-2xs) + var(--sp-s)); }
+  }
+  @media (min-width: 64em) and (pointer: coarse) {
+    html:has(.az-leiste) { scroll-padding-block-start: calc(var(--kopf-hoehe-desktop) + 2 * var(--ziel-touch) + 2 * var(--sp-2xs) + var(--sp-s)); }
   }
   @media (min-width: 80em) and (pointer: fine) {
     html:has(.az-leiste) { scroll-padding-block-start: calc(var(--kopf-hoehe-desktop) + var(--ziel-min) + 2 * var(--sp-2xs) + var(--sp-s)); }

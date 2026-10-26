@@ -53,6 +53,7 @@ function belegung(b, h) {
   };
   return {
     kiste(k) { kisten.push(k); return k; },
+    loesen() { kisten.pop(); },
     strecke(s) { strecken.push(s); },
     ring(cx, cy, rr) { ringe.push([cx, cy, rr]); },
     innen: (k, rand = 2) => k.x1 >= rand && k.y1 >= rand && k.x2 <= b - rand && k.y2 <= h - rand,
@@ -134,29 +135,56 @@ function nachGroesse(orte) {
 const ortKandidaten = (ox, oy, name, oben) => umPunkt(ox, oy, name, SCHRIFT.l, 0.64, 16, oben ? ['oben', 'rechts', 'links', 'unten'] : ['unten', 'rechts', 'links', 'oben']);
 
 /**
- * Ausschnitt der Lagekarte. Der Bogen läuft durch den Ort; frei von ihm steht der Ortsname nur jenseits des Bogens.
- * Liegt der Ort so am Blattrand, dass der Name dort über die Kante ragte, rückt ein Hilfspunkt den Ausschnitt um
- * diesen Überstand ein (höchstens 96 Einheiten; längere Namen kreuzen den Bogen an der Marke).
+ * Ausschnitt der Lagekarte. Weilburg und sein Name (mittig unter bzw. über der Marke, vom Ort abgewandt) halten
+ * mindestens --sp-l (32 Einheiten) Abstand zur Blattkante: Fehlt Rand, setzt ein Hilfspunkt an der Kante der Kiste den
+ * Ausschnitt neu.
+ * Der Bogen läuft durch den Ort; frei von ihm steht der Ortsname nur jenseits des Bogens. Liegt der Ort so am
+ * Blattrand, dass der Name dort über die Kante ragte, rückt ein weiterer Hilfspunkt den Ausschnitt um diesen Überstand
+ * ein (höchstens 96 Einheiten; längere Namen kreuzen den Bogen an der Marke).
  */
+const SITZ_RAND = 32;
 function ausschnitt(ort, sitz, nachbarn, B, H, mitLinie) {
   const punkte = [sitz, ort, ...nachbarn];
-  const erst = projektion(punkte, B, H, 30, 36);
-  if (!mitLinie) return erst;
-  const [sx, sy] = erst.p(sitz); const [ox, oy] = erst.p(ort);
-  const bel = belegung(B, H);
-  bel.kiste({ x1: ox - 11, y1: oy - 11, x2: ox + 11, y2: oy + 11 });
-  bel.strecke([sx, sy, ox, oy]);
-  bel.ring(sx, sy, Math.hypot(ox - sx, oy - sy));
-  const ueber = (k) => [Math.min(0, k.x1 - 2) || Math.max(0, k.x2 - (B - 2)), Math.min(0, k.y1 - 2) || Math.max(0, k.y2 - (H - 2))];
-  const kandidaten = ortKandidaten(ox, oy, ort.name, oy <= sy).filter((c) => bel.frei(c.kiste));
-  if (!kandidaten.length || kandidaten.some((c) => bel.innen(c.kiste))) return erst;
-  const { kiste: k } = kandidaten.map((c) => ({ ...c, u: Math.hypot(...ueber(c.kiste)) })).sort((a, c) => a.u - c.u)[0];
-  if (Math.hypot(...ueber(k)) > 96) return erst;
-  // Der Hilfspunkt liegt so, dass die Kiste am Rand landet, wenn er selbst am Rand des Ausschnitts (30/36) steht
-  const [dx, dy] = ueber(k);
-  const hx = dx > 0 ? k.x2 - 26 : dx < 0 ? k.x1 + 26 : ox;
-  const hy = dy > 0 ? k.y2 - 32 : dy < 0 ? k.y1 + 32 : oy;
-  return projektion([...punkte, { lat: ort.lat - (hy - oy) / erst.m, lon: ort.lon + (hx - ox) / (erst.m * erst.kx) }], B, H, 30, 36);
+  let proj = projektion(punkte, B, H, 30, 36);
+  if (!mitLinie) return proj;
+  const unten = proj.p(ort)[1] <= proj.p(sitz)[1];
+  const halb = ('Weilburg'.length * SCHRIFT.m * 0.62) / 2;
+  // Hilfspunkt an der Stelle (hx, hy) des Ausschnitts, bezogen auf den Ort o
+  const punkt = (o, [x, y], hx, hy) => ({ lat: o.lat - (hy - y) / proj.m, lon: o.lon + (hx - x) / (proj.m * proj.kx) });
+  const sitzHilfe = () => {
+    const [x, y] = proj.p(sitz);
+    // Kiste aus Marke (r 6) und Name im Abstand 14 (wie umPunkt); seitlich liegt der Rand des Ausschnitts bei 30, oben
+    // und unten bei 36 – seitlich 2 Einheiten Zugabe
+    const k = unten ? { x1: x - halb, y1: y - 9, x2: x + halb, y2: y + 31 } : { x1: x - halb, y1: y - 31, x2: x + halb, y2: y + 9 };
+    return [[k.x1 < SITZ_RAND, k.x1 - 2, y], [k.x2 > B - SITZ_RAND, k.x2 + 2, y], [k.y1 < SITZ_RAND, x, k.y1], [k.y2 > H - SITZ_RAND, x, k.y2]]
+      .filter(([fehlt]) => fehlt).map(([, hx, hy]) => punkt(sitz, [x, y], hx, hy));
+  };
+  const ortHilfe = () => {
+    const [sx, sy] = proj.p(sitz); const [ox, oy] = proj.p(ort);
+    const bel = belegung(B, H);
+    bel.kiste({ x1: ox - 11, y1: oy - 11, x2: ox + 11, y2: oy + 11 });
+    bel.strecke([sx, sy, ox, oy]);
+    bel.ring(sx, sy, Math.hypot(ox - sx, oy - sy));
+    const ueber = (k) => [Math.min(0, k.x1 - 2) || Math.max(0, k.x2 - (B - 2)), Math.min(0, k.y1 - 2) || Math.max(0, k.y2 - (H - 2))];
+    const kandidaten = ortKandidaten(ox, oy, ort.name, oy <= sy).filter((c) => bel.frei(c.kiste));
+    if (!kandidaten.length || kandidaten.some((c) => bel.innen(c.kiste))) return [];
+    const { kiste: k } = kandidaten.map((c) => ({ ...c, u: Math.hypot(...ueber(c.kiste)) })).sort((a, c) => a.u - c.u)[0];
+    if (Math.hypot(...ueber(k)) > 96) return [];
+    // Der Hilfspunkt liegt so, dass die Kiste am Rand landet, wenn er selbst am Rand des Ausschnitts (30/36) steht
+    const [dx, dy] = ueber(k);
+    return [punkt(ort, [ox, oy], dx > 0 ? k.x2 - 26 : dx < 0 ? k.x1 + 26 : ox, dy > 0 ? k.y2 - 32 : dy < 0 ? k.y1 + 32 : oy)];
+  };
+  // Jedes Einpassen ändert den Maßstab: bis zu viermal prüfen, der Hilfspunkt für den Ortsnamen höchstens einmal
+  let ortFrei = true;
+  for (let i = 0; i < 4; i++) {
+    const ortNeu = ortFrei ? ortHilfe() : [];
+    if (ortNeu.length) ortFrei = false;
+    const neu = [...sitzHilfe(), ...ortNeu];
+    if (!neu.length) break;
+    punkte.push(...neu);
+    proj = projektion(punkte, B, H, 30, 36);
+  }
+  return proj;
 }
 
 /**
@@ -200,31 +228,35 @@ export function lagekarte({ ort, sitz, nachbarn = [], umgebung = [], praefix = '
     kmL = setzen(bel, kandidaten, { pflicht: true });
     km = text('lk-km', kmL, inhalt);
   }
-  // Punkte: zuerst die Nachbarn (nächste zuerst), dann die größten Orte im Ausschnitt; nie auf Marken, Linie oder Schrift
-  const gesetzt = []; const zuOrt = new Map();
+  // Punkte nie auf Marken, Linie oder Schrift und nicht dicht an einem anderen Punkt
+  const gesetzt = [];
   const imBild = (x, y) => x >= 8 && x <= B - 8 && y >= 8 && y <= H - 8;
-  const groesste = [];
+  const punktFrei = (x, y) => imBild(x, y) && Math.hypot(x - ox, y - oy) >= 16 && !(mitLinie && (Math.hypot(x - sx, y - sy) < 12 || bel.abstandStrecke(x, y) < 6))
+    && bel.frei({ x1: x - 4, y1: y - 4, x2: x + 4, y2: y + 4 }) && !gesetzt.some(([gx, gy]) => Math.hypot(gx - x, gy - y) < 10);
+  const punktSetzen = (x, y) => { gesetzt.push([x, y]); bel.kiste({ x1: x - 3, y1: y - 3, x2: x + 3, y2: y + 3 }); };
+  // Die Nachbarn sind die Liste „Orte in der Nähe“: alle als Punkt, die nächsten zwei oder drei mit Namen, damit Karte
+  // und Liste einander zeigen
+  const nah = nachbarn.filter((o) => o.slug !== sitz.slug).map((o) => ({ o, xy: p(o) }))
+    .sort((a, c) => Math.hypot(a.xy[0] - ox, a.xy[1] - oy) - Math.hypot(c.xy[0] - ox, c.xy[1] - oy));
+  const mitPunkt = nah.filter(({ xy: [x, y] }) => punktFrei(x, y) && (punktSetzen(x, y), true));
+  const namenSvg = [];
+  const benennen = (o, [x, y]) => {
+    const c = o.name.length <= 24 && setzen(bel, umPunkt(x, y, o.name, SCHRIFT.s, 0.58, 7));
+    if (c) namenSvg.push(text('lk-name', c, o.name));
+    return Boolean(c);
+  };
+  for (const { o, xy } of mitPunkt) if (namenSvg.length < 3) benennen(o, xy);
+  // Dazu höchstens zwei größere Orte im Ausschnitt zur Orientierung, nur mit Namen (keine stummen Füllpunkte)
+  let orientierung = 0; let gesehen = 0;
   for (const o of nachGroesse(umgebung)) {
-    if (groesste.length >= 24) break;
-    if (o.slug === ort.slug || o.slug === sitz.slug) continue;
-    const xy = p(o);
-    if (imBild(...xy)) groesste.push({ o, xy });
-  }
-  for (const { o, xy: [x, y] } of [...nachbarn.map((o) => ({ o, xy: p(o) })), ...groesste]) {
-    if (gesetzt.length >= 14 || zuOrt.has(o.slug) || o.slug === sitz.slug || !imBild(x, y)) continue;
-    if (Math.hypot(x - ox, y - oy) < 16 || (mitLinie && Math.hypot(x - sx, y - sy) < 12) || (mitLinie && bel.abstandStrecke(x, y) < 6)) continue;
-    if (!bel.frei({ x1: x - 4, y1: y - 4, x2: x + 4, y2: y + 4 }) || gesetzt.some(([gx, gy]) => Math.hypot(gx - x, gy - y) < 10)) continue;
-    gesetzt.push([x, y]); zuOrt.set(o.slug, o);
-  }
-  for (const [x, y] of gesetzt) bel.kiste({ x1: x - 3, y1: y - 3, x2: x + 3, y2: y + 3 });
-  // Namen: die größten gesetzten Orte, wo Platz ist – höchstens drei und über die Karte verteilt, nicht im Bündel
-  const namenSvg = []; const benannt = [];
-  for (const o of [...zuOrt.values()].filter((x) => x.pop > 0 && x.name.length <= 24).sort((a, c) => c.pop - a.pop)) {
-    if (namenSvg.length >= 3) break;
+    if (orientierung >= 2 || namenSvg.length >= 4 || gesehen >= 24) break;
+    if (o.slug === ort.slug || o.slug === sitz.slug || nah.some((n) => n.o.slug === o.slug) || o.name.length > 24) continue;
     const [x, y] = p(o);
-    if (benannt.some(([bx, by]) => Math.hypot(bx - x, by - y) < 56)) continue;
-    const c = setzen(bel, umPunkt(x, y, o.name, SCHRIFT.s, 0.58, 7));
-    if (c) { namenSvg.push(text('lk-name', c, o.name)); benannt.push([x, y]); }
+    if (!imBild(x, y)) continue;
+    gesehen++;
+    if (!punktFrei(x, y)) continue;
+    bel.kiste({ x1: x - 3, y1: y - 3, x2: x + 3, y2: y + 3 });
+    if (benennen(o, [x, y])) { gesetzt.push([x, y]); orientierung++; } else bel.loesen();
   }
   const mass = massstab(bel, jeKm, B, H, gesetzt);
   const winkel = r((Math.atan2(oy - sy, ox - sx) * 1800) / Math.PI) / 10;
@@ -261,6 +293,69 @@ function ring(cx, cy, rr, kiste) {
     if (von !== null) { boegen.push(`M${pkt(von)}A${rr} ${rr} 0 ${g - 1 - von > 180 ? 1 : 0} 1 ${pkt(g - 1)}`); von = null; }
   }
   return `<path class="gk-ring" d="${boegen.join('')}"/>`;
+}
+
+// Pfad aus der Punktfolge [x0, y0, x1, y1, …]
+const pfadD = (pkte) => pkte.map(r).reduce((s, v, i) => s + (i % 2 ? ` ${v}` : `${i ? 'L' : 'M'}${v}`), '');
+function abstandZurStrecke(x, y, [ax, ay, bx, by]) {
+  const dx = bx - ax; const dy = by - ay; const l2 = dx * dx + dy * dy || 1;
+  const t = Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / l2));
+  return Math.hypot(x - (ax + t * dx), y - (ay + t * dy));
+}
+// Stützpunkte im Abstand von höchstens 2 Einheiten entlang einer Strecke
+const entlang = ([ax, ay, bx, by]) => {
+  const n = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 2));
+  return Array.from({ length: n + 1 }, (_, i) => [ax + ((bx - ax) * i) / n, ay + ((by - ay) * i) / n]);
+};
+const inKiste = ([x, y], k) => x > k.x1 && x < k.x2 && y > k.y1 && y < k.y2;
+const abschnitte = (l) => Array.from({ length: l.length / 2 - 1 }, (_, i) => l.slice(i * 2, i * 2 + 4));
+
+/**
+ * Stelle für den Namen eines Rasterpunkts im Hub. Zuerst direkt neben dem Punkt auf seiner Höhe; sonst am nächsten
+ * freien Rand des Rasters mit einer kurzen Haarlinie: waagerecht oder mit genau einem 45°-Knick aus dem Raster in die
+ * Waagerechte (K-008), so steht jeder Name auf Höhe seiner Linie. Die Linie hält Abstand zu jedem anderen Rasterpunkt
+ * (Radius 2,5 plus Luft) und kreuzt weder Schrift noch eine andere Linie; lange Linien entfallen samt Namen. Liefert
+ * die kürzeste Lösung { x, y, anker, kiste, linie? } oder null.
+ */
+function namensStelle(bel, [x, y], inhalt, groesse, { punkte, schrift, linien }) {
+  const fremd = punkte.filter(([px, py]) => px !== x || py !== y);
+  const frei = (s) => !fremd.some(([px, py]) => abstandZurStrecke(px, py, s) < 4)
+    && !entlang(s).some((q) => schrift.some((k) => inKiste(q, k)))
+    && !linien.some((l) => abschnitte(l).some((a) => entlang(s).some(([qx, qy]) => abstandZurStrecke(qx, qy, a) < 3)));
+  const passt = (c) => bel.innen(c.kiste) && bel.frei(c.kiste);
+  // Name seitlich an einer waagerechten Linie, die bei (lx, ly) endet
+  const seitlich = (lx, ly, s) => {
+    const [nx, ny, anker] = [lx + s * 3, ly + groesse * 0.34, s > 0 ? 'start' : 'end'];
+    return { x: nx, y: ny, anker, kiste: textKiste(nx, ny, anker, inhalt, groesse, 0.6) };
+  };
+  for (const s of [1, -1]) {
+    const c = seitlich(x + s * 5, y, s);
+    if (passt(c)) return c;
+  }
+  const kandidaten = [];
+  for (const s of [1, -1]) {
+    for (let l = 12; l <= 64; l += 2) {
+      const linie = [x + s * 4, y, x + s * l, y];
+      if (!frei(linie)) break;
+      const c = seitlich(x + s * l, y, s);
+      if (passt(c)) { kandidaten.push({ ...c, linie, kosten: l }); break; }
+    }
+  }
+  for (const s of [1, -1]) {
+    for (const v of [-1, 1]) {
+      for (let n = 1; n <= 3; n++) {
+        const [kx, ky] = [x + s * 6 * n, y + v * 6 * n];
+        const schraeg = [x + s * 2.8, y + v * 2.8, kx, ky];
+        if (!frei(schraeg)) break;
+        for (let l = 6; l <= 48; l += 2) {
+          if (!frei([kx, ky, kx + s * l, ky])) break;
+          const c = seitlich(kx + s * l, ky, s);
+          if (passt(c)) { kandidaten.push({ ...c, linie: [...schraeg, kx + s * l, ky], kosten: 6 * n * Math.SQRT2 + l + 6 }); break; }
+        }
+      }
+    }
+  }
+  return kandidaten.sort((a, c) => a.kosten - c.kosten)[0] || null;
 }
 
 /**
@@ -315,7 +410,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
   const schrift = []; // Kisten der Beschriftungen und der Sitzmarke: Führungslinien der Namen kreuzen sie nicht
   const bel = belegung(B, H);
   // Schriftgrößen der Kisten: mobil (gebiet.css) ist die Schrift eine Stufe größer – geschätzt wird mit der größeren
-  let sitzSvg; let ringe = []; let ringText = ''; let luecke = null;
+  let sitzSvg; let ringe = []; let ringText = ''; let luecke = null; let peilung = null;
   if (!fern) {
     // die Sitzmarke bleibt frei
     for (const k of [...zellen.keys()]) { const [x, y] = mitte(k); if (Math.hypot(x - sx, y - sy) < 12) zellen.delete(k); }
@@ -373,7 +468,8 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
     const start = Math.min(radius + 10, bisKante - 40);
     const [ax, ay] = [cx + dx * start, cy + dy * start];
     const [ex, ey] = [cx + dx * (bisKante + 20), cy + dy * (bisKante + 20)];
-    bel.strecke([ax, ay, ex, ey]);
+    peilung = [ax, ay, ex, ey];
+    bel.strecke(peilung);
     const kms = orte.map((o) => o.km);
     const kmText = Math.min(...kms) === Math.max(...kms) ? `${kms[0]} km` : `${Math.min(...kms)}–${Math.max(...kms)} km`;
     // Beschriftung zweizeilig an der Kante, an der die Peilung das Blatt verlässt: alle Stellen entlang beider Kanten
@@ -407,41 +503,23 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
   };
   const raster = pfade(zellen, '') + pfade(nurBreit, ' gl-nur-breit');
   // Die größten Orte des Gebiets, am Punkt ihrer Rasterzelle und nur auf freier Fläche (weder auf Punkten noch auf
-  // Ringen); der Sitz trägt schon seinen Namen. Ab dem dritten nur breit (data-rang="2", gebiet.css). Liegt der Ort
-  // mitten im Raster, steht der Name am nächsten freien Rand und eine Haarlinie führt zum Punkt; sie kreuzt keine
-  // Schrift. Ohne freie Stelle in Reichweite entfällt der Name.
-  const kreuztSchrift = ([ax, ay, bx, by]) => {
-    const n = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 2));
-    return Array.from({ length: n + 1 }, (_, i) => [ax + ((bx - ax) * i) / n, ay + ((by - ay) * i) / n])
-      .some(([x, y]) => schrift.some((k) => x > k.x1 && x < k.x2 && y > k.y1 && y < k.y2));
-  };
+  // Ringen); der Sitz trägt schon seinen Namen. Ab dem dritten nur breit (data-rang="2", gebiet.css).
   const namen = []; const fuehrungen = [];
-  for (const o of orte.filter((x) => x.pop > 0 && x.slug !== sitz.slug && x.name.length <= 24).sort((a, c) => c.pop - a.pop).slice(0, namenMax * 4)) {
+  for (const o of orte.filter((x) => x.pop > 0 && x.slug !== sitz.slug && x.name.length <= 24).sort((a, c) => c.pop - a.pop).slice(0, namenMax * 10)) {
     if (namen.length >= namenMax) break;
     const k = schluessel(p(o));
     if (!zellen.has(k)) continue;
-    const [x, y] = mitte(k);
     const rang = namen.length < 2 ? 1 : 2;
-    let wahl = null; let fuehrung = null;
-    for (const d of [8, 18, 30, 44]) {
-      for (const c of umPunkt(x, y, o.name, rang === 1 ? SCHRIFT.l : SCHRIFT.s, 0.6, d).filter((q) => bel.innen(q.kiste) && bel.frei(q.kiste))) {
-        if (d === 8) { wahl = c; break; }
-        const { x1, y1, x2, y2 } = c.kiste;
-        const [nx, ny] = [Math.max(x1, Math.min(x, x2)), Math.max(y1, Math.min(y, y2))];
-        const l = Math.hypot(nx - x, ny - y) || 1; const [ux, uy] = [(nx - x) / l, (ny - y) / l];
-        const strecke = [x + ux * 4, y + uy * 4, nx - ux * 2, ny - uy * 2];
-        if (kreuztSchrift(strecke)) continue;
-        wahl = c; fuehrung = strecke; break;
-      }
-      if (wahl) break;
-    }
+    const wahl = namensStelle(bel, mitte(k), o.name, rang === 1 ? SCHRIFT.l : SCHRIFT.s, {
+      punkte: [...zellen.keys(), ...nurBreit.keys()].map(mitte), schrift, linien: [...(peilung ? [peilung] : []), ...fuehrungen.map((f) => f.punkte)],
+    });
     if (!wahl) continue;
     bel.kiste(wahl.kiste); schrift.push(wahl.kiste);
     const zusatz = rang === 2 ? ' data-rang="2"' : '';
     namen.push(text('gk-name', wahl, o.name, zusatz));
-    if (fuehrung) {
-      bel.strecke(fuehrung);
-      fuehrungen.push(`<path class="gl-fuehrung"${zusatz} d="M${fuehrung.map(r).slice(0, 2).join(' ')}L${fuehrung.map(r).slice(2).join(' ')}"/>`);
+    if (wahl.linie) {
+      for (let i = 2; i < wahl.linie.length; i += 2) bel.strecke(wahl.linie.slice(i - 2, i + 2));
+      fuehrungen.push({ punkte: wahl.linie, svg: `<path class="gl-fuehrung"${zusatz} d="${pfadD(wahl.linie)}"/>` });
     }
   }
   // Ferne Gebiete haben keine Zonenringe als Maß: ein Maßstab wie auf der Lagekarte, wo eine Ecke frei ist
@@ -450,7 +528,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
   const svg = roh(`<svg class="gebietslage" viewBox="0 0 ${B} ${H}" role="img" aria-labelledby="${praefix}-titel">
 <title id="${praefix}-titel">${esc(titel)}</title>
 <g class="gk-ringe">${ringSvg}</g><g class="gk-punkte">${raster}</g>
-<g class="gk-namen">${fuehrungen.join('')}${ringText}${namen.join('')}${mass}</g>
+<g class="gk-namen">${fuehrungen.map((f) => f.svg).join('')}${ringText}${namen.join('')}${mass}</g>
 <g class="gk-sitz">${sitzSvg}</g>
 </svg>`);
   return { svg, zonen, ringe: ringe.map((x) => x.km), fern };

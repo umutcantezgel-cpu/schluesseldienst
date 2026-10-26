@@ -21,7 +21,9 @@ import { tuerSchichten } from '../teile/illustrationen/tuerschichten.mjs';
 import { grundriss } from '../teile/illustrationen/grundriss.mjs';
 import { widerstandsStufen } from '../teile/illustrationen/stufen.mjs';
 
-// Szenenfigur je Gruppe (M-17); jede liefert dekoratives SVG mit Schrittzuständen.
+// Szenenfigur je Gruppe (M-17); jede liefert dekoratives SVG mit Schrittzuständen. Der Zylinder ist querformatig
+// und füllt die Bühne auf dem Telefon schon in voller Breite: Er bekommt keine Stückliste daneben (QUER).
+const QUER = new Set(['notoeffnung']);
 const FIGUREN = {
   notoeffnung: ({ praefix, zustand }) => zylinderSchnitt({ praefix, zustand, schluessel: false, stiftAb: [2, 2, 3, 3, 3], linieAb: 4, dekorativ: true }),
   einbruchschutz: tuerSchichten,
@@ -40,6 +42,9 @@ export function gruppenLd(sk, g, inhalt) {
   };
 }
 
+// Kopf 7/5: Das Register rechts zeigt nur Icon und Name (zweispaltig ab 30em) und schließt damit neben dem Text in
+// einer Bildschirmhöhe; der Kurzsatz je Leistung bleibt für Screenreader im Linknamen. Die Notöffnung ruft im Kopf
+// erst ab 64em an – darunter trägt die Rufleiste den Anruf (wie V01), statt zweimal im ersten Bildschirm.
 function kopf(sk, g, inh) {
   return html`<section class="gruppe-kopf" aria-labelledby="gruppe-titel">
 <div class="raster"><div class="gruppe-kopf-teilung">
@@ -48,11 +53,13 @@ function kopf(sk, g, inh) {
 <p class="gruppe-kicker"><span class="gruppe-nr">${g.nr}</span> ${inh.kicker}</p>
 <h1 id="gruppe-titel">${inh.h1}</h1>
 <p class="gruppe-einleitung">${text(inh.einleitung)}</p>
-<div class="gruppe-handlung">${g.id === 'notoeffnung' ? rufknopf(sk, { variante: 'gross' }) : html`<a class="knopf knopf-primaer" href="/kontakt/">Beratung anfragen${sk.icon('pfeil-rechts')}</a>`}</div>
+${g.id === 'notoeffnung'
+    ? html`<div class="gruppe-handlung gruppe-handlung-ruf">${rufknopf(sk, { variante: 'gross' })}</div>`
+    : html`<div class="gruppe-handlung"><a class="knopf knopf-primaer" href="/kontakt/">Beratung anfragen${sk.icon('pfeil-rechts')}</a></div>`}
 </div>
 <nav class="gruppe-register" aria-labelledby="gruppe-register-titel">
 <h2 class="gruppe-register-titel" id="gruppe-register-titel">${inh.registerTitel}</h2>
-<ul>${g.leistungen.map((l) => html`<li><a href="${l.pfad}">${sk.icon(l.icon, { klasse: 'gruppe-register-icon' })}<span class="gruppe-register-name">${l.titel}</span><span class="gruppe-register-kurz">${l.kurz}</span></a></li>`)}</ul>
+<ul>${g.leistungen.map((l) => html`<li><a href="${l.pfad}">${sk.icon(l.icon, { klasse: 'gruppe-register-icon' })}<span class="gruppe-register-name">${l.titel}</span><span class="unsichtbar">: ${l.kurz}</span></a></li>`)}</ul>
 </nav>
 </div></div>
 </section>`;
@@ -126,13 +133,12 @@ ${abschnittKopf({ id: 'weiter-titel', titel: 'Weiterlesen' })}
 </section>`;
 }
 
+// Schlussband mit Abschnittsmarke wie jeder Abschnittskopf: Die Kupferlinie (P1) reißt nicht vor der Handlung ab,
+// die zur nächsten Seite führt.
 function schluss(sk, s, notfall) {
   return html`<section class="sektion band-dunkel schluss" aria-labelledby="schluss-titel">
 <div class="raster"><div class="schluss-teilung">
-<div>
-<h2 id="schluss-titel">${s.titel}</h2>
-<p>${text(s.text)}</p>
-</div>
+${abschnittKopf({ id: 'schluss-titel', titel: s.titel, einleitung: s.text })}
 <div class="schluss-handlung">${notfall ? rufknopf(sk, { variante: 'gross' }) : ''}<a class="knopf knopf-sekundaer" href="${s.link.pfad}">${s.link.text}${sk.icon('pfeil-rechts')}</a></div>
 </div></div>
 </section>`;
@@ -168,7 +174,7 @@ export async function seiten(k) {
       sitemap: 'leistungen', koerperKlasse: `seite-gruppe seite-gruppe-${g.id}`, stile: ['register', 'gruppe'], ogBild: `/assets/og/${g.id}.png`, brotkrumen: stufen,
       jsonld: [gruppenLd(k, g, inh), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, g.pfad, inh.faq)],
       inhalt: (sk) => html`${kopf(sk, g, inh)}
-${szene({ id: 'szene', titel: inh.szene.titel, einleitung: inh.szene.einleitung, figur: FIGUREN[g.id], schritte: inh.szene.schritte, klasse: 'band' })}
+${szene({ id: 'szene', titel: inh.szene.titel, einleitung: inh.szene.einleitung, figur: FIGUREN[g.id], schritte: inh.szene.schritte, klasse: 'band', liste: !QUER.has(g.id) })}
 ${mittelteil(sk, inh)}
 ${weiter(sk, inh.weiter)}
 ${schluss(sk, inh.schluss, g.id === 'notoeffnung')}`,

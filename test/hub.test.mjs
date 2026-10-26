@@ -104,6 +104,21 @@ const kreuzt = (k, [cx, cy, rr]) => {
   return nah < rr && fern > rr;
 };
 
+test('Lagekarte: Weilburg samt Name hält Abstand zur Blattkante; die nächsten Nachbarn tragen Namen', () => {
+  for (const o of ORTE.filter((_, i) => i % 11 === 0).concat(ORTE.filter((x) => ['loehnberg', 'aschaffenburg', 'arnstein'].includes(x.slug)))) {
+    if (o.slug === 'weilburg') continue;
+    const nachbarn = (o.nachbarn || []).map((id) => NACH_ID.get(id)).filter(Boolean);
+    const k = zerlegen(lagekarte({ ort: o, sitz: SITZ, nachbarn, umgebung: ORTE, praefix: 't' }));
+    const q = kiste(k.texte.find((t) => t.klasse === 'lk-sitz-text'), 16, 0.6);
+    // --sp-l (32) mit Toleranz für Namen, die seitlich ausweichen mussten
+    assert.ok(Math.min(q.x1, q.y1, k.b - q.x2, k.h - q.y2) >= 24, `${o.slug}: „Weilburg“ an der Blattkante`);
+  }
+  const loe = ORTE.find((x) => x.slug === 'loehnberg');
+  const namen = zerlegen(lagekarte({ ort: loe, sitz: SITZ, nachbarn: loe.nachbarn.map((id) => NACH_ID.get(id)), umgebung: ORTE, praefix: 't' }))
+    .texte.filter((t) => t.klasse === 'lk-name').map((t) => t.inhalt);
+  assert.ok(namen.includes('Selters'), `Löhnberg: nächster Nachbar Selters ohne Namen (${namen.join(', ')})`);
+});
+
 test('Lagekarte: der Bogen um Weilburg läuft durch keine Beschriftung (außer am Ort) und nicht durch den Maßstab', () => {
   const stichprobe = ORTE.filter((_, i) => i % 7 === 0).concat(ORTE.filter((o) => ['bremen', 'almelo', 'frankfurt-am-main', 'loehnberg'].includes(o.slug)));
   let mitMassstab = 0;
@@ -127,7 +142,7 @@ test('Lagekarte: der Bogen um Weilburg läuft durch keine Beschriftung (außer a
 });
 
 test('Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten noch auf Ringen', () => {
-  const gebiete = { hessen: (o) => o.landSlug === 'hessen', 'limburg-weilburg': (o) => o.kreisSlug === 'limburg-weilburg', 'lahn-dill-kreis': (o) => o.kreisSlug === 'lahn-dill-kreis', westerwaldkreis: (o) => o.kreisSlug === 'westerwaldkreis' };
+  const gebiete = { hessen: (o) => o.landSlug === 'hessen', 'limburg-weilburg': (o) => o.kreisSlug === 'limburg-weilburg', 'lahn-dill-kreis': (o) => o.kreisSlug === 'lahn-dill-kreis', westerwaldkreis: (o) => o.kreisSlug === 'westerwaldkreis', wetteraukreis: (o) => o.kreisSlug === 'wetteraukreis', 'rheingau-taunus-kreis': (o) => o.kreisSlug === 'rheingau-taunus-kreis' };
   // Mobile und breite Schriftgröße (gebiet.css): Namen 18/15, Ringe 18/16, Weilburg 24/18 Einheiten
   const LAGEN = [['schmal', { 'gk-name': 18, 'gk-ring-text': 18, 'gk-sitz-name': 24 }], ['breit', { 'gk-name': 15, 'gk-ring-text': 16, 'gk-sitz-name': 18 }]];
   for (const [name, filter] of Object.entries(gebiete)) {
@@ -158,13 +173,22 @@ test('Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten n
     for (const d of boegen) {
       for (const [, x, y] of d.matchAll(/(?:M|1 )(-?\d+) (-?\d+)/g)) assert.ok(!(+x > sk.x1 && +x < sk.x2 && +y > sk.y1 && +y < sk.y2), `${name}: Ring endet in „Weilburg“`);
     }
-    // Führungslinien kreuzen keine Schrift
-    for (const [, x1, y1, x2, y2] of s.matchAll(/class="gl-fuehrung"[^>]*d="M(-?\d+) (-?\d+)L(-?\d+) (-?\d+)"/g)) {
-      for (const t of texte) {
-        const k = kiste(t, 15, 0.55);
+    // Führungslinien (K-008): waagerecht oder mit genau einem 45°-Knick, keine kreuzt Schrift oder einen Rasterpunkt
+    for (const [, d] of s.matchAll(/class="gl-fuehrung"[^>]*d="([^"]+)"/g)) {
+      assert.match(d, /^M-?\d+ -?\d+(L-?\d+ -?\d+){1,2}$/, `${name}: Führungslinie ${d} mit mehr als einem Knick`);
+      const pkt = zahlen(d.replace(/[ML]/g, ' '));
+      const stuecke = Array.from({ length: pkt.length / 2 - 1 }, (_, i) => pkt.slice(i * 2, i * 2 + 4));
+      assert.ok(stuecke.at(-1)[1] === stuecke.at(-1)[3], `${name}: Führungslinie ${d} endet nicht waagerecht am Namen`);
+      for (const [x1, y1, x2, y2] of stuecke) {
+        const [dx, dy] = [Math.abs(x2 - x1), Math.abs(y2 - y1)];
+        assert.ok(dy === 0 || Math.abs(dx - dy) <= 1, `${name}: Führungslinie ${d} schräg, aber nicht 45°`);
         for (let i = 0; i <= 10; i++) {
-          const [x, y] = [+x1 + ((x2 - x1) * i) / 10, +y1 + ((y2 - y1) * i) / 10];
-          assert.ok(!(x > k.x1 + 2 && x < k.x2 - 2 && y > k.y1 + 2 && y < k.y2 - 2), `${name}: Führungslinie durch „${t.inhalt}“`);
+          const [x, y] = [x1 + ((x2 - x1) * i) / 10, y1 + ((y2 - y1) * i) / 10];
+          for (const t of texte) {
+            const k = kiste(t, 15, 0.55);
+            assert.ok(!(x > k.x1 + 2 && x < k.x2 - 2 && y > k.y1 + 2 && y < k.y2 - 2), `${name}: Führungslinie durch „${t.inhalt}“`);
+          }
+          for (const q of punkte) assert.ok(Math.hypot(q.x - x, q.y - y) >= 3, `${name}: Führungslinie ${d} über dem Rasterpunkt ${q.x},${q.y}`);
         }
       }
     }

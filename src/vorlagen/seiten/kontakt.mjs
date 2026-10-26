@@ -25,12 +25,16 @@ const REGELN = [
 
 function kopf(sk) {
   const { notfall: n, planbar: p } = inhalt;
+  // Ab 64em: Frage links, der Notfall-Weg rechts daneben (7/5, der Rufknopf im ersten Bildschirm); der planbare Weg
+  // läuft als flache Zeile über die ganze Breite und führt direkt zur Vorlage darunter
   return html`<section class="kontakt-kopf" aria-labelledby="kontakt-h1">
-<div class="raster">
+<div class="raster"><div class="kontakt-kopf-teilung">
+<div class="kontakt-kopftext">
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inhalt.kicker}</p>
 <h1 id="kontakt-h1">${inhalt.h1}</h1>
 <p class="gruppe-einleitung">${text(zusammen(inhalt.einleitung))}</p>
+</div>
 <div class="kontakt-wege">
 <section class="kontakt-weg kontakt-weg-notfall" aria-labelledby="weg-notfall">
 ${sk.icon('telefon-nacht', { klasse: 'kontakt-weg-icon' })}
@@ -38,14 +42,14 @@ ${sk.icon('telefon-nacht', { klasse: 'kontakt-weg-icon' })}
 <p>${text(n.text)}</p>
 ${rufknopf(sk, { variante: 'gross' })}
 </section>
-<section class="kontakt-weg" aria-labelledby="weg-planbar">
+<section class="kontakt-weg kontakt-weg-planbar" aria-labelledby="weg-planbar">
 ${sk.icon('mail', { klasse: 'kontakt-weg-icon' })}
 <h2 id="weg-planbar">${zusammen(p.titel)}</h2>
 <p>${text(zusammen(p.text))}</p>
 <p><a class="knopf knopf-sekundaer" href="#anfrage-titel">${p.link}${sk.icon('pfeil-rechts')}</a></p>
 </section>
 </div>
-</div>
+</div></div>
 </section>`;
 }
 
@@ -142,7 +146,7 @@ export function seiten(k) {
       betriebLd({ ...k }), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, '/kontakt/', inhalt.faq),
     ],
     inhalt: (sk) => html`${kopf(sk)}
-<section class="sektion band" aria-labelledby="anfrage-titel">
+<section class="sektion band kontakt-werkbank" aria-labelledby="anfrage-titel">
 <div class="raster"><div class="kontakt-composer-teilung">
 ${abschnittKopf({ id: 'anfrage-titel', titel: inhalt.composer.titel, einleitung: zusammen(inhalt.composer.einleitung) })}
 ${composer(sk)}

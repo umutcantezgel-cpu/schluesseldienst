@@ -1,8 +1,8 @@
 // V09 Über uns (Erzählansicht). Abschnittsfolge nach Themenpass /ueber-uns/:
 // Kopf mit der Leitidee „Der gerade Weg“ (Leitsatz, Lahnbogen I-11 mit Fakt und M-20 als Blickfang des ersten
-// Bildschirms) · Wer wir sind (Konfiguration; jede fehlende Angabe entfällt) · Wofür wir stehen (Band) ·
-// Wie Sie uns erreichen (dunkles Band) · Weiterlesen. Locksmith-JSON-LD nur hier (Start, Über uns, Kontakt);
-// keine Personen, keine Bewertungen.
+// Bildschirms) · Wer wir sind (Sitz, Messleiste „Ab Weilburg“, Leistungsgruppen; jede fehlende Angabe entfällt) ·
+// Wofür wir stehen (Band) · Wie Sie uns erreichen (dunkles Band) · Weiterlesen. Locksmith-JSON-LD nur hier (Start,
+// Über uns, Kontakt); keine Personen, keine Bewertungen.
 import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import inhalt from '../../inhalte/ueber-uns.mjs';
@@ -13,6 +13,8 @@ import { betriebLd } from './start.mjs';
 import { lahnbogen } from '../teile/illustrationen/lahnbogen.mjs';
 
 const liste = (w) => (Array.isArray(w) ? w.filter(Boolean) : []);
+// Umfang der Gruppe aus der Konfiguration (Zahl der Detailseiten), keine Behauptung
+const zahlWort = (n) => `${n} ${n === 1 ? 'Leistung' : 'Leistungen'}`;
 const eintrag = (m) => (typeof m === 'string' ? m : [m.name, m.rolle].filter(Boolean).join(', '));
 
 // Die Leitidee steht im Kopf: Leitsatz links, der Lahnbogen rechts; der Fakt zum Tunnel erklärt das Bild in der
@@ -33,7 +35,28 @@ function kopf() {
 </section>`;
 }
 
+// „Ab Weilburg“ (P7 Ort mit Maß): Die Zonen aus zonen.mjs als Messleiste – ein Punkt für den Sitz, dann je Zone
+// ein Stück Weg mit Strich an der Grenze; D bleibt offen. Mobil steht die Leiste senkrecht wie die Inhaltsschiene im
+// Ratgeber. Radien und Notöffnung kommen aus der Konfiguration, die Wörter wie auf /einsatzgebiet/.
+function abWeilburg(sk) {
+  const a = inhalt.wer.ab;
+  const { stufen, sitzKreis } = sk.konfig.zonen;
+  const radius = (s, i) => (s.bisKm === Infinity
+    ? html`über <span data-daten="">${String(stufen[i - 1].bisKm)}</span>&nbsp;km`
+    : html`bis <span data-daten="">${String(s.bisKm)}</span>&nbsp;km${s.auchKreis ? html` und der ganze ${sitzKreis}` : ''}`);
+  return html`<h3 class="ueber-unter" id="ab-titel">${a.titel}</h3>
+<ol class="ueber-ab">${stufen.map((s, i) => html`<li class="ueber-ab-zone">
+<span class="ueber-ab-kennung"><span class="ueber-ab-id">${s.id}</span> ${s.titel}</span>
+<span class="ueber-ab-weg" aria-hidden="true">${i === 0 ? html`<span class="ueber-ab-sitz"></span>` : ''}</span>
+<span class="ueber-ab-km">${radius(s, i)}</span>
+<span class="ueber-ab-not">${a.notoeffnung[s.notoeffnung]}</span>
+</li>`)}</ol>
+<p class="ueber-ab-mehr"><a href="${a.link.pfad}">${a.link.text}${sk.icon('pfeil-rechts')}</a></p>`;
+}
+
 // Jeder Satz über eine Angabe steht nur, wenn die Angabe gesetzt ist (Gründung, Qualifikationen, Team, Stellen).
+// Die Leistungsgruppen sind einzeilige Registereinträge (K-009: Karten bewusst nicht uniform) – die großen Kacheln
+// stehen schon auf Start- und Ortsseite; hier zählt, wo der Betrieb sitzt und wie weit sein Weg reicht.
 function wer(sk) {
   const { betrieb: b, leistungen: l } = sk.konfig;
   const { sitz } = b;
@@ -43,9 +66,10 @@ function wer(sk) {
 <div class="raster"><div class="ueber-teilung">
 ${abschnittKopf({ id: 'wer-titel', titel: inhalt.wer.titel })}
 <div class="fliesstext ueber-wer">
-<p>${b.name} hat seinen Sitz in ${sitz.gemeinde} (${sitz.kreis}, ${sitz.land}).</p>
-<p>Unsere Leistungen sind in Gruppen gegliedert:</p>
-<ul class="ueber-gruppen">${l.GRUPPEN.map((g) => html`<li><a href="${g.pfad}">${sk.icon(g.icon, { klasse: 'ueber-gruppe-icon' })}<span class="ueber-gruppe-titel">${g.titel}</span><span class="ueber-gruppe-kurz">${g.kurz}</span></a></li>`)}</ul>
+<p class="ueber-sitz">${b.name} hat seinen Sitz in ${sitz.gemeinde} (${sitz.kreis}, ${sitz.land}).</p>
+${abWeilburg(sk)}
+<h3 class="ueber-unter" id="gruppen-titel">${inhalt.wer.gruppenTitel}</h3>
+<ul class="ueber-gruppen">${l.GRUPPEN.map((g) => html`<li><a href="${g.pfad}"><span class="ueber-gruppe-nr">${g.nr}</span><span class="ueber-gruppe-titel">${g.titel}</span><span class="ueber-gruppe-zahl">${zahlWort(g.leistungen.length)}</span>${sk.icon('pfeil-rechts', { klasse: 'ueber-gruppe-pfeil' })}</a></li>`)}</ul>
 ${b.gruendungsjahr ? html`<p>Der Betrieb wurde <span data-daten="">${String(b.gruendungsjahr)}</span> gegründet.</p>` : ''}
 ${qualifikationen.length ? html`<h3 class="ueber-unter">Qualifikationen</h3><ul class="ueber-liste">${qualifikationen.map((q) => html`<li>${q}</li>`)}</ul>` : ''}
 ${team.length ? html`<h3 class="ueber-unter">Team</h3><ul class="ueber-liste">${team.map((m) => html`<li>${eintrag(m)}</li>`)}</ul>` : ''}

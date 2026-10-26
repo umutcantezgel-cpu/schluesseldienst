@@ -8,6 +8,7 @@ const STIFTE = [26, 16, 32, 20, 12];   // Länge der Kernstifte = Einschnitttief
 const X = [120, 184, 248, 312, 376];   // Mitte der Stiftkanäle
 const SCHER_Y = 120;                   // Scherlinie (Trennfuge Kern/Gehäuse)
 const FALSCH = [16, 30, 14, 28, 22];   // Einschnitte eines falschen Schlüssels (404, M-21): kein Stift trifft die Linie
+const LUECKE = [200, 232];             // Bruch der Scherlinie (404) mittig zwischen Kanal 2 und 3, deutlich breiter als ein Strich
 
 function feder(x) {
   // Zickzack-Feder im 45°-Raster zwischen y 56 und 88
@@ -75,7 +76,9 @@ ${schluessel ? `<g class="zy-schluessel">
 <path class="zy-bart" d="${schluesselOben.join(' ')}Z"/>
 </g>` : ''}
 ${falsch
-    ? `<path class="zy-scherlinie zy-scherlinie-links" d="M72 ${SCHER_Y}H244"/><path class="zy-scherlinie zy-scherlinie-rechts" d="M260 ${SCHER_Y}H432"/>`
+    // Lücke zwischen zwei Kanälen (Kanal 2 endet bei x 194, Kanal 3 beginnt bei 238), im Raster 8: Läge sie in einem
+    // Kanal, füllte der Stift sie, und die Linie läse sich als durchgehend.
+    ? `<path class="zy-scherlinie zy-scherlinie-links" d="M72 ${SCHER_Y}H${LUECKE[0]}"/><path class="zy-scherlinie zy-scherlinie-rechts" d="M${LUECKE[1]} ${SCHER_Y}H432"/>`
     : `<path class="zy-scherlinie" d="M72 ${SCHER_Y}H432"${linieAb ? ` data-ab="${linieAb}"` : ''}/>`}
 </svg>`);
 }

@@ -1,7 +1,8 @@
 // Seitensuche (V11 /suche/): Seitenindex und Ortsindex laden beim ersten Fokus bzw. bei vorhandener Anfrage (?q=),
 // Ergebnisse als zwei Register (Bereich bzw. Entfernung links, Titel und Text rechts, Suchwort markiert), Anzahl in
 // einer Statuszeile (aria-live). Das Register „Hauptthemen“ aus der Vorlage steht nur, solange keine Treffer stehen. Kein <form> (CSP form-action mailto:), die Anfrage steht per history.replaceState in
-// der Adresse. Eigener Leeren-Knopf statt des browsereigenen Kreuzes (Icon-System). Nur DOM-sichere APIs.
+// der Adresse. Eigener Leeren-Knopf statt des browsereigenen Kreuzes (Icon-System). Ortstreffer tragen unter der
+// Entfernung einen Maßstab mit den Zonenringen (data-ringe). Nur DOM-sichere APIs.
 import { seitenIndex, seitenSuchen, hervorheben, statusText } from '../logik/suche.mjs';
 import { indexAufbauen, suchen, plzDekodieren } from '../logik/ortsindex.mjs';
 
@@ -31,16 +32,49 @@ function markiert(tag, klasse, text, anfrage) {
   return e;
 }
 
+const SVG_NS = 'http://www.w3.org/2000/svg';
+function svgKnoten(tag, attribute) {
+  const e = document.createElementNS(SVG_NS, tag);
+  for (const [k, v] of Object.entries(attribute)) e.setAttribute(k, v);
+  return e;
+}
+
+// Maßstab ab Weilburg unter der Entfernung eines Ortes: Achse bis zum äußersten Zonenring, die Ringe (Zonengrenzen aus
+// der Konfiguration) als Striche, die Entfernung als Kupferlinie – weiter entfernte Orte füllen die ganze Achse.
+// Ohne viewBox, x in Prozent (wie das Tagesband): Strichstärken bleiben auf jeder Breite gleich. Dekorativ, die Zahl
+// davor trägt die Aussage.
+function massstab(km, ringe) {
+  const aussen = ringe[ringe.length - 1];
+  const x = (w) => `${Math.round(Math.min(1, w / aussen) * 1000) / 10}%`;
+  const svg = svgKnoten('svg', { class: 'suche-mass', 'aria-hidden': 'true', focusable: 'false' });
+  svg.append(svgKnoten('line', { class: 'suche-mass-achse', x1: '0', x2: '100%', y1: '50%', y2: '50%' }));
+  for (const r of ringe) svg.append(svgKnoten('line', { class: 'suche-mass-ring', x1: x(r), x2: x(r), y1: '0', y2: '100%' }));
+  svg.append(svgKnoten('line', { class: 'suche-mass-wert', x1: '0', x2: x(km), y1: '50%', y2: '50%' }));
+  return svg;
+}
+
 // Ein Registereintrag: Marke links, Titel als Link (über die ganze Zeile gestreckt) und Text rechts
-function treffer({ marke, markeKlasse = '', titel, pfad, text }, anfrage) {
+function treffer({ marke, markeKlasse = '', titel, pfad, text, mass = null }, anfrage) {
   const li = knoten('li', 'suche-treffer');
   const a = markiert('a', 'suche-link', titel, anfrage);
   a.href = pfad;
   const inhalt = knoten('div', 'suche-inhalt');
   inhalt.append(a);
   if (text) inhalt.append(markiert('p', 'suche-text', text, anfrage));
-  li.append(knoten('span', `suche-bereich${markeKlasse}`, marke), inhalt);
+  const bereich = knoten('span', `suche-bereich${markeKlasse}`, marke);
+  if (mass) bereich.append(mass);
+  li.append(bereich, inhalt);
   return li;
+}
+
+// Leerzustand und Ladefehler nennen die Sitemap als Ausweg: Das Wort wird zum Link, der Text bleibt wörtlich
+const AUSWEG = 'Sitemap';
+function meldung(status, text, ziel) {
+  const i = ziel ? text.indexOf(AUSWEG) : -1;
+  if (i < 0) { status.textContent = text; return; }
+  const a = knoten('a', '', AUSWEG);
+  a.href = ziel;
+  status.replaceChildren(text.slice(0, i), a, text.slice(i + AUSWEG.length));
 }
 
 export function suche(el) {
@@ -54,6 +88,8 @@ export function suche(el) {
   const themen = el.querySelector('[data-rolle="themen"]');
   // Hauptthemen genau dann, wenn keine Treffer stehen (leer, zu kurz, keine Treffer, Ladefehler)
   const themenZeigen = () => { if (themen) themen.hidden = !ergebnis.hidden; };
+  const sitemap = el.getAttribute('data-sitemap');
+  const ringe = (el.getAttribute('data-ringe') || '').split(',').map(Number).filter((r) => r > 0);
   if (!eingabe || !status || !seitenListe || !orteListe) return;
   el.querySelector('.suche-feld').hidden = false;
   if (ohneJs) ohneJs.hidden = true;
@@ -64,7 +100,7 @@ export function suche(el) {
     if (daten) return daten;
     daten = Promise.all([holen('seiten'), holen('orte'), holen('plz')])
       .then(([s, o, p]) => ({ seiten: seitenIndex(s), orte: indexAufbauen(o), plz: plzDekodieren(p.p) }))
-      .catch(() => { status.textContent = el.getAttribute('data-fehler'); daten = null; return null; });
+      .catch(() => { meldung(status, el.getAttribute('data-fehler'), sitemap); daten = null; return null; });
     return daten;
   };
 
@@ -90,7 +126,7 @@ export function suche(el) {
     const ergebnisOrte = suchen(d.orte, d.plz, q, 8);
     const orte = ergebnisOrte.treffer.filter((o) => o.slug);
     seitenListe.replaceChildren(...seiten.map((s) => treffer({ marke: s.bereich, titel: s.titel, pfad: s.pfad, text: s.text }, q)));
-    orteListe.replaceChildren(...orte.map((o) => treffer({ marke: `${o.km}\u00A0km`, markeKlasse: ' suche-km', titel: o.name, pfad: `/schluesseldienst-${o.slug}/`, text: o.zusatz }, q)));
+    orteListe.replaceChildren(...orte.map((o) => treffer({ marke: `${o.km}\u00A0km`, markeKlasse: ' suche-km', titel: o.name, pfad: `/schluesseldienst-${o.slug}/`, text: o.zusatz, mass: ringe.length ? massstab(o.km, ringe) : null }, q)));
     el.querySelector('[data-rolle="seiten-block"]').hidden = !seiten.length;
     el.querySelector('[data-rolle="orte-block"]').hidden = !orte.length;
     ergebnis.hidden = !(seiten.length || orte.length);
@@ -100,8 +136,8 @@ export function suche(el) {
       stand = stand === 'a' ? 'b' : 'a';
       ergebnis.setAttribute('data-stand', stand);
     }
-    status.textContent = statusText({ seiten: seiten.length, seitenGesamt: alleSeiten.length, orte: orte.length, orteGesamt: Math.max(orte.length, ergebnisOrte.gesamt) })
-      || el.getAttribute('data-leer');
+    meldung(status, statusText({ seiten: seiten.length, seitenGesamt: alleSeiten.length, orte: orte.length, orteGesamt: Math.max(orte.length, ergebnisOrte.gesamt) })
+      || el.getAttribute('data-leer'), sitemap);
   };
 
   let zeitgeber = 0;

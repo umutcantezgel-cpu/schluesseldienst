@@ -1,6 +1,7 @@
 // V12 Systemseite 404 (Arbeitsansicht, nicht indexiert): Text 7/5 mit dem Zylinder eines falschen Schlüssels (M-21,
 // Charakter: Stifte wackeln, die Linienhälften finden nicht zusammen; ohne Bewegung der gebrochene Zustand).
-// Darunter die drei Wege über die ganze Breite (mobil direkt nach dem Text, vor der Figur), dann Ortssuche und Anruf.
+// Darunter die drei Wege über die ganze Breite (mobil nach der kleinen Figur, damit M-21 im ersten Bildschirm läuft),
+// dann Ortssuche und Anruf auf Papier mit Haarlinie (kein Band: der Fuß ist Papier-2).
 import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
 import inhalt from '../../inhalte/system.mjs';
@@ -25,7 +26,7 @@ export function seiten() {
 <figure class="fehler-figur" data-moment="falsch">${zylinderSchnitt({ praefix: 'fehler-zy', falsch: true, dekorativ: true })}<figcaption>${f.figur}</figcaption></figure>
 </div></div>
 </section>
-<section class="sektion band sektion-dicht" aria-label="Ort suchen oder anrufen">
+<section class="sektion sektion-dicht fehler-unterteil" aria-label="Ort suchen oder anrufen">
 <div class="raster"><div class="fehler-unten">
 ${ortspruefung(sk, { id: 'fehler-ort', modus: 'navigieren', titel: f.ortTitel, hinweis: f.ortHinweis })}
 <div class="fehler-ruf">${rufknopf(sk, { variante: 'gross' })}</div>

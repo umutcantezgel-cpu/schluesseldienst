@@ -48,7 +48,7 @@ function karte(sk, ringe) {
   return html`<section class="sektion band" aria-labelledby="karte-titel">
 <div class="raster">
 ${abschnittKopf({ id: 'karte-titel', titel: inhalt.karte.titel, einleitung: inhalt.karte.text })}
-<figure class="gebiet-grosskarte" data-moment="ringe">${gebietskarte(sk, { praefix: 'gebiet-gk', radiusKm: ringe.at(-1) + 8, ringe, zelleKm: 5, beschriftet: 10, beschriftetMobil: 6, klasse: 'gebietskarte-gross', schrift: 1.2, schriftMobil: 2.3 })}${gebietsLegende(ringe)}</figure>
+<figure class="gebiet-grosskarte" data-moment="ringe">${gebietskarte(sk, { praefix: 'gebiet-gk', radiusKm: ringe.at(-1) + 8, ringe, zelleKm: 5, beschriftet: 10, beschriftetMobil: 6, klasse: 'gebietskarte-gross', schrift: { name: [34, 18], ring: [34, 18], sitz: [34, 24] }, punkt: 9 })}${gebietsLegende(ringe)}</figure>
 </div>
 </section>`;
 }

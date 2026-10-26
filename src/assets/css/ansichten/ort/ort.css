@@ -1,6 +1,6 @@
 /* V07 Ortsseite (Arbeitsansicht): Kopf 7/5 mit Faktenzeile und Lagekarte, Leistungen, Preise 4/8,
-   Umgebung in zwei Listen, FAQ, Hinweise. Band und Papier wechseln je nach vorhandenen Abschnitten (ort.mjs).
-   Bewegung nur M-19 an der Karte und Rückmeldung an den Leistungskarten. */
+   Umgebung in zwei Listen (kurze Liste 4/8), FAQ, Hinweise als dunkles Schlussband. Band und Papier wechseln je nach
+   vorhandenen Abschnitten (ort.mjs). Bewegung nur M-19 an der Karte und Rückmeldung an den Leistungskarten. */
 @layer komponenten {
   .ort-kopf { padding-block: var(--sp-m) var(--sp-xl); }
   .ort-kopf-teilung { display: grid; gap: var(--sp-l); align-items: center; }
@@ -37,8 +37,9 @@
   .ort-leistungen { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); gap: var(--sp-s); margin-block-start: var(--sp-s); }
   .ort-leistungen li { margin: 0; display: grid; }
   .ort-leistungen a { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon titel" "icon kurz"; align-content: start; column-gap: var(--sp-s); row-gap: var(--sp-3xs); padding: var(--sp-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); color: var(--c-tinte); text-decoration: none; }
-  /* M-02/M-03 wie die Weiterlesen-Karten: Überlagerung in currentColor, gedrückt scale .98 (unter reduce nur Überlagerung) */
-  .ort-leistungen a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  /* M-02/M-03: Überlagerung in Lahn (in Tinte wurde die weiße Karte stumpf grau, wie deaktiviert), gedrückt
+     scale .98 (unter reduce nur Überlagerung) */
+  .ort-leistungen a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--c-lahn); opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
   .ort-leistungen a:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
   .ort-leistungen a:active { transform: scale(.98); }
   .ort-leistungen a:active::before { opacity: var(--deck-aktiv); }
@@ -52,6 +53,10 @@
   .ort-preis-notiz { margin-block-start: var(--sp-m); padding-block-start: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie); }
   .ort-preis-notiz strong { color: var(--c-tinte); font-weight: var(--fw-ui); }
   .ort-anfahrt { margin-block-start: var(--sp-xs); font-size: var(--fs--1); }
+  /* Zeilenköpfe des Preisauszugs: Gewicht bleibt, die Unterstreichung leise wie im Register; voll erst beim Zeigen.
+     Fett und voll unterstrichen waren sie lauter als Preise und Spaltenköpfe. */
+  .ort-preis-teilung .preis-tabelle tbody th a { text-decoration-color: var(--c-linie-ui); text-decoration-thickness: var(--linie-haar); }
+  .ort-preis-teilung .preis-tabelle tbody th a:hover { text-decoration-color: currentColor; text-decoration-thickness: var(--linie-scher); }
   .ort-umgebung { display: grid; gap: var(--sp-l); }
   .ort-liste-titel { font-size: var(--fs-1); margin-block-end: var(--sp-xs); }
   .ort-liste { list-style: none; padding: 0; columns: 2 var(--spalte-az); column-gap: var(--sp-l); }
@@ -62,6 +67,8 @@
      mobil stehen die kurzen Ortsteilnamen zweispaltig (die Liste mit km bleibt einspaltig) */
   .ort-umgebung-lang .ort-liste:not(.ort-liste-km) { columns: 2; }
   @media (min-width: 48em) { .ort-umgebung-lang .ort-liste { columns: var(--spalte-az); } }
+  /* Kurze Ortsteillisten (bis vier Einträge) einspaltig: in Spalten zerfielen sie (2 + 1) und ließen Leere daneben */
+  .ort-umgebung .ort-liste.ort-liste-kurz { columns: 1; max-inline-size: var(--mass); }
   .ort-hinweise { display: grid; gap: var(--sp-l); }
   .ort-serioes { list-style: none; padding: 0; display: grid; gap: var(--sp-2xs); margin-block-end: var(--sp-s); }
   .ort-serioes li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--sp-xs); margin: 0; }
@@ -81,6 +88,8 @@
     .ort-preis-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; }
     .ort-umgebung { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-xl); }
     .ort-umgebung.ort-umgebung-lang { grid-template-columns: minmax(0, 1fr); }
+    /* Kurze Liste links schmal, die Nachbarn rechts mit Platz für zwei Spalten (4/8 wie Preise) */
+    .ort-umgebung.ort-umgebung-kurz { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
     .ort-hinweise { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
   }
 }

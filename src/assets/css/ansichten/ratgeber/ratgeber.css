@@ -1,4 +1,4 @@
-/* V08 Ratgeber: Übersicht nach Kategorien, Artikel 8/4 mit Inhaltsverzeichnis, „Das Wichtigste“, Quellen. */
+/* V08 Ratgeber: Übersicht nach Kategorien, Artikel 8/4 mit Inhaltsverzeichnis, „Das Wichtigste“, Quellen am Textende. */
 @layer komponenten {
   .ratgeber-kopf { padding-block: var(--sp-m) var(--sp-xl); }
   .ratgeber-kopf h1 { font-size: var(--fs-5); }
@@ -41,7 +41,8 @@
   /* Größte Stufe ohne Sperrung: „Schlafen“ bliebe sonst nicht in seiner Zone (Telefone um 320–370 px) */
   @container (max-width: 17em) { .gr-raum { font-size: var(--svg-text-gross); letter-spacing: 0; } }
 
-  /* Teilung: mobil Wichtigstes · Inhalt · Text untereinander; ab 64em Text links, Inhalt klebt rechts über die ganze Höhe */
+  /* Teilung: mobil Wichtigstes · Inhalt · Text untereinander; ab 48em Inhalt neben dem Wichtigsten, der Text darunter;
+     ab 64em Text links, Inhalt klebt rechts über die ganze Höhe */
   .artikel-teilung { display: grid; row-gap: var(--sp-l); column-gap: var(--sp-xl); }
   .artikel-text { display: grid; gap: var(--sp-l); }
   .artikel-wichtig { padding: var(--sp-m); background: var(--c-papier-2); border-radius: var(--r-m); border-inline-start: var(--sp-3xs) solid var(--c-kupfer); max-inline-size: var(--mass); }
@@ -62,12 +63,22 @@
   .artikel-rand .rand-titel { border-block-start: 0; padding-block-start: 0; }
   .artikel-toc { list-style: none; padding: 0; counter-reset: toc; font-size: var(--fs--1); }
   .artikel-toc li { margin: 0; counter-increment: toc; }
-  .artikel-toc a { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; gap: var(--sp-xs); min-block-size: var(--ziel-min); padding: var(--sp-2xs) var(--sp-s); border-inline-start: var(--linie-scher) solid var(--c-linie); color: var(--c-tinte-2); text-decoration: none; }
+  /* Feste Nummernspalte: Die Titel stehen auch beim unnummerierten Eintrag „Quellen“ auf einer Kante */
+  .artikel-toc a { position: relative; display: grid; grid-template-columns: var(--sp-m) minmax(0, 1fr); align-items: baseline; gap: var(--sp-xs); min-block-size: var(--ziel-min); padding: var(--sp-2xs) var(--sp-s); border-inline-start: var(--linie-scher) solid var(--c-linie); color: var(--c-tinte-2); text-decoration: none; }
   .artikel-toc a::before { content: counter(toc, decimal-leading-zero); font-family: var(--ff-mono); font-size: var(--mono-groesse); color: var(--c-tinte-3); }
+  /* Der Kupferstrich liegt über der Schiene: Er wächst beim aktiven Eintrag von oben und weicht beim vorigen nach unten */
+  .artikel-toc a::after { content: ""; position: absolute; inset-block: 0; inset-inline-start: calc(-1 * var(--linie-scher)); inline-size: var(--linie-scher); background: var(--c-kupfer); transform: scaleY(0); transform-origin: bottom; }
   .artikel-toc a:hover { color: var(--c-tinte); text-decoration: underline; text-decoration-thickness: var(--linie-ui); }
-  .artikel-toc a[aria-current] { color: var(--c-tinte); font-weight: var(--fw-ui); border-inline-start-color: var(--c-kupfer); }
+  .artikel-toc a[aria-current] { color: var(--c-tinte); font-weight: var(--fw-ui); }
   .artikel-toc a[aria-current]::before { color: var(--c-kupfer); }
+  .artikel-toc a[aria-current]::after { transform: none; transform-origin: top; }
+  /* Quellen: kein Textabschnitt, darum ohne Nummer; die Schiene läuft durch */
+  .artikel-toc .artikel-toc-quellen { counter-increment: none; }
+  .artikel-toc-quellen a::before { content: ""; }
   @media (pointer: coarse) { .artikel-toc a { min-block-size: var(--ziel-touch); } }
+  /* Quellen schließen den Text ab, den sie belegen: Haarlinie statt Abschnittsmarke, Titel eine Stufe unter den Abschnitten */
+  .artikel-quellen-teil { display: grid; gap: var(--sp-xs); max-inline-size: var(--mass); margin-block-start: var(--sp-s); padding-block-start: var(--sp-m); border-block-start: var(--linie-haar) solid var(--c-linie-ui); scroll-margin-block-start: var(--sp-m); }
+  .artikel-quellen-titel { font-size: var(--fs-1); }
   .artikel-quellen { list-style: none; padding: 0; display: grid; gap: var(--sp-2xs); font-size: var(--fs--1); color: var(--c-tinte-2); }
   .artikel-quellen li { margin: 0; padding-block-end: var(--sp-2xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
   .artikel-quelle-host { color: var(--c-tinte-3); }
@@ -76,13 +87,30 @@
     /* Tablet: Das Blatt nimmt die ganze Spalte, die Bildunterschrift steht als Legende neben der Figur auf ihrer
        Grundlinie – statt eines schmalen Blatts vor einer leeren rechten Hälfte. Die Figur bleibt so groß wie bisher. */
     .artikel-figur { max-inline-size: none; grid-template-columns: minmax(0, calc(var(--hero-figur-max) - 2 * var(--sp-m))) minmax(0, 1fr); column-gap: var(--sp-l); align-items: end; }
+    /* Tablet: Das Inhaltsverzeichnis steht rechts neben „Das Wichtigsten“ statt darunter – der Text beginnt eine
+       Bildschirmhöhe früher, und neben dem Kasten bleibt kein leeres Viertel. Kleben erst ab 64em. */
+    .artikel-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); column-gap: var(--sp-l); }
+    .artikel-wichtig { grid-column: 1; grid-row: 1; }
+    .artikel-rand { grid-column: 2; grid-row: 1; }
+    .artikel-text { grid-column: 1 / -1; }
   }
   @media (min-width: 64em) {
-    .artikel-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
-    .artikel-figur { justify-self: end; max-inline-size: var(--hero-figur-max); grid-template-columns: none; }
+    /* Oben bündig: Das Blatt schließt eine Stufe unter der Kopflinie an (wie die Lagekarte der Ortsseite), statt mittig
+       zur Textspalte über sie hinauszuragen */
+    .artikel-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); align-items: start; }
+    .artikel-figur { justify-self: end; max-inline-size: var(--hero-figur-max); grid-template-columns: none; margin-block-start: var(--sp-l); }
     .artikel-kopf h1 { font-size: var(--fs-5); }
-    .artikel-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
+    .artikel-teilung { column-gap: var(--sp-xl); }
     .artikel-wichtig, .artikel-text { grid-column: 1; }
     .artikel-rand { grid-column: 2; grid-row: 1 / span 2; position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+  }
+}
+
+/* Zustandswechsel der Inhaltsschiene (Arbeitsansicht: kein Auftritt, nur der aktive Zustand): Der Kupferstrich zieht
+   wie jede Linie über scale, mit der Kurve der Linien; unter reduzierter Bewegung springt er. */
+@layer bewegung {
+  @media (prefers-reduced-motion: no-preference) {
+    .artikel-toc a::after { transition: transform var(--dur-zustand-aus) var(--ease-aus); }
+    .artikel-toc a[aria-current]::after { transition: transform var(--dur-zustand) var(--ease-linie); }
   }
 }

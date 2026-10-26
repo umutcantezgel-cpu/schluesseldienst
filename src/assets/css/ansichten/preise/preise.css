@@ -25,7 +25,13 @@
   .formel-teil.formel-summe { border-block-end: 0; padding-block-start: var(--sp-m); }
   .formel-teil.formel-summe::before { content: "="; inset-block-start: calc(-1 * var(--linie-scher) / 2); }
   .formel-icon { grid-area: icon; inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); align-self: start; }
-  .formel-titel { grid-area: titel; font-weight: var(--fw-titel); }
+  /* Die Formel ist zugleich das Inhaltsverzeichnis: Jeder Titel führt zu seinem Abschnitt (Preisliste, Anfahrt,
+     Rechner). Tinte wie die Zeilenlinks der Preistabelle; die ganze Zeile ist Ziel (≥ 48 px), der Fokus bleibt am Titel. */
+  .formel-titel { grid-area: titel; justify-self: start; font-weight: var(--fw-titel); color: var(--c-tinte); }
+  .formel-titel::after { content: ""; position: absolute; inset: 0; }
+  /* Sprungziele (Formel, „Zone Ihres Orts prüfen“): Die Kupfermarke über der Überschrift bleibt beim Sprung sichtbar */
+  .seite-preise .abschnitt-kopf h2 { scroll-margin-block-start: var(--sp-xl); }
+  .preise-pruefung { scroll-margin-block-start: var(--sp-s); }
   .formel-summe .formel-titel { font-size: var(--fs-1); line-height: var(--lh-titel); }
   .formel-text { grid-area: text; font-size: var(--fs--1); color: var(--c-tinte-3); }
   .formel-material, .formel-ust { font-size: var(--fs--1); color: var(--c-tinte-2); max-inline-size: var(--mass); }
@@ -40,7 +46,10 @@
   .tb-lang { display: none; }
   .tb-strich { stroke: var(--c-linie-ui); stroke-width: var(--linie-ui); }
   .tb-strich-klein { stroke: var(--c-linie-ui); stroke-width: var(--linie-haar); }
-  .tb-offen, .tb-schraffur { stroke: var(--c-linie-ui); stroke-width: var(--linie-ui); }
+  /* Ohne Uhrzeiten ist der Balken ein Platzhalter in derselben Sprache wie .platzhalter (Kupfer-hell geschraffiert,
+     gestrichelte Kupferkante) – keine graue Fläche, die wie Daten aussieht */
+  .tb-offen { stroke: var(--c-kupfer); stroke-width: var(--linie-ui); stroke-dasharray: 3 3; }
+  .tb-schraffur { fill: var(--c-kupfer-hell); }
   .tb-teil { stroke: var(--c-flaeche); stroke-width: var(--linie-scher); }
   .tb-werktag { fill: var(--c-lahn-hell); }
   .tb-abend { fill: var(--c-lahn); fill-opacity: .45; }
@@ -70,9 +79,8 @@
   .tb-eintrag[data-jetzt] dt::after { content: " · jetzt"; color: var(--c-kupfer); font-weight: var(--fw-titel); }
   /* Bildunterschrift im Band: gilt für Band und Legende, deshalb unter einer Haarlinie in derselben Karte */
   .tb-hinweis { padding-block-start: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie); font-size: var(--fs--1); color: var(--c-tinte-2); }
-  /* Ohne Uhrzeiten gibt es im Band keine Farben – also auch keine Farbfelder in der Legende */
-  .tagesband[data-zustand="offen"] .tb-eintrag { grid-template-columns: minmax(0, 1fr); }
-  .tagesband[data-zustand="offen"] .tb-eintrag::before { display: none; }
+  /* Offen: eine flache Zeile und die Bildunterschrift, dichter gesetzt (die Legende entfällt, siehe tagesband.mjs) */
+  .tagesband[data-zustand="offen"] { gap: var(--sp-s); }
   /* „jetzt gültig“ in der Preistabelle: getönt wie die vorgewählte Karte im Rechner, Marke im Kopf wie in der Legende.
      Nur am Bildschirm: Auf Papier gilt der Moment des Drucks nicht mehr (wie die Legende in druck.css). */
   @media screen {
@@ -108,16 +116,34 @@
   .rechner .wahl-optionen { grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-min)), 1fr)); }
   .rechner-zonen-link { font-size: var(--fs--1); }
   .rechner-ergebnis { display: grid; gap: var(--sp-2xs); align-content: start; padding: var(--sp-m); border-radius: var(--r-m); background: var(--c-papier); border-block-start: var(--linie-ui) solid var(--c-linie-ui); }
+  /* Unter 64em steht die Rechnung als Fuß der Karte bis an ihre Kanten: kein doppelter Innenrand, mobil gut 50 px
+     mehr Zeilenbreite für Posten und Betrag */
+  @media (width < 64em) {
+    .rechner-ergebnis { margin: 0 calc(-1 * var(--sp-m)) calc(-1 * var(--sp-m)); border-start-start-radius: 0; border-start-end-radius: 0; }
+  }
   .rechner-ergebnis-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
-  /* Rechnung: Posten mit Betrag rechts, Summenstrich in Tinte (die Kupferlinie gehört der Formel im Kopf), Summe darunter */
-  .rechner-posten { margin: 0; display: grid; gap: var(--sp-3xs); max-inline-size: var(--karte-breit); font-size: var(--fs--1); color: var(--c-tinte-2); font-variant-numeric: tabular-nums; hyphens: manual; }
+  /* Rechnung in der Sprache der Formel im Kopf: Posten mit Punktlinie zum Betrag, „+“ auf der Haarlinie vor der
+     Anfahrt, „=“ auf dem Summenstrich. Der Strich ist Tinte – die Kupferlinie gehört der Formel im Kopf (P1).
+     Summe und Hinweis stehen in derselben Spalte wie die Posten, nichts hängt allein am Rand. */
+  .rechner-posten { margin: 0; display: grid; font-size: var(--fs--1); color: var(--c-tinte-2); font-variant-numeric: tabular-nums; hyphens: manual; }
   .rechner-posten:empty { display: none; }
-  .rechner-posten div { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-s); }
-  .rechner-posten dd { margin: 0; white-space: nowrap; }
-  .rechner-summe { display: block; font-size: var(--fs-1); font-weight: var(--fw-ui); line-height: var(--lh-titel); hyphens: manual; text-wrap: balance; }
-  /* Offen (Preisliste fehlt): dieselbe Rechnung, unter dem Summenstrich steht der Satz statt des Betrags */
-  .rechner[data-status="offen"] .rechner-posten:not(:empty) + .rechner-summe { max-inline-size: var(--karte-breit); padding-block-start: var(--sp-2xs); border-block-start: var(--linie-scher) solid var(--c-tinte); text-align: end; }
-  .rechner[data-status="betrag"] .rechner-summe { max-inline-size: var(--karte-breit); padding-block-start: var(--sp-2xs); border-block-start: var(--linie-scher) solid var(--c-tinte); text-align: end; font-size: var(--fs-4); font-weight: var(--fw-display); font-variant-numeric: tabular-nums; letter-spacing: var(--ls-display); }
+  .rechner-posten div { position: relative; display: flex; align-items: baseline; gap: var(--sp-2xs); padding-block: var(--sp-xs); }
+  .rechner-posten div:first-child { padding-block-start: var(--sp-3xs); }
+  .rechner-posten div + div { border-block-start: var(--linie-haar) solid var(--c-linie); }
+  /* Punktlinie vom Posten zum Betrag: ein leeres Flex-Element, dessen Unterkante auf der Grundlinie liegt */
+  .rechner-posten div::after { content: ""; order: 1; flex: 1 1 var(--sp-s); border-block-end: var(--linie-haar) dotted var(--c-linie-ui); }
+  .rechner-posten dd { order: 2; margin: 0; white-space: nowrap; color: var(--c-tinte); }
+  /* Zweite Zeile eines Postens (Zeitfenster, Zone) wie der Erklärtext unter den Posten der Formel. Breite 0 und kein
+     Umbruch: Sie zählt nicht zur Breite des Titels, die Punktlinie beginnt direkt nach ihm („Anfahrt …… enthalten“). */
+  .rechner-posten-zusatz { display: block; inline-size: 0; white-space: nowrap; color: var(--c-tinte-3); }
+  .rechner-summe { position: relative; display: block; font-size: var(--fs-1); font-weight: var(--fw-ui); line-height: var(--lh-titel); hyphens: manual; text-wrap: pretty; }
+  /* Summenstrich nur unter einer Rechnung mit Posten. Offen (Preisliste fehlt) steht darunter linksbündig der Satz
+     statt des Betrags; ohne Posten (nach Absprache, ohne JS) steht der Satz für sich. */
+  .rechner[data-status="offen"] .rechner-posten:not(:empty) + .rechner-summe, .rechner[data-status="betrag"] .rechner-summe { padding-block-start: var(--sp-s); border-block-start: var(--linie-scher) solid var(--c-tinte); }
+  .rechner[data-status="betrag"] .rechner-summe { text-align: end; font-size: var(--fs-4); font-weight: var(--fw-display); line-height: var(--lh-display); font-variant-numeric: tabular-nums; letter-spacing: var(--ls-display); }
+  /* Rechenzeichen wie in der Formel (Mono, Kupfer, auf der Linie; Ausgleich der Mono-Grundlinie wie dort) */
+  .rechner-posten div + div::before, .rechner[data-status="offen"] .rechner-posten:not(:empty) + .rechner-summe::before, .rechner[data-status="betrag"] .rechner-summe::before { content: "+"; position: absolute; inset-block-start: calc(-1 * var(--linie-haar) / 2); inset-inline-start: 0; translate: 0 calc(-50% - var(--linie-ui)); padding-inline: var(--sp-2xs); font-family: var(--ff-mono); font-size: var(--fs-0); font-weight: var(--fw-titel); letter-spacing: 0; line-height: 1; color: var(--c-kupfer); background: var(--c-papier); }
+  .rechner[data-status="offen"] .rechner-posten:not(:empty) + .rechner-summe::before, .rechner[data-status="betrag"] .rechner-summe::before { content: "="; inset-block-start: calc(-1 * var(--linie-scher) / 2); }
   .rechner-hinweis { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); }
 
   .preise-regeln { display: grid; gap: var(--sp-l); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-breit)), 1fr)); }
@@ -158,28 +184,22 @@
     .preise-kopf h1 { font-size: var(--fs-5); }
     /* Tabelle und Ortsprüfung: zwei Flächen mit gleicher Oberkante, ihre Titel auf derselben Grundlinie */
     .preise-anfahrt-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
-    .rechner { grid-template-columns: minmax(0, 4fr) minmax(0, 3fr) minmax(0, 3fr); grid-template-areas: "position fenster zone" "ergebnis ergebnis ergebnis"; padding: var(--sp-l); }
-    .rechner-feld-position { grid-area: position; }
-    .rechner-ergebnis { grid-area: ergebnis; }
-  }
-  /* Das Ergebnis teilt die Spalten der Fragen: Rechnung unter „Was ist passiert?“, Hinweis unter „Wann brauchen Sie uns?“ */
-  @supports (grid-template-columns: subgrid) {
-    @media (min-width: 64em) {
-      .rechner-ergebnis { grid-template-columns: subgrid; column-gap: normal; }
-      .rechner-ergebnis > * { grid-column: 1; }
-      .rechner-posten { grid-row: 2; }
-      /* Hinweis auf der Grundlinie der Summe, in der Spalte von „Wann brauchen Sie uns?“ */
-      .rechner-summe, .rechner-ergebnis > .rechner-hinweis { grid-row: 3; }
-      .rechner-ergebnis > .rechner-hinweis { grid-column: 2 / -1; align-self: last baseline; }
-    }
+    /* Zwei mal zwei in Leserichtung: Was – Wann, darunter Wo – Gesamtpreis. Die längste Antwortliste (Was) und die
+       zweitlängste (Wann) teilen eine Zeile, die kürzeste (Wo) steht neben der Rechnung: Beide Zeilen sind fast gleich
+       hoch, keine Hälfte bleibt leer, und die Summe steht dort, wo der Blick nach der letzten Wahl ankommt. */
+    .rechner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-l) var(--sp-xl); padding: var(--sp-l); }
+    .rechner .wahl-optionen { grid-template-columns: minmax(0, 1fr); }
+    /* Die Rechnung endet mit ihrem Inhalt (ein kurzer Satz „nach Absprache“ steht nicht in einer leeren Fläche) */
+    .rechner-ergebnis { align-self: start; }
   }
 }
 
 @layer bewegung {
   @media (prefers-reduced-motion: no-preference) {
-    /* M-12: Ein neues Ergebnis blendet von .6 auf 1 (feedback), nie hochzählen. Der Wechsel a/b startet die Animation neu. */
-    .rechner-ergebnis[data-takt="a"] :is(.rechner-posten, .rechner-summe) { animation: m12-a var(--dur-feedback) var(--ease-standard) backwards; }
-    .rechner-ergebnis[data-takt="b"] :is(.rechner-posten, .rechner-summe) { animation: m12-b var(--dur-feedback) var(--ease-standard) backwards; }
+    /* M-12: Nur was sich geändert hat, blendet von .6 auf 1 (feedback), nie hochzählen: der Posten der geänderten Frage
+       und die Summe, wenn sie anders lautet (data-neu, preisrechner.mjs). Der Wechsel a/b startet die Animation neu. */
+    .rechner-ergebnis[data-takt="a"] [data-neu] { animation: m12-a var(--dur-feedback) var(--ease-standard) backwards; }
+    .rechner-ergebnis[data-takt="b"] [data-neu] { animation: m12-b var(--dur-feedback) var(--ease-standard) backwards; }
   }
   @keyframes m12-a { from { opacity: .6; } }
   @keyframes m12-b { from { opacity: .6; } }

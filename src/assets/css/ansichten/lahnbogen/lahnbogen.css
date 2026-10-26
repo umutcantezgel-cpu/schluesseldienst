@@ -1,18 +1,28 @@
-/* I-11 Lahnbogen: Wasser als breiter Lahn-Streifen mit feiner Mittellinie, Bergsporn in Papier 2, Tunnel als Scherlinie. */
+/* I-11 Lahnbogen: Wasser als Lahn-heller Lauf zwischen zwei parallelen Ufern, Bergsporn in Papier 2, Tunnel als
+   Scherlinie mit zwei Toren. Beschriftung als Planbeschriftung wie im Grundriss (K-005: Mono nur für Kennungen). */
 @layer komponenten {
   .ill-lahnbogen { max-inline-size: 100%; }
-  /* Dunkel kein Saum um die helle Flusslinie (K-008: kein Leuchten): das Flussbett liegt dort flach in Papier 2.
-     light-dark() statt Media Query, damit die Figur auch in einem lokal dunklen Band richtig steht (K-005). */
-  .lb-wasser { stroke: light-dark(var(--c-lahn-hell), var(--c-papier-2)); stroke-width: 22; }
-  .lb-fluss { stroke: var(--c-lahn); stroke-width: 2; }
-  .lb-berg { fill: var(--c-papier-2); stroke-width: 1.5; }
-  .lb-tunnel { stroke: var(--c-kupfer); stroke-width: 4; }
+  /* Flache Fläche zwischen den Ufern, keine Kontur um eine Linie (K-008: kein Leuchten). Das Wasser endet am
+     Bildrand gerade, wie ein Kartenausschnitt. */
+  .lb-wasser { stroke: var(--c-lahn-hell); stroke-width: 16; stroke-linecap: butt; }
+  .lb-ufer { stroke: var(--c-lahn); stroke-width: 1.5; stroke-linecap: butt; }
+  .lb-berg { fill: var(--c-papier-2); stroke: none; }
+  .lb-tunnel { stroke: var(--c-kupfer); stroke-width: 4; stroke-linecap: butt; }
   .lb-tor { fill: var(--c-kupfer); stroke: none; }
-  .lb-text { fill: var(--c-tinte); stroke: none; font-size: var(--svg-text-m); font-weight: var(--fw-ui); }
-  .lb-text-fluss { fill: var(--c-lahn-text); font-style: normal; }
-  .lb-text-tunnel { fill: var(--c-kupfer); font-family: var(--ff-mono); font-size: var(--svg-text-s); font-weight: var(--fw-text); }
-  /* Schmale Figur (Telefon): Nutzereinheiten schrumpfen mit, also größer setzen – gerendert bleiben es ≈ 13–15 px */
+  .lb-text { fill: var(--c-tinte); stroke: none; font-family: var(--ff-text); font-size: var(--svg-text-s); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; }
+  .lb-text-fluss { fill: var(--c-lahn-text); }
+  .lb-text-tunnel { fill: var(--c-kupfer); }
+  /* Schmale Figur (Telefon): Nutzereinheiten schrumpfen mit, also größer setzen – gerendert bleiben es ≈ 13–16 px */
   @container (max-width: 24em) {
-    .lb-text, .lb-text-tunnel { font-size: var(--svg-text-l); }
+    .lb-text { font-size: var(--svg-text-l); }
+  }
+}
+
+/* M-20 nach M-15: Kommt man per Seitenwechsel auf „Über uns“, wartet der Moment, bis die Überblendung vorbei ist –
+   alte Seite und neue Figur liegen nicht übereinander, und der Auftakt läuft nicht unsichtbar ab. Ohne
+   :active-view-transition (ältere Browser) gilt die Regel nicht, und M-20 läuft wie bisher ab dem Laden. */
+@layer bewegung {
+  @media (prefers-reduced-motion: no-preference) {
+    :root:active-view-transition [data-moment="gerader-weg"] :is(.lb-fluss-teil, .lb-tunnel, .lb-tor, .lb-text-tunnel) { animation-play-state: paused; }
   }
 }

@@ -5,11 +5,15 @@
 // Niederlande: die Kreise sind Provinzen. Hubs setzen k.hubs.aktiv und k.hubs.laender (Fußnavigation, Ortsseiten).
 // Kreis-, Provinz- und Stadtstaatseiten beginnen mit „… in Zahlen“ (K-08): Zahlen nur aus den Daten, ohne Wertung.
 // Der Kopf trägt die Gebietslage (Orte als Raster nach Zone um Weilburg), wie die Ortsseite ihre Lagekarte.
-// Flächen wechseln je Abschnitt (Rhythmusregel K-006): Kopf Papier, dann Band, Papier, Band.
+// Flächen wechseln je Abschnitt (Rhythmusregel K-006): Kopf Papier, dann Band, Papier, Band; jede Hub-Seite schließt
+// wie die Einsatzgebiet-Übersicht mit dem dunklen Schlussband (Text von dort, Anruf nur bei Zonen mit Notöffnung).
 import { html } from '../../../bau/lib/html.mjs';
+import { text } from '../../../bau/lib/inhalt.mjs';
+import gebiet from '../../inhalte/einsatzgebiet.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
 import { brotkrumenLd } from '../teile/brotkrumen.mjs';
 import { gebietslage } from '../teile/lagekarte.mjs';
+import { rufknopf } from '../teile/rufknopf.mjs';
 
 const ZEICHEN = new Intl.Collator('de');
 const BUCHSTABEN = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
@@ -178,16 +182,25 @@ ${abschnittKopf({ id: 'hub-zahlen-titel', titel: `${art === 'Kreis' ? 'Der' : 'D
 </div></div></section>`;
 }
 
-// Listen nach dem Namenskern sortiert („Limburg-Weilburg“ unter L, nicht alle Landkreise unter L); die Art steht leise dahinter
+// Listen nach dem Namenskern sortiert („Limburg-Weilburg“ unter L, nicht alle Landkreise unter L)
 const ART = /^(Landkreis|Kreis|Stadtkreis|Städteregion|Region|Kreisfreie Stadt)\s+(.+)$/;
-const kreisTeile = (titel) => { const m = ART.exec(titel); return m ? { kern: m[2], art: m[1] === 'Kreisfreie Stadt' ? 'kreisfreie Stadt' : m[1] } : { kern: titel, art: '' }; };
+// Die Art steht bei jedem Gebiet aus den Daten: Zusatz im Namen, sonst die Gebietsart (Frankfurt am Main ist
+// kreisfreie Stadt, „Börde“ ein Kreis). Sie entfällt nur, wo der Name sie schon trägt (Lahn-Dill-Kreis,
+// Regionalverband Saarbrücken) und bei den Provinzen (die Überschrift nennt sie).
+const OHNE_ART = { Stadt: 'kreisfreie Stadt', Kreis: 'Kreis', Region: '' };
+const kreisTeile = (titel, nl = false) => {
+  const m = ART.exec(titel);
+  if (m) return { kern: m[2], art: m[1] === 'Kreisfreie Stadt' ? 'kreisfreie Stadt' : m[1] };
+  return { kern: titel, art: nl || /kreis/i.test(titel) ? '' : OHNE_ART[gebietsart(titel, false)] };
+};
 const nachKern = (a, b) => ZEICHEN.compare(kreisTeile(a.titel).kern, kreisTeile(b.titel).kern);
-// Zwei Zeilen je Kreis, immer gleich hoch: Name (unterstrichen), darunter Art, Ortszahl und Entfernung.
-// Die ganze Zeile ist der Link, damit „Kassel“ (Landkreis) und „Kassel“ (kreisfreie Stadt) unterscheidbar heißen.
+// Zwei Zeilen je Kreis, immer gleich hoch: Name (unterstrichen), darunter Ortszahl, Entfernung und Art. Die Zahlen
+// stehen vorn, damit sie in jeder Zeile an derselben Stelle beginnen; die Art folgt leise (sie fehlt, wo der Name sie
+// trägt). Die ganze Zeile ist der Link, damit „Kassel“ (Landkreis) und „Kassel“ (kreisfreie Stadt) unterscheidbar heißen.
 const kreisZeile = (l, kr) => {
-  const { kern, art } = kreisTeile(kr.titel);
+  const { kern, art } = kreisTeile(kr.titel, l.staat === 'NL');
   const s = spanne(kr.orte);
-  return html`<li><a class="hub-zeile" href="/einsatzgebiet/${l.landSlug}/${kr.kreisSlug}/"><span class="hub-name">${kern}</span>${s.min === 0 ? html` <span class="hub-sitz">Sitz</span>` : ''}<span class="hub-meta">${art ? `${art} · ` : ''}<span data-daten="">${orteText(kr.orte.length)} · ${s.text}</span></span></a></li>`;
+  return html`<li><a class="hub-zeile" href="/einsatzgebiet/${l.landSlug}/${kr.kreisSlug}/"><span class="hub-name">${kern}</span>${s.min === 0 ? html` <span class="hub-sitz">Sitz</span>` : ''}<span class="hub-meta"><span data-daten="">${orteText(kr.orte.length)} · ${s.text}</span>${art ? ` · ${art}` : ''}</span></a></li>`;
 };
 
 function kreiseAbschnitt(l, band = false) {
@@ -248,13 +261,26 @@ ${ringe.length ? html`<span><span class="gk-marke gk-marke-ring" aria-hidden="tr
 </figcaption></figure>`;
 }
 
-function seite(k, { pfad, stufen, h1, titel, beschreibung, kicker, satz, abschnitt, figur }) {
+// Schlussband wie auf /einsatzgebiet/ (Text von dort): Kontakt immer, der Anruf nur, wenn im Gebiet Orte mit
+// Notöffnung liegen (Zonen A und B); in fernen Gebieten wäre er ein Angebot, das dort nicht gilt
+function schluss(sk, k, orte) {
+  const notfall = k.konfig.zonen.stufen.some((z) => z.notoeffnung === 'ja' && orte.some((o) => o.zone === z.id));
+  const s = gebiet.schluss;
+  return html`<section class="sektion band-dunkel schluss" aria-labelledby="schluss-titel">
+<div class="raster"><div class="schluss-teilung">
+<div><h2 id="schluss-titel">${s.titel}</h2><p>${text(s.text)}</p></div>
+<div class="schluss-handlung">${notfall ? rufknopf(sk, { variante: 'gross' }) : ''}<a class="knopf knopf-sekundaer" href="${s.link.pfad}">${s.link.text}${sk.icon('pfeil-rechts')}</a></div>
+</div></div>
+</section>`;
+}
+
+function seite(k, { pfad, stufen, h1, titel, beschreibung, kicker, satz, abschnitt, figur, orte }) {
   if (titel.length > TITEL_MAX) throw new Error(`Hub ${pfad}: Titel ${titel.length} Zeichen`);
   if (beschreibung.length < BESCHREIBUNG_MIN || beschreibung.length > BESCHREIBUNG_MAX) throw new Error(`Hub ${pfad}: Beschreibung ${beschreibung.length} Zeichen`);
   return {
     pfad, titel, beschreibung, typ: 'hub', ansicht: 'V06', sitemap: 'hubs', koerperKlasse: 'seite-hub', stile: ['gebiet', 'hubs'], ogBild: '/assets/og/einsatzgebiet.png', brotkrumen: stufen,
     jsonld: [brotkrumenLd(k.basisUrl, stufen), { '@context': 'https://schema.org', '@type': 'CollectionPage', name: h1, url: `${k.basisUrl}${pfad}` }],
-    inhalt: () => html`<section class="hub-kopf" aria-labelledby="hub-titel"><div class="raster"><div class="hub-kopf-teilung">
+    inhalt: (sk) => html`<section class="hub-kopf" aria-labelledby="hub-titel"><div class="raster"><div class="hub-kopf-teilung">
 <div>
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="hub-kicker">${kicker}</p>
@@ -263,7 +289,8 @@ function seite(k, { pfad, stufen, h1, titel, beschreibung, kicker, satz, abschni
 </div>
 ${figur}
 </div></div></section>
-${abschnitt}`,
+${abschnitt}
+${schluss(sk, k, orte)}`,
   };
 }
 
@@ -284,7 +311,7 @@ export function seiten(k) {
         pfad: pfadLand, stufen: stufenLand, h1: h1Land, titel: titelMit(l.titel, 'Orte A–Z'), kicker: 'Einsatzgebiet',
         beschreibung: `${orteText(n)} im Verzeichnis: ${l.titel}, A–Z geordnet. ${SITZ_ZEILE}`,
         satz: html`<span data-daten="">${orteText(n)}</span>, ${entfernungSatz(s)}${zonenSatz(k, l.orte)}`,
-        figur: lageFigur(k, l.orte, l.titel),
+        figur: lageFigur(k, l.orte, l.titel), orte: l.orte,
         abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, l.orte, l.staat, 'Stadt', true)}${azAbschnitt(l.orte)}`,
       }));
       continue;
@@ -293,7 +320,7 @@ export function seiten(k) {
       pfad: pfadLand, stufen: stufenLand, h1: h1Land, titel: titelMit(l.titel, nl ? 'Orte nach Provinzen' : 'Orte nach Kreisen'), kicker: 'Einsatzgebiet',
       beschreibung: `${orteText(n)} im Verzeichnis: ${l.titel}, nach ${nl ? 'Provinzen' : 'Kreisen'} geordnet. ${SITZ_ZEILE}`,
       satz: html`<span data-daten="">${orteText(n)}</span>, ${entfernungSatz(s)}. ${nl ? 'Die Provinzen' : 'Die Kreise'} stehen unten mit Ortszahl und Entfernung.`,
-      figur: lageFigur(k, l.orte, l.titel),
+      figur: lageFigur(k, l.orte, l.titel), orte: l.orte,
       abschnitt: html`${kreiseAbschnitt(l, true)}${weitereAbschnitt(l)}`,
     }));
     for (const kr of l.kreise.values()) {
@@ -307,7 +334,7 @@ export function seiten(k) {
         pfad, stufen, h1, titel, kicker: `Einsatzgebiet · ${l.titel}`,
         beschreibung: `${orteText(kr.orte.length)} im Verzeichnis: ${name}. ${SITZ_ZEILE}`,
         satz: html`<span data-daten="">${orteText(kr.orte.length)}</span>, ${entfernungSatz(sk)}${zonenSatz(k, kr.orte)}`,
-        figur: lageFigur(k, kr.orte, name),
+        figur: lageFigur(k, kr.orte, name), orte: kr.orte,
         abschnitt: html`${kennzahlenAbschnitt(k.konfig.zonen, kr.orte, l.staat, gebietsart(kr.titel, nl), true)}${azAbschnitt(kr.orte)}${weitereKreise(l, kr, true)}`,
       }));
     }

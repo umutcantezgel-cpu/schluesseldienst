@@ -187,16 +187,21 @@ function umgebung(sk, o, werte) {
       .map((x) => ({ x, d: km(o, x) })).sort((a, b) => a.d - b.d || ZEICHEN.compare(a.x.name, b.x.name)).slice(0, 12).map((e) => e.x) : [];
     liste = g ? [g, ...geschwister.sort((a, b) => ZEICHEN.compare(a.name, b.name))] : [];
   }
-  const nachbarn = (o.nachbarn || []).map((id) => D.nachId.get(id)).filter(Boolean).map((n) => ({ n, d: km(o, n) })).sort((a, b) => a.d - b.d);
+  // Wer schon links steht (Ortsteil, Gemeinde, Geschwister), steht nicht noch einmal unter den Nachbarn
+  const links = new Set(liste.map((x) => x.id));
+  const nachbarn = (o.nachbarn || []).map((id) => D.nachId.get(id)).filter((n) => n && !links.has(n.id)).map((n) => ({ n, d: km(o, n) })).sort((a, b) => a.d - b.d);
   if (!liste.length && !nachbarn.length) return null;
   // Nachbarn derselben Gemeinde ohne Klammerzusatz: die Gemeinde steht schon im Titel bzw. in der linken Liste
   const gemeindeId = o.typ === 'gemeinde' ? o.id : o.gemeindeId;
   const nachbarName = (n) => (n.gemeindeId === gemeindeId && D.einmalInGemeinde(n) ? n.name : D.anzeige.get(n.id));
-  // Lange Ortsteillisten (Großstädte) laufen über die volle Breite in Spalten, die Nachbarn folgen darunter
-  const lang = liste.length > 24;
+  // Lange Ortsteillisten (Großstädte) und eine einzelne Liste laufen über die volle Breite in Spalten, die Nachbarn
+  // folgen darunter. Kurze Listen (bis vier Einträge) bleiben einspaltig und schmal (4/8), statt in Spalten zu zerfallen.
+  const lang = liste.length > 24 || !liste.length || !nachbarn.length;
+  const kurz = !lang && liste.length <= 4;
+  const art = lang ? ' ort-umgebung-lang' : kurz ? ' ort-umgebung-kurz' : '';
   return (band) => html`<section class="${sektion(band)}" aria-label="Umgebung von ${werte.ort}">
-<div class="raster"><div class="ort-umgebung${lang ? ' ort-umgebung-lang' : ''}">
-${liste.length ? html`<div><h2 class="ort-liste-titel">${titel}</h2><ul class="ort-liste">${liste.map((x) => html`<li><a href="${pfad(x)}">${x.name}</a></li>`)}</ul></div>` : ''}
+<div class="raster"><div class="ort-umgebung${art}">
+${liste.length ? html`<div><h2 class="ort-liste-titel">${titel}</h2><ul class="ort-liste${liste.length <= 4 ? ' ort-liste-kurz' : ''}">${liste.map((x) => html`<li><a href="${pfad(x)}">${x.name}</a></li>`)}</ul></div>` : ''}
 ${nachbarn.length ? html`<div><h2 class="ort-liste-titel">${fuellen(texte.nachbarnTitel, werte)}</h2><ul class="ort-liste ort-liste-km">${nachbarn.map(({ n, d }) => html`<li><a href="${pfad(n)}">${nachbarName(n)}</a> <span data-daten="">${String(d)}&nbsp;km</span></li>`)}</ul></div>` : ''}
 </div></div>
 </section>`;
@@ -218,8 +223,11 @@ ${faq(sk, fragen)}
 </div></div></section>`;
 }
 
+// Die Hinweise schließen jede Ortsseite als dunkles Band (wie „Woran Sie einen seriösen Schlüsseldienst erkennen“ auf
+// der Startseite und die Schlussbänder von Preisen und Hubs): Je nach Zahl der Abschnitte lag hier sonst ein Band in
+// der Farbe des Fußes, und die Seite verschwamm mit ihm
 function hinweise(sk, o, werte) {
-  return (band) => html`<section class="${sektion(band)}" aria-labelledby="ort-hinweise">
+  return () => html`<section class="sektion sektion-dicht band-dunkel" aria-labelledby="ort-hinweise">
 <div class="raster"><div class="ort-hinweise">
 <div>
 <h2 class="ort-liste-titel" id="ort-hinweise">${texte.serioesTitel}</h2>
@@ -297,7 +305,8 @@ export async function seiten(k) {
       // Ohne FAQPage-Daten: FAQ-Ergebnisse zeigt die Suche nur noch bei wenigen Website-Arten; spart ~1 KB je Ortsseite (D-SEO-02)
       jsonld: [ortLd(k, o, name, z), brotkrumenLd(k.basisUrl, stufen)],
       inhalt: (sk) => {
-        // Der Kopf liegt auf Papier, danach wechseln Band und Papier – das erste Band folgt direkt auf den Kopf
+        // Der Kopf liegt auf Papier, danach wechseln Band und Papier – das erste Band folgt direkt auf den Kopf; die
+        // Hinweise am Ende sind immer das dunkle Band
         const leistungsAbschnitt = leistungen(sk, o, z, werte);
         const abschnitte = [...sonderAbschnitte(sonder), leistungsAbschnitt, preise(sk, o, z, werte, Boolean(leistungsAbschnitt)), umgebung(sk, o, werte),
           fragenAbschnitt(sk, fragen, werte), hinweise(sk, o, werte)].filter(Boolean);

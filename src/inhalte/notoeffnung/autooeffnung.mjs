@@ -24,6 +24,7 @@ export default {
     },
     {
       titel: 'Kind oder Tier im Fahrzeug: zuerst den Notruf wählen',
+      hinweis: 'warnung',
       absaetze: [
         'Ist ein Kind oder ein Tier im Wagen eingeschlossen, geht die Gefahr vor. Wählen Sie zuerst den Notruf.',
         'Die Rettungskräfte beurteilen die Lage vor Ort. Erst danach stellt sich die Frage nach dem Öffnen des Fahrzeugs. In diesem Moment sind wir nicht der erste Anruf.',

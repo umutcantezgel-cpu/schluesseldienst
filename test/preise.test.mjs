@@ -5,6 +5,8 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { bandPruefen, fensterBei, jetzt, rechnen, zeitText, tagArt, euro } from '../src/assets/js/logik/preise.mjs';
 import preise from '../src/konfig/preise.mjs';
+import { tagesband } from '../src/vorlagen/teile/tagesband.mjs';
+import { platzhalter } from '../bau/lib/platzhalter.mjs';
 
 const IDS = ['werktag', 'abend', 'nacht', 'wochenende'];
 const BAND = {
@@ -72,4 +74,22 @@ test('kein Zuschlag je Zahlart: weder Konfiguration noch Rechner kennen ihn', as
   assert.doesNotMatch(modul, /zahlart/i);
   const vorlage = await readFile(new URL('../src/vorlagen/seiten/preise.mjs', import.meta.url), 'utf8');
   assert.doesNotMatch(vorlage, /name="zahlart"/);
+});
+
+test('Tagesband: offen eine Zeile ohne Titel und Legende als Platzhalter, gefüllt zwei Zeilen mit Legende', () => {
+  const fenster = IDS.map((id) => ({ id, titel: id, zeit: platzhalter(`test.zeit-${id}`, 'Uhrzeit folgt') }));
+  const sk = (band) => ({ konfig: { preise: { tagesband: band, zeitfenster: fenster } } });
+  const daten = (aus) => JSON.parse(aus.match(/data-band="([^"]*)"/)[1].replace(/&quot;/g, '"'));
+  const offen = String(tagesband(sk(platzhalter('test.tagesband', 'Uhrzeiten')), { praefix: 't' }));
+  assert.equal(offen.match(/class="tb-zeile"/g).length, 1);
+  assert.doesNotMatch(offen, /tagesband-legende|tb-zeile-titel|tb-teil/);
+  assert.match(offen, /data-zustand="offen"/);
+  assert.match(offen, /class="tb-offen"[^>]*fill="url\(#t-schraffur\)"/);
+  // Ohne Uhrzeiten steht die Marke auf der einen Zeile, gleich welche Tagesart gerade gilt
+  assert.deepEqual(daten(offen), { band: null, zeilen: { werktags: 0, wochenende: 0 } });
+  const voll = String(tagesband(sk(BAND), { praefix: 't' }));
+  assert.equal(voll.match(/class="tb-zeile"/g).length, 2);
+  assert.match(voll, /class="tagesband-legende"/);
+  assert.doesNotMatch(voll, /schraffur|data-zustand/);
+  assert.ok(daten(voll).zeilen.wochenende > 0);
 });

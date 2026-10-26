@@ -1,10 +1,22 @@
 /* V10 Kontakt: zwei Wege im Kopf (Notfall in Kupferrahmen, Planbares ruhig), Composer als Karte mit Anliegen,
    Feldern, Fehlerübersicht und Warnung; Zeiten und Anschrift 6/6. Zustände über Attribute (aria-invalid, hidden). */
 @layer komponenten {
+  /* Arbeitsansicht (P6 dicht): Kopf auf allen Breiten mit dem kleinen fließenden Abstand */
   .kontakt-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
+  .kontakt-kopf-teilung { display: grid; gap: var(--sp-l); }
+  .kontakt-kopftext .gruppe-einleitung { margin-block-end: 0; }
   .kontakt-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; }
-  .kontakt-wege { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-m); margin-block-start: var(--sp-l); }
-  .kontakt-weg { display: grid; gap: var(--sp-xs); align-content: start; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); border-block-start: var(--linie-scher) solid var(--c-linie-ui); }
+  .kontakt-wege { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-m); }
+  /* Karte: Icon neben dem Titel (eine Zeile statt zwei), Text darunter, Handlung an der Unterkante. Stehen die Karten
+     nebeneinander (48–64em), schließen beide Handlungen bündig ab, statt am unterschiedlich langen Text zu hängen. */
+  .kontakt-weg {
+    display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto 1fr auto; gap: var(--sp-xs) var(--sp-s);
+    align-items: center; padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1);
+    border-block-start: var(--linie-scher) solid var(--c-linie-ui);
+  }
+  .kontakt-weg > :nth-child(n + 3) { grid-column: 1 / -1; }
+  .kontakt-weg > :nth-child(3) { align-self: start; }
+  .kontakt-weg > :last-child { align-self: end; margin-block-start: var(--sp-2xs); }
   .kontakt-weg-notfall { border-block-start-color: var(--c-kupfer); }
   .kontakt-weg h2 { font-size: var(--fs-2); }
   .kontakt-weg p { max-inline-size: var(--mass); color: var(--c-tinte-2); }
@@ -13,6 +25,9 @@
   /* großer Rufknopf in der schmalen Karte: weniger Innenabstand, damit er bei 320 px in die Karte passt */
   .kontakt-weg .rufknopf-gross { padding-inline: var(--sp-s); }
 
+  /* Messraster (K-008: 1-px-Punkte im Abstand 8, leise) unter der Vorlage: Das Band wird zur Werkbank, auf der die
+     Vorlage als weißes Blatt liegt – das einzige Muster der Seite, nur auf Papier-2 */
+  .kontakt-werkbank { background-image: radial-gradient(circle at center, var(--c-linie) calc(var(--linie-haar) / 2), transparent calc(var(--linie-haar) / 2)); background-size: var(--sp-2xs) var(--sp-2xs); }
   .kontakt-composer-teilung { display: grid; gap: var(--sp-l); }
   .composer { display: grid; gap: var(--sp-m); padding: var(--sp-f-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-2); }
   .composer-anliegen { margin: 0; padding: 0; border: 0; min-inline-size: 0; }
@@ -67,9 +82,19 @@
     .kontakt-teilung { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   }
   @media (min-width: 64em) {
-    .kontakt-kopf { padding-block-start: var(--sp-sektion); }
+    /* Frage und Notfall-Weg 7/5 (Hero-Teilung), beide Spalten etwa gleich hoch. Die Kupferkante der Notfall-Karte liegt
+       auf der Höhe der Kopflinie: eine Linie über beide Spalten statt zweier Marken auf verschiedenen Höhen. Der
+       planbare Weg darunter als Zeile über die ganze Breite (Icon · Titel und Text · Handlung): Er ist der Übergang zur
+       Vorlage im nächsten Abschnitt. Die Hülle .kontakt-wege tritt dafür zurück (display: contents, ein div ohne Rolle). */
+    .kontakt-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-areas: "text notfall" "planbar planbar"; gap: var(--sp-l) var(--sp-xl); align-items: start; }
+    .kontakt-kopftext { grid-area: text; }
     .kontakt-kopf h1 { font-size: var(--fs-5); }
-    .kontakt-wege { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+    .kontakt-wege { display: contents; }
+    .kontakt-weg-notfall { grid-area: notfall; }
+    .kontakt-weg-planbar { grid-area: planbar; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: auto auto; column-gap: var(--sp-m); row-gap: var(--sp-3xs); }
+    .kontakt-weg-planbar > .kontakt-weg-icon { grid-row: 1 / 3; }
+    .kontakt-weg-planbar > :nth-child(n + 3) { grid-column: 2; }
+    .kontakt-weg-planbar > :last-child { grid-column: 3; grid-row: 1 / 3; align-self: center; margin: 0; }
     .kontakt-composer-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; }
     /* Überschrift und Erklärung bleiben neben dem langen Formular stehen, statt eine leere Spalte zu hinterlassen */
     .kontakt-composer-teilung > .abschnitt-kopf { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-l)); }

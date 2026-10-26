@@ -1,20 +1,24 @@
 /* V02 Leistungsgruppe: Kopf 7/5 mit Register der Gruppe, Nachweisliste, Wissen als Registerblatt.
    Gemeinsame Seitenteile: komponenten/seitenteile.css. */
 @layer komponenten {
-  .gruppe-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
+  /* Unten nur ein großer Abstand: Der Flächenwechsel zum Szenenband trennt schon; so steht der Szenentitel noch im
+     ersten Bildschirm und kündigt die Figur an */
+  .gruppe-kopf { padding-block: var(--sp-f-m) var(--sp-xl); }
   .gruppe-kopf-teilung { display: grid; gap: var(--sp-xl); }
   .gruppe-nr { font-family: var(--ff-mono); color: var(--c-kupfer); font-weight: var(--fw-titel); }
   .gruppe-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; hyphens: manual; }
   .gruppe-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
   .gruppe-register { border-block-start: var(--linie-scher) solid var(--c-kupfer); padding-block-start: var(--sp-s); }
   .gruppe-register-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-2xs); }
-  .gruppe-register ul { list-style: none; padding: 0; }
+  /* Register als Stückliste: Icon und Name je Zeile, Haarlinie darunter; zweispaltig, sobald zwei Namen nebeneinander
+     passen. Der Kurzsatz steht nur im Linknamen (unsichtbar), sonst liefe der Kopf über anderthalb Bildschirme. */
+  .gruppe-register ul { list-style: none; padding: 0; display: grid; column-gap: var(--sp-l); }
   .gruppe-register li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
-  .gruppe-register a { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon name" "icon kurz"; column-gap: var(--sp-s); padding-block: var(--sp-s); color: var(--c-tinte); text-decoration: none; }
+  .gruppe-register a { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: var(--sp-xs); min-block-size: var(--ziel-touch); padding-block: var(--sp-2xs); color: var(--c-tinte); text-decoration: none; }
   .gruppe-register a:hover .gruppe-register-name { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
-  .gruppe-register-icon { grid-area: icon; inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); align-self: start; }
-  .gruppe-register-name { grid-area: name; font-weight: var(--fw-titel); }
-  .gruppe-register-kurz { grid-area: kurz; font-size: var(--fs--1); color: var(--c-tinte-3); }
+  .gruppe-register-icon { inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); }
+  .gruppe-register-name { font-weight: var(--fw-titel); line-height: var(--lh-titel); }
+  @media (min-width: 30em) { .gruppe-register ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   .nachweis { display: grid; gap: 0; margin: 0; }
   .nachweis-eintrag { display: grid; gap: var(--sp-3xs); padding-block: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie); }
   .nachweis dt { font-weight: var(--fw-titel); }
@@ -35,11 +39,16 @@
     .gruppe-eintrag-leit { grid-column: 1 / -1; grid-template-columns: subgrid; column-gap: var(--sp-xl); align-items: start; }
   }
 
+  /* Die Notöffnung ruft unter 64em über die Rufleiste an (P5): kein zweiter gleicher Rufknopf im ersten Bildschirm */
+  .gruppe-handlung-ruf { display: none; }
+
+  /* Schlussband: Abschnittsmarke über der Frage; der Abstand zur Handlung kommt aus der Teilung */
+  .schluss .abschnitt-kopf { margin-block-end: 0; }
+
   @media (min-width: 64em) {
     .gruppe-kopf { padding-block-start: var(--sp-sektion); }
     .gruppe-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
     .gruppe-kopf h1 { font-size: var(--fs-5); }
-    /* Das Register rechts ist länger als der Text links: Der Text bleibt stehen, bis das Register endet */
-    .gruppe-kopf-text { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-xl)); }
+    .gruppe-handlung-ruf { display: flex; }
   }
 }

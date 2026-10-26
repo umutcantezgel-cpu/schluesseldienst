@@ -1,8 +1,9 @@
 // I-05 Widerstandsstufen (M-17 Einbau & Tresore): drei Stufen steigender Widerstand mit Möbeltresor, Tür und
 // Wertschutzschrank; Schritt 4 verankert alles im Boden („jede Stufe zählt nur mit fachgerechtem Einbau“).
 // Ohne Norm-Bezeichnungen oder Zahlen (die stehen nur in Texten mit Faktenblatt). Dekorativ.
-// Die Treppe der Sockel steht gestrichelt immer im Bild: So zeigt schon Schritt 1, dass es Stufen sind und wo die
-// erste liegt; die Teile legen sich mit ihren Schritten darüber und decken die Strichelung zu.
+// Die Treppe der Sockel steht als gedimmte Linie immer im Bild: So zeigt schon Schritt 1, dass es Stufen sind und wo
+// die erste liegt; die Teile legen sich mit ihren Schritten darüber. Durchgezogen statt gestrichelt – gestrichelte
+// Konturen sind auf der Website die Sprache der Platzhalter.
 import { roh } from '../../../../bau/lib/html.mjs';
 import { illRahmen, teil } from './_svg.mjs';
 
@@ -13,7 +14,7 @@ export function widerstandsStufen({ praefix = 'ws', zustand = null, klasse = '' 
   const inhalt = `<g class="ill-grund">
 <path class="ill-wand" fill="${sf}" d="M16 264H384V304H16Z"/>
 <path d="M16 264H384"/>
-<path class="ill-gestrichelt" d="M32 264V208H136V152H240V96H344V264"/>
+<path class="ill-fein ill-gedimmt" d="M32 264V208H136V152H240V96H344V264"/>
 </g>
 ${teil(1, `<path class="ill-flaeche" d="M32 264V208H136V264"/><rect class="ill-blatt" x="64" y="152" width="48" height="56" rx="4"/><circle cx="88" cy="180" r="10"/><path d="M88 170V176"/>`)}
 ${teil(2, `<path class="ill-flaeche" d="M136 264V152H240V264"/><path class="ill-blatt" d="M168 152V64H216V152"/><path d="M160 152H224"/><circle class="ill-dunkel" cx="206" cy="112" r="3"/><path class="ill-bolzen" d="M216 80H222V88H216Z M216 132H222V140H216Z"/>`)}

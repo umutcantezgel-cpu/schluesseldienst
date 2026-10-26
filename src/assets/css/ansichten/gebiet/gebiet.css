@@ -28,11 +28,21 @@
   .gk-name, .gk-ring-text, .gk-sitz-name { paint-order: stroke; stroke: var(--c-papier-2); stroke-width: var(--svg-halo); stroke-linejoin: round; }
   .gk-sitz-ring { fill: var(--c-papier-2); stroke: var(--c-kupfer); stroke-width: 2; }
   .gk-sitz-punkt { fill: var(--c-kupfer); }
+  /* Rasterkarte (gebietskarte.mjs): Die Kupferlinie misst die Luftlinie von Weilburg bis zum äußeren Ring, die Maße
+     stehen rechts daneben in Mono wie die Peilung der Lagekarte. Unter jeder Schrift spart der Generator die Punkte
+     aus; Punkte, die nur unter der größeren schmalen Schrift liegen, zeigt ein eigener Pfad erst ab 48em. Der stärkere
+     Halo unterbricht nur noch Ringe, die ein Name kreuzt. */
+  .gk-mess { fill: none; stroke: var(--c-kupfer); stroke-width: var(--linie-scher); vector-effect: non-scaling-stroke; }
+  .gebietskarte .gk-ring-text { font-family: var(--ff-mono); fill: var(--c-kupfer); text-anchor: start; }
+  .gebietskarte :is(.gk-name, .gk-ring-text, .gk-sitz-name) { stroke-width: calc(var(--svg-halo) * 1.5); }
+  .gk-raster[data-nur="breit"] { display: none; }
   @media (min-width: 48em) {
     .gk-ring-text { font-size: var(--svg-text-m); }
     .gk-name { font-size: var(--svg-text-s); }
     .gk-name[data-rang="2"] { display: inline; }
     .gk-sitz-name { font-size: var(--svg-text-l); }
+    .gk-raster[data-nur="breit"] { display: inline; }
+    .gk-raster[data-nur="schmal"] { display: none; }
   }
   /* Legende links ausgerichtet in zwei Spalten unter der Karte (P4: nichts zentriert Umbrochenes) */
   .gk-legende {

@@ -11,21 +11,42 @@
 
   .ueber-teilung { display: grid; gap: var(--sp-l); }
   .ueber-teilung .abschnitt-kopf { margin-block-end: 0; }
-  /* Sätze halten das Textmaß (p), die Kacheln nutzen die ganze Spalte und schließen rechts bündig mit dem Raster */
+  /* Sätze halten das Textmaß (p), Messleiste und Register nutzen die ganze Spalte bis zur Rasterkante */
   .ueber-wer { gap: var(--sp-s); max-inline-size: none; }
-  /* Leistungsgruppen als dichte Kacheln (K-009): Icon, Titel, Kurztext, ein Link je Kachel; li + li aus basis.css aufheben */
-  .ueber-gruppen { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-min)), 1fr)); gap: var(--sp-s); margin-block-start: var(--sp-2xs); }
-  .ueber-gruppen li { margin: 0; display: grid; }
-  .ueber-gruppen a { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon titel" "icon kurz"; align-content: start; column-gap: var(--sp-s); row-gap: var(--sp-3xs); padding: var(--sp-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); color: var(--c-tinte); text-decoration: none; }
-  /* M-02 Überlagerung .10 und M-03 Drücken wie die Weiterlesen-Karten */
-  .ueber-gruppen a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .ueber-wer .ueber-unter { margin-block-start: var(--sp-l); }
+
+  /* Messleiste „Ab Weilburg“: mobil senkrecht (Schiene links, Strich an jeder Zonengrenze), ab 48em waagerecht mit
+     einer Spalte je Zone. Der Kupferpunkt am Anfang ist Weilburg – wie auf jeder Karte der Website. */
+  .ueber-ab { list-style: none; padding: 0; display: grid; margin-block-start: var(--sp-2xs); }
+  .ueber-ab-zone { position: relative; margin: 0; display: grid; grid-template-columns: var(--sp-l) minmax(0, 1fr); align-content: start; row-gap: var(--sp-3xs); padding-block: 0 var(--sp-m); }
+  .ueber-ab-zone > :not(.ueber-ab-weg) { grid-column: 2; }
+  .ueber-ab-weg { position: absolute; inset-block: 0; inset-inline-start: 0; inline-size: var(--sp-xs); }
+  .ueber-ab-weg::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: calc(var(--sp-xs) / 2 - var(--linie-ui) / 2); border-inline-start: var(--linie-ui) solid var(--c-tinte-3); }
+  /* Zonengrenze; die letzte Zone bleibt offen (über 100 km) */
+  .ueber-ab-weg::after { content: ""; position: absolute; inset-block-end: 0; inset-inline-start: 0; inline-size: var(--sp-xs); border-block-end: var(--linie-ui) solid var(--c-tinte-3); }
+  .ueber-ab-zone:last-child .ueber-ab-weg::after { content: none; }
+  .ueber-ab-sitz { position: absolute; inset-block-start: 0; inset-inline-start: 0; inline-size: var(--sp-xs); block-size: var(--sp-xs); border-radius: var(--r-rund); background: var(--c-kupfer); }
+  .ueber-ab-kennung { font-weight: var(--fw-titel); line-height: var(--lh-titel); display: flex; align-items: baseline; gap: var(--sp-2xs); }
+  .ueber-ab-id { font-family: var(--ff-mono); color: var(--c-kupfer); }
+  .ueber-ab-km { font-size: var(--fs--1); line-height: var(--lh-dicht); color: var(--c-tinte-2); font-variant-numeric: tabular-nums; text-wrap: pretty; }
+  .ueber-ab-not { font-size: var(--fs--1); line-height: var(--lh-dicht); color: var(--c-tinte-3); }
+  .ueber-ab-mehr a { display: inline-flex; align-items: center; gap: var(--sp-2xs); min-block-size: var(--ziel-min); font-weight: var(--fw-ui); }
+
+  /* Leistungsgruppen als einzeilige Registereinträge: Nummer, Titel, Pfeil; Haarlinien statt Fläche (K-009) */
+  .ueber-gruppen { list-style: none; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); margin-block-start: var(--sp-2xs); }
+  .ueber-gruppen li { margin: 0; display: grid; border-block-start: var(--linie-haar) solid var(--c-linie); }
+  .ueber-gruppen li:last-child { border-block-end: var(--linie-haar) solid var(--c-linie); }
+  .ueber-gruppen a { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: baseline; align-content: center; gap: var(--sp-s); min-block-size: var(--ziel-min); padding-block: var(--sp-2xs); color: var(--c-tinte); text-decoration: none; }
+  /* M-02 Überlagerung .10 und M-03 Drücken wie die Weiterlesen-Karten; die Fläche ragt in den Abstand, nicht in die Linie */
+  .ueber-gruppen a::before { content: ""; position: absolute; inset-block: var(--linie-haar) 0; inset-inline: calc(-1 * var(--sp-2xs)); z-index: -1; border-radius: var(--r-s); background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
   .ueber-gruppen a:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
   .ueber-gruppen a:active { transform: scale(.98); }
   .ueber-gruppen a:active::before { opacity: var(--deck-aktiv); }
   .ueber-gruppen a:hover .ueber-gruppe-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
-  .ueber-gruppe-icon { grid-area: icon; inline-size: var(--icon-leistung); block-size: var(--icon-leistung); color: var(--c-lahn-text); }
-  .ueber-gruppe-titel { grid-area: titel; font-weight: var(--fw-titel); line-height: var(--lh-titel); align-self: center; }
-  .ueber-gruppe-kurz { grid-area: kurz; font-size: var(--fs--1); line-height: var(--lh-dicht); color: var(--c-tinte-3); }
+  .ueber-gruppe-nr { font-family: var(--ff-mono); font-size: var(--mono-groesse); color: var(--c-tinte-3); font-variant-numeric: tabular-nums; }
+  .ueber-gruppe-titel { font-weight: var(--fw-ui); }
+  .ueber-gruppe-zahl { font-size: var(--fs--1); color: var(--c-tinte-3); font-variant-numeric: tabular-nums; }
+  .ueber-gruppe-pfeil { inline-size: var(--icon-text); block-size: var(--icon-text); color: var(--c-kupfer); align-self: center; }
   .ueber-unter { font-size: var(--fs-0); font-weight: var(--fw-titel); margin-block-start: var(--sp-xs); }
   .ueber-liste { padding-inline-start: var(--sp-m); display: grid; gap: var(--sp-3xs); }
 
@@ -61,14 +82,22 @@
      Höchstbreite, die Bildunterschrift steht als Legende daneben auf der Grundlinie statt unter einer leeren Hälfte. */
   @media (min-width: 48em) {
     .ueber-wert { grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); column-gap: var(--sp-l); align-items: baseline; }
+    /* Messleiste waagerecht: Zeilen über alle Zonen gleich (subgrid), der Weg läuft ohne Lücke von Spalte zu Spalte */
+    .ueber-ab { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); }
+    .ueber-ab-zone { grid-row: span 4; grid-template-rows: subgrid; grid-template-columns: none; row-gap: var(--sp-2xs); padding: 0; }
+    .ueber-ab-zone > :not(.ueber-ab-weg) { grid-column: auto; padding-inline-end: var(--sp-s); }
+    .ueber-ab-weg { position: relative; inset: auto; inline-size: auto; block-size: var(--sp-xs); }
+    .ueber-ab-weg::before { inset-block: calc(var(--sp-xs) / 2 - var(--linie-ui) / 2) auto; inset-inline: 0; border-inline-start: 0; border-block-start: var(--linie-ui) solid var(--c-tinte-3); }
+    .ueber-ab-weg::after { inset-block: 0; inset-inline: auto 0; inline-size: 0; border-block-end: 0; border-inline-end: var(--linie-ui) solid var(--c-tinte-3); }
     .betrieb-figur { max-inline-size: none; grid-template-columns: minmax(0, var(--hero-figur-max)) minmax(0, 1fr); column-gap: var(--sp-l); align-items: end; }
   }
   @media (min-width: 64em) {
     .ueber-wert { grid-template-columns: none; }
-    .betrieb-kopf { padding-block-start: var(--sp-sektion); }
     .betrieb-kopf h1 { font-size: var(--fs-5); }
-    .betrieb-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
-    .betrieb-figur { justify-self: end; max-inline-size: var(--hero-figur-max); grid-template-columns: none; }
+    /* Text und Figur hängen oben: Die Kopflinie steht so nah an den Brotkrumen wie auf Start, Ratgeber und Ortsseite,
+       statt mittig zur höheren Figur nach unten zu rutschen; die Figur beginnt eine Stufe tiefer auf Höhe des Kickers */
+    .betrieb-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); align-items: start; }
+    .betrieb-figur { justify-self: end; max-inline-size: var(--hero-figur-max); grid-template-columns: none; margin-block-start: var(--sp-l); }
     .ueber-teilung { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--sp-xl); align-items: start; }
     .ueber-werte { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     /* Dunkles Band: Text links, Handlung rechts auf der Grundlinie – das Band trägt über die ganze Breite */

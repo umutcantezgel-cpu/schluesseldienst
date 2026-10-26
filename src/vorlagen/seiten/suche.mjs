@@ -32,6 +32,9 @@ export function seiten(k) {
     inhalt: (sk) => {
       const d = sk.assets.daten;
       const bereit = d.seiten && d.orte && d.plz;
+      // Zonenringe für den Maßstab der Ortstreffer (die letzte Stufe reicht ins Unendliche und hat keinen Ring)
+      const ringe = sk.konfig.zonen.stufen.map((z) => z.bisKm).filter(Number.isFinite).join(',');
+      const sitemap = s.wege.find((w) => w.pfad === '/sitemap/')?.pfad ?? '';
       return html`<section class="system-kopf suche-kopf" aria-labelledby="suche-h1">
 <div class="raster"><div class="suche-teilung">
 <div class="suche-kopftext">
@@ -40,7 +43,7 @@ export function seiten(k) {
 <h1 id="suche-h1">${s.h1}</h1>
 <p class="gruppe-einleitung">${text(s.einleitung)}</p>
 </div>
-<div class="suche" role="search"${bereit ? html` data-modul="suche" data-seiten="${d.seiten.pfad}" data-seiten-sri="${d.seiten.sri}" data-orte="${d.orte.pfad}" data-orte-sri="${d.orte.sri}" data-plz="${d.plz.pfad}" data-plz-sri="${d.plz.sri}"` : ''} data-kurz="${s.kurz}" data-leer="${s.leer}" data-fehler="${s.fehler}">
+<div class="suche" role="search"${bereit ? html` data-modul="suche" data-seiten="${d.seiten.pfad}" data-seiten-sri="${d.seiten.sri}" data-orte="${d.orte.pfad}" data-orte-sri="${d.orte.sri}" data-plz="${d.plz.pfad}" data-plz-sri="${d.plz.sri}"` : ''} data-kurz="${s.kurz}" data-leer="${s.leer}" data-fehler="${s.fehler}" data-sitemap="${sitemap}" data-ringe="${ringe}">
 <div class="suche-feld" hidden>
 <label class="suche-label" for="suche-eingabe">${s.label}</label>
 <div class="suche-eingabe-huelle">${sk.icon('suche', { klasse: 'suche-icon' })}<input class="suche-eingabe" id="suche-eingabe" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search" maxlength="80" placeholder="${s.platzhalter}"><button class="suche-leeren" type="button" aria-label="${s.leeren}" hidden>${sk.icon('schliessen')}</button></div>

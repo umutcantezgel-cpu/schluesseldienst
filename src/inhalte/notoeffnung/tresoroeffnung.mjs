@@ -24,6 +24,7 @@ export default {
     },
     {
       titel: 'Zerstörungsfrei zuerst',
+      hinweis: 'info',
       absaetze: [
         'Wir beginnen mit den Methoden, die den Tresor möglichst schonen. Erst wenn sie nicht zum Ziel führen, besprechen wir mit Ihnen, welche Eingriffe möglich sind.',
         'Jeder Schritt, der etwas beschädigen kann, geschieht nur mit Ihrer Zustimmung. Dann wissen Sie vorher, was am Schloss passiert und was danach zu tun ist.',

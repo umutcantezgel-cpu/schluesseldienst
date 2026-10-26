@@ -70,6 +70,8 @@ export function leistungLd(sk, g, l, inhalt) {
   };
 }
 
+// Die Notöffnung ruft im Kopf erst ab 64em an; darunter trägt die Rufleiste den Anruf (wie V01), statt zweimal im
+// ersten Bildschirm.
 function kopf(sk, g, l, inh) {
   const figur = (FIGUREN[inh.figur] || JE_LEISTUNG[l.id] || GRUPPENBILD[g.id])();
   return html`<section class="leistung-kopf" aria-labelledby="leistung-titel">
@@ -79,7 +81,9 @@ function kopf(sk, g, l, inh) {
 <p class="leistung-kicker"><span class="leistung-nr">${g.nr}</span> ${g.titel}</p>
 <h1 id="leistung-titel">${inh.h1}</h1>
 <p class="leistung-kurz">${text(inh.kurz)}</p>
-<div class="leistung-handlung">${g.id === 'notoeffnung' ? rufknopf(sk, { variante: 'gross' }) : html`<a class="knopf knopf-primaer" href="/kontakt/">Beratung anfragen${sk.icon('pfeil-rechts')}</a>`}</div>
+${g.id === 'notoeffnung'
+    ? html`<div class="leistung-handlung leistung-handlung-ruf">${rufknopf(sk, { variante: 'gross' })}</div>`
+    : html`<div class="leistung-handlung"><a class="knopf knopf-primaer" href="/kontakt/">Beratung anfragen${sk.icon('pfeil-rechts')}</a></div>`}
 </div>
 <figure class="leistung-figur">${figur}${inh.figurText ? html`<figcaption>${inh.figurText}</figcaption>` : ''}</figure>
 </div></div>
@@ -97,7 +101,10 @@ function blick(inh) {
 // Bildschirmhöhe, wenn „Mehr aus …“ nicht auch darin steht – die Liste rückt dann unter den Text (mobil hinter den
 // Preis, wie im Quelltext). Ohne Preis klebt die kurze Liste selbst. Ein Preisauszug mit mehreren Positionen ist
 // höher als übliche Laptop-Bildschirme und klebt deshalb nicht (leistung-rand-lang): abgeschnitten mitzulaufen oder
-// in sich zu rollen versteckte Hinweis und Link zur Preisseite.
+// in sich zu rollen versteckte Hinweis und Link zur Preisseite. Dort steht „Mehr aus …“ in der Randspalte unter den
+// Preisen und klebt selbst (leistung-teilung-lang), statt die Spalte neben dem übrigen Text leer zu lassen.
+// Ein Abschnitt mit hinweis: 'info' | 'warnung' steht als Hinweis (K-009, 4-px-Randbalken): die Zusage, auf die es
+// bei der Leistung ankommt, oder was vor dem Anruf bei uns kommt – ein ruhiger Halt im Text statt einer weiteren Figur.
 function hauptteil(sk, g, l, inh) {
   const geschwister = g.leistungen.filter((x) => x.id !== l.id);
   const mehr = html`<nav class="rand-block leistung-mehr" aria-labelledby="rand-gruppe">
@@ -109,15 +116,17 @@ function hauptteil(sk, g, l, inh) {
 ${preistabelle(sk, { positionen: inh.preis.positionen, id: 'leistung-preise', titel: 'Gesamtpreise in Zone A' })}
 <p class="rand-text">${text(inh.preis.text)}</p>
 </section>` : '';
-  return html`<div class="sektion"><div class="raster"><div class="leistung-teilung${inh.preis ? ' leistung-teilung-preis' : ''}">
+  const lang = inh.preis?.positionen.length > 1;
+  const hinweis = (a) => (a.hinweis ? ` leistung-hinweis${a.hinweis === 'warnung' ? ' leistung-hinweis-warnung' : ''}` : '');
+  return html`<div class="sektion"><div class="raster"><div class="leistung-teilung${inh.preis ? ' leistung-teilung-preis' : ''}${lang ? ' leistung-teilung-lang' : ''}">
 <div class="leistung-text">
-${inh.abschnitte.map((a, i) => html`<section class="leistung-abschnitt" aria-labelledby="abschnitt-${String(i + 1)}">
+${inh.abschnitte.map((a, i) => html`<section class="leistung-abschnitt${hinweis(a)}" aria-labelledby="abschnitt-${String(i + 1)}">
 <h2 id="abschnitt-${String(i + 1)}">${text(a.titel)}</h2>
 ${a.absaetze.map((p) => html`<p>${text(p)}</p>`)}
 ${a.liste ? html`<ul class="leistung-liste">${a.liste.map((x) => html`<li>${text(x)}</li>`)}</ul>` : ''}
 </section>`)}
 </div>
-${inh.preis ? html`<aside class="leistung-rand${inh.preis.positionen.length > 1 ? ' leistung-rand-lang' : ''}" aria-label="Preise">${preis}</aside>
+${inh.preis ? html`<aside class="leistung-rand${lang ? ' leistung-rand-lang' : ''}" aria-label="Preise">${preis}</aside>
 ${mehr}` : html`<aside class="leistung-rand" aria-label="Weitere Leistungen">${mehr}</aside>`}
 </div></div></div>`;
 }

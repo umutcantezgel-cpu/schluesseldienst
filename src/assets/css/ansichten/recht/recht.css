@@ -1,16 +1,21 @@
-/* V12 Rechtsseiten: ruhige Arbeitsansicht. Text mit Inhaltsverzeichnis in der Randspalte (ab 64em, mobil vor dem
-   Text), Abschnitte und Verzeichnis gleich nummeriert, Angabenliste, Muster als Text. H1 in fs-4: fs-5 bleibt dem
-   Hero vorbehalten. Werte nur über Tokens; keine Schriftdienste, keine Bilder. */
+/* V12 Rechtsseiten: ruhige Arbeitsansicht. Kopf, Inhaltsverzeichnis und Text in einem Raster: ab 64em 8/4 mit dem
+   Verzeichnis in der Randspalte neben Kopf und Text (klebend), mobil zwischen Kopf und Text. Abschnitte und Verzeichnis
+   gleich nummeriert, Angabenliste, Muster als Text. H1 in fs-4: fs-5 bleibt dem Hero vorbehalten. Werte nur über Tokens. */
 @layer komponenten {
-  .recht-kopf { padding-block: var(--sp-m) var(--sp-l); }
-  /* Abstand zur Kopflinie (M-15): Hinweis und Linie sollen nicht zusammenkleben, der Kopf beginnt mit der Linie */
-  .recht-freigabe { margin-block: 0 var(--sp-l); max-inline-size: var(--mass); }
+  .recht { padding-block: var(--sp-m) var(--sp-f-m); }
+  .recht-teilung { display: grid; gap: var(--sp-xl); grid-template-areas: "freigabe" "kopf" "rand" "text"; }
+  /* Der Hinweis steht über beiden Spalten, Kopf und Verzeichnis beginnen gemeinsam darunter */
+  .recht-freigabe { grid-area: freigabe; margin: 0; max-inline-size: var(--mass); }
+  /* Der Hinweis markiert den Entwurf selbst; der Platzhalter darin bekommt keinen zweiten Rahmen (Kasten im Kasten) */
+  .recht-freigabe .platzhalter { outline: none; background: none; padding: 0; }
+  .recht-kopf { grid-area: kopf; }
   .recht-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; overflow-wrap: anywhere; }
-  .recht-einleitung { font-size: var(--fs-0); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block-start: var(--sp-s); }
+  /* Vorspann, kein Fließtext: keine automatische Trennung („Verantwort-lichen“), Umbruch per pretty */
+  .recht-einleitung { font-size: var(--fs-0); line-height: var(--lh-dicht); color: var(--c-tinte-2); max-inline-size: var(--mass); margin-block-start: var(--sp-s); hyphens: manual; text-wrap: pretty; }
   .recht-stand { font-size: var(--fs--1); color: var(--c-tinte-3); margin-block-start: var(--sp-xs); }
 
-  .recht-teilung { display: grid; gap: var(--sp-xl); }
-  .recht-text { display: grid; gap: var(--sp-xl); max-inline-size: var(--mass); }
+  .recht-text { grid-area: text; display: grid; gap: var(--sp-xl); max-inline-size: var(--mass); }
+  /* Sprungziel ist der Abschnitt: Marke und Überschrift erscheinen unter dem Kopf (ab 64em) bzw. am oberen Rand */
   .recht-teil { display: grid; gap: var(--sp-s); scroll-margin-block-start: var(--sp-m); }
   .recht-teil .abschnitt-kopf { margin-block-end: 0; }
   .recht-teil .abschnitt-marke { font-variant-numeric: tabular-nums; }
@@ -40,7 +45,7 @@
 
   /* Verzeichnis: Marke wie Kopflinie und Kicker (kurze Kupferlinie, Versalien) statt einer zweiten, langen Linie;
      Einträge als Register mit Haarlinien, je Zeile mindestens 44 px Trefferhöhe (K-009) */
-  .recht-rand { align-self: start; display: grid; gap: var(--sp-s); order: -1; }
+  .recht-rand { grid-area: rand; align-self: start; display: grid; gap: var(--sp-s); }
   .recht-rand-titel { display: grid; gap: var(--sp-xs); font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
   .recht-rand-titel::before { content: ""; inline-size: var(--sp-xl); block-size: var(--linie-scher); background: var(--c-kupfer); }
   .recht-toc { list-style: none; padding: 0; margin: 0; display: grid; font-size: var(--fs--1); border-block-start: var(--linie-haar) solid var(--c-linie); }
@@ -49,6 +54,14 @@
   .recht-toc a:hover { color: var(--c-tinte); }
   .recht-toc a:hover .recht-toc-titel { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
   .recht-toc-nr { color: var(--c-kupfer); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); font-variant-numeric: tabular-nums; }
+  /* Abschnitt, in dem man liest (Modul inhalt): Titel in Tinte und kräftiger, die Linie darunter wird zur Kupferlinie
+     (Haarlinie plus Schatten: 2 px ohne Höhenänderung). Kein Übergang – Arbeitsansicht. */
+  .recht-toc a[aria-current] { color: var(--c-tinte); font-weight: var(--fw-ui); }
+  .recht-toc li:has(> a[aria-current]) { border-block-end-color: var(--c-kupfer); box-shadow: inset 0 calc(-1 * var(--linie-haar)) 0 var(--c-kupfer); }
+
+  /* Weitere Rechtsseiten auf Papier mit Haarlinie: als Band (Papier-2) lief die Fläche nahtlos in den Fuß. Zum Text
+     unterscheidet sich der Abschnitt in Layout (Karten statt 8/4) und Dichte (K-006). */
+  .recht-weiter { border-block-start: var(--linie-haar) solid var(--c-linie); }
 
   @media (min-width: 48em) {
     .recht-angaben > div { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--sp-s); align-items: baseline; }
@@ -56,7 +69,9 @@
   }
   @media (pointer: coarse) { .recht-toc a { min-block-size: var(--ziel-touch); } }
   @media (min-width: 64em) {
-    .recht-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
-    .recht-rand { order: 0; position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+    .recht-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); grid-template-areas: "freigabe freigabe" "kopf rand" "text rand"; }
+    .recht-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+    /* Marke auf der Höhe der Kopflinie, „Inhalt“ auf der Grundlinie des Kickers (Abstand wie .kopf-linie) */
+    .recht-rand-titel { gap: var(--sp-s); }
   }
 }

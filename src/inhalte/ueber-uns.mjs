@@ -12,6 +12,13 @@ export default {
   h1: 'Der Schlüsseldienst in Weilburg',
   wer: {
     titel: 'Wer wir sind',
+    // Messleiste der Zonen: Radien und Notöffnung aus zonen.mjs, die Wörter wie auf /einsatzgebiet/
+    ab: {
+      titel: 'Ab Weilburg',
+      notoeffnung: { ja: 'Notöffnung', 'nach-absprache': 'Notöffnung nur nach Absprache' },
+      link: { text: 'Zonen und alle Orte', pfad: '/einsatzgebiet/' },
+    },
+    gruppenTitel: 'Unsere Leistungen',
   },
   werte: {
     titel: 'Wofür wir stehen: ruhig, präzise, offen',

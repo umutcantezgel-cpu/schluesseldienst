@@ -17,8 +17,19 @@
   .szene-einzelbild { max-inline-size: var(--figur-schmal); margin-block-start: var(--sp-s); padding: var(--sp-s); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
   /* Einzelbilder bleiben klein (K-006/M-17): so hoch wie die Figur der laufenden Bühne */
   .szene-einzelbild :is(.ill, .zylinder) { max-block-size: var(--szene-figur-mobil-max); margin-inline: auto; }
+  /* Telefon: Einzelbilder wie die laufende Bühne ohne weiße Karte, die kleine Figur steht bündig unter ihrem Text;
+     das Kupfer des Schritts behält 2 px Strich, statt mit der Figur auf unter 1 px zu schrumpfen */
+  @media (width < 48em) {
+    .szene-einzelbild { padding: 0; background: none; box-shadow: none; }
+    .band .szene-einzelbild .ill-oeffnung { fill: var(--c-papier-2); }
+    .szene-einzelbild .ill { block-size: var(--szene-figur-mobil-max); inline-size: auto; margin-inline: 0; }
+    .szene-einzelbild :is([data-zustand="1"] [data-bei="1"], [data-zustand="2"] [data-bei="2"], [data-zustand="3"] [data-bei="3"], [data-zustand="4"] [data-bei="4"], [data-zustand="5"] [data-bei="5"]) * { vector-effect: non-scaling-stroke; }
+  }
   .szene-buehne { display: none; }
+  .szene-liste { display: none; }
   .szene-figur { padding: var(--sp-m); background: var(--c-flaeche); border-radius: var(--r-m); box-shadow: var(--sh-1); }
+  /* Öffnungen im Grundriss zeigen den Grund, auf dem die Figur steht: die Karte, ohne Karte das Band (unten) */
+  :is(.szene-figur, .szene-einzelbild) .ill-oeffnung { fill: var(--c-flaeche); }
   @media (min-width: 48em) {
     .szene-schritt p { text-wrap: pretty; }
     .szene-teilung { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: "kopf kopf" "schritte schritte"; column-gap: var(--sp-xl); }
@@ -41,14 +52,29 @@
     /* Mobil klebt der Kopf nicht (K-006): Die Bühne sitzt bündig oben, sonst liefe Text durch den Spalt darüber */
     [data-szene="laeuft"] .szene-buehne { grid-area: buehne; position: sticky; inset-block-start: 0; z-index: var(--z-szene); align-self: start; padding-block: var(--sp-2xs); background: var(--c-papier); box-shadow: 0 var(--linie-haar) 0 var(--c-linie); }
     .band[data-szene="laeuft"] .szene-buehne { background: var(--c-papier-2); }
-    [data-szene="laeuft"] .szene-figur { padding: var(--sp-2xs); }
     /* Kleine feste Figur (K-006): höchstens 10rem hoch, auf niedrigen Geräten weniger */
     [data-szene="laeuft"] .szene-figur .ill, [data-szene="laeuft"] .szene-figur .zylinder { max-block-size: min(var(--szene-figur-mobil), var(--szene-figur-mobil-max)); margin-inline: auto; }
     [data-szene="laeuft"] .szene-schritt { min-block-size: var(--szene-schritt-min-mobil); align-content: center; }
     [data-szene="laeuft"] .szene-schritt:last-child { min-block-size: auto; padding-block-end: var(--sp-xl); }
-    /* Breitere Telefone und kleine Tablets: Die Figurkarte bleibt so breit wie auf dem Telefon und steht mittig,
-       statt als breites weißes Band um die kleine Figur zu laufen */
-    @media (min-width: 30em) { [data-szene="laeuft"] .szene-figur { max-inline-size: var(--figur-schmal); margin-inline: auto; } }
+  }
+  /* Telefon: Die Figur steht ohne Karte auf der Fläche der Bühne. Eine weiße Karte über die volle Breite war bei
+     10rem Figurhöhe vor allem ein weißes Band; das Kupfer des aktiven Teils trägt eine Strichstärke, die nicht mit
+     der Figur schrumpft (2 px statt rund 0,9 px bei 0,43-facher Größe) */
+  @media (prefers-reduced-motion: no-preference) and (min-height: 40em) and (width < 48em) {
+    [data-szene="laeuft"] .szene-figur { padding: 0; background: none; box-shadow: none; }
+    .band[data-szene="laeuft"] .szene-figur .ill-oeffnung { fill: var(--c-papier-2); }
+    [data-szene="laeuft"] .szene-figur :is([data-zustand="1"] [data-bei="1"], [data-zustand="2"] [data-bei="2"], [data-zustand="3"] [data-bei="3"], [data-zustand="4"] [data-bei="4"], [data-zustand="5"] [data-bei="5"]) * { vector-effect: non-scaling-stroke; }
+    /* Stückliste neben der Figur: Figur und Liste stehen als Paar mittig; die Figur nimmt ihre Breite aus der Höhe */
+    [data-szene="laeuft"] .szene-buehne:has(.szene-liste) { display: grid; grid-template-columns: auto auto; justify-content: center; align-items: center; column-gap: var(--sp-m); }
+    [data-szene="laeuft"] .szene-buehne:has(.szene-liste) .ill { block-size: min(var(--szene-figur-mobil), var(--szene-figur-mobil-max)); inline-size: auto; }
+    [data-szene="laeuft"] .szene-liste { display: grid; gap: var(--sp-3xs); margin: 0; padding: 0 0 0 var(--sp-s); list-style: none; border-inline-start: var(--linie-scher) solid var(--c-linie); font-size: var(--fs--1); line-height: var(--lh-dicht); color: var(--c-tinte-3); }
+    .szene-liste li { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--sp-2xs); margin: 0; }
+    /* Wie an den Schritten legt sich die Kupferlinie über die graue Schiene */
+    .szene-liste li::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: calc(-1 * (var(--sp-s) + var(--linie-scher))); inline-size: var(--linie-scher); background: var(--c-kupfer); transform: scaleY(0); transform-origin: top; }
+    .szene-liste li[data-aktiv] { color: var(--c-tinte); }
+    .szene-liste li[data-aktiv]::before { transform: none; }
+    .szene-liste-nr { font-family: var(--ff-mono); font-weight: var(--fw-titel); }
+    .szene-liste li[data-aktiv] .szene-liste-nr { color: var(--c-kupfer); }
   }
   @media (prefers-reduced-motion: no-preference) and (min-height: 40em) and (min-width: 48em) {
     [data-szene="laeuft"] .szene-teilung { grid-template-areas: "kopf kopf" "buehne schritte"; }
@@ -60,16 +86,18 @@
     /* Unter 64em klebt der Kopf nicht: Die Figur hält nur den Abschnittsabstand zur Oberkante */
     [data-szene="laeuft"] .szene-figur { position: sticky; inset-block-start: var(--sp-xl); padding: var(--sp-l); max-inline-size: none; margin-inline: 0; }
     [data-szene="laeuft"] .szene-figur .ill, [data-szene="laeuft"] .szene-figur .zylinder { max-block-size: none; }
-    [data-szene="laeuft"] .szene-schritt { min-block-size: var(--szene-schritt-min); }
+    /* Scrollweg je Schritt: ein Abschnittsabstand weniger als die Grundhöhe – der Wechsel bleibt an der
+       Viewport-Mitte, aber zwischen den Schritten steht kein halber Bildschirm leeres Papier mehr */
+    [data-szene="laeuft"] .szene-schritt { min-block-size: calc(var(--szene-schritt-min) - var(--sp-3xl)); }
   }
   @media (prefers-reduced-motion: no-preference) and (min-height: 40em) and (min-width: 64em) {
     [data-szene="laeuft"] .szene-figur { inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-xl)); }
   }
 }
-/* M-17: Die Linie des Schritts zieht sich in Lesrichtung mit dem Figurenwechsel (gleiche Dauer und Kurve wie die
+/* M-17: Die Linie des Schritts (und ihres Eintrags in der Stückliste) zieht sich in Lesrichtung mit dem Figurenwechsel (gleiche Dauer und Kurve wie die
    Figurteile in bewegung.css); unter reduzierter Bewegung springt sie */
 @layer bewegung {
   @media (prefers-reduced-motion: no-preference) {
-    .szene-schritt::before { transition: transform var(--m17-teil) var(--ease-standard); }
+    :is(.szene-schritt, .szene-liste li)::before { transition: transform var(--m17-teil) var(--ease-standard); }
   }
 }

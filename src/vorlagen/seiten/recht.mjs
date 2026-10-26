@@ -1,6 +1,7 @@
 // V12 Rechtsseiten (Arbeitsansicht, Entwürfe für die rechtliche Prüfung). Je Seite:
-// Kopf (Freigabe-Hinweis, Kicker, H1, Einleitung, Stand) · Text mit Inhaltsverzeichnis in der Randspalte (ab 64em,
-// mobil vor dem Text) · Band „Weitere Rechtsseiten“. Abschnitte und Verzeichnis tragen dieselben Nummern (01, 02 …).
+// Kopf (Freigabe-Hinweis, Kicker, H1, Einleitung, Stand) · Text mit Inhaltsverzeichnis in der Randspalte (ab 64em
+// neben Kopf und Text, mobil vor dem Text) · „Weitere Rechtsseiten“ auf Papier mit Haarlinie (kein Band: der Fuß ist
+// Papier-2). Abschnitte und Verzeichnis tragen dieselben Nummern (01, 02 …).
 // Texte und Fakten stehen in src/inhalte/recht/<id>.mjs (Wortlaut unangetastet); Angaben kommen aus
 // sk.konfig.betrieb; externe Links nur für Hosts aus src/konfig/quellen.mjs. Platzhalter bleiben sichtbar.
 import { html, attrUrl } from '../../../bau/lib/html.mjs';
@@ -101,29 +102,33 @@ function abschnitte(sk, liste) {
 function inhalt(sk, inh) {
   const teile = abschnitte(sk, inh.abschnitte);
   const weiter = SEITEN.filter((x) => x.id !== inh.id);
+  // Ein Raster für Kopf, Verzeichnis und Text: Ab 64em steht das Verzeichnis neben dem Kopf (Marke auf der Höhe der
+  // Kopflinie) und klebt neben dem Text; mobil folgt es dem Kopf. Die Sprungziele sind die Abschnitte selbst, damit
+  // die Marke „04 ——“ über der Überschrift mit ins Bild kommt (scroll-margin am Abschnitt). Das Modul inhalt
+  // markiert den Eintrag des Abschnitts, in dem man liest (aria-current, ohne Bewegung).
   return html`<article class="recht" aria-labelledby="recht-titel">
-<header class="recht-kopf"><div class="raster">
+<div class="raster"><div class="recht-teilung">
 ${inh.freigabe ? html`<p class="recht-freigabe hinweis${istPlatzhalter(inh.freigabe) ? ' hinweis-platzhalter' : ''}">${inh.freigabe}</p>` : ''}
+<header class="recht-kopf">
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inh.kicker}</p>
 <h1 id="recht-titel">${inh.h1}</h1>
 <p class="recht-einleitung">${text(inh.einleitung)}</p>
 <p class="recht-stand">Stand: <time datetime="${inh.stand}">${datum(inh.stand)}</time></p>
-</div></header>
-<div class="sektion sektion-dicht"><div class="raster"><div class="recht-teilung">
-<div class="recht-text">
-${teile.map(({ a, bloecke }, i) => html`<section class="recht-teil" aria-labelledby="teil-${a.id}">
-${abschnittKopf({ id: `teil-${a.id}`, titel: zusammen(a.titel), nr: nummer(i) })}
-${bloecke}
-</section>`)}
-</div>
-<nav class="recht-rand" aria-labelledby="inhalt-titel">
+</header>
+<nav class="recht-rand" aria-labelledby="inhalt-titel" data-modul="inhalt">
 <h2 class="recht-rand-titel" id="inhalt-titel">Inhalt</h2>
 <ol class="recht-toc">${teile.map(({ a }, i) => html`<li><a href="#teil-${a.id}"><span class="recht-toc-nr" aria-hidden="true">${nummer(i)}</span><span class="recht-toc-titel">${zusammen(a.titel)}</span></a></li>`)}</ol>
 </nav>
-</div></div></div>
+<div class="recht-text">
+${teile.map(({ a, bloecke }, i) => html`<section class="recht-teil" id="teil-${a.id}" aria-labelledby="teil-${a.id}-titel">
+${abschnittKopf({ id: `teil-${a.id}-titel`, titel: zusammen(a.titel), nr: nummer(i) })}
+${bloecke}
+</section>`)}
+</div>
+</div></div>
 </article>
-<section class="sektion band" aria-labelledby="weiter-titel"><div class="raster">
+<section class="sektion recht-weiter" aria-labelledby="weiter-titel"><div class="raster">
 ${abschnittKopf({ id: 'weiter-titel', titel: inh.weiterTitel })}
 <ul class="weiter">${weiter.map((w) => html`<li><a href="${w.pfad}"><span class="weiter-titel">${w.titel}</span><span class="weiter-text">${w.kurz}</span>${sk.icon('pfeil-rechts', { klasse: 'weiter-pfeil' })}</a></li>`)}</ul>
 </div></section>`;

@@ -30,8 +30,13 @@
   .laender li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie-ui); }
   /* Mobil eine dichte Zeile je Land (Name links, Zahlen rechts) statt zwei: halbiert die Liste (P6, Verzeichnis) */
   .laender a { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: var(--sp-3xs) var(--sp-s); padding-block: var(--sp-xs); min-block-size: var(--ziel-touch); color: var(--c-tinte); text-decoration: none; }
-  .laender a:hover .land-name { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
-  .land-name { font-weight: var(--fw-ui); }
+  /* Unterstrichen wie die Kreisliste der Hubs (leise Haarlinie, im Hover kräftig), mit M-02/M-03 wie dort */
+  .land-name { font-weight: var(--fw-ui); text-decoration: underline; text-decoration-thickness: var(--linie-haar); text-decoration-color: var(--c-linie-ui); text-underline-offset: var(--unterstrich-abstand); }
+  .laender a:hover .land-name { text-decoration-thickness: var(--linie-scher); text-decoration-color: currentColor; }
+  .laender a { position: relative; isolation: isolate; }
+  .laender a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: var(--r-s); background: currentColor; opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .laender a:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
+  .laender a:active::before { opacity: var(--deck-aktiv); }
   .land-zahl { font-size: var(--fs--1); color: var(--c-tinte-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
   @media (min-width: 48em) {
     .laender a { grid-template-columns: minmax(0, 1fr); }
@@ -60,7 +65,26 @@
     .zonen { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto) auto; row-gap: 0; }
     .zone:not(.zone-nl) { grid-row: 1 / span 4; grid-template-rows: subgrid; row-gap: var(--sp-2xs); }
     .zone-nl { grid-row: 5; margin-block-start: var(--sp-s); }
-    .zone-nl > .zone-merkmale { grid-column: 2 / 4; }
-    .zone-nl > .zone-anzahl { grid-column: 4; grid-row: 1 / 3; align-self: end; }
+    /* Niederlande als eine Karte: Merkmale über die drei übrigen Spalten, die Ortszahl schließt wie bei A–D als
+       Fußzeile mit Haarlinie über die ganze Breite ab (vorher drei lose Inseln mit leerer Mitte) */
+    .zone-nl > .zone-merkmale { grid-column: 2 / -1; }
   }
+}
+
+/* M-18 „Ringe um Weilburg“, Teil der Kupferlinie (nur diese Ansicht): Während Punkte und Ringe aus Weilburg wachsen
+   (bewegung.css), zieht die Linie vom Sitz bis zum äußeren Ring, und jedes Maß erscheint, wenn sie es erreicht. Alle
+   hängen am Zeitstrahl der Maßgruppe, damit Linie und Maße auf jeder Bildschirmhöhe gleich laufen; die Anteile 20/50/100
+   entsprechen den Ringen aus zonen.mjs. Unter reduce und ohne view() steht das Endbild. */
+@layer bewegung {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      [data-moment="ringe"] .gk-mass { view-timeline-name: --gk-mass; }
+      [data-moment="ringe"] .gk-mess { transform-box: fill-box; transform-origin: bottom; animation: m18-mess linear both; animation-timeline: --gk-mass; animation-range: contain 0% contain 60%; }
+      [data-moment="ringe"] .gk-ring-text { animation: erscheinen linear both; animation-timeline: --gk-mass; }
+      [data-moment="ringe"] .gk-ring-text:nth-of-type(1) { animation-range: contain 12% contain 18%; }
+      [data-moment="ringe"] .gk-ring-text:nth-of-type(2) { animation-range: contain 30% contain 36%; }
+      [data-moment="ringe"] .gk-ring-text:nth-of-type(3) { animation-range: contain 60% contain 66%; }
+    }
+  }
+  @keyframes m18-mess { from { transform: scaleY(0); } }
 }

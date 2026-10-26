@@ -28,12 +28,16 @@
   .suche-leeren:focus-visible { outline: var(--linie-fokus) solid var(--c-fokus); outline-offset: calc(-1 * var(--sp-2xs)); }
   .suche-leeren .i { inline-size: var(--icon-text); block-size: var(--icon-text); }
   .suche-status { font-size: var(--fs--1); color: var(--c-tinte-2); min-block-size: var(--lh-text); font-variant-numeric: tabular-nums; }
+  /* Leerzustand und Ladefehler: „Sitemap“ als Link (Modul suche) – der Ausweg steht direkt unter dem Feld */
+  .suche-status a { color: var(--c-lahn-text); font-weight: var(--fw-ui); }
   .suche-ohne-js { color: var(--c-tinte-2); }
   .suche-ergebnis { display: grid; gap: var(--sp-l); }
   .suche-ergebnis section, .suche-themen { display: grid; }
 
-  /* Registerkopf: Versalmarke über einer Tintenlinie (Tabellenkopf), Zeilen darunter mit Haarlinien */
-  .suche-block-titel { font-size: var(--fs--1); line-height: var(--lh-text); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); padding-block-end: var(--sp-2xs); border-block-end: var(--linie-ui) solid var(--c-tinte); }
+  /* Registerkopf wie die Verzeichnismarke der Rechtsseiten: kurze Kupferlinie über der Versalmarke, darunter eine
+     Tintenlinie (Tabellenkopf), Zeilen mit Haarlinien. Die Kupferlinie hat das Maß der Kopflinie (eine Markenart je Site). */
+  .suche-block-titel { display: grid; gap: var(--sp-xs); font-size: var(--fs--1); line-height: var(--lh-text); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); padding-block-end: var(--sp-2xs); border-block-end: var(--linie-ui) solid var(--c-tinte); }
+  .suche-block-titel::before { content: ""; inline-size: var(--sp-xl); block-size: var(--linie-scher); background: var(--c-kupfer); }
   .suche-liste { list-style: none; padding: 0; margin: 0; display: grid; }
   .suche-treffer { position: relative; isolation: isolate; margin: 0; display: grid; gap: var(--sp-3xs) var(--sp-m); align-items: baseline; padding-block: var(--sp-xs); border-block-end: var(--linie-haar) solid var(--c-linie); }
   /* M-02/M-03 wie bei den Karten: Überlagerung in currentColor über die ganze Zeile (der Link ist gestreckt) */
@@ -41,8 +45,14 @@
   .suche-treffer:has(.suche-link:hover)::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
   .suche-treffer:has(.suche-link:active)::before { opacity: var(--deck-aktiv); }
   .suche-bereich { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); font-variant-numeric: tabular-nums; }
-  /* Entfernung ab Weilburg: Einheit klein, Ziffern in Tabellenbreite (keine Versalien „KM“) */
-  .suche-km { text-transform: none; letter-spacing: normal; }
+  /* Entfernung ab Weilburg: Einheit klein, Ziffern in Tabellenbreite (keine Versalien „KM“); daneben (ab 48em darunter)
+     der Maßstab: Achse als Haarlinie, Zonenringe als Striche, die Entfernung als Kupferlinie wie die Peilung der
+     Lagekarte (M-19) – ohne Bewegung (Arbeitsansicht) */
+  .suche-km { display: flex; align-items: center; gap: var(--sp-xs); text-transform: none; letter-spacing: normal; }
+  .suche-mass { flex: none; inline-size: var(--sp-3xl); block-size: var(--sp-2xs); overflow: visible; }
+  .suche-mass-achse { stroke: var(--c-linie); stroke-width: var(--linie-haar); }
+  .suche-mass-ring { stroke: var(--c-linie-ui); stroke-width: var(--linie-haar); }
+  .suche-mass-wert { stroke: var(--c-kupfer); stroke-width: var(--linie-scher); stroke-linecap: round; }
   .suche-inhalt { display: grid; gap: var(--sp-3xs); min-inline-size: 0; }
   .suche-link { font-weight: var(--fw-ui); line-height: var(--lh-titel); color: var(--c-tinte); text-decoration: none; text-wrap: balance; }
   /* Gestreckter Link: Klickfläche, Überlagerung und Fokusring decken dieselbe Fläche (Zeile plus Überstand) */
@@ -66,35 +76,46 @@
   }
   @media (min-width: 48em) {
     .suche-treffer { grid-template-columns: var(--legende-min) minmax(0, 1fr); }
+    .suche-km { flex-direction: column; align-items: stretch; gap: var(--sp-2xs); }
+    .suche-mass { inline-size: calc(100% - var(--sp-m)); }
   }
   @media (min-width: 64em) {
     /* Die Randspalte reicht über Kopf und Feld: keine leere Kopfzeile rechts, der Ausweg steht im ersten Bildschirm */
     .suche-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); grid-template-areas: "kopf rand" "suche rand"; column-gap: var(--sp-xl); }
     /* Randkopf auf der Zeile des Kickers: Abstand = Kopflinie plus ihr Abstand zum Kicker (abschnitt.css),
        gleiche Schrift und Zeilenhöhe wie der Kicker – „Andere Wege“ steht auf derselben Grundlinie wie „Suche“ */
-    .suche-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); padding-block-start: calc(var(--linie-scher) + var(--sp-s)); }
+    .suche-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
+    /* Kupfermarke auf der Höhe der Kopflinie, Versalien auf der Grundlinie des Kickers (Abstand wie .kopf-linie) */
+    .suche-rand .suche-block-titel { gap: var(--sp-s); }
     .suche-wege { grid-template-columns: minmax(0, 1fr); }
   }
 
-  /* 404 */
-  .fehler-teilung { display: grid; gap: var(--sp-xl); grid-template-areas: "text" "wege" "figur"; }
+  /* 404. Mobil steht die kleine Figur zwischen Text und Wegen: M-21 läuft 500–1100 ms nach dem Laden und soll im
+     ersten Bildschirm zu sehen sein (nach den Wegen lag sie unter der Rufleiste); die erste Wege-Karte bleibt sichtbar. */
+  .fehler-teilung { display: grid; gap: var(--sp-l); grid-template-areas: "text" "figur" "wege"; }
   .fehler-text { grid-area: text; }
   .fehler-text .gruppe-einleitung { margin-block-end: 0; }
   .fehler-wege { grid-area: wege; }
-  .fehler-figur { grid-area: figur; margin: 0; display: grid; gap: var(--sp-s); }
-  .fehler-figur .zylinder { inline-size: 100%; max-inline-size: var(--hero-figur-max); }
+  .fehler-figur { grid-area: figur; margin: 0; display: grid; gap: var(--sp-xs); }
+  .fehler-figur .zylinder { inline-size: 100%; max-inline-size: var(--figur-schmal); }
   .fehler-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); text-wrap: pretty; }
+  /* Ortssuche und Anruf auf Papier mit Haarlinie: als Band ging die Fläche nahtlos in den gleichfarbigen Fuß über.
+     Zum Kopf unterscheidet der Abschnitt sich in Layout (Formular statt Teilung mit Figur) und Dichte (K-006). */
+  .fehler-unterteil { border-block-start: var(--linie-haar) solid var(--c-linie); }
   .fehler-unten { display: grid; gap: var(--sp-l); }
   /* Unter 64em trägt die Rufleiste den Anruf; ein zweiter großer Rufknopf direkt darüber wäre doppelt */
   .fehler-ruf { display: none; }
   @media (min-width: 48em) {
-    .fehler-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-areas: "text figur" "wege wege"; }
+    .fehler-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-areas: "text figur" "wege wege"; gap: var(--sp-xl); }
+    .fehler-figur { gap: var(--sp-s); }
+    .fehler-figur .zylinder { max-inline-size: var(--hero-figur-max); }
     /* Wie im Hero (V01): Die Scherlinie der Figur liegt auf der Grundlinie der zweiten H1-Zeile – hier gebrochen
        (gemessen 768–1440 px: Abweichung ≤ 3 px) */
     .fehler-figur { align-self: start; margin-block-start: calc(var(--hero-figur-versatz) + var(--linie-scher) + var(--sp-xs)); }
   }
   @media (min-width: 64em) {
-    .system-kopf { padding-block-start: var(--sp-sektion); }
+    /* Nur die 404 behält den großen Kopf; die Suche ist eine Arbeitsansicht, deren Zweck das Feld ist (P6 dicht) */
+    .seite-fehler .system-kopf { padding-block-start: var(--sp-sektion); }
     .seite-fehler .system-kopf h1 { font-size: var(--fs-5); }
     .fehler-figur { margin-block-start: calc(var(--hero-figur-versatz) + var(--linie-scher) + var(--sp-m)); }
     /* Ortssuche als Subgrid: der Rufknopf steht auf der Zeile des Eingabefelds, nicht auf der des Links darunter */
@@ -109,7 +130,11 @@
   @media (prefers-reduced-motion: no-preference) {
     .suche-ergebnis[data-stand="a"] { animation: suche-neu-a var(--dur-feedback) var(--ease-standard) backwards; }
     .suche-ergebnis[data-stand="b"] { animation: suche-neu-b var(--dur-feedback) var(--ease-standard) backwards; }
+    /* M-21 (404): Jeder zweite Stift wackelt gegenläufig – der falsche Schlüssel rüttelt die Stifte gegeneinander,
+       statt sie im Gleichtakt zu heben. Dauer, Weg und Anzahl bleiben wie im Register (bewegung.css). */
+    [data-moment="falsch"] .zy-stiftpaar:nth-child(even) { animation-name: m21-gegen; }
   }
+  @keyframes m21-gegen { 17%, 50%, 83% { transform: translateY(var(--m21-weg)); } 33%, 67% { transform: translateY(calc(-1 * var(--m21-weg))); } }
   @keyframes suche-neu-a { from { opacity: .6; } }
   @keyframes suche-neu-b { from { opacity: .6; } }
 }

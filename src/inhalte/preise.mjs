@@ -9,15 +9,16 @@ export default {
   formel: {
     titel: 'So setzt sich der Preis zusammen',
     teile: [
-      { icon: 'tuer', titel: 'Leistung im Zeitfenster', text: 'aus der Preisliste, je nach Lage und Uhrzeit' },
-      { icon: 'entfernung', titel: 'Anfahrt nach Zone', text: 'im Kerngebiet schon enthalten' },
-      { icon: 'rechnung', titel: 'Gesamtpreis', text: 'den Sie vor dem Auftrag erfahren' },
+      // ziel: Jeder Teil der Formel ist ein Abschnitt dieser Seite, in derselben Reihenfolge
+      { icon: 'tuer', titel: 'Leistung im Zeitfenster', text: 'aus der Preisliste, je nach Lage und Uhrzeit', ziel: '#liste-titel' },
+      { icon: 'entfernung', titel: 'Anfahrt nach Zone', text: 'im Kerngebiet schon enthalten', ziel: '#anfahrt-titel' },
+      { icon: 'rechnung', titel: 'Gesamtpreis', text: 'den Sie vor dem Auftrag erfahren', ziel: '#rechner-titel' },
     ],
     material: 'Material wie ein neuer Zylinder kommt nur dazu, wenn es nötig ist – mit Preis vorher.',
   },
   liste: {
     titel: 'Preisliste nach Lage und Zeitfenster',
-    einleitung: 'Die Spalten sind die Zeitfenster, die Zeilen die Lage an der Tür. Jede Zelle ist ein Gesamtpreis im Kerngebiet.',
+    einleitung: 'Für jede Lage an der Tür nennt die Liste einen Preis je Zeitfenster. Jeder Betrag ist ein Gesamtpreis im Kerngebiet.',
     band: 'Welches Zeitfenster gilt, zeigt das Tagesband. An Feiertagen gilt das Wochenende.',
     bandOffen: 'Die Uhrzeiten der Zeitfenster folgen mit der Preisliste.',
     jetzt: 'jetzt',

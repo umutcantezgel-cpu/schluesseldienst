@@ -23,6 +23,7 @@ export default {
     },
     {
       titel: 'Schonend zuerst, Bohren nur nach Rückfrage',
+      hinweis: 'info',
       absaetze: [
         'Wir beginnen immer mit den Methoden, die nichts zerstören. Erst wenn sie nicht zum Ziel führen, kommt das Bohren infrage – und auch dann nur, wenn Sie zugestimmt haben und wissen, was ein neuer Zylinder kostet.',
         'Gebohrt wird der Zylinder, nicht die Tür. Das Schloss im Türblatt bleibt in aller Regel erhalten.',
