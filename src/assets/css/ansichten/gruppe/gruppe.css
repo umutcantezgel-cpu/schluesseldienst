@@ -10,38 +10,54 @@
   .gruppe-handlung { display: flex; flex-wrap: wrap; gap: var(--sp-s); align-items: center; }
   .gruppe-register { border-block-start: var(--linie-scher) solid var(--c-kupfer); padding-block-start: var(--sp-s); }
   .gruppe-register-titel { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); margin-block-end: var(--sp-2xs); }
-  /* Register als Stückliste: Icon und Name je Zeile, Haarlinie darunter, immer zweispaltig. Der Kurzsatz steht nur
-     im Linknamen (unsichtbar), sonst liefe der Kopf über anderthalb Bildschirme. Auf dem Telefon kleiner gesetzt
-     (UI-Icon, fs--1), damit zwei Namen nebeneinander passen: neun Zeilen à 48 px wären fast ein Bildschirm. */
+  /* Register als Stückliste: Icon und Name je Zeile, Haarlinie darunter. Der Kurzsatz steht nur im Linknamen
+     (unsichtbar), sonst liefe der Kopf über anderthalb Bildschirme. Auf Telefon und Tablet zweispaltig, auf dem
+     Telefon kleiner gesetzt (UI-Icon, fs--1), damit zwei Namen nebeneinander passen: neun Zeilen à 48 px wären fast
+     ein Bildschirm. Ab 64em steht das Register in der 5er-Spalte des Kopfs: Zwei Spalten wären dort 140–240 px
+     schmal, „Datensicherungsschränke“ bräche bis 1920 px um und die Zeilen würden ungleich hoch – einspaltig ist die
+     Liste so hoch wie der Text daneben. */
   .gruppe-register ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-s); }
   .gruppe-register li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
-  /* Zeile als Bedienelement (K-009): Überlagerung .10 über die ganze Zeile (M-02), gedrückt .18 und scale .98 (M-03) */
-  .gruppe-register a { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: var(--sp-2xs); min-block-size: var(--ziel-touch); padding-block: var(--sp-2xs); color: var(--c-tinte); text-decoration: none; }
+  /* Zeile als Bedienelement (K-009): Überlagerung .10 über die ganze Zeile (M-02), gedrückt .18 und scale .98 (M-03);
+     Zielhöhe 44 px, auf Touch 48 px */
+  .gruppe-register a { position: relative; isolation: isolate; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: var(--sp-2xs); min-block-size: var(--ziel-min); padding-block: var(--sp-2xs); color: var(--c-tinte); text-decoration: none; }
+  @media (pointer: coarse) { .gruppe-register a { min-block-size: var(--ziel-touch); } }
   .gruppe-register a::before { content: ""; position: absolute; inset-block: 0; inset-inline: calc(-1 * var(--sp-2xs)); z-index: -1; border-radius: var(--r-s); background: currentColor; opacity: 0; }
   .gruppe-register a:hover::before { opacity: var(--deck-hover); }
   .gruppe-register a:active::before { opacity: var(--deck-aktiv); }
   .gruppe-register a:hover .gruppe-register-name { text-decoration: underline; text-decoration-thickness: var(--linie-scher); }
   .gruppe-register-icon { inline-size: var(--icon-ui); block-size: var(--icon-ui); color: var(--c-lahn-text); }
-  .gruppe-register-name { font-size: var(--fs--1); font-weight: var(--fw-titel); line-height: var(--lh-titel); }
+  /* Namen wirken als Titel: Trennung nur an den Fugen, die die Vorlage setzt (D-E5-01) */
+  .gruppe-register-name { font-size: var(--fs--1); font-weight: var(--fw-titel); line-height: var(--lh-titel); hyphens: manual; }
   @media (min-width: 30em) {
     .gruppe-register ul { column-gap: var(--sp-l); }
     .gruppe-register a { column-gap: var(--sp-xs); }
     .gruppe-register-icon { inline-size: var(--icon-leistung); block-size: var(--icon-leistung); }
     .gruppe-register-name { font-size: var(--fs-0); }
   }
+  @media (min-width: 64em) { .gruppe-register ul { grid-template-columns: minmax(0, 1fr); } }
   .nachweis { display: grid; gap: 0; margin: 0; }
   .nachweis-eintrag { display: grid; gap: var(--sp-3xs); padding-block: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie); }
   .nachweis dt { font-weight: var(--fw-titel); }
   .nachweis dd { margin: 0; color: var(--c-tinte-2); max-inline-size: var(--mass); }
 
-  /* Wissen als Registerblatt: ein Abschnitt, Einträge mit Haarlinie und Kupfermarke (Scherlinien-Trenner, K-008),
-     Abstand zwischen Einträgen statt voller Sektionsabstände */
+  /* Wissen als Registerblatt: ein Abschnitt, Abstand zwischen Einträgen statt voller Sektionsabstände. Jeder Eintrag
+     beginnt mit seinem Reiter: Kennung in Mono-Kupfer, Kupferstück, dann die Haarlinie bis zum Spaltenende
+     (Scherlinien-Trenner, K-008). Der führende Eintrag trägt dieselbe Kennung in der Marke seines Abschnittskopfs. */
   .gruppe-wissen-raster { display: grid; gap: var(--sp-xl); }
   .gruppe-eintrag-leit { display: grid; gap: var(--sp-l); }
   .gruppe-eintrag-leit > .abschnitt-kopf { margin-block-end: 0; }
-  .gruppe-eintrag { position: relative; display: grid; gap: var(--sp-s); align-content: start; padding-block-start: var(--sp-m); border-block-start: var(--linie-haar) solid var(--c-linie); }
-  .gruppe-eintrag::before { content: ""; position: absolute; inset-block-start: calc(-1 * var(--linie-haar)); inset-inline-start: 0; inline-size: var(--sp-xl); block-size: var(--linie-scher); background: var(--c-kupfer); }
+  .gruppe-eintrag-leit .abschnitt-marke, .gruppe-eintrag-marke { font-family: var(--ff-mono); }
+  .gruppe-eintrag { display: grid; gap: var(--sp-s); align-content: start; }
+  .gruppe-eintrag-marke { display: flex; align-items: center; color: var(--c-kupfer); font-size: var(--fs--1); font-weight: var(--fw-titel); letter-spacing: var(--ls-label); }
+  .gruppe-eintrag-nr { margin-inline-end: var(--sp-xs); }
+  .gruppe-eintrag-marke::before { content: ""; order: 1; inline-size: var(--sp-xl); block-size: var(--linie-scher); background: var(--c-kupfer); }
+  .gruppe-eintrag-marke::after { content: ""; order: 2; flex: 1; block-size: var(--linie-haar); background: var(--c-linie); }
   .gruppe-eintrag-titel { font-size: var(--fs-2); }
+  /* Leitsatz: Der erste Absatz jedes Eintrags steht als Vorspann in Tinte (fs-1, wie Einleitungen ohne automatische
+     Trennung, D-E5-01), die übrigen als Nebentext darunter */
+  .gruppe-wissen .fliesstext > p:first-child { font-size: var(--fs-1); line-height: var(--lh-dicht); color: var(--c-tinte); hyphens: manual; }
+  .gruppe-wissen .fliesstext > p + p { color: var(--c-tinte-2); }
   /* Zweispaltig erst ab 64em: auf dem Tablet würden die Spalten schmaler als das halbe Textmaß */
   @media (min-width: 64em) {
     .gruppe-wissen-raster { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-xl); row-gap: var(--sp-2xl); }
@@ -56,7 +72,12 @@
   .schluss .abschnitt-kopf { margin-block-end: 0; }
 
   @media (min-width: 64em) {
-    .gruppe-kopf { padding-block-start: var(--sp-sektion); }
+    /* Oben ein großer statt eines Sektionsabstands (gleich wie der Kopf von V03): Text und Register rücken an die
+       Brotkrumen, die Szene in den ersten Bildschirm */
+    .gruppe-kopf { padding-block-start: var(--sp-2xl); }
+    /* Die Szene setzt den Kopf fort (der Flächenwechsel trennt schon): Ein großer Abstand über Figur und Szenenkopf
+       statt eines Sektionsabstands, damit von der Figur mehr als die Kante ihrer Karte im ersten Bildschirm steht */
+    .gruppe-kopf + .szene { padding-block-start: var(--sp-2xl); }
     .gruppe-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
     .gruppe-kopf h1 { font-size: var(--fs-5); }
     .gruppe-handlung-ruf { display: flex; }

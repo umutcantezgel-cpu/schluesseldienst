@@ -50,3 +50,21 @@ test('Pflichtfelder und Mindestlänge in Formularreihenfolge', () => {
   assert.deepEqual(pruefen({ ort: ' ', text: 'kurz' }, regeln).map((f) => f.id), ['ort', 'text']);
   assert.deepEqual(pruefen({ ort: 'Weilburg', text: 'Zylinder tauschen bitte' }, regeln), []);
 });
+
+// Briefkopf der Vorlage (V10): Er beginnt mit dem Betreff der vorausgewählten Option – derselbe Wert, den das Modul
+// composer beim Absenden verwendet – und erscheint wie die Zusatzfelder erst mit JavaScript.
+test('Kontakt: Briefkopf trägt den Betreff der vorausgewählten Option, endet im Bartprofil und ist ohne JavaScript verborgen', async () => {
+  const { seiten } = await import('../src/vorlagen/seiten/kontakt.mjs');
+  const { default: betrieb } = await import('../src/konfig/betrieb.mjs');
+  const { iconsLaden } = await import('../src/vorlagen/teile/icons.mjs');
+  await iconsLaden(new URL('..', import.meta.url).pathname);
+  const sk = { basisUrl: 'http://127.0.0.1:4173', konfig: { betrieb }, daten: { orte: [] }, icons: new Set(), icon: () => '' };
+  const seite = String(seiten(sk)[0].inhalt(sk));
+  const gewaehlt = seite.match(/<input type="radio" name="anliegen" value="[^"]+" data-betreff="([^"]+)" checked>/);
+  assert.ok(gewaehlt, 'eine Option ist vorausgewählt');
+  assert.match(seite, /<dl class="composer-kopf" data-nur-js="" hidden>/);
+  assert.match(seite, new RegExp(`<dd data-rolle="betreff">${gewaehlt[1]}</dd>`));
+  // Bartprofil unter dem Briefkopf: genau einmal je Seite (K-008), dekorativ, wie der Kopf erst mit JavaScript
+  assert.equal(seite.match(/class="composer-bart"/g)?.length, 1);
+  assert.match(seite, /<\/dl>\s*<div class="composer-bart" data-nur-js="" hidden><svg viewBox="[\d. ]+" aria-hidden="true" focusable="false"><path d="M[^"]+"\/><\/svg><\/div>/);
+});

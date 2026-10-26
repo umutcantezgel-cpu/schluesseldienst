@@ -3,7 +3,7 @@
 // einer Statuszeile (aria-live). Das Register „Hauptthemen“ aus der Vorlage steht nur, solange keine Treffer stehen. Kein <form> (CSP form-action mailto:), die Anfrage steht per history.replaceState in
 // der Adresse. Eigener Leeren-Knopf statt des browsereigenen Kreuzes (Icon-System). Ortstreffer tragen unter der
 // Entfernung einen Maßstab mit den Zonenringen (data-ringe). Nur DOM-sichere APIs.
-import { seitenIndex, seitenSuchen, hervorheben, statusText } from '../logik/suche.mjs';
+import { seitenIndex, seitenSuchen, hervorheben, statusText, massLage, prozent } from '../logik/suche.mjs';
 import { indexAufbauen, suchen, plzDekodieren } from '../logik/ortsindex.mjs';
 
 const WARTEN = 150;
@@ -39,17 +39,21 @@ function svgKnoten(tag, attribute) {
   return e;
 }
 
-// Maßstab ab Weilburg unter der Entfernung eines Ortes: Achse bis zum äußersten Zonenring, die Ringe (Zonengrenzen aus
-// der Konfiguration) als Striche, die Entfernung als Kupferlinie – weiter entfernte Orte füllen die ganze Achse.
+// Maßstab ab Weilburg unter der Entfernung eines Ortes, gelesen wie die Legende in der Randspalte: Achse bis ein
+// Fünftel über den äußersten Zonenring (logik/suche.mjs), dahinter gestrichelt; die Ringe als Striche, die Entfernung
+// als Kupferlinie. Reicht ein Ort über das Achsende hinaus, endet die Linie offen (ohne runde Kappe).
 // Ohne viewBox, x in Prozent (wie das Tagesband): Strichstärken bleiben auf jeder Breite gleich. Dekorativ, die Zahl
 // davor trägt die Aussage.
 function massstab(km, ringe) {
-  const aussen = ringe[ringe.length - 1];
-  const x = (w) => `${Math.round(Math.min(1, w / aussen) * 1000) / 10}%`;
+  const x = (w) => prozent(massLage(w, ringe).anteil);
+  const aussen = x(Math.max(...ringe));
   const svg = svgKnoten('svg', { class: 'suche-mass', 'aria-hidden': 'true', focusable: 'false' });
-  svg.append(svgKnoten('line', { class: 'suche-mass-achse', x1: '0', x2: '100%', y1: '50%', y2: '50%' }));
+  svg.append(
+    svgKnoten('line', { class: 'suche-mass-achse', x1: '0', x2: aussen, y1: '50%', y2: '50%' }),
+    svgKnoten('line', { class: 'suche-mass-achse suche-mass-weiter', x1: aussen, x2: '100%', y1: '50%', y2: '50%' }),
+  );
   for (const r of ringe) svg.append(svgKnoten('line', { class: 'suche-mass-ring', x1: x(r), x2: x(r), y1: '0', y2: '100%' }));
-  svg.append(svgKnoten('line', { class: 'suche-mass-wert', x1: '0', x2: x(km), y1: '50%', y2: '50%' }));
+  svg.append(svgKnoten('line', { class: `suche-mass-wert${massLage(km, ringe).offen ? ' suche-mass-offen' : ''}`, x1: '0', x2: x(km), y1: '50%', y2: '50%' }));
   return svg;
 }
 

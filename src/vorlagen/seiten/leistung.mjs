@@ -7,6 +7,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
+import { textTrennen } from '../../../bau/lib/trennen.mjs';
 import { GRUPPEN } from '../../konfig/leistungen.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
 import { faq, faqLd } from '../teile/faq.mjs';
@@ -70,6 +71,10 @@ export function leistungLd(sk, g, l, inhalt) {
   };
 }
 
+// Namen in „Mehr aus …“ wirken als Titel (D-E5-01): Trennung nur an den Fugen der Wortliste, als Zeichen U+00AD,
+// weil der Bau &shy; nur in h1–h4 und Kartentiteln setzt (wie im Register von V02).
+const fugen = (name) => textTrennen(name).replaceAll('&shy;', '\u00AD');
+
 // Die Notöffnung ruft im Kopf erst ab 64em an; darunter trägt die Rufleiste den Anruf (wie V01), statt zweimal im
 // ersten Bildschirm.
 function kopf(sk, g, l, inh) {
@@ -109,7 +114,7 @@ function hauptteil(sk, g, l, inh) {
   const geschwister = g.leistungen.filter((x) => x.id !== l.id);
   const mehr = html`<nav class="rand-block leistung-mehr" aria-labelledby="rand-gruppe">
 <h2 class="rand-titel" id="rand-gruppe">Mehr aus ${g.titel}</h2>
-<ul class="rand-liste">${geschwister.map((x) => html`<li><a href="${x.pfad}">${sk.icon(x.icon, { klasse: 'rand-icon' })}<span>${x.titel}</span></a></li>`)}</ul>
+<ul class="rand-liste">${geschwister.map((x) => html`<li><a href="${x.pfad}">${sk.icon(x.icon, { klasse: 'rand-icon' })}<span>${fugen(x.titel)}</span></a></li>`)}</ul>
 </nav>`;
   const preis = inh.preis ? html`<section class="rand-block" aria-labelledby="rand-preis">
 <h2 class="rand-titel" id="rand-preis">Was es kostet</h2>

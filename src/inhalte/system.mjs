@@ -26,6 +26,13 @@ export default {
       { pfad: '/einsatzgebiet/', titel: 'Einsatzgebiet', text: 'Alle Orte nach Land und Kreis.' },
       { pfad: '/leistungen/', titel: 'Alle Leistungen', text: 'Register mit einem Satz je Leistung.' },
     ],
+    // Legende des Maßstabs unter jedem Ortstreffer (Randspalte, auch ohne Anfrage). Die Ringmaße kommen aus
+    // src/konfig/zonen.mjs.
+    massstab: {
+      titel: 'Entfernung ab Weilburg',
+      ursprung: 'Weilburg',
+      text: 'Gefundene Orte zeigen ihre Luftlinie ab Weilburg auf dieser Achse. Die Striche sind die Grenzen der Zonen.',
+    },
   },
   fehler: {
     titel: 'Seite nicht gefunden',

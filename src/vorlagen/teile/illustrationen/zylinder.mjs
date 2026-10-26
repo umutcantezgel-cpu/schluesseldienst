@@ -10,6 +10,15 @@ const SCHER_Y = 120;                   // Scherlinie (Trennfuge Kern/Gehäuse)
 const FALSCH = [16, 30, 14, 28, 22];   // Einschnitte eines falschen Schlüssels (404, M-21): kein Stift trifft die Linie
 const LUECKE = [200, 232];             // Bruch der Scherlinie (404) mittig zwischen Kanal 2 und 3, deutlich breiter als ein Strich
 
+// Oberkante des Schlüsselbarts von der Schulter bis zur Spitze: je Stiftkanal ein Plateau auf der Einschnitttiefe.
+// Exportiert für das Bartprofil im Briefkopf der Kontaktvorlage (V10, K-008), damit es genau diesen Schlüssel zeigt.
+export function bartKante(schnitte = STIFTE) {
+  const punkte = [[92, 152]];
+  X.forEach((x, i) => { const y = SCHER_Y + schnitte[i]; punkte.push([x - 10, y], [x + 10, y]); });
+  punkte.push([404, 140], [420, 152]);
+  return punkte;
+}
+
 function feder(x) {
   // Zickzack-Feder im 45°-Raster zwischen y 56 und 88
   const p = [`M${x - 6} 56`];
@@ -34,9 +43,7 @@ function federBis(x, unten) {
 // Scherlinie in zwei Hälften mit Lücke.
 export function zylinderSchnitt({ praefix = 'zy', klasse = '', titel = 'Schnitt durch einen Schließzylinder: Liegen alle Stifte auf der Scherlinie, lässt sich der Kern drehen.', schluessel = true, stiftAb = null, linieAb = null, zustand = null, dekorativ = false, falsch = false } = {}) {
   const schnitte = falsch ? FALSCH : STIFTE;
-  const schluesselOben = [`M-12 152`, `L92 152`];
-  X.forEach((x, i) => { const y = SCHER_Y + schnitte[i]; schluesselOben.push(`L${x - 10} ${y}`, `L${x + 10} ${y}`); });
-  schluesselOben.push('L404 140', 'L420 152', 'L420 172', 'L-12 172');
+  const schluesselOben = [`M-12 152`, ...bartKante(schnitte).map(([x, y]) => `L${x} ${y}`), 'L420 172', 'L-12 172'];
   const stiftAttr = (i) => (stiftAb ? ` data-setzt="${stiftAb[i]}" data-bei="${stiftAb[i]}"` : '');
   const stiftKoerper = (x, i) => `<rect class="zy-oberstift" x="${x - 8}" y="88" width="16" height="${SCHER_Y - 88}" rx="2"/>
 <rect class="zy-kernstift" x="${x - 8}" y="${SCHER_Y}" width="16" height="${STIFTE[i]}" rx="2"/>

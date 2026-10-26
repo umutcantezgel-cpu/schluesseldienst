@@ -7,6 +7,10 @@ import { bandPruefen, fensterBei, jetzt, rechnen, zeitText, tagArt, euro } from 
 import preise from '../src/konfig/preise.mjs';
 import { tagesband } from '../src/vorlagen/teile/tagesband.mjs';
 import { platzhalter } from '../bau/lib/platzhalter.mjs';
+import { seiten } from '../src/vorlagen/seiten/preise.mjs';
+import { iconsLaden } from '../src/vorlagen/teile/icons.mjs';
+import betrieb from '../src/konfig/betrieb.mjs';
+import zonen from '../src/konfig/zonen.mjs';
 
 const IDS = ['werktag', 'abend', 'nacht', 'wochenende'];
 const BAND = {
@@ -92,4 +96,19 @@ test('Tagesband: offen eine Zeile ohne Titel und Legende als Platzhalter, gefül
   assert.match(voll, /class="tagesband-legende"/);
   assert.doesNotMatch(voll, /schraffur|data-zustand/);
   assert.ok(daten(voll).zeilen.wochenende > 0);
+});
+
+test('Rechner: Hinweis „nach Absprache“ nur mit bestätigter Zusage preisVorAuftrag, sonst leer (dann ausgeblendet)', async (t) => {
+  await iconsLaden(new URL('..', import.meta.url).pathname);
+  const alt = betrieb.zusagen.preisVorAuftrag;
+  t.after(() => { betrieb.zusagen.preisVorAuftrag = alt; });
+  const sk = () => ({ basisUrl: 'http://127.0.0.1:4173', konfig: { betrieb, preise, zonen }, assets: { daten: {} }, icons: new Set(), icon: () => '' });
+  const seite = () => { const k = sk(); return String(seiten(k)[0].inhalt(k)); };
+  const absprache = () => seite().match(/<p class="rechner-hinweis rechner-hinweis-absprache">([^<]*)<\/p>/)?.[1];
+  betrieb.zusagen.preisVorAuftrag = true;
+  assert.equal(absprache(), 'Den Gesamtpreis mit Anfahrt nennen wir Ihnen am Telefon, bevor wir losfahren.');
+  // Der allgemeine Hinweis bleibt für die übrigen Zustände
+  assert.match(seite(), /<p class="rechner-hinweis">Gesamtpreis mit Anfahrt\./);
+  betrieb.zusagen.preisVorAuftrag = false;
+  assert.equal(absprache(), '');
 });

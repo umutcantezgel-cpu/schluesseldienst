@@ -54,7 +54,30 @@ export function vorbereiten(k) {
   const jeGemeinde = new Map();
   for (const o of orte) if (o.typ === 'ortsteil') jeGemeinde.set(`${o.gemeindeId}|${o.name}`, (jeGemeinde.get(`${o.gemeindeId}|${o.name}`) || 0) + 1);
   const einmalInGemeinde = (o) => o.typ === 'ortsteil' && jeGemeinde.get(`${o.gemeindeId}|${o.name}`) === 1;
-  D = { orte, nachId, anzeige, kurz, sitz, einmalInGemeinde };
+  // Nächste Orte aus den Daten (Gitter 0,1°, Ring für Ring nach außen): füllen „Orte in der Nähe“ auf, wenn die
+  // Nachbarn aus der Pipeline schon links stehen. Eine Zelle ist nach Osten mindestens ≈ 6 km breit (55° N).
+  const GITTER = 0.1;
+  const zelle = (lat, lon) => `${Math.floor(lat / GITTER)}|${Math.floor(lon / GITTER)}`;
+  const gitter = new Map();
+  for (const o of orte) {
+    const k = zelle(o.lat, o.lon);
+    if (!gitter.has(k)) gitter.set(k, []);
+    gitter.get(k).push(o);
+  }
+  const naechste = (o, anzahl, ohne) => {
+    const [i0, j0] = [Math.floor(o.lat / GITTER), Math.floor(o.lon / GITTER)];
+    let funde = [];
+    for (let ring = 1; ring <= 40; ring++) {
+      funde = [];
+      for (let i = i0 - ring; i <= i0 + ring; i++) {
+        for (let j = j0 - ring; j <= j0 + ring; j++) for (const q of gitter.get(`${i}|${j}`) || []) if (!ohne.has(q.id)) funde.push({ n: q, d: km(o, q) });
+      }
+      funde.sort((a, b) => a.d - b.d || ZEICHEN.compare(a.n.name, b.n.name));
+      if (funde.length >= anzahl && funde[anzahl - 1].d <= ring * 6) break;
+    }
+    return funde.slice(0, anzahl);
+  };
+  D = { orte, nachId, anzeige, kurz, sitz, einmalInGemeinde, naechste };
   return D;
 }
 
@@ -173,6 +196,7 @@ ${z.id === 'B' ? html`<p class="ort-anfahrt">${fuellen(texte.anfahrtZeile, werte
 </section>`;
 }
 
+const NAH_MIN = 6;
 function umgebung(sk, o, werte) {
   const pfad = (x) => `/schluesseldienst-${x.slug}/`;
   let titel; let liste;
@@ -187,9 +211,13 @@ function umgebung(sk, o, werte) {
       .map((x) => ({ x, d: km(o, x) })).sort((a, b) => a.d - b.d || ZEICHEN.compare(a.x.name, b.x.name)).slice(0, 12).map((e) => e.x) : [];
     liste = g ? [g, ...geschwister.sort((a, b) => ZEICHEN.compare(a.name, b.name))] : [];
   }
-  // Wer schon links steht (Ortsteil, Gemeinde, Geschwister), steht nicht noch einmal unter den Nachbarn
-  const links = new Set(liste.map((x) => x.id));
-  const nachbarn = (o.nachbarn || []).map((id) => D.nachId.get(id)).filter((n) => n && !links.has(n.id)).map((n) => ({ n, d: km(o, n) })).sort((a, b) => a.d - b.d);
+  // Wer schon links steht (Ortsteil, Gemeinde, Geschwister), steht nicht noch einmal unter den Nachbarn. Bleiben
+  // weniger als NAH_MIN, füllen die nächsten weiteren Orte aus den Daten auf (nach km): Weilburg stand mit 11
+  // Ortsteilen neben 2 Nachbarn, 146 Seiten hatten gar keine
+  const links = new Set([o.id, ...liste.map((x) => x.id)]);
+  const nachbarn = (o.nachbarn || []).map((id) => D.nachId.get(id)).filter((n) => n && !links.has(n.id)).map((n) => ({ n, d: km(o, n) }));
+  if (nachbarn.length < NAH_MIN) nachbarn.push(...D.naechste(o, NAH_MIN - nachbarn.length, new Set([...links, ...nachbarn.map((e) => e.n.id)])));
+  nachbarn.sort((a, b) => a.d - b.d || ZEICHEN.compare(a.n.name, b.n.name));
   if (!liste.length && !nachbarn.length) return null;
   // Nachbarn derselben Gemeinde ohne Klammerzusatz: die Gemeinde steht schon im Titel bzw. in der linken Liste
   const gemeindeId = o.typ === 'gemeinde' ? o.id : o.gemeindeId;

@@ -29,6 +29,16 @@ for (const [name, wert] of [['null', null], ['leer', ''], ['entfernt', undefined
   });
 }
 
+// Der Hinweis steht vor dem Raster aus Kopf, Verzeichnis und Text: Fällt er im Release weg, bleibt dort keine leere
+// Rasterzeile, deren Abstand die Kopflinie tiefer setzen würde als auf jeder anderen Seite (M-15).
+test('Freigabe-Hinweis steht vor der Teilung; ohne ihn beginnt die Teilung mit dem Kopf', (t) => {
+  assert.match(impressumHtml(), /<p class="recht-freigabe[^"]*">[^<]*<\/p>\s*<div class="recht-teilung">\s*<header class="recht-kopf">/);
+  const alt = impressum.freigabe;
+  t.after(() => { impressum.freigabe = alt; });
+  impressum.freigabe = null;
+  assert.match(impressumHtml(), /<div class="raster">\s*<div class="recht-teilung">\s*<header class="recht-kopf">/);
+});
+
 test('ein echter Freigabevermerk erscheint ohne Platzhalterfläche', (t) => {
   const alt = impressum.freigabe;
   t.after(() => { impressum.freigabe = alt; });

@@ -1,17 +1,21 @@
-/* V11 Suche und V12 404: ruhiger Seitenkopf. Suche ab 64em 8/4 (Feld und Register links, „Andere Wege“ in der
-   Randspalte neben Kopf und Feld); Treffer und Hauptthemen als Register wie die Angabenliste im Impressum: Bereich bzw.
-   Entfernung links, Titel und Text rechts. 404: Text und Figur 7/5, die drei Wege darunter über die ganze Breite, Ortssuche und Anruf auf denselben
+/* V11 Suche und V12 404: ruhiger Seitenkopf. Suche ab 64em 8/4 (Feld und Register links, „Andere Wege“ und die
+   Legende des Maßstabs in der Randspalte neben Kopf und Feld); Treffer und Hauptthemen als Register wie die Angabenliste
+   im Impressum: Bereich bzw. Entfernung links, Titel und Text rechts. 404: Text und Figur 7/5, die drei Wege darunter über die ganze Breite, Ortssuche und Anruf auf denselben
    Spaltenlinien. */
 @layer komponenten {
   .system-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
   .system-kopf h1 { font-size: var(--fs-4); max-inline-size: var(--mass); text-wrap: balance; }
 
   /* Suche */
-  .suche-teilung { display: grid; gap: var(--sp-l); grid-template-areas: "kopf" "suche" "rand"; align-items: start; }
+  .suche-teilung { display: grid; gap: var(--sp-m); grid-template-areas: "kopf" "suche" "rand"; align-items: start; }
   .suche-kopftext { grid-area: kopf; }
-  .suche-kopftext .gruppe-einleitung { margin-block-end: 0; }
-  .suche { grid-area: suche; display: grid; gap: var(--sp-s); max-inline-size: var(--karte-gross); }
+  .suche-kopftext h1 { margin-block-end: 0; }
+  /* Arbeitsansicht (P6 dicht): Hinweis, Statuszeile und Register rücken eng zusammen, damit im ersten Bildschirm
+     Treffer stehen (mobil mindestens einer ganz über der Rufleiste) */
+  .suche { grid-area: suche; display: grid; gap: var(--sp-xs); max-inline-size: var(--karte-gross); }
   .suche-feld { display: grid; gap: var(--sp-2xs); }
+  /* Einleitung als Hinweis unter dem Feld (aria-describedby): klein, damit Feld und Treffer im ersten Bildschirm stehen */
+  .suche-hinweis { font-size: var(--fs--1); line-height: var(--lh-text); color: var(--c-tinte-2); max-inline-size: var(--mass); text-wrap: pretty; }
   .suche-label { font-weight: var(--fw-ui); }
   .suche-eingabe-huelle { position: relative; }
   .suche-icon { position: absolute; inset-inline-start: var(--sp-s); inset-block-start: 50%; translate: 0 -50%; inline-size: var(--icon-ui); block-size: var(--icon-ui); color: var(--c-tinte-3); pointer-events: none; }
@@ -48,11 +52,16 @@
   /* Entfernung ab Weilburg: Einheit klein, Ziffern in Tabellenbreite (keine Versalien „KM“); daneben (ab 48em darunter)
      der Maßstab: Achse als Haarlinie, Zonenringe als Striche, die Entfernung als Kupferlinie wie die Peilung der
      Lagekarte (M-19) – ohne Bewegung (Arbeitsansicht) */
-  .suche-km { display: flex; align-items: center; gap: var(--sp-xs); text-transform: none; letter-spacing: normal; }
-  .suche-mass { flex: none; inline-size: var(--sp-3xl); block-size: var(--sp-2xs); overflow: visible; }
-  .suche-mass-achse { stroke: var(--c-linie); stroke-width: var(--linie-haar); }
-  .suche-mass-ring { stroke: var(--c-linie-ui); stroke-width: var(--linie-haar); }
+  /* Zahl in fester Spalte: Die Maßstäbe aller Ortstreffer beginnen auf derselben Linie, wie lang die Zahl auch ist */
+  .suche-km { display: grid; grid-template-columns: var(--sp-2xl) var(--sp-3xl); align-items: center; column-gap: var(--sp-xs); text-transform: none; letter-spacing: normal; }
+  .suche-mass { inline-size: 100%; block-size: var(--sp-2xs); overflow: visible; }
+  .suche-mass-achse { stroke: var(--c-linie-ui); stroke-width: var(--linie-haar); }
+  /* hinter dem äußersten Ring: die Achse läuft gestrichelt aus (Orte jenseits der Zonen) */
+  .suche-mass-weiter { stroke-dasharray: var(--sp-3xs) var(--sp-3xs); }
+  .suche-mass-ring { stroke: var(--c-tinte-3); stroke-width: var(--linie-haar); }
   .suche-mass-wert { stroke: var(--c-kupfer); stroke-width: var(--linie-scher); stroke-linecap: round; }
+  /* weiter als das Achsende: offenes Ende, die Linie läuft aus dem Maßstab hinaus */
+  .suche-mass-offen { stroke-linecap: butt; }
   .suche-inhalt { display: grid; gap: var(--sp-3xs); min-inline-size: 0; }
   .suche-link { font-weight: var(--fw-ui); line-height: var(--lh-titel); color: var(--c-tinte); text-decoration: none; text-wrap: balance; }
   /* Gestreckter Link: Klickfläche, Überlagerung und Fokusring decken dieselbe Fläche (Zeile plus Überstand) */
@@ -66,9 +75,18 @@
   /* „E-Mail“ nie nach „E-“ umbrechen (Spans aus Vorlage und Modul) */
   .kein-umbruch { white-space: nowrap; }
 
-  /* Andere Wege in der Randspalte: Kopf im selben Registerstil wie Hauptthemen und Treffer (eine Art Blockkopf je
-     Seite; die einzige Kupfermarke bleibt die Kopflinie), Karten untereinander */
-  .suche-rand { grid-area: rand; display: grid; gap: var(--sp-s); }
+  /* Randspalte: Andere Wege, darunter die Legende des Maßstabs. Köpfe im selben Registerstil wie Hauptthemen und
+     Treffer, Karten untereinander. */
+  .suche-rand { grid-area: rand; display: grid; gap: var(--sp-xl); align-content: start; }
+  .suche-wege-block, .suche-legende { display: grid; gap: var(--sp-s); }
+  /* Legende: dieselbe Achse wie unter den Ortstreffern, beschriftet. Höhe = Ursprungsname, Achse mit Strichen, Maße
+     (y-Werte im SVG); x in Prozent der Spaltenbreite. */
+  .suche-mass-legende { display: block; inline-size: 100%; max-inline-size: var(--karte-breit); block-size: calc(var(--sp-xl) + var(--sp-2xs)); overflow: visible; font-size: var(--fs--1); font-variant-numeric: tabular-nums; }
+  .suche-mass-legende .suche-mass-ring { stroke: var(--c-tinte-2); stroke-width: var(--linie-ui); }
+  .suche-mass-zahl { fill: var(--c-tinte-2); text-anchor: middle; }
+  .suche-mass-ort { fill: var(--c-tinte); font-weight: var(--fw-ui); }
+  .suche-mass-ursprung { fill: var(--c-kupfer); }
+  .suche-legende-text { font-size: var(--fs--1); color: var(--c-tinte-2); max-inline-size: var(--mass); text-wrap: pretty; }
 
   /* Unter 30em fs-0 wie der Fließtext: so passt der Platzhalter auch bei 320 px ganz ins Feld */
   @media (min-width: 30em) {
@@ -76,7 +94,7 @@
   }
   @media (min-width: 48em) {
     .suche-treffer { grid-template-columns: var(--legende-min) minmax(0, 1fr); }
-    .suche-km { flex-direction: column; align-items: stretch; gap: var(--sp-2xs); }
+    .suche-km { grid-template-columns: minmax(0, 1fr); row-gap: var(--sp-2xs); }
     .suche-mass { inline-size: calc(100% - var(--sp-m)); }
   }
   @media (min-width: 64em) {
@@ -86,7 +104,7 @@
        gleiche Schrift und Zeilenhöhe wie der Kicker – „Andere Wege“ steht auf derselben Grundlinie wie „Suche“ */
     .suche-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
     /* Kupfermarke auf der Höhe der Kopflinie, Versalien auf der Grundlinie des Kickers (Abstand wie .kopf-linie) */
-    .suche-rand .suche-block-titel { gap: var(--sp-s); }
+    .suche-wege-block .suche-block-titel { gap: var(--sp-s); }
     .suche-wege { grid-template-columns: minmax(0, 1fr); }
   }
 
@@ -96,8 +114,9 @@
   .fehler-text { grid-area: text; }
   .fehler-text .gruppe-einleitung { margin-block-end: 0; }
   .fehler-wege { grid-area: wege; }
-  .fehler-figur { grid-area: figur; margin: 0; display: grid; gap: var(--sp-xs); }
-  .fehler-figur .zylinder { inline-size: 100%; max-inline-size: var(--figur-schmal); }
+  /* Die Figur ist so breit wie ihr SVG: Als Container liefert sie dessen Breite (100cqi) für M-21 in Bildschirm-Pixeln */
+  .fehler-figur { grid-area: figur; margin: 0; display: grid; gap: var(--sp-xs); max-inline-size: var(--figur-schmal); container-type: inline-size; }
+  .fehler-figur .zylinder { inline-size: 100%; }
   /* Bruchenden der Scherlinie (zylinder.mjs, falsch): Punkte in Kupfer, Strich wie die Linie */
   .fehler-figur .zy-scherlinie-ende { fill: var(--c-kupfer); }
   .fehler-figur figcaption { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); text-wrap: pretty; }
@@ -109,8 +128,7 @@
   .fehler-ruf { display: none; }
   @media (min-width: 48em) {
     .fehler-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-areas: "text figur" "wege wege"; gap: var(--sp-xl); }
-    .fehler-figur { gap: var(--sp-s); }
-    .fehler-figur .zylinder { max-inline-size: var(--hero-figur-max); }
+    .fehler-figur { gap: var(--sp-s); max-inline-size: var(--hero-figur-max); }
     /* Wie im Hero (V01): Die Scherlinie der Figur liegt auf der Grundlinie der zweiten H1-Zeile – hier gebrochen
        (gemessen 768–1440 px: Abweichung ≤ 3 px) */
     .fehler-figur { align-self: start; margin-block-start: calc(var(--hero-figur-versatz) + var(--linie-scher) + var(--sp-xs)); }
@@ -128,7 +146,8 @@
 }
 
 @media (forced-colors: active) {
-  .fehler-figur .zy-scherlinie-ende { fill: Highlight; }
+  .fehler-figur .zy-scherlinie-ende, .suche-mass-ursprung { fill: Highlight; }
+  .suche-mass-wert { stroke: Highlight; }
 }
 
 /* M-12 Rückmeldung (Suche): neue Trefferliste blendet von .6 auf; zwei gleiche Keyframes, damit jeder Wechsel neu startet */
@@ -139,8 +158,22 @@
     /* M-21 (404): Jeder zweite Stift wackelt gegenläufig – der falsche Schlüssel rüttelt die Stifte gegeneinander,
        statt sie im Gleichtakt zu heben. Dauer, Weg und Anzahl bleiben wie im Register (bewegung.css). */
     [data-moment="falsch"] .zy-stiftpaar:nth-child(even) { animation-name: m21-gegen; }
+    /* Das Register nennt Bildschirm-Pixel (Y ±3, X ±4). Im SVG wirken sie als Einheiten der viewBox und schrumpften
+       mit der Figur (mobil ≈ 1,9 px). Deshalb teilt die 404 die Wege durch den Maßstab der Figur: viewBox-Breite 540
+       (zylinder.mjs, mit Schlüssel) durch die Figurbreite 100cqi. sin/cos von atan2() liefert das Verhältnis als Zahl
+       (tan() läse der Token-Prüfer als Farbnamen). Ohne diese Funktionen gelten die Keyframes aus bewegung.css. */
+    @supports (translate: calc(sin(atan2(1px, 1cqi)) * 1px)) {
+      [data-moment="falsch"] .zy-stiftpaar { animation-name: m21-bild; }
+      [data-moment="falsch"] .zy-stiftpaar:nth-child(even) { animation-name: m21-bild-gegen; }
+      [data-moment="falsch"] .zy-scherlinie-links { animation-name: m21-bild-links; }
+      [data-moment="falsch"] .zy-scherlinie-rechts { animation-name: m21-bild-rechts; }
+    }
   }
   @keyframes m21-gegen { 17%, 50%, 83% { transform: translateY(var(--m21-weg)); } 33%, 67% { transform: translateY(calc(-1 * var(--m21-weg))); } }
+  @keyframes m21-bild { 17%, 50%, 83% { transform: translateY(calc(-1 * var(--m21-weg) * sin(atan2(calc(540 * 1px), 100cqi)) / cos(atan2(calc(540 * 1px), 100cqi)))); } 33%, 67% { transform: translateY(calc(var(--m21-weg) * sin(atan2(calc(540 * 1px), 100cqi)) / cos(atan2(calc(540 * 1px), 100cqi)))); } }
+  @keyframes m21-bild-gegen { 17%, 50%, 83% { transform: translateY(calc(var(--m21-weg) * sin(atan2(calc(540 * 1px), 100cqi)) / cos(atan2(calc(540 * 1px), 100cqi)))); } 33%, 67% { transform: translateY(calc(-1 * var(--m21-weg) * sin(atan2(calc(540 * 1px), 100cqi)) / cos(atan2(calc(540 * 1px), 100cqi)))); } }
+  @keyframes m21-bild-links { 25%, 75% { transform: translateX(calc(-1 * var(--m21-linie) * sin(atan2(calc(540 * 1px), 100cqi)) / cos(atan2(calc(540 * 1px), 100cqi)))); } }
+  @keyframes m21-bild-rechts { 25%, 75% { transform: translateX(calc(var(--m21-linie) * sin(atan2(calc(540 * 1px), 100cqi)) / cos(atan2(calc(540 * 1px), 100cqi)))); } }
   @keyframes suche-neu-a { from { opacity: .6; } }
   @keyframes suche-neu-b { from { opacity: .6; } }
 }

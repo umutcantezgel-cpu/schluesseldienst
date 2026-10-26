@@ -13,6 +13,7 @@ import { faq, faqLd } from '../teile/faq.mjs';
 import { brotkrumenLd } from '../teile/brotkrumen.mjs';
 import { rufknopf } from '../teile/rufknopf.mjs';
 import { betriebLd } from './start.mjs';
+import { bartKante } from '../teile/illustrationen/zylinder.mjs';
 // zusammen(): „E-Mail“ nie nach „E-“ umbrechen (Überschrift, Fließtext, FAQ)
 import { zusammen } from './recht.mjs';
 
@@ -56,6 +57,27 @@ ${sk.icon('mail', { klasse: 'kontakt-weg-icon' })}
 </section>`;
 }
 
+// Bartprofil (K-008: gestufte Kante, 12 px, einmal je Seite): Die Linie unter dem Briefkopf endet im Bart des
+// Schlüssels, der auf der Startseite den Zylinder schließt – je Stiftkanal eine Stufe auf dessen Einschnitttiefe
+// (bartKante aus zylinder.mjs), halb so groß, die Spitze unter 45°. Die Vorlage ist der Schlüssel, der passt.
+// Der Schaft liegt auf der Grundlinie und setzt die Linie aus dem Stil fort (::before); die Fläche des Barts füllt sich
+// wie im Zylinder. Dekorativ, ohne Bewegung (P6); erscheint wie der Briefkopf erst mit JavaScript.
+function bartprofil() {
+  const HOEHE = 12;
+  const GRUND = HOEHE - 1;   // Mitte des 2er-Strichs auf der Unterkante
+  const kante = bartKante();
+  const schaftY = kante[0][1];
+  // Punktpaare zwischen Schulter und Spitze: die Plateaus der Einschnitte
+  const stufen = [];
+  for (let i = 1; i < kante.length - 2; i += 2) stufen.push({ mitte: (kante[i][0] + kante[i + 1][0]) / 4, y: GRUND + (kante[i][1] - schaftY) / 2 });
+  const halb = (stufen[1].mitte - stufen[0].mitte) / 2;
+  const anfang = stufen[0].mitte - halb;
+  const schluss = stufen[stufen.length - 1].mitte + halb;
+  const spitze = schluss + (GRUND - stufen[stufen.length - 1].y);
+  const d = `M${anfang - 2} ${GRUND}H${anfang}${stufen.map(({ mitte, y }) => `V${y}H${mitte + halb}`).join('')}L${spitze} ${GRUND}`;
+  return html`<div class="composer-bart" data-nur-js="" hidden><svg viewBox="${anfang - 2} 0 ${spitze - anfang + 3} ${HOEHE}" aria-hidden="true" focusable="false"><path d="${d}"/></svg></div>`;
+}
+
 function feld(sk, id, f, { pflicht = false, mehrzeilig = false, typ = 'text', autocomplete = 'off', nurJs = true, name = null } = {}) {
   const beschreibung = f.hilfe ? `${id}-hilfe ${id}-fehler` : `${id}-fehler`;
   const eingabe = mehrzeilig
@@ -86,6 +108,7 @@ ${rufknopf(sk, { variante: 'gross' })}
 <div><dt>${c.kopf.an}</dt><dd>${email}</dd></div>
 <div><dt>${c.kopf.betreff}</dt><dd data-rolle="betreff">${c.anliegen[VORWAHL].betreff}</dd></div>
 </dl>
+${bartprofil()}
 <div class="composer-fehlerliste" data-rolle="fehler" tabindex="-1" role="alert" hidden>
 <p class="composer-fehler-titel">${c.fehlerTitel}</p>
 <ul></ul>

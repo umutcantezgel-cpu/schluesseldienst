@@ -1,6 +1,7 @@
 /* V06 Hub (Land- und Kreisseite): Kopf 7/5 mit Gebietslage, „… in Zahlen“ 4/8, Kreisliste zweizeilig,
    A–Z-Verzeichnis in Spalten mit Mindestbreite --spalte-az und Buchstabenleiste (umbrechend, klebt ab 64em unter dem
-   Kopf). Gemeinden fett, Ortsteile eingerückt. Arbeitsansicht: Bewegung nur als Rückmeldung (M-02/M-03). */
+   Kopf). Gemeinden fett, Ortsteile eingerückt. Arbeitsansicht: Bewegung nur als Rückmeldung (M-02/M-03) und die Linie
+   am angesprungenen Buchstaben (M-14). */
 @layer komponenten {
   .hub-kopf { padding-block: var(--sp-m) var(--sp-xl); }
   .hub-kopf-teilung { display: grid; gap: var(--sp-l); align-items: center; }
@@ -57,6 +58,8 @@
   .hub-zeile:hover .hub-name { text-decoration-thickness: var(--linie-scher); text-decoration-color: currentColor; }
   .hub-sitz { font-size: var(--fs--1); font-weight: var(--fw-ui); color: var(--c-kupfer); }
   .hub-meta { flex-basis: 100%; font-size: var(--fs--1); color: var(--c-tinte-3); font-variant-numeric: tabular-nums; }
+  /* Unter der Lahn-Überlagerung fiel Tinte-3 bei fs--1 unter 4,5:1 (4,08 bzw. gedrückt 3,61) */
+  .hub-zeile:is(:hover, :active) .hub-meta { color: var(--c-tinte-2); }
 
   /* A–Z-Zeilen: Name links, Entfernung rechts; Unterstreichung leise, damit das dichte Register ruhig bleibt */
   .az-meta { flex: none; color: var(--c-tinte-3); font-size: var(--fs--1); font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -69,40 +72,45 @@
   /* M-02/M-03 an Kreiszeilen und Buchstaben: Überlagerung in Lahn (in Tinte wirkte die Fläche grau, wie deaktiviert),
      gedrückt scale .98 (unter reduce nur Überlagerung) */
   .hub-zeile::before, .az-buchstaben a::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: var(--r-s); background: var(--c-lahn); opacity: 0; transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  /* Die Fläche läuft um die Schrift, statt bündig an ihr zu enden */
+  .hub-zeile::before { inset-inline: calc(-1 * var(--sp-2xs)); }
   .hub-zeile:hover::before, .az-buchstaben a:hover::before { opacity: var(--deck-hover); transition-duration: var(--dur-feedback); }
   .hub-zeile:active::before, .az-buchstaben a:active::before { opacity: var(--deck-aktiv); }
   .az-buchstaben a:active { transform: scale(.98); }
   @media (prefers-reduced-motion: reduce) { .az-buchstaben a:active { transform: none; } }
 
   /* Buchstabenleiste: bricht um statt seitlich zu scrollen (kein Buchstabe liegt verborgen). Alle 26 Buchstaben in
-     gleich breiten Zellen eines Rasters, Links wie leere Buchstaben – sonst sprang der Rhythmus zwischen 48 und 24 px.
-     Die Spaltenzahl teilt 26 möglichst gleich: unter 30em sieben Spalten (7 · 7 · 7 · 5 statt 8 · 8 · 8 · 2), wo
-     Zellen à 44 px (Touch 48 px, K-009) das nicht zulassen, so viele, wie passen; ab 30em 9 · 9 · 8, ab 48em 13 · 13,
-     ab 80em mit Maus eine Zeile. Leere Buchstaben bleiben leichter Text. */
-  .az-leiste { background: var(--c-papier); border-block-end: var(--linie-haar) solid var(--c-linie); padding-block: var(--sp-2xs); }
-  .az-buchstaben { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(max(var(--ziel-min), 14%), 1fr)); }
-  .az-buchstaben li { margin: 0; display: grid; }
-  .az-buchstaben a, .az-leer { display: flex; align-items: center; justify-content: center; min-block-size: var(--ziel-min); }
+     gleich breiten Zellen, Links wie leere Buchstaben – sonst sprang der Rhythmus zwischen 48 und 24 px. Unter 64em
+     steht sie statisch mit Zielen ≥ 48 px (K-009), darüber mit Maus 44 px.
+     Die Spaltenzahl teilt 26 möglichst gleich. Unter 30em läuft die Leiste in den Seitenrand, damit sieben Spalten à
+     48 px schon ab 344 px passen (7 · 7 · 7 · 5 statt 6 · 6 · 6 · 6 · 2); die Zeilen stehen mittig, so liegt die kurze
+     letzte Zeile genau unter den mittleren Spalten statt als Rest links. Noch schmaler (320 px) bleiben es sechs
+     Spalten, ebenso mittig. Ab 30em 9 · 9 · 8, ab 48em 13 · 13, ab 80em mit Maus eine Zeile. Leere Buchstaben bleiben
+     leichter Text. */
+  .az-leiste { background: var(--c-papier); border-block-end: var(--linie-haar) solid var(--c-linie); padding-block: var(--sp-2xs); margin-inline: calc(-1 * var(--rand)); padding-inline: var(--sp-3xs); }
+  .az-buchstaben { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; }
+  .az-buchstaben li { margin: 0; display: grid; flex: 0 0 max(var(--ziel-touch), calc(100% / 7)); }
+  .az-buchstaben a, .az-leer { display: flex; align-items: center; justify-content: center; min-block-size: var(--ziel-touch); }
   .az-buchstaben a { position: relative; isolation: isolate; border-radius: var(--r-s); color: var(--c-lahn-text); font-weight: var(--fw-titel); text-decoration: underline; text-decoration-thickness: var(--linie-haar); text-underline-offset: var(--unterstrich-abstand); }
   .az-buchstaben a:hover { text-decoration-thickness: var(--linie-scher); }
   .az-leer { color: var(--c-tinte-3); font-weight: var(--fw-text); }
-  @media (pointer: coarse) {
-    .az-buchstaben { grid-template-columns: repeat(auto-fill, minmax(max(var(--ziel-touch), 14%), 1fr)); }
-    .az-buchstaben a, .az-leer { min-block-size: var(--ziel-touch); }
+  @media (min-width: 30em) {
+    .az-leiste { margin-inline: 0; padding-inline: 0; }
+    .az-buchstaben { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); }
   }
-  @media (min-width: 30em) { .az-buchstaben { grid-template-columns: repeat(9, minmax(0, 1fr)); } }
+  @media (min-width: 64em) and (pointer: fine) { .az-buchstaben a, .az-leer { min-block-size: var(--ziel-min); } }
   @media (min-width: 48em) { .az-buchstaben { grid-template-columns: repeat(13, minmax(0, 1fr)); } }
   @media (min-width: 80em) and (pointer: fine) { .az-buchstaben { grid-template-columns: repeat(26, minmax(0, 1fr)); } }
 
   .az-verzeichnis { columns: var(--spalte-az); column-gap: var(--sp-l); margin-block-start: var(--sp-s); }
-  .az-gruppe { scroll-margin-block-start: var(--sp-s); }
-  .az-kopf { display: flex; justify-content: space-between; align-items: center; margin-block: var(--sp-m) var(--sp-2xs); break-after: avoid; border-block-end: var(--linie-scher) solid transparent; }
-  /* Sprungziel: Nach einem Klick in der Leiste trägt der Kopf der Gruppe die Kupferlinie – man sieht, wo man gelandet
-     ist (Rückmeldung wie M-01, sofort, ohne Animation; die Linie ist vorher unsichtbar da, nichts verschiebt sich) */
-  .az-gruppe:target .az-kopf { border-block-end-color: var(--c-kupfer); }
+  .az-kopf { position: relative; display: flex; justify-content: space-between; align-items: center; margin-block: var(--sp-m) var(--sp-2xs); break-after: avoid; border-block-end: var(--linie-scher) solid transparent; scroll-margin-block-start: var(--sp-s); }
+  /* Sprungziel (der Kopf, hub.mjs): Nach einem Klick in der Leiste trägt er die Kupferlinie – man sieht, wo man
+     gelandet ist. Die Linie liegt im vorher unsichtbaren Rand, nichts verschiebt sich; als Rand, nicht als Fläche,
+     damit sie auch bei erzwungenen Farben steht. Sie zieht sich wie die Linie am Abschnittskopf (M-14, @layer bewegung). */
+  .az-kopf:target::after { content: ""; position: absolute; inset-inline: 0; inset-block-end: calc(-1 * var(--linie-scher)); border-block-start: var(--linie-scher) solid var(--c-kupfer); transform-origin: left center; }
   .az-buchstabe { margin: 0; font-size: var(--fs-1); color: var(--c-lahn-text); }
-  .az-hoch { display: inline-flex; align-items: center; justify-content: center; min-block-size: var(--ziel-min); min-inline-size: var(--ziel-min); font-size: var(--fs--1); font-weight: var(--fw-ui); text-decoration-color: var(--c-linie-ui); }
-  @media (pointer: coarse) { .az-hoch { min-block-size: var(--ziel-touch); min-inline-size: var(--ziel-touch); } }
+  /* nur unter 64em sichtbar, dort wie die Leiste ≥ 48 px (K-009) */
+  .az-hoch { display: inline-flex; align-items: center; justify-content: center; min-block-size: var(--ziel-touch); min-inline-size: var(--ziel-touch); font-size: var(--fs--1); font-weight: var(--fw-ui); text-decoration-color: var(--c-linie-ui); }
   .az-liste { list-style: none; padding: 0; margin: 0; }
   /* Lange Gemeinden dürfen die Spalte wechseln (gleichmäßigere Spaltenenden); die Gemeindezeile bleibt bei ihrem
      ersten Ortsteil, ein Ortsteil wird nie geteilt */
@@ -128,5 +136,13 @@
   }
   @media (min-width: 80em) and (pointer: fine) {
     html:has(.az-leiste) { scroll-padding-block-start: calc(var(--kopf-hoehe-desktop) + var(--ziel-min) + 2 * var(--sp-2xs) + var(--sp-s)); }
+  }
+}
+
+/* M-14 am Sprungziel: Die Kupferlinie zieht sich einmal von links auf (scaleX .2 → 1 wie die Linie am Abschnittskopf),
+   Rückmeldung auf den Klick in der Leiste; der Buchstabe selbst steht sofort. Unter reduce steht sie gleich ganz. */
+@layer bewegung {
+  @media (prefers-reduced-motion: no-preference) {
+    .az-kopf:target::after { animation: linie-ziehen var(--dur-zustand) var(--ease-linie) backwards; }
   }
 }

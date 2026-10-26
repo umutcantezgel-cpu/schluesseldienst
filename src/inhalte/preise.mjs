@@ -39,6 +39,8 @@ export default {
     offen: 'Berechnung erst mit Preisliste möglich.',
     absprache: 'Dieser Preis wird nach Absprache vereinbart – fragen Sie uns vorher.',
     hinweis: 'Gesamtpreis mit Anfahrt. Material nur nach Absprache, mit Preis vorher.',
+    // Nur im Zustand „nach Absprache“ und nur mit bestätigter Zusage preisVorAuftrag (Wortlaut wie auf den Ortsseiten)
+    hinweisAbsprache: 'Den Gesamtpreis mit Anfahrt nennen wir Ihnen am Telefon, bevor wir losfahren.',
   },
   material: {
     titel: 'Was nicht im Preis enthalten ist',

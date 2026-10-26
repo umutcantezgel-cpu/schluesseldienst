@@ -34,10 +34,17 @@
   .composer-notfall { display: grid; gap: var(--sp-s); justify-items: start; padding: var(--sp-m); border-radius: var(--r-s); background: var(--c-papier-2); border-inline-start: var(--sp-3xs) solid var(--c-kupfer); }
   .composer-mail { display: grid; gap: var(--sp-m); }
   /* Briefkopf (nur mit JS): An und Betreff wie in der vorbereiteten E-Mail, als Register wie die Angaben im Impressum
-     (Versalmarke links, Wert rechts). Die Tintenlinie darunter ist der Tabellenkopf der Suche: Hier beginnt die E-Mail,
-     die Felder darunter sind ihr Text. Der Betreff folgt Anliegen und Ort (Modul composer). */
-  .composer-kopf { display: grid; gap: var(--sp-2xs); margin: 0; padding-block-end: var(--sp-s); border-block-end: var(--linie-ui) solid var(--c-tinte); }
+     (Versalmarke links, Wert rechts). Der Betreff folgt Anliegen und Ort (Modul composer). Darunter schließt das
+     Bartprofil ab: Hier beginnt die E-Mail, die Felder darunter sind ihr Text. */
+  .composer-kopf { display: grid; gap: var(--sp-2xs); margin: 0; }
   .composer-kopf[hidden] { display: none; }
+  /* Bartprofil: Tintenlinie über die ganze Breite (::before), am rechten Ende der Bart des Schlüssels (SVG, 12 px,
+     Maßstab 1, Strich 2 wie die Illustrationen, Fläche wie der Bart im Zylinder). Gehrung statt runder Ecken: Die
+     Stufen bleiben auch bei 12 px Stufen. Näher am Briefkopf als der Abstand der Vorlage, es gehört zu ihm. */
+  .composer-bart { display: flex; align-items: flex-end; margin-block-start: calc(var(--sp-xs) - var(--sp-m)); }
+  .composer-bart[hidden] { display: none; }
+  .composer-bart::before { content: ""; flex: 1; block-size: var(--linie-scher); background: var(--c-tinte); }
+  .composer-bart svg { flex: none; block-size: var(--sp-xs); overflow: visible; fill: var(--c-linie); stroke: var(--c-tinte); stroke-width: var(--linie-scher); stroke-linejoin: miter; }
   .composer-kopf > div { display: grid; grid-template-columns: var(--sp-3xl) minmax(0, 1fr); gap: var(--sp-s); align-items: baseline; }
   .composer-kopf dt { font-size: var(--fs--1); font-weight: var(--fw-ui); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--c-tinte-3); }
   .composer-kopf dd { margin: 0; font-weight: var(--fw-ui); overflow-wrap: anywhere; }
@@ -115,4 +122,9 @@
     /* M-09: derselbe reine Deckkraft-Keyframe wie Feldfehler und Fehlerübersicht in bewegung.css */
     .composer-ohne-adresse:not([hidden]) { animation: erscheinen var(--dur-feedback) var(--ease-standard) backwards; }
   }
+}
+
+/* Erzwungene Farben: Die Linie des Bartprofils ist als Hintergrund gezeichnet und bekäme sonst die Fläche Canvas */
+@media (forced-colors: active) {
+  .composer-bart::before { background: CanvasText; }
 }

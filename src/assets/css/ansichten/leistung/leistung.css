@@ -48,8 +48,12 @@
   .rand-text { font-size: var(--fs--1); color: var(--c-tinte-2); }
   .rand-liste { list-style: none; padding: 0; }
   .rand-liste li { margin: 0; border-block-end: var(--linie-haar) solid var(--c-linie); }
-  /* Zeile als Bedienelement (K-009): Überlagerung .10 über die ganze Zeile (M-02), gedrückt .18 und scale .98 (M-03) */
+  /* Zeile als Bedienelement (K-009): Überlagerung .10 über die ganze Zeile (M-02), gedrückt .18 und scale .98 (M-03);
+     Zielhöhe 44 px, auf Touch 48 px */
   .rand-liste a { position: relative; isolation: isolate; display: flex; align-items: center; gap: var(--sp-xs); min-block-size: var(--ziel-min); color: var(--c-tinte); text-decoration: none; }
+  @media (pointer: coarse) { .rand-liste a { min-block-size: var(--ziel-touch); } }
+  /* Namen wirken als Titel: Trennung nur an den Fugen, die die Vorlage setzt (D-E5-01) */
+  .rand-liste span { hyphens: manual; }
   .rand-liste a::before { content: ""; position: absolute; inset-block: 0; inset-inline: calc(-1 * var(--sp-2xs)); z-index: -1; border-radius: var(--r-s); background: currentColor; opacity: 0; }
   .rand-liste a:hover::before { opacity: var(--deck-hover); }
   .rand-liste a:active::before { opacity: var(--deck-aktiv); }
@@ -58,7 +62,9 @@
   .leistung-rand .preis-tabelle-huelle { container-type: inline-size; }
   .leistung-mehr .rand-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--karte-min)), 1fr)); column-gap: var(--sp-l); }
   @media (min-width: 64em) {
-    .leistung-kopf { padding-block-start: var(--sp-sektion); }
+    /* Oben ein großer statt eines Sektionsabstands, gleich wie der Kopf von V02: Figur und Text rücken näher an
+       die Brotkrumen, „Auf einen Blick“ steht bei 900 px Höhe ganz im ersten Bildschirm */
+    .leistung-kopf { padding-block-start: var(--sp-2xl); }
     .leistung-kopf h1 { font-size: var(--fs-5); }
     .leistung-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); grid-template-areas: "text rand"; align-items: start; }
     .leistung-text { grid-area: text; }

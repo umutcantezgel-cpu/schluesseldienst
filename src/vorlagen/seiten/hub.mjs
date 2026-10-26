@@ -106,9 +106,11 @@ function verzeichnis(orte) {
   const gruppen = vorhanden.map((b) => {
     const id = `buchstabe-${b.toLowerCase()}`;
     const eintraege = nachBuchstabe.get(b).sort((x, y) => ZEICHEN.compare(x.o.name, y.o.name));
-    // Unter 64em klebt die Leiste nicht: jede Gruppe führt mit „A–Z“ zurück zu ihr (nur dort sichtbar, az.css)
-    return html`<section class="az-gruppe" id="${id}" aria-labelledby="${id}-titel">
-<div class="az-kopf"><h3 class="az-buchstabe" id="${id}-titel">${b}</h3><a class="az-hoch" href="#az-titel">A–Z</a></div>
+    // Unter 64em klebt die Leiste nicht: jede Gruppe führt mit „A–Z“ zurück zu ihr (nur dort sichtbar, az.css).
+    // Sprungziel ist der Kopf, nicht die Gruppe: Läuft eine Gruppe über einen Spaltenumbruch, scrollte der Browser zum
+    // oberen Teil ihrer Box am Spaltenanfang, und der Buchstabe stand weit darunter
+    return html`<section class="az-gruppe" aria-labelledby="${id}-titel">
+<div class="az-kopf" id="${id}"><h3 class="az-buchstabe" id="${id}-titel">${b}</h3><a class="az-hoch" href="#az-titel">A–Z</a></div>
 <ul class="az-liste">${eintraege.map((e) => (e.o.typ === 'gemeinde' ? gemeindeEintrag(e, mitZone) : einzelEintrag(e, mitZone)))}</ul>
 </section>`;
   });

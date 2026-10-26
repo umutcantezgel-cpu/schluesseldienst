@@ -83,7 +83,9 @@ function setzen(bel, kandidaten, { pflicht = false } = {}) {
   return wahl;
 }
 
-const text = (klasse, c, inhalt, zusatz = '') => `<text class="${klasse}"${zusatz} x="${r(c.x)}" y="${r(c.y)}"${c.anker === 'start' ? '' : ` text-anchor="${c.anker}"`}>${esc(inhalt)}</text>`;
+const text = (klasse, c, inhalt, zusatz = '') => `<text class="${klasse}"${zusatz} x="${r(c.x)}" y="${r(c.y)}"${c.anker === 'start' ? '' : ` text-anchor="${c.anker}"`}>${c.zeilen
+  ? c.zeilen.map((z, i) => `<tspan x="${r(c.x)}"${i ? ` dy="${r(c.zeile)}"` : ''}>${esc(z)}</tspan>`).join('')
+  : esc(inhalt)}</text>`;
 
 // Kandidaten um einen Punkt: zuerst in der gewünschten Reihenfolge, dann schräg (Abstand d zur Marke)
 const SCHRAEG = ['rechtsOben', 'linksOben', 'rechtsUnten', 'linksUnten'];
@@ -99,7 +101,31 @@ function umPunkt(x, y, inhalt, groesse, faktor, d, reihenfolge = ['rechts', 'lin
     rechtsUnten: { x: x + d * 0.7, y: unten, anker: 'start' },
     linksUnten: { x: x - d * 0.7, y: unten, anker: 'end' },
   };
-  return [...reihenfolge, ...SCHRAEG].map((n) => ({ ...lage[n], kiste: textKiste(lage[n].x, lage[n].y, lage[n].anker, inhalt, groesse, faktor) }));
+  return [...reihenfolge, ...SCHRAEG].map((n) => ({ ...lage[n], lage: n, kiste: textKiste(lage[n].x, lage[n].y, lage[n].anker, inhalt, groesse, faktor) }));
+}
+
+// Lange Ortsnamen („Herschbach (Oberwesterwald)“) passten in keiner Lage ins Blatt und wurden an der Kante
+// abgeschnitten: Sie brechen zweizeilig vor der Klammer oder vor „an der“, „am“, „bei“ …, sonst am Leerzeichen
+// nächst der Mitte. Der Block steht dort, wo die eine Zeile stünde (oben bündig unten, unten bündig oben, seitlich mittig).
+const ZWEI_AB = 18;
+function zweiZeilen(name) {
+  if (name.length < ZWEI_AB) return null;
+  const vor = /\s(?=\(|(?:an der|an den|am|an|bei|im|in der|ob der|vor der|auf der|über)\s)/g;
+  const stellen = [...name.matchAll(vor)].map((m) => m.index);
+  const alle = stellen.length ? stellen : [...name.matchAll(/\s/g)].map((m) => m.index);
+  if (!alle.length) return null;
+  const i = alle.sort((a, b) => Math.abs(a - name.length / 2) - Math.abs(b - name.length / 2))[0];
+  return [name.slice(0, i), name.slice(i + 1)];
+}
+const VERSATZ = { oben: -1, rechtsOben: -1, linksOben: -1, unten: 0, rechtsUnten: 0, linksUnten: 0, rechts: -0.5, links: -0.5 };
+function zweizeilig(kandidaten, zeilen, groesse, faktor) {
+  const zeile = groesse * 1.1;
+  const laengste = zeilen.reduce((a, b) => (b.length > a.length ? b : a));
+  return kandidaten.map((c) => {
+    const y = c.y + VERSATZ[c.lage] * zeile;
+    const k = textKiste(c.x, y, c.anker, laengste, groesse, faktor);
+    return { ...c, y, zeilen, zeile, kiste: { ...k, y2: k.y2 + zeile } };
+  });
 }
 
 // Maßstab: runde Länge, deren Strich zwischen 36 und 84 Einheiten misst (nächst an 56)
@@ -131,6 +157,8 @@ function nachGroesse(orte) {
   return SORTIERT.get(orte);
 }
 
+// Mindestabstand benannter Punkte: Nachbarn untereinander, Orientierungsorte zu allen
+const NAH_ABSTAND = 40; const WEIT_ABSTAND = 56;
 // Ortsbeschriftung: Kandidaten um die Marke, zuerst auf der von der Linie abgewandten Seite
 const ortKandidaten = (ox, oy, name, oben) => umPunkt(ox, oy, name, SCHRIFT.l, 0.64, 16, oben ? ['oben', 'rechts', 'links', 'unten'] : ['unten', 'rechts', 'links', 'oben']);
 
@@ -139,10 +167,15 @@ const ortKandidaten = (ox, oy, name, oben) => umPunkt(ox, oy, name, SCHRIFT.l, 0
  * mindestens --sp-l (32 Einheiten) Abstand zur Blattkante: Fehlt Rand, setzt ein Hilfspunkt an der Kante der Kiste den
  * Ausschnitt neu.
  * Der Bogen läuft durch den Ort; frei von ihm steht der Ortsname nur jenseits des Bogens. Liegt der Ort so am
- * Blattrand, dass der Name dort über die Kante ragte, rückt ein weiterer Hilfspunkt den Ausschnitt um diesen Überstand
- * ein (höchstens 96 Einheiten; längere Namen kreuzen den Bogen an der Marke).
+ * Blattrand, dass der Name dort näher als ORT_RAND an der Kante stünde, rückt ein weiterer Hilfspunkt den Ausschnitt
+ * um diesen Überstand ein (höchstens 96 Einheiten; längere Namen kreuzen den Bogen an der Marke).
+ * Passt der ganze Bogen ins Blatt (Durchmesser höchstens H − 2 · ORT_RAND), liegt er auch ganz darin: Hilfspunkte an
+ * seinen vier Polen, um den Unterschied der Ränder (30/36 statt 12) nach innen gerückt. Angeschnitten wirkte er wie
+ * ein Versehen (Löhnberg 2 Einheiten unten, Taunusstein-Wehen 38 oben).
  */
 const SITZ_RAND = 32;
+// Mindestabstand des Ortsnamens und des Bogens zur Blattkante (≈ --sp-xs): „Bremen“ stand sonst oben an der Kante
+const ORT_RAND = 12;
 function ausschnitt(ort, sitz, nachbarn, B, H, mitLinie) {
   const punkte = [sitz, ort, ...nachbarn];
   let proj = projektion(punkte, B, H, 30, 36);
@@ -165,21 +198,32 @@ function ausschnitt(ort, sitz, nachbarn, B, H, mitLinie) {
     bel.kiste({ x1: ox - 11, y1: oy - 11, x2: ox + 11, y2: oy + 11 });
     bel.strecke([sx, sy, ox, oy]);
     bel.ring(sx, sy, Math.hypot(ox - sx, oy - sy));
-    const ueber = (k) => [Math.min(0, k.x1 - 2) || Math.max(0, k.x2 - (B - 2)), Math.min(0, k.y1 - 2) || Math.max(0, k.y2 - (H - 2))];
+    const ueber = (k) => [Math.min(0, k.x1 - ORT_RAND) || Math.max(0, k.x2 - (B - ORT_RAND)), Math.min(0, k.y1 - ORT_RAND) || Math.max(0, k.y2 - (H - ORT_RAND))];
     const kandidaten = ortKandidaten(ox, oy, ort.name, oy <= sy).filter((c) => bel.frei(c.kiste));
-    if (!kandidaten.length || kandidaten.some((c) => bel.innen(c.kiste))) return [];
+    if (!kandidaten.length || kandidaten.some((c) => bel.innen(c.kiste, ORT_RAND))) return [];
     const { kiste: k } = kandidaten.map((c) => ({ ...c, u: Math.hypot(...ueber(c.kiste)) })).sort((a, c) => a.u - c.u)[0];
     if (Math.hypot(...ueber(k)) > 96) return [];
-    // Der Hilfspunkt liegt so, dass die Kiste am Rand landet, wenn er selbst am Rand des Ausschnitts (30/36) steht
+    // Der Hilfspunkt liegt so, dass die Kiste ORT_RAND vor der Kante landet, wenn er selbst am Rand des Ausschnitts
+    // (30/36) steht – mit 2 Einheiten Zugabe
     const [dx, dy] = ueber(k);
-    return [punkt(ort, [ox, oy], dx > 0 ? k.x2 - 26 : dx < 0 ? k.x1 + 26 : ox, dy > 0 ? k.y2 - 32 : dy < 0 ? k.y1 + 32 : oy)];
+    const [ax, ay] = [28 - ORT_RAND, 34 - ORT_RAND];
+    return [punkt(ort, [ox, oy], dx > 0 ? k.x2 - ax : dx < 0 ? k.x1 + ax : ox, dy > 0 ? k.y2 - ay : dy < 0 ? k.y1 + ay : oy)];
+  };
+  const polHilfe = () => {
+    const [sx, sy] = proj.p(sitz); const [ox, oy] = proj.p(ort);
+    const rr = Math.hypot(ox - sx, oy - sy);
+    const drin = sx - rr >= ORT_RAND && sy - rr >= ORT_RAND && sx + rr <= B - ORT_RAND && sy + rr <= H - ORT_RAND;
+    if (drin || 2 * rr > H - 2 * ORT_RAND) return [];
+    // Schrumpft der Maßstab beim Einpassen, schrumpft der Überstand mit: der Rand bleibt mindestens ORT_RAND
+    const [dx, dy] = [Math.max(rr - (30 - ORT_RAND), 0), Math.max(rr - (36 - ORT_RAND), 0)];
+    return [[sx - dx, sy], [sx + dx, sy], [sx, sy - dy], [sx, sy + dy]].map(([hx, hy]) => punkt(sitz, [sx, sy], hx, hy));
   };
   // Jedes Einpassen ändert den Maßstab: bis zu viermal prüfen, der Hilfspunkt für den Ortsnamen höchstens einmal
   let ortFrei = true;
   for (let i = 0; i < 4; i++) {
     const ortNeu = ortFrei ? ortHilfe() : [];
     if (ortNeu.length) ortFrei = false;
-    const neu = [...sitzHilfe(), ...ortNeu];
+    const neu = [...sitzHilfe(), ...ortNeu, ...polHilfe()];
     if (!neu.length) break;
     punkte.push(...neu);
     proj = projektion(punkte, B, H, 30, 36);
@@ -211,7 +255,19 @@ export function lagekarte({ ort, sitz, nachbarn = [], umgebung = [], praefix = '
   if (mitBogen) bel.ring(sx, sy, laenge);
   // Ort und Weilburg: zuerst auf der von der Linie abgewandten Seite
   const ortOben = oy <= sy;
-  const ortL = setzen(bel, ortKandidaten(ox, oy, ort.name, ortOben), { pflicht: true });
+  // Ortsname mit Abstand zur Kante, wo das geht (der Ausschnitt hat dafür Platz gelassen); ein langer Name lieber
+  // zweizeilig als an der Kante; ganz im Bild lieber über dem Bogen (Lichthof) oder auf anderer Schrift als
+  // abgeschnitten. Erst wenn keine Lage ins Blatt passt, die mit dem kleinsten Überstand.
+  const ortK = ortKandidaten(ox, oy, ort.name, ortOben);
+  const zeilen = zweiZeilen(ort.name);
+  const ortZ = zeilen ? zweizeilig(ortK, zeilen, SCHRIFT.l, 0.64) : [];
+  const im = (liste, rand) => liste.filter((c) => bel.innen(c.kiste, rand));
+  const nehmen = (c) => c && (bel.kiste(c.kiste), c);
+  const ueberBogen = (liste) => liste.find((c) => bel.frei(c.kiste, { mitRingen: false }));
+  const ueberstand = ({ kiste: k }) => Math.max(0, -k.x1, -k.y1, k.x2 - B, k.y2 - H);
+  const ortL = setzen(bel, im(ortK, ORT_RAND)) || setzen(bel, im(ortZ, ORT_RAND)) || setzen(bel, ortK) || setzen(bel, ortZ)
+    || nehmen(ueberBogen(im(ortZ, ORT_RAND)) || ueberBogen(im(ortK, 2)) || ueberBogen(im(ortZ, 2)) || im([...ortK, ...ortZ], 2)[0]
+      || [...ortK, ...ortZ].sort((a, c) => ueberstand(a) - ueberstand(c))[0]);
   const sitzL = mitLinie ? setzen(bel, umPunkt(sx, sy, 'Weilburg', SCHRIFT.m, 0.62, 14, ortOben ? ['unten', 'rechts', 'links', 'oben'] : ['oben', 'rechts', 'links', 'unten']), { pflicht: true }) : null;
   // Entfernung senkrecht zur Peilung neben der Linienmitte, auf der freien Seite
   let km = ''; let kmL = null;
@@ -234,10 +290,11 @@ export function lagekarte({ ort, sitz, nachbarn = [], umgebung = [], praefix = '
   const punktFrei = (x, y) => imBild(x, y) && Math.hypot(x - ox, y - oy) >= 16 && !(mitLinie && (Math.hypot(x - sx, y - sy) < 12 || bel.abstandStrecke(x, y) < 6))
     && bel.frei({ x1: x - 4, y1: y - 4, x2: x + 4, y2: y + 4 }) && !gesetzt.some(([gx, gy]) => Math.hypot(gx - x, gy - y) < 10);
   // Jeder Punkt trägt seinen Namen: Findet der Name keinen Platz, entfällt der Punkt mit ihm (stumme Punkte lasen
-  // sich als halb fertige Karte und nahmen den benannten Platz weg)
+  // sich als halb fertige Karte und nahmen den benannten Platz weg). Benannte Punkte halten Abstand zueinander, damit
+  // sich die Namen über das Blatt verteilen statt sich zu ballen (Köln mit Düsseldorf, Bonn oder Essen).
   const namenSvg = [];
-  const benannt = (o, [x, y]) => {
-    if (o.name.length > 24 || !punktFrei(x, y)) return false;
+  const benannt = (o, [x, y], abstand) => {
+    if (o.name.length > 24 || !punktFrei(x, y) || gesetzt.some(([gx, gy]) => Math.hypot(gx - x, gy - y) < abstand)) return false;
     bel.kiste({ x1: x - 3, y1: y - 3, x2: x + 3, y2: y + 3 });
     const c = setzen(bel, umPunkt(x, y, o.name, SCHRIFT.s, 0.58, 7));
     if (!c) { bel.loesen(); return false; }
@@ -247,16 +304,21 @@ export function lagekarte({ ort, sitz, nachbarn = [], umgebung = [], praefix = '
   // Zuerst die Liste „Orte in der Nähe“ (nächste zuerst, bis zu drei), damit Karte und Liste einander zeigen
   const nah = nachbarn.filter((o) => o.slug !== sitz.slug).map((o) => ({ o, xy: p(o) }))
     .sort((a, c) => Math.hypot(a.xy[0] - ox, a.xy[1] - oy) - Math.hypot(c.xy[0] - ox, c.xy[1] - oy));
-  for (const { o, xy } of nah) if (namenSvg.length < 3) benannt(o, xy);
-  // Dazu höchstens zwei größere Orte im Ausschnitt zur Orientierung (zusammen höchstens vier Namen)
-  let orientierung = 0; let gesehen = 0;
+  for (const { o, xy } of nah) if (namenSvg.length < 3) benannt(o, xy, NAH_ABSTAND);
+  // Dazu bis zu drei größere Orte im Ausschnitt zur Orientierung (zusammen höchstens vier Namen), weiter gestreut.
+  // Zuerst die nahe der Peilung (höchstens H/3 von ihr): Sie zeigen den Weg von Weilburg zum Ort, ein Name am anderen
+  // Ende des Blatts (Köln über Böckweiler) zeigt nichts. Nur Gemeinden: ein Stadtteil („Gallus“) orientiert nicht.
+  const gross = [];
   for (const o of nachGroesse(umgebung)) {
-    if (orientierung >= 2 || namenSvg.length >= 4 || gesehen >= 24) break;
-    if (o.slug === ort.slug || o.slug === sitz.slug || nah.some((n) => n.o.slug === o.slug)) continue;
+    if (gross.length >= 60) break;
+    if (o.typ === 'ortsteil' || o.slug === ort.slug || o.slug === sitz.slug || nah.some((n) => n.o.slug === o.slug)) continue;
     const xy = p(o);
-    if (!imBild(...xy)) continue;
-    gesehen++;
-    if (benannt(o, xy)) orientierung++;
+    if (imBild(...xy)) gross.push({ o, xy, amWeg: mitLinie && bel.abstandStrecke(...xy) <= H / 3 });
+  }
+  let orientierung = 0;
+  for (const { o, xy } of [...gross.filter((g) => g.amWeg), ...gross.filter((g) => !g.amWeg)]) {
+    if (orientierung >= 3 || namenSvg.length >= 4) break;
+    if (benannt(o, xy, WEIT_ABSTAND)) orientierung++;
   }
   const mass = massstab(bel, jeKm, B, H, gesetzt);
   const winkel = r((Math.atan2(oy - sy, ox - sx) * 1800) / Math.PI) / 10;
@@ -274,13 +336,14 @@ ${sitzL ? text('lk-sitz-text', sitzL, 'Weilburg') : ''}${text('lk-ort-text', ort
 
 
 /**
- * Zonenring als Kreis; läuft er durch die Kiste (Weilburg-Beschriftung, 3 Einheiten Luft), setzt er dort aus: Bögen
- * über die freien Winkel in Grad-Schritten, damit der Name ohne Platte oder Maske frei steht.
+ * Zonenring als Kreis; läuft er durch eine der Kisten (Weilburg, ein Hauptname ohne andere freie Stelle; 3 Einheiten
+ * Luft), setzt er dort aus: Bögen über die freien Winkel in Grad-Schritten, damit der Name ohne Platte oder Maske frei
+ * steht.
  */
-function ring(cx, cy, rr, kiste) {
+function ring(cx, cy, rr, kisten) {
   const frei = Array.from({ length: 360 }, (_, g) => {
     const [x, y] = [cx + rr * Math.cos((g * Math.PI) / 180), cy + rr * Math.sin((g * Math.PI) / 180)];
-    return !kiste || !(x > kiste.x1 - 3 && x < kiste.x2 + 3 && y > kiste.y1 - 3 && y < kiste.y2 + 3);
+    return !kisten.some((k) => x > k.x1 - 3 && x < k.x2 + 3 && y > k.y1 - 3 && y < k.y2 + 3);
   });
   if (frei.every(Boolean)) return `<circle class="gk-ring" cx="${cx}" cy="${cy}" r="${rr}"/>`;
   // Läufe freier Winkel, beginnend nach einem belegten Grad (so wird kein Lauf über 0° zerschnitten)
@@ -311,51 +374,88 @@ const inKiste = ([x, y], k) => x > k.x1 && x < k.x2 && y > k.y1 && y < k.y2;
 const abschnitte = (l) => Array.from({ length: l.length / 2 - 1 }, (_, i) => l.slice(i * 2, i * 2 + 4));
 
 /**
- * Stelle für den Namen eines Rasterpunkts im Hub. Zuerst direkt neben dem Punkt auf seiner Höhe; sonst am nächsten
- * freien Rand des Rasters mit einer kurzen Haarlinie: waagerecht oder mit genau einem 45°-Knick aus dem Raster in die
- * Waagerechte (K-008), so steht jeder Name auf Höhe seiner Linie. Die Linie hält Abstand zu jedem anderen Rasterpunkt
- * (Radius 2,5 plus Luft) und kreuzt weder Schrift noch eine andere Linie; lange Linien entfallen samt Namen. Liefert
- * die kürzeste Lösung { x, y, anker, kiste, linie? } oder null.
+ * Stelle für den Namen eines Rasterpunkts im Hub. Zuerst direkt am Punkt: rechts oder links auf seiner Höhe, sonst
+ * mittig darüber oder darunter. Sonst am nächsten freien Rand des Rasters mit einer Haarlinie aus 0°, 45° und 90°
+ * (K-008, höchstens ein Knick): waagerecht zum Namen auf gleicher Höhe, senkrecht zum Namen mittig darüber oder
+ * darunter, oder mit einem 45°-Stück aus dem Punkt in eine der beiden. Im dichten Raster liegt auf jeder solchen Linie
+ * ein Punkt; sie spart die Punkte aus, an denen sie näher als 4 vorbeiläuft (wie die Schrift von „Weilburg“), jeder
+ * ausgesparte Punkt kostet, einer des Kerngebiets doppelt. Ohne Aussparung fehlten im dichten Raster gerade die
+ * größten Städte (Köln, Frankfurt). Die Linie kreuzt weder Schrift noch eine andere Linie; lange Namen brechen
+ * zweizeilig (zweiZeilen). Liefert die günstigste Lösung { x, y, anker, kiste, zeilen?, linie?, aus } oder null.
  */
-function namensStelle(bel, [x, y], inhalt, groesse, { punkte, schrift, linien }) {
-  const fremd = punkte.filter(([px, py]) => px !== x || py !== y);
-  const frei = (s) => !fremd.some(([px, py]) => abstandZurStrecke(px, py, s) < 4)
-    && !entlang(s).some((q) => schrift.some((k) => inKiste(q, k)))
-    && !linien.some((l) => abschnitte(l).some((a) => entlang(s).some(([qx, qy]) => abstandZurStrecke(qx, qy, a) < 3)));
-  const passt = (c) => bel.innen(c.kiste) && bel.frei(c.kiste);
-  // Name seitlich an einer waagerechten Linie, die bei (lx, ly) endet
-  const seitlich = (lx, ly, s) => {
-    const [nx, ny, anker] = [lx + s * 3, ly + groesse * 0.34, s > 0 ? 'start' : 'end'];
-    return { x: nx, y: ny, anker, kiste: textKiste(nx, ny, anker, inhalt, groesse, 0.6) };
+const AUS_KOSTEN = 8; const AUS_MAX = 10; const KNICK_KOSTEN = 6; const ZWEI_KOSTEN = 4;
+function namensStelle(bel, [x, y], inhalt, groesse, { raster, schrift, linien, reichweite, ueberRinge = false }) {
+  const eigen = raster.schluessel(x, y);
+  const zeilen = zweiZeilen(inhalt);
+  // Name an der Stelle (lx, ly) im Abstand d: seitlich auf gleicher Höhe, oben und unten mittig; lange Namen auch
+  // zweizeilig (der Block steht wie die eine Zeile, zweizeilig())
+  const an = (lx, ly, lage, d = 3) => {
+    const c = {
+      rechts: { x: lx + d, y: ly + groesse * 0.34, anker: 'start' },
+      links: { x: lx - d, y: ly + groesse * 0.34, anker: 'end' },
+      oben: { x: lx, y: ly - d - groesse * 0.24, anker: 'middle' },
+      unten: { x: lx, y: ly + d + groesse * 0.78, anker: 'middle' },
+    }[lage];
+    const eins = { ...c, lage, kiste: textKiste(c.x, c.y, c.anker, inhalt, groesse, 0.6), kosten: 0 };
+    return zeilen ? [eins, ...zweizeilig([eins], zeilen, groesse, 0.6).map((z) => ({ ...z, kosten: ZWEI_KOSTEN }))] : [eins];
   };
-  for (const s of [1, -1]) {
-    const c = seitlich(x + s * 5, y, s);
-    if (passt(c)) return c;
-  }
-  const kandidaten = [];
-  for (const s of [1, -1]) {
-    for (let l = 12; l <= 64; l += 2) {
-      const linie = [x + s * 4, y, x + s * l, y];
-      if (!frei(linie)) break;
-      const c = seitlich(x + s * l, y, s);
-      if (passt(c)) { kandidaten.push({ ...c, linie, kosten: l }); break; }
+  const passt = (c) => bel.innen(c.kiste) && bel.frei(c.kiste, { mitRingen: !ueberRinge });
+  let beste = null;
+  const nimm = (c, kosten, linie = null, aus = []) => {
+    if (passt(c) && (!beste || kosten + c.kosten < beste.kosten)) beste = { ...c, kosten: kosten + c.kosten, linie, aus };
+  };
+  // direkt am Punkt, in dieser Reihenfolge (gleiche Kosten: die erste freie Lage gewinnt)
+  [['rechts', 5, 0], ['links', -5, 0], ['oben', 0, -5], ['unten', 0, 5]].forEach(([lage, dx, dy], i) => {
+    for (const c of an(x + dx, y + dy, lage)) nimm(c, i * 0.1);
+  });
+  if (beste && !beste.zeilen) return beste;
+  // Eine Strecke wird in Stücken geprüft: kreuzt sie Schrift oder eine andere Linie, ist die Richtung zu Ende;
+  // Punkte, an denen sie vorbeiläuft, sammelt sie (außer dem eigenen) mit ihrem Preis; zu viele beenden sie auch
+  const weg = (von = null) => ({ aus: new Set(von?.aus), preis: von?.preis || 0, zu: false });
+  const verlaengern = (w, s) => {
+    for (const q of entlang(s)) {
+      if (schrift.some((k) => inKiste(q, k))) { w.zu = true; return w; }
+      for (const k of raster.nahe(q[0], q[1], 4)) {
+        if (k === eigen || w.aus.has(k)) continue;
+        w.aus.add(k); w.preis += raster.kern(k) ? 2 * AUS_KOSTEN : AUS_KOSTEN;
+      }
+    }
+    if (w.aus.size > AUS_MAX || linien.some((l) => abschnitte(l).some((a) => entlang(s).some(([qx, qy]) => abstandZurStrecke(qx, qy, a) < 3)))) w.zu = true;
+    return w;
+  };
+  const ziel = (s, v) => (s ? (s > 0 ? 'rechts' : 'links') : v < 0 ? 'oben' : 'unten');
+  // gerade: waagerecht (s) oder senkrecht (v), Länge l ab dem Rand der Marke
+  for (const [s, v] of [[1, 0], [-1, 0], [0, -1], [0, 1]]) {
+    const w = weg(); let von = 4;
+    for (let l = 10; l <= reichweite && !w.zu; l += 2) {
+      verlaengern(w, [x + s * von, y + v * von, x + s * l, y + v * l]); von = l;
+      if (w.zu) break;
+      const linie = [x + s * 4, y + v * 4, x + s * l, y + v * l];
+      for (const c of an(x + s * l, y + v * l, ziel(s, v))) nimm(c, l + w.preis, linie, [...w.aus]);
     }
   }
+  // 45° aus dem Punkt bis zur n-ten Rasterdiagonale, dann waagerecht oder senkrecht weiter
   for (const s of [1, -1]) {
     for (const v of [-1, 1]) {
-      for (let n = 1; n <= 3; n++) {
+      const schraeg = weg();
+      for (let n = 1; n <= 4 && !schraeg.zu; n++) {
         const [kx, ky] = [x + s * 6 * n, y + v * 6 * n];
-        const schraeg = [x + s * 2.8, y + v * 2.8, kx, ky];
-        if (!frei(schraeg)) break;
-        for (let l = 6; l <= 48; l += 2) {
-          if (!frei([kx, ky, kx + s * l, ky])) break;
-          const c = seitlich(kx + s * l, ky, s);
-          if (passt(c)) { kandidaten.push({ ...c, linie: [...schraeg, kx + s * l, ky], kosten: 6 * n * Math.SQRT2 + l + 6 }); break; }
+        verlaengern(schraeg, [x + s * 6 * (n - 1 || 0.47), y + v * 6 * (n - 1 || 0.47), kx, ky]);
+        if (schraeg.zu) break;
+        const diag = 6 * n * Math.SQRT2;
+        for (const [ws, wv] of [[s, 0], [0, v]]) {
+          const w = weg(schraeg); let von = 0;
+          for (let l = 6; diag + l <= reichweite; l += 2) {
+            verlaengern(w, [kx + ws * von, ky + wv * von, kx + ws * l, ky + wv * l]); von = l;
+            if (w.zu) break;
+            const linie = [x + s * 2.8, y + v * 2.8, kx, ky, kx + ws * l, ky + wv * l];
+            for (const c of an(kx + ws * l, ky + wv * l, ziel(ws, wv))) nimm(c, diag + l + KNICK_KOSTEN + w.preis, linie, [...w.aus]);
+          }
         }
       }
     }
   }
-  return kandidaten.sort((a, c) => a.kosten - c.kosten)[0] || null;
+  return beste;
 }
 
 /**
@@ -410,7 +510,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
   const schrift = []; // Kisten der Beschriftungen und der Sitzmarke: Führungslinien der Namen kreuzen sie nicht
   const bel = belegung(B, H);
   // Schriftgrößen der Kisten: mobil (gebiet.css) ist die Schrift eine Stufe größer – geschätzt wird mit der größeren
-  let sitzSvg; let ringe = []; let ringText = ''; let luecke = null; let peilung = null;
+  let sitzSvg; let ringe = []; let ringText = ''; const luecken = []; let peilung = null;
   if (!fern) {
     // die Sitzmarke bleibt frei
     for (const k of [...zellen.keys()]) { const [x, y] = mitte(k); if (Math.hypot(x - sx, y - sy) < 12) zellen.delete(k); }
@@ -437,7 +537,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
       zellen.delete(k);
     }
     // Kreuzt ein Ring den Namen (kleiner Ring, breiter Name), setzt der Ring dort aus (ringSvg)
-    luecke = sitzL.kiste;
+    luecken.push(sitzL.kiste);
     sitzSvg = `<circle class="gk-sitz-ring" cx="${sx}" cy="${sy}" r="10"/><circle class="gk-sitz-punkt" cx="${sx}" cy="${sy}" r="6"/>${text('gk-sitz-name', sitzL, 'Weilburg')}`;
   }
   for (const k of zellen.keys()) { const [x, y] = mitte(k); bel.kiste({ x1: x - 3, y1: y - 3, x2: x + 3, y2: y + 3 }); }
@@ -501,33 +601,61 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
     }
     return ebenen.map((d, i) => (d.length ? `<path class="gk-raster gk-zone-${'abcd'[i]}${zusatz}" d="${d.join('')}"/>` : '')).join('');
   };
-  const raster = pfade(zellen, '') + pfade(nurBreit, ' gl-nur-breit');
+  // Rasterpunkte für die Führungslinien: welche liegen näher als rr an (qx, qy), welche gehören zum Kerngebiet
+  const raster = {
+    schluessel: (x, y) => schluessel([x, y]),
+    nahe(qx, qy, rr) {
+      const aus = [];
+      for (let i = Math.floor((qx - rr) / ZELLE); i <= Math.ceil((qx + rr) / ZELLE); i++) {
+        for (let j = Math.floor((qy - rr) / ZELLE); j <= Math.ceil((qy + rr) / ZELLE); j++) {
+          const k = `${i},${j}`;
+          if ((zellen.has(k) || nurBreit.has(k)) && Math.hypot(i * ZELLE - qx, j * ZELLE - qy) < rr) aus.push(k);
+        }
+      }
+      return aus;
+    },
+    kern: (k) => zellen.get(k) === 0 || nurBreit.get(k) === 0,
+  };
   // Die größten Orte des Gebiets, am Punkt ihrer Rasterzelle und nur auf freier Fläche (weder auf Punkten noch auf
-  // Ringen); der Sitz trägt schon seinen Namen. Ab dem dritten nur breit (data-rang="2", gebiet.css).
+  // Ringen); der Sitz trägt schon seinen Namen. Die ersten zwei reichen mit ihrer Linie weiter (96 statt 64
+  // Einheiten), ab dem dritten nur breit (data-rang="2", gebiet.css). Unter einer Führungslinie entfallen die Punkte.
   const namen = []; const fuehrungen = [];
-  for (const o of orte.filter((x) => x.pop > 0 && x.slug !== sitz.slug && x.name.length <= 24).sort((a, c) => c.pop - a.pop).slice(0, namenMax * 10)) {
+  // Ohne Einwohnerzahl in den Daten (Stadtteile von Oberhausen, Pirmasens) stehen die Orte nach dem Alphabet
+  const nennbar = orte.filter((x) => x.slug !== sitz.slug && (x.name.length <= 24 || zweiZeilen(x.name)?.every((z) => z.length <= 24)));
+  const mitZahl = nennbar.filter((x) => x.pop > 0).sort((a, c) => c.pop - a.pop);
+  const kandidaten = mitZahl.length ? mitZahl : nennbar.sort((a, c) => a.name.localeCompare(c.name, 'de'));
+  for (const o of kandidaten.slice(0, namenMax * 10)) {
     if (namen.length >= namenMax) break;
     const k = schluessel(p(o));
     if (!zellen.has(k)) continue;
     const rang = namen.length < 2 ? 1 : 2;
-    const wahl = namensStelle(bel, mitte(k), o.name, rang === 1 ? SCHRIFT.l : SCHRIFT.s, {
-      punkte: [...zellen.keys(), ...nurBreit.keys()].map(mitte), schrift, linien: [...(peilung ? [peilung] : []), ...fuehrungen.map((f) => f.punkte)],
-    });
+    const lage = {
+      raster, schrift, linien: [...(peilung ? [peilung] : []), ...fuehrungen.map((f) => f.punkte)], reichweite: rang === 1 ? 96 : 64,
+    };
+    // Ein Hauptname, der zwischen den Ringen keinen Platz findet (Marburg, Bad Homburg), darf einen Ring kreuzen;
+    // der Ring setzt dort aus wie bei „Weilburg“
+    let wahl = namensStelle(bel, mitte(k), o.name, rang === 1 ? SCHRIFT.l : SCHRIFT.s, lage);
+    if (!wahl && rang === 1 && ringe.length) {
+      wahl = namensStelle(bel, mitte(k), o.name, SCHRIFT.l, { ...lage, ueberRinge: true });
+      if (wahl) luecken.push(wahl.kiste);
+    }
     if (!wahl) continue;
     bel.kiste(wahl.kiste); schrift.push(wahl.kiste);
     const zusatz = rang === 2 ? ' data-rang="2"' : '';
     namen.push(text('gk-name', wahl, o.name, zusatz));
+    for (const a of wahl.aus) { zellen.delete(a); nurBreit.delete(a); }
     if (wahl.linie) {
       for (let i = 2; i < wahl.linie.length; i += 2) bel.strecke(wahl.linie.slice(i - 2, i + 2));
       fuehrungen.push({ punkte: wahl.linie, svg: `<path class="gl-fuehrung"${zusatz} d="${pfadD(wahl.linie)}"/>` });
     }
   }
+  const rasterSvg = pfade(zellen, '') + pfade(nurBreit, ' gl-nur-breit');
   // Ferne Gebiete haben keine Zonenringe als Maß: ein Maßstab wie auf der Lagekarte, wo eine Ecke frei ist
   const mass = fern ? massstab(bel, jeKm, B, H, [...zellen.keys()].map(mitte)) : '';
-  const ringSvg = ringe.map(({ rr }) => ring(sx, sy, r(rr), luecke)).join('');
+  const ringSvg = ringe.map(({ rr }) => ring(sx, sy, r(rr), luecken)).join('');
   const svg = roh(`<svg class="gebietslage" viewBox="0 0 ${B} ${H}" role="img" aria-labelledby="${praefix}-titel">
 <title id="${praefix}-titel">${esc(titel)}</title>
-<g class="gk-ringe">${ringSvg}</g><g class="gk-punkte">${raster}</g>
+<g class="gk-ringe">${ringSvg}</g><g class="gk-punkte">${rasterSvg}</g>
 <g class="gk-namen">${fuehrungen.map((f) => f.svg).join('')}${ringText}${namen.join('')}${mass}</g>
 <g class="gk-sitz">${sitzSvg}</g>
 </svg>`);

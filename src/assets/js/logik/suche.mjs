@@ -82,3 +82,16 @@ export function statusText({ seiten = 0, seitenGesamt = seiten, orte = 0, orteGe
   if (orte) teile.push(anzahl(orte, orteGesamt, 'Ort', 'Orte', 'Orten'));
   return teile.join(' · ');
 }
+
+// Maßstab ab Weilburg (Ortstreffer und Legende der Suche): Die Achse reicht ein Fünftel über den äußersten Zonenring
+// hinaus, damit ein Ort jenseits davon sichtbar weiter liegt als einer auf dem Ring. Gekappt wird erst am Achsende.
+const UEBERSTAND = 1.2;
+
+/** Lage einer Entfernung auf der Achse: Anteil 0…1 und ob sie über das Achsende hinausreicht (offenes Ende). */
+export function massLage(km, ringe) {
+  const ende = Math.max(...ringe) * UEBERSTAND;
+  return { anteil: Math.min(1, Math.max(0, km) / ende), offen: km > ende };
+}
+
+/** Anteil als SVG-Koordinate in Prozent, auf eine Nachkommastelle („16.7%“). */
+export const prozent = (anteil) => `${Math.round(anteil * 1000) / 10}%`;

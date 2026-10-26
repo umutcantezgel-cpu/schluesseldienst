@@ -105,10 +105,12 @@ function inhalt(sk, inh) {
   // Ein Raster für Kopf, Verzeichnis und Text: Ab 64em steht das Verzeichnis neben dem Kopf (Marke auf der Höhe der
   // Kopflinie) und klebt neben dem Text; mobil folgt es dem Kopf. Die Sprungziele sind die Abschnitte selbst, damit
   // die Marke „04 ——“ über der Überschrift mit ins Bild kommt (scroll-margin am Abschnitt). Das Modul inhalt
-  // markiert den Eintrag des Abschnitts, in dem man liest (aria-current, ohne Bewegung).
+  // markiert den Eintrag des Abschnitts, in dem man liest (aria-current, ohne Bewegung). Der Freigabe-Hinweis steht
+  // vor dem Raster: Ohne ihn (Release) bleibt keine leere Rasterzeile, die Kopflinie steht wie auf jeder Seite.
   return html`<article class="recht" aria-labelledby="recht-titel">
-<div class="raster"><div class="recht-teilung">
+<div class="raster">
 ${inh.freigabe ? html`<p class="recht-freigabe hinweis${istPlatzhalter(inh.freigabe) ? ' hinweis-platzhalter' : ''}">${inh.freigabe}</p>` : ''}
+<div class="recht-teilung">
 <header class="recht-kopf">
 <span class="scherlinie scherlinie-leit kopf-linie" aria-hidden="true"></span>
 <p class="gruppe-kicker">${inh.kicker}</p>

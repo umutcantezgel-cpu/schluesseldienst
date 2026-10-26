@@ -2,7 +2,7 @@
 // Hervorhebung, Statuszeile und Kurztexte des Seitenindex.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { seitenIndex, seitenSuchen, hervorheben, statusText } from '../src/assets/js/logik/suche.mjs';
+import { seitenIndex, seitenSuchen, hervorheben, statusText, massLage, prozent } from '../src/assets/js/logik/suche.mjs';
 import { kurztext, seitenIndexSchreiben } from '../bau/lib/datenindex.mjs';
 
 const INDEX = seitenIndex({ v: 1, s: [
@@ -83,4 +83,16 @@ test('Seitenindex: eintrag() liefert Titel, Bereich und Kurztext wie die Datei (
   // Ortsseiten und nicht indexierte Seiten stehen nicht im Index – die Vorlage bricht dann den Bau ab
   assert.equal(index.eintrag('/schluesseldienst-loehnberg/'), null);
   assert.equal(index.eintrag('/suche/'), null);
+});
+
+// Maßstab der Ortstreffer und seiner Legende: Achse bis ein Fünftel über den äußersten Ring. 100 km und 192 km dürfen
+// nicht gleich aussehen; gekappt (offenes Ende) wird erst hinter dem Achsende.
+test('Maßstab: Ringe und Orte linear bis zum Achsende, danach gekappt mit offenem Ende', () => {
+  const ringe = [20, 50, 100];
+  assert.deepEqual(ringe.map((r) => prozent(massLage(r, ringe).anteil)), ['16.7%', '41.7%', '83.3%']);
+  assert.deepEqual(massLage(0, ringe), { anteil: 0, offen: false });
+  assert.deepEqual(massLage(110, ringe), { anteil: 110 / 120, offen: false });
+  assert.deepEqual(massLage(120, ringe), { anteil: 1, offen: false });
+  assert.deepEqual(massLage(192, ringe), { anteil: 1, offen: true });
+  assert.ok(massLage(192, ringe).anteil > massLage(100, ringe).anteil);
 });

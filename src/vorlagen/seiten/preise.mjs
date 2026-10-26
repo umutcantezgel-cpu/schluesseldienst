@@ -132,36 +132,43 @@ ${abschnittKopf({ id: 'rechner-titel', titel: r.titel, einleitung: r.einleitung 
 <dl class="rechner-posten"></dl>
 <output class="rechner-summe" aria-live="polite">${r.ohneJs}</output>
 <p class="rechner-hinweis">${r.hinweis}</p>
+<p class="rechner-hinweis rechner-hinweis-absprache">${zusage(sk, 'preisVorAuftrag', r.hinweisAbsprache, '')}</p>
 </div>
 </div>
 </div>
 </section>`;
 }
 
+// Kopf und Text getrennt: Auf dem Tablet und kleinen Desktops stehen die Regeln als Register (Kopf links, Text rechts)
+const regelKopf = (sk, icon, id, titel) => html`<div class="preise-regel-kopf">${sk.icon(icon, { klasse: 'preise-regel-icon' })}<h2 id="${id}">${titel}</h2></div>`;
+
 function regeln(sk) {
   const { material: m, zahlung: z, erfolglos: e } = inhalt;
   return html`<section class="sektion" aria-label="Material, Zahlung und erfolglose Öffnung">
 <div class="raster"><div class="preise-regeln">
 <section class="preise-regel" aria-labelledby="material-titel">
-${sk.icon('zylinder', { klasse: 'preise-regel-icon' })}
-<h2 id="material-titel">${m.titel}</h2>
+${regelKopf(sk, 'zylinder', 'material-titel', m.titel)}
+<div class="preise-regel-text">
 <p>${text(m.text)}</p>
 <ul class="preise-regel-liste">${m.beispiele.map((b) => html`<li>${b}</li>`)}</ul>
 <p><a href="${m.link.pfad}">${m.link.text}</a></p>
+</div>
 </section>
 <section class="preise-regel" aria-labelledby="zahlung-titel">
-${sk.icon('zahlung-karte', { klasse: 'preise-regel-icon' })}
-<h2 id="zahlung-titel">${z.titel}</h2>
+${regelKopf(sk, 'zahlung-karte', 'zahlung-titel', z.titel)}
+<div class="preise-regel-text">
 <p>${z.aufschlag}</p>
 <p>${zusage(sk, 'rechnungMitPositionen', z.rechnung, '')}</p>
 <p class="preise-zahlarten">Zahlarten: ${sk.konfig.preise.zahlarten}</p>
 <p>${zusage(sk, 'kartenzahlung', z.karte, '')}</p>
+</div>
 </section>
 <section class="preise-regel" aria-labelledby="erfolglos-titel">
-${sk.icon('tuer', { klasse: 'preise-regel-icon' })}
-<h2 id="erfolglos-titel">${e.titel}</h2>
+${regelKopf(sk, 'tuer', 'erfolglos-titel', e.titel)}
+<div class="preise-regel-text">
 <p>${text(e.text)}</p>
 <p>${zusage(sk, 'erfolglos', e.ja, '')}</p>
+</div>
 </section>
 </div></div>
 </section>`;

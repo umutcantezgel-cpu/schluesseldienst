@@ -9,6 +9,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { html } from '../../../bau/lib/html.mjs';
 import { text } from '../../../bau/lib/inhalt.mjs';
+import { textTrennen } from '../../../bau/lib/trennen.mjs';
 import { GRUPPEN } from '../../konfig/leistungen.mjs';
 import { abschnittKopf } from '../teile/abschnitt.mjs';
 import { faq, faqLd } from '../teile/faq.mjs';
@@ -42,9 +43,14 @@ export function gruppenLd(sk, g, inhalt) {
   };
 }
 
-// Kopf 7/5: Das Register rechts zeigt nur Icon und Name (zweispaltig) und schließt damit neben dem Text in einer
-// Bildschirmhöhe; der Kurzsatz je Leistung bleibt für Screenreader im Linknamen. Die Notöffnung ruft im Kopf
-// erst ab 64em an – darunter trägt die Rufleiste den Anruf (wie V01), statt zweimal im ersten Bildschirm.
+// Registernamen wirken als Titel (D-E5-01): Sie trennen nur an den Fugen der Wortliste („Datensicherungs-schränke“,
+// nie „Datensiche-rungsschränke“). Der Bau setzt &shy; nur in h1–h4 und Kartentiteln, deshalb steht die weiche
+// Trennstelle hier gleich als Zeichen U+00AD (html`` lässt es unverändert, im Satz bleibt es unsichtbar).
+const fugen = (name) => textTrennen(name).replaceAll('&shy;', '\u00AD');
+
+// Kopf 7/5: Das Register rechts zeigt nur Icon und Name und schließt damit neben dem Text in einer Bildschirmhöhe;
+// der Kurzsatz je Leistung bleibt für Screenreader im Linknamen. Die Notöffnung ruft im Kopf erst ab 64em an –
+// darunter trägt die Rufleiste den Anruf (wie V01), statt zweimal im ersten Bildschirm.
 function kopf(sk, g, inh) {
   return html`<section class="gruppe-kopf" aria-labelledby="gruppe-titel">
 <div class="raster"><div class="gruppe-kopf-teilung">
@@ -59,7 +65,7 @@ ${g.id === 'notoeffnung'
 </div>
 <nav class="gruppe-register" aria-labelledby="gruppe-register-titel">
 <h2 class="gruppe-register-titel" id="gruppe-register-titel">${inh.registerTitel}</h2>
-<ul>${g.leistungen.map((l) => html`<li><a href="${l.pfad}">${sk.icon(l.icon, { klasse: 'gruppe-register-icon' })}<span class="gruppe-register-name">${l.titel}</span><span class="unsichtbar">: ${l.kurz}</span></a></li>`)}</ul>
+<ul>${g.leistungen.map((l) => html`<li><a href="${l.pfad}">${sk.icon(l.icon, { klasse: 'gruppe-register-icon' })}<span class="gruppe-register-name">${fugen(l.titel)}</span><span class="unsichtbar">: ${l.kurz}</span></a></li>`)}</ul>
 </nav>
 </div></div>
 </section>`;
@@ -78,18 +84,21 @@ ${abschnittKopf({ id: 'nachweis-titel', titel: n.titel, einleitung: n.einleitung
 }
 
 // Wissen: Die Textabschnitte stehen als Registerblatt in einem Abschnitt statt als gleiche Teilungen hintereinander
-// (die glichen sich in Fläche, Layout und Dichte). Bei ungerader Zahl führt der erste Abschnitt über die volle
-// Breite, die übrigen stehen zweispaltig, jeder mit Haarlinie und Kupfermarke. Jeder Eintrag bleibt ein eigener
-// Abschnitt mit H2 – es kommt keine erfundene Sammelüberschrift dazu.
-function wissen(liste, band) {
+// (die glichen sich in Fläche, Layout und Dichte). Jeder Eintrag trägt eine Kennung aus Gruppen- und Laufnummer
+// (02.1, 02.2 … in Mono wie die Gruppennummer im Kicker und die Szenenschritte) als Reiter auf seiner Linie, und sein
+// erster Absatz steht als Leitsatz vor dem übrigen Text: eine Hierarchie statt H2 plus gleichförmiger Absätze.
+// Bei ungerader Zahl führt der erste Abschnitt über die volle Breite, die übrigen stehen zweispaltig. Jeder Eintrag
+// bleibt ein eigener Abschnitt mit H2 – es kommt keine erfundene Sammelüberschrift dazu.
+function wissen(g, liste, band) {
   const mitLeit = liste.length % 2 === 1;
+  const kennung = (i) => `${g.nr}.${i + 1}`;
   return html`<div class="sektion gruppe-wissen${flaeche(band)}">
 <div class="raster"><div class="gruppe-wissen-raster">
 ${liste.map((a, i) => {
     const id = `abschnitt-${i + 1}`;
     return mitLeit && i === 0
-      ? html`<section class="gruppe-eintrag-leit" aria-labelledby="${id}">${abschnittKopf({ id, titel: a.titel })}${absaetze(a)}</section>`
-      : html`<section class="gruppe-eintrag" aria-labelledby="${id}"><h2 class="gruppe-eintrag-titel" id="${id}">${text(a.titel)}</h2>${absaetze(a)}</section>`;
+      ? html`<section class="gruppe-eintrag-leit" aria-labelledby="${id}">${abschnittKopf({ id, titel: a.titel, nr: kennung(i) })}${absaetze(a)}</section>`
+      : html`<section class="gruppe-eintrag" aria-labelledby="${id}"><span class="gruppe-eintrag-marke" aria-hidden="true"><span class="gruppe-eintrag-nr">${kennung(i)}</span></span><h2 class="gruppe-eintrag-titel" id="${id}">${text(a.titel)}</h2>${absaetze(a)}</section>`;
   })}
 </div></div>
 </div>`;
@@ -146,10 +155,10 @@ ${abschnittKopf({ id: 'schluss-titel', titel: s.titel, einleitung: s.text })}
 
 // Abschnitte zwischen Szene (Band) und Weiterlesen (Papier, dicht): Die Fläche wechselt ab Papier, damit sich
 // Nachbarn immer in der Fläche und zusätzlich in Layout oder Dichte unterscheiden (K-006).
-function mittelteil(sk, inh) {
+function mittelteil(sk, g, inh) {
   const folge = [
     inh.nachweis && ((band) => nachweis(sk, inh.nachweis, band)),
-    inh.abschnitte?.length && ((band) => wissen(inh.abschnitte, band)),
+    inh.abschnitte?.length && ((band) => wissen(g, inh.abschnitte, band)),
     inh.betriebe && ((band) => textAbschnitt('betriebe-titel', inh.betriebe, { band, dicht: true })),
     inh.preis && ((band) => preis(sk, inh.preis, band)),
     (band) => fragen(sk, inh.faq, band),
@@ -175,7 +184,7 @@ export async function seiten(k) {
       jsonld: [gruppenLd(k, g, inh), brotkrumenLd(k.basisUrl, stufen), faqLd(k.basisUrl, g.pfad, inh.faq)],
       inhalt: (sk) => html`${kopf(sk, g, inh)}
 ${szene({ id: 'szene', titel: inh.szene.titel, einleitung: inh.szene.einleitung, figur: FIGUREN[g.id], schritte: inh.szene.schritte, klasse: 'band', liste: !QUER.has(g.id) })}
-${mittelteil(sk, inh)}
+${mittelteil(sk, g, inh)}
 ${weiter(sk, inh.weiter)}
 ${schluss(sk, inh.schluss, g.id === 'notoeffnung')}`,
     });

@@ -1,7 +1,8 @@
 /* V04 Preise: Kopf 7/5 mit der Preisformel als schriftlicher Addition (der Summenstrich ist die Scherlinie), Tagesband
    mit Legende, Anfahrt 7/5 mit Ortsprüfung, Rechner als Karte (ab 64em zwei mal zwei: drei Fragen und das Ergebnis wie
-   eine Rechnung), drei Regel-Blöcke. Zustände über Attribute (data-jetzt, data-status, data-zustand, data-takt).
-   Kupfer nur für Summenstrich, Rechenzeichen, Zonenbuchstaben und „jetzt“; Karten tragen neutrale Kanten (P1). */
+   eine Rechnung), drei Regeln (48–80em als Register, darüber drei Spalten). Zustände über Attribute (data-jetzt,
+   data-status, data-zustand, data-takt). Kupfer nur für Summenstrich, Rechenzeichen, Zonenbuchstaben und „jetzt“;
+   Karten tragen neutrale Kanten (P1). */
 @layer komponenten {
   .preise-kopf { padding-block: var(--sp-f-m) var(--sp-sektion); }
   .preise-kopf-teilung { display: grid; gap: var(--sp-xl); }
@@ -28,7 +29,13 @@
   /* Die Formel ist zugleich das Inhaltsverzeichnis: Jeder Titel führt zu seinem Abschnitt (Preisliste, Anfahrt,
      Rechner). Tinte wie die Zeilenlinks der Preistabelle; die ganze Zeile ist Ziel (≥ 48 px), der Fokus bleibt am Titel. */
   .formel-titel { grid-area: titel; justify-self: start; font-weight: var(--fw-titel); color: var(--c-tinte); }
-  .formel-titel::after { content: ""; position: absolute; inset: 0; }
+  /* Ziel und Überlagerung (M-02 .10, gedrückt .18) wie bei den Registerzeilen: unter dem Inhalt (Icon und Erklärtext
+     lassen den Zeiger durch) und zwischen den Rechenlinien, damit „+“ und „=“ frei auf ihrer Linie stehen */
+  .formel-teil { isolation: isolate; }
+  .formel-titel::after { content: ""; position: absolute; inset: var(--sp-2xs) calc(-1 * var(--sp-2xs)); z-index: -1; border-radius: var(--r-s); background: currentColor; opacity: 0; }
+  .formel-titel:hover::after { opacity: var(--deck-hover); }
+  .formel-titel:active::after { opacity: var(--deck-aktiv); }
+  .formel-icon, .formel-text { pointer-events: none; }
   /* Sprungziele (Formel, „Zone Ihres Orts prüfen“): Die Kupfermarke über der Überschrift bleibt beim Sprung sichtbar */
   .seite-preise .abschnitt-kopf h2 { scroll-margin-block-start: var(--sp-xl); }
   .preise-pruefung { scroll-margin-block-start: var(--sp-s); }
@@ -128,15 +135,19 @@
      Summe und Hinweis stehen in derselben Spalte wie die Posten, nichts hängt allein am Rand. */
   .rechner-posten { margin: 0; display: grid; font-size: var(--fs--1); color: var(--c-tinte-2); font-variant-numeric: tabular-nums; hyphens: manual; }
   .rechner-posten:empty { display: none; }
-  .rechner-posten div { position: relative; display: flex; align-items: baseline; gap: var(--sp-2xs); padding-block: var(--sp-xs); }
+  /* Letzte Grundlinie: Bricht der Titel um („Tür abgeschlossen oder / Schlüssel abgebrochen“), laufen Punktlinie und
+     Betrag an seiner letzten Zeile aus, wie auf einer Rechnung – nicht an der ersten, unter der der Titel weiterginge */
+  .rechner-posten div { position: relative; display: flex; align-items: last baseline; gap: var(--sp-2xs); padding-block: var(--sp-xs); }
   .rechner-posten div:first-child { padding-block-start: var(--sp-3xs); }
   .rechner-posten div + div { border-block-start: var(--linie-haar) solid var(--c-linie); }
   /* Punktlinie vom Posten zum Betrag: ein leeres Flex-Element, dessen Unterkante auf der Grundlinie liegt */
   .rechner-posten div::after { content: ""; order: 1; flex: 1 1 var(--sp-s); border-block-end: var(--linie-haar) dotted var(--c-linie-ui); }
   .rechner-posten dd { order: 2; margin: 0; white-space: nowrap; color: var(--c-tinte); }
-  /* Zweite Zeile eines Postens (Zeitfenster, Zone) wie der Erklärtext unter den Posten der Formel. Breite 0 und kein
-     Umbruch: Sie zählt nicht zur Breite des Titels, die Punktlinie beginnt direkt nach ihm („Anfahrt …… enthalten“). */
-  .rechner-posten-zusatz { display: block; inline-size: 0; white-space: nowrap; color: var(--c-tinte-3); }
+  /* Zweite Zeile eines Postens (Zeitfenster, Zone) wie der Erklärtext unter den Posten der Formel. Sie steht im dt
+     (Screenreader lesen „Titel Zusatz: Betrag“), liegt aber absolut in einer Zeile, die der Posten unten freihält:
+     So zählt sie weder zur Breite des Titels noch zu seiner letzten Grundlinie. */
+  .rechner-posten div:has(.rechner-posten-zusatz) { padding-block-end: calc(var(--sp-xs) + var(--lh-text) * var(--fs--1)); }
+  .rechner-posten-zusatz { position: absolute; inset-block-end: var(--sp-xs); inset-inline: 0; line-height: var(--lh-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--c-tinte-3); }
   .rechner-summe { position: relative; display: block; font-size: var(--fs-1); font-weight: var(--fw-ui); line-height: var(--lh-titel); hyphens: manual; text-wrap: pretty; }
   /* Summenstrich nur unter einer Rechnung mit Posten. Offen (Preisliste fehlt) steht darunter linksbündig der Satz
      statt des Betrags; ohne Posten (nach Absprache, ohne JS) steht der Satz für sich. */
@@ -146,9 +157,17 @@
   .rechner-posten div + div::before, .rechner[data-status="offen"] .rechner-posten:not(:empty) + .rechner-summe::before, .rechner[data-status="betrag"] .rechner-summe::before { content: "+"; position: absolute; inset-block-start: calc(-1 * var(--linie-haar) / 2); inset-inline-start: 0; translate: 0 calc(-50% - var(--linie-ui)); padding-inline: var(--sp-2xs); font-family: var(--ff-mono); font-size: var(--fs-0); font-weight: var(--fw-titel); letter-spacing: 0; line-height: 1; color: var(--c-kupfer); background: var(--c-papier); }
   .rechner[data-status="offen"] .rechner-posten:not(:empty) + .rechner-summe::before, .rechner[data-status="betrag"] .rechner-summe::before { content: "="; inset-block-start: calc(-1 * var(--linie-scher) / 2); }
   .rechner-hinweis { font-size: var(--fs--1); color: var(--c-tinte-3); max-inline-size: var(--mass); }
+  /* Hinweis je Zustand: Nach Absprache gibt es keinen Betrag, über den „Gesamtpreis mit Anfahrt“ etwas sagen könnte.
+     Dort steht stattdessen, wann Sie den Preis erfahren (nur mit bestätigter Zusage, sonst bleibt die Zeile leer). */
+  .rechner-hinweis-absprache, .rechner[data-status="absprache"] .rechner-hinweis { display: none; }
+  .rechner[data-status="absprache"] .rechner-hinweis-absprache:not(:empty) { display: block; }
 
-  .preise-regeln { display: grid; gap: var(--sp-l); grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--karte-breit)), 1fr)); }
+  /* Drei Regeln: mobil untereinander, von 48em bis 80em als Register (Kopf links, Text rechts, eine Regel je Zeile),
+     erst ab 80em in drei Spalten. Dazwischen stünde mit auto-fit rechts ein Viertel leer (Tablet) oder eine Regel
+     allein unter zweien (1024 px). */
+  .preise-regeln { display: grid; gap: var(--sp-l); }
   .preise-regel { display: grid; gap: var(--sp-xs); align-content: start; padding-block-start: var(--sp-s); border-block-start: var(--linie-haar) solid var(--c-linie-ui); }
+  .preise-regel-kopf, .preise-regel-text { display: grid; gap: var(--sp-xs); align-content: start; }
   .preise-regel h2 { font-size: var(--fs-2); }
   .preise-regel p { max-inline-size: var(--mass); }
   .preise-regel-icon { inline-size: var(--icon-gross); block-size: var(--icon-gross); color: var(--c-lahn-text); }
@@ -179,6 +198,11 @@
     .anfahrt-tabelle td:not(.anfahrt-radius) { grid-column: 1 / -1; }
   }
 
+  @media (48em <= width < 80em) {
+    .preise-regel { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); column-gap: var(--sp-xl); }
+  }
+  @media (min-width: 80em) { .preise-regeln { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
   @media (min-width: 64em) {
     .preise-kopf { padding-block-start: var(--sp-sektion); }
     .preise-kopf-teilung { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: start; }
@@ -196,7 +220,13 @@
 }
 
 @layer bewegung {
+  /* M-02/M-03 an den Formelzeilen: Die Überlagerung blendet in feedback; gedrückt gibt nur die Fläche nach (scale .98),
+     Linien und Rechenzeichen bleiben stehen. Unter reduce bleibt die Überlagerung allein. */
+  .formel-titel::after { transition: opacity var(--dur-feedback-aus) var(--ease-standard); }
+  .formel-titel:hover::after { transition-duration: var(--dur-feedback); }
   @media (prefers-reduced-motion: no-preference) {
+    .formel-titel::after { transition-property: opacity, transform; }
+    .formel-titel:active::after { transform: scale(.98); }
     /* M-12: Nur was sich geändert hat, blendet von .6 auf 1 (feedback), nie hochzählen: der Posten der geänderten Frage
        und die Summe, wenn sie anders lautet (data-neu, preisrechner.mjs). Der Wechsel a/b startet die Animation neu. */
     .rechner-ergebnis[data-takt="a"] [data-neu] { animation: m12-a var(--dur-feedback) var(--ease-standard) backwards; }

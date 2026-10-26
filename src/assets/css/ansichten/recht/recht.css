@@ -2,10 +2,12 @@
    Verzeichnis in der Randspalte neben Kopf und Text (klebend), mobil zwischen Kopf und Text. Abschnitte und Verzeichnis
    gleich nummeriert, Angabenliste, Muster als Text. H1 in fs-4: fs-5 bleibt dem Hero vorbehalten. Werte nur über Tokens. */
 @layer komponenten {
-  .recht { padding-block: var(--sp-m) var(--sp-f-m); }
-  .recht-teilung { display: grid; gap: var(--sp-xl); grid-template-areas: "freigabe" "kopf" "rand" "text"; }
-  /* Der Hinweis steht über beiden Spalten, Kopf und Verzeichnis beginnen gemeinsam darunter */
-  .recht-freigabe { grid-area: freigabe; margin: 0; max-inline-size: var(--mass); }
+  /* Oben derselbe fließende Abstand wie die Köpfe von Kontakt und Suche: Die Kopflinie steht auf jeder Seite gleich hoch
+     (M-15); ohne Freigabe-Hinweis (Release) beginnt das Raster direkt mit dem Kopf */
+  .recht { padding-block: var(--sp-f-m); }
+  .recht-teilung { display: grid; gap: var(--sp-xl); grid-template-areas: "kopf" "rand" "text"; }
+  /* Der Hinweis steht vor dem Raster über beiden Spalten; Kopf und Verzeichnis beginnen gemeinsam darunter */
+  .recht-freigabe { margin-block: 0 var(--sp-xl); max-inline-size: var(--mass); }
   /* Der Hinweis markiert den Entwurf selbst; der Platzhalter darin bekommt keinen zweiten Rahmen (Kasten im Kasten) */
   .recht-freigabe .platzhalter { outline: none; background: none; padding: 0; }
   .recht-kopf { grid-area: kopf; }
@@ -70,7 +72,7 @@
   }
   @media (pointer: coarse) { .recht-toc a { min-block-size: var(--ziel-touch); } }
   @media (min-width: 64em) {
-    .recht-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); grid-template-areas: "freigabe freigabe" "kopf rand" "text rand"; }
+    .recht-teilung { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); grid-template-areas: "kopf rand" "text rand"; }
     .recht-rand { position: sticky; inset-block-start: calc(var(--kopf-hoehe-desktop) + var(--sp-m)); }
     /* Marke auf der Höhe der Kopflinie, „Inhalt“ auf der Grundlinie des Kickers (Abstand wie .kopf-linie) */
     .recht-rand-titel { gap: var(--sp-s); }
