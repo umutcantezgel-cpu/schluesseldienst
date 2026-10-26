@@ -14,7 +14,7 @@
 
 ## Abschlussbericht
 
-Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4f`, HEAD bei Erstellung `91baf4b`. Seit `72ed87c` hat sich unter `src/`, `bau/`, `test/` und `pipeline/` nichts geändert; die späteren Commits betreffen nur Dokumentation (`_werkstatt/`, `docs/`, `README.md`, `CLAUDE.md`).
+Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4f`, HEAD bei Erstellung `91baf4b`. Seit `72ed87c` hat sich unter `src/`, `bau/`, `test/` und `pipeline/` nichts geändert; die späteren Commits betreffen nur Dokumentation und Messbelege (`_werkstatt/`, `docs/`, `README.md`, `CLAUDE.md`).
 
 ### Ergebnis in Zahlen
 
@@ -31,18 +31,18 @@ Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4
 |---|---|---|
 | Z-01 Plan | erfüllt | `_werkstatt/PLAN.md` (Spalte Commit) |
 | Z-02 Bestand | erfüllt | `_werkstatt/berichte/E5-abschluss-pruefung.md` §5, `_werkstatt/protokolle/E5-abschluss/n5-bestand/` |
-| Z-03 Designsystem | erfüllt | `_werkstatt/protokolle/E5-abschluss/bau-72ed87c.log`, `z-pruefer/css-stichprobe.txt` |
+| Z-03 Designsystem | erfüllt | `_werkstatt/protokolle/E5-abschluss/bau-72ed87c.log`, `endstand-nach/token-stichprobe.json`, früher `z-pruefer/css-stichprobe.txt` |
 | Z-04 Gestaltung | AUSNAHME A-2 | `_werkstatt/berichte/E5-endpruefung.md` |
 | Z-05 Bewegung | erfüllt | `_werkstatt/protokolle/E5-abschluss/n5-bewegung/`, `_werkstatt/KERN.md` (K-007) |
 | Z-06 Grafik | erfüllt | `_werkstatt/protokolle/E5-abschluss/z-pruefer/svg-ids.json` |
-| Z-07 Zugänglichkeit | erfüllt mit U-6-Ersatz | `_werkstatt/protokolle/E5-abschluss/n5-bewegung/`, `pruefer-z07-z09/` |
+| Z-07 Zugänglichkeit | erfüllt mit U-6-Ersatz | `_werkstatt/protokolle/E5-abschluss/n5-bewegung/`, `endstand-nach/` (mit `ersatz/`), früher `pruefer-z07-z09/` |
 | Z-08 Leistung | erfüllt mit AUSNAHME A-1 | `_werkstatt/protokolle/E5-abschluss/n5-leistung/` |
-| Z-09 Darstellung | erfüllt | `_werkstatt/protokolle/E5-abschluss/z09-stichprobe/` (Zufallsstichprobe 50 Seiten, Sichtung), `n5-bewegung/ueberlauf.json`, `_werkstatt/bilder/abschluss/index.json` |
+| Z-09 Darstellung | erfüllt | `_werkstatt/protokolle/E5-abschluss/z09-stichprobe/` (Zufallsstichprobe 50 Seiten, Sichtung), `n5-bewegung/ueberlauf.json`, dunkel `pruefer-z07-z09/ueberlauf-dunkel.json` (Stand `4898dec`), `_werkstatt/bilder/abschluss/index.json` |
 | Z-10 Übergabe | erfüllt – siehe dieser Bericht, docs/, README, MENSCHEN.md | `_werkstatt/BERICHT.md`, `docs/ZUSAMMENFUEHREN.md` |
 
 ### Umgebungsausnahmen U-1 bis U-6
 
-- **U-1 Echte Geräte:** Ersatz ist die Chromium-Emulation mit 390 × 844 Pixeln; Tastatur-, Seitenwechsel- und Lighthouse-Läufe emulieren zusätzlich Touch, smoke, Überlauf und Bildsätze nur die Fenstergröße.
+- **U-1 Echte Geräte:** Ersatz ist die Chromium-Emulation mit 390 × 844 Pixeln. Touch emulieren zusätzlich die Fokusprotokolle, die Seitenwechsel-Probe und Lighthouse; die übrigen Läufe (u. a. smoke, Überlauf, Bildsätze, axe, Bewegung, Verdeckung) nur die Fenstergröße.
 - **U-2 Firefox und Safari:** Nur Chromium ist installiert. Funktionen mit Rückfall gebaut, geprüft mit Chromium und durch Code-Durchsicht.
 - **U-3 Bildrate mit GPU:** Ersatz ist die Messung mit vierfach gedrosselter CPU. Verworfene Bilder 0,83 bis 2,94 % (Grenze 5 %).
 - **U-4 Live-Header beim Hoster:** Kein Deploy. Die Header des Vorschau-Servers stammen aus derselben Quelle wie `_headers`, `.htaccess` und nginx (`kopfzeilen()`); nur HSTS lässt der Vorschau-Server bewusst weg, weil er über http läuft. Die Live-Prüfung `_werkstatt/werkzeuge/live-check.mjs` führt der Betrieb nach dem Deploy aus.
@@ -59,7 +59,7 @@ Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4
 
 - **Blindvergleich:** 24 von 24 Paaren zogen den neuen Stand vor (je Anlauf 12 von 12; in Anlauf 2 elfmal „sehr klar“, einmal „klar“). Die Vorbilder waren maskiert, die Reihenfolge zufällig, der Schlüssel wurde erst nach dem Urteil zugeordnet. Geprüft wurden V01, V03, V04 und V07.
 - **Ansichtswert:** Mittel aus sechs Kategorien nach der Rubrik aus AUFTRAG Abschnitt 9. Anlauf 1 nutzte eine mildere Skala, die Anläufe sind deshalb nur eingeschränkt vergleichbar. Bei Anlauf 2 lag in sieben Ansichten eine Kategorie unter 7 (V12 mit Impressum und 404 als eine Ansicht gezählt).
-- **Runde 3:** Umgesetzt wurden Befunde zu Kopf, Fuß, Karten, Ratgebern, Ortsseiten und Hubs. Dafür gab es keine neue formale Bewertung. Restpunkte stehen in `docs/OFFENE-PUNKTE.md` Nr. 36 bis 38.
+- **Runde 3:** Umgesetzt wurden Befunde zu Kopf, Fuß, Karten, Ratgebern, Ortsseiten und Hubs. Dafür gab es keine neue formale Bewertung. Restpunkte stehen in `docs/OFFENE-PUNKTE.md` Nr. 36 bis 39; Nr. 40 führt die Ausnahme A-2.
 
 ### Sicherheit
 
@@ -74,7 +74,7 @@ Die Abschluss-Nachprüfung lief in zwei Durchgängen mit Haiku-Prüfern; die Pro
 - **Befund:** Bei etwa jedem sechsten bis achten Seitenwechsel meldete Chromium „Transition was aborted because of invalid state. ViewTransition opt-in disabled“ als Fehler. Z-02 verlangt null Konsolenfehler und erlaubt dafür keine Ausnahme. Ein erster Fix, der die Ablehnungen abfing, wirkte nicht.
 - **Ursache:** Chromium legt die Freigabe des Übergangs beim Einfügen von `<body>` fest. Liegen die Stylesheets dann noch nicht vor, verwirft der Browser den vorbereiteten Übergang. Die Versuche zeigten 12 von 78 Wechseln mit Fehler im Ist-Stand.
 - **Lösung (D-E5-03):** Das Modul-Skript trägt `blocking="render"`. Ergebnis: 0 von 156 Wechseln mit Fehler, ohne zusätzliche Datei, die CSP unverändert. Lighthouse bildet diese Angabe an Modulen nicht ab; im gedrosselten Browser ist die Lösung 20 bis 90 ms langsamer als ganz ohne Fix.
-- **Offene Wahl (OFFENE-PUNKTE Nr. 45):** Ein klassisches Kopf-Skript (Commit `5807770`) wäre im gedrosselten Browser rund 250 ms schneller (FCP 1.107 statt 1.376 ms), verfehlt in der Simulation aber die Grenze von 2.500 ms auf `/preise/` (2.552 bis 2.557 ms). Für die Umstellung wird das Kopf-Skript mit seiner Einbindung aus Commit `5807770` übernommen (kleiner Eingriff in `src/vorlagen/layout.mjs`, `bau/bauen.mjs` und `src/assets/js/app.mjs`) und das Attribut `blocking="render"` entfernt.
+- **Offene Wahl (OFFENE-PUNKTE Nr. 45):** Ein klassisches Kopf-Skript (Commit `5807770`) wäre im gedrosselten Browser rund 250 ms schneller (FCP 1.107 statt 1.376 ms), verfehlt in der Simulation aber die Grenze von 2.500 ms auf `/preise/` (2.552 bis 2.557 ms). Die Umstellung übernimmt Kopf-Skript und Einbindung aus `5807770` und entfernt `blocking="render"`.
 
 ### Galerie und Bildsätze
 
@@ -92,8 +92,6 @@ Die vollständige Liste mit Zuständigkeiten steht in `docs/OFFENE-PUNKTE.md` (N
 4. **Nr. 12 Fakten:** 92 ungeprüfte Fakten gegen Primärquellen prüfen und freigeben.
 5. **Nr. 24 Repository:** Das öffentliche Repository enthält die Wettbewerber-Rohdaten im Verlauf; die Entscheidung liegt beim Betrieb und blockiert den Release nicht.
 
-Nr. 45 (Seitenwechsel) ist oben beschrieben, Nr. 40 (Gestaltung, A-2) steht in der Liste.
-
 ### Übergabe
 
 Die Anleitung in `docs/ZUSAMMENFUEHREN.md` beschreibt nur; ausgeführt ist nichts davon.
@@ -103,7 +101,7 @@ Die Anleitung in `docs/ZUSAMMENFUEHREN.md` beschreibt nur; ausgeführt ist nicht
 - **`_werkstatt/`:** Entfernen oder bewusst behalten. Beim Entfernen werden Verweise in README und `docs/` tot; die Befehle für OG-Bilder und Live-Prüfung brauchen `_werkstatt/werkzeuge/`.
 - **Historie:** Die Wettbewerber-Exporte liegen seit `ad81157` im Verlauf. Eine Bereinigung ändert diesen Commit und bricht `npm test`, `npm run orte` und `pipeline/fingerabdruck.mjs`.
 - **Kein Deploy:** Der Standardbau erzeugt nur eine Vorschau mit noindex. Ein Release braucht die Basis-URL und alle Punkte mit „Blockiert Release: ja“ aus `docs/OFFENE-PUNKTE.md` sowie die [RELEASE]-Punkte aus `_werkstatt/MENSCHEN.md`. Die Wahl zum Seitenwechsel (Nr. 45) ist eine Empfehlung, kein Blocker.
-- **Vor dem Abschluss:** Den Abschnitt „Werkstatt-Lauf“ aus `CLAUDE.md` entfernen (ZUSAMMENFUEHREN, Abschnitt 7). Nach diesem Bericht bestätigt ein frischer Opus-Prüfer jedes Kriterium, jede AUSNAHME und jede UMGEBUNGSAUSNAHME gegen ihre Belege (Abschlussregel des Auftrags); sein Urteil steht in `_werkstatt/berichte/E5-abschlusspruefer.md`.
+- **Abschluss:** Der Abschnitt „Werkstatt-Lauf“ ist aus `CLAUDE.md` entfernt; die Datei bestand nur daraus und ist gelöscht (ZUSAMMENFUEHREN, Abschnitt 7). Ein frischer Opus-Prüfer hat jedes Kriterium, jede AUSNAHME und jede UMGEBUNGSAUSNAHME gegen ihre Belege geprüft; Durchgang 2 bestätigt alle 18 Zeilen ohne Nachforderung (`_werkstatt/berichte/E5-abschlusspruefer.md`).
 
 ## Morgenbericht 26. Oktober 2026 (Stand 06:06 Uhr, überholt)
 _Unverändert aufbewahrt; Zahlen und Aussagen gelten für den Stand 06:06 Uhr (damals 319 bestandene Tests und 1 todo; Fokus nie ganz verdeckt). Maßgeblich ist der Abschlussbericht oben._

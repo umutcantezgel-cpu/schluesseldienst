@@ -1,0 +1,9 @@
+# Vorschau-Server der A-1-Vergleichsmessung und der Endmessung (ps -o pid,lstart,args), festgehalten 2026-10-26T13:11:43Z, Zeitzone des Systems: UTC
+# Alle Server laufen mit der Endstand-Fassung bau/vorschau.mjs aus dem Repo (Pfad /home/user/schluesseldienst/bau/vorschau.mjs bzw. relativ bau/vorschau.mjs im Repo), nicht mit der E2-Fassung aus e2-quelle/.
+ 7938 Mon Oct 26 11:59:31 2026 node /home/user/schluesseldienst/bau/vorschau.mjs --aus=/home/user/schluesseldienst/.cache/a1-vergleich/e2-dist --port=4281 --still
+ 7954 Mon Oct 26 11:59:31 2026 node /home/user/schluesseldienst/bau/vorschau.mjs --aus=/home/user/schluesseldienst/.cache/a1-vergleich/ohne-sonderstile --port=4282 --still
+ 7970 Mon Oct 26 11:59:31 2026 node /home/user/schluesseldienst/bau/vorschau.mjs --aus=/home/user/schluesseldienst/.cache/a1-vergleich/ohne-js --port=4283 --still
+ 7988 Mon Oct 26 11:59:31 2026 node /home/user/schluesseldienst/bau/vorschau.mjs --aus=/home/user/schluesseldienst/.cache/a1-vergleich/e2-dist --port=4285 --still --komprimieren
+13356 Mon Oct 26 08:56:53 2026 node bau/vorschau.mjs --aus=.cache/e5-final/dist --port=4251 --still
+13358 Mon Oct 26 08:56:53 2026 node bau/vorschau.mjs --aus=.cache/e5-final/dist --port=4254 --still --komprimieren
+# Repo-Stand bau/vorschau.mjs: c6ed8e2 2026-10-25T21:32:46+00:00 (seit 72ed87c unverändert: ja)

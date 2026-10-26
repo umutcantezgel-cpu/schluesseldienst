@@ -85,4 +85,4 @@ Ein Release baut die Website mit ihrer endgültigen Adresse; indexierbare Seiten
 
 ## 7. Zum Abschluss
 
-Beim Abschluss der Entstehung wird der Abschnitt „Werkstatt-Lauf (nur für den Orchestrator)“ aus `CLAUDE.md` entfernt. Er steuert nur die Arbeit des Werkstatt-Laufs.
+Zum Abschluss der Entstehung ist der Abschnitt „Werkstatt-Lauf (nur für den Orchestrator)“ aus `CLAUDE.md` entfernt. Die Datei bestand nur aus diesem Abschnitt und ist deshalb gelöscht. Der Abschnitt steuerte nur die Arbeit des Werkstatt-Laufs.

@@ -26,7 +26,7 @@ Die Befunde unten (B1 bis B16) begründen die Einstufungen.
 ## 2. Schritte
 
 1. **Bestand.** `npm test`: 292 Tests, 291 bestanden, 0 fehlgeschlagen, 1 todo. Messbuild: Exit 0, 5.556 Seiten, alle Prüfer 0 Fehler, SEO 72 Warnungen (alle `seo/titel-laenge-ort`, Ortsseiten, D-SEO-04). Platzhalter in der Ausgabe 65, in der Konfiguration 58, ungeprüfte Fakten 92.
-2. **Vorschau 4201.** Antwortet mit 200, Header identisch zur Produktion. Unbekannter Pfad 404.
+2. **Vorschau 4201.** Antwortet mit 200, Header identisch zur Produktion [Nachtrag 2026-10-26: nicht identisch – gleiche Quelle `kopfzeilen()`, die Vorschau lässt HSTS über http bewusst weg, siehe ABNAHME U-4]. Unbekannter Pfad 404.
 3. **Hauptansichten.** 13 Pfade, V12 mit `/impressum/` und `/gibt-es-nicht/`.
 4. **Stichprobe.** Siehe oben.
 5. **smoke, axe, ueberlauf, vnu.**
