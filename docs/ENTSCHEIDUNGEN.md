@@ -82,6 +82,10 @@ Diese Liste fasst die wichtigsten Entscheidungen zur Website zusammen, jeweils m
 
 **Problem:** Die Sichtprüfung ergab in allen Ansichten 6,5 bis 7,7 statt mindestens 8 Punkte; die Nachprüfung fand einen Blocker: Auf dem Handy lag der Fokus unter der Rufleiste (WCAG 2.4.11). **Entscheidung:** Der Fokus wird nie verdeckt (Abstand für Rufleiste und Kopfzeile beim Bildlauf), jede Seite trägt genau eine Kopflinie als Leitelement, Überschriften werden nie automatisch getrennt, und Karten erhalten einheitliche Bewegungen. **Grund:** Ein sichtbarer, nie verdeckter Fokus ist eine Anforderung der Barrierefreiheit; die Kopflinie verbindet die Seiten optisch.
 
+## D-E5-03 · Kleines Kopf-Skript für ruckfreie Seitenwechsel
+
+**Problem:** Beim Wechsel zwischen Seiten meldete Chromium in etwa jedem sechsten bis achten Fall einen Fehler in der Konsole, weil der Browser die Überblendung (Seitenwechsel-Übergang) verwarf: Er legt beim Beginn des Seiteninhalts fest, ob eine Seite den Übergang wünscht, und die Stildateien waren in diesen Fällen noch nicht geladen. **Entscheidung:** Ein winziges Skript (rund 0,3 KB, eigene Datei mit Prüfsumme) steht im Kopf nach den Stildateien; der Browser liest die Seite erst weiter, wenn die Stile da sind. Es fängt zugleich ab, wenn der Browser einen Übergang überspringt. **Grund:** Messungen mit 0 Fehlern statt etwa 15 %; die Stildateien blockieren die Darstellung ohnehin, das Skript fügt nur eine kleine Datei hinzu. Ohne Inline-Skript, die Sicherheitsregeln (CSP) bleiben unverändert. Einzelheiten und Versuche: `_werkstatt/ENTSCHEIDUNGEN.md` (D-E5-03), `_werkstatt/berichte/E5-abschluss-pruefung.md`.
+
 ## Überholte Vorschläge
 
 Frühere Einzelvorschläge zu Adressen, Zonenradien, Datenaufteilung, Prüfregeln, Formularen und Animationen sind durch die festgelegte Fassung ersetzt, deren Abweichungen ausführlich in `_werkstatt/ENTSCHEIDUNGEN.md` stehen.

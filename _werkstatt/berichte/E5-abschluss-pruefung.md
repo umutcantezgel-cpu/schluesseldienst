@@ -55,6 +55,63 @@ Nicht geändert, mit Begründung:
 - **Kreislinien der Lagekarte am Kartenrahmen angeschnitten (fernere Orte, z. B. Flonheim, Detmold-Berlebeck, Tilligte):** Der gestrichelte Ring um Weilburg reicht dort über den Kartenausschnitt hinaus; kein Text betroffen, kein Überlauf. Gestaltungspunkt ohne Fehlerwirkung, eingetragen in `docs/OFFENE-PUNKTE.md` (Lagekarte: Ausschnitt so wählen, dass der Ring ganz sichtbar bleibt, oder bewusst als Anschnitt gestalten).
 - **Weiches Bewegungsbudget 12 KB:** siehe Nachprüfung 2, Punkt Bewegungscode.
 
-## 3. Nachprüfung 2 (Stand `e719627`, Workflow `e5-abschluss-nachpruefung-2`)
+## 3. Nachprüfung 2 (Stand `e719627`, Workflows `e5-abschluss-nachpruefung-2` und `n2-bewegung-rest`)
+
+Der erste Lauf brach am Sitzungslimit ab; seine Teilergebnisse sind verwertbar, der Rest wurde nachgeholt. Belege unter `_werkstatt/protokolle/E5-abschluss/n2-bestand/` und `n2-bewegung/`.
+
+| Prüfung | Ergebnis | Messung | Beleg |
+|---|---|---|---|
+| `npm test` | erfüllt | 331 Tests, 330 bestanden, 0 fehlgeschlagen, 1 todo | `n2-bestand/npm-test.log` |
+| smoke 4251/4254 | erfüllt | 0 fremde Anfragen, 0 CSP-Verstöße, Meldungen nur an der gewollten 404 | `n2-bestand/smoke-4251.json`, `n2-bestand/smoke-4254.json` |
+| Seitenwechsel ohne Konsolenfehler | **nicht erfüllt** | Der Abfang aus `e719627` wirkt nicht: Skript-Sprung 5 und 6 von 30, Link-Wechsel 8 von 48 | `n2-bestand/seitenwechsel-skript.json`, `n2-bestand/seitenwechsel-links.json` → Abschnitt 4 |
+| INP alle Aktionsdateien | erfüllt | max. 88 ms (/einsatzgebiet/hessen/limburg-weilburg/), Kontakt 48/56 ms (Aktionsdatei läuft jetzt) | `n2-bestand/inp-*.json` |
+| Lighthouse /, /preise/, gzip / | erfüllt | / Perf 97 · LCP 2.412 ms · CLS 0,014; /preise/ 96 · 2.410 ms · 0; gzip / 99 · 1.659 ms | `n2-bestand/lh-*.json` |
+| Reduzierte Bewegung, Interaktionen (FAQ, Navigation, Menü-Blatt, Ortsprüfung, Composer, Gruppenfilter, Drücken) | erfüllt | 0 Übergänge oder Animationen mit transform unter reduce; nur Deckkraft (150 ms ein, 120 ms aus); Kontrolle no-preference zeigt Bewegung | `n2-bewegung/interaktionen.json`, `n2-bewegung/rest-active.json`, `n2-bewegung/ergebnis.md` |
+| Reduzierte Bewegung, Laden und Scrollen | erfüllt | 13 Hauptansichten × 2 Geräte: 0 Animationen mit transform, 0 Sichtbarkeitsprobleme | `n2-bewegung/laden.json` |
+| Bewegungscode | erfüllt | reiner Bewegungscode 2.349 B gz (CSS-Anteil 1.313, `abspielen.mjs` 465, `szene.mjs` 571); `tagesband.mjs` ist Anzeige- und Rechenlogik, keine Bewegung; weiches Budget 12 KB und hartes 60 KB eingehalten | `n2-bewegung/rest-groesse.json` |
+| Register K-007 | teilweise → behoben | Abweichungen: Menü-Blatt schloss ohne Übergang (M-06), Navigationspfeil schloss in 300 statt 240 ms (M-05), Listen- und Registerzeilen drücken mit Übergang (M-03), Kupferring ohne Deckkraft (M-18), M-20 pausiert während eines Seitenwechsels (nicht im Register) | `n2-bewegung/ergebnis.md` |
+
+Behebungen dazu (Commits `5807770` und `b5a1ebd`, Endstand `b5a1ebd`):
+- `menue-blatt.css`: Ausgang 240 ms (reduziert 120 ms Deckkraft) über `display`/`overlay` mit `allow-discrete`, damit das Blatt beim Schließen sichtbar bleibt.
+- `hauptnav.css`: Pfeil schließt in `--dur-zustand-aus`.
+- KERN K-007: M-03 (Listenzeilen mit Übergang), M-06 (aus), M-18 (Kupferring nur scale), M-20 (Pause während `:active-view-transition`) wie umgesetzt beschrieben.
+
+## 4. Seitenwechsel-Fehler: Ursache, Versuche, Entscheidung (D-E5-03)
+
+**Befund:** Chromium meldete bei etwa jedem sechsten bis achten Seitenwechsel als unbehandelte Ablehnung: „Transition was aborted because of invalid state. ViewTransition opt-in disabled“. Z-02 verlangt 0 Konsolenfehler und erlaubt keine AUSNAHME.
+
+**Diagnose:** Haiku hat mit einer eigenen Probe gemessen (`vt-versuche/vt-probe.mjs`). Ein Init-Skript läuft in jedem neuen Dokument vor allen Seitenskripten und protokolliert:
+- `pageswap` und `pagereveal` jeweils mit oder ohne Übergang,
+- den Ladezustand und ob das Modul schon lief,
+- jede unbehandelte Ablehnung mit dem Dokument, in dem sie entsteht.
+
+Ergebnis:
+- In **jedem** fehlerhaften Wechsel deckte das neue Dokument früh auf (76–118 ms, das Modul war noch nicht gelaufen) und hatte dabei schon keinen Übergang mehr.
+- Die Ablehnung entstand rund 30 ms später im neuen Dokument.
+- In fehlerfreien Wechseln deckte es später auf, mit Übergang.
+
+Chromium legt den Opt-in (`@view-transition`) beim Einfügen von `<body>` fest. Liegen die Stylesheets dann noch nicht vor und folgt vor dem Aufdecken kein weiteres Stil-Update, gilt „kein Opt-in“, und der vorbereitete Übergang wird verworfen.
+
+| Variante | Wechsel mit Fehler | Bemerkung | Beleg (`vt-versuche/`) |
+|---|---|---|---|
+| X0 Ist-Stand | 12 von 78 (Desktop) | pagereveal ohne Übergang genau in den Fehlerfällen | `X0/*.json` |
+| X1 Abnehmer vor allen Seitenskripten (Init-Skript) | 14 von 78 (Desktop), 8 von 30 (mobil) | 0 abgefangen – es gibt beim Aufdecken nichts mehr abzufangen | `X1/*.json` |
+| X7 Opt-in zusätzlich in jeder Ansichts-CSS | 16 von 156 | Ladefolge der beiden blockierenden Stylesheets ist nicht die Ursache | `X7/*.json` |
+| X9 klassisches Skript nach den Stil-Links | **0 von 78** (Desktop) | jeder Wechsel deckt mit Übergang auf | `X9/*.json` |
+
+X2 (Opt-in außerhalb von `@layer`/`@media`), X4 (Skript vor den Stilen), X6 (ohne Opt-in) und X10 (Modul mit `blocking="render"`) wurden nach der Diagnose abgebrochen, bevor sie Ergebnisse hatten:
+- X4 setzt wie X1 zu spät an.
+- X6 hieße, M-15 abzuschalten.
+- X2 und X10 greifen nicht an der Stelle, an der Chromium den Opt-in festlegt.
+
+**Entscheidung (D-E5-03):**
+- `src/assets/js/kopf.js` ist ein klassisches Skript mit SRI.
+- Es steht nach den Stil-Links und vor dem Modul.
+- Es wartet auf die Stylesheets und hält den Parser vor `<body>` an.
+- Zugleich fängt es übersprungene Übergänge ab (`pageswap`/`pagereveal`); im Modul kam das zu spät, der Code dort entfällt.
+- Größe 293 B roh, 237 B gz. CSP unverändert, kein Inline-Skript.
+- Die Messung des Endstands steht in Abschnitt 5.
+
+## 5. Endmessung (Stand `b5a1ebd`, Workflow `e5-final-nachpruefung-2`)
 
 (wird nach dem Lauf ergänzt)
