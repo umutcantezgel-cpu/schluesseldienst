@@ -25,66 +25,66 @@ Ratgeber-Artikel: ausgesperrt-was-tun · tuer-zugefallen-oder-abgeschlossen · s
 ## Pflichtpakete (nach Wirkung, je Etappe)
 | Kennung | Ziel | Rolle | Modell | Stufe | Schreibrechte (Kern) | Abh. | Kriterium | Commit |
 |---|---|---|---|---|---|---|---|---|
-| E0-PRUEF-01 | Werkzeuge Bild/Bildsatz/Überlauf/axe/Smoke | Prüfer | H | 1 | `_werkstatt/werkzeuge/{bild,bildsatz,ueberlauf,axe,smoke}.mjs` | – | Z-02 Z-07 Z-09 | |
-| E0-PRUEF-02 | Werkzeuge Lighthouse/vnu/Bildrate/INP + README | Prüfer | H | 1 | `_werkstatt/werkzeuge/{lighthouse,vnu,bildrate,inp}.mjs, README.md` | – | Z-05 Z-08 | |
-| E0-KUND-01 | Themenmatrix A | Kundschafter | H | 1 | `_werkstatt/berichte/E0-themen-a.md` | – | Z-01 | |
-| E0-KUND-02 | Themenmatrix B | Kundschafter | H | 1 | `_werkstatt/berichte/E0-themen-b.md` | – | Z-01 | |
-| E0-PRUEF-03 | Vorher-Baseline Wettbewerber (maskiert, Kennzahlen) | Prüfer | H | 1 | `_werkstatt/werkzeuge/vorher.mjs`, `_werkstatt/berichte/E0-vorher-kennzahlen.md` | 01, 02 | Z-04 Z-08 (informativ) | |
-| E2-OPUS-01 | Generator-Kern: html-Escaping, Konfig, Platzhalter/Verifizieren, Routen, Layout-Gerüst, Assets (Fingerabdruck, SRI, CSS, JS-Bündel), Build-Modi, Vorschau-Server, Hoster-Konfigurationen | Opus | Opus | 3 | `package.json`, `bau/**`, `src/konfig/**`, `src/vorlagen/layout.mjs` | – | Z-02 | |
-| E2-OPUS-02 | Prüfer-Kern: Sicherheits-Linter S01–S21, SEO-Prüfer (Titel/Meta/H1/Canonical/Sitemap), Linkgraph, Prüfer-Schnittstelle | Opus | Opus | 3 | `bau/pruefen/{index,sicherheit,seo,links}.mjs`, `test/fixtures/pruefen/**` | 01 | Z-02 Z-07 | |
-| E2-PRUEF-04 | Plagiatsprüfer + Fingerabdruck (nur Hashes) | Prüfer | H | 2 | `bau/pruefen/plagiat.mjs`, `bau/pruefen/fingerabdruck.json`, `pipeline/fingerabdruck.mjs`, `test/plagiat.test.mjs` | 02 | Z-02 | |
-| E2-PRUEF-05 | Ehrlichkeits-, Fakten-, Marken-, Emoji-Prüfer | Prüfer | H | 2 | `bau/pruefen/{ehrlichkeit,fakten,emoji}.mjs`, `test/ehrlichkeit.test.mjs` | 02 | Z-02 Z-03 | |
-| E2-PRUEF-06 | Token-Linter, JSON-LD-Prüfer, Budget-Prüfer | Prüfer | H | 2 | `bau/pruefen/{token,jsonld,budgets}.mjs`, `test/token.test.mjs` | 02 | Z-03 Z-08 | |
-| E2-OPUS-03 | Technik-Spike (Stub-Seite: CSP, Trusted Types, COEP, Schrift, View Transition, Symbole, SVG-Animation) | Opus | Opus | 3 | `src/vorlagen/seiten/spike.mjs` (später entfernt) | 01 | Z-05 Z-08 | |
-| E2-PRUEF-07 | Spike vermessen: Smoke, axe, Lighthouse, vnu, Bildrate; Kalibrier-Fixtures rot | Prüfer | H | 1 | `_werkstatt/berichte/E2-spike.md` | 03 | Z-05 Z-08 | |
-| E2-BAU-01 | Orts-Pipeline 00-laden/10-quellen/20-index mit Zusicherungen | Baumeister | H | 2 | `pipeline/orte/{00-laden,10-quellen,20-index}.mjs`, `pipeline/orte/lib.mjs`, `test/pipeline-quellen.test.mjs` | 01 | Z-02 | |
-| E2-OPUS-04 | Orts-Abgleich 30 + Gold-Set + Kalibrierung | Opus | Opus | 3 | `pipeline/orte/30-abgleich.mjs`, `pipeline/orte/gold.json`, `pipeline/orte/regeln.json`, `pipeline/orte/zuordnung-manuell.json`, `test/abgleich.test.mjs` | BAU-01 | Z-02 | |
-| E2-BAU-02 | Orts-Pipeline 40-umkreis/50-anreichern/60-slugs/90-pruefen, `orte.json`, Indizes | Baumeister | H | 2 | `pipeline/orte/{40,50,60,90}-*.mjs`, `pipeline/orte/alle.mjs`, `src/daten/orte*.json`, `src/daten/slug-register.json`, `test/geo.test.mjs`, `test/slug.test.mjs` | OPUS-04 | Z-02 | |
-| E2-OPUS-05 | Tokens, Basis-CSS, Layout, Kopf, Fuß, Rufleiste, Icon-Grundlage (15 Icons), Schriften | Opus | Opus | 3 | `src/assets/css/**`, `src/assets/schriften/**`, `src/assets/icons/*.svg` (15), `src/vorlagen/teile/{kopf,fuss,rufleiste,icons}.mjs` | 01 | Z-03 Z-06 Z-07 | |
-| E2-OPUS-06 | Referenz V01 Startseite komplett: I-01, M-16, Ortssuche/PLZ-Prüfung (JS), Preisauszug, Triage, Register, Ablauf, Seriös-erkennen, FAQ | Opus | Opus | 3 | `src/vorlagen/seiten/start.mjs`, `src/inhalte/start.mjs`, `src/assets/js/**`, `src/assets/css/komponenten/*.css` | 05 | Z-04 Z-05 | |
-| E2-OPUS-07 | Registries: Routen, Navigation, Themenpässe aller Inhaltsseiten | Opus | Opus | 3 | `src/konfig/{navigation,routen,themenpaesse}.mjs` | 01 | Z-01 | |
-| E2-PRUEF-08 | Prüfstufe B Referenz + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E2-pruefstufe-b.md`, `_werkstatt/bilder/E2/**` | 06 | Z-02…Z-09 | |
-| E2-REVIEW | Sichtabnahme Referenz (frischer Opus-Agent) ≥ 8 | Opus | Opus | 3 | `_werkstatt/berichte/E2-sichtabnahme.md` | PRUEF-08 | Z-04 | 2 Anläufe: 6,8 → 7,5 (offen, s. u.) |
-| E3-OPUS-01 | Szenen-Engine M-17 + Illustrationen I-03/I-04/I-05 | Opus | Opus | 3 | `src/assets/js/module/szene.mjs`, `src/vorlagen/teile/illustrationen/*.mjs` | E2 | Z-05 Z-06 | |
-| E3-OPUS-02 | V02-Vorlage + Gruppenseite `/notoeffnung/` als Muster | Opus | Opus | 3 | `src/vorlagen/seiten/gruppe.mjs`, `src/inhalte/notoeffnung/index.mjs` | E3-OPUS-01 | Z-04 | |
-| E3-BAU-01…03 | Gruppenseiten `/einbruchschutz/`, `/sicherheitstechnik/`, `/einbau-tresore/` (je 1 Paket) | Baumeister | H | 2 | je genau eine Datei: `src/inhalte/einbruchschutz/index.mjs` · `src/inhalte/sicherheitstechnik/index.mjs` · `src/inhalte/einbau-tresore/index.mjs` | E3-OPUS-02 | Z-01 Z-04 | |
-| E3-GRAF-01…03 | Icons nach Vertrag (restliche, in 3 Paketen) + Geometrie-Linter | Grafiker | H | 2 | exakte Icon-Dateiliste je Paket (disjunkt, im Paketblatt), `bau/pruefen/icons.mjs` nur GRAF-01 | E2-OPUS-05 | Z-06 | |
-| E3-PRUEF-09 | Unit-Tests Logik (Preise, Mailto, Ortsindex, Redirects) | Prüfer | H | 2 | `test/{preise,mailto,ortsindex,redirect}.test.mjs` | E2-OPUS-01, E2-OPUS-02 | Z-02 | |
-| E3-OPUS-03 | V03-Vorlage + `/notoeffnung/tueroeffnung/` als Muster | Opus | Opus | 3 | `src/vorlagen/seiten/leistung.mjs`, `src/inhalte/notoeffnung/tueroeffnung.mjs` | E3-OPUS-02 | Z-04 | |
-| E3-BAU-04…11 | 22 Detailseiten in Dreierpaketen (8 Pakete) | Baumeister | H | 2 | je 3 Dateien `src/inhalte/{gruppe}/{seite}.mjs`, Namen im Paketblatt, disjunkt | E3-OPUS-03 | Z-01 | |
-| E3-OPUS-04 | V07 Ortsseiten-Vorlage, Zonentexte, Orts-FAQ, Lagekarte, Weilburg-Seite | Opus | Opus | 3 | `src/vorlagen/seiten/ort.mjs`, `src/inhalte/orte/**` | E2-BAU-02 | Z-01 Z-08 | |
-| E3-BAU-12 | V06 Hubs Land/Kreis + A–Z-Verzeichnis | Baumeister | H | 2 | `src/vorlagen/seiten/hub.mjs`, `src/assets/css/komponenten/az.css` | E3-OPUS-04 | Z-01 | |
-| E3-PRUEF-10 | Linkgraph-, Ähnlichkeits- und Ortsstichproben-Messung (100 Orte) | Prüfer | H | 1 | `_werkstatt/berichte/E3-orte.md` | E3-BAU-12, E3-OPUS-04 | Z-02 | |
-| E3-PRUEF-11 | Prüfstufe B Etappe 3 + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E3-pruefstufe-b.md` | E3-OPUS-01…04, E3-BAU-01…12 | Z-02…Z-09 | |
-| E4-OPUS-01 | V04 Preise + Rechner + 24-h-Zeitfensterleiste | Opus | Opus | 3 | `src/vorlagen/seiten/preise.mjs`, `src/assets/js/module/preisrechner.mjs`, `src/assets/js/logik/preise.mjs` | E3 | Z-01 Z-07 | |
-| E4-OPUS-02 | Mailto-Logik + V10 Kontakt | Opus | Opus | 3 | `src/assets/js/logik/mailto.mjs`, `src/assets/js/module/composer.mjs`, `src/vorlagen/seiten/kontakt.mjs` | E3 | Z-01 Z-07 | |
-| E4-OPUS-03 | V05 Einsatzgebiet + I-10 Rasterkarte + M-18/M-19 | Opus | Opus | 3 | `src/vorlagen/seiten/einsatzgebiet.mjs`, `pipeline/karte.mjs`, `src/assets/js/module/karte.mjs` | E3 | Z-04 Z-05 | |
-| E4-OPUS-04 | V08 Ratgeber-Vorlagen (Übersicht + Artikel) + Muster-Artikel `schluesseldienst-abzocke-erkennen` | Opus | Opus | 3 | `src/vorlagen/seiten/{ratgeber,artikel}.mjs`, `src/inhalte/ratgeber/schluesseldienst-abzocke-erkennen.mjs` | E3 | Z-01 | |
-| E4-KUND-03…05 | Faktenblätter mit Primärquellen (Ratgeber, Landesregeln) | Kundschafter | H | 1 | exakte Dateiliste `src/inhalte/fakten/*.mjs` je Paket (disjunkt) | E2-OPUS-07, E4-OPUS-04 | Z-01 | |
-| E4-BAU-13…18 | 18 Ratgeber-Artikel in Dreierpaketen (6 Pakete) | Baumeister | H | 2 | je 3 Dateien `src/inhalte/ratgeber/*.mjs`, Namen im Paketblatt, disjunkt | E4-OPUS-04, E4-KUND-03…05 | Z-01 | |
-| E4-BAU-19 | V09 Über uns (ohne M-20) + Karriere-Vorlage mit Fixture | Baumeister | H | 2 | `src/vorlagen/seiten/{ueber-uns,karriere}.mjs`, `src/inhalte/ueber-uns.mjs` | E3-OPUS-02 (Muster Erzählansicht) | Z-01 | |
-| E4-OPUS-05 | M-20 „Der gerade Weg“ + I-11 Lahnbogen | Opus | Opus | 3 | `src/vorlagen/teile/illustrationen/lahnbogen.mjs` | BAU-19 | Z-04 Z-05 | |
-| E4-BAU-20 | Recht-Entwürfe: Impressum, Datenschutz, Widerruf, Barrierefreiheit, Quellen & Lizenzen | Baumeister | H | 2 | `src/inhalte/recht/*.mjs`, `src/vorlagen/seiten/recht.mjs` | E3-OPUS-03 (Muster Arbeitsansicht) | Z-01 Z-10 | |
-| E4-BAU-21 | V11 Suche (Index + Modul), `/sitemap/`, `/leistungen/`-Register mit Filter, 404 mit M-21 | Baumeister | H | 2 | `src/vorlagen/seiten/{suche,sitemap,leistungen,fehler}.mjs`, `src/assets/js/module/suche.mjs` | E3-OPUS-03, E2-OPUS-06 (Ortssuche als Muster) | Z-01 | |
-| E4-GRAF-04 | OG-Bilder (PNG je Seitentyp und Zone) per Werkzeugskript | Grafiker | H | 2 | `_werkstatt/werkzeuge/og.mjs`, `src/assets/og/*.png` | E2-OPUS-05, E2-OPUS-06 | Z-06 | |
-| E4-PRUEF-12 | `live-check.mjs` (Header, MIME, 404, Weiterleitungen) | Prüfer | H | 2 | `werkzeuge/live-check.mjs` | E2-OPUS-01 | Z-10 | |
-| E4-DOK-01 | README, `docs/` (BETRIEB, OFFENE-PUNKTE, Hoster-Checkliste) | Dokumentar | H | 1 | `README.md`, `docs/*.md` | E2-OPUS-01, E4-OPUS-01…05 | Z-10 | |
-| E4-PRUEF-13 | Prüfstufe B Etappe 4 + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E4-pruefstufe-b.md` | E4-OPUS-01…05, E4-BAU-13…21 | Z-02…Z-09 | |
-| E5-PRUEF-14 | Prüfstufe C | Prüfer | H | 1 | `_werkstatt/berichte/E5-pruefstufe-c.md`, `_werkstatt/bilder/abschluss/**` | alle Pflichtpakete E2–E4; Maßstab E2-REVIEW | alle | |
-| E5-DOK-02 | BERICHT + Galerie (blind, Schlüssel getrennt), `werkzeuge/` und `docs/` herauslösen | Dokumentar | H | 1 | `_werkstatt/BERICHT.md`, `_werkstatt/bilder/galerie.html` | E5-PRUEF-14, E2-REVIEW | Z-04 Z-10 | |
-| E5-REVIEW | Endprüfung frischer Opus-Agent | Opus | Opus | 3 | `_werkstatt/berichte/E5-endpruefung.md` | DOK-02 | alle | |
+| E0-PRUEF-01 | Werkzeuge Bild/Bildsatz/Überlauf/axe/Smoke | Prüfer | H | 1 | `_werkstatt/werkzeuge/{bild,bildsatz,ueberlauf,axe,smoke}.mjs` | – | Z-02 Z-07 Z-09 | eb9b332 |
+| E0-PRUEF-02 | Werkzeuge Lighthouse/vnu/Bildrate/INP + README | Prüfer | H | 1 | `_werkstatt/werkzeuge/{lighthouse,vnu,bildrate,inp}.mjs, README.md` | – | Z-05 Z-08 | eb9b332 |
+| E0-KUND-01 | Themenmatrix A | Kundschafter | H | 1 | `_werkstatt/berichte/E0-themen-a.md` | – | Z-01 | eb9b332 |
+| E0-KUND-02 | Themenmatrix B | Kundschafter | H | 1 | `_werkstatt/berichte/E0-themen-b.md` | – | Z-01 | eb9b332 |
+| E0-PRUEF-03 | Vorher-Baseline Wettbewerber (maskiert, Kennzahlen) | Prüfer | H | 1 | `_werkstatt/werkzeuge/vorher.mjs`, `_werkstatt/berichte/E0-vorher-kennzahlen.md` | 01, 02 | Z-04 Z-08 (informativ) | 3f5de6e, 7422b0f (über Dateien) |
+| E2-OPUS-01 | Generator-Kern: html-Escaping, Konfig, Platzhalter/Verifizieren, Routen, Layout-Gerüst, Assets (Fingerabdruck, SRI, CSS, JS-Bündel), Build-Modi, Vorschau-Server, Hoster-Konfigurationen | Opus | Opus | 3 | `package.json`, `bau/**`, `src/konfig/**`, `src/vorlagen/layout.mjs` | – | Z-02 | 3f5de6e |
+| E2-OPUS-02 | Prüfer-Kern: Sicherheits-Linter S01–S21, SEO-Prüfer (Titel/Meta/H1/Canonical/Sitemap), Linkgraph, Prüfer-Schnittstelle | Opus | Opus | 3 | `bau/pruefen/{index,sicherheit,seo,links}.mjs`, `test/fixtures/pruefen/**` | 01 | Z-02 Z-07 | ab0e306 |
+| E2-PRUEF-04 | Plagiatsprüfer + Fingerabdruck (nur Hashes) | Prüfer | H | 2 | `bau/pruefen/plagiat.mjs`, `bau/pruefen/fingerabdruck.json`, `pipeline/fingerabdruck.mjs`, `test/plagiat.test.mjs` | 02 | Z-02 | 3f5de6e |
+| E2-PRUEF-05 | Ehrlichkeits-, Fakten-, Marken-, Emoji-Prüfer | Prüfer | H | 2 | `bau/pruefen/{ehrlichkeit,fakten,emoji}.mjs`, `test/ehrlichkeit.test.mjs` | 02 | Z-02 Z-03 | 271d580 |
+| E2-PRUEF-06 | Token-Linter, JSON-LD-Prüfer, Budget-Prüfer | Prüfer | H | 2 | `bau/pruefen/{token,jsonld,budgets}.mjs`, `test/token.test.mjs` | 02 | Z-03 Z-08 | 271d580 |
+| E2-OPUS-03 | Technik-Spike (Stub-Seite: CSP, Trusted Types, COEP, Schrift, View Transition, Symbole, SVG-Animation) | Opus | Opus | 3 | `src/vorlagen/seiten/spike.mjs` (später entfernt) | 01 | Z-05 Z-08 | 3f5de6e, 271d580 (über Dateien) |
+| E2-PRUEF-07 | Spike vermessen: Smoke, axe, Lighthouse, vnu, Bildrate; Kalibrier-Fixtures rot | Prüfer | H | 1 | `_werkstatt/berichte/E2-spike.md` | 03 | Z-05 Z-08 | offen: kein Commit, Bericht E2-spike.md fehlt im Verlauf |
+| E2-BAU-01 | Orts-Pipeline 00-laden/10-quellen/20-index mit Zusicherungen | Baumeister | H | 2 | `pipeline/orte/{00-laden,10-quellen,20-index}.mjs`, `pipeline/orte/lib.mjs`, `test/pipeline-quellen.test.mjs` | 01 | Z-02 | 3f5de6e |
+| E2-OPUS-04 | Orts-Abgleich 30 + Gold-Set + Kalibrierung | Opus | Opus | 3 | `pipeline/orte/30-abgleich.mjs`, `pipeline/orte/gold.json`, `pipeline/orte/regeln.json`, `pipeline/orte/zuordnung-manuell.json`, `test/abgleich.test.mjs` | BAU-01 | Z-02 | 0459321 |
+| E2-BAU-02 | Orts-Pipeline 40-umkreis/50-anreichern/60-slugs/90-pruefen, `orte.json`, Indizes | Baumeister | H | 2 | `pipeline/orte/{40,50,60,90}-*.mjs`, `pipeline/orte/alle.mjs`, `src/daten/orte*.json`, `src/daten/slug-register.json`, `test/geo.test.mjs`, `test/slug.test.mjs` | OPUS-04 | Z-02 | 271d580 |
+| E2-OPUS-05 | Tokens, Basis-CSS, Layout, Kopf, Fuß, Rufleiste, Icon-Grundlage (15 Icons), Schriften | Opus | Opus | 3 | `src/assets/css/**`, `src/assets/schriften/**`, `src/assets/icons/*.svg` (15), `src/vorlagen/teile/{kopf,fuss,rufleiste,icons}.mjs` | 01 | Z-03 Z-06 Z-07 | 3f5de6e (im Commit als „Teil“ ausgewiesen) |
+| E2-OPUS-06 | Referenz V01 Startseite komplett: I-01, M-16, Ortssuche/PLZ-Prüfung (JS), Preisauszug, Triage, Register, Ablauf, Seriös-erkennen, FAQ | Opus | Opus | 3 | `src/vorlagen/seiten/start.mjs`, `src/inhalte/start.mjs`, `src/assets/js/**`, `src/assets/css/komponenten/*.css` | 05 | Z-04 Z-05 | 271d580 (über Dateien) |
+| E2-OPUS-07 | Registries: Routen, Navigation, Themenpässe aller Inhaltsseiten | Opus | Opus | 3 | `src/konfig/{navigation,routen,themenpaesse}.mjs` | 01 | Z-01 | 7422b0f |
+| E2-PRUEF-08 | Prüfstufe B Referenz + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E2-pruefstufe-b.md`, `_werkstatt/bilder/E2/**` | 06 | Z-02…Z-09 | 7422b0f |
+| E2-REVIEW | Sichtabnahme Referenz (frischer Opus-Agent) ≥ 8 | Opus | Opus | 3 | `_werkstatt/berichte/E2-sichtabnahme.md` | PRUEF-08 | Z-04 | 2 Anläufe: 6,8 → 7,5 (offen, s. u.) · a7979cf (Anlauf 1), 85953fa (Anlauf 2) |
+| E3-OPUS-01 | Szenen-Engine M-17 + Illustrationen I-03/I-04/I-05 | Opus | Opus | 3 | `src/assets/js/module/szene.mjs`, `src/vorlagen/teile/illustrationen/*.mjs` | E2 | Z-05 Z-06 | 85953fa |
+| E3-OPUS-02 | V02-Vorlage + Gruppenseite `/notoeffnung/` als Muster | Opus | Opus | 3 | `src/vorlagen/seiten/gruppe.mjs`, `src/inhalte/notoeffnung/index.mjs` | E3-OPUS-01 | Z-04 | 85953fa |
+| E3-BAU-01…03 | Gruppenseiten `/einbruchschutz/`, `/sicherheitstechnik/`, `/einbau-tresore/` (je 1 Paket) | Baumeister | H | 2 | je genau eine Datei: `src/inhalte/einbruchschutz/index.mjs` · `src/inhalte/sicherheitstechnik/index.mjs` · `src/inhalte/einbau-tresore/index.mjs` | E3-OPUS-02 | Z-01 Z-04 | 85953fa, 9d82c59 |
+| E3-GRAF-01…03 | Icons nach Vertrag (restliche, in 3 Paketen) + Geometrie-Linter | Grafiker | H | 2 | exakte Icon-Dateiliste je Paket (disjunkt, im Paketblatt), `bau/pruefen/icons.mjs` nur GRAF-01 | E2-OPUS-05 | Z-06 | a7979cf |
+| E3-PRUEF-09 | Unit-Tests Logik (Preise, Mailto, Ortsindex, Redirects) | Prüfer | H | 2 | `test/{preise,mailto,ortsindex,redirect}.test.mjs` | E2-OPUS-01, E2-OPUS-02 | Z-02 | a7979cf, a87b267 (über Dateien), ffa534e (über Dateien) |
+| E3-OPUS-03 | V03-Vorlage + `/notoeffnung/tueroeffnung/` als Muster | Opus | Opus | 3 | `src/vorlagen/seiten/leistung.mjs`, `src/inhalte/notoeffnung/tueroeffnung.mjs` | E3-OPUS-02 | Z-04 | 85953fa |
+| E3-BAU-04…11 | 22 Detailseiten in Dreierpaketen (8 Pakete) | Baumeister | H | 2 | je 3 Dateien `src/inhalte/{gruppe}/{seite}.mjs`, Namen im Paketblatt, disjunkt | E3-OPUS-03 | Z-01 | 9d82c59, 9e5f629, 84b5bcd |
+| E3-OPUS-04 | V07 Ortsseiten-Vorlage, Zonentexte, Orts-FAQ, Lagekarte, Weilburg-Seite | Opus | Opus | 3 | `src/vorlagen/seiten/ort.mjs`, `src/inhalte/orte/**` | E2-BAU-02 | Z-01 Z-08 | 9d82c59 |
+| E3-BAU-12 | V06 Hubs Land/Kreis + A–Z-Verzeichnis | Baumeister | H | 2 | `src/vorlagen/seiten/hub.mjs`, `src/assets/css/komponenten/az.css` | E3-OPUS-04 | Z-01 | 84b5bcd |
+| E3-PRUEF-10 | Linkgraph-, Ähnlichkeits- und Ortsstichproben-Messung (100 Orte) | Prüfer | H | 1 | `_werkstatt/berichte/E3-orte.md` | E3-BAU-12, E3-OPUS-04 | Z-02 | 886b222 |
+| E3-PRUEF-11 | Prüfstufe B Etappe 3 + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E3-pruefstufe-b.md` | E3-OPUS-01…04, E3-BAU-01…12 | Z-02…Z-09 | 886b222 |
+| E4-OPUS-01 | V04 Preise + Rechner + 24-h-Zeitfensterleiste | Opus | Opus | 3 | `src/vorlagen/seiten/preise.mjs`, `src/assets/js/module/preisrechner.mjs`, `src/assets/js/logik/preise.mjs` | E3 | Z-01 Z-07 | a87b267 |
+| E4-OPUS-02 | Mailto-Logik + V10 Kontakt | Opus | Opus | 3 | `src/assets/js/logik/mailto.mjs`, `src/assets/js/module/composer.mjs`, `src/vorlagen/seiten/kontakt.mjs` | E3 | Z-01 Z-07 | ffa534e |
+| E4-OPUS-03 | V05 Einsatzgebiet + I-10 Rasterkarte + M-18/M-19 | Opus | Opus | 3 | `src/vorlagen/seiten/einsatzgebiet.mjs`, `pipeline/karte.mjs`, `src/assets/js/module/karte.mjs` | E3 | Z-04 Z-05 | 6b7ea89 |
+| E4-OPUS-04 | V08 Ratgeber-Vorlagen (Übersicht + Artikel) + Muster-Artikel `schluesseldienst-abzocke-erkennen` | Opus | Opus | 3 | `src/vorlagen/seiten/{ratgeber,artikel}.mjs`, `src/inhalte/ratgeber/schluesseldienst-abzocke-erkennen.mjs` | E3 | Z-01 | 9e5f629 |
+| E4-KUND-03…05 | Faktenblätter mit Primärquellen (Ratgeber, Landesregeln) | Kundschafter | H | 1 | exakte Dateiliste `src/inhalte/fakten/*.mjs` je Paket (disjunkt) | E2-OPUS-07, E4-OPUS-04 | Z-01 | 9d82c59, 3476272 |
+| E4-BAU-13…18 | 18 Ratgeber-Artikel in Dreierpaketen (6 Pakete) | Baumeister | H | 2 | je 3 Dateien `src/inhalte/ratgeber/*.mjs`, Namen im Paketblatt, disjunkt | E4-OPUS-04, E4-KUND-03…05 | Z-01 | 8462382, c444448, 062dd2a, ffa534e, 8db41ab |
+| E4-BAU-19 | V09 Über uns (ohne M-20) + Karriere-Vorlage mit Fixture | Baumeister | H | 2 | `src/vorlagen/seiten/{ueber-uns,karriere}.mjs`, `src/inhalte/ueber-uns.mjs` | E3-OPUS-02 (Muster Erzählansicht) | Z-01 | 41c0619 |
+| E4-OPUS-05 | M-20 „Der gerade Weg“ + I-11 Lahnbogen | Opus | Opus | 3 | `src/vorlagen/teile/illustrationen/lahnbogen.mjs` | BAU-19 | Z-04 Z-05 | 41c0619 |
+| E4-BAU-20 | Recht-Entwürfe: Impressum, Datenschutz, Widerruf, Barrierefreiheit, Quellen & Lizenzen | Baumeister | H | 2 | `src/inhalte/recht/*.mjs`, `src/vorlagen/seiten/recht.mjs` | E3-OPUS-03 (Muster Arbeitsansicht) | Z-01 Z-10 | 246aedf |
+| E4-BAU-21 | V11 Suche (Index + Modul), `/sitemap/`, `/leistungen/`-Register mit Filter, 404 mit M-21 | Baumeister | H | 2 | `src/vorlagen/seiten/{suche,sitemap,leistungen,fehler}.mjs`, `src/assets/js/module/suche.mjs` | E3-OPUS-03, E2-OPUS-06 (Ortssuche als Muster) | Z-01 | cfed76c, 246aedf (über Dateien) |
+| E4-GRAF-04 | OG-Bilder (PNG je Seitentyp und Zone) per Werkzeugskript | Grafiker | H | 2 | `_werkstatt/werkzeuge/og.mjs`, `src/assets/og/*.png` | E2-OPUS-05, E2-OPUS-06 | Z-06 | 41c0619 |
+| E4-PRUEF-12 | `live-check.mjs` (Header, MIME, 404, Weiterleitungen) | Prüfer | H | 2 | `werkzeuge/live-check.mjs` | E2-OPUS-01 | Z-10 | 41c0619 |
+| E4-DOK-01 | README, `docs/` (BETRIEB, OFFENE-PUNKTE, Hoster-Checkliste) | Dokumentar | H | 1 | `README.md`, `docs/*.md` | E2-OPUS-01, E4-OPUS-01…05 | Z-10 | dbf85da |
+| E4-PRUEF-13 | Prüfstufe B Etappe 4 + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E4-pruefstufe-b.md` | E4-OPUS-01…05, E4-BAU-13…21 | Z-02…Z-09 | 6c58947 |
+| E5-PRUEF-14 | Prüfstufe C | Prüfer | H | 1 | `_werkstatt/berichte/E5-pruefstufe-c.md`, `_werkstatt/bilder/abschluss/**` | alle Pflichtpakete E2–E4; Maßstab E2-REVIEW | alle | 8db2c56 (Bildsätze), c6ed8e2 (Bericht); Abschluss-Bildsatz laut PRÜFPUNKT offen |
+| E5-DOK-02 | BERICHT + Galerie (blind, Schlüssel getrennt), `werkzeuge/` und `docs/` herauslösen | Dokumentar | H | 1 | `_werkstatt/BERICHT.md`, `_werkstatt/bilder/galerie.html` | E5-PRUEF-14, E2-REVIEW | Z-04 Z-10 | Teil 1: 2682cf3; Teil 2 offen (Galerie: 40ea039; BERICHT.md ausstehend) |
+| E5-REVIEW | Endprüfung frischer Opus-Agent | Opus | Opus | 3 | `_werkstatt/berichte/E5-endpruefung.md` | DOK-02 | alle | Anlauf 1: 67e42cf, Anlauf 2: 05f63a5; AUSNAHME A-2 |
 
 ## Kür (nach Wirkung, wächst nach dem Plan nicht)
-| Kennung | Ziel | Rolle | Modell |
-|---|---|---|---|
-| K-01 | Druckstile Preise/Ratgeber/Ortsseite | Baumeister | H |
-| K-02 | Szenen-Feinschliff (Sichtabnahme-Befunde) | Opus | Opus |
-| K-03 | I-13 Schadensbilder für Ratgeber „schadensbilder“ | Grafiker | H |
-| K-04 | Ortsseiten: Mini-Lagekarte mit Peilungslinie (M-19) auf allen Ortsseiten | Opus | Opus |
-| K-05 | Vorkomprimierte `.br/.gz` für Apache/nginx (`--vorkomprimieren`) | Baumeister | H |
-| K-06 | Barrierefreiheit: `forced-colors`-Feinschliff aller Komponenten | Baumeister | H |
-| K-07 | Leistungsregister: Filter-Zustandswechsel (M-05-Muster) | Baumeister | H |
-| K-08 | Kreis-Hub-Intros je Kreis aus Daten (Gemeindezahl, Fläche ohne Erfindung) | Baumeister | H |
+| Kennung | Ziel | Rolle | Modell | Commit |
+|---|---|---|---|---|
+| K-01 | Druckstile Preise/Ratgeber/Ortsseite | Baumeister | H | bcfd1d6 |
+| K-02 | Szenen-Feinschliff (Sichtabnahme-Befunde) | Opus | Opus | 25918f7, a71d230, 2a69d96 |
+| K-03 | I-13 Schadensbilder für Ratgeber „schadensbilder“ | Grafiker | H | 92909f9 |
+| K-04 | Ortsseiten: Mini-Lagekarte mit Peilungslinie (M-19) auf allen Ortsseiten | Opus | Opus | f4f82b4 |
+| K-05 | Vorkomprimierte `.br/.gz` für Apache/nginx (`--vorkomprimieren`) | Baumeister | H | 96e844a, 488a0cf, ed2597b |
+| K-06 | Barrierefreiheit: `forced-colors`-Feinschliff aller Komponenten | Baumeister | H | 4c7168c |
+| K-07 | Leistungsregister: Filter-Zustandswechsel (M-05-Muster) | Baumeister | H | 5032817, ed2597b |
+| K-08 | Kreis-Hub-Intros je Kreis aus Daten (Gemeindezahl, Fläche ohne Erfindung) | Baumeister | H | 751740c, 6310370, ed2597b |
 
 ## Modellanteil und Kapazität
 - Pflicht (Bereiche aufgelöst): 67 Pakete (Haiku 49, Opus 18 inkl. 2 Abnahmen) → Haiku-Anteil 73 %; mit Kür 75 Pakete (Haiku 54).
