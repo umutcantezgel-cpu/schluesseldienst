@@ -42,7 +42,7 @@ Stand: Endstand `72ed87c` (Endmessung), Arbeitsbranch `claude/bold-noether-fk2n4
 
 ### Umgebungsausnahmen U-1 bis U-6
 
-- **U-1 Echte Geräte:** Ersatz ist die Chromium-Emulation mit 390 × 844 Pixeln. Touch emulieren zusätzlich die Fokusprotokolle, die Seitenwechsel-Probe und Lighthouse; die übrigen Läufe (u. a. smoke, Überlauf, Bildsätze, axe, Bewegung, Verdeckung) nur die Fenstergröße.
+- **U-1 Echte Geräte:** Ersatz ist die Chromium-Emulation mobil. Touch emulieren die mobilen Fokusprotokolle und die Seitenwechsel-Probe (390 × 844) sowie Lighthouse und die Zeitproben (412 × 823); die übrigen Läufe (u. a. smoke, Überlauf, Bildsätze, axe, Bewegung, Verdeckung) nur die Fenstergröße.
 - **U-2 Firefox und Safari:** Nur Chromium ist installiert. Funktionen mit Rückfall gebaut, geprüft mit Chromium und durch Code-Durchsicht.
 - **U-3 Bildrate mit GPU:** Ersatz ist die Messung mit vierfach gedrosselter CPU. Verworfene Bilder 0,83 bis 2,94 % (Grenze 5 %).
 - **U-4 Live-Header beim Hoster:** Kein Deploy. Die Header des Vorschau-Servers stammen aus derselben Quelle wie `_headers`, `.htaccess` und nginx (`kopfzeilen()`); nur HSTS lässt der Vorschau-Server bewusst weg, weil er über http läuft. Die Live-Prüfung `_werkstatt/werkzeuge/live-check.mjs` führt der Betrieb nach dem Deploy aus.
@@ -101,7 +101,7 @@ Die Anleitung in `docs/ZUSAMMENFUEHREN.md` beschreibt nur; ausgeführt ist nicht
 - **`_werkstatt/`:** Entfernen oder bewusst behalten. Beim Entfernen werden Verweise in README und `docs/` tot; die Befehle für OG-Bilder und Live-Prüfung brauchen `_werkstatt/werkzeuge/`.
 - **Historie:** Die Wettbewerber-Exporte liegen seit `ad81157` im Verlauf. Eine Bereinigung ändert diesen Commit und bricht `npm test`, `npm run orte` und `pipeline/fingerabdruck.mjs`.
 - **Kein Deploy:** Der Standardbau erzeugt nur eine Vorschau mit noindex. Ein Release braucht die Basis-URL und alle Punkte mit „Blockiert Release: ja“ aus `docs/OFFENE-PUNKTE.md` sowie die [RELEASE]-Punkte aus `_werkstatt/MENSCHEN.md`. Die Wahl zum Seitenwechsel (Nr. 45) ist eine Empfehlung, kein Blocker.
-- **Abschluss:** Der Abschnitt „Werkstatt-Lauf“ ist aus `CLAUDE.md` entfernt; die Datei bestand nur daraus und ist gelöscht (ZUSAMMENFUEHREN, Abschnitt 7). Ein frischer Opus-Prüfer hat jedes Kriterium, jede AUSNAHME und jede UMGEBUNGSAUSNAHME gegen ihre Belege geprüft; Durchgang 2 bestätigt alle 18 Zeilen ohne Nachforderung (`_werkstatt/berichte/E5-abschlusspruefer.md`).
+- **Abschluss:** Der Abschnitt „Werkstatt-Lauf“ ist aus `CLAUDE.md` entfernt; die Datei bestand nur daraus und ist gelöscht (ZUSAMMENFUEHREN, Abschnitt 7). Ein frischer Opus-Prüfer hat jedes Kriterium, jede AUSNAHME und jede UMGEBUNGSAUSNAHME gegen ihre Belege geprüft; das Urteil zum Schlussstand steht in `_werkstatt/berichte/E5-abschlusspruefer.md`.
 
 ## Morgenbericht 26. Oktober 2026 (Stand 06:06 Uhr, überholt)
 _Unverändert aufbewahrt; Zahlen und Aussagen gelten für den Stand 06:06 Uhr (damals 319 bestandene Tests und 1 todo; Fokus nie ganz verdeckt). Maßgeblich ist der Abschlussbericht oben._

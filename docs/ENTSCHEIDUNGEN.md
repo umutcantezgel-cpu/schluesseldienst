@@ -80,7 +80,7 @@ Diese Liste fasst die wichtigsten Entscheidungen zur Website zusammen, jeweils m
 
 ## D-E5-01 · Gemeinsame Befunde der Endprüfung
 
-**Problem:** Die Sichtprüfung ergab in allen Ansichten 6,5 bis 7,7 statt mindestens 8 Punkte; die Nachprüfung fand einen Blocker: Auf dem Handy lag der Fokus unter der Rufleiste (WCAG 2.4.11). **Entscheidung:** Der Fokus wird nie verdeckt (Abstand für Rufleiste und Kopfzeile beim Bildlauf), jede Seite trägt genau eine Kopflinie als Leitelement, Überschriften werden nie automatisch getrennt, und Karten erhalten einheitliche Bewegungen. **Grund:** Ein sichtbarer, nie verdeckter Fokus ist eine Anforderung der Barrierefreiheit; die Kopflinie verbindet die Seiten optisch.
+**Problem:** Die Sichtprüfung ergab in allen Ansichten 6,5 bis 7,7 statt mindestens 8 Punkte; die Nachprüfung fand einen Blocker: Auf dem Handy lag der Fokus unter der Rufleiste (WCAG 2.4.11). **Entscheidung:** Der Fokus soll nie verdeckt werden (Abstand für Rufleiste und Kopfzeile beim Bildlauf; am Endstand mobil auf 5 Seiten gemessen: 0 ganz, 0 teilweise verdeckt), jede Seite trägt genau eine Kopflinie als Leitelement, Überschriften werden nie automatisch getrennt, und Karten erhalten einheitliche Bewegungen. **Grund:** Ein sichtbarer Fokus, der nicht verdeckt wird, ist eine Anforderung der Barrierefreiheit (WCAG 2.4.11 verlangt mindestens: nie ganz verdeckt); die Kopflinie verbindet die Seiten optisch.
 
 ## D-E5-02 · Gestaltungsziel nicht erreicht: Ausnahme statt dritter Prüfrunde
 

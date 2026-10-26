@@ -1,0 +1,220 @@
+{
+  "werkzeug": "links-pruefer (Basis links-md.mjs, Z-10)",
+  "zeitpunkt": "2026-10-26T13:22:14.365Z",
+  "basis": "/home/user/schluesseldienst",
+  "dateien": [
+    {
+      "datei": "README.md",
+      "relativeLinks": 9,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/MENSCHEN.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschlusspruefer.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "relativeLinks": 2,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/ENTSCHEIDUNGEN.md",
+      "relativeLinks": 5,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "relativeLinks": 1,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "relativeLinks": 3,
+      "referenzDefinitionen": 0
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "relativeLinks": 0,
+      "referenzDefinitionen": 0
+    }
+  ],
+  "geprueftLinks": 20,
+  "davonReferenzDefinitionen": 0,
+  "ankerGeprueft": 0,
+  "ankerNichtMdGeprueftNicht": 0,
+  "tot": [],
+  "pfade": {
+    "fundstellen": 383,
+    "verschiedene": 187,
+    "ok": 378,
+    "fehlend": [
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 34,
+        "pfad": "test/fixtures/pruefen/**",
+        "grund": "Muster ohne Treffer"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 38,
+        "pfad": "src/vorlagen/seiten/spike.mjs",
+        "grund": "Pfad fehlt"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 39,
+        "pfad": "_werkstatt/berichte/E2-spike.md",
+        "grund": "Pfad fehlt"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 56,
+        "pfad": "src/assets/css/komponenten/az.css",
+        "grund": "Pfad fehlt"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 61,
+        "pfad": "src/assets/js/module/karte.mjs",
+        "grund": "Pfad fehlt"
+      }
+    ],
+    "platzhalterAusgenommen": [
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 28,
+        "pfad": "_werkstatt/werkzeuge/{bild,bildsatz,ueberlauf,axe,smoke}.mjs"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 29,
+        "pfad": "_werkstatt/werkzeuge/{lighthouse,vnu,bildrate,inp}.mjs, README.md"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 34,
+        "pfad": "bau/pruefen/{index,sicherheit,seo,links}.mjs"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 36,
+        "pfad": "bau/pruefen/{ehrlichkeit,fakten,emoji}.mjs"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 37,
+        "pfad": "bau/pruefen/{token,jsonld,budgets}.mjs"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 43,
+        "pfad": "src/vorlagen/teile/{kopf,fuss,rufleiste,icons}.mjs"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 45,
+        "pfad": "src/konfig/{navigation,routen,themenpaesse}.mjs"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 52,
+        "pfad": "test/{preise,mailto,ortsindex,redirect}.test.mjs"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 54,
+        "pfad": "src/inhalte/{gruppe}/{seite}.mjs"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 62,
+        "pfad": "src/vorlagen/seiten/{ratgeber,artikel}.mjs"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 65,
+        "pfad": "src/vorlagen/seiten/{ueber-uns,karriere}.mjs"
+      },
+      {
+        "datei": "_werkstatt/PLAN.md",
+        "zeile": 68,
+        "pfad": "src/vorlagen/seiten/{suche,sitemap,leistungen,fehler}.mjs"
+      },
+      {
+        "datei": "docs/BETRIEB.md",
+        "zeile": 66,
+        "pfad": "src/inhalte/fakten/<blatt>.mjs"
+      },
+      {
+        "datei": "docs/BETRIEB.md",
+        "zeile": 102,
+        "pfad": "src/inhalte/ratgeber/<id>.mjs"
+      }
+    ],
+    "symbolHinweise": [
+      {
+        "datei": "_werkstatt/MENSCHEN.md",
+        "zeile": 48,
+        "pfad": "src/konfig/betrieb.mjs",
+        "zusatz": "→ zusagen",
+        "status": "Datei existiert, Symbol im Text gefunden"
+      },
+      {
+        "datei": "_werkstatt/MENSCHEN.md",
+        "zeile": 52,
+        "pfad": "src/konfig/zonen.mjs",
+        "zusatz": "→ leistungenBestaetigt",
+        "status": "Datei existiert, Symbol im Text gefunden"
+      },
+      {
+        "datei": "_werkstatt/MENSCHEN.md",
+        "zeile": 54,
+        "pfad": "src/konfig/betrieb.mjs",
+        "zusatz": "→ zusagen.erfolglos",
+        "status": "Datei existiert, Symbol im Text gefunden"
+      }
+    ]
+  },
+  "hinweise": []
+}

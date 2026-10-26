@@ -1,0 +1,2400 @@
+{
+  "werkzeug": "e5-pfade (Zusatzprüfung, Auflösung relativ zu _werkstatt/protokolle/E5-abschluss/)",
+  "zeitpunkt": "2026-10-26T13:22:49.035Z",
+  "e5": "/home/user/schluesseldienst/_werkstatt/protokolle/E5-abschluss",
+  "kandidaten": 329,
+  "ok": [
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 159,
+      "pfad": "vt-versuche/zeit-probe.mjs",
+      "aufgeloestSeit": "E5",
+      "geprueft": "vt-versuche/zeit-probe.mjs"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 34,
+      "pfad": "endstand-nach/token-stichprobe.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/token-stichprobe.json"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 34,
+      "pfad": "z-pruefer/css-stichprobe.txt",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/css-stichprobe.txt"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 38,
+      "pfad": "endstand-nach/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 38,
+      "pfad": "pruefer-z07-z09/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 40,
+      "pfad": "n5-bewegung/ueberlauf.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/ueberlauf.json"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 40,
+      "pfad": "pruefer-z07-z09/ueberlauf-dunkel.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/ueberlauf-dunkel.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 8,
+      "pfad": "z-pruefer/css-stichprobe.txt",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/css-stichprobe.txt"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 10,
+      "pfad": "endstand-nach/groesse.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/groesse.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 10,
+      "pfad": "endstand-nach/bewegung-ansichten/bewegung-ansichten.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/bewegung-ansichten/bewegung-ansichten.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 12,
+      "pfad": "pruefer-z07-z09/verdeckt-desktop-rueckwaerts-vorschau.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/verdeckt-desktop-rueckwaerts-vorschau.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 12,
+      "pfad": "pruefer-z07-z09/tastatur-mobil-ersatz.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/tastatur-mobil-ersatz.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 14,
+      "pfad": "pruefer-z07-z09/ueberlauf-dunkel.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/ueberlauf-dunkel.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 24,
+      "pfad": "pruefer-z07-z09/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 24,
+      "pfad": "endstand-nach/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 24,
+      "pfad": "n5-bewegung/verdeckt.mjs",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/verdeckt.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 24,
+      "pfad": "n5-bewegung/tastatur.mjs",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/tastatur.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 32,
+      "pfad": "a1-vergleich/herkunft/herkunft.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "a1-vergleich/herkunft/herkunft.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 32,
+      "pfad": "a1-vergleich/server-prozesse.txt",
+      "aufgeloestSeit": "E5",
+      "geprueft": "a1-vergleich/server-prozesse.txt"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 13,
+      "pfad": "z-pruefer/npm-test.log",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/npm-test.log"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 14,
+      "pfad": "z-pruefer/bau-messen-pruefen.log",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/bau-messen-pruefen.log"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 15,
+      "pfad": "z-pruefer/bau-release-negativ.log",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/bau-release-negativ.log"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 16,
+      "pfad": "z-pruefer/smoke-4251.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/smoke-4251.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 16,
+      "pfad": "z-pruefer/smoke-4254.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/smoke-4254.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 17,
+      "pfad": "z-pruefer/funktionen.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/funktionen.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 17,
+      "pfad": "z-pruefer/funktionen.mjs",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/funktionen.mjs"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 18,
+      "pfad": "z-pruefer/probe-f02-wiederholung.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/probe-f02-wiederholung.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 18,
+      "pfad": "z-pruefer/probe-navigation.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/probe-navigation.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 19,
+      "pfad": "z-pruefer/css-stichprobe.txt",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/css-stichprobe.txt"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 19,
+      "pfad": "z-pruefer/token-stichprobe.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/token-stichprobe.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 20,
+      "pfad": "z-pruefer/svg-ids.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/svg-ids.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 21,
+      "pfad": "z-pruefer/kal-smoke.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/kal-smoke.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 21,
+      "pfad": "z-pruefer/kal-axe.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/kal-axe.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 21,
+      "pfad": "z-pruefer/kal-vnu.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/kal-vnu.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 22,
+      "pfad": "pruefer-z07-z09/axe-hell.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/axe-hell.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 22,
+      "pfad": "pruefer-z07-z09/axe-dunkel.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/axe-dunkel.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 22,
+      "pfad": "pruefer-z07-z09/axe-kontrolle.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/axe-kontrolle.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 23,
+      "pfad": "pruefer-z07-z09/tastatur-mobil-vorschau.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/tastatur-mobil-vorschau.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 23,
+      "pfad": "pruefer-z07-z09/tastatur-desktop-vorschau.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/tastatur-desktop-vorschau.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 23,
+      "pfad": "pruefer-z07-z09/fokus-probe.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/fokus-probe.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 24,
+      "pfad": "pruefer-z07-z09/verdeckt-*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/verdeckt-*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 25,
+      "pfad": "pruefer-z07-z09/tastatur-mobil-ersatz.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/tastatur-mobil-ersatz.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 25,
+      "pfad": "pruefer-z07-z09/tastatur-desktop-ersatz.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/tastatur-desktop-ersatz.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 25,
+      "pfad": "pruefer-z07-z09/blatt-probe.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/blatt-probe.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 26,
+      "pfad": "pruefer-z07-z09/tastatur-*-vorschau.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/tastatur-*-vorschau.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 30,
+      "pfad": "pruefer-z07-z09/ueberlauf-hell.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/ueberlauf-hell.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 30,
+      "pfad": "pruefer-z07-z09/ueberlauf-dunkel.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/ueberlauf-dunkel.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 30,
+      "pfad": "pruefer-z07-z09/ueberlauf-kontrolle.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/ueberlauf-kontrolle.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 30,
+      "pfad": "pruefer-z07-z09/stichprobe-orte.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/stichprobe-orte.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 32,
+      "pfad": "haiku-z05-z08/bildrate-m*-*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "haiku-z05-z08/bildrate-m*-*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 33,
+      "pfad": "haiku-z05-z08/reduce.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "haiku-z05-z08/reduce.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 34,
+      "pfad": "haiku-z05-z08/reduce.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "haiku-z05-z08/reduce.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 36,
+      "pfad": "haiku-z05-z08/lighthouse-4251.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "haiku-z05-z08/lighthouse-4251.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 36,
+      "pfad": "haiku-z05-z08/lighthouse-4254.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "haiku-z05-z08/lighthouse-4254.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 36,
+      "pfad": "haiku-z05-z08/inp-*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "haiku-z05-z08/inp-*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 36,
+      "pfad": "haiku-z05-z08/groesse.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "haiku-z05-z08/groesse.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 37,
+      "pfad": "haiku-z05-z08/lighthouse-4251.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "haiku-z05-z08/lighthouse-4251.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 38,
+      "pfad": "z-pruefer/links-md.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z-pruefer/links-md.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 60,
+      "pfad": "n2-bewegung/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bewegung/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 64,
+      "pfad": "n2-bestand/npm-test.log",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bestand/npm-test.log"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 65,
+      "pfad": "n2-bestand/smoke-4251.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bestand/smoke-4251.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 65,
+      "pfad": "n2-bestand/smoke-4254.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bestand/smoke-4254.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 66,
+      "pfad": "n2-bestand/seitenwechsel-skript.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bestand/seitenwechsel-skript.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 66,
+      "pfad": "n2-bestand/seitenwechsel-links.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bestand/seitenwechsel-links.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 67,
+      "pfad": "n2-bestand/inp-*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bestand/inp-*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 68,
+      "pfad": "n2-bestand/lh-*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bestand/lh-*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 69,
+      "pfad": "n2-bewegung/interaktionen.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bewegung/interaktionen.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 69,
+      "pfad": "n2-bewegung/rest-active.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bewegung/rest-active.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 69,
+      "pfad": "n2-bewegung/ergebnis.md",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bewegung/ergebnis.md"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 70,
+      "pfad": "n2-bewegung/laden.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bewegung/laden.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 71,
+      "pfad": "n2-bewegung/rest-groesse.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bewegung/rest-groesse.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 72,
+      "pfad": "n2-bewegung/ergebnis.md",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n2-bewegung/ergebnis.md"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 83,
+      "pfad": "vt-versuche/vt-probe.mjs",
+      "aufgeloestSeit": "E5",
+      "geprueft": "vt-versuche/vt-probe.mjs"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 95,
+      "pfad": "vt-versuche/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "vt-versuche/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 110,
+      "pfad": "n4-leistung/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n4-leistung/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 110,
+      "pfad": "final2-messung/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "final2-messung/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 112,
+      "pfad": "vt-versuche/lcp/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "vt-versuche/lcp/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 125,
+      "pfad": "vt-versuche/x10-zeiten/zeiten.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "vt-versuche/x10-zeiten/zeiten.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 133,
+      "pfad": "vt-versuche/x10-zeiten/vt-*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "vt-versuche/x10-zeiten/vt-*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 146,
+      "pfad": "bau-72ed87c.log",
+      "aufgeloestSeit": "E5",
+      "geprueft": "bau-72ed87c.log"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 150,
+      "pfad": "n5-leistung/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-leistung/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 150,
+      "pfad": "n5-bewegung/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 150,
+      "pfad": "endmessung-72ed87c-ergebnisse.txt",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endmessung-72ed87c-ergebnisse.txt"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 154,
+      "pfad": "n5-bestand/npm-test.log",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bestand/npm-test.log"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 155,
+      "pfad": "n5-bestand/release-a.log",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bestand/release-a.log"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 156,
+      "pfad": "n5-bestand/release-b.log",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bestand/release-b.log"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 157,
+      "pfad": "n5-bestand/smoke-4251.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bestand/smoke-4251.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 158,
+      "pfad": "n5-bestand/vt-*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bestand/vt-*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 159,
+      "pfad": "n5-bestand/funktionen.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bestand/funktionen.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 160,
+      "pfad": "n5-leistung/lh-a.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-leistung/lh-a.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 161,
+      "pfad": "n5-leistung/lh-gzip.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-leistung/lh-gzip.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 162,
+      "pfad": "n5-leistung/lh-a.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-leistung/lh-a.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 163,
+      "pfad": "n5-leistung/inp-*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-leistung/inp-*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 164,
+      "pfad": "n5-leistung/zeiten.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-leistung/zeiten.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 165,
+      "pfad": "n5-bewegung/interaktionen.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/interaktionen.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 166,
+      "pfad": "n5-bewegung/laden-*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/laden-*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 167,
+      "pfad": "n5-bewegung/bildrate-*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/bildrate-*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 168,
+      "pfad": "n5-bewegung/tastatur.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/tastatur.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 169,
+      "pfad": "n5-bewegung/axe-hell.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/axe-hell.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 170,
+      "pfad": "n5-bewegung/verdeckt-mobil-vorwaerts.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/verdeckt-mobil-vorwaerts.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 171,
+      "pfad": "n5-bewegung/ueberlauf.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/ueberlauf.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 188,
+      "pfad": "a1-vergleich/*.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "a1-vergleich/*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 189,
+      "pfad": "z09-stichprobe/stichprobe.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z09-stichprobe/stichprobe.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 190,
+      "pfad": "z09-stichprobe/sichtung.md",
+      "aufgeloestSeit": "E5",
+      "geprueft": "z09-stichprobe/sichtung.md"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 202,
+      "pfad": "endstand-nach/ersatz/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/ersatz/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 203,
+      "pfad": "endstand-nach/links/links.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/links/links.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 210,
+      "pfad": "a1-vergleich/weg-a/weg-a.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "a1-vergleich/weg-a/weg-a.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 210,
+      "pfad": "a1-vergleich/herkunft/herkunft.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "a1-vergleich/herkunft/herkunft.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 210,
+      "pfad": "endstand-nach/bewegung-ansichten/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/bewegung-ansichten/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 210,
+      "pfad": "a1-vergleich/server-prozesse.txt",
+      "aufgeloestSeit": "E5",
+      "geprueft": "a1-vergleich/server-prozesse.txt"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 214,
+      "pfad": "bau-72ed87c.log",
+      "aufgeloestSeit": "E5",
+      "geprueft": "bau-72ed87c.log"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 220,
+      "pfad": "a1-vergleich/herkunft/herkunft.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "a1-vergleich/herkunft/herkunft.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 220,
+      "pfad": "a1-vergleich/weg-a/weg-a.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "a1-vergleich/weg-a/weg-a.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 222,
+      "pfad": "pruefer-z07-z09/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "pruefer-z07-z09/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 222,
+      "pfad": "endstand-nach/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 222,
+      "pfad": "n5-bewegung/verdeckt.mjs",
+      "aufgeloestSeit": "E5",
+      "geprueft": "n5-bewegung/verdeckt.mjs"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 230,
+      "pfad": "endstand-nach/bewegung-ansichten/",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/bewegung-ansichten/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 235,
+      "pfad": "a1-vergleich/server-prozesse.txt",
+      "aufgeloestSeit": "E5",
+      "geprueft": "a1-vergleich/server-prozesse.txt"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 237,
+      "pfad": "endstand-nach/groesse.json",
+      "aufgeloestSeit": "E5",
+      "geprueft": "endstand-nach/groesse.json"
+    }
+  ],
+  "nurRepo": [
+    {
+      "datei": "README.md",
+      "zeile": 11,
+      "pfad": "package.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 19,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 20,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 22,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 25,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 36,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 54,
+      "pfad": "pipeline/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 58,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 19,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 30,
+      "pfad": ".cache/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 60,
+      "pfad": "pipeline/orte/zuordnung-manuell.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 33,
+      "pfad": "package.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 35,
+      "pfad": "pipeline/fingerabdruck.mjs",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 40,
+      "pfad": "pipeline/orte/lib.mjs",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 41,
+      "pfad": "pipeline/orte/30-abgleich.mjs",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 41,
+      "pfad": "pipeline/orte/regeln.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 41,
+      "pfad": "pipeline/orte/zuordnung-manuell.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 42,
+      "pfad": "pipeline/orte/alle.mjs",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 71,
+      "pfad": "README.md",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 17,
+      "pfad": "pipeline/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 17,
+      "pfad": "README.md",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 83,
+      "pfad": ".cache/vorher/bilder/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 102,
+      "pfad": "pipeline/fingerabdruck.mjs",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 39,
+      "pfad": "pipeline/orte/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 14,
+      "pfad": ".cache/z09-stichprobe/bilder/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 15,
+      "pfad": "README.md",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 5,
+      "pfad": ".cache/e5-abschluss/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 31,
+      "pfad": ".cache/e5-abschluss/pruefer-z07-z09/bildsatz/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 49,
+      "pfad": ".cache/e5-abschluss/bau3.log",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschlusspruefer.md",
+      "zeile": 101,
+      "pfad": "pipeline/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 91,
+      "pfad": "pipeline/orte/quellen.lock.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 96,
+      "pfad": "pipeline/orte/zuordnung-manuell.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 96,
+      "pfad": ".cache/orte/quellen.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 96,
+      "pfad": ".cache/orte/gazetteer.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ENTSCHEIDUNGEN.md",
+      "zeile": 13,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ENTSCHEIDUNGEN.md",
+      "zeile": 15,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ENTSCHEIDUNGEN.md",
+      "zeile": 27,
+      "pfad": ".cache/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 35,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 36,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 36,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "zeile": 56,
+      "pfad": "pipeline/fingerabdruck.mjs",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 14,
+      "pfad": "pipeline/orte/quellen.lock.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 24,
+      "pfad": ".cache/orte/laufzeiten.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 30,
+      "pfad": ".cache/geonames/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 31,
+      "pfad": ".cache/orte/quellen.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 32,
+      "pfad": ".cache/orte/gazetteer.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 33,
+      "pfad": ".cache/orte/abgleich.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 34,
+      "pfad": ".cache/orte/umkreis.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 35,
+      "pfad": ".cache/orte/angereichert.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 54,
+      "pfad": "pipeline/orte/regeln.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 71,
+      "pfad": ".cache/orte/quellen.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 74,
+      "pfad": ".cache/orte/abgleich.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 75,
+      "pfad": ".cache/orte/umkreis.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 76,
+      "pfad": ".cache/orte/zaehlung-50.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 87,
+      "pfad": "pipeline/orte/zuordnung-manuell.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 90,
+      "pfad": ".cache/orte/quellen.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 99,
+      "pfad": ".cache/orte/gazetteer.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 108,
+      "pfad": ".cache/orte/zaehlung-40.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 127,
+      "pfad": ".cache/orte/zaehlung-60.json",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 67,
+      "pfad": "pipeline/fingerabdruck.mjs",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 83,
+      "pfad": "dist/",
+      "hinweis": "nur relativ zum Repo-Stamm vorhanden, nicht unter E5"
+    }
+  ],
+  "fehlt": [
+    {
+      "datei": "README.md",
+      "zeile": 25,
+      "pfad": "dist.verweigert/",
+      "geprueft": "dist.verweigert/"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 34,
+      "pfad": ".br",
+      "geprueft": ".br"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 34,
+      "pfad": ".gz",
+      "geprueft": ".gz"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 35,
+      "pfad": "release/nginx/",
+      "geprueft": "release/nginx/"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 40,
+      "pfad": "security.txt",
+      "geprueft": "security.txt"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 48,
+      "pfad": "bauen.mjs",
+      "geprueft": "bauen.mjs"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 48,
+      "pfad": "vorschau.mjs",
+      "geprueft": "vorschau.mjs"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 48,
+      "pfad": "lib/",
+      "geprueft": "lib/"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 48,
+      "pfad": "pruefen/",
+      "geprueft": "pruefen/"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 49,
+      "pfad": "sicherheit.mjs",
+      "geprueft": "sicherheit.mjs"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 51,
+      "pfad": "fakten/",
+      "geprueft": "fakten/"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 51,
+      "pfad": "recht/",
+      "geprueft": "recht/"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 52,
+      "pfad": "seiten/",
+      "geprueft": "seiten/"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 52,
+      "pfad": "teile/",
+      "geprueft": "teile/"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 52,
+      "pfad": "layout.mjs",
+      "geprueft": "layout.mjs"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 53,
+      "pfad": "og/",
+      "geprueft": "og/"
+    },
+    {
+      "datei": "README.md",
+      "zeile": 54,
+      "pfad": "orte/",
+      "geprueft": "orte/"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 66,
+      "pfad": "budgets/css-seite",
+      "geprueft": "budgets/css-seite"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 66,
+      "pfad": "budgets/stil-fehlt",
+      "geprueft": "budgets/stil-fehlt"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 80,
+      "pfad": "bildsatz.mjs",
+      "geprueft": "bildsatz.mjs"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 80,
+      "pfad": "index.json",
+      "geprueft": "index.json"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 83,
+      "pfad": "seo/titel-laenge",
+      "geprueft": "seo/titel-laenge"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 85,
+      "pfad": "seo/titel-laenge-ort",
+      "geprueft": "seo/titel-laenge-ort"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 88,
+      "pfad": "recht.mjs",
+      "geprueft": "recht.mjs"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 93,
+      "pfad": "budgets/css-druck",
+      "geprueft": "budgets/css-druck"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 94,
+      "pfad": "budgets/stil-fehlt",
+      "geprueft": "budgets/stil-fehlt"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 97,
+      "pfad": "*.html.gz",
+      "geprueft": "*.html.gz"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 97,
+      "pfad": ".br",
+      "geprueft": ".br"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 98,
+      "pfad": "RemoveType/RemoveEncoding/RemoveLanguage .br .gz",
+      "geprueft": "RemoveType/RemoveEncoding/RemoveLanguage"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 99,
+      "pfad": ".br/.gz",
+      "geprueft": ".br/.gz"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 101,
+      "pfad": ".br",
+      "geprueft": ".br"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 120,
+      "pfad": "hilfen.css",
+      "geprueft": "hilfen.css"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 120,
+      "pfad": "kontrast.*.css",
+      "geprueft": "kontrast.*.css"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 120,
+      "pfad": "token.css",
+      "geprueft": "token.css"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 120,
+      "pfad": "budgets/css-sonder",
+      "geprueft": "budgets/css-sonder"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 124,
+      "pfad": "budgets/js",
+      "geprueft": "budgets/js"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 157,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 170,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/ENTSCHEIDUNGEN.md",
+      "zeile": 170,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 23,
+      "pfad": "orte.json",
+      "geprueft": "orte.json"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 41,
+      "pfad": "pipeline/orte/gold.json",
+      "geprueft": "pipeline/orte/gold.json"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 42,
+      "pfad": "orte.json",
+      "geprueft": "orte.json"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 61,
+      "pfad": "pipeline/karte.mjs",
+      "geprueft": "pipeline/karte.mjs"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 70,
+      "pfad": "live-check.mjs",
+      "geprueft": "live-check.mjs"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 70,
+      "pfad": "werkzeuge/live-check.mjs",
+      "geprueft": "werkzeuge/live-check.mjs"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 73,
+      "pfad": "E5-abschluss-pruefung.md",
+      "geprueft": "E5-abschluss-pruefung.md"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 74,
+      "pfad": "werkzeuge/",
+      "geprueft": "werkzeuge/"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 84,
+      "pfad": ".br/.gz",
+      "geprueft": ".br/.gz"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 96,
+      "pfad": "berichte/E2-sichtabnahme-2.md",
+      "geprueft": "berichte/E2-sichtabnahme-2.md"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 17,
+      "pfad": "claude/bold-noether-fk2n4f",
+      "geprueft": "claude/bold-noether-fk2n4f"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 17,
+      "pfad": "CLAUDE.md",
+      "geprueft": "CLAUDE.md"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 38,
+      "pfad": "ersatz/",
+      "geprueft": "ersatz/"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 82,
+      "pfad": "index.json",
+      "geprueft": "index.json"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 99,
+      "pfad": "claude/bold-noether-fk2n4f",
+      "geprueft": "claude/bold-noether-fk2n4f"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 104,
+      "pfad": "CLAUDE.md",
+      "geprueft": "CLAUDE.md"
+    },
+    {
+      "datei": "_werkstatt/BERICHT.md",
+      "zeile": 113,
+      "pfad": "claude/bold-noether-fk2n4f",
+      "geprueft": "claude/bold-noether-fk2n4f"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 40,
+      "pfad": ".mjs",
+      "geprueft": ".mjs"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 44,
+      "pfad": "[Text](/pfad/)",
+      "geprueft": "[Text](/pfad/)"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 73,
+      "pfad": "OFL.txt",
+      "geprueft": "OFL.txt"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 129,
+      "pfad": "stroke-linecap/linejoin: round",
+      "geprueft": "stroke-linecap/linejoin:"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 142,
+      "pfad": "marken.mjs",
+      "geprueft": "marken.mjs"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 150,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 150,
+      "pfad": "komponenten/",
+      "geprueft": "komponenten/"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 150,
+      "pfad": "budgets/css-seite",
+      "geprueft": "budgets/css-seite"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 150,
+      "pfad": "budgets/stil-fehlt",
+      "geprueft": "budgets/stil-fehlt"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 150,
+      "pfad": "druck.*.css",
+      "geprueft": "druck.*.css"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 150,
+      "pfad": "budgets/css-druck",
+      "geprueft": "budgets/css-druck"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 150,
+      "pfad": "kontrast.*.css",
+      "geprueft": "kontrast.*.css"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 150,
+      "pfad": "budgets/css-sonder",
+      "geprueft": "budgets/css-sonder"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 156,
+      "pfad": "zonen.mjs",
+      "geprueft": "zonen.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 8,
+      "pfad": "token-stichprobe.json",
+      "geprueft": "token-stichprobe.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 8,
+      "pfad": "komponenten/",
+      "geprueft": "komponenten/"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 8,
+      "pfad": "ansichten/",
+      "geprueft": "ansichten/"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 8,
+      "pfad": "token.css",
+      "geprueft": "token.css"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 8,
+      "pfad": "bewegung.css",
+      "geprueft": "bewegung.css"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 9,
+      "pfad": "galerie.html",
+      "geprueft": "galerie.html"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 9,
+      "pfad": "abschluss/",
+      "geprueft": "abschluss/"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 10,
+      "pfad": "ergebnis.md",
+      "geprueft": "ergebnis.md"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 10,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 10,
+      "pfad": "abspielen.mjs",
+      "geprueft": "abspielen.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 10,
+      "pfad": "szene.mjs",
+      "geprueft": "szene.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 10,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 12,
+      "pfad": "tastatur-desktop.json",
+      "geprueft": "tastatur-desktop.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 12,
+      "pfad": "blatt-probe.json",
+      "geprueft": "blatt-probe.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 13,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 24,
+      "pfad": "tastatur.mjs",
+      "geprueft": "tastatur.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 24,
+      "pfad": "fokus-probe.mjs",
+      "geprueft": "fokus-probe.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 24,
+      "pfad": "blatt-probe.mjs",
+      "geprueft": "blatt-probe.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 24,
+      "pfad": "ersatz/",
+      "geprueft": "ersatz/"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 24,
+      "pfad": "vt-probe.mjs",
+      "geprueft": "vt-probe.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 26,
+      "pfad": "bildrate.mjs",
+      "geprueft": "bildrate.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 27,
+      "pfad": "live-check.mjs",
+      "geprueft": "live-check.mjs"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 32,
+      "pfad": "herkunft/herkunft.json",
+      "geprueft": "herkunft/herkunft.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 32,
+      "pfad": "weg-a/weg-a.json",
+      "geprueft": "weg-a/weg-a.json"
+    },
+    {
+      "datei": "_werkstatt/ABNAHME.md",
+      "zeile": 32,
+      "pfad": "lh-gzip.json",
+      "geprueft": "lh-gzip.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 5,
+      "pfad": "index.json",
+      "geprueft": "index.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 14,
+      "pfad": "seo/titel-laenge-ort",
+      "geprueft": "seo/titel-laenge-ort"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 22,
+      "pfad": "schlecht.html",
+      "geprueft": "schlecht.html"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 30,
+      "pfad": "schlecht.html",
+      "geprueft": "schlecht.html"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 45,
+      "pfad": "faq.css",
+      "geprueft": "faq.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 45,
+      "pfad": "hauptnav.css",
+      "geprueft": "hauptnav.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 45,
+      "pfad": "menue-blatt.css",
+      "geprueft": "menue-blatt.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 45,
+      "pfad": "ortssuche.css",
+      "geprueft": "ortssuche.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 71,
+      "pfad": "abspielen.mjs",
+      "geprueft": "abspielen.mjs"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 71,
+      "pfad": "szene.mjs",
+      "geprueft": "szene.mjs"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 71,
+      "pfad": "tagesband.mjs",
+      "geprueft": "tagesband.mjs"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 75,
+      "pfad": "menue-blatt.css",
+      "geprueft": "menue-blatt.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 76,
+      "pfad": "hauptnav.css",
+      "geprueft": "hauptnav.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 97,
+      "pfad": "X0/*.json",
+      "geprueft": "X0/*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 98,
+      "pfad": "X1/*.json",
+      "geprueft": "X1/*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 99,
+      "pfad": "X7/*.json",
+      "geprueft": "X7/*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 100,
+      "pfad": "X9/*.json",
+      "geprueft": "X9/*.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 123,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 157,
+      "pfad": "smoke-4254.json",
+      "geprueft": "smoke-4254.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 160,
+      "pfad": "lh-d.json",
+      "geprueft": "lh-d.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 169,
+      "pfad": "axe-dunkel.json",
+      "geprueft": "axe-dunkel.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 186,
+      "pfad": ".log",
+      "geprueft": ".log"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 189,
+      "pfad": "ueberlauf-hell.json",
+      "geprueft": "ueberlauf-hell.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 189,
+      "pfad": "ueberlauf-dunkel.json",
+      "geprueft": "ueberlauf-dunkel.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 189,
+      "pfad": "smoke.json",
+      "geprueft": "smoke.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 214,
+      "pfad": "E5-pruefstufe-c.md",
+      "geprueft": "E5-pruefstufe-c.md"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 216,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 217,
+      "pfad": "blatt-probe.json",
+      "geprueft": "blatt-probe.json"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 220,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 220,
+      "pfad": "budgets.mjs",
+      "geprueft": "budgets.mjs"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 222,
+      "pfad": "vt-probe.mjs",
+      "geprueft": "vt-probe.mjs"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 222,
+      "pfad": "tastatur.mjs",
+      "geprueft": "tastatur.mjs"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 223,
+      "pfad": "token.css",
+      "geprueft": "token.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 223,
+      "pfad": "bewegung.css",
+      "geprueft": "bewegung.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 223,
+      "pfad": "einsatzgebiet.css",
+      "geprueft": "einsatzgebiet.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 230,
+      "pfad": "app.css",
+      "geprueft": "app.css"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 233,
+      "pfad": "komponenten/",
+      "geprueft": "komponenten/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 233,
+      "pfad": "ansichten/",
+      "geprueft": "ansichten/"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 240,
+      "pfad": "E5-pruefstufe-c.md",
+      "geprueft": "E5-pruefstufe-c.md"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 28,
+      "pfad": "adresse.plz",
+      "geprueft": "adresse.plz"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 29,
+      "pfad": "telefon.e164",
+      "geprueft": "telefon.e164"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 30,
+      "pfad": "security.txt",
+      "geprueft": "security.txt"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 42,
+      "pfad": "zeitfenster[].zeit",
+      "geprueft": "zeitfenster[].zeit"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 59,
+      "pfad": "seo/titel-laenge-ort",
+      "geprueft": "seo/titel-laenge-ort"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 81,
+      "pfad": "betrieb.mjs",
+      "geprueft": "betrieb.mjs"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 90,
+      "pfad": "orte.json",
+      "geprueft": "orte.json"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 90,
+      "pfad": "plz.json",
+      "geprueft": "plz.json"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 90,
+      "pfad": "slug-register.json",
+      "geprueft": "slug-register.json"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 90,
+      "pfad": "weiterleitungen.json",
+      "geprueft": "weiterleitungen.json"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 90,
+      "pfad": "orte-unklar.json",
+      "geprueft": "orte-unklar.json"
+    },
+    {
+      "datei": "docs/BETRIEB.md",
+      "zeile": 90,
+      "pfad": "orte-pruefliste.json",
+      "geprueft": "orte-pruefliste.json"
+    },
+    {
+      "datei": "docs/ENTSCHEIDUNGEN.md",
+      "zeile": 55,
+      "pfad": "seo/titel-laenge-ort",
+      "geprueft": "seo/titel-laenge-ort"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 15,
+      "pfad": ".txt",
+      "geprueft": ".txt"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 15,
+      "pfad": "security.txt",
+      "geprueft": "security.txt"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 16,
+      "pfad": "robots.txt",
+      "geprueft": "robots.txt"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 30,
+      "pfad": "security.txt",
+      "geprueft": "security.txt"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 30,
+      "pfad": "betrieb.email",
+      "geprueft": "betrieb.email"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 35,
+      "pfad": ".br",
+      "geprueft": ".br"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 35,
+      "pfad": ".gz",
+      "geprueft": ".gz"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 35,
+      "pfad": "dist.verweigert/",
+      "geprueft": "dist.verweigert/"
+    },
+    {
+      "datei": "docs/HOSTER-CHECKLISTE.md",
+      "zeile": 36,
+      "pfad": "release/nginx/",
+      "geprueft": "release/nginx/"
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "zeile": 3,
+      "pfad": "E4-KUND-04.md",
+      "geprueft": "E4-KUND-04.md"
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "zeile": 3,
+      "pfad": "E4-KUND-05.md",
+      "geprueft": "E4-KUND-05.md"
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "zeile": 5,
+      "pfad": "MENSCHEN.md",
+      "geprueft": "MENSCHEN.md"
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "zeile": 28,
+      "pfad": "ENTSCHEIDUNGEN.md",
+      "geprueft": "ENTSCHEIDUNGEN.md"
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "zeile": 41,
+      "pfad": "security.txt",
+      "geprueft": "security.txt"
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "zeile": 53,
+      "pfad": "seo/titel-laenge-ort",
+      "geprueft": "seo/titel-laenge-ort"
+    },
+    {
+      "datei": "docs/OFFENE-PUNKTE.md",
+      "zeile": 54,
+      "pfad": "orte-unklar.json",
+      "geprueft": "orte-unklar.json"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 12,
+      "pfad": "download.geonames.org",
+      "geprueft": "download.geonames.org"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 30,
+      "pfad": "00-laden.mjs",
+      "geprueft": "00-laden.mjs"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 30,
+      "pfad": "quellen.lock.json",
+      "geprueft": "quellen.lock.json"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 31,
+      "pfad": "10-quellen.mjs",
+      "geprueft": "10-quellen.mjs"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 32,
+      "pfad": "20-index.mjs",
+      "geprueft": "20-index.mjs"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 32,
+      "pfad": "plz.json",
+      "geprueft": "plz.json"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 32,
+      "pfad": "verwaltung.json",
+      "geprueft": "verwaltung.json"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 33,
+      "pfad": "30-abgleich.mjs",
+      "geprueft": "30-abgleich.mjs"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 34,
+      "pfad": "40-umkreis.mjs",
+      "geprueft": "40-umkreis.mjs"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 35,
+      "pfad": "50-anreichern.mjs",
+      "geprueft": "50-anreichern.mjs"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 36,
+      "pfad": "60-slugs.mjs",
+      "geprueft": "60-slugs.mjs"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 36,
+      "pfad": "plz.json",
+      "geprueft": "plz.json"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 36,
+      "pfad": "slug-register.json",
+      "geprueft": "slug-register.json"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 36,
+      "pfad": "weiterleitungen.json",
+      "geprueft": "weiterleitungen.json"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 37,
+      "pfad": "90-pruefen.mjs",
+      "geprueft": "90-pruefen.mjs"
+    },
+    {
+      "datei": "docs/ORTE-ABGLEICH.md",
+      "zeile": 142,
+      "pfad": "quellen.lock.json",
+      "geprueft": "quellen.lock.json"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 3,
+      "pfad": "claude/bold-noether-fk2n4f",
+      "geprueft": "claude/bold-noether-fk2n4f"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 14,
+      "pfad": "claude/bold-noether-fk2n4f",
+      "geprueft": "claude/bold-noether-fk2n4f"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 43,
+      "pfad": "BETRIEB.md",
+      "geprueft": "BETRIEB.md"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 44,
+      "pfad": "OFFENE-PUNKTE.md",
+      "geprueft": "OFFENE-PUNKTE.md"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 45,
+      "pfad": "HOSTER-CHECKLISTE.md",
+      "geprueft": "HOSTER-CHECKLISTE.md"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 46,
+      "pfad": "ENTSCHEIDUNGEN.md",
+      "geprueft": "ENTSCHEIDUNGEN.md"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 47,
+      "pfad": "ORTE-ABGLEICH.md",
+      "geprueft": "ORTE-ABGLEICH.md"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 49,
+      "pfad": "MENSCHEN.md",
+      "geprueft": "MENSCHEN.md"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 49,
+      "pfad": "berichte/",
+      "geprueft": "berichte/"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 49,
+      "pfad": "werkzeuge/",
+      "geprueft": "werkzeuge/"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 83,
+      "pfad": "dist.verweigert/",
+      "geprueft": "dist.verweigert/"
+    },
+    {
+      "datei": "docs/ZUSAMMENFUEHREN.md",
+      "zeile": 88,
+      "pfad": "CLAUDE.md",
+      "geprueft": "CLAUDE.md"
+    }
+  ],
+  "platzhalter": [
+    {
+      "datei": "README.md",
+      "zeile": 11,
+      "pfad": ">=22.12 <23"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 40,
+      "pfad": "pipeline/orte/{00-laden,10-quellen,20-index}.mjs"
+    },
+    {
+      "datei": "_werkstatt/PLAN.md",
+      "zeile": 42,
+      "pfad": "pipeline/orte/{40,50,60,90}-*.mjs"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 43,
+      "pfad": "app.<hash>.js"
+    },
+    {
+      "datei": "_werkstatt/KERN.md",
+      "zeile": 150,
+      "pfad": "ansichten/<name>/"
+    }
+  ],
+  "cacheVorhanden": [
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 210,
+      "pfad": "endstand-nach/links-schluss/",
+      "inCache": true,
+      "hinweis": "zählt als vorhanden, wenn .cache/endstand-nach/links-schluss/ existiert; wird nach Prüfung ins Repo kopiert"
+    },
+    {
+      "datei": "_werkstatt/berichte/E5-abschluss-pruefung.md",
+      "zeile": 231,
+      "pfad": "endstand-nach/links-schluss/",
+      "inCache": true,
+      "hinweis": "zählt als vorhanden, wenn .cache/endstand-nach/links-schluss/ existiert; wird nach Prüfung ins Repo kopiert"
+    }
+  ]
+}
