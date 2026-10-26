@@ -1,4 +1,4 @@
 [
-  { "typ": "klick", "selektor": "button.knopf-primaer[type=\"submit\"]" },
+  { "typ": "klick", "selektor": "button.knopf-primaer[data-rolle=\"absenden\"]" },
   { "typ": "tippen", "selektor": "#k-ort", "text": "Weilburg" }
 ]

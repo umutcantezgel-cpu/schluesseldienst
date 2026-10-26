@@ -39,5 +39,10 @@
     .hauptnav-liste { gap: 0; }
     .hauptnav-punkt > a { padding-inline: var(--sp-2xs); font-size: var(--fs--1); }
   }
-  @media (prefers-reduced-motion: reduce) { .js .hauptnav-panel { transform: none; } }
+  /* M-05 bei reduzierter Bewegung: nur Deckkraft in Rückmeldungsdauer, der Pfeil wechselt sofort */
+  @media (prefers-reduced-motion: reduce) {
+    .hauptnav-aufklapper .i { transition: none; }
+    .js .hauptnav-panel { transform: none; transition: opacity var(--dur-feedback-aus) var(--ease-standard), visibility var(--dur-null) linear var(--dur-feedback-aus); }
+    .js .hauptnav-panel[data-zustand="offen"] { transition: opacity var(--dur-feedback) var(--ease-standard); }
+  }
 }

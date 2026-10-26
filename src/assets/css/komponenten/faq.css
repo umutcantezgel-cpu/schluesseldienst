@@ -12,4 +12,5 @@
   .faq-eintrag[open] .faq-chevron { transform: rotate(180deg); transition-duration: var(--dur-zustand); }
   .faq-antwort { padding-block-end: var(--sp-m); color: var(--c-tinte-2); }
   @media print { .faq-antwort { display: block; } }
+  @media (prefers-reduced-motion: reduce) { .faq-chevron { transition: none; } } /* M-07: sofort */
 }

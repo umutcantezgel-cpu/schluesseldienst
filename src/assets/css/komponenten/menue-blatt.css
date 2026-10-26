@@ -27,4 +27,11 @@
     .menue-blatt[open]::backdrop { transition: opacity var(--dur-zustand) var(--ease-standard); }
     @starting-style { .menue-blatt[open]::backdrop { opacity: 0; } }
   }
+  /* M-06 bei reduzierter Bewegung: das Blatt blendet nur ein (Deckkraft, Rückmeldungsdauer) */
+  @media (prefers-reduced-motion: reduce) {
+    .menue-blatt[open] { transition: opacity var(--dur-feedback) var(--ease-standard), display var(--dur-feedback) allow-discrete, overlay var(--dur-feedback) allow-discrete; }
+    @starting-style { .menue-blatt[open] { opacity: 0; } }
+    .menue-blatt[open]::backdrop { transition: opacity var(--dur-feedback) var(--ease-standard); }
+    @starting-style { .menue-blatt[open]::backdrop { opacity: 0; } }
+  }
 }

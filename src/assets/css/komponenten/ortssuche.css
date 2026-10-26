@@ -29,5 +29,5 @@
   .ortspruefung-ergebnis-zone { font-weight: var(--fw-titel); color: var(--c-lahn-text); }
   .ortspruefung-ergebnis-link { margin-block-start: var(--sp-2xs); }
   @keyframes drehen { to { transform: translateY(-50%) rotate(360deg); } }
-  @media (prefers-reduced-motion: reduce) { .ortspruefung[data-zustand="laedt"] .ortspruefung-icon { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { .ortspruefung[data-zustand="laedt"] .ortspruefung-icon { animation: none; } .ortspruefung-ergebnis { transition: none; } } /* M-10, M-12: sofort */
 }

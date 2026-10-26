@@ -104,25 +104,25 @@ Technik: nur `transform`/`opacity`; CSS `@layer bewegung`; Startzustände nur in
 |---|---|---|---|---|
 | M-01 | Rückmeldung | `:focus-visible` | sofort (nicht animiert) | gleich |
 | M-02 | Rückmeldung | Hover-Überlagerung (`::before` Deckkraft .10) | feedback / standard | gleich (nur Deckkraft) |
-| M-03 | Rückmeldung | `:active` | scale .98, feedback | nur Überlagerung |
+| M-03 | Rückmeldung | `:active` (Knopf, Rufknopf, Wahl, Karten- und Listenlinks) | scale .98, sofort ohne Übergang: der Druck folgt dem Finger (Abschluss-Nachprüfung) | nur Überlagerung |
 | M-04 | Orientierung | Rufleisten-Status | keine Animation (bewusst, P2) | – |
 | M-05 | Zustand | Navigations-Panel (Aufklapper-Pfeil dreht mit); Gruppenfilter /leistungen/ (nach einem Wechsel eingeblendete Gruppen) | Deckkraft + Y −8px, zustand / zustand-aus | Deckkraft, feedback |
 | M-06 | Zustand | Menü-Blatt (`@starting-style`) | Y 100%→0, zustand (300ms) ein / 240ms aus; Hintergrund Deckkraft | Deckkraft 150ms |
-| M-07 | Zustand | FAQ öffnen | Inhalt Deckkraft + Y −4px, zustand; Chevron dreht | sofort |
+| M-07 | Zustand | FAQ öffnen; Anliegen-Wahl im Composer (Notfall- und Mail-Zweig, nur nach einer Wahl, nie beim Laden) | Inhalt Deckkraft + Y −4px, zustand; Chevron dreht | sofort (auch der Chevron) |
 | M-08 | Rückmeldung | Combobox-Liste | Deckkraft + Y −4px, feedback | sofort |
-| M-09 | Rückmeldung | Feldfehler / Fehlerübersicht | Deckkraft, feedback; kein Schütteln | sofort |
+| M-09 | Rückmeldung | Feldfehler / Fehlerübersicht; Composer-Hinweis „ohne Adresse“ | Deckkraft, feedback; kein Schütteln | sofort |
 | M-10 | Rückmeldung | Ladeanzeige (einzige Endlos-Animation, nur während Laden, erst nach 300ms) | Drehung 900ms linear | statisches Icon + Text |
 | M-11 | – | entfällt: keine Erfolgsmeldung (PLAN Kontakt; der Composer öffnet nur das Mailprogramm) | – | – |
-| M-12 | Rückmeldung | Ergebnis Rechner/PLZ-Prüfung | Deckkraft .6→1, feedback; nie hochzählen | sofort |
+| M-12 | Rückmeldung | Ergebnis Rechner/PLZ-Prüfung; Trefferliste der Suche; Betreff im Composer nach der Anliegen-Wahl | Deckkraft .6→1, feedback; nie hochzählen | sofort |
 | M-13 | Hierarchie | Abschnittsauftritt (V01; die übrigen Erzählansichten tragen ihre großen Momente M-17, M-18, M-20; Überschriften und Figuren, nie Fließtext) | Y 24px + Deckkraft; H2 am Zeitstrahl des Abschnittskopfs entry 10–80 %, Figuren view() entry 0–30 %, ein | keiner |
-| M-14 | Orientierung | Linie am Abschnittskopf; Linie des Ablaufs (V01); Linie am angesprungenen A–Z-Kopf (`:target`, V06) | scaleX .2→1, Zeitstrahl des Abschnittskopfs entry 0–60 % (Ablauf: view(); `:target`: einmal beim Sprung), linie | statisch bei 1 |
+| M-14 | Orientierung | Linie am Abschnittskopf; Linie des Ablaufs (V01); Linie am angesprungenen A–Z-Kopf (`:target`, V06); Kupferstrich der Ratgeber-Inhaltsschiene am aktuellen Abschnitt (`aria-current`, V08) | scaleX .2→1, Zeitstrahl des Abschnittskopfs entry 0–60 % (Ablauf: view(); `:target`: einmal beim Sprung; Inhaltsschiene: Übergang zustand, linie, Ausgang zustand-aus) | statisch bei 1 (Inhaltsschiene springt) |
 | M-15 | Zusammenhang | Seitenwechsel (View Transition); gemeinsames Element ist die Kopflinie `.scherlinie-leit` (genau eine je Seite) | Wurzel aus 160 / ein 240; Gruppe `scherlinie` 400 standard; Rufleiste und Kopf stehen | keiner |
 | M-16 | **Großer Moment Start: „Scherlinie“** | Laden | Schlüssel X −40%→0 420 ein; 5 Stiftpaare auf die Scherlinie 360 einrasten, Staffel 70, Federn stauchen mit (scaleY); Linie scaleX 480 linie ab 900ms; gesamt ≤ 1.400ms. H1, Ortsprüfung, Anruf nie animiert. Knopf „Ablauf noch einmal ansehen“ startet neu. | Endzustand statisch |
-| M-17 | **Großer Moment Leistungsgruppe: Szene** | Scrollen (Schritt in Viewport-Mitte) | Figur `[data-schritt=n]`, Teile 360 standard; Notöffnung „Stift für Stift“, Einbruchschutz „Tür-Schichten“, Sicherheitstechnik „Grundriss-Zonen“, Einbau & Tresore „Widerstandsstufen“ | nicht klebend; kleine statische Einzelbilder |
-| M-18 | **Großer Moment Einsatzgebiet: „Ringe um Weilburg“** | view() | Rasterkarte scale .42→1, Ringe scale .6→1 + Deckkraft, Staffel über gestaffelte view()-Bereiche; Namen blenden mit ihren Punkten ein; auf V05 am Zeitstrahl der ganzen Karte: Kupferpunkt Weilburg rastet ein (scale 0→1, einrasten), dann zieht die Kupfer-Messlinie vom Sitz zum äußeren Ring (scaleY), die Ringmaße erscheinen, sobald die Linie sie erreicht | statisches Endbild |
+| M-17 | **Großer Moment Leistungsgruppe: Szene** | Scrollen (Schritt in Viewport-Mitte) | Figur `[data-schritt=n]`, Teile 360 standard; mit ihr zieht die Kupferlinie des Schritts und sein Eintrag in der Stückliste (scale, gleiche Dauer); Notöffnung „Stift für Stift“, Einbruchschutz „Tür-Schichten“, Sicherheitstechnik „Grundriss-Zonen“, Einbau & Tresore „Widerstandsstufen“ | nicht klebend; kleine statische Einzelbilder |
+| M-18 | **Großer Moment Einsatzgebiet: „Ringe um Weilburg“** | view() | Rasterkarte scale .42→1 + Deckkraft, Ringe scale .6→1 + Deckkraft (der Kupferring am Sitz mit ihnen), Staffel über gestaffelte view()-Bereiche; Namen blenden mit ihren Punkten ein; auf V05 am Zeitstrahl der ganzen Karte: Kupferpunkt Weilburg rastet ein (scale 0→1, einrasten), dann zieht die Kupfer-Messlinie vom Sitz zum äußeren Ring (scaleY), die Ringmaße erscheinen, sobald die Linie sie erreicht | statisches Endbild |
 | M-19 | Zusammenhang | Ortsseite geladen (Lagekarte, K-04) | Linie auf Peilung gedreht (SVG-`transform`-Attribut); gezogen wird ihre Maske (`.lk-zug` im clipPath) scaleX 0→1 480 linie, damit das Strichmuster nicht staucht; km-Beschriftung blendet ein | sofort |
 | M-20 | **Großer Moment Über uns: „Der gerade Weg“** | Laden (Figur im Seitenkopf, wie M-16), gesamt ≤ 1.400 ms | Fluss im Bogen (Auftritt 640), dann Tunnel-Linie scaleX über den Bogen (480, linie); Tor und Beschriftung „Schiffstunnel“ blenden ein (150) | statisch |
-| M-21 | Charakter | 404 | Stifte wackeln 3× (Y ±3 px am Bildschirm, gesamt 600 ms; der Weg in SVG-Einheiten wird durch den Figurmaßstab geteilt, Rückfall ohne Containermaß auf feste Einheiten), Linienhälften X ±4 px | statischer gebrochener Zustand mit sichtbarer Lücke |
+| M-21 | Charakter | 404 | Stifte wackeln 3× (Y ±3 px am Bildschirm, gesamt 600 ms; jeder zweite Stift gegenläufig; der Weg in SVG-Einheiten wird durch den Figurmaßstab geteilt, Rückfall ohne Containermaß auf feste Einheiten), Linienhälften X ±4 px | statischer gebrochener Zustand mit sichtbarer Lücke |
 Nichts läuft automatisch länger als 5 s → kein Pause-Knopf nötig. Nichts blinkt.
 
 ## K-008 SVG-Formsystem „Linie & Bogen“
