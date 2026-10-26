@@ -151,15 +151,15 @@ Keine formale Bewertung mehr (L3: zwei Anläufe je Tor; Z-04 bleibt AUSNAHME A-2
   - Leistungen-Panel auf der Inhaltslinie
   - eigene Radios statt der Browser-Glyphe
   - Weiterlesen-Karten mit Subgrid (`df0cda1`)
-- **V05 und Rasterkarte (`17e1a7c`):**
+- **V05 und Rasterkarte (`30a71ba`):**
   - Punkte unter der Schrift ausgespart, Ringmaße an einer Kupfer-Messlinie
   - M-18 erzählt die Leitidee (Sitz rastet ein, Linie misst, Maße erscheinen)
   - Gegenprüfung: ok
-- **V08 und V09 (`17e1a7c`):**
+- **V08 und V09 (`30a71ba`):**
   - Ratgeber: Quellen beim Text, Inhaltsverzeichnis im Kontrastdesign sichtbar, Touch-Ziele ≥ 48 px
   - Über uns: eigene Erzählung zum Sitz mit Messleiste der Zonen
   - Gegenprüfung: Nachbesserung
-- **V04 und V10–V12 (`2c6e7d2`, Teile in den ZWISCHENSTÄNDEN):**
+- **V04 und V10–V12 (`1e4a9b2`, Teile in den ZWISCHENSTÄNDEN):**
   - Leeres Tagesband in der Platzhaltersprache (190 statt 470 px), Rechner 2 × 2 mit Rechnung im Stil der Formel
   - Kontakt- und Suchkopf dichter, Ortstreffer der Suche mit Maßstab
   - Rechts-Sprungziele mit sichtbarer Marke
