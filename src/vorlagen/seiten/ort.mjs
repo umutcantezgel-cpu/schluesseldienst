@@ -224,9 +224,12 @@ function umgebung(sk, o, werte) {
   const nachbarName = (n) => (n.gemeindeId === gemeindeId && D.einmalInGemeinde(n) ? n.name : D.anzeige.get(n.id));
   // Lange Ortsteillisten (Großstädte) und eine einzelne Liste laufen über die volle Breite in Spalten, die Nachbarn
   // folgen darunter. Kurze Listen (bis vier Einträge) bleiben einspaltig und schmal (4/8), statt in Spalten zu zerfallen.
+  // Ist die linke Liste deutlich länger (Weilburg: 11 Ortsteile neben 6 Nachbarn), steht sie zweispaltig in 8/4, wenn
+  // die Spalten so gleicher enden als einspaltig nebeneinander.
   const lang = liste.length > 24 || !liste.length || !nachbarn.length;
   const kurz = !lang && liste.length <= 4;
-  const art = lang ? ' ort-umgebung-lang' : kurz ? ' ort-umgebung-kurz' : '';
+  const linksBreit = !lang && !kurz && Math.abs(Math.ceil(liste.length / 2) - nachbarn.length) < Math.abs(liste.length - nachbarn.length);
+  const art = lang ? ' ort-umgebung-lang' : kurz ? ' ort-umgebung-kurz' : linksBreit ? ' ort-umgebung-links' : '';
   return (band) => html`<section class="${sektion(band)}" aria-label="Umgebung von ${werte.ort}">
 <div class="raster"><div class="ort-umgebung${art}">
 ${liste.length ? html`<div><h2 class="ort-liste-titel">${titel}</h2><ul class="ort-liste${liste.length <= 4 ? ' ort-liste-kurz' : ''}">${liste.map((x) => html`<li><a href="${pfad(x)}">${x.name}</a></li>`)}</ul></div>` : ''}

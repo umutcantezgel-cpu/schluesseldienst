@@ -383,8 +383,8 @@ const abschnitte = (l) => Array.from({ length: l.length / 2 - 1 }, (_, i) => l.s
  * größten Städte (Köln, Frankfurt). Die Linie kreuzt weder Schrift noch eine andere Linie; lange Namen brechen
  * zweizeilig (zweiZeilen). Liefert die günstigste Lösung { x, y, anker, kiste, zeilen?, linie?, aus } oder null.
  */
-const AUS_KOSTEN = 8; const AUS_MAX = 10; const KNICK_KOSTEN = 6; const ZWEI_KOSTEN = 4;
-function namensStelle(bel, [x, y], inhalt, groesse, { raster, schrift, linien, reichweite, ueberRinge = false }) {
+const AUS_KOSTEN = 8; const AUS_MAX = 10; const KNICK_KOSTEN = 6; const ZWEI_KOSTEN = 4; const RING_KOSTEN = 24; const DREH_KOSTEN = 48;
+function namensStelle(bel, [x, y], inhalt, groesse, { raster, schrift, linien, reichweite, ueberRinge = false, gesetzt = [] }) {
   const eigen = raster.schluessel(x, y);
   const zeilen = zweiZeilen(inhalt);
   // Name an der Stelle (lx, ly) im Abstand d: seitlich auf gleicher Höhe, oben und unten mittig; lange Namen auch
@@ -399,16 +399,25 @@ function namensStelle(bel, [x, y], inhalt, groesse, { raster, schrift, linien, r
     const eins = { ...c, lage, kiste: textKiste(c.x, c.y, c.anker, inhalt, groesse, 0.6), kosten: 0 };
     return zeilen ? [eins, ...zweizeilig([eins], zeilen, groesse, 0.6).map((z) => ({ ...z, kosten: ZWEI_KOSTEN }))] : [eins];
   };
-  const passt = (c) => bel.innen(c.kiste) && bel.frei(c.kiste, { mitRingen: !ueberRinge });
+  // ueberRinge: ein Name darf einen Ring kreuzen (der Ring setzt dort aus), das kostet – sonst lief „Wiesbaden“ mit
+  // langer Linie quer über Frankfurt nach Osten, statt westlich am Punkt über dem 50-km-Ring zu stehen
   let beste = null;
   const nimm = (c, kosten, linie = null, aus = []) => {
-    if (passt(c) && (!beste || kosten + c.kosten < beste.kosten)) beste = { ...c, kosten: kosten + c.kosten, linie, aus };
+    if (!bel.innen(c.kiste)) return;
+    const ring = !bel.frei(c.kiste);
+    if (ring && !(ueberRinge && bel.frei(c.kiste, { mitRingen: false }))) return;
+    // Reihenfolge wahren: Liegt der Punkt nördlich eines schon benannten, steht sein Name nicht südlich von dessen Namen
+    // (und umgekehrt, ebenso Ost und West) – „Düsseldorf“ stand sonst unter „Köln“
+    const [mx, my] = [(c.kiste.x1 + c.kiste.x2) / 2, (c.kiste.y1 + c.kiste.y2) / 2];
+    const dreh = gesetzt.filter((g) => (Math.abs(y - g.py) > 6 && (y - g.py) * (my - g.my) < 0) || (Math.abs(x - g.px) > 6 && (x - g.px) * (mx - g.mx) < 0)).length;
+    const summe = kosten + c.kosten + (ring ? RING_KOSTEN : 0) + dreh * DREH_KOSTEN;
+    if (!beste || summe < beste.kosten) beste = { ...c, kosten: summe, linie, aus, ring };
   };
   // direkt am Punkt, in dieser Reihenfolge (gleiche Kosten: die erste freie Lage gewinnt)
   [['rechts', 5, 0], ['links', -5, 0], ['oben', 0, -5], ['unten', 0, 5]].forEach(([lage, dx, dy], i) => {
     for (const c of an(x + dx, y + dy, lage)) nimm(c, i * 0.1);
   });
-  if (beste && !beste.zeilen) return beste;
+  if (beste && beste.kosten < 1) return beste;
   // Eine Strecke wird in Stücken geprüft: kreuzt sie Schrift oder eine andere Linie, ist die Richtung zu Ende;
   // Punkte, an denen sie vorbeiläuft, sammelt sie (außer dem eigenen) mit ihrem Preis; zu viele beenden sie auch
   const weg = (von = null) => ({ aus: new Set(von?.aus), preis: von?.preis || 0, zu: false });
@@ -507,6 +516,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
     return x + 3 > kiste.x1 && x - 3 < kiste.x2 && y + 3 > kiste.y1 && y - 3 < kiste.y2;
   });
   const nurBreit = new Map(); // Zellen, die nur unter der mobilen Weilburg-Schrift liegen
+  const nurSchmal = new Map(); // Zellen unter den Linien der Nebennamen, die erst ab 48em stehen (az.css)
   const schrift = []; // Kisten der Beschriftungen und der Sitzmarke: Führungslinien der Namen kreuzen sie nicht
   const bel = belegung(B, H);
   // Schriftgrößen der Kisten: mobil (gebiet.css) ist die Schrift eine Stufe größer – geschätzt wird mit der größeren
@@ -619,7 +629,7 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
   // Die größten Orte des Gebiets, am Punkt ihrer Rasterzelle und nur auf freier Fläche (weder auf Punkten noch auf
   // Ringen); der Sitz trägt schon seinen Namen. Die ersten zwei reichen mit ihrer Linie weiter (96 statt 64
   // Einheiten), ab dem dritten nur breit (data-rang="2", gebiet.css). Unter einer Führungslinie entfallen die Punkte.
-  const namen = []; const fuehrungen = [];
+  const namen = []; const fuehrungen = []; const stellen = [];
   // Ohne Einwohnerzahl in den Daten (Stadtteile von Oberhausen, Pirmasens) stehen die Orte nach dem Alphabet
   const nennbar = orte.filter((x) => x.slug !== sitz.slug && (x.name.length <= 24 || zweiZeilen(x.name)?.every((z) => z.length <= 24)));
   const mitZahl = nennbar.filter((x) => x.pop > 0).sort((a, c) => c.pop - a.pop);
@@ -632,24 +642,27 @@ export function gebietslage({ orte, sitz, ringeKm = [20, 50, 100], praefix = 'gl
     const lage = {
       raster, schrift, linien: [...(peilung ? [peilung] : []), ...fuehrungen.map((f) => f.punkte)], reichweite: rang === 1 ? 96 : 64,
     };
-    // Ein Hauptname, der zwischen den Ringen keinen Platz findet (Marburg, Bad Homburg), darf einen Ring kreuzen;
-    // der Ring setzt dort aus wie bei „Weilburg“
-    let wahl = namensStelle(bel, mitte(k), o.name, rang === 1 ? SCHRIFT.l : SCHRIFT.s, lage);
-    if (!wahl && rang === 1 && ringe.length) {
-      wahl = namensStelle(bel, mitte(k), o.name, SCHRIFT.l, { ...lage, ueberRinge: true });
-      if (wahl) luecken.push(wahl.kiste);
-    }
+    // Ein Hauptname darf einen Ring kreuzen, wenn er sonst keinen oder nur einen weiten Weg fände (Marburg, Bad
+    // Homburg, Wiesbaden); der Ring setzt dort aus wie bei „Weilburg“
+    const wahl = namensStelle(bel, mitte(k), o.name, rang === 1 ? SCHRIFT.l : SCHRIFT.s, { ...lage, ueberRinge: rang === 1 && ringe.length > 0, gesetzt: stellen });
     if (!wahl) continue;
+    if (wahl.ring) luecken.push(wahl.kiste);
+    stellen.push({ px: mitte(k)[0], py: mitte(k)[1], mx: (wahl.kiste.x1 + wahl.kiste.x2) / 2, my: (wahl.kiste.y1 + wahl.kiste.y2) / 2 });
     bel.kiste(wahl.kiste); schrift.push(wahl.kiste);
     const zusatz = rang === 2 ? ' data-rang="2"' : '';
     namen.push(text('gk-name', wahl, o.name, zusatz));
-    for (const a of wahl.aus) { zellen.delete(a); nurBreit.delete(a); }
+    // Unter der Linie eines Nebennamens fehlen die Punkte nur dort, wo die Linie steht (ab 48em); schmal bliebe sonst
+    // eine leere Bahn ohne Linie
+    for (const a of wahl.aus) {
+      if (rang === 2 && zellen.has(a)) nurSchmal.set(a, zellen.get(a));
+      zellen.delete(a); nurBreit.delete(a);
+    }
     if (wahl.linie) {
       for (let i = 2; i < wahl.linie.length; i += 2) bel.strecke(wahl.linie.slice(i - 2, i + 2));
       fuehrungen.push({ punkte: wahl.linie, svg: `<path class="gl-fuehrung"${zusatz} d="${pfadD(wahl.linie)}"/>` });
     }
   }
-  const rasterSvg = pfade(zellen, '') + pfade(nurBreit, ' gl-nur-breit');
+  const rasterSvg = pfade(zellen, '') + pfade(nurBreit, ' gl-nur-breit') + pfade(nurSchmal, ' gl-nur-schmal');
   // Ferne Gebiete haben keine Zonenringe als Maß: ein Maßstab wie auf der Lagekarte, wo eine Ecke frei ist
   const mass = fern ? massstab(bel, jeKm, B, H, [...zellen.keys()].map(mitte)) : '';
   const ringSvg = ringe.map(({ rr }) => ring(sx, sy, r(rr), luecken)).join('');

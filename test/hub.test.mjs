@@ -1,9 +1,13 @@
 // Hub-Seiten, Abschnitt „… in Zahlen“ (K-08): Gebietsart der Überschrift, ein Ort bzw. gleiche Entfernung, PLZ-Angabe.
-// Dazu Lagekarte (Ortsseite) und Gebietslage (Hub) an echten Daten.
+// Dazu Lagekarte (Ortsseite) und Gebietslage (Hub) an echten Daten, A–Z-Sprungziele und die Umgebung der Ortsseite.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { gebietsart, kennzahlenAbschnitt } from '../src/vorlagen/seiten/hub.mjs';
+import { gebietsart, kennzahlenAbschnitt, seiten as hubSeiten, vorbereiten as hubVorbereiten } from '../src/vorlagen/seiten/hub.mjs';
+import { seiten as ortSeiten } from '../src/vorlagen/seiten/ort.mjs';
+import betrieb from '../src/konfig/betrieb.mjs';
+import preise from '../src/konfig/preise.mjs';
+import { iconsLaden } from '../src/vorlagen/teile/icons.mjs';
 import { lagekarte, gebietslage } from '../src/vorlagen/teile/lagekarte.mjs';
 import zonen from '../src/konfig/zonen.mjs';
 
@@ -220,7 +224,7 @@ test('Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten n
   for (const name of gebiete) {
     const s = lage(name);
     const punkte = [...s.matchAll(/<path class="gk-raster ([^"]*)" d="([^"]+)"/g)]
-      .flatMap(([, klasse, d]) => [...d.matchAll(/M(-?\d+) (-?\d+)/g)].map(([, x, y]) => ({ x: +x, y: +y, nurBreit: klasse.includes('gl-nur-breit') })));
+      .flatMap(([, klasse, d]) => [...d.matchAll(/M(-?\d+) (-?\d+)/g)].map(([, x, y]) => ({ x: +x, y: +y, nurBreit: klasse.includes('gl-nur-breit'), nurSchmal: klasse.includes('gl-nur-schmal') })));
     const sitz = /class="gk-sitz-punkt" cx="(-?\d+)" cy="(-?\d+)"/.exec(s);
     const ring = sitz ? ringPunkte(s, [+sitz[1], +sitz[2]]) : [];
     const texte = texteVon(s).filter((t) => t.klasse.startsWith('gk-'));
@@ -229,7 +233,7 @@ test('Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten n
       for (const [lage, groesse] of LAGEN) {
         if (lage === 'schmal' && t.rang2) continue; // Nebennamen entfallen mobil
         const k = kiste(t, groesse[t.klasse], t.klasse === 'gk-sitz-name' ? 0.58 : 0.55);
-        const darunter = punkte.filter((q) => (lage === 'breit' || !q.nurBreit) && q.x > k.x1 && q.x < k.x2 && q.y > k.y1 && q.y < k.y2);
+        const darunter = punkte.filter((q) => (lage === 'breit' ? !q.nurSchmal : !q.nurBreit) && q.x > k.x1 && q.x < k.x2 && q.y > k.y1 && q.y < k.y2);
         assert.equal(darunter.length, 0, `${name}: „${t.inhalt}“ (${lage}) auf ${darunter.length} Rasterpunkten`);
         // Kreuzt ein Name einen Ring (Weilburg, ein Hauptname ohne andere Stelle), setzt der Ring dort aus
         const auf = ring.filter(([x, y]) => x > k.x1 + 1 && x < k.x2 - 1 && y > k.y1 + 1 && y < k.y2 - 1);
@@ -238,7 +242,9 @@ test('Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten n
     }
     // Führungslinien (K-008): Stücke nur 0°, 45° oder 90°, höchstens ein Knick, das letzte waagerecht oder senkrecht
     // und am Namen; keine kreuzt Schrift oder liegt auf einem Rasterpunkt (die Punkte darunter sind ausgespart)
-    for (const [, d] of s.matchAll(/class="gl-fuehrung"[^>]*d="([^"]+)"/g)) {
+    for (const [, zusatz, d] of s.matchAll(/class="gl-fuehrung"([^>]*)d="([^"]+)"/g)) {
+      // Linien der Nebennamen stehen nur breit; die Punkte, die nur schmal stehen, liegen unter ihnen
+      const sichtbar = punkte.filter((q) => !(zusatz.includes('data-rang="2"') && q.nurSchmal));
       assert.match(d, /^M-?\d+ -?\d+(L-?\d+ -?\d+){1,2}$/, `${name}: Führungslinie ${d} mit mehr als einem Knick`);
       const pkt = zahlen(d.replace(/[ML]/g, ' '));
       const stuecke = Array.from({ length: pkt.length / 2 - 1 }, (_, i) => pkt.slice(i * 2, i * 2 + 4));
@@ -257,7 +263,7 @@ test('Gebietslage: Namen und Ringbeschriftungen liegen weder auf Rasterpunkten n
             const k = kiste(t, 15, 0.55);
             assert.ok(!(x > k.x1 + 2 && x < k.x2 - 2 && y > k.y1 + 2 && y < k.y2 - 2), `${name}: Führungslinie durch „${t.inhalt}“`);
           }
-          for (const q of punkte) assert.ok(Math.hypot(q.x - x, q.y - y) >= 3, `${name}: Führungslinie ${d} über dem Rasterpunkt ${q.x},${q.y}`);
+          for (const q of sichtbar) assert.ok(Math.hypot(q.x - x, q.y - y) >= 3, `${name}: Führungslinie ${d} über dem Rasterpunkt ${q.x},${q.y}`);
         }
       }
     }
@@ -320,4 +326,41 @@ test('Gebietslage: nahes Gebiet mit Ring und Zone A, fernes Gebiet mit Peilung s
   // ein einzelner Ort wird nicht unendlich vergrößert
   const einer = gebietslage({ orte: [nl[0]], sitz: SITZ, titel: 'Test' });
   assert.doesNotMatch(String(einer.svg), /NaN|Infinity/);
+});
+
+// Seiten aus den Vorlagen (wie preise.test.mjs): A–Z-Sprungziele und die Umgebung der Ortsseite
+const ALLE = JSON.parse(readFileSync(new URL('../src/daten/orte.json', import.meta.url), 'utf8'));
+const kontext = () => ({ basisUrl: 'http://127.0.0.1:4173', konfig: { betrieb, preise, zonen }, daten: { orte: ALLE }, assets: { daten: {} }, icons: new Set(), icon: () => '', wurzel: new URL('..', import.meta.url).pathname });
+
+test('A–Z: Jeder Link der Buchstabenleiste springt zum Kopf seiner Gruppe, nicht zur Gruppe (Spaltenumbruch)', async () => {
+  await iconsLaden(new URL('..', import.meta.url).pathname);
+  const k = kontext();
+  const seite = hubSeiten(k).find((s) => s.pfad === '/einsatzgebiet/hessen/limburg-weilburg/');
+  const h = String(seite.inhalt(k));
+  const ziele = [...h.matchAll(/<li><a href="#(buchstabe-[a-z])">/g)].map((m) => m[1]);
+  assert.ok(ziele.length >= 8, `nur ${ziele.length} Buchstaben`);
+  for (const id of ziele) assert.match(h, new RegExp(`<div class="az-kopf" id="${id}">`), `#${id} ist kein .az-kopf`);
+  assert.doesNotMatch(h, /<section class="az-gruppe" id=/);
+});
+
+test('Ortsseite: „Orte in der Nähe“ hat mindestens sechs Einträge, keiner steht links schon; lange linke Liste 8/4', async () => {
+  await iconsLaden(new URL('..', import.meta.url).pathname);
+  const k = kontext();
+  hubVorbereiten(k);
+  const orte = await ortSeiten(k);
+  const umgebung = (pfad) => {
+    const h = String(orte.find((s) => s.pfad === pfad).inhalt(k));
+    const teil = /<div class="ort-umgebung([^"]*)">([\s\S]*?)<\/div><\/div>\s*<\/section>/.exec(h);
+    const nah = /<ul class="ort-liste ort-liste-km">(.*?)<\/ul>/.exec(teil[2])[1];
+    const links = /<ul class="ort-liste(?: ort-liste-kurz)?">(.*?)<\/ul>/.exec(teil[2])?.[1] || '';
+    const hrefs = (s) => [...s.matchAll(/href="([^"]+)"/g)].map((m) => m[1]);
+    return { art: teil[1], nah: hrefs(nah), links: hrefs(links) };
+  };
+  for (const pfad of ['/schluesseldienst-weilburg/', '/schluesseldienst-loehnberg/', '/schluesseldienst-asslar-berghausen/', '/schluesseldienst-almelo/', '/schluesseldienst-bremen/']) {
+    const u = umgebung(pfad);
+    assert.ok(u.nah.length >= 6, `${pfad}: nur ${u.nah.length} Orte in der Nähe`);
+    assert.ok(!u.nah.some((x) => u.links.includes(x) || x === pfad), `${pfad}: Ort doppelt`);
+  }
+  assert.equal(umgebung('/schluesseldienst-weilburg/').art, ' ort-umgebung-links');
+  assert.equal(umgebung('/schluesseldienst-loehnberg/').art, ' ort-umgebung-kurz');
 });

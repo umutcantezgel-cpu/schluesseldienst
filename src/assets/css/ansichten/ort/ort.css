@@ -1,5 +1,5 @@
 /* V07 Ortsseite (Arbeitsansicht): Kopf 7/5 mit Faktenzeile und Lagekarte, Leistungen, Preise 4/8,
-   Umgebung in zwei Listen (kurze Liste 4/8), FAQ, Hinweise als dunkles Schlussband. Band und Papier wechseln je nach
+   Umgebung in zwei Listen (kurze Liste 4/8, lange 8/4), FAQ, Hinweise als dunkles Schlussband. Band und Papier wechseln je nach
    vorhandenen Abschnitten (ort.mjs). Bewegung nur M-19 an der Karte und Rückmeldung an den Leistungskarten. */
 @layer komponenten {
   .ort-kopf { padding-block: var(--sp-m) var(--sp-xl); }
@@ -90,6 +90,9 @@
     .ort-umgebung.ort-umgebung-lang { grid-template-columns: minmax(0, 1fr); }
     /* Kurze Liste links schmal, die Nachbarn rechts mit Platz für zwei Spalten (4/8 wie Preise) */
     .ort-umgebung.ort-umgebung-kurz { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
+    /* Spiegelbild: lange Liste links zweispaltig in 8/4, die Nachbarn rechts einspaltig – beide enden etwa gleich */
+    .ort-umgebung.ort-umgebung-links { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
+    .ort-umgebung-links .ort-liste:not(.ort-liste-km) { columns: 2; }
     .ort-hinweise { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-xl); }
   }
 }

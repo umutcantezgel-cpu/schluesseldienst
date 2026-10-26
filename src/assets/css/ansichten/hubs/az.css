@@ -21,6 +21,9 @@
      überdeckt mehr Punkte – die nur dort verdeckten zeigt ein eigener Pfad erst ab 48em */
   .hub-figur .gl-nur-breit { display: none; }
   @media (min-width: 48em) { .hub-figur .gl-nur-breit { display: inline; } }
+  /* Umgekehrt die Punkte unter den Führungslinien der Nebennamen: Linie und Name stehen erst ab 48em, schmal bleiben
+     die Punkte stehen statt einer leeren Bahn */
+  @media (min-width: 48em) { .hub-figur .gl-nur-schmal { display: none; } }
   /* Führungslinie vom Punkt zum Namen, wenn der Name erst am Rand des Rasters Platz fand; Nebennamen entfallen mobil
      samt Linie (wie .gk-name[data-rang="2"] in gebiet.css) */
   .hub-figur .gl-fuehrung { fill: none; stroke: var(--c-tinte-3); stroke-width: var(--linie-haar); }
