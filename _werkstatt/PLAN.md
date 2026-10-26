@@ -71,7 +71,7 @@ Ratgeber-Artikel: ausgesperrt-was-tun · tuer-zugefallen-oder-abgeschlossen · s
 | E4-DOK-01 | README, `docs/` (BETRIEB, OFFENE-PUNKTE, Hoster-Checkliste) | Dokumentar | H | 1 | `README.md`, `docs/*.md` | E2-OPUS-01, E4-OPUS-01…05 | Z-10 | dbf85da |
 | E4-PRUEF-13 | Prüfstufe B Etappe 4 + Bildsatz | Prüfer | H | 1 | `_werkstatt/berichte/E4-pruefstufe-b.md` | E4-OPUS-01…05, E4-BAU-13…21 | Z-02…Z-09 | 6c58947 |
 | E5-PRUEF-14 | Prüfstufe C | Prüfer | H | 1 | `_werkstatt/berichte/E5-pruefstufe-c.md`, `_werkstatt/bilder/abschluss/**` | alle Pflichtpakete E2–E4; Maßstab E2-REVIEW | alle | 8db2c56 (Bildsätze), c6ed8e2 (Bericht); Abschluss-Bildsatz und Abschluss-Nachprüfung e719627, Bericht `E5-abschluss-pruefung.md` ab 4d8a132, Endstand und Endmessung 72ed87c |
-| E5-DOK-02 | BERICHT + Galerie (blind, Schlüssel getrennt), `werkzeuge/` und `docs/` herauslösen | Dokumentar | H | 1 | `_werkstatt/BERICHT.md`, `_werkstatt/bilder/galerie.html` | E5-PRUEF-14, E2-REVIEW | Z-04 Z-10 | Teil 1: 2682cf3; Teil 2 offen (Galerie: 40ea039; BERICHT.md ausstehend) |
+| E5-DOK-02 | BERICHT + Galerie (blind, Schlüssel getrennt), `werkzeuge/` und `docs/` herauslösen | Dokumentar | H | 1 | `_werkstatt/BERICHT.md`, `_werkstatt/bilder/galerie.html` | E5-PRUEF-14, E2-REVIEW | Z-04 Z-10 | Teil 1: 2682cf3; Teil 2: df06e17 (OFFENE-PUNKTE, MENSCHEN), Galerie 40ea039 und e719627, BERICHT.md c858315 |
 | E5-REVIEW | Endprüfung frischer Opus-Agent | Opus | Opus | 3 | `_werkstatt/berichte/E5-endpruefung.md` | DOK-02 | alle | Anlauf 1: 67e42cf, Anlauf 2: 05f63a5; AUSNAHME A-2 |
 
 ## Kür (nach Wirkung, wächst nach dem Plan nicht)
