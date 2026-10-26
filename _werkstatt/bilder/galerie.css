@@ -1,0 +1,20 @@
+/* galerie.css: erzeugt von _werkstatt/werkzeuge/galerie.mjs. Systemschrift, Hell/Dunkel über prefers-color-scheme. */
+:root { color-scheme: light dark; --hintergrund: #ffffff; --text: #1d1d22; --gedaempft: #5a5a64; --rand: #d4d4da; --flaeche: #f5f5f8; }
+@media (prefers-color-scheme: dark) {
+  :root { --hintergrund: #111114; --text: #ececf0; --gedaempft: #a6a6b0; --rand: #3a3a42; --flaeche: #1b1b21; }
+}
+html { background: var(--hintergrund); }
+body { margin: 0 auto; padding: 1rem; max-width: 90rem; background: var(--hintergrund); color: var(--text); font: 1rem/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+h1 { font-size: 1.6rem; margin: .5rem 0; }
+h3 { font-size: 1rem; margin: 1.25rem 0 .25rem; overflow-wrap: anywhere; }
+.einleitung, .gesamt { color: var(--gedaempft); margin: .25rem 0; max-width: 60rem; }
+details { margin: .75rem 0; padding: .5rem .75rem; border: 1px solid var(--rand); border-radius: .5rem; background: var(--flaeche); }
+summary { cursor: pointer; overflow-wrap: anywhere; }
+summary h2 { display: inline; margin: 0; font-size: 1rem; font-weight: 600; }
+summary h2 span { font-weight: 400; color: var(--gedaempft); }
+.stand, .hinweis { color: var(--gedaempft); font-size: .9rem; margin: .5rem 0 .25rem; }
+.zeilenkopf { font-weight: 600; margin: .75rem 0 .25rem; }
+.zeile { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: .75rem; align-items: start; margin-bottom: .5rem; }
+figure { margin: 0; min-width: 0; }
+img { display: block; max-width: 100%; height: auto; border: 1px solid var(--rand); border-radius: .25rem; }
+figcaption { margin-top: .25rem; font-size: .75rem; color: var(--gedaempft); overflow-wrap: anywhere; }
