@@ -62,10 +62,9 @@ ${og ? html`<meta property="og:image" content="${basisUrl + og}">
 ${assets.schriftVorladen ? html`<link rel="preload" href="${assets.schriftVorladen}" as="font" type="font/woff2" crossorigin>` : ''}
 <link rel="stylesheet" href="${assets.css.pfad}" integrity="${assets.css.sri}">
 ${stile(seite, assets).map((a) => html`<link rel="stylesheet" href="${a.pfad}" integrity="${a.sri}">
-`)}${assets.kopf ? html`<script src="${assets.kopf.pfad}" integrity="${assets.kopf.sri}"></script>
-` : ''}<script type="module" src="${assets.js.pfad}" integrity="${assets.js.sri}"></script>
-${(assets.sonderstile ?? []).map((a) => html`<link rel="stylesheet" href="${a.pfad}" integrity="${a.sri}" media="${a.media}">
-`)}<link rel="icon" href="${assets.favicon}" type="image/svg+xml">
+`)}${(assets.sonderstile ?? []).map((a) => html`<link rel="stylesheet" href="${a.pfad}" integrity="${a.sri}" media="${a.media}">
+`)}<script type="module" blocking="render" src="${assets.js.pfad}" integrity="${assets.js.sri}"></script>
+<link rel="icon" href="${assets.favicon}" type="image/svg+xml">
 <link rel="manifest" href="/site.webmanifest">
 ${ld.map((o) => html`<script type="application/ld+json">${jsonBlock(o)}</script>
 `)}</head>

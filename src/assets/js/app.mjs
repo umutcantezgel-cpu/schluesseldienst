@@ -25,5 +25,15 @@ function starten() {
   }
 }
 
+// M-15: Das Modul trägt blocking="render" (layout.mjs, D-E5-03) und läuft deshalb vor der ersten Darstellung; erst danach
+// deckt der Browser die Seite auf, und der Seitenwechsel-Opt-in steht fest. Überspringt der Browser einen Übergang trotzdem
+// (etwa bei einer neuen Navigation mitten im Übergang), lehnt er dessen Promises ab – kein Fehler der Seite, nicht in die Konsole.
+function uebergangStill(e) {
+  const vt = e.viewTransition;
+  if (vt) for (const p of [vt.ready, vt.finished, vt.updateCallbackDone]) p.catch(() => {});
+}
+addEventListener('pageswap', uebergangStill);
+addEventListener('pagereveal', uebergangStill);
+
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', starten, { once: true });
 else starten();

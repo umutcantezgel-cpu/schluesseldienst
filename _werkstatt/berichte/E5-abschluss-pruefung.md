@@ -104,14 +104,42 @@ X2 (Opt-in außerhalb von `@layer`/`@media`), X4 (Skript vor den Stilen), X6 (oh
 - X6 hieße, M-15 abzuschalten.
 - X2 und X10 greifen nicht an der Stelle, an der Chromium den Opt-in festlegt.
 
-**Entscheidung (D-E5-03):**
-- `src/assets/js/kopf.js` ist ein klassisches Skript mit SRI.
-- Es steht nach den Stil-Links und vor dem Modul.
-- Es wartet auf die Stylesheets und hält den Parser vor `<body>` an.
-- Zugleich fängt es übersprungene Übergänge ab (`pageswap`/`pagereveal`); im Modul kam das zu spät, der Code dort entfällt.
-- Größe 293 B roh, 237 B gz. CSP unverändert, kein Inline-Skript.
-- Die Messung des Endstands steht in Abschnitt 5.
+**Erste Lösung, Kopf-Skript (X9, Endbau `b5a1ebd`):** Ein klassisches Skript nach den Stil-Links hält den Parser vor `<body>` an.
+- Seitenwechsel: 0 von 156.
+- Lighthouse rechnete dafür auf 10 von 12 Hauptansichten eine Netzrunde mehr bis zum ersten Inhalt (FCP +150 ms).
+- `/preise/` lag bei LCP 2.552 ms, über der Grenze von 2.500 ms (Belege `n4-leistung/`). Die Umstellung der Kopf-Reihenfolge änderte nichts: 2.557 ms (`final2-messung/`).
 
-## 5. Endmessung (Stand `b5a1ebd`, Workflow `e5-final-nachpruefung-2`)
+Diagnose (Lighthouse mobil, `vt-versuche/lcp/`):
+
+| Variante (Grundlage Endbau) | / LCP · FCP | /preise/ LCP · FCP |
+|---|---|---|
+| VH ohne Kopf-Skript | 2.420 · 1.820 | 2.407 · 1.957 |
+| VB Kopf-Skript, ohne Druck- und Kontraststile | 2.409 · 1.959 | 2.405 · 2.105 |
+| VF Kopf-Skript, nur Druckstile | 2.404 · 1.806 | 2.410 · 2.110 |
+| VM Kopf-Skript, beide Sonderstile in einer Datei (5 Läufe) | 2.405 · 1.955 | 2.406 · 2.105 (2 von 5 Läufen 2.554–2.567) |
+| K2 Kopf-Skript, zwei Dateien (5 Läufe) | 2.401 · 1.951 | 2.557 · 2.107 |
+| VG Modul mit `blocking="render"`, ohne Kopf-Skript | 2.408 · 1.816 | 2.405 · 1.961 |
+
+Die Sonderstile in `app.css` aufzunehmen ginge nur, wenn das CSS-Budget je Seite reichte; es liegt schon bei 13.666 von 14.336 B gz, und Budgets werden nicht gelockert.
+
+Beobachtete Ladezeiten im echten, gedrosselten Chromium (RTT 150 ms, 1,6 Mbit/s, CPU 4×, kalter Cache, 7 Läufe, `vt-versuche/x10-zeiten/zeiten.json`):
+
+| | FCP / | FCP /preise/ |
+|---|---|---|
+| ohne Fix | 1.355 ms | 1.373 ms |
+| Kopf-Skript | 1.107 ms | 1.086 ms |
+| `blocking="render"` | 1.376 ms | 1.461 ms |
+
+Seitenwechsel mit `blocking="render"` (X10): 0 von 156, jedes Aufdecken nach dem Modul (`vt-versuche/x10-zeiten/vt-*.json`).
+
+**Entscheidung (D-E5-03):**
+- Das Modul-Skript trägt `blocking="render"`. Es läuft vor der ersten Darstellung und frischt dabei Stil und Opt-in auf.
+- Es registriert das Abfangen übersprungener Übergänge rechtzeitig.
+- Das Kopf-Skript entfällt. Ohne zusätzliches Asset, CSP unverändert.
+- Die Abnahme misst Z-08 mit Lighthouse. Dort besteht nur diese Lösung.
+
+Offen gesagt: Lighthouse modelliert `blocking="render"` an Modulen nicht. Im echten Browser ist diese Lösung 20–90 ms langsamer als ohne Fix, das Kopf-Skript dagegen rund 250 ms schneller. Die Wahl zwischen beiden steht dem Menschen offen (`docs/OFFENE-PUNKTE.md`).
+
+## 5. Endmessung (Endstand, Modul mit `blocking="render"`)
 
 (wird nach dem Lauf ergänzt)

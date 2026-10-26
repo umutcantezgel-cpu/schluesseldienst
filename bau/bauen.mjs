@@ -158,19 +158,12 @@ async function main() {
   const favPfad = `/assets/favicon.${hash10(favBuf)}.svg`;
   await schreiber.schreibe(favPfad, favBuf);
   const schriftVorladen = [...karte.entries()].find(([q]) => /atkinson-next-latin-wght/.test(q))?.[1] || null;
-  // Kopf-Skript (klassisch, nach den Stil-Links): hält den Parser bis zu den Stylesheets an, damit der Seitenwechsel-Opt-in
-  // beim Einfügen von <body> feststeht (D-E5-03). Kommentare fallen weg, die Datei bleibt ein paar hundert Byte klein.
-  const kopfText = (await readFile(join(WURZEL, 'src/assets/js/kopf.js'), 'utf8')).replace(/^\s*\/\/.*\n/gm, '');
-  const kopfBuf = Buffer.from(kopfText, 'utf8');
-  const kopfPfad = `/assets/kopf.${hash10(kopfBuf)}.js`;
-  await schreiber.schreibe(kopfPfad, kopfBuf);
   const assets = {
     css: { pfad: cssPfad, sri: sri(cssBuf), bytes: cssBuf.length },
     ansichten,
     sonderstile,
     js: JS_MARKE, // nach dem Rendern: größtes Bündel; alle Bündel in jsBuendel
     favicon: favPfad,
-    kopf: { pfad: kopfPfad, sri: sri(kopfBuf) },
     schriftVorladen,
     pfad(quelle, { optional = false } = {}) {
       if (karte.has(quelle)) return karte.get(quelle);
@@ -235,10 +228,10 @@ async function main() {
     const roh = String(layout(sk));
     const aufgeloest = aufloesen(roh);
     const { platzhalter, fakten } = aufgeloest;
-    const marke = `<script type="module" src="${JS_MARKE.pfad}" integrity="${JS_MARKE.sri}"></script>`;
+    const marke = `<script type="module" blocking="render" src="${JS_MARKE.pfad}" integrity="${JS_MARKE.sri}"></script>`;
     if (!aufgeloest.html.includes(marke)) throw new Error(`${s.pfad}: Skript-Marke der Vorlage fehlt`);
     const js = await jsFuer(new Set([...aufgeloest.html.matchAll(/\sdata-modul="([a-z][a-z0-9-]*)"/g)].map((m) => m[1])));
-    const html = ueberschriftenTrennen(aufgeloest.html).replace(marke, `<script type="module" src="${js.pfad}" integrity="${js.sri}"></script>`);
+    const html = ueberschriftenTrennen(aufgeloest.html).replace(marke, `<script type="module" blocking="render" src="${js.pfad}" integrity="${js.sri}"></script>`);
     platzhalter.forEach((p) => alleP.add(p));
     fakten.forEach((f) => alleF.add(f));
     const datei = zielDatei(s.pfad);

@@ -1,0 +1,230 @@
+{
+  "werkzeug": "zeit-probe",
+  "zeitpunkt": "2026-10-26T10:45:35.124Z",
+  "drosselung": "RTT 150 ms, 1,6 Mbit/s, CPU 4×, kalter Cache",
+  "laeufe": 7,
+  "daten": [
+    {
+      "variante": "referenz",
+      "basis": "http://127.0.0.1:4274",
+      "pfad": "/",
+      "fcpMedian": 1355,
+      "lcpMedian": 1355,
+      "einzel": [
+        {
+          "fcp": 1340,
+          "lcp": 1340
+        },
+        {
+          "fcp": 1355,
+          "lcp": 1355
+        },
+        {
+          "fcp": 1357,
+          "lcp": 1357
+        },
+        {
+          "fcp": 1428,
+          "lcp": 1428
+        },
+        {
+          "fcp": 1390,
+          "lcp": 1390
+        },
+        {
+          "fcp": 1350,
+          "lcp": 1350
+        },
+        {
+          "fcp": 1311,
+          "lcp": 1311
+        }
+      ]
+    },
+    {
+      "variante": "kopfskript",
+      "basis": "http://127.0.0.1:4255",
+      "pfad": "/",
+      "fcpMedian": 1107,
+      "lcpMedian": 1107,
+      "einzel": [
+        {
+          "fcp": 1107,
+          "lcp": 1107
+        },
+        {
+          "fcp": 1156,
+          "lcp": 1156
+        },
+        {
+          "fcp": 1061,
+          "lcp": 1061
+        },
+        {
+          "fcp": 1086,
+          "lcp": 1086
+        },
+        {
+          "fcp": 1125,
+          "lcp": 1125
+        },
+        {
+          "fcp": 1107,
+          "lcp": 1107
+        },
+        {
+          "fcp": 1058,
+          "lcp": 1058
+        }
+      ]
+    },
+    {
+      "variante": "blockingrender",
+      "basis": "http://127.0.0.1:4273",
+      "pfad": "/",
+      "fcpMedian": 1376,
+      "lcpMedian": 1376,
+      "einzel": [
+        {
+          "fcp": 1397,
+          "lcp": 1397
+        },
+        {
+          "fcp": 1399,
+          "lcp": 1399
+        },
+        {
+          "fcp": 1433,
+          "lcp": 1433
+        },
+        {
+          "fcp": 1376,
+          "lcp": 1376
+        },
+        {
+          "fcp": 1348,
+          "lcp": 1348
+        },
+        {
+          "fcp": 1350,
+          "lcp": 1350
+        },
+        {
+          "fcp": 1363,
+          "lcp": 1363
+        }
+      ]
+    },
+    {
+      "variante": "referenz",
+      "basis": "http://127.0.0.1:4274",
+      "pfad": "/preise/",
+      "fcpMedian": 1373,
+      "lcpMedian": 1373,
+      "einzel": [
+        {
+          "fcp": 1373,
+          "lcp": 1373
+        },
+        {
+          "fcp": 1365,
+          "lcp": 1365
+        },
+        {
+          "fcp": 1453,
+          "lcp": 1453
+        },
+        {
+          "fcp": 1424,
+          "lcp": 1424
+        },
+        {
+          "fcp": 1429,
+          "lcp": 1429
+        },
+        {
+          "fcp": 1288,
+          "lcp": 1288
+        },
+        {
+          "fcp": 1303,
+          "lcp": 1303
+        }
+      ]
+    },
+    {
+      "variante": "kopfskript",
+      "basis": "http://127.0.0.1:4255",
+      "pfad": "/preise/",
+      "fcpMedian": 1086,
+      "lcpMedian": 1088,
+      "einzel": [
+        {
+          "fcp": 1106,
+          "lcp": 1106
+        },
+        {
+          "fcp": 1057,
+          "lcp": 1057
+        },
+        {
+          "fcp": 1080,
+          "lcp": 1080
+        },
+        {
+          "fcp": 1039,
+          "lcp": 1088
+        },
+        {
+          "fcp": 1093,
+          "lcp": 1093
+        },
+        {
+          "fcp": 1106,
+          "lcp": 1106
+        },
+        {
+          "fcp": 1086,
+          "lcp": 1086
+        }
+      ]
+    },
+    {
+      "variante": "blockingrender",
+      "basis": "http://127.0.0.1:4273",
+      "pfad": "/preise/",
+      "fcpMedian": 1461,
+      "lcpMedian": 1461,
+      "einzel": [
+        {
+          "fcp": 1447,
+          "lcp": 1447
+        },
+        {
+          "fcp": 1476,
+          "lcp": 1476
+        },
+        {
+          "fcp": 1436,
+          "lcp": 1436
+        },
+        {
+          "fcp": 1492,
+          "lcp": 1492
+        },
+        {
+          "fcp": 1409,
+          "lcp": 1409
+        },
+        {
+          "fcp": 1461,
+          "lcp": 1461
+        },
+        {
+          "fcp": 1531,
+          "lcp": 1531
+        }
+      ]
+    }
+  ]
+}
