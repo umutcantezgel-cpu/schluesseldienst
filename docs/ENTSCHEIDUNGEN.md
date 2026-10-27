@@ -98,6 +98,10 @@ Diese Liste fasst die wichtigsten Entscheidungen zur Website zusammen, jeweils m
 
 **Problem:** Die Website soll auf Netlify und Vercel laufen, bevor Firmendaten, Preise und Rechtstexte feststehen. Ein Release ist dann nicht möglich, und ohne Konfiguration würden beide Hoster das ganze Repository ausliefern, auch die Rohdaten der Wettbewerber. **Entscheidung:** Ausgeliefert wird die Vorschau aus `dist/`: nicht indexierbar (meta robots, `robots.txt`, Header `X-Robots-Tag: noindex`), mit allen Sicherheits-Headern und der Test-Adresse des Hosters für Canonicals und Sitemap (`--basis`). Netlify erhält die Header über `_headers` aus dem Bau, Vercel über ein erzeugtes `vercel.json`, das der Bau gegen die Quelle prüft. Netlifys Geheimnis-Scan lässt die Rohdaten-Ordner aus, weil sie einen fremden, öffentlichen Schlüssel enthalten und nie ausgeliefert werden. **Grund:** So sieht die Test-Domain aus wie später die echte Seite und hat dieselben Schutzmaßnahmen, ohne in Suchmaschinen zu erscheinen. Der Weg zum Release steht in [HOSTER-CHECKLISTE.md](HOSTER-CHECKLISTE.md), Abschnitt 4, und [OFFENE-PUNKTE.md](OFFENE-PUNKTE.md), Nr. 49.
 
+## D-NAV-01 · Leistungsseiten im mobilen Menü ohne zusätzliches HTML
+
+**Problem:** Im mobilen Menü fehlten die 23 Leistungsseiten; am Handy erreichte man sie nur über die Gruppenseiten. Schreibt man sie ein zweites Mal ins HTML, wird jede Seite um rund 1,7 KB größer, und die größten Ortsseiten überschreiten ihr Größenbudget. **Entscheidung:** Das Menü übernimmt die Listen beim ersten Öffnen aus der Desktop-Navigation, die ohnehin in jeder Seite steht, und zeigt sie als aufklappbare Gruppen. **Grund:** Das Menü braucht ohnehin JavaScript; so kostet die Erweiterung kein HTML. Ohne JavaScript führt der Menü-Link wie bisher zur Fußnavigation, die Leistungsseiten bleiben über die Gruppenseiten erreichbar.
+
 ## Überholte Vorschläge
 
 Frühere Einzelvorschläge zu Adressen, Zonenradien, Datenaufteilung, Prüfregeln, Formularen und Animationen sind durch die festgelegte Fassung ersetzt, deren Abweichungen ausführlich in `_werkstatt/ENTSCHEIDUNGEN.md` stehen.

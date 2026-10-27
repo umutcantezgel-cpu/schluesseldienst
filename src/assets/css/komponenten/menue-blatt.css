@@ -4,6 +4,8 @@
     inset-block-end: 0; inset-block-start: auto; margin: 0; inline-size: 100%; max-inline-size: 100%; max-block-size: var(--menue-blatt-max);
     padding: 0 var(--rand) calc(var(--sp-l) + env(safe-area-inset-bottom)); border: 0; border-radius: var(--r-xl) var(--r-xl) 0 0;
     background: var(--c-flaeche); color: var(--c-tinte); box-shadow: var(--sh-3); overflow-y: auto;
+    /* Fokus nie unter dem klebenden Kopf oder der Anrufleiste (D-E5-01) */
+    scroll-padding-block: calc(var(--ziel-touch) + 2 * var(--sp-xs) + var(--linie-scher)) calc(var(--rufleiste-hoehe) + 2 * var(--sp-xs) + var(--sp-l));
   }
   .menue-blatt::backdrop { background: var(--c-ueberlagerung); }
   .menue-blatt-kopf { display: flex; align-items: center; justify-content: space-between; position: sticky; inset-block-start: 0; background: var(--c-flaeche); padding-block: var(--sp-xs); border-block-end: var(--linie-scher) solid var(--c-kupfer); }
@@ -15,6 +17,13 @@
   .menue-blatt-liste ul { list-style: none; padding: 0 0 var(--sp-xs) var(--sp-s); }
   .menue-blatt-liste ul a { font-weight: var(--fw-text); }
   .menue-blatt-liste ul li + li { margin-top: 0; }
+  /* Leistungsgruppe: Link | Aufklapper (48 px), darunter die Leistungsseiten aus der Desktop-Navigation (menue.mjs) */
+  .menue-blatt-gruppe { display: grid; grid-template-columns: 1fr auto; align-items: center; }
+  .menue-blatt-gruppe > ul { grid-column: 1 / -1; }
+  .menue-blatt-liste .menue-blatt-gruppe > ul a { font-weight: var(--fw-text); color: var(--c-tinte-2); }
+  .menue-blatt-aufklapper { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--ziel-touch); min-block-size: var(--ziel-touch); padding: 0; background: none; border: 0; border-radius: var(--r-m); color: var(--c-tinte); }
+  .menue-blatt-aufklapper .i { inline-size: var(--icon-text); block-size: var(--icon-text); }
+  .menue-blatt-aufklapper[aria-expanded="true"] .i { transform: rotate(180deg); }
   /* Anruf am Blattende, klebt am unteren Rand des Blatts (die Rufleiste liegt bei offenem Menü darunter) */
   .menue-blatt-ruf {
     position: sticky; inset-block-end: 0; display: flex; margin-block-start: var(--sp-s); padding-block: var(--sp-xs);

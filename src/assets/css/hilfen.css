@@ -34,7 +34,8 @@
     .knopf-primaer, .rufknopf:not([data-zustand="platzhalter"]), [aria-pressed="true"] { background: Canvas; color: CanvasText; border: var(--linie-scher) solid Highlight; }
     .rufknopf[data-zustand="platzhalter"] { background: Canvas; color: CanvasText; border-style: dashed; }
     .knopf[aria-disabled="true"] { opacity: 1; border-style: dashed; }
-    .hauptnav-punkt > a[aria-current] { text-decoration-line: underline; text-decoration-thickness: var(--linie-scher); }
+    .hauptnav-punkt > a[aria-current], .menue-blatt-liste a[aria-current] { text-decoration-line: underline; text-decoration-thickness: var(--linie-scher); }
+    .menue-blatt-aufklapper { border: var(--linie-haar) solid ButtonText; }
 
     /* Fokus überall in Highlight; die Auswahl behält ihren Umriss */
     :focus-visible, .register article:focus-within, .wahl-option:has(:focus-visible) {
