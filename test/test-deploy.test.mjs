@@ -67,16 +67,24 @@ describe('vercel.json (Test-Deploy der Vorschau)', () => {
     assert.equal(ist, vercelText(await weiterleitungenLesen(WURZEL)));
   });
 
-  test('Bau-Prüfung nach Inhalt: Formatierung, Schlüsselreihenfolge und fremde Schlüssel egal, jede Header-Änderung nicht', () => {
+  test('Bau-Prüfung nach Inhalt: Formatierung, Schlüsselreihenfolge und git-Schlüssel egal, jede Header-Änderung und fremde Routen nicht', () => {
     const soll = vercelVorschau();
     assert.deepEqual(vercelPruefen(vercelText()), { fehler: null, fremd: [] });
-    // ohne Einrückung und Zeilenende, Schlüssel umgekehrt, ohne $schema, mit einem ergänzten Schlüssel
+    // ohne Einrückung und Zeilenende, Schlüssel umgekehrt, ohne $schema, mit einem harmlosen ergänzten Schlüssel
     const { $schema, ...rest } = soll;
     const umgestellt = Object.fromEntries(Object.entries({ ...rest, git: { deploymentEnabled: true } }).reverse());
     assert.deepEqual(vercelPruefen(JSON.stringify(umgestellt)), { fehler: null, fremd: ['git'] });
+    // „routes“ greift vor den Header-Regeln (eine Route ohne „continue“ schaltet sie ab)
+    assert.deepEqual(vercelPruefen(JSON.stringify({ ...soll, routes: [{ src: '/(.*)', dest: '/$1' }] })), { fehler: 'fremde Schlüssel routes (schreibt der Generator nicht)', fremd: ['routes'] });
     const alt = structuredClone(soll);
     alt.headers[0].headers[3].value = 'SAMEORIGIN';
     assert.equal(vercelPruefen(JSON.stringify(alt)).fehler, 'headers[0].headers[3].value: ist "SAMEORIGIN", soll "DENY"');
+    // lange Werte: Ausschnitt ab der Abweichung statt gleicher Anfänge
+    const pp = structuredClone(soll);
+    pp.headers[0].headers[11].value = pp.headers[0].headers[11].value.replace(', xr-spatial-tracking=()', '');
+    const [, istTeil, sollTeil] = vercelPruefen(JSON.stringify(pp)).fehler.match(/^headers\[0\]\.headers\[11\]\.value \(ab Zeichen \d+\): ist (.*), soll (.*)$/);
+    assert.ok(istTeil !== sollTeil && sollTeil.includes('xr-spatial-tracking') && istTeil.startsWith('…'), `${istTeil} / ${sollTeil}`);
+    assert.equal(vercelPruefen(JSON.stringify({ ...soll, headers: [{ ...soll.headers[0], constructor: 'x' }, ...soll.headers.slice(1)] })).fehler, 'headers[0].constructor: ist "x", soll fehlt');
     assert.match(vercelPruefen(JSON.stringify({ ...soll, headers: soll.headers.slice(1) })).fehler, /^headers\[0\]\.source: ist "\/assets\/\(\.\*\)", soll "\/\(\.\*\)"$/);
     assert.match(vercelPruefen(vercelText(), [ok]).fehler, /^redirects\[0\]: ist fehlt, soll \{"source":"\/alt-seite\/"/);
     assert.match(vercelPruefen('').fehler, /^kein gültiges JSON/);
@@ -131,6 +139,7 @@ describe('Bau: --basis und --ziel in der Vorschau', () => {
     const { ergebnis: r, aufraeumen } = bauen(['--ziel=vercel', '--basis=https://test.example', '--nur=/impressum/']);
     try {
       assert.equal(r.status, 0, r.stderr);
+      assert.doesNotMatch(r.stderr, /vercel\.json/);
       assert.equal(r.lies('_headers'), null);
       assert.equal(r.lies('vercel.json'), null);
       assert.match(r.lies('impressum/index.html'), /href="https:\/\/test\.example\/impressum\/"/);

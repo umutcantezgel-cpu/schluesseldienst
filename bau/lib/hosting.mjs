@@ -69,31 +69,50 @@ export function vercelVorschau(weiterleitungen = []) {
 
 export const vercelText = (weiterleitungen = []) => JSON.stringify(vercelVorschau(weiterleitungen), null, 2) + '\n';
 
+// Fremde Schlüssel, die Vercel weder in Routen noch in Header oder Bauschritte umsetzt (nur Auslöser für Git-Deploys).
+// Jeder andere bricht ab – „routes“ etwa steht in Vercels Routentabelle vor den Header-Regeln und kann sie abschalten.
+const VERCEL_HARMLOS = new Set(['git', 'github']);
+
 // Erste Abweichung zweier JSON-Werte als Pfad (z. B. „headers[0].headers[3].value: ist "SAMEORIGIN", soll "DENY"“).
+// Lange Zeichenketten (CSP, Permissions-Policy) als Ausschnitt ab kurz vor der ersten abweichenden Stelle, Kürzungen mit „…“.
 function ersteAbweichung(ist, soll, pfad) {
   if (isDeepStrictEqual(ist, soll)) return null;
   const objekt = (v) => v !== null && typeof v === 'object';
   if (objekt(ist) && objekt(soll) && Array.isArray(ist) === Array.isArray(soll)) {
+    const wert = (o, k) => (Object.hasOwn(o, k) ? o[k] : undefined);
     for (const k of new Set([...Object.keys(soll), ...Object.keys(ist)])) {
-      const d = ersteAbweichung(ist[k], soll[k], Array.isArray(soll) ? `${pfad}[${k}]` : `${pfad}.${k}`);
+      const d = ersteAbweichung(wert(ist, k), wert(soll, k), Array.isArray(soll) ? `${pfad}[${k}]` : `${pfad}.${k}`);
       if (d) return d;
     }
   }
-  const zeig = (v) => (v === undefined ? 'fehlt' : JSON.stringify(v).slice(0, 120));
-  return `${pfad}: ist ${zeig(ist)}, soll ${zeig(soll)}`;
+  let ab = 0;
+  if (typeof ist === 'string' && typeof soll === 'string') {
+    while (ist[ab] === soll[ab]) ab++;
+    ab = Math.max(0, ab - 20);
+  }
+  const zeig = (v) => {
+    if (v === undefined) return 'fehlt';
+    const t = (ab ? '…' : '') + JSON.stringify(typeof v === 'string' ? v.slice(ab) : v);
+    return t.length > 120 ? `${t.slice(0, 119)}…` : t;
+  };
+  return `${pfad}${ab ? ` (ab Zeichen ${ab})` : ''}: ist ${zeig(ist)}, soll ${zeig(soll)}`;
 }
 
 // Prüfung im Bau mit --ziel=vercel: Vercel wendet an, was es beim Bau aus vercel.json liest. Verglichen wird der Inhalt
 // aller Schlüssel, die der Generator schreibt (außer $schema) – Formatierung und Schlüsselreihenfolge zählen nicht, die
-// Reihenfolge der Header-Regeln schon. Fremde Schlüssel werden nur gemeldet. Bytegenau prüft der Test
-// „das committete vercel.json ist aktuell“. Ergebnis: { fehler: erste Abweichung oder null, fremd: [Schlüssel] }.
+// Reihenfolge in Listen (Header-Regeln, Header, Weiterleitungen) schon. Fremde Schlüssel brechen ab, außer VERCEL_HARMLOS
+// (nur gemeldet). Bytegenau prüft der Test „das committete vercel.json ist aktuell“.
+// Ergebnis: { fehler: erste Abweichung oder null, fremd: [Schlüssel, die der Generator nicht schreibt] }.
 export function vercelPruefen(text, weiterleitungen = []) {
   const soll = vercelVorschau(weiterleitungen);
   let ist;
   try { ist = JSON.parse(text); } catch (e) { return { fehler: `kein gültiges JSON (${e.message})`, fremd: [] }; }
   if (!ist || typeof ist !== 'object' || Array.isArray(ist)) return { fehler: 'kein JSON-Objekt', fremd: [] };
-  const fehler = Object.keys(soll).filter((k) => k !== '$schema').map((k) => ersteAbweichung(ist[k], soll[k], k)).find(Boolean) ?? null;
-  return { fehler, fremd: Object.keys(ist).filter((k) => !Object.hasOwn(soll, k)) };
+  const fremd = Object.keys(ist).filter((k) => !Object.hasOwn(soll, k));
+  const verboten = fremd.filter((k) => !VERCEL_HARMLOS.has(k));
+  const fehler = Object.keys(soll).filter((k) => k !== '$schema').map((k) => ersteAbweichung(ist[k], soll[k], k)).find(Boolean)
+    ?? (verboten.length ? `fremde Schlüssel ${verboten.join(', ')} (schreibt der Generator nicht)` : null);
+  return { fehler, fremd };
 }
 
 export function htaccess(host, weiterleitungen = []) {

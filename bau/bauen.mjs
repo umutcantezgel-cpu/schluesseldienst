@@ -107,11 +107,13 @@ async function main() {
   if (modus === 'vorschau' && arg.ziel) {
     if (!['netlify', 'cloudflare', 'vercel'].includes(arg.ziel)) throw new Error(`Vorschau: --ziel=netlify|cloudflare|vercel (nicht ${arg.ziel}; Apache und nginx nur mit --release oder --messen).`);
     if (arg.ziel === 'vercel') {
-      // Inhalt statt Bytes: Formatierung oder ergänzte Schlüssel ändern keine Header; die Meldung nennt die erste Abweichung.
-      const ist = await readFile(join(WURZEL, 'vercel.json'), 'utf8').catch((e) => { throw new Error(`vercel.json nicht lesbar (${e.code || e.message}) in ${WURZEL} – mit „npm run hoster“ erzeugen und committen.`); });
+      // Inhalt statt Bytes (vercelPruefen): Formatierung zählt nicht, jede Abweichung bei Headern, Weiterleitungen und
+      // Bau-Einstellungen bricht ab und wird benannt. Länge und sha256 aus den Bytes der Datei (vergleichbar mit sha256sum).
+      const roh = await readFile(join(WURZEL, 'vercel.json')).catch((e) => { throw new Error(`vercel.json nicht lesbar (${e.code || e.message}) in ${WURZEL} – mit „npm run hoster“ erzeugen und committen.`); });
+      const ist = roh.toString('utf8');
       const weiterleitungen = await weiterleitungenLesen(WURZEL);
       const { fehler, fremd } = vercelPruefen(ist, weiterleitungen);
-      const stand = `${Buffer.byteLength(ist)} Byte, sha256 ${hash10(Buffer.from(ist))}…`;
+      const stand = `${roh.length} Byte, sha256 ${hash10(roh)}…`;
       if (fehler) throw new Error(`vercel.json passt nicht zu src/konfig/sicherheit.mjs und den Weiterleitungen (${fehler}; ${stand}) – mit „npm run hoster“ neu erzeugen.`);
       if (fremd.length) console.warn(`Hinweis: vercel.json enthält Schlüssel, die der Generator nicht schreibt: ${fremd.join(', ')}.`);
       const soll = vercelText(weiterleitungen);
@@ -119,7 +121,7 @@ async function main() {
         let i = 0;
         while (ist[i] === soll[i]) i++;
         const stelle = (t) => JSON.stringify(t.slice(i, i + 40));
-        console.warn(`Hinweis: vercel.json stimmt inhaltlich, ist aber anders formatiert als von „npm run hoster“ (${stand}; ab Zeichen ${i}: ist ${stelle(ist)}, soll ${stelle(soll)}).`);
+        console.warn(`Hinweis: vercel.json stimmt in allen geprüften Schlüsseln, weicht aber in den Bytes von „npm run hoster“ ab (${stand}; ab Zeichen ${i}: ist ${stelle(ist)}, soll ${stelle(soll)}).`);
       }
     }
   }
