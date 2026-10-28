@@ -2,6 +2,7 @@
 // Weiterleitungen: nur geprüfte Pfade, Ziele mit fest eingetragenem Host (Schutz vor offenen Weiterleitungen).
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { kopfzeilen, CACHE, MIME, SICHERER_PFAD } from '../../src/konfig/sicherheit.mjs';
 import { TEXT_ENDUNGEN } from './vorkomprimieren.mjs';
 
@@ -67,6 +68,33 @@ export function vercelVorschau(weiterleitungen = []) {
 }
 
 export const vercelText = (weiterleitungen = []) => JSON.stringify(vercelVorschau(weiterleitungen), null, 2) + '\n';
+
+// Erste Abweichung zweier JSON-Werte als Pfad (z. B. „headers[0].headers[3].value: ist "SAMEORIGIN", soll "DENY"“).
+function ersteAbweichung(ist, soll, pfad) {
+  if (isDeepStrictEqual(ist, soll)) return null;
+  const objekt = (v) => v !== null && typeof v === 'object';
+  if (objekt(ist) && objekt(soll) && Array.isArray(ist) === Array.isArray(soll)) {
+    for (const k of new Set([...Object.keys(soll), ...Object.keys(ist)])) {
+      const d = ersteAbweichung(ist[k], soll[k], Array.isArray(soll) ? `${pfad}[${k}]` : `${pfad}.${k}`);
+      if (d) return d;
+    }
+  }
+  const zeig = (v) => (v === undefined ? 'fehlt' : JSON.stringify(v).slice(0, 120));
+  return `${pfad}: ist ${zeig(ist)}, soll ${zeig(soll)}`;
+}
+
+// Prüfung im Bau mit --ziel=vercel: Vercel wendet an, was es beim Bau aus vercel.json liest. Verglichen wird der Inhalt
+// aller Schlüssel, die der Generator schreibt (außer $schema) – Formatierung und Schlüsselreihenfolge zählen nicht, die
+// Reihenfolge der Header-Regeln schon. Fremde Schlüssel werden nur gemeldet. Bytegenau prüft der Test
+// „das committete vercel.json ist aktuell“. Ergebnis: { fehler: erste Abweichung oder null, fremd: [Schlüssel] }.
+export function vercelPruefen(text, weiterleitungen = []) {
+  const soll = vercelVorschau(weiterleitungen);
+  let ist;
+  try { ist = JSON.parse(text); } catch (e) { return { fehler: `kein gültiges JSON (${e.message})`, fremd: [] }; }
+  if (!ist || typeof ist !== 'object' || Array.isArray(ist)) return { fehler: 'kein JSON-Objekt', fremd: [] };
+  const fehler = Object.keys(soll).filter((k) => k !== '$schema').map((k) => ersteAbweichung(ist[k], soll[k], k)).find(Boolean) ?? null;
+  return { fehler, fremd: Object.keys(ist).filter((k) => !Object.hasOwn(soll, k)) };
+}
 
 export function htaccess(host, weiterleitungen = []) {
   if (!/^[a-z0-9.-]+$/.test(host)) throw new Error(`Host ungültig: ${host}`);

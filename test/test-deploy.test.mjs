@@ -7,7 +7,7 @@ import { mkdtempSync, existsSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { headersDatei, vercelVorschau, vercelText, weiterleitungenLesen } from '../bau/lib/hosting.mjs';
+import { headersDatei, vercelVorschau, vercelText, vercelPruefen, weiterleitungenLesen } from '../bau/lib/hosting.mjs';
 import { kopfzeilen, CACHE } from '../src/konfig/sicherheit.mjs';
 
 const WURZEL = fileURLToPath(new URL('..', import.meta.url));
@@ -65,6 +65,22 @@ describe('vercel.json (Test-Deploy der Vorschau)', () => {
   test('das committete vercel.json ist aktuell (sonst: npm run hoster)', async () => {
     const ist = readFileSync(join(WURZEL, 'vercel.json'), 'utf8');
     assert.equal(ist, vercelText(await weiterleitungenLesen(WURZEL)));
+  });
+
+  test('Bau-Prüfung nach Inhalt: Formatierung, Schlüsselreihenfolge und fremde Schlüssel egal, jede Header-Änderung nicht', () => {
+    const soll = vercelVorschau();
+    assert.deepEqual(vercelPruefen(vercelText()), { fehler: null, fremd: [] });
+    // ohne Einrückung und Zeilenende, Schlüssel umgekehrt, ohne $schema, mit einem ergänzten Schlüssel
+    const { $schema, ...rest } = soll;
+    const umgestellt = Object.fromEntries(Object.entries({ ...rest, git: { deploymentEnabled: true } }).reverse());
+    assert.deepEqual(vercelPruefen(JSON.stringify(umgestellt)), { fehler: null, fremd: ['git'] });
+    const alt = structuredClone(soll);
+    alt.headers[0].headers[3].value = 'SAMEORIGIN';
+    assert.equal(vercelPruefen(JSON.stringify(alt)).fehler, 'headers[0].headers[3].value: ist "SAMEORIGIN", soll "DENY"');
+    assert.match(vercelPruefen(JSON.stringify({ ...soll, headers: soll.headers.slice(1) })).fehler, /^headers\[0\]\.source: ist "\/assets\/\(\.\*\)", soll "\/\(\.\*\)"$/);
+    assert.match(vercelPruefen(vercelText(), [ok]).fehler, /^redirects\[0\]: ist fehlt, soll \{"source":"\/alt-seite\/"/);
+    assert.match(vercelPruefen('').fehler, /^kein gültiges JSON/);
+    assert.equal(vercelPruefen('[]').fehler, 'kein JSON-Objekt');
   });
 
   test('netlify.toml baut die Vorschau mit Ziel netlify und liefert nur dist/ aus', () => {

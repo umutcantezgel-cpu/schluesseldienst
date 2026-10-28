@@ -17,7 +17,7 @@ import { ueberschriftenTrennen } from './lib/trennen.mjs';
 import { platzhalterIn, istPlatzhalter } from './lib/platzhalter.mjs';
 import { setzeRoutenPruefer, fehlendeLinksHolen } from './lib/inhalt.mjs';
 import { sitemaps, robots, securityTxt, manifest } from './lib/dateien.mjs';
-import { headersDatei, htaccess, nginx, pruefeWeiterleitungen, weiterleitungenLesen, vercelText } from './lib/hosting.mjs';
+import { headersDatei, htaccess, nginx, pruefeWeiterleitungen, weiterleitungenLesen, vercelText, vercelPruefen } from './lib/hosting.mjs';
 import { pruefeAlles, auswerten, RELEASE_STRENG } from './pruefen/index.mjs';
 import { iconsLaden, icon as iconRoh } from '../src/vorlagen/teile/icons.mjs';
 import { datenIndizes, seitenIndexSchreiben } from './lib/datenindex.mjs';
@@ -107,8 +107,20 @@ async function main() {
   if (modus === 'vorschau' && arg.ziel) {
     if (!['netlify', 'cloudflare', 'vercel'].includes(arg.ziel)) throw new Error(`Vorschau: --ziel=netlify|cloudflare|vercel (nicht ${arg.ziel}; Apache und nginx nur mit --release oder --messen).`);
     if (arg.ziel === 'vercel') {
-      const ist = await readFile(join(WURZEL, 'vercel.json'), 'utf8').catch(() => '');
-      if (ist !== vercelText(await weiterleitungenLesen(WURZEL))) throw new Error('vercel.json passt nicht zu src/konfig/sicherheit.mjs und den Weiterleitungen – mit „npm run hoster“ neu erzeugen.');
+      // Inhalt statt Bytes: Formatierung oder ergänzte Schlüssel ändern keine Header; die Meldung nennt die erste Abweichung.
+      const ist = await readFile(join(WURZEL, 'vercel.json'), 'utf8').catch((e) => { throw new Error(`vercel.json nicht lesbar (${e.code || e.message}) in ${WURZEL} – mit „npm run hoster“ erzeugen und committen.`); });
+      const weiterleitungen = await weiterleitungenLesen(WURZEL);
+      const { fehler, fremd } = vercelPruefen(ist, weiterleitungen);
+      const stand = `${Buffer.byteLength(ist)} Byte, sha256 ${hash10(Buffer.from(ist))}…`;
+      if (fehler) throw new Error(`vercel.json passt nicht zu src/konfig/sicherheit.mjs und den Weiterleitungen (${fehler}; ${stand}) – mit „npm run hoster“ neu erzeugen.`);
+      if (fremd.length) console.warn(`Hinweis: vercel.json enthält Schlüssel, die der Generator nicht schreibt: ${fremd.join(', ')}.`);
+      const soll = vercelText(weiterleitungen);
+      if (ist !== soll) {
+        let i = 0;
+        while (ist[i] === soll[i]) i++;
+        const stelle = (t) => JSON.stringify(t.slice(i, i + 40));
+        console.warn(`Hinweis: vercel.json stimmt inhaltlich, ist aber anders formatiert als von „npm run hoster“ (${stand}; ab Zeichen ${i}: ist ${stelle(ist)}, soll ${stelle(soll)}).`);
+      }
     }
   }
   const datum = commitDatum();
