@@ -70,15 +70,21 @@ describe('vercel.json (Test-Deploy der Vorschau)', () => {
   test('Prüfung im Bau: Schreibweise egal, Inhalt nicht', () => {
     const text = vercelText([ok]);
     const o = JSON.parse(text);
-    for (const t of [text, JSON.stringify(o), `﻿${text.replace(/\n/g, '\r\n')}`, text.trimEnd(), JSON.stringify(Object.fromEntries(Object.entries(o).reverse()))]) {
+    for (const t of [text, JSON.stringify(o), `\uFEFF${text.replace(/\n/g, '\r\n')}`, text.trimEnd(), JSON.stringify(Object.fromEntries(Object.entries(o).reverse()))]) {
       assert.deepEqual(vercelAbweichungen(t, [ok]), []);
     }
     const csp = structuredClone(o);
     csp.headers[0].headers[0].value = "default-src 'self'";
-    assert.match(vercelAbweichungen(JSON.stringify(csp), [ok])[0], /^headers\[0\]\.headers\[0\]\.value: /);
+    assert.deepEqual(vercelAbweichungen(JSON.stringify(csp), [ok]), ["headers[0] (/(.*)).headers[0] (Content-Security-Policy).value ab Zeichen 13: \"default-src 'self'\" statt \"default-src 'none'; script-src 'self'; style-src 'self'; img-sr\"…"]);
+    // Abweichung am Ende eines langen Werts: Ausschnitt um die Stelle, nicht zwei gleiche Anfänge
+    const pp = structuredClone(o);
+    pp.headers[0].headers[11].value = pp.headers[0].headers[11].value.replace('usb=()', 'usb=(self)');
+    const [meldung] = vercelAbweichungen(JSON.stringify(pp), [ok]);
+    assert.match(meldung, /^headers\[0\] \(\/\(\.\*\)\)\.headers\[11\] \(Permissions-Policy\)\.value ab Zeichen \d+: …/);
+    assert.ok(meldung.includes('usb=(self)') && meldung.includes('usb=()'), meldung);
     assert.deepEqual(vercelAbweichungen(JSON.stringify({ ...o, rewrites: [] }), [ok]), ['rewrites ist zu viel ([])']);
-    assert.match(vercelAbweichungen(text, [])[0], /^redirects\[0\] ist zu viel /);
-    assert.match(vercelAbweichungen(vercelText(), [ok])[0], /^redirects\[0\] fehlt /);
+    assert.match(vercelAbweichungen(text, [])[0], /^redirects\[0\] \(\/alt-seite\/\) ist zu viel /);
+    assert.match(vercelAbweichungen(vercelText(), [ok])[0], /^redirects\[0\] \(\/alt-seite\/\) fehlt /);
     assert.deepEqual(vercelAbweichungen('', [ok]), ['vercel.json fehlt oder ist leer']);
     assert.match(vercelAbweichungen('{', [ok])[0], /kein gültiges JSON/);
     assert.deepEqual(vercelAbweichungen('[]', [ok]), ['vercel.json ist kein JSON-Objekt']);
