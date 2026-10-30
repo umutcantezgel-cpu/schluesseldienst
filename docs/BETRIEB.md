@@ -52,7 +52,7 @@ Formate, die oft Fragen aufwerfen:
 
 **Einrichtung (einmal)**
 
-1. **Datenbank:** `pipeline/betriebswerte/datenbank.sql`, danach `pipeline/betriebswerte/startwerte.sql` im Projekt ausführen (Claude über die Supabase-Verbindung oder der SQL-Editor). Beide Dateien lassen sich wiederholen; eingetragene Werte bleiben. Ändern sich Platzhalter in `src/konfig/*.mjs`, erzeugt `npm run betriebswerte -- --startwerte > pipeline/betriebswerte/startwerte.sql` die Datei neu; ein Test hält sie mit der Konfiguration gleich.
+1. **Datenbank:** `pipeline/betriebswerte/datenbank.sql`, danach `pipeline/betriebswerte/startwerte.sql` im Projekt ausführen (Claude über die Supabase-Verbindung oder der SQL-Editor). **Erledigt am 30.10.2026** als Migrationen `sd_0001_datenbank` und `sd_0002_startwerte`: 54 Zeilen, keine bestätigt; Advisors ohne Befund außer dem gewollten Hinweis „RLS enabled, no policy“ für `intern.lebenszeichen`. Beide Dateien lassen sich wiederholen und enthalten kein `DROP`; eingetragene Werte bleiben. Ändern sich Platzhalter in `src/konfig/*.mjs`, erzeugt `npm run betriebswerte -- --startwerte > pipeline/betriebswerte/startwerte.sql` die Datei neu; ein Test hält sie mit der Konfiguration gleich.
 2. **Passwort der Rolle `sd_export`** (liest nur bestätigte Werte, höchstens 3 Verbindungen, 15 s je Abfrage): Im Passwortmanager ein Passwort mit mindestens 24 druckbaren ASCII-Zeichen erzeugen. Dann
 
    ```sh

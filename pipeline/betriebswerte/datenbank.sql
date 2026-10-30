@@ -63,10 +63,17 @@ begin
   end loop;
 end $$;
 revoke all on function intern.rls_automatisch() from public;
-drop event trigger if exists sd_rls_automatik;
-create event trigger sd_rls_automatik on ddl_command_end
-  when tag in ('CREATE TABLE', 'CREATE TABLE AS', 'SELECT INTO')
-  execute function intern.rls_automatisch();
+-- Anlegen ohne vorheriges DROP, damit das Einspielen keine zerstörende Anweisung enthält; das abschließende ENABLE
+-- schaltet auch einen von Hand abgeschalteten Trigger wieder ein.
+do $$
+begin
+  if not exists (select from pg_event_trigger where evtname = 'sd_rls_automatik') then
+    create event trigger sd_rls_automatik on ddl_command_end
+      when tag in ('CREATE TABLE', 'CREATE TABLE AS', 'SELECT INTO')
+      execute function intern.rls_automatisch();
+  end if;
+end $$;
+alter event trigger sd_rls_automatik enable;
 
 -- 4. Lebenszeichen: Der Workflow betriebswerte (zweimal täglich) und die wöchentliche Aufsicht melden sich hier. Die
 --    Abfragen halten das kostenlose Projekt zugleich aktiv (Supabase pausiert nach 7 Tagen ohne Aktivität).
@@ -257,8 +264,7 @@ begin
   return new;
 end $$;
 revoke all on function betrieb.werte_pruefen() from public;
-drop trigger if exists werte_pruefen on betrieb.werte;
-create trigger werte_pruefen before insert or update on betrieb.werte
+create or replace trigger werte_pruefen before insert or update on betrieb.werte
   for each row execute function betrieb.werte_pruefen();
 
 -- 6. Export nur bestätigter Werte als JSON (Beträge in Cent, ohne_wert = null). security_invoker: Die Sicht prüft die
@@ -295,8 +301,14 @@ grant usage on schema betrieb to sd_export;
 grant select (schluessel, typ, wert_text, wert_euro, wert_ja_nein, wert_json, ohne_wert, bestaetigt, geaendert_am)
   on betrieb.werte to sd_export;
 grant select on betrieb.freigegeben to sd_export;
-drop policy if exists nur_bestaetigte on betrieb.werte;
-create policy nur_bestaetigte on betrieb.werte for select to sd_export using (bestaetigt);
+do $$
+begin
+  if exists (select from pg_policies where schemaname = 'betrieb' and tablename = 'werte' and policyname = 'nur_bestaetigte') then
+    alter policy nur_bestaetigte on betrieb.werte to sd_export using (bestaetigt);
+  else
+    create policy nur_bestaetigte on betrieb.werte for select to sd_export using (bestaetigt);
+  end if;
+end $$;
 grant usage on schema intern to sd_export;
 grant execute on function intern.lebenszeichen_setzen(text, jsonb) to sd_export;
 
