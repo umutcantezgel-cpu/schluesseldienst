@@ -7,7 +7,7 @@ import { mkdtempSync, existsSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { headersDatei, vercelVorschau, vercelText, weiterleitungenLesen } from '../bau/lib/hosting.mjs';
+import { headersDatei, vercelVorschau, vercelText, vercelAbweichungen, weiterleitungenLesen } from '../bau/lib/hosting.mjs';
 import { kopfzeilen, CACHE } from '../src/konfig/sicherheit.mjs';
 
 const WURZEL = fileURLToPath(new URL('..', import.meta.url));
@@ -65,6 +65,23 @@ describe('vercel.json (Test-Deploy der Vorschau)', () => {
   test('das committete vercel.json ist aktuell (sonst: npm run hoster)', async () => {
     const ist = readFileSync(join(WURZEL, 'vercel.json'), 'utf8');
     assert.equal(ist, vercelText(await weiterleitungenLesen(WURZEL)));
+  });
+
+  test('Prüfung im Bau: Schreibweise egal, Inhalt nicht', () => {
+    const text = vercelText([ok]);
+    const o = JSON.parse(text);
+    for (const t of [text, JSON.stringify(o), `﻿${text.replace(/\n/g, '\r\n')}`, text.trimEnd(), JSON.stringify(Object.fromEntries(Object.entries(o).reverse()))]) {
+      assert.deepEqual(vercelAbweichungen(t, [ok]), []);
+    }
+    const csp = structuredClone(o);
+    csp.headers[0].headers[0].value = "default-src 'self'";
+    assert.match(vercelAbweichungen(JSON.stringify(csp), [ok])[0], /^headers\[0\]\.headers\[0\]\.value: /);
+    assert.deepEqual(vercelAbweichungen(JSON.stringify({ ...o, rewrites: [] }), [ok]), ['rewrites ist zu viel ([])']);
+    assert.match(vercelAbweichungen(text, [])[0], /^redirects\[0\] ist zu viel /);
+    assert.match(vercelAbweichungen(vercelText(), [ok])[0], /^redirects\[0\] fehlt /);
+    assert.deepEqual(vercelAbweichungen('', [ok]), ['vercel.json fehlt oder ist leer']);
+    assert.match(vercelAbweichungen('{', [ok])[0], /kein gültiges JSON/);
+    assert.deepEqual(vercelAbweichungen('[]', [ok]), ['vercel.json ist kein JSON-Objekt']);
   });
 
   test('netlify.toml baut die Vorschau mit Ziel netlify und liefert nur dist/ aus', () => {

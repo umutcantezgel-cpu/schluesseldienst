@@ -2,6 +2,7 @@
 // Weiterleitungen: nur geprüfte Pfade, Ziele mit fest eingetragenem Host (Schutz vor offenen Weiterleitungen).
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { kopfzeilen, CACHE, MIME, SICHERER_PFAD } from '../../src/konfig/sicherheit.mjs';
 import { TEXT_ENDUNGEN } from './vorkomprimieren.mjs';
 
@@ -67,6 +68,37 @@ export function vercelVorschau(weiterleitungen = []) {
 }
 
 export const vercelText = (weiterleitungen = []) => JSON.stringify(vercelVorschau(weiterleitungen), null, 2) + '\n';
+
+// Prüfung im Bau: verglichen wird der Inhalt, nicht die Schreibweise – der Bau-Container des Hosters darf Leerraum,
+// Zeilenenden oder ein BOM ändern. Die genaue Textform der committeten Datei hält test/test-deploy.test.mjs fest.
+// Liefert je abweichendem Schlüssel die erste Abweichung als Zeile (leer: passt).
+const kurz = (v) => { const s = v === undefined ? 'nichts' : JSON.stringify(v); return s.length > 120 ? `${s.slice(0, 119)}…` : s; };
+function ersteAbweichung(ist, soll, pfad) {
+  if (isDeepStrictEqual(ist, soll)) return null;
+  const objekt = (v) => v !== null && typeof v === 'object';
+  if (objekt(ist) && objekt(soll) && Array.isArray(ist) === Array.isArray(soll)) {
+    const schluessel = Array.isArray(soll) ? [...Array(Math.max(ist.length, soll.length)).keys()] : [...new Set([...Object.keys(soll), ...Object.keys(ist)])];
+    for (const k of schluessel) {
+      const p = Array.isArray(soll) ? `${pfad}[${k}]` : `${pfad}.${k}`;
+      if (!Object.hasOwn(ist, k)) return `${p} fehlt (erwartet ${kurz(soll[k])})`;
+      if (!Object.hasOwn(soll, k)) return `${p} ist zu viel (${kurz(ist[k])})`;
+      const a = ersteAbweichung(ist[k], soll[k], p);
+      if (a) return a;
+    }
+  }
+  return `${pfad}: ${kurz(ist)} statt ${kurz(soll)}`;
+}
+
+export function vercelAbweichungen(text, weiterleitungen = []) {
+  if (!text.trim()) return ['vercel.json fehlt oder ist leer'];
+  let ist;
+  try { ist = JSON.parse(text.replace(/^﻿/, '')); } catch (e) { return [`vercel.json ist kein gültiges JSON (${e.message})`]; }
+  if (ist === null || typeof ist !== 'object' || Array.isArray(ist)) return ['vercel.json ist kein JSON-Objekt'];
+  const soll = vercelVorschau(weiterleitungen);
+  return [...new Set([...Object.keys(soll), ...Object.keys(ist)])]
+    .map((k) => (Object.hasOwn(ist, k) ? (Object.hasOwn(soll, k) ? ersteAbweichung(ist[k], soll[k], k) : `${k} ist zu viel (${kurz(ist[k])})`) : `${k} fehlt (erwartet ${kurz(soll[k])})`))
+    .filter(Boolean);
+}
 
 export function htaccess(host, weiterleitungen = []) {
   if (!/^[a-z0-9.-]+$/.test(host)) throw new Error(`Host ungültig: ${host}`);
