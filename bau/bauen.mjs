@@ -17,7 +17,7 @@ import { ueberschriftenTrennen } from './lib/trennen.mjs';
 import { platzhalterIn, istPlatzhalter } from './lib/platzhalter.mjs';
 import { setzeRoutenPruefer, fehlendeLinksHolen } from './lib/inhalt.mjs';
 import { sitemaps, robots, securityTxt, manifest } from './lib/dateien.mjs';
-import { headersDatei, htaccess, nginx, pruefeWeiterleitungen, weiterleitungenLesen, vercelText } from './lib/hosting.mjs';
+import { headersDatei, htaccess, nginx, pruefeWeiterleitungen, weiterleitungenLesen, vercelAbweichungen } from './lib/hosting.mjs';
 import { pruefeAlles, auswerten, RELEASE_STRENG } from './pruefen/index.mjs';
 import { iconsLaden, icon as iconRoh } from '../src/vorlagen/teile/icons.mjs';
 import { datenIndizes, seitenIndexSchreiben } from './lib/datenindex.mjs';
@@ -108,7 +108,8 @@ async function main() {
     if (!['netlify', 'cloudflare', 'vercel'].includes(arg.ziel)) throw new Error(`Vorschau: --ziel=netlify|cloudflare|vercel (nicht ${arg.ziel}; Apache und nginx nur mit --release oder --messen).`);
     if (arg.ziel === 'vercel') {
       const ist = await readFile(join(WURZEL, 'vercel.json'), 'utf8').catch(() => '');
-      if (ist !== vercelText(await weiterleitungenLesen(WURZEL))) throw new Error('vercel.json passt nicht zu src/konfig/sicherheit.mjs und den Weiterleitungen – mit „npm run hoster“ neu erzeugen.');
+      const abweichungen = vercelAbweichungen(ist, await weiterleitungenLesen(WURZEL));
+      if (abweichungen.length) throw new Error(`vercel.json passt nicht zu src/konfig/sicherheit.mjs und den Weiterleitungen – mit „npm run hoster“ neu erzeugen.\n  ${abweichungen.join('\n  ')}`);
     }
   }
   const datum = commitDatum();
