@@ -7,6 +7,7 @@ import { join } from 'node:path';
 import { cspText } from '../../src/konfig/sicherheit.mjs';
 import { istPlatzhalter } from '../lib/platzhalter.mjs';
 import { TEXT_ENDUNGEN } from '../lib/vorkomprimieren.mjs';
+import { GEHEIM } from '../lib/geheimnisse.mjs';
 
 export const name = 'sicherheit';
 
@@ -22,15 +23,6 @@ const ERLAUBTE_ENDUNGEN = /\.(html|css|js|json|xml|txt|woff2|png|jpg|webp|avif|s
 // Vorkomprimierte Varianten (--vorkomprimieren): nur <Textdatei>.br/.gz, deren Quelle in der Ausgabe liegt und deren
 // entpackter Inhalt der Quelle gleicht – damit gelten alle Prüfungen der Quelle auch für die Variante.
 const VARIANTE = new RegExp(`^(.+(?:${TEXT_ENDUNGEN.map((e) => e.replace('.', '\\.')).join('|')}))\\.(br|gz)$`);
-const GEHEIM = [
-  ['google-api-schluessel', /AIza[0-9A-Za-z_-]{35}/],
-  ['site-verification', /google-site-verification/i],
-  ['analytics-kennung', /\b(G-[A-Z0-9]{6,}|UA-\d{4,}-\d+|GTM-[A-Z0-9]{4,})\b/],
-  ['aws-schluessel', /AKIA[0-9A-Z]{16}/],
-  ['privater-schluessel', /-----BEGIN [A-Z ]*PRIVATE KEY/],
-  ['github-token', /gh[pousr]_[A-Za-z0-9]{30,}/],
-  ['jwt', /eyJ[A-Za-z0-9_-]{10,}\.eyJ[A-Za-z0-9_-]{10,}\./],
-];
 const JS_VERBOTEN = [/\binnerHTML\b/, /\bouterHTML\b/, /insertAdjacentHTML/, /document\.write/, /\beval\s*\(/, /new\s+Function\s*\(/, /\bimport\s*\(/, /setTimeout\s*\(\s*['"`]/, /setInterval\s*\(\s*['"`]/];
 
 let kennungen = null;

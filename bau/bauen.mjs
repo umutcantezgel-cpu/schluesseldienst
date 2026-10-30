@@ -4,6 +4,8 @@
 // Weitere Schalter: --pruefen · --aus=<ordner> · --port=<n> · --datum=JJJJ-MM-TT · --ziel=apache|nginx|netlify|cloudflare
 //                   --basis=https://host (nur Vorschau: Test-Deploy, mit --ziel=netlify|cloudflare|vercel; bleibt noindex)
 //                   --stichprobe=<n> (nur n Ortsseiten) · --nur=<pfadpräfix> · --vorkomprimieren (.br/.gz zu Textdateien)
+//                   --werte=<datei>|keine (nur Vorschau und Messen: Betriebswerte aus einer anderen Datei bzw. ohne;
+//                   Standard src/daten/betriebswerte.json, siehe bau/lib/betriebswerte.mjs)
 import { parseArgs } from 'node:util';
 import { execFileSync } from 'node:child_process';
 import { readdir, readFile, writeFile, mkdir, rm, rename } from 'node:fs/promises';
@@ -15,6 +17,7 @@ import { vorkomprimieren, veralteteVariantenEntfernen } from './lib/vorkomprimie
 import { aufloesen } from './lib/markierung.mjs';
 import { ueberschriftenTrennen } from './lib/trennen.mjs';
 import { platzhalterIn, istPlatzhalter } from './lib/platzhalter.mjs';
+import { betriebswerteLaden, betriebswertePruefen, betriebswerteAnwenden, BetriebswerteFehler, STANDARD_DATEI } from './lib/betriebswerte.mjs';
 import { setzeRoutenPruefer, fehlendeLinksHolen } from './lib/inhalt.mjs';
 import { sitemaps, robots, securityTxt, manifest } from './lib/dateien.mjs';
 import { headersDatei, htaccess, nginx, pruefeWeiterleitungen, weiterleitungenLesen, vercelText } from './lib/hosting.mjs';
@@ -32,6 +35,7 @@ const { values: arg } = parseArgs({
     vorschau: { type: 'boolean' }, messen: { type: 'boolean' }, release: { type: 'boolean' }, pruefen: { type: 'boolean' },
     aus: { type: 'string' }, port: { type: 'string' }, datum: { type: 'string' }, ziel: { type: 'string' }, basis: { type: 'string' },
     stichprobe: { type: 'string' }, nur: { type: 'string' }, still: { type: 'boolean' }, vorkomprimieren: { type: 'boolean' },
+    werte: { type: 'string' },
   },
 });
 
@@ -80,6 +84,42 @@ async function datenLaden() {
   return daten;
 }
 
+// Betriebswerte (D-DATEN-01): Schnappschuss laden, prüfen und in eine Kopie der Konfiguration einsetzen. Nur bestätigte
+// Werte aus Supabase stehen in der Datei; alles andere bleibt Platzhalter. Der Release liest nur die committete Datei.
+async function betriebswerteEinsetzen(konfigRoh, daten) {
+  if (arg.werte !== undefined && modus === 'release') throw new BetriebswerteFehler('--werte gibt es nur für Vorschau und Messbau; der Release liest die committete Datei src/daten/betriebswerte.json.');
+  if (arg.werte === 'keine') return { konfig: konfigRoh, datei: null, uebernommen: [], abgeleitet: [] };
+  const datei = arg.werte ?? STANDARD_DATEI;
+  const geladen = await betriebswerteLaden(WURZEL, datei);
+  if (!geladen.vorhanden) {
+    if (modus === 'release') throw new BetriebswerteFehler(`Release: ${datei} fehlt (committeter Schnappschuss der Betriebswerte).`);
+    log(`Hinweis: ${datei} fehlt – alle Betriebswerte bleiben Platzhalter.`);
+  }
+  const { fehler, warnungen } = betriebswertePruefen(geladen.werte, { konfig: konfigRoh, daten });
+  for (const w of warnungen) log(`Hinweis: ${w}`);
+  if (fehler.length) {
+    throw new BetriebswerteFehler(`Betriebswerte ungültig – ${datei} (Bau abgebrochen):\n  • ${fehler.join('\n  • ')}\n`
+      + 'Bitte in Supabase (Tabelle betrieb.werte) korrigieren; die nächste Übernahme schreibt die Datei neu.');
+  }
+  if (modus === 'release') schnappschussCommitted(datei);
+  return { ...betriebswerteAnwenden(konfigRoh, geladen.werte), datei };
+}
+
+// Release: Der Schnappschuss muss committet und unverändert sein, sonst wäre die Ausgabe nicht aus dem Commit
+// reproduzierbar. Ohne eigenen Git-Checkout (Bau mit --datum) entfällt die Prüfung.
+function schnappschussCommitted(datei) {
+  const opt = { cwd: WURZEL, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] };
+  try {
+    if (resolve(execFileSync('git', ['rev-parse', '--show-toplevel'], opt).trim()) !== WURZEL) return;
+  } catch { return; }
+  try {
+    execFileSync('git', ['ls-files', '--error-unmatch', '--', datei], opt);
+    execFileSync('git', ['diff', '--quiet', 'HEAD', '--', datei], opt);
+  } catch {
+    throw new BetriebswerteFehler(`Release: ${datei} ist nicht committet oder weicht vom letzten Commit ab.`);
+  }
+}
+
 async function seitenModule() {
   const ordner = join(WURZEL, 'src/vorlagen/seiten');
   const namen = (await readdir(ordner)).filter((n) => n.endsWith('.mjs')).sort();
@@ -113,7 +153,9 @@ async function main() {
   }
   const datum = commitDatum();
   const tag = datum.slice(0, 10);
-  const konfig = await konfigLaden();
+  const daten = await datenLaden();
+  const werte = await betriebswerteEinsetzen(await konfigLaden(), daten);
+  const { konfig } = werte;
   const port = Number(arg.port || 4173);
   let basisUrl = arg.basis ?? `http://127.0.0.1:${port}`;
   if (modus === 'release') {
@@ -188,7 +230,6 @@ async function main() {
   };
 
   await iconsLaden(WURZEL);
-  const daten = await datenLaden();
   assets.daten = await datenIndizes(daten, schreiber);
 
   // Kontext und Seiten sammeln
@@ -305,11 +346,13 @@ async function main() {
     modus, basisUrl, datum, seiten: gerendert.length, dateien: schreiber.bericht(), entfernt,
     css: assets.css.bytes, js: assets.js.bytes, jsBuendel: (assets.jsBuendel ?? []).map((b) => ({ module: b.module, bytes: b.bytes })), platzhalterAusgabe: alleP.size, platzhalterKonfig: konfigP.length,
     faktenUngeprueft: alleF.size, ms: Math.round(performance.now() - start),
+    betriebswerte: { datei: werte.datei, uebernommen: werte.uebernommen.length, abgeleitet: werte.abgeleitet.length },
     ...(vork && { vorkomprimiert: vork }),
   };
   log(`Build ${modus}: ${bericht.seiten} Seiten, ${bericht.dateien.geaendert} geändert, ${entfernt} entfernt, CSS ${bericht.css} B, JS ${bericht.jsBuendel.length} Bündel bis ${bericht.js} B, ${bericht.ms} ms`);
   if (vork) log(`Vorkomprimiert: ${vork.neu} neu, ${vork.unveraendert} unverändert, ${vork.zuGross} nicht kleiner, ${vork.entfernt} entfernt · .br ${vork.br} B · .gz ${vork.gz} B (Quellen ${vork.original} B) · ${vork.ms} ms`);
   log(`Platzhalter: ${alleP.size} in der Ausgabe, ${konfigP.length} in der Konfiguration · ungeprüfte Fakten: ${alleF.size}`);
+  log(`Betriebswerte: ${werte.uebernommen.length} übernommen, ${werte.abgeleitet.length} abgeleitet (${werte.datei ?? 'ohne Schnappschuss'})`);
 
   let fehler = 0;
   if (arg.pruefen || modus === 'release') {
@@ -323,7 +366,14 @@ async function main() {
     await writeFile(berichtVon('pruefbefunde.json'), JSON.stringify(ergebnisse, null, 1));
   }
   if (modus === 'release') {
-    if (alleP.size || konfigP.length) { console.error(`Release verweigert: ${konfigP.length} Platzhalter in der Konfiguration:\n  ` + konfigP.map((p) => `${p.pfad} (${p.beschriftung})`).join('\n  ')); fehler++; }
+    if (alleP.size || konfigP.length) {
+      // Sind alle Betriebswerte da, bleiben nur Platzhalter der Inhalte (etwa recht.*.freigabe) – auch die nennen
+      const nurSeiten = [...alleP].filter((k) => !konfigP.some((p) => p.schluessel === k)).sort();
+      console.error(`Release verweigert: ${konfigP.length} Platzhalter in der Konfiguration, ${nurSeiten.length} weitere auf den Seiten:\n  `
+        + [...konfigP.map((p) => `${p.schluessel} – ${p.beschriftung} (${p.pfad})`), ...nurSeiten].join('\n  ')
+        + (konfigP.length ? '\nDiese Werte in Supabase (Tabelle betrieb.werte) eintragen und bestätigen, dann den Pull Request der Übernahme zusammenführen (docs/BETRIEB.md).' : ''));
+      fehler++;
+    }
     if (alleF.size) { console.error(`Release verweigert: ${alleF.size} ungeprüfte Fakten: ${[...alleF].join(', ')}`); fehler++; }
   }
   await mkdir(join(WURZEL, '.cache'), { recursive: true });
@@ -338,4 +388,4 @@ async function main() {
   }
 }
 
-main().catch((e) => { console.error(e.stack || String(e)); process.exitCode = 2; });
+main().catch((e) => { console.error(e instanceof BetriebswerteFehler ? e.message : (e.stack || String(e))); process.exitCode = 2; });

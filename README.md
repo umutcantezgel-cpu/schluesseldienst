@@ -2,7 +2,7 @@
 
 Dieses Repository erzeugt die statische Website eines Schlüsseldienstes mit Sitz in Weilburg an der Lahn. Der Firmenname steht noch nicht fest; bis dahin stehen Platzhalter an den Stellen, die der Betrieb bestätigen muss. Die Seiten decken Notöffnung, Einbruchschutz, Sicherheitstechnik, Einbau und Tresore, Preise, das Einsatzgebiet mit Ortsseiten, Ratgeber, Kontakt und Recht ab, mit eigenen Texten.
 
-Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML, CSS und JavaScript, ohne Backend, ohne Drittanbieter und ohne Cookies.
+Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML, CSS und JavaScript, ohne Backend, ohne Drittanbieter und ohne Cookies. Die Angaben, die nur der Betrieb kennt, pflegt der Inhaber in Supabase; ein Workflow übernimmt bestätigte Werte per Pull Request in das Repository (Abschnitt „Betriebswerte“). Besucher erreichen Supabase nie.
 
 **Stand:** Die Website baut als Vorschau mit `noindex`. Ein Release ist erst möglich, wenn die markierten Angaben vollständig sind. Was dazu noch fehlt, steht in [docs/OFFENE-PUNKTE.md](docs/OFFENE-PUNKTE.md).
 
@@ -21,6 +21,7 @@ Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML
 | `npm test` | Tests mit `node:test`. |
 | `npm run pruefen` | Messbuild mit allen elf Prüfern, etwa 40 Sekunden. Schreibt ebenfalls nach `dist/`; Exit-Code 1 bei Fehlern. |
 | `npm run release` | Scheitert absichtlich, solange `betrieb.basisUrl` ein Platzhalter ist (siehe unten). |
+| `npm run betriebswerte -- --liste` | Stand der 58 Platzhalter der Konfiguration: aus Supabase übernommen, abgeleitet oder offen. Liest nur. |
 
 **Was „Release scheitert an Platzhaltern“ bedeutet.** `npm run release` verlangt eine echte Adresse in `betrieb.basisUrl` (`https://` und die Domain, ohne Pfad). Solange dort der Platzhalter steht, bricht der Lauf sofort mit Exit-Code 2 ab und schreibt nichts. Ist die Adresse gesetzt, prüft der Release weiter und verweigert die Ausgabe bei Platzhaltern in der Konfiguration oder auf den Seiten, bei Fakten mit Status „verifizieren“, bei Fehlern der Prüfer und bei internen Links ohne Ziel. Dann endet der Lauf mit Exit-Code 1. In diesem Fall verschiebt der Build die Ausgabe nach `dist.verweigert/` (bzw. `<--aus>.verweigert/`); ein hochladbarer `dist/`-Ordner bleibt nicht zurück. Die Fehlermeldung nennt, was fehlt.
 
@@ -41,6 +42,7 @@ Der Generator ist ein Node-Programm ohne Abhängigkeiten. Er erzeugt reines HTML
 | `--datum=JJJJ-MM-TT` | Build-Datum für Sitemap und `security.txt`. Standard ist das Datum des letzten Commits. Ohne Git-Checkout ist `--datum` im Release Pflicht (sonst bricht er ab). |
 | `--port=<n>` | Port der Basis-Adresse in Vorschau und Messung (Standard 4173). |
 | `--still` | Nur Fehler und Hinweise auf der Konsole. |
+| `--werte=<datei>\|keine` | Nur Vorschau und Messbau: Betriebswerte aus einer anderen Datei (etwa `test/fixtures/betriebswerte/voll.json` mit Testwerten) oder ohne Schnappschuss. Standard ist `src/daten/betriebswerte.json`; der Release liest immer diese Datei und verlangt, dass sie committet ist. |
 
 Vorschau-Server: `node bau/vorschau.mjs [--aus <ordner>] [--port <n>] [--komprimieren]` – mit `--komprimieren` liefert er Textdateien gzip-komprimiert aus, wie ein Hoster mit Kompression (Messungen unter Produktionsbedingungen).
 
@@ -52,15 +54,20 @@ Bis die Angaben in [docs/BETRIEB.md](docs/BETRIEB.md) vollständig sind, gibt es
 - **Vercel:** Repository importieren (Framework „Other“). Die Einstellungen stehen in `vercel.json`: Bau mit `--ziel=vercel` und der Projektadresse, ausgeliefert wird `dist/`, Header und Weiterleitungen stehen in der Datei selbst. `vercel.json` wird mit `npm run hoster` aus `src/konfig/sicherheit.mjs` erzeugt; passt sie nicht mehr, bricht der Bau ab. `.vercelignore` hält Rohdaten und `_werkstatt/` aus dem Bau heraus.
 - Bei beiden Hostern eingeschleuste Skripte abschalten (Netlify Snippet Injection und Drawer, Vercel Toolbar); die strenge CSP blockiert sie sonst mit Konsolenfehlern. Einzelheiten und der Weg zum Release: [docs/HOSTER-CHECKLISTE.md](docs/HOSTER-CHECKLISTE.md), Abschnitt 4.
 
+## Betriebswerte (Supabase)
+
+Firmendaten, Impressum, Erreichbarkeit, Preise, Zusagen und Leistungen je Zone – 54 Werte – pflegt der Inhaber im Supabase-Projekt `schluesseldienst` (Tabelle `betrieb.werte`) und bestätigt sie dort. Zweimal täglich liest `.github/workflows/betriebswerte.yml` die bestätigten Werte über eine Rolle, die nur lesen darf, prüft sie mit denselben Regeln wie der Bau (`bau/lib/betriebswerte.mjs`) und öffnet bei einer Änderung einen Pull Request für `src/daten/betriebswerte.json`. Der Bau liest nur diese Datei und setzt die Werte dort ein, wo in `src/konfig/` Platzhalter stehen; was fehlt, bleibt Platzhalter. Die Website selbst fragt Supabase nie ab. Einrichtung und Ablauf: [docs/BETRIEB.md](docs/BETRIEB.md), Abschnitt „Betriebswerte in Supabase“; Entscheidung: [docs/ENTSCHEIDUNGEN.md](docs/ENTSCHEIDUNGEN.md), D-DATEN-01.
+
 ## Verzeichnisaufbau
 
 - `bau/`: Generator (`bauen.mjs`), Vorschau-Server (`vorschau.mjs`), `lib/` mit Ausgabe, Assets, Platzhaltern, Faktenblöcken und Hoster-Dateien, `pruefen/` mit den Prüfern.
-- `src/konfig/`: Betriebsdaten, Preise, Zonen, SEO, Sicherheitsregeln (`sicherheit.mjs`), Routen und Themenpässe. Hier tragen Sie die Angaben ein; siehe [docs/BETRIEB.md](docs/BETRIEB.md).
-- `src/daten/`: Orts-, PLZ- und Weiterleitungsdaten sowie Prüflisten, teils von der Pipeline erzeugt.
+- `src/konfig/`: Betriebsdaten, Preise, Zonen, SEO, Sicherheitsregeln (`sicherheit.mjs`), Routen und Themenpässe. Die Betriebswerte stehen hier als Platzhalter und kommen aus Supabase; die übrigen Angaben tragen Sie hier ein. Siehe [docs/BETRIEB.md](docs/BETRIEB.md).
+- `src/daten/`: Orts-, PLZ- und Weiterleitungsdaten sowie Prüflisten, teils von der Pipeline erzeugt; `betriebswerte.json` ist der Schnappschuss der Betriebswerte aus Supabase (nur über den Pull Request der Übernahme ändern).
 - `src/inhalte/`: Texte als JavaScript-Module: Leistungen, Ortsseiten, Ratgeber, Faktenblätter (`fakten/`) und Rechtstexte (`recht/`).
 - `src/vorlagen/`: Funktionen, die aus den Inhalten HTML erzeugen (`seiten/`, `teile/`, `layout.mjs`).
 - `src/assets/`: CSS, JavaScript, Icons, Schriften und Vorschaubilder (`og/`).
-- `pipeline/`: Ortspipeline (`orte/`, Befehl `npm run orte`) und das Skript für den Fingerabdruck des Plagiatsprüfers.
+- `pipeline/`: Ortspipeline (`orte/`, Befehl `npm run orte`), Übernahme der Betriebswerte mit dem SQL für Supabase (`betriebswerte/`, Befehl `npm run betriebswerte`) und das Skript für den Fingerabdruck des Plagiatsprüfers.
+- `.github/workflows/`: `betriebswerte.yml`, die Übernahme aus Supabase.
 - `test/`: Tests mit `node:test`.
 - `_werkstatt/`: Arbeitsunterlagen aus der Entstehung (Planung, Freigaben, Berichte, Prüfwerkzeuge). Sie gehören nicht zur Website und werden nicht ausgeliefert.
 - `docs/`: Betriebsdokumente.
@@ -91,6 +98,7 @@ Der Build führt die Prüfer mit `--pruefen` aus; im Release sind Fehler blockie
 3. **Sicherheits-Kopfzeilen aus einer Quelle.** `kopfzeilen()` in `src/konfig/sicherheit.mjs` liefert alle Header. Daraus entstehen `_headers`, `.htaccess`, das nginx-Snippet, `vercel.json` (Test-Deploy) und der Vorschau-Server. Der Hoster muss die Header ausliefern; siehe [docs/HOSTER-CHECKLISTE.md](docs/HOSTER-CHECKLISTE.md).
 4. **Weiterleitungen nur geprüft.** Quelle und Ziel sind feste interne Pfade, das Ziel muss existieren, Ketten und Schleifen sind verboten (`bau/lib/hosting.mjs`).
 5. **Kontakt per `mailto:`.** Es gibt kein Formular-Backend. Die Kontaktseite erzeugt eine E-Mail. Die Richtlinie erlaubt für Formulare nur `mailto:`.
+6. **Betriebswerte nur über einen Pull Request.** Der Workflow liest mit TLS-Prüfung (`verify-full`) über eine Rolle, die nur bestätigte Werte lesen darf; die Zugangsdaten stehen nur im GitHub-Environment `betriebswerte`. Ungültige Werte und Werte mit Geheimnis-Mustern nimmt er nicht an. Ändern sich Telefon, E-Mail, Anschrift oder Domain, hebt der Pull Request das hervor; vor dem Zusammenführen die Nummer anrufen.
 
 ## Weitere Dokumente
 

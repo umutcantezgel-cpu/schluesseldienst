@@ -1,0 +1,184 @@
+# Betriebswerte aus Supabase übernehmen (D-DATEN-01, docs/BETRIEB.md „Betriebswerte“).
+# Zweimal täglich (und von Hand) liest dieser Workflow die bestätigten Werte (Sicht betrieb.freigegeben, Rolle
+# sd_export, nur lesend) über den Session Pooler mit TLS-Prüfung (verify-full), prüft sie mit denselben Regeln wie der
+# Bau und öffnet bei einer Änderung einen Pull Request vom Zweig betriebswerte/aktualisierung. Zusammengeführt wird von
+# Hand (Squash). Jeder Lauf setzt das Lebenszeichen „betriebswerte“; die Zugriffe halten das Supabase-Projekt aktiv.
+# Die Zugangsdaten stehen nur im Export-Schritt; im Log stehen weder Zeilen noch Zugangsdaten.
+name: Betriebswerte
+
+on:
+  schedule:
+    - cron: '23 3 * * *'
+    - cron: '23 15 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: betriebswerte
+  cancel-in-progress: false
+
+jobs:
+  uebernehmen:
+    name: Werte übernehmen
+    # Nur im eigenen Repository und nur auf main (Forks und andere Zweige erreichen das Environment nie).
+    if: github.repository == 'umutcantezgel-cpu/schluesseldienst' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    # Secrets des Environments ohne Deployment-Eintrag je Lauf; die Zweig-Regel des Environments gilt weiter.
+    environment:
+      name: betriebswerte
+      deployment: false
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+    env:
+      ZWEIG: betriebswerte/aktualisierung
+      DATEI: src/daten/betriebswerte.json
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          # Der Plagiatstest in npm test liest den ersten Commit; die volle Historie ist nur rund 4 MB größer.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: .node-version
+
+      - name: Export aus Supabase und Lebenszeichen
+        id: export
+        env:
+          SUPABASE_POOLER_HOST: ${{ secrets.SUPABASE_POOLER_HOST }}
+          SUPABASE_EXPORT_BENUTZER: ${{ secrets.SUPABASE_EXPORT_BENUTZER }}
+          SUPABASE_EXPORT_PASSWORT: ${{ secrets.SUPABASE_EXPORT_PASSWORT }}
+          SUPABASE_CA_ZERTIFIKAT: ${{ secrets.SUPABASE_CA_ZERTIFIKAT }}
+        run: |
+          set -euo pipefail
+          umask 077
+          # Vor der Einrichtung (alle vier Secrets leer) endet der Lauf mit einer Warnung statt mit Fehlermails.
+          fehlt=()
+          for name in SUPABASE_POOLER_HOST SUPABASE_EXPORT_BENUTZER SUPABASE_EXPORT_PASSWORT SUPABASE_CA_ZERTIFIKAT; do
+            [ -n "${!name:-}" ] || fehlt+=("$name")
+          done
+          if [ "${#fehlt[@]}" = 4 ]; then
+            echo "::warning::Betriebswerte noch nicht eingerichtet: Environment betriebswerte ohne Secrets (docs/BETRIEB.md)."
+            echo "eingerichtet=nein" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          [ "${#fehlt[@]}" = 0 ] || { echo "::error::Secret fehlt im Environment betriebswerte: ${fehlt[*]} (docs/BETRIEB.md)."; exit 1; }
+          command -v psql > /dev/null || { sudo apt-get -qq update && sudo apt-get -qq install -y postgresql-client > /dev/null; }
+          ca="$RUNNER_TEMP/supabase-ca.crt"
+          printf '%s\n' "$SUPABASE_CA_ZERTIFIKAT" > "$ca"
+          grep -q -- '-----BEGIN CERTIFICATE-----' "$ca" || { echo "::error::SUPABASE_CA_ZERTIFIKAT ist kein PEM-Zertifikat (mit BEGIN- und END-Zeile eintragen)."; exit 1; }
+          export PGHOST="$SUPABASE_POOLER_HOST" PGPORT=5432 PGDATABASE=postgres PGUSER="$SUPABASE_EXPORT_BENUTZER" \
+            PGPASSWORD="$SUPABASE_EXPORT_PASSWORT" PGSSLMODE=verify-full PGSSLROOTCERT="$ca" PGCONNECT_TIMEOUT=20 \
+            PGAPPNAME=betriebswerte-workflow
+          # Fehlermeldungen von psql nennen nie Zeilen; Host und Benutzer maskiert GitHub als Secrets.
+          sql() {
+            psql -X -q -A -t -v ON_ERROR_STOP=1 "$@" 2> "$RUNNER_TEMP/psql.log" \
+              || { echo "::error::psql fehlgeschlagen (Pooler-Host, Benutzer, Passwort, Zertifikat oder pausiertes Projekt prüfen)"; cat "$RUNNER_TEMP/psql.log"; return 1; }
+          }
+          sql -f pipeline/betriebswerte/export.sql -o "$RUNNER_TEMP/betriebswerte-roh.json"
+          # sd_export liest sonst nur (default_transaction_read_only); das Lebenszeichen schreibt die Funktion selbst.
+          sql -c "begin read write; select intern.lebenszeichen_setzen('betriebswerte', '{}'::jsonb); commit;" > /dev/null
+          echo "eingerichtet=ja" >> "$GITHUB_OUTPUT"
+          echo "Export und Lebenszeichen: ok"
+
+      - name: Prüfen und Schnappschuss schreiben
+        id: werte
+        if: steps.export.outputs.eingerichtet == 'ja'
+        run: >-
+          node pipeline/betriebswerte/uebernehmen.mjs --roh "$RUNNER_TEMP/betriebswerte-roh.json"
+          --bericht "$RUNNER_TEMP/bericht.md" --commit "$RUNNER_TEMP/commit.txt"
+          --ausgabe "$GITHUB_OUTPUT" --zusammenfassung "$GITHUB_STEP_SUMMARY"
+
+      - name: Tests mit dem neuen Stand
+        id: tests
+        if: steps.werte.outputs.geaendert == 'ja'
+        continue-on-error: true
+        run: npm test
+
+      - name: Messbau mit allen Prüfern
+        id: pruefbau
+        if: steps.werte.outputs.geaendert == 'ja'
+        continue-on-error: true
+        run: npm run pruefen
+
+      - name: Pull Request anlegen oder aktualisieren
+        if: steps.werte.outputs.geaendert == 'ja'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TESTS: ${{ steps.tests.outcome }}
+          PRUEFBAU: ${{ steps.pruefbau.outcome }}
+        run: |
+          set -euo pipefail
+          rot=0
+          [ "$TESTS" = success ] && [ "$PRUEFBAU" = success ] || rot=1
+          titel="$(head -n 1 "$RUNNER_TEMP/commit.txt")"
+          [ "$rot" = 0 ] || titel="[Prüfung rot] $titel"
+          stand() { if [ "$1" = success ]; then echo 'grün'; else echo "**rot** ($1)"; fi; }
+          {
+            cat "$RUNNER_TEMP/bericht.md"
+            printf '\n### Prüfungen mit diesem Stand\n\n- `npm test`: %s\n- `npm run pruefen`: %s\n\nLauf: %s/%s/actions/runs/%s\n' \
+              "$(stand "$TESTS")" "$(stand "$PRUEFBAU")" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID"
+            printf '\n**Vor dem Zusammenführen:** die Telefonnummer anrufen, Adresse und Domain prüfen, dann „Squash and merge“ (docs/BETRIEB.md). Geschrieben von .github/workflows/betriebswerte.yml; Korrekturen nur in Supabase.\n'
+          } > "$RUNNER_TEMP/pr.md"
+
+          # Neuer Commit nur, wenn der Bot-Zweig einen anderen Stand hat (sonst zweimal täglich ein Force-Push ohne Änderung).
+          bisher="$(gh api "repos/$GITHUB_REPOSITORY/contents/$DATEI?ref=$ZWEIG" --jq .content 2> /dev/null | base64 -d 2> /dev/null || true)"
+          if [ "$bisher" != "$(cat "$DATEI")" ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git switch -q -C "$ZWEIG"
+            git add -- "$DATEI"
+            git commit -q -F "$RUNNER_TEMP/commit.txt"
+            kopf="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+            git -c "http.https://github.com/.extraheader=$kopf" push -q --force origin "HEAD:refs/heads/$ZWEIG"
+          fi
+
+          nummer="$(gh api "repos/$GITHUB_REPOSITORY/pulls?state=open&head=$GITHUB_REPOSITORY_OWNER:$ZWEIG" --jq '.[0].number // empty')"
+          if [ -z "$nummer" ]; then
+            entwurf=false
+            [ "$rot" = 0 ] || entwurf=true
+            # Entwürfe gibt es nicht in jedem Tarif; dann ohne Entwurf (der Titel trägt den Stand).
+            nummer="$(gh api -X POST "repos/$GITHUB_REPOSITORY/pulls" -f base=main -f head="$ZWEIG" -f title="$titel" \
+                -F body=@"$RUNNER_TEMP/pr.md" -F draft="$entwurf" --jq .number 2> /dev/null)" \
+              || nummer="$(gh api -X POST "repos/$GITHUB_REPOSITORY/pulls" -f base=main -f head="$ZWEIG" -f title="$titel" \
+                -F body=@"$RUNNER_TEMP/pr.md" --jq .number)"
+            echo "Pull Request #$nummer angelegt." | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            gh api -X PATCH "repos/$GITHUB_REPOSITORY/pulls/$nummer" -f title="$titel" -F body=@"$RUNNER_TEMP/pr.md" --silent
+            if [ "$rot" = 1 ]; then gh pr ready "$nummer" --undo > /dev/null 2>&1 || true; else gh pr ready "$nummer" > /dev/null 2>&1 || true; fi
+            echo "Pull Request #$nummer aktualisiert." | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Überholten Pull Request schließen
+        if: steps.werte.outputs.geaendert == 'nein'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          nummer="$(gh api "repos/$GITHUB_REPOSITORY/pulls?state=open&head=$GITHUB_REPOSITORY_OWNER:$ZWEIG" --jq '.[0].number // empty')"
+          [ -n "$nummer" ] || exit 0
+          gh api -X POST "repos/$GITHUB_REPOSITORY/issues/$nummer/comments" --silent \
+            -f body='Der Stand in Supabase entspricht wieder dem Repository – dieser Pull Request ist überholt und wird geschlossen.'
+          gh api -X PATCH "repos/$GITHUB_REPOSITORY/pulls/$nummer" -f state=closed --silent
+          gh api -X DELETE "repos/$GITHUB_REPOSITORY/git/refs/heads/$ZWEIG" --silent || true
+          echo "Überholten Pull Request #$nummer geschlossen." | tee -a "$GITHUB_STEP_SUMMARY"
+
+      # GitHub schaltet Zeitpläne nach 60 Tagen ohne Aktivität im Repository ab; ob das Einschalten die Frist
+      # zurücksetzt, ist nicht dokumentiert (Ersatz: wöchentliche Prüfung des Lebenszeichens, docs/BETRIEB.md).
+      - name: Zeitplan aktiv halten
+        if: ${{ !cancelled() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/betriebswerte.yml/enable" --silent || echo "::warning::Zeitplan ließ sich nicht aktiv halten (Enable-API)."
+
+      - name: Ergebnis
+        if: steps.tests.outcome == 'failure' || steps.pruefbau.outcome == 'failure'
+        run: |
+          echo "::error::Tests oder Messbau mit dem neuen Stand rot – der Pull Request trägt „[Prüfung rot]“; Werte in Supabase korrigieren oder den Code anpassen."
+          exit 1

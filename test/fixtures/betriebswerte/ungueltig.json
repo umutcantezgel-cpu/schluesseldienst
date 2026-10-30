@@ -1,0 +1,9 @@
+{
+  "format": 1,
+  "quelle": "Testdaten – absichtlich ungültig",
+  "werte": {
+    "betrieb.fax": "06471 1234",
+    "betrieb.telefon": "06471 2024 99",
+    "preise.tuer-zugefallen.werktag": 999
+  }
+}
