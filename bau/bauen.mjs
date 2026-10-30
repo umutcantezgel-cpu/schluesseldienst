@@ -367,7 +367,10 @@ async function main() {
   }
   if (modus === 'release') {
     if (alleP.size || konfigP.length) {
-      console.error(`Release verweigert: ${konfigP.length} Platzhalter in der Konfiguration:\n  ` + konfigP.map((p) => `${p.schluessel} – ${p.beschriftung} (${p.pfad})`).join('\n  ')
+      // Sind alle Betriebswerte da, bleiben nur Platzhalter der Inhalte (etwa recht.*.freigabe) – auch die nennen
+      const nurSeiten = [...alleP].filter((k) => !konfigP.some((p) => p.schluessel === k)).sort();
+      console.error(`Release verweigert: ${konfigP.length} Platzhalter in der Konfiguration, ${nurSeiten.length} weitere auf den Seiten:\n  `
+        + [...konfigP.map((p) => `${p.schluessel} – ${p.beschriftung} (${p.pfad})`), ...nurSeiten].join('\n  ')
         + (konfigP.length ? '\nDiese Werte in Supabase (Tabelle betrieb.werte) eintragen und bestätigen, dann den Pull Request der Übernahme zusammenführen (docs/BETRIEB.md).' : ''));
       fehler++;
     }
