@@ -72,19 +72,33 @@ export const vercelText = (weiterleitungen = []) => JSON.stringify(vercelVorscha
 // Prüfung im Bau: verglichen wird der Inhalt, nicht die Schreibweise – der Bau-Container des Hosters darf Leerraum,
 // Zeilenenden oder ein BOM ändern. Die genaue Textform der committeten Datei hält test/test-deploy.test.mjs fest.
 // Liefert je abweichendem Schlüssel die erste Abweichung als Zeile (leer: passt).
-const kurz = (v) => { const s = v === undefined ? 'nichts' : JSON.stringify(v); return s.length > 120 ? `${s.slice(0, 119)}…` : s; };
+const kurz = (v) => {
+  let s;
+  try { s = v === undefined ? 'nichts' : JSON.stringify(v); } catch { s = Array.isArray(v) ? `Liste mit ${v.length} Einträgen` : typeof v; }
+  return s.length > 120 ? `${s.slice(0, 119)}…` : s;
+};
+// Header-Name bzw. Quelle zum Index, damit „headers[0].headers[11]“ lesbar wird
+const name = (v) => (typeof v?.key === 'string' ? ` (${v.key})` : typeof v?.source === 'string' ? ` (${v.source})` : '');
 function ersteAbweichung(ist, soll, pfad) {
   if (isDeepStrictEqual(ist, soll)) return null;
   const objekt = (v) => v !== null && typeof v === 'object';
   if (objekt(ist) && objekt(soll) && Array.isArray(ist) === Array.isArray(soll)) {
     const schluessel = Array.isArray(soll) ? [...Array(Math.max(ist.length, soll.length)).keys()] : [...new Set([...Object.keys(soll), ...Object.keys(ist)])];
     for (const k of schluessel) {
-      const p = Array.isArray(soll) ? `${pfad}[${k}]` : `${pfad}.${k}`;
+      const p = Array.isArray(soll) ? `${pfad}[${k}]${name(soll[k] ?? ist[k])}` : `${pfad}.${k}`;
       if (!Object.hasOwn(ist, k)) return `${p} fehlt (erwartet ${kurz(soll[k])})`;
       if (!Object.hasOwn(soll, k)) return `${p} ist zu viel (${kurz(ist[k])})`;
       const a = ersteAbweichung(ist[k], soll[k], p);
       if (a) return a;
     }
+  }
+  if (typeof ist === 'string' && typeof soll === 'string' && Math.max(ist.length, soll.length) > 100) {
+    // lange Werte (CSP, Permissions-Policy): Ausschnitt ab der ersten abweichenden Stelle statt zweier gleicher Anfänge
+    let i = 0;
+    while (ist[i] === soll[i]) i++;
+    const a = Math.max(0, i - 30);
+    const stueck = (s) => `${a ? '…' : ''}${JSON.stringify(s.slice(a, i + 50))}${s.length > i + 50 ? '…' : ''}`;
+    return `${pfad} ab Zeichen ${i}: ${stueck(ist)} statt ${stueck(soll)}`;
   }
   return `${pfad}: ${kurz(ist)} statt ${kurz(soll)}`;
 }
@@ -92,7 +106,7 @@ function ersteAbweichung(ist, soll, pfad) {
 export function vercelAbweichungen(text, weiterleitungen = []) {
   if (!text.trim()) return ['vercel.json fehlt oder ist leer'];
   let ist;
-  try { ist = JSON.parse(text.replace(/^﻿/, '')); } catch (e) { return [`vercel.json ist kein gültiges JSON (${e.message})`]; }
+  try { ist = JSON.parse(text.replace(/^\uFEFF/, '')); } catch (e) { return [`vercel.json ist kein gültiges JSON (${e.message})`]; }
   if (ist === null || typeof ist !== 'object' || Array.isArray(ist)) return ['vercel.json ist kein JSON-Objekt'];
   const soll = vercelVorschau(weiterleitungen);
   return [...new Set([...Object.keys(soll), ...Object.keys(ist)])]
