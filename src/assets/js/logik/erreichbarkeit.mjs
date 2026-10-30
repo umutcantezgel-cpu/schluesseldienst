@@ -20,3 +20,20 @@ export function zustandBerechnen(zeiten, nachtdienst, datum) {
 }
 
 export const WOCHENTAGE = TAGE;
+
+// data-zeiten, Form siehe zeitenAlsText in src/vorlagen/teile/rufknopf.mjs (D-DATEN-01)
+export const FOLGE = ['mo', 'di', 'mi', 'do', 'fr', 'sa', 'so'];
+const ZEITRAUM = /^(\d\d:\d\d)-(\d\d:\d\d)$/;
+
+/** Zeiten aus data-zeiten; null bei falscher Form. */
+export function zeitenAusText(text) {
+  const felder = String(text).split('|');
+  if (felder.length !== FOLGE.length) return null;
+  const zeiten = {};
+  for (let i = 0; i < FOLGE.length; i++) {
+    const liste = felder[i] ? felder[i].split(',').map((z) => z.match(ZEITRAUM)) : [];
+    if (liste.some((m) => !m)) return null;
+    zeiten[FOLGE[i]] = liste.map((m) => [m[1], m[2]]);
+  }
+  return zeiten;
+}
