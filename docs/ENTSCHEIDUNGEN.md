@@ -1,6 +1,6 @@
 # Entscheidungen
 
-Diese Liste fasst die wichtigsten Entscheidungen zur Website zusammen, jeweils mit Problem, Entscheidung und Grund. Die Einträge stammen vom 25. und 26. Oktober 2026. Die ausführliche Fassung mit Messwerten und Abwägungen steht in `_werkstatt/ENTSCHEIDUNGEN.md`, bis `_werkstatt/` entfernt wird.
+Diese Liste fasst die wichtigsten Entscheidungen zur Website zusammen, jeweils mit Problem, Entscheidung und Grund. Die Einträge stammen vom 25. bis 30. Oktober 2026. Die ausführliche Fassung mit Messwerten und Abwägungen steht in `_werkstatt/ENTSCHEIDUNGEN.md`, bis `_werkstatt/` entfernt wird.
 
 ## D-001 · Keine Übernahme fremder Inhalte; Themen und Ortsnamen ja
 
@@ -101,6 +101,10 @@ Diese Liste fasst die wichtigsten Entscheidungen zur Website zusammen, jeweils m
 ## D-NAV-01 · Leistungsseiten im mobilen Menü ohne zusätzliches HTML
 
 **Problem:** Im mobilen Menü fehlten die 23 Leistungsseiten; am Handy erreichte man sie nur über die Gruppenseiten. Schreibt man sie ein zweites Mal ins HTML, wird jede Seite um rund 1,7 KB größer, und die größten Ortsseiten überschreiten ihr Größenbudget. **Entscheidung:** Das Menü übernimmt die Listen beim ersten Öffnen aus der Desktop-Navigation, die ohnehin in jeder Seite steht, und zeigt sie als aufklappbare Gruppen. **Grund:** Das Menü braucht ohnehin JavaScript; so kostet die Erweiterung kein HTML. Ohne JavaScript führt der Menü-Link wie bisher zur Fußnavigation, die Leistungsseiten bleiben über die Gruppenseiten erreichbar.
+
+## D-DATEN-01 · Betriebswerte aus Supabase, Übernahme per Pull Request
+
+**Problem:** 58 Angaben in der Konfiguration kennt nur der Betrieb: Firmendaten, Impressum, Erreichbarkeit, Preise, Zusagen und Leistungen je Zone. Sie in `src/konfig/*.mjs` einzutragen, verlangt Git und einen Editor und prüft nichts beim Eintragen; die Website soll aber statisch, ohne Backend und ohne Drittanbieter bleiben. **Entscheidung:** Der Inhaber pflegt 54 Werte im Supabase-Projekt `schluesseldienst` und bestätigt sie dort; die vier Uhrzeiten der Preis-Zeitfenster bildet der Bau aus dem Tagesband. Zweimal täglich liest ein Workflow nur die bestätigten Werte (Rolle ohne Schreibrecht, TLS mit `verify-full`), prüft sie mit denselben Regeln wie der Bau und öffnet bei einer Änderung einen Pull Request für `src/daten/betriebswerte.json`. Der Bau liest nur diese Datei und setzt Werte nur dort ein, wo Platzhalter stehen; der Release verlangt, dass sie committet ist. **Grund:** Die Ausgabe bleibt aus dem Commit reproduzierbar, Besucher erreichen Supabase nie, und jede Änderung geht durch einen Pull Request, der Änderungen an Telefon, E-Mail, Anschrift und Domain hervorhebt (Schutz gegen eine untergeschobene Notrufnummer). Die Zugriffe halten das kostenlose Projekt zugleich aktiv. Bestätigen heißt veröffentlichen, weil das Repository öffentlich ist (D-006). Damit die Ortsseiten im Budget bleiben, stehen die Zeiten im Rufknopf in einer kompakten Form statt als JSON. Einzelheiten: `_werkstatt/ENTSCHEIDUNGEN.md` (D-DATEN-01), [BETRIEB.md](BETRIEB.md), Abschnitt „Betriebswerte in Supabase“.
 
 ## Überholte Vorschläge
 

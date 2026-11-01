@@ -1,0 +1,152 @@
+{
+  "format": 1,
+  "quelle": "Supabase betrieb.freigegeben – geschrieben von .github/workflows/betriebswerte.yml, nicht von Hand bearbeiten",
+  "werte": {
+    "betrieb.basis-url": "https://schluesseldienst.example",
+    "betrieb.email": "info@example.org",
+    "betrieb.inhaber": "Erika Mustermann",
+    "betrieb.nachtdienst": true,
+    "betrieb.name": "Beispiel Schlüssel- und Sicherheitstechnik",
+    "betrieb.plz": "35781",
+    "betrieb.rechtsform": "Einzelunternehmen",
+    "betrieb.strasse": "Musterstraße 12",
+    "betrieb.telefon": "06471 999999",
+    "betrieb.telefon-e164": "+496471999999",
+    "betrieb.zeiten": {
+      "di": [
+        [
+          "07:00",
+          "12:30"
+        ],
+        [
+          "13:30",
+          "19:00"
+        ]
+      ],
+      "do": [
+        [
+          "07:00",
+          "12:30"
+        ],
+        [
+          "13:30",
+          "19:00"
+        ]
+      ],
+      "fr": [
+        [
+          "07:00",
+          "12:30"
+        ],
+        [
+          "13:30",
+          "19:00"
+        ]
+      ],
+      "mi": [
+        [
+          "07:00",
+          "12:30"
+        ],
+        [
+          "13:30",
+          "19:00"
+        ]
+      ],
+      "mo": [
+        [
+          "07:00",
+          "12:30"
+        ],
+        [
+          "13:30",
+          "19:00"
+        ]
+      ],
+      "sa": [
+        [
+          "08:00",
+          "12:00"
+        ],
+        [
+          "13:00",
+          "16:00"
+        ]
+      ],
+      "so": []
+    },
+    "impressum.berufsbezeichnung": "Metallbauerin, verliehen in Deutschland",
+    "impressum.kammer": "Handwerkskammer Musterstadt",
+    "impressum.mstv": "Erika Mustermann, Musterstraße 12, 35781 Weilburg",
+    "impressum.register": "kein Registereintrag",
+    "impressum.ust-id": "DE999999999",
+    "impressum.vsbg": "Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle sind wir weder bereit noch verpflichtet.",
+    "preise.anfahrt-b": 2500,
+    "preise.anfahrt-c": null,
+    "preise.auto.abend": 14900,
+    "preise.auto.nacht": 18900,
+    "preise.auto.werktag": 11900,
+    "preise.auto.wochenende": 16900,
+    "preise.garage.abend": 15900,
+    "preise.garage.nacht": 19900,
+    "preise.garage.werktag": 12900,
+    "preise.garage.wochenende": 17900,
+    "preise.tagesband": {
+      "werktags": [
+        [
+          "nacht",
+          "00:00",
+          "07:00"
+        ],
+        [
+          "werktag",
+          "07:00",
+          "18:00"
+        ],
+        [
+          "abend",
+          "18:00",
+          "22:00"
+        ],
+        [
+          "nacht",
+          "22:00",
+          "24:00"
+        ]
+      ],
+      "wochenende": [
+        [
+          "wochenende",
+          "00:00",
+          "24:00"
+        ]
+      ]
+    },
+    "preise.tresor.abend": null,
+    "preise.tresor.nacht": null,
+    "preise.tresor.werktag": null,
+    "preise.tresor.wochenende": null,
+    "preise.tuer-abgeschlossen.abend": 15900,
+    "preise.tuer-abgeschlossen.nacht": 19900,
+    "preise.tuer-abgeschlossen.werktag": 12900,
+    "preise.tuer-abgeschlossen.wochenende": 17900,
+    "preise.tuer-zugefallen.abend": 12900,
+    "preise.tuer-zugefallen.nacht": 16900,
+    "preise.tuer-zugefallen.werktag": 9900,
+    "preise.tuer-zugefallen.wochenende": 14900,
+    "preise.ust-modus": "regel",
+    "preise.zahlarten": "Bar, Girocard, Kreditkarte",
+    "preise.zylinder.abend": 8900,
+    "preise.zylinder.nacht": 12900,
+    "preise.zylinder.werktag": 6900,
+    "preise.zylinder.wochenende": 10900,
+    "zonen.a.leistungen": true,
+    "zonen.b.leistungen": true,
+    "zonen.c.leistungen": true,
+    "zonen.d.leistungen": true,
+    "zusagen.erfolglos": false,
+    "zusagen.kartenzahlung": true,
+    "zusagen.preis-vor-auftrag": true,
+    "zusagen.rechnung-positionen": true
+  }
+}

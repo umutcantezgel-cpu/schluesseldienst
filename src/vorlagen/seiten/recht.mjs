@@ -57,17 +57,27 @@ function angabe(sk, pfad) {
   return wertVon(b, pfad);
 }
 
+// Echte Angabe (kein Platzhalter): Sie steht als Datum der Firma da (data-daten), damit der Prüfer fakten Ziffern wie
+// „HRB 2017“ oder eine Hausnummer nicht als Behauptung ohne Beleg wertet. Platzhalter bleiben ohne Attribut.
+function echt(sk, pfad) {
+  const b = sk.konfig.betrieb;
+  if (pfad === 'adresse') return !istPlatzhalter(b.adresse.strasse) && !istPlatzhalter(b.adresse.plz);
+  if (pfad === 'telefon') return !istPlatzhalter(b.telefon.anzeige);
+  return !istPlatzhalter(wertVon(b, pfad));
+}
+const daten = (ja) => (ja ? html` data-daten=""` : '');
+
 function angaben(sk, eintraege) {
   const zeilen = eintraege.map((e) => ({ e, wert: angabe(sk, e.pfad) })).filter((z) => z.wert !== null && z.wert !== '');
   if (!zeilen.length) return html``;
-  return html`<dl class="recht-angaben">${zeilen.map(({ e, wert }) => html`<div><dt>${zusammen(e.bezeichnung)}</dt><dd>${wert}</dd></div>`)}</dl>`;
+  return html`<dl class="recht-angaben">${zeilen.map(({ e, wert }) => html`<div><dt>${zusammen(e.bezeichnung)}</dt><dd${daten(echt(sk, e.pfad))}>${wert}</dd></div>`)}</dl>`;
 }
 
 function muster(sk, m) {
-  const an = m.an.map((p) => angabe(sk, p)).filter((w) => w !== null && w !== '');
+  const an = m.an.map((p) => ({ w: angabe(sk, p), echt: echt(sk, p) })).filter(({ w }) => w !== null && w !== '');
   return html`<div class="recht-muster">
 <p class="recht-muster-titel">${m.anTitel}</p>
-${an.map((w) => html`<p class="recht-muster-zeile">${w}</p>`)}
+${an.map(({ w, echt: ja }) => html`<p class="recht-muster-zeile"${daten(ja)}>${w}</p>`)}
 ${m.zeilen.map((z) => html`<p class="recht-muster-zeile">${text(zusammen(z))}</p>`)}
 </div>`;
 }
@@ -79,7 +89,7 @@ function block(sk, b) {
   if (b.angaben) return angaben(sk, b.angaben);
   if (b.wert) {
     const w = wertVon(sk.konfig.betrieb, b.wert);
-    return w === null || w === '' ? html`` : html`<p>${w}</p>`;
+    return w === null || w === '' ? html`` : html`<p${daten(!istPlatzhalter(w))}>${w}</p>`;
   }
   if (b.muster) return muster(sk, b.muster);
   if (b.link) {

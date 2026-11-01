@@ -1,0 +1,4 @@
+[
+  {"schluessel": "betrieb.nachtdienst", "typ": "ja_nein", "wert": true, "geaendert_am": "2026-10-30T07:31:00+00:00"},
+  {"schluessel": "betrieb.telefon", "typ": "text", "wert": "06471 999999", "geaendert_am": "2026-10-30T07:32:00+00:00"}
+]

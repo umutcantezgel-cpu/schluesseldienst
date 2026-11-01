@@ -1,0 +1,11 @@
+{
+  "format": 1,
+  "quelle": "Testdaten – nicht echt",
+  "werte": {
+    "betrieb.email": "info@example.org",
+    "betrieb.nachtdienst": true,
+    "betrieb.telefon": "06471 999999",
+    "betrieb.telefon-e164": "+496471999999",
+    "preise.tuer-zugefallen.werktag": 12990
+  }
+}

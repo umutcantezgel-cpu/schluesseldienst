@@ -8,17 +8,19 @@ Diese Tabelle fasst die offenen Punkte aus `_werkstatt/MENSCHEN.md` (§1 bis §7
 
 **Wer entscheidet:** Betrieb (Inhaber oder Vertretungsberechtigte), Jurist, Fachmann (Fachangaben und Normen), Hoster, Projektleitung.
 
+**Betriebswerte in Supabase (D-DATEN-01):** Die Angaben der Zeilen 1 bis 4, 7, 22 und die Basis-URL aus Zeile 26 trägt der Betrieb in Supabase ein (Tabelle `betrieb.werte`) und bestätigt sie; sie kommen per Pull Request in das Repository. Der Stand je Schlüssel: `npm run betriebswerte -- --liste`. Einrichtung und Ablauf: [BETRIEB.md](BETRIEB.md), Abschnitt „Betriebswerte in Supabase“.
+
 ## Tabelle
 
 | Nr. | Bereich | Was fehlt | Wer entscheidet | Blockiert Release | Quelle |
 |---|---|---|---|---|---|
-| 1 | Betrieb | Firmenname, Rechtsform, Inhaber oder Vertretung, Anschrift, Notruf-Telefon, E-Mail | Betrieb | ja | MENSCHEN §1 |
-| 2 | Impressum | Registereintrag, USt-IdNr. oder W-IdNr., Kammer, Berufsbezeichnung, Verantwortlicher nach § 18 Abs. 2 MStV, Hinweis zur Streitbeilegung (§ 36 VSBG). Der OS-Link entfällt. | Betrieb, Jurist | ja | MENSCHEN §1 |
-| 3 | Erreichbarkeit | Zeiten, Nachtdienst ja oder nein, Wochenende und Feiertage | Betrieb | ja | MENSCHEN §1 |
-| 4 | Preise | Gesamtpreise je Zone, Zuschläge, Tagesband, USt-Modus, Zahlarten | Betrieb | ja | MENSCHEN §1, §7 |
+| 1 | Betrieb | Firmenname, Rechtsform, Inhaber oder Vertretung, Anschrift, Notruf-Telefon, E-Mail – in Supabase (`betrieb.*`) | Betrieb | ja | MENSCHEN §1 |
+| 2 | Impressum | Registereintrag, USt-IdNr. oder W-IdNr., Kammer, Berufsbezeichnung, Verantwortlicher nach § 18 Abs. 2 MStV, Hinweis zur Streitbeilegung (§ 36 VSBG). Der OS-Link entfällt. In Supabase (`impressum.*`) | Betrieb, Jurist | ja | MENSCHEN §1 |
+| 3 | Erreichbarkeit | Zeiten, Nachtdienst ja oder nein, Wochenende und Feiertage – in Supabase (`betrieb.zeiten`, `betrieb.nachtdienst`) | Betrieb | ja | MENSCHEN §1 |
+| 4 | Preise | Gesamtpreise je Zone, Zuschläge, Tagesband, USt-Modus, Zahlarten – in Supabase (`preise.*`, 29 Werte; die Uhrzeiten `preise.zeit-*` entstehen aus dem Tagesband) | Betrieb | ja | MENSCHEN §1, §7 |
 | 5 | Medien und Nachweise | Eigene Fotos und Bewertungsprofil. Gründungsjahr, Qualifikationen und Mitgliedschaften nur mit Nachweis | Betrieb | nein | MENSCHEN §1 |
 | 6 | Einsatzgebiet | Zonenradien A bis D und NL bestätigen | Betrieb | ja | MENSCHEN §2 |
-| 7 | Leistungen je Zone | `leistungenBestaetigt` je Zone. Besonders: Notöffnung in den Zonen C, D und NL oder ein Partnernetz | Betrieb | ja | MENSCHEN §2, §7 |
+| 7 | Leistungen je Zone | `leistungenBestaetigt` je Zone, in Supabase (`zonen.a.leistungen` bis `zonen.d.leistungen`). Besonders: Notöffnung in den Zonen C, D und NL oder ein Partnernetz (`notoeffnung` in `src/konfig/zonen.mjs`) | Betrieb | ja | MENSCHEN §2, §7 |
 | 8 | Indexierung | Zonen C, D und NL beobachten. Bleibt „Gecrawlt – nicht indexiert“ nach 8 Wochen über 60 %, `indexierung: false` setzen | Betrieb | nein | MENSCHEN §2 |
 | 9 | NL-Seiten | Sprache (Annahme Deutsch) und Umsatzsteuer | Betrieb, Jurist | nein | MENSCHEN §2 |
 | 10 | Orte | 314 ungeklärte Orte in `src/daten/orte-unklar.json`; sie werden nicht veröffentlicht. Manuelle Zuordnung möglich | Betrieb | nein | MENSCHEN §2 |
@@ -33,11 +35,11 @@ Diese Tabelle fasst die offenen Punkte aus `_werkstatt/MENSCHEN.md` (§1 bis §7
 | 19 | Statistik, Förderung, Alarm, Nebel, Notruf, Lizenzen | 8 Faktenblätter, 50 Fakten. Offen: Berichtsjahr, Förderprogramme, Normen für Alarm und Nebel, Rechtsgrundlage des Notrufs, GeoNames-Lizenzversion, Schriftlizenz | Fachmann, Jurist | ja | E4-KUND-05 |
 | 20 | Fachangaben ohne Faktenblatt | Torarten und Notentriegelung, Notschlüssel bei Keyless-Fahrzeugen, Ursachen bei Tresoren, Sicherungskarte, Begriffe Zentralschloss und Hauptschlüsselanlage, Mietrecht bei Zusatzschlössern | Fachmann | nein | MENSCHEN §7 |
 | 21 | Ablauf-Formulierungen | Sätze ohne Zusage bestätigen oder streichen, etwa „Den Preis besprechen wir nach der Besichtigung.“ | Betrieb | nein | MENSCHEN §7 |
-| 22 | Zusagen | `betrieb.zusagen`: Gesamtpreis vor Arbeitsbeginn, Rechnung mit allen Positionen, Kartenzahlung, Kosten bei erfolgloser Öffnung | Betrieb | ja | MENSCHEN §7 |
+| 22 | Zusagen | `betrieb.zusagen`: Gesamtpreis vor Arbeitsbeginn, Rechnung mit allen Positionen, Kartenzahlung, Kosten bei erfolgloser Öffnung – in Supabase (`zusagen.*`) | Betrieb | ja | MENSCHEN §7 |
 | 23 | Hub-Seiten | Die Daten ordnen „Eutergrund“ und „Stegskopf“ keinem Kreis zu; sie stehen unter „Weitere Orte“ | Betrieb | nein | MENSCHEN §7 |
 | 24 | Repository | Das Repository ist öffentlich. Die Historie enthält Dateien mit fremden Inhalten und Personendaten; Einzelheiten stehen in MENSCHEN §4. Optionen: Repository privat stellen und oder die Historie bereinigen | Betrieb | nein | MENSCHEN §4 |
 | 25 | Hosting | Hoster wählen: EU-Standort, Auftragsverarbeitung, IP-Kürzung, Logs höchstens 14 Tage, eigene Header. Hoster-Zusätze abschalten | Betrieb, Hoster | nein; Voraussetzung für den Livegang | MENSCHEN §5 |
-| 26 | Domain und DNS | Schreibweise mit oder ohne `www`. HSTS-Preload erst nach stabiler HTTPS-Konfiguration. DNSSEC, CAA, Registrar-Sperre, Zwei-Faktor-Anmeldung. Die Basis-URL (`basisUrl` in `src/konfig/betrieb.mjs`, Form `https://host` ohne Pfad) ist Pflicht: ohne sie bricht der Release-Bau ab (`bau/bauen.mjs`) | Betrieb, Hoster | ja (Basis-URL), sonst nein | MENSCHEN §5 |
+| 26 | Domain und DNS | Schreibweise mit oder ohne `www`. HSTS-Preload erst nach stabiler HTTPS-Konfiguration. DNSSEC, CAA, Registrar-Sperre, Zwei-Faktor-Anmeldung. Die Basis-URL (in Supabase `betrieb.basis-url`, Form `https://host` ohne Pfad) ist Pflicht: ohne sie bricht der Release-Bau ab (`bau/bauen.mjs`) | Betrieb, Hoster | ja (Basis-URL), sonst nein | MENSCHEN §5 |
 | 27 | E-Mail | SPF, DKIM und DMARC mit `p=reject`. Überwachtes Postfach für `security.txt` und Erinnerung vor deren Ablauf | Betrieb | nein | MENSCHEN §5 |
 | 28 | Crawler | KI-Crawler sperren, ja oder nein (robots.txt). Annahme: nicht gesperrt | Betrieb | nein | MENSCHEN §5 |
 | 29 | Prüfung außerhalb der Cloud | Echte Geräte (iPhone, Android), Firefox und Safari, GPU-Bildrate, Wirkung in der Search Console, Live-Header beim Hoster | Fachmann, Betrieb | nein | MENSCHEN §6 |
@@ -75,3 +77,14 @@ Diese Punkte stammen aus der Endprüfung (Anlauf 1 und 2, Runde 3) und aus der A
 | 47 | Ortsseiten Zone C/D und NL, Umbruch im H1 | Im H1 „Schlüsseldienst für {Ort} – aus Weilburg (≈ {d} km)“ bricht auf dem Tablet die Zeile zwischen „≈“ und Zahl bzw. zwischen Zahl und „km“ um (z. B. Dinkelland-Noord Deurningen, Kirchlengern-Stift Quernheim). Nichts ist abgeschnitten. Offen: in `src/vorlagen/seiten/ort.mjs` (h1Text) geschützte Leerzeichen setzen: `(≈\u00A0${o.km}\u00A0km)`. | Projektleitung | nein | `_werkstatt/protokolle/E5-abschluss/z09-stichprobe/sichtung.md` |
 | 48 | Zugänglichkeit mobil, automatische Prüfung | Die automatische Zugänglichkeitsprüfung (axe) lief nur in der Desktop-Breite 1440 × 900. Rufleiste und Menü-Blatt erscheinen nur mobil und sind deshalb nie mit axe geprüft; geprüft sind sie per Tastatur (Fokus sichtbar, nicht verdeckt, Anruf im Menü-Blatt erreichbar). Offen: axe zusätzlich bei 390 × 844 laufen lassen, mit geöffnetem Menü-Blatt. | Projektleitung | nein | `_werkstatt/berichte/E5-abschlusspruefer.md` (Durchgang 3, Z-07); `_werkstatt/werkzeuge/axe.mjs` |
 | 49 | Release auf Vercel | `vercel.json` ist die Fassung für den Test-Deploy der Vorschau: `X-Robots-Tag: noindex` für alle Adressen, Bau ohne `--release`. Für einen Release auf Vercel fehlt eine Release-Fassung (ohne noindex, Bau mit `--release --ziel=…`); dazu muss das Build-Datum ohne `.git` im Vercel-Bau festgelegt werden (`--datum`). Netlify braucht nur den Release-Bau. | Projektleitung | ja (nur für Vercel) | `bau/lib/hosting.mjs` (`vercelVorschau`); `docs/HOSTER-CHECKLISTE.md`, Abschnitt 4 |
+
+## Betriebswerte-Zentrale (2026-10-30)
+
+Diese Punkte entstanden mit der Übernahme der Betriebswerte aus Supabase (D-DATEN-01).
+
+| Nr. | Bereich | Was fehlt | Wer entscheidet | Blockiert Release | Quelle |
+|---|---|---|---|---|---|
+| 50 | Einrichtung | Passwort der Rolle `sd_export` als SCRAM-Verifier setzen; GitHub-Environment `betriebswerte` (nur `main`) mit den vier Secrets anlegen; „Allow GitHub Actions to create and approve pull requests“ einschalten. Ohne Einrichtung kommen keine Werte an, und die Zeilen 1 bis 4, 7, 22 und 26 bleiben offen. | Betrieb | nein, aber Voraussetzung für die Zeilen 1 bis 4, 7, 22 und 26 | [BETRIEB.md](BETRIEB.md), „Betriebswerte in Supabase“ |
+| 51 | Erster Lauf | Den Workflow einmal von Hand starten und prüfen: grün, Lebenszeichen `betriebswerte` gesetzt, ein bestätigter Testwert ergibt einen Pull Request mit Tabelle. Die TLS-Prüfung (`verify-full`) gegen den Session Pooler von Supabase ist nur lokal mit eigener Zertifizierungsstelle getestet, nicht gegen den echten Pooler. | Projektleitung | nein | `.github/workflows/betriebswerte.yml` |
+| 52 | Wach bleiben | Das kostenlose Supabase-Projekt pausiert nach einer Woche ohne Zugriff, GitHub schaltet Zeitpläne nach 60 Tagen ohne Aktivität ab. Die Workflow-Läufe greifen zweimal täglich zu und schalten den Workflow wieder ein; ob das die 60-Tage-Frist verlängert, ist nicht dokumentiert. Das Lebenszeichen regelmäßig prüfen. | Projektleitung | nein | [BETRIEB.md](BETRIEB.md), „Wach bleiben“ |
+| 53 | Texte zu Anfahrt, Nachtdienst und Kartenzahlung | Die Übernahme meldet Hinweise, wenn bestätigte Werte nicht zu festen Texten passen: Anfahrt Zone B „nach Absprache“ (FAQ in `src/inhalte/preise.mjs` verspricht einen festen Aufschlag), fester Betrag für Zone C (Texte sagen „nach Absprache“), kein Nachtdienst bei Nachtpreisen, Kartenzahlung gegen Zahlarten. Dann den Text anpassen oder den Wert. | Betrieb, Projektleitung | nein | `bau/lib/betriebswerte.mjs` (`betriebswertePruefen`) |

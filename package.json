@@ -12,6 +12,7 @@
     "release": "node bau/bauen.mjs --release",
     "hoster": "node bau/hoster-dateien.mjs",
     "test": "node --test \"test/*.test.mjs\"",
-    "orte": "node pipeline/orte/alle.mjs"
+    "orte": "node pipeline/orte/alle.mjs",
+    "betriebswerte": "node pipeline/betriebswerte/uebernehmen.mjs"
   }
 }

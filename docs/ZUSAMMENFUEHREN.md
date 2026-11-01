@@ -72,7 +72,7 @@ Die Empfehlung aus `_werkstatt/MENSCHEN.md` (§4): Das Repository privat stellen
 Ein Release baut die Website mit ihrer endgültigen Adresse; indexierbare Seiten tragen dann kein `noindex` (`src/vorlagen/layout.mjs`). Er verweigert die Ausgabe, solange Angaben fehlen.
 
 1. **Voraussetzungen:** Alle Punkte mit „Blockiert Release: ja“ in `docs/OFFENE-PUNKTE.md` und alle mit [RELEASE] markierten Punkte in `_werkstatt/MENSCHEN.md` sind erledigt. Die Liste der noch offenen Platzhalter liefert der Befehl unter „So erkennen Sie den Stand“ in `docs/BETRIEB.md`.
-2. **Adresse:** In `src/konfig/betrieb.mjs` steht `basisUrl` als `https://` plus Domain, ohne Pfad.
+2. **Adresse:** In Supabase ist `betrieb.basis-url` (`https://` plus Domain, ohne Pfad) bestätigt, und der Pull Request der Übernahme ist zusammengeführt; der Wert steht dann in `src/daten/betriebswerte.json`.
 3. **Befehl:**
 
    ```sh
@@ -83,6 +83,16 @@ Ein Release baut die Website mit ihrer endgültigen Adresse; indexierbare Seiten
 4. **Verweigerung:** Verweigert der Lauf die Ausgabe, landet sie in `dist.verweigert/`. Ein hochladbarer `dist/` bleibt dann nicht zurück.
 5. **Deploy:** danach nach `docs/HOSTER-CHECKLISTE.md` vorgehen.
 
-## 7. Zum Abschluss
+## 7. Betriebswerte-Zentrale (Branch `claude/superbase-complete-config-ek55c6`)
+
+Dieser Branch bringt die Übernahme der Betriebswerte aus Supabase (D-DATEN-01): `bau/lib/betriebswerte.mjs`, den Schnappschuss `src/daten/betriebswerte.json` (leer), `pipeline/betriebswerte/` mit dem SQL für Supabase und den Workflow `.github/workflows/betriebswerte.yml`.
+
+1. **Vorher prüfen:** wie Abschnitt 1. Mit leerem Schnappschuss unterscheidet sich die Ausgabe vom bisherigen Stand nur im JavaScript: Das Modul `erreichbarkeit` liest die Zeiten jetzt in kompakter Form statt als JSON; es steckt in allen neun Bündeln (je rund 250 B gzip mehr), deshalb tragen alle Seiten einen neuen Verweis auf ihr Bündel. HTML, CSS und Daten sind sonst byte-gleich.
+2. **Zusammenführen:** per „Squash and merge“, durch den Inhaber selbst: GitHub schickt Fehlermails zu den Zeitplänen an die Person, die sie zuletzt geändert hat.
+3. **Danach:** Der Zeitplan läuft ab dem Zusammenführen zweimal täglich. Bis die Einrichtung aus `docs/BETRIEB.md` („Betriebswerte in Supabase“) erledigt ist, endet jeder Lauf grün mit der Warnung „noch nicht eingerichtet“.
+4. **Anhalten ohne Zurückrollen:** Actions → „Betriebswerte“ → „Disable workflow“. Der Bau nutzt weiter den letzten Schnappschuss.
+5. **Zurückrollen:** den Squash-Commit ohne `-m 1` zurücknehmen (Abschnitt 3). Die Werte in Supabase bleiben erhalten; ein schon übernommener Schnappschuss verschwindet mit dem Revert nur, wenn er im selben Commit steht. Die Platzhalter in `src/konfig/*.mjs` stehen dann wieder allein.
+
+## 8. Zum Abschluss
 
 Zum Abschluss der Entstehung ist der Abschnitt „Werkstatt-Lauf (nur für den Orchestrator)“ aus `CLAUDE.md` entfernt. Die Datei bestand nur aus diesem Abschnitt und ist deshalb gelöscht. Der Abschnitt steuerte nur die Arbeit des Werkstatt-Laufs.

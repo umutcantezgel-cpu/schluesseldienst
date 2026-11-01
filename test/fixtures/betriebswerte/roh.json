@@ -1,0 +1,10 @@
+[
+  {"schluessel": "betrieb.inhaber", "typ": "text", "wert": "Erika Müller", "geaendert_am": "2026-10-30T07:30:00+00:00"},
+  {"schluessel": "betrieb.nachtdienst", "typ": "ja_nein", "wert": true, "geaendert_am": "2026-10-30T07:31:00+00:00"},
+  {"schluessel": "betrieb.telefon", "typ": "telefon_anzeige", "wert": "06471 999999", "geaendert_am": "2026-10-30T07:32:00+00:00"},
+  {"schluessel": "betrieb.telefon-e164", "typ": "telefon_e164", "wert": "+496471999999", "geaendert_am": "2026-10-30T07:32:30+00:00"},
+  {"schluessel": "betrieb.zeiten", "typ": "zeiten", "wert": {"mo": [["08:00", "18:00"]], "di": [["08:00", "18:00"]], "mi": [["08:00", "18:00"]], "do": [["08:00", "18:00"]], "fr": [["08:00", "18:00"]], "sa": [["09:00", "13:00"]], "so": []}, "geaendert_am": "2026-10-30T07:33:00+00:00"},
+  {"schluessel": "impressum.register", "typ": "text_oder_leer", "wert": null, "geaendert_am": "2026-10-30T07:33:30+00:00"},
+  {"schluessel": "preise.anfahrt-c", "typ": "betrag", "wert": null, "geaendert_am": "2026-10-30T07:34:00+00:00"},
+  {"schluessel": "preise.tuer-zugefallen.werktag", "typ": "betrag", "wert": 12990, "geaendert_am": "2026-10-30T07:34:30+00:00"}
+]

@@ -20,18 +20,18 @@ Voraussetzung ist, dass [BETRIEB.md](BETRIEB.md) vollständig ist und der Releas
 
 ## 2. Domain und DNS
 
-- [ ] Schreibweise festlegen, mit oder ohne `www`. `betrieb.basisUrl` muss genau diesen Host nennen. Die andere Schreibweise per Weiterleitung auf die gewählte führen.
+- [ ] Schreibweise festlegen, mit oder ohne `www`. Die Adresse der Website (`betrieb.basis-url` in Supabase, siehe [BETRIEB.md](BETRIEB.md), Abschnitt „Betriebswerte in Supabase“) muss genau diesen Host nennen. Die andere Schreibweise per Weiterleitung auf die gewählte führen.
 - [ ] HSTS: Der Header steht mit `max-age=63072000; includeSubDomains`, ohne `preload`. Den HSTS-Preload erst beantragen, wenn die HTTPS-Konfiguration stabil ist (MENSCHEN §5).
 - [ ] DNSSEC aktivieren.
 - [ ] CAA-Eintrag setzen, der nur den Zertifikatsaussteller des Hosters erlaubt.
 - [ ] Registrar-Sperre (Domain-Lock) aktivieren.
-- [ ] Zwei-Faktor-Anmeldung bei Registrar, Hoster und GitHub.
+- [ ] Zwei-Faktor-Anmeldung bei Registrar, Hoster, GitHub und Supabase. Wer Supabase oder GitHub übernimmt, kann die Notrufnummer ändern; der Pull Request der Übernahme hebt solche Änderungen deshalb hervor.
 - [ ] E-Mail-Authentifizierung: SPF, DKIM und DMARC mit `p=reject`. So lassen sich gefälschte Notdienst-Mails abweisen.
 - [ ] Ein überwachtes Postfach für `security.txt` einrichten. Die Datei nennt `betrieb.email` als Kontakt und ein Ablaufdatum (`Expires`), das 365 Tage nach dem Build-Datum liegt. Setzen Sie eine Erinnerung vor dem Ablauf; ein neuer Release mit neuem `--datum` erneuert die Datei.
 
 ## 3. Ablauf eines Deploys
 
-1. **Vorbereitung.** `docs/BETRIEB.md` ist vollständig. `npm test` und `npm run pruefen` melden keine Fehler.
+1. **Vorbereitung.** `docs/BETRIEB.md` ist vollständig: Der Pull Request der letzten Übernahme aus Supabase ist zusammengeführt, und `npm run betriebswerte -- --liste` meldet „0 offen“. `npm test` und `npm run pruefen` melden keine Fehler. Der Release liest `src/daten/betriebswerte.json` aus dem Commit und verweigert eine lokal geänderte Datei.
 2. **Release bauen.** `npm run release -- --ziel=<apache|nginx|netlify|cloudflare>` schreibt die Ausgabe nach `dist/`. Für Apache und nginx ohne eigene Kompression zusätzlich `--vorkomprimieren` (legt `.br`/`.gz` an, beim ersten Lauf etwa 1 bis 1,5 Minuten zusätzlich; Apache braucht dafür mod_rewrite, mod_headers, mod_mime und mod_setenvif – alle Standard –, nginx `gzip_static`, Brotli nur mit dem Zusatzmodul ngx_brotli). Hochgeladen wird nur bei Exit-Code 0. Bei Exit-Code 1 verschiebt der Build die Ausgabe nach `dist.verweigert/`, bei Exit-Code 2 entsteht keine Ausgabe – in beiden Fällen wird nichts hochgeladen.
 3. **Hochladen.** Den gesamten Inhalt von `dist/` übertragen, mit `.htaccess` (Apache) bzw. `_headers` und `_redirects` (Netlify, Cloudflare). Bei nginx gehört das Snippet aus `release/nginx/` in die Serverkonfiguration; der Build legt es nicht in `dist/` ab.
 4. **Live-Prüfung.** Nach dem Deploy:
